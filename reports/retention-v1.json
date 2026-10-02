@@ -1,0 +1,838 @@
+{
+  "protocol": "docs/retention.md",
+  "code_stage": "2b2dc05",
+  "host": "Windows; RTX 5080; CUDA 13.3; MSVC 19.51",
+  "seeds": [
+    1337,
+    2026,
+    31415
+  ],
+  "runs": [
+    {
+      "seed": 1337,
+      "parameters": 1186304,
+      "cell": "signed_lif_v1",
+      "steps_a": 6000,
+      "steps_b": 6000,
+      "chunk": 128,
+      "fast_math": true,
+      "replay_every": 4,
+      "replay_capacity": 1024,
+      "common_checkpoint_payload_hash": "16115562254775889521",
+      "train_a_hash": "17532723149809119024",
+      "train_b_hash": "14615587353312830809",
+      "validation_a_hash": "7937286900399289444",
+      "validation_b_hash": "15204840493628139205",
+      "evaluation_targets_per_domain": 65536,
+      "initial_old_loss": 5.553243637,
+      "initial_new_loss": 5.547408581,
+      "after_a_old_loss": 2.270960331,
+      "after_a_new_loss": 2.119358778,
+      "common_training_seconds": 5.916155,
+      "arms": [
+        {
+          "name": "none",
+          "old_loss": 2.560071945,
+          "new_loss": 2.021795988,
+          "old_forgetting": 0.2891116142,
+          "new_transfer_change": -0.09756278992,
+          "observed_pairs": 767858,
+          "replay_pairs": 0,
+          "replay_updates": 0,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 4.8888742,
+          "observed_pairs_per_second": 157062.3355,
+          "ordinary_tick_p50_ms": 0.7742822264,
+          "ordinary_tick_p95_ms": 0.9826036006,
+          "speech_tick_p95_ms": 12.93700207,
+          "saved_payload_hash": "15692655779211247407"
+        },
+        {
+          "name": "current",
+          "old_loss": 2.603345633,
+          "new_loss": 2.051416159,
+          "old_forgetting": 0.3323853016,
+          "new_transfer_change": -0.06794261932,
+          "observed_pairs": 767858,
+          "replay_pairs": 192000,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 5.8980941,
+          "observed_pairs_per_second": 130187.4787,
+          "ordinary_tick_p50_ms": 0.8085626292,
+          "ordinary_tick_p95_ms": 1.51538191,
+          "speech_tick_p95_ms": 13.22028553,
+          "saved_payload_hash": "12342105350124580056"
+        },
+        {
+          "name": "reservoir",
+          "old_loss": 2.286045551,
+          "new_loss": 1.94121027,
+          "old_forgetting": 0.01508522034,
+          "new_transfer_change": -0.1781485081,
+          "observed_pairs": 767858,
+          "replay_pairs": 191858,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 5.8921702,
+          "observed_pairs_per_second": 130318.3672,
+          "ordinary_tick_p50_ms": 0.8085626292,
+          "ordinary_tick_p95_ms": 1.51538191,
+          "speech_tick_p95_ms": 12.93700207,
+          "saved_payload_hash": "17605280708752865817"
+        },
+        {
+          "name": "reservoir_si",
+          "old_loss": 2.273139715,
+          "new_loss": 1.936237812,
+          "old_forgetting": 0.002179384232,
+          "new_transfer_change": -0.183120966,
+          "observed_pairs": 767858,
+          "replay_pairs": 191858,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0.001000000047,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 6.0755013,
+          "observed_pairs_per_second": 126385.9494,
+          "ordinary_tick_p50_ms": 0.8262678453,
+          "ordinary_tick_p95_ms": 1.617125258,
+          "speech_tick_p95_ms": 13.50977208,
+          "saved_payload_hash": "1122084831056906620"
+        },
+        {
+          "name": "reservoir_slow_core",
+          "old_loss": 2.243222713,
+          "new_loss": 1.884785891,
+          "old_forgetting": -0.02773761749,
+          "new_transfer_change": -0.2345728874,
+          "observed_pairs": 767858,
+          "replay_pairs": 191858,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 0.25,
+          "si_strength": 0,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 5.9221895,
+          "observed_pairs_per_second": 129657.7896,
+          "ordinary_tick_p50_ms": 0.8085626292,
+          "ordinary_tick_p95_ms": 1.548564453,
+          "speech_tick_p95_ms": 13.50977208,
+          "saved_payload_hash": "17257277965662593864"
+        },
+        {
+          "name": "reservoir_low_lr",
+          "old_loss": 2.214422941,
+          "new_loss": 1.86861217,
+          "old_forgetting": -0.05653738976,
+          "new_transfer_change": -0.2507466078,
+          "observed_pairs": 767858,
+          "replay_pairs": 191858,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 7.500000356e-05,
+          "update_and_speech_seconds": 5.9193405,
+          "observed_pairs_per_second": 129720.1943,
+          "ordinary_tick_p50_ms": 0.8085626292,
+          "ordinary_tick_p95_ms": 1.548564453,
+          "speech_tick_p95_ms": 12.93700207,
+          "saved_payload_hash": "12715599024925723824"
+        },
+        {
+          "name": "none_low_lr",
+          "old_loss": 2.348167419,
+          "new_loss": 1.919184089,
+          "old_forgetting": 0.07720708847,
+          "new_transfer_change": -0.2001746893,
+          "observed_pairs": 767858,
+          "replay_pairs": 0,
+          "replay_updates": 0,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 7.500000356e-05,
+          "update_and_speech_seconds": 4.8797793,
+          "observed_pairs_per_second": 157355.0673,
+          "ordinary_tick_p50_ms": 0.7742822264,
+          "ordinary_tick_p95_ms": 0.9826036006,
+          "speech_tick_p95_ms": 12.12305528,
+          "saved_payload_hash": "18167389746167895887"
+        }
+      ],
+      "matched_online_exposure": true,
+      "si_history_tracked_in_all_arms": true,
+      "generated_bytes_are_not_targets": true,
+      "new_online_scope_excludes_old_documents": true
+    },
+    {
+      "seed": 2026,
+      "parameters": 1186304,
+      "cell": "signed_lif_v1",
+      "steps_a": 6000,
+      "steps_b": 6000,
+      "chunk": 128,
+      "fast_math": true,
+      "replay_every": 4,
+      "replay_capacity": 1024,
+      "common_checkpoint_payload_hash": "11818064621614992247",
+      "train_a_hash": "17532723149809119024",
+      "train_b_hash": "14615587353312830809",
+      "validation_a_hash": "7937286900399289444",
+      "validation_b_hash": "15204840493628139205",
+      "evaluation_targets_per_domain": 65536,
+      "initial_old_loss": 5.557108879,
+      "initial_new_loss": 5.560822487,
+      "after_a_old_loss": 2.250850916,
+      "after_a_new_loss": 2.109035969,
+      "common_training_seconds": 6.0857467,
+      "arms": [
+        {
+          "name": "none",
+          "old_loss": 2.595486879,
+          "new_loss": 2.044334173,
+          "old_forgetting": 0.3446359634,
+          "new_transfer_change": -0.06470179558,
+          "observed_pairs": 767858,
+          "replay_pairs": 0,
+          "replay_updates": 0,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 4.8567487,
+          "observed_pairs_per_second": 158101.2417,
+          "ordinary_tick_p50_ms": 0.7742822264,
+          "ordinary_tick_p95_ms": 0.9409444315,
+          "speech_tick_p95_ms": 12.38851562,
+          "saved_payload_hash": "8404055120557301604"
+        },
+        {
+          "name": "current",
+          "old_loss": 2.644197941,
+          "new_loss": 2.063458443,
+          "old_forgetting": 0.3933470249,
+          "new_transfer_change": -0.04557752609,
+          "observed_pairs": 767858,
+          "replay_pairs": 192000,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 7.1710546,
+          "observed_pairs_per_second": 107077.4165,
+          "ordinary_tick_p50_ms": 0.9826036006,
+          "ordinary_tick_p95_ms": 1.965207201,
+          "speech_tick_p95_ms": 13.80559757,
+          "saved_payload_hash": "716683282883671859"
+        },
+        {
+          "name": "reservoir",
+          "old_loss": 2.310436964,
+          "new_loss": 1.946966648,
+          "old_forgetting": 0.05958604813,
+          "new_transfer_change": -0.1620693207,
+          "observed_pairs": 767858,
+          "replay_pairs": 191858,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 6.3482802,
+          "observed_pairs_per_second": 120955.2786,
+          "ordinary_tick_p50_ms": 0.8817437995,
+          "ordinary_tick_p95_ms": 1.725699696,
+          "speech_tick_p95_ms": 14.10790079,
+          "saved_payload_hash": "11585171231867445235"
+        },
+        {
+          "name": "reservoir_si",
+          "old_loss": 2.278554916,
+          "new_loss": 1.935864568,
+          "old_forgetting": 0.02770400047,
+          "new_transfer_change": -0.173171401,
+          "observed_pairs": 767858,
+          "replay_pairs": 191858,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0.001000000047,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 5.8207023,
+          "observed_pairs_per_second": 131918.4456,
+          "ordinary_tick_p50_ms": 0.7912367994,
+          "ordinary_tick_p95_ms": 1.51538191,
+          "speech_tick_p95_ms": 13.22028553,
+          "saved_payload_hash": "12300524069884731011"
+        },
+        {
+          "name": "reservoir_slow_core",
+          "old_loss": 2.233438253,
+          "new_loss": 1.906951308,
+          "old_forgetting": -0.01741266251,
+          "new_transfer_change": -0.2020846605,
+          "observed_pairs": 767858,
+          "replay_pairs": 191858,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 0.25,
+          "si_strength": 0,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 5.8873065,
+          "observed_pairs_per_second": 130426.0276,
+          "ordinary_tick_p50_ms": 0.8085626292,
+          "ordinary_tick_p95_ms": 1.51538191,
+          "speech_tick_p95_ms": 14.10790079,
+          "saved_payload_hash": "1605246796071260511"
+        },
+        {
+          "name": "reservoir_low_lr",
+          "old_loss": 2.198942184,
+          "new_loss": 1.895200253,
+          "old_forgetting": -0.05190873146,
+          "new_transfer_change": -0.2138357162,
+          "observed_pairs": 767858,
+          "replay_pairs": 191858,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 7.500000356e-05,
+          "update_and_speech_seconds": 5.8934828,
+          "observed_pairs_per_second": 130289.3427,
+          "ordinary_tick_p50_ms": 0.8085626292,
+          "ordinary_tick_p95_ms": 1.548564453,
+          "speech_tick_p95_ms": 13.50977208,
+          "saved_payload_hash": "2777609716484462700"
+        },
+        {
+          "name": "none_low_lr",
+          "old_loss": 2.354004383,
+          "new_loss": 1.931089044,
+          "old_forgetting": 0.1031534672,
+          "new_transfer_change": -0.1779469252,
+          "observed_pairs": 767858,
+          "replay_pairs": 0,
+          "replay_updates": 0,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 7.500000356e-05,
+          "update_and_speech_seconds": 4.8275894,
+          "observed_pairs_per_second": 159056.1948,
+          "ordinary_tick_p50_ms": 0.7742822264,
+          "ordinary_tick_p95_ms": 0.9010514746,
+          "speech_tick_p95_ms": 12.38851562,
+          "saved_payload_hash": "5675725841061581576"
+        }
+      ],
+      "matched_online_exposure": true,
+      "si_history_tracked_in_all_arms": true,
+      "generated_bytes_are_not_targets": true,
+      "new_online_scope_excludes_old_documents": true
+    },
+    {
+      "seed": 31415,
+      "parameters": 1186304,
+      "cell": "signed_lif_v1",
+      "steps_a": 6000,
+      "steps_b": 6000,
+      "chunk": 128,
+      "fast_math": true,
+      "replay_every": 4,
+      "replay_capacity": 1024,
+      "common_checkpoint_payload_hash": "9878105375365002858",
+      "train_a_hash": "17532723149809119024",
+      "train_b_hash": "14615587353312830809",
+      "validation_a_hash": "7937286900399289444",
+      "validation_b_hash": "15204840493628139205",
+      "evaluation_targets_per_domain": 65536,
+      "initial_old_loss": 5.541152,
+      "initial_new_loss": 5.536703587,
+      "after_a_old_loss": 2.278477907,
+      "after_a_new_loss": 2.106914282,
+      "common_training_seconds": 5.9819573,
+      "arms": [
+        {
+          "name": "none",
+          "old_loss": 2.593975306,
+          "new_loss": 2.043505192,
+          "old_forgetting": 0.3154973984,
+          "new_transfer_change": -0.06340909004,
+          "observed_pairs": 767858,
+          "replay_pairs": 0,
+          "replay_updates": 0,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 4.8366512,
+          "observed_pairs_per_second": 158758.192,
+          "ordinary_tick_p50_ms": 0.7742822264,
+          "ordinary_tick_p95_ms": 0.9010514746,
+          "speech_tick_p95_ms": 12.65978879,
+          "saved_payload_hash": "5609808637070834902"
+        },
+        {
+          "name": "current",
+          "old_loss": 2.620249271,
+          "new_loss": 2.06815815,
+          "old_forgetting": 0.3417713642,
+          "new_transfer_change": -0.03875613213,
+          "observed_pairs": 767858,
+          "replay_pairs": 192000,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 5.8608625,
+          "observed_pairs_per_second": 131014.5051,
+          "ordinary_tick_p50_ms": 0.8085626292,
+          "ordinary_tick_p95_ms": 1.51538191,
+          "speech_tick_p95_ms": 13.22028553,
+          "saved_payload_hash": "3097666624777381471"
+        },
+        {
+          "name": "reservoir",
+          "old_loss": 2.305378437,
+          "new_loss": 1.941880822,
+          "old_forgetting": 0.02690052986,
+          "new_transfer_change": -0.1650334597,
+          "observed_pairs": 767858,
+          "replay_pairs": 191858,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 5.9567611,
+          "observed_pairs_per_second": 128905.2871,
+          "ordinary_tick_p50_ms": 0.8262678453,
+          "ordinary_tick_p95_ms": 1.548564453,
+          "speech_tick_p95_ms": 13.22028553,
+          "saved_payload_hash": "16947154632313343707"
+        },
+        {
+          "name": "reservoir_si",
+          "old_loss": 2.293518305,
+          "new_loss": 1.930063844,
+          "old_forgetting": 0.01504039764,
+          "new_transfer_change": -0.1768504381,
+          "observed_pairs": 767858,
+          "replay_pairs": 191858,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0.001000000047,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 5.9762576,
+          "observed_pairs_per_second": 128484.7561,
+          "ordinary_tick_p50_ms": 0.8262678453,
+          "ordinary_tick_p95_ms": 1.582473599,
+          "speech_tick_p95_ms": 13.50977208,
+          "saved_payload_hash": "17172058736763040418"
+        },
+        {
+          "name": "reservoir_slow_core",
+          "old_loss": 2.244989872,
+          "new_loss": 1.890985966,
+          "old_forgetting": -0.0334880352,
+          "new_transfer_change": -0.2159283161,
+          "observed_pairs": 767858,
+          "replay_pairs": 191858,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 0.25,
+          "si_strength": 0,
+          "learning_rate": 0.0003000000142,
+          "update_and_speech_seconds": 5.9719618,
+          "observed_pairs_per_second": 128577.1788,
+          "ordinary_tick_p50_ms": 0.8262678453,
+          "ordinary_tick_p95_ms": 1.548564453,
+          "speech_tick_p95_ms": 13.22028553,
+          "saved_payload_hash": "8752338775259887018"
+        },
+        {
+          "name": "reservoir_low_lr",
+          "old_loss": 2.239571333,
+          "new_loss": 1.87859869,
+          "old_forgetting": -0.03890657425,
+          "new_transfer_change": -0.2283155918,
+          "observed_pairs": 767858,
+          "replay_pairs": 191858,
+          "replay_updates": 1500,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 7.500000356e-05,
+          "update_and_speech_seconds": 6.3651493,
+          "observed_pairs_per_second": 120634.7194,
+          "ordinary_tick_p50_ms": 0.8628498481,
+          "ordinary_tick_p95_ms": 1.725699696,
+          "speech_tick_p95_ms": 13.80559757,
+          "saved_payload_hash": "8967879907859706362"
+        },
+        {
+          "name": "none_low_lr",
+          "old_loss": 2.385991335,
+          "new_loss": 1.930004835,
+          "old_forgetting": 0.1075134277,
+          "new_transfer_change": -0.1769094467,
+          "observed_pairs": 767858,
+          "replay_pairs": 0,
+          "replay_updates": 0,
+          "generated_bytes": 1152,
+          "core_scale": 1,
+          "si_strength": 0,
+          "learning_rate": 7.500000356e-05,
+          "update_and_speech_seconds": 5.0747127,
+          "observed_pairs_per_second": 151310.6348,
+          "ordinary_tick_p50_ms": 0.8085626292,
+          "ordinary_tick_p95_ms": 1.026107179,
+          "speech_tick_p95_ms": 12.65978879,
+          "saved_payload_hash": "3274542567091181975"
+        }
+      ],
+      "matched_online_exposure": true,
+      "si_history_tracked_in_all_arms": true,
+      "generated_bytes_are_not_targets": true,
+      "new_online_scope_excludes_old_documents": true
+    }
+  ],
+  "aggregate": [
+    {
+      "arm": "none",
+      "old_loss": {
+        "mean": 2.583178043333333,
+        "sample_sd": 0.02002473591276148,
+        "min": 2.560071945,
+        "max": 2.595486879
+      },
+      "new_loss": {
+        "mean": 2.036545117666667,
+        "sample_sd": 0.012779844358117255,
+        "min": 2.021795988,
+        "max": 2.044334173
+      },
+      "old_forgetting": {
+        "mean": 0.316414992,
+        "sample_sd": 0.027773545363024094,
+        "min": 0.2891116142,
+        "max": 0.3446359634
+      },
+      "new_transfer_change": {
+        "mean": -0.07522455851333333,
+        "sample_sd": 0.019356270526282394,
+        "min": -0.09756278992,
+        "max": -0.06340909004
+      },
+      "observed_pairs_per_second": {
+        "mean": 157973.92306666667,
+        "sample_sd": 855.0671569786114,
+        "min": 157062.3355,
+        "max": 158758.192
+      },
+      "ordinary_tick_p95_ms": {
+        "mean": 0.9415331688999999,
+        "sample_sd": 0.04077925051511597,
+        "min": 0.9010514746,
+        "max": 0.9826036006
+      },
+      "speech_tick_p95_ms": {
+        "mean": 12.661768826666666,
+        "sample_sd": 0.2742485858984541,
+        "min": 12.38851562,
+        "max": 12.93700207
+      }
+    },
+    {
+      "arm": "current",
+      "old_loss": {
+        "mean": 2.622597615,
+        "sample_sd": 0.020527148045660516,
+        "min": 2.603345633,
+        "max": 2.644197941
+      },
+      "new_loss": {
+        "mean": 2.0610109173333333,
+        "sample_sd": 0.008635181068035817,
+        "min": 2.051416159,
+        "max": 2.06815815
+      },
+      "old_forgetting": {
+        "mean": 0.35583456356666665,
+        "sample_sd": 0.03282397156418463,
+        "min": 0.3323853016,
+        "max": 0.3933470249
+      },
+      "new_transfer_change": {
+        "mean": -0.05075875918,
+        "sample_sd": 0.015267502771334008,
+        "min": -0.06794261932,
+        "max": -0.03875613213
+      },
+      "observed_pairs_per_second": {
+        "mean": 122759.80010000001,
+        "sample_sd": 13587.63628081558,
+        "min": 107077.4165,
+        "max": 131014.5051
+      },
+      "ordinary_tick_p95_ms": {
+        "mean": 1.6653236736666668,
+        "sample_sd": 0.2597067528471516,
+        "min": 1.51538191,
+        "max": 1.965207201
+      },
+      "speech_tick_p95_ms": {
+        "mean": 13.415389543333333,
+        "sample_sd": 0.3379300638539289,
+        "min": 13.22028553,
+        "max": 13.80559757
+      }
+    },
+    {
+      "arm": "reservoir",
+      "old_loss": {
+        "mean": 2.3006203173333333,
+        "sample_sd": 0.012873035155156002,
+        "min": 2.286045551,
+        "max": 2.310436964
+      },
+      "new_loss": {
+        "mean": 1.94335258,
+        "sample_sd": 0.0031477810641218997,
+        "min": 1.94121027,
+        "max": 1.946966648
+      },
+      "old_forgetting": {
+        "mean": 0.03385726611,
+        "sample_sd": 0.023051638834101516,
+        "min": 0.01508522034,
+        "max": 0.05958604813
+      },
+      "new_transfer_change": {
+        "mean": -0.16841709616666667,
+        "sample_sd": 0.008556974562600794,
+        "min": -0.1781485081,
+        "max": -0.1620693207
+      },
+      "observed_pairs_per_second": {
+        "mean": 126726.31096666667,
+        "sample_sd": 5047.554831310865,
+        "min": 120955.2786,
+        "max": 130318.3672
+      },
+      "ordinary_tick_p95_ms": {
+        "mean": 1.5965486863333334,
+        "sample_sd": 0.1130719141229433,
+        "min": 1.51538191,
+        "max": 1.725699696
+      },
+      "speech_tick_p95_ms": {
+        "mean": 13.421729463333333,
+        "sample_sd": 0.6108892672424464,
+        "min": 12.93700207,
+        "max": 14.10790079
+      }
+    },
+    {
+      "arm": "reservoir_si",
+      "old_loss": {
+        "mean": 2.2817376453333336,
+        "sample_sd": 0.01055552258791436,
+        "min": 2.273139715,
+        "max": 2.293518305
+      },
+      "new_loss": {
+        "mean": 1.9340554079999999,
+        "sample_sd": 0.0034618297395244304,
+        "min": 1.930063844,
+        "max": 1.936237812
+      },
+      "old_forgetting": {
+        "mean": 0.014974594114,
+        "sample_sd": 0.01276243535154317,
+        "min": 0.002179384232,
+        "max": 0.02770400047
+      },
+      "new_transfer_change": {
+        "mean": -0.17771426836666668,
+        "sample_sd": 0.00503071694388715,
+        "min": -0.183120966,
+        "max": -0.173171401
+      },
+      "observed_pairs_per_second": {
+        "mean": 128929.71703333333,
+        "sample_sd": 2792.959223636874,
+        "min": 126385.9494,
+        "max": 131918.4456
+      },
+      "ordinary_tick_p95_ms": {
+        "mean": 1.5716602556666668,
+        "sample_sd": 0.05172642952201202,
+        "min": 1.51538191,
+        "max": 1.617125258
+      },
+      "speech_tick_p95_ms": {
+        "mean": 13.413276563333334,
+        "sample_sd": 0.16713513756927575,
+        "min": 13.22028553,
+        "max": 13.50977208
+      }
+    },
+    {
+      "arm": "reservoir_slow_core",
+      "old_loss": {
+        "mean": 2.2405502793333336,
+        "sample_sd": 0.006222250529940166,
+        "min": 2.233438253,
+        "max": 2.244989872
+      },
+      "new_loss": {
+        "mean": 1.894241055,
+        "sample_sd": 0.01143560802906492,
+        "min": 1.884785891,
+        "max": 1.906951308
+      },
+      "old_forgetting": {
+        "mean": -0.026212771733333334,
+        "sample_sd": 0.00814544459908836,
+        "min": -0.0334880352,
+        "max": -0.01741266251
+      },
+      "new_transfer_change": {
+        "mean": -0.21752862133333334,
+        "sample_sd": 0.016303127135808837,
+        "min": -0.2345728874,
+        "max": -0.2020846605
+      },
+      "observed_pairs_per_second": {
+        "mean": 129553.66533333334,
+        "sample_sd": 928.8120738324951,
+        "min": 128577.1788,
+        "max": 130426.0276
+      },
+      "ordinary_tick_p95_ms": {
+        "mean": 1.5375036053333333,
+        "sample_sd": 0.01915795013344627,
+        "min": 1.51538191,
+        "max": 1.548564453
+      },
+      "speech_tick_p95_ms": {
+        "mean": 13.6126528,
+        "sample_sd": 0.45266272693585674,
+        "min": 13.22028553,
+        "max": 14.10790079
+      }
+    },
+    {
+      "arm": "reservoir_low_lr",
+      "old_loss": {
+        "mean": 2.217645486,
+        "sample_sd": 0.020505378180463447,
+        "min": 2.198942184,
+        "max": 2.239571333
+      },
+      "new_loss": {
+        "mean": 1.8808037043333334,
+        "sample_sd": 0.013430491635132978,
+        "min": 1.86861217,
+        "max": 1.895200253
+      },
+      "old_forgetting": {
+        "mean": -0.04911756515666667,
+        "sample_sd": 0.009140807999655269,
+        "min": -0.05653738976,
+        "max": -0.03890657425
+      },
+      "new_transfer_change": {
+        "mean": -0.23096597193333335,
+        "sample_sd": 0.01859763065057251,
+        "min": -0.2507466078,
+        "max": -0.2138357162
+      },
+      "observed_pairs_per_second": {
+        "mean": 126881.4188,
+        "sample_sd": 5417.279992835508,
+        "min": 120634.7194,
+        "max": 130289.3427
+      },
+      "ordinary_tick_p95_ms": {
+        "mean": 1.607609534,
+        "sample_sd": 0.10226908022901975,
+        "min": 1.548564453,
+        "max": 1.725699696
+      },
+      "speech_tick_p95_ms": {
+        "mean": 13.41745724,
+        "sample_sd": 0.4415949025048087,
+        "min": 12.93700207,
+        "max": 13.80559757
+      }
+    },
+    {
+      "arm": "none_low_lr",
+      "old_loss": {
+        "mean": 2.3627210456666665,
+        "sample_sd": 0.020362890546951,
+        "min": 2.348167419,
+        "max": 2.385991335
+      },
+      "new_loss": {
+        "mean": 1.9267593226666666,
+        "sample_sd": 0.006582704696199731,
+        "min": 1.919184089,
+        "max": 1.931089044
+      },
+      "old_forgetting": {
+        "mean": 0.09595799445666667,
+        "sample_sd": 0.016384433782740217,
+        "min": 0.07720708847,
+        "max": 0.1075134277
+      },
+      "new_transfer_change": {
+        "mean": -0.18501035373333333,
+        "sample_sd": 0.013142940892104193,
+        "min": -0.2001746893,
+        "max": -0.1769094467
+      },
+      "observed_pairs_per_second": {
+        "mean": 155907.29896666665,
+        "sample_sd": 4070.681735121535,
+        "min": 151310.6348,
+        "max": 159056.1948
+      },
+      "ordinary_tick_p95_ms": {
+        "mean": 0.9699207514,
+        "sample_sd": 0.06348522110395065,
+        "min": 0.9010514746,
+        "max": 1.026107179
+      },
+      "speech_tick_p95_ms": {
+        "mean": 12.39045323,
+        "sample_sd": 0.2683720010332933,
+        "min": 12.12305528,
+        "max": 12.65978879
+      }
+    }
+  ],
+  "selection": "Exploratory comparison. Whole-model low-rate controls were added after a five-arm pilot. No independent final-test evaluation was used for selecting the profile.",
+  "interpretation": "At these fixed exposures, reservoir replay plus a quarter whole-model rate gave the lowest old and new validation loss in every seed among the seven tested arms. No universal age/plasticity rule or factual mastery is established.",
+  "timing_limitations": "Sequential arms in a fixed order, one host. Tick time excludes evaluation, logging, checkpoints and setup; all benchmark arms retain SI history arrays even at zero strength. GPU/host contention and warmup can affect latency.",
+  "data_manifest": "reports/development-v2-manifest.json",
+  "final_test_used": false
+}

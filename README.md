@@ -119,6 +119,8 @@ The consolidation oracle and CLI integration test use only Python's standard lib
 
 The [retention protocol](docs/retention.md) compares old-memory replay, extra current-chunk updates, consolidation and slower learning from the exact same starting model. Its [selected development sources](data/sources-development-v2.json) add a science training book and a different held-out geography book. They are an optional versioned extension; the original foundation source selection stays reproducible.
 
+Across three seeds, replay plus a quarter later-stage learning rate gave the lowest old/new validation loss among seven tested settings. The explicit [reading-to-science profile](data/curricula/reading-to-science.sg) reproduces that development pattern through ordinary live learning; [results and commands](docs/retention.md#three-seed-result-and-usable-profile) include the controls, timing limits and remaining dialogue-quality gap. Newborns inherit parental base learning-rate traits independently of their parents' current stage slowdown.
+
 ## Development direction
 
 The [development design](docs/general-development.md) specifies separate developmental stage and generation records, inheritance from two parents, teaching from selected source material, and selection against matched controls. The [native evolution commands](docs/evolution.md) register founders, evaluate eligibility, create children and inherit settings. Whole-block crossover can disrupt learned channel roles and every child must train and requalify; no improvement is assumed merely from birth.

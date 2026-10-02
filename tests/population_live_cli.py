@@ -34,16 +34,24 @@ def check(exe, out):
         source = out / f'founder-{index}'
         run('train', '--data', train, '--validation', val, '--out', source,
             '--channels', 8, '--hidden', 16, '--layers', 2, '--batch', 2, '--context', 16,
-            '--steps', 100, '--warmup', 0, '--lr', .00073571, '--seed', 11 + index,
+            '--steps', 100, '--warmup', 0, '--lr', (.00073571 if index == 0 else .00041239), '--seed', 11 + index,
             '--eval-every', 100, '--eval-batches', 2)
         fixed = ['--batch', 2, '--context', 16, '--batches', 2] if index == 0 else []
         run('population-add', '--population', population, '--id', f'founder-{index}',
             '--checkpoint', source / 'latest.ckpt', '--data', val, '--max-score', 20,
             '--lifespan', 2, '--growth-chance', 1, '--setting-mutation-chance', 1, *fixed)
+        run('population-live', '--population', population, '--id', f'founder-{index}',
+            '--curriculum', schedule, '--validation', val, '--updates', 8, '--chunk', 8,
+            '--speak-every', 0, '--eval-batches', 2)
     run('evolve', '--population', population, '--data', val, '--round', 'birth', '--children', 1, '--seed', 7)
     child = population / 'birth-child-0'
     birth = json.loads((population / 'birth.json').read_text())['children'][0]
     assert birth['grew'] and birth['lifespan_ticks'] == 2
+    for label in ('a', 'b'):
+        parent = population / birth[f'parent_{label}'] / 'latest.ckpt'
+        hp = struct.unpack_from('<8f', parent.read_bytes(), 256)
+        assert hp[0] == hp[7] * .5
+        assert abs(birth[f'parent_{label}_base_learning_rate'] - hp[7]) < 1e-12
     before = (child / 'latest.ckpt').read_bytes()
     initial_hash = hashlib.sha256((child / 'initial.ckpt').read_bytes()).hexdigest()
     lineage = (child / 'member.sg').read_bytes()
@@ -100,6 +108,7 @@ def check(exe, out):
     run('sample', '--checkpoint', child / 'latest.ckpt', '--tokens', 8, '--prompt', 'A')
     report = {'passed': True, 'native_commands': calls, 'canonical_checkpoint_updated': True,
               'evolution_reads_exact_learned_payload': True, 'inherited_rate_preserved_exactly': True,
+              'mature_parent_base_rates_inherited': True,
               'live_curriculum_and_si_resume': True, 'learning_does_not_reset_age': True,
               'lineage_and_birth_checkpoint_preserved': True, 'wrong_evaluation_corpus_rejected': True,
               'writer_lock_blocks_learning_and_aging': True, 'dead_member_cannot_resume_learning': True,

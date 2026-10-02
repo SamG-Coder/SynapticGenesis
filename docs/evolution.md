@@ -32,7 +32,7 @@ This reuses a development set for selection; it is not proof of improvement on i
 
 - Embedding and readout come from the better-scoring parent.
 - Whole residual blocks come from either parent. The default donor probability is 0.25 per block, with at least one donor block when crossover is enabled. `--crossover 0` gives an inheritance control.
-- Learning rate starts at the geometric mean of parental rates; a mutation can scale it between one half and twice that value, within bounds. Weight decay, gradient clip and activity cost use parental means.
+- Learning rate starts at the geometric mean of parental base rates; a mutation can scale it between one half and twice that value, within bounds. For live curriculum checkpoints, the inherited trait is the saved base rate, before any age/stage multiplier. Newborns do not inherit a parent's temporary developmental slowdown. Ordinary and older live checkpoints use their saved rate. Weight decay, gradient clip and activity cost use parental means.
 - Growth probability and setting-mutation probability are inherited as parental means. Parents may therefore carry different developmental settings.
 - A width mutation attempts roughly 25% more hidden neurons, rounded to groups of eight, with `--max-hidden` and `--max-parameters` limits. Defaults are 2,048 hidden neurons and 4,000,000 parameters. The child starts with at least the larger parental width.
 

@@ -234,11 +234,16 @@ std::vector<float> inherit(Config child, Config a, const std::vector<float> &wa,
     }
     return result;
 }
+float inherited_learning_rate(const State &state) {
+    // A developmental stage changes current plasticity, not the inherited base
+    // trait. Newborns start their own schedule and do not inherit parental age.
+    float rate = state.meta[17] == 4 ? state.hp[7] : state.hp[0];
+    require(std::isfinite(rate) && rate > 0 && rate <= .1f, "Invalid parental learning rate");
+    return rate;
+}
 State child_state(const Candidate &a, const Candidate &b, const Rules &rules, uint64_t &rng) {
     State s;
-    require(a.state.hp[0] > 0 && b.state.hp[0] > 0 && a.state.hp[0] <= .1f && b.state.hp[0] <= .1f,
-            "Invalid parental learning rate");
-    s.hp[0] = float(std::sqrt(double(a.state.hp[0]) * b.state.hp[0]));
+    s.hp[0] = float(std::sqrt(double(inherited_learning_rate(a.state)) * inherited_learning_rate(b.state)));
     double mutation = .5 * (a.member.setting_mutation_chance + b.member.setting_mutation_chance);
     if (uniform(rng) < mutation)
         s.hp[0] *= float(std::exp((2 * uniform(rng) - 1) * std::log(2.)));
@@ -473,6 +478,8 @@ void run(const Args &args) {
                << ",\"growth_chance\":" << child.growth_chance
                << ",\"setting_mutation_chance\":" << child.setting_mutation_chance
                << ",\"learning_rate\":" << state.hp[0] << ",\"activity_cost\":" << state.hp[4]
+               << ",\"parent_a_base_learning_rate\":" << inherited_learning_rate(a.state)
+               << ",\"parent_b_base_learning_rate\":" << inherited_learning_rate(b.state)
                << ",\"birth_loss\":" << birth_loss << ",\"required_score_below\":" << child.ceiling
                << ",\"required_improvement\":" << required_improvement << ",\"born_tick\":" << child.born_tick
                << ",\"lifespan_ticks\":" << child.lifespan << ",\"food_bytes\":" << cost

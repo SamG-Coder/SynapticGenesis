@@ -126,6 +126,25 @@ void evolution_test(const Args &args) {
     require(std::abs(newborn.hp[0] - .0004f) < 1e-9 && newborn.meta[7] == 0 && newborn.extra.empty() &&
                 newborn.synaptic.empty(),
             "Parental settings or fresh child history are incorrect");
+    members[0].state.meta[17] = members[1].state.meta[17] = 4;
+    members[0].state.hp[7] = .0002f;
+    members[1].state.hp[7] = .0008f;
+    members[0].state.hp[0] *= .25f;
+    members[1].state.hp[0] *= .1f;
+    members[0].state.hp[6] = .25f;
+    members[1].state.hp[6] = .5f;
+    r0 = 88;
+    auto young = evolution::child_state(members[0], members[1], rules, r0);
+    require(young.hp[0] == newborn.hp[0] && young.meta[17] == 0 && young.meta[24] == 0 && young.hp[7] == 0,
+            "Newborn inherited its parents' developmental slowdown or age");
+    members[0].state.hp[7] = 0;
+    bool invalid_rate = false;
+    try {
+        evolution::child_state(members[0], members[1], rules, r0);
+    } catch (const std::exception &) {
+        invalid_rate = true;
+    }
+    require(invalid_rate, "Invalid parental base rate was accepted");
     evolution::write_rules(out / "population.sg", rules);
     auto restored_rules = evolution::read_rules(out / "population.sg");
     require(restored_rules.corpus == rules.corpus && restored_rules.size_cost == rules.size_cost &&
@@ -167,6 +186,7 @@ void evolution_test(const Args &args) {
       << ",\"mutation_caps_and_seed_checked\":true,\"newborn_gate_checked\":true,"
          "\"improvement_gate_checked\":true,\"elite_ranking_checked\":true,"
          "\"parent_setting_inheritance_checked\":true,\"lineage_roundtrip_checked\":true,"
+         "\"base_rate_inherited_without_developmental_slowdown\":true,"
          "\"old_age_and_dead_parent_gate_checked\":true,\"scarcity_and_admission_checked\":true,"
          "\"gpu_buffer_estimate_checked\":true}\n";
     std::cout << "PASS evolution: growth, inherited blocks, new-neuron learning, bounded seeded mutation, "
