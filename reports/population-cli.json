@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "native_commands": 11,
+  "native_commands": 12,
   "ticks": 4,
   "growth_at_birth_checked": true,
   "newborn_parent_rejection_checked": true,
@@ -14,5 +14,6 @@
   "changed_evaluation_corpus_rejected": true,
   "duplicate_round_rejected": true,
   "path_traversal_id_rejected": true,
+  "inherited_child_training_origin_recorded": true,
   "final_population_config_sha256": "254ecd87ad377bbea1c34bd707e90bd59d39ab93279d3bc132c492e6fb26ef27"
 }

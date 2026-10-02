@@ -1,0 +1,309 @@
+{
+  "purpose": "Mechanism demonstration, not a controlled comparison of evolutionary gains.",
+  "corpus_version": "general-foundations-v1",
+  "first_round": {
+    "round": "round-1",
+    "seed": 34,
+    "evaluation_corpus_hash": "7937286900399289444",
+    "batch": 8,
+    "context": 128,
+    "batches": 32,
+    "size_cost_per_million_parameters": 0.01999999955,
+    "elite_fraction": 0.5,
+    "min_improvement": 0.004999999888,
+    "max_hidden": 2048,
+    "max_parameters": 4000000,
+    "crossover": 0.25,
+    "members": [
+      {
+        "id": "founder-a",
+        "generation": 0,
+        "step": 2700,
+        "loss": 2.17723918,
+        "score": 2.200965259,
+        "ceiling": 3,
+        "parameters": 1186304,
+        "eligible": true,
+        "elite": true
+      },
+      {
+        "id": "founder-b",
+        "generation": 0,
+        "step": 3600,
+        "loss": 2.006908417,
+        "score": 2.030634496,
+        "ceiling": 3,
+        "parameters": 1186304,
+        "eligible": true,
+        "elite": true
+      }
+    ],
+    "children": [
+      {
+        "id": "round-1-child-0",
+        "generation": 1,
+        "parent_a": "founder-b",
+        "parent_b": "founder-a",
+        "parent_a_payload_hash": "9027619251457828957",
+        "parent_b_payload_hash": "5620596724425965832",
+        "hidden": 640,
+        "parameters": 1449472,
+        "grew": true,
+        "growth_chance": 0.75,
+        "setting_mutation_chance": 0.3500000015,
+        "learning_rate": 0.0006000000285,
+        "activity_cost": 0,
+        "birth_loss": 2.366981268,
+        "required_score_below": 2.025634496,
+        "eligible_at_birth": false,
+        "donor_blocks": [
+          false,
+          false,
+          true,
+          false
+        ]
+      },
+      {
+        "id": "round-1-child-1",
+        "generation": 1,
+        "parent_a": "founder-b",
+        "parent_b": "founder-a",
+        "parent_a_payload_hash": "9027619251457828957",
+        "parent_b_payload_hash": "5620596724425965832",
+        "hidden": 640,
+        "parameters": 1449472,
+        "grew": true,
+        "growth_chance": 0.75,
+        "setting_mutation_chance": 0.3500000015,
+        "learning_rate": 0.0006000000285,
+        "activity_cost": 0,
+        "birth_loss": 6.089713573,
+        "required_score_below": 2.025634496,
+        "eligible_at_birth": false,
+        "donor_blocks": [
+          true,
+          false,
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  "post_training_round": {
+    "round": "round-2",
+    "seed": 1338,
+    "tick": 1,
+    "gpu_total_bytes": 17066033152,
+    "gpu_free_bytes": 15710814208,
+    "reserve_bytes": 1073741824,
+    "food_fraction": 0.5,
+    "food_capacity_bytes": 7318536192,
+    "food_used_before_bytes": 105467904,
+    "resource_pressure": 0.01441106544,
+    "effective_elite_fraction": 0.4935150206,
+    "evaluation_corpus_hash": "7937286900399289444",
+    "batch": 8,
+    "context": 128,
+    "batches": 32,
+    "size_cost_per_million_parameters": 0.01999999955,
+    "elite_fraction": 0.5,
+    "min_improvement": 0.004999999888,
+    "max_hidden": 2048,
+    "max_parameters": 4000000,
+    "crossover": 0.25,
+    "members": [
+      {
+        "id": "founder-a",
+        "generation": 0,
+        "step": 2700,
+        "loss": 2.17723918,
+        "score": 2.200965259,
+        "ceiling": 3,
+        "parameters": 1186304,
+        "age_ticks": 1,
+        "lifespan_ticks": 20,
+        "alive": true,
+        "death_reason": null,
+        "eligible": true,
+        "elite": true
+      },
+      {
+        "id": "founder-b",
+        "generation": 0,
+        "step": 3600,
+        "loss": 2.006908417,
+        "score": 2.030634496,
+        "ceiling": 3,
+        "parameters": 1186304,
+        "age_ticks": 1,
+        "lifespan_ticks": 20,
+        "alive": true,
+        "death_reason": null,
+        "eligible": true,
+        "elite": true
+      },
+      {
+        "id": "round-1-child-0",
+        "generation": 1,
+        "step": 2400,
+        "loss": 1.999252796,
+        "score": 2.028242236,
+        "ceiling": 2.025634496,
+        "parameters": 1449472,
+        "age_ticks": 1,
+        "lifespan_ticks": 20,
+        "alive": true,
+        "death_reason": null,
+        "eligible": false,
+        "elite": false
+      },
+      {
+        "id": "round-1-child-1",
+        "generation": 1,
+        "step": 2400,
+        "loss": 2.000095606,
+        "score": 2.029085045,
+        "ceiling": 2.025634496,
+        "parameters": 1449472,
+        "age_ticks": 1,
+        "lifespan_ticks": 20,
+        "alive": true,
+        "death_reason": null,
+        "eligible": false,
+        "elite": false
+      }
+    ],
+    "children": [
+      {
+        "id": "round-2-child-0",
+        "generation": 1,
+        "parent_a": "founder-b",
+        "parent_b": "founder-a",
+        "parent_a_payload_hash": "9027619251457828957",
+        "parent_b_payload_hash": "5620596724425965832",
+        "hidden": 640,
+        "parameters": 1449472,
+        "grew": true,
+        "growth_chance": 0.75,
+        "setting_mutation_chance": 0.3500000015,
+        "learning_rate": 0.0006251791492,
+        "activity_cost": 0,
+        "birth_loss": 5.932472229,
+        "required_score_below": 2.025346275,
+        "required_improvement": 0.005288221191,
+        "born_tick": 1,
+        "lifespan_ticks": 20,
+        "food_bytes": 28999680,
+        "parent_pool_size": 2,
+        "eligible_at_birth": false,
+        "donor_blocks": [
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      {
+        "id": "round-2-child-1",
+        "generation": 1,
+        "parent_a": "founder-b",
+        "parent_b": "founder-a",
+        "parent_a_payload_hash": "9027619251457828957",
+        "parent_b_payload_hash": "5620596724425965832",
+        "hidden": 512,
+        "parameters": 1186304,
+        "grew": false,
+        "growth_chance": 0.75,
+        "setting_mutation_chance": 0.3500000015,
+        "learning_rate": 0.0006000000285,
+        "activity_cost": 0,
+        "birth_loss": 2.367002726,
+        "required_score_below": 2.025267025,
+        "required_improvement": 0.005367471135,
+        "born_tick": 1,
+        "lifespan_ticks": 20,
+        "food_bytes": 23734272,
+        "parent_pool_size": 2,
+        "eligible_at_birth": false,
+        "donor_blocks": [
+          false,
+          false,
+          true,
+          false
+        ]
+      }
+    ],
+    "births": 2,
+    "food_used_after_bytes": 158201856,
+    "stop_reason": "requested_births_completed"
+  },
+  "child_training": {
+    "source": "data/prepared/foundations-v1/train.dat",
+    "updates_per_child": 2400,
+    "batch": 8,
+    "context": 128,
+    "eval_batches_during_training": 16,
+    "selection_eval_batches": 32
+  },
+  "clock_note": "The first round predates lifespan support. Legacy population records begin at tick zero on migration; the second named round is simulation tick one.",
+  "test_initial": {
+    "step": 0,
+    "loss_nats_per_byte": 5.54386,
+    "bits_per_byte": 7.9981,
+    "evaluated_bytes": 131072,
+    "corpus_hash": "5925036121900658574"
+  },
+  "test_founder": {
+    "step": 2700,
+    "loss_nats_per_byte": 1.98813,
+    "bits_per_byte": 2.868266,
+    "evaluated_bytes": 131072,
+    "corpus_hash": "5925036121900658574"
+  },
+  "conclusion": "Both first-round children improved raw held-out loss relative to the stronger parent but failed the required size-adjusted improvement. Neither was selected to reproduce. Both second-round children are generation 1 from the founders; generation 2 has not been demonstrated by this experiment.",
+  "checkpoints": [
+    {
+      "path": "runs/founder-stage-1/initial.ckpt",
+      "sha256": "b8d507de99de2d66337852876ff000b9fbee8255fea8d376bdc577a91ef5e63a",
+      "parameters": 1186304,
+      "step": 0
+    },
+    {
+      "path": "runs/founder-stage-3/best.ckpt",
+      "sha256": "e6663257a59c71e8d61c5b2c0678657a78720b7861057919a331939d5b1bd0a9",
+      "parameters": 1186304,
+      "step": 2700
+    },
+    {
+      "path": "runs/founder-b/best.ckpt",
+      "sha256": "f00f3b5f75d4723348b6203f232a84cf58135b147a5324b0c12f35e44026d1f4",
+      "parameters": 1186304,
+      "step": 3600
+    },
+    {
+      "path": "runs/population-demo/round-1-child-0/initial.ckpt",
+      "sha256": "3a40c4890c8a78a377afe115ee495117ec3e05874e43c4dbb7c0c28a686ce312",
+      "parameters": 1449472,
+      "step": 0
+    },
+    {
+      "path": "runs/population-demo/round-1-child-0/latest.ckpt",
+      "sha256": "9fa7a4d153c6bbff403056656fef9f8337cb17f4d2c936c86019b38db01b9afc",
+      "parameters": 1449472,
+      "step": 2400
+    },
+    {
+      "path": "runs/population-demo/round-1-child-1/initial.ckpt",
+      "sha256": "6ef79b41529712ce20aaff3274bbe2ca4e19cb5b172267e5e0eefac84a218b60",
+      "parameters": 1449472,
+      "step": 0
+    },
+    {
+      "path": "runs/population-demo/round-1-child-1/latest.ckpt",
+      "sha256": "7f24443c6975d1707693fa764644af5c048d2c8fa305d8651a9f753681a0c426",
+      "parameters": 1449472,
+      "step": 2400
+    }
+  ],
+  "validation_note": "Population selection uses 32 batches of 8 by 128 targets; training checkpoint selection used 16 batches. Scores from different protocols are not substituted."
+}

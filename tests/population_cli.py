@@ -83,6 +83,12 @@ def check(exe, out):
     run('population-add', '--population', population, '--id', '../outside',
         '--checkpoint', out / 'founder-0/latest.ckpt', '--data', val, reject='Invalid population member')
     assert not (out / 'outside').exists()
+    child_run = population / 'birth-child-0'
+    run('train', '--resume', child_run / 'latest.ckpt', '--allow-new-corpus',
+        '--data', train, '--validation', val, '--out', child_run, '--steps', 100,
+        '--eval-batches', 2, '--eval-every', 100)
+    start = json.loads((child_run / 'metrics.jsonl').read_text().splitlines()[0])
+    assert start['resumed'] and not start['from_random_initialization']
     report = {'passed': True, 'native_commands': calls, 'ticks': deaths['tick'],
               'growth_at_birth_checked': True, 'newborn_parent_rejection_checked': True,
               'budget_limited_births': scarce['births'], 'zero_budget_births': empty['births'],
@@ -90,6 +96,7 @@ def check(exe, out):
               'dead_checkpoints_preserved': True, 'dead_population_food_released': True,
               'clock_persisted_across_processes': True, 'changed_evaluation_corpus_rejected': True,
               'duplicate_round_rejected': True, 'path_traversal_id_rejected': True,
+              'inherited_child_training_origin_recorded': True,
               'final_population_config_sha256': hashlib.sha256(old).hexdigest()}
     (out / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report, indent=2))

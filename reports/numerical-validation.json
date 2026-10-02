@@ -1,0 +1,346 @@
+{
+  "adaptive-test-results": {
+    "native": {
+      "passed": true,
+      "chunk_max_error": 1.19209e-06,
+      "graph_max_error": 0,
+      "disabled_adaptation_lif_max_error": 0,
+      "resume_max_error": 9.31323e-10,
+      "resumed_speech_identical": true,
+      "replay_state_isolated": true,
+      "common_initial_weights_identical": true
+    },
+    "oracle": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "cell": 2,
+      "loss": 5.511878967285156,
+      "logits_max_abs_error": 1.1920928955078125e-07,
+      "gradients_max_abs_error": 3.166496753692627e-08,
+      "adam_update_max_abs_error": 1.6205012798309326e-07,
+      "regularized_gradient_max_abs_error": 2.9802322387695312e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 6.984919309616089e-09
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 9.022187441587448e-10
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 1.7462298274040222e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 3.725290298461914e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 1.862645149230957e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 3.166496753692627e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 1.3096723705530167e-10
+        },
+        {
+          "tensor": "0.adapt_leak",
+          "max_abs_gradient_error": 1.0913936421275139e-11
+        },
+        {
+          "tensor": "0.adapt_scale",
+          "max_abs_gradient_error": 1.1641532182693481e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 9.89530235528946e-10
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 1.5133991837501526e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 2.3283064365386963e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 1.3969838619232178e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 1.4901161193847656e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 4.3655745685100555e-11
+        },
+        {
+          "tensor": "1.adapt_leak",
+          "max_abs_gradient_error": 1.1368683772161603e-11
+        },
+        {
+          "tensor": "1.adapt_scale",
+          "max_abs_gradient_error": 6.184563972055912e-11
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 1.6152625903487206e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 2.9802322387695312e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 7.450580596923828e-09
+        }
+      ]
+    }
+  },
+  "evolution-test-results": {
+    "native": {
+      "passed": true,
+      "both_cells": true,
+      "width_growth_max_error": 0,
+      "block_inheritance_max_error": 0,
+      "new_neuron_output_weight_change": 0.0009999999311,
+      "mutation_caps_and_seed_checked": true,
+      "newborn_gate_checked": true,
+      "improvement_gate_checked": true,
+      "elite_ranking_checked": true,
+      "parent_setting_inheritance_checked": true,
+      "lineage_roundtrip_checked": true,
+      "old_age_and_dead_parent_gate_checked": true,
+      "scarcity_and_admission_checked": true,
+      "gpu_buffer_estimate_checked": true
+    }
+  },
+  "graph-test-results": {
+    "native": {
+      "passed": true,
+      "max_error": 0,
+      "capture_preserves_state": true,
+      "sees_live_weight_updates": true
+    }
+  },
+  "live-test-results": {
+    "native": {
+      "passed": true,
+      "persistent_chunk_max_error": 9.53674e-07,
+      "live_resume_max_error": 4.65661e-10,
+      "resumed_generation_identical": true,
+      "shared_allocations": true,
+      "speech_does_not_train": true,
+      "document_tails_verified": true
+    },
+    "oracle": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "cell": 1,
+      "loss": 5.488603115081787,
+      "logits_max_abs_error": 1.4901161193847656e-07,
+      "gradients_max_abs_error": 4.470348358154297e-08,
+      "adam_update_max_abs_error": 1.341104507446289e-07,
+      "regularized_gradient_max_abs_error": 4.470348358154297e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 7.450580596923828e-09
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 6.984919309616089e-10
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 1.5133991837501526e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 1.5133991837501526e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 2.2351741790771484e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 1.7695128917694092e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 3.7834979593753815e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 9.313225746154785e-10
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 1.57160684466362e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 1.862645149230957e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 1.862645149230957e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 2.0489096641540527e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 1.8189894035458565e-10
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 3.6088749766349792e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 4.470348358154297e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 7.450580596923828e-09
+        }
+      ]
+    }
+  },
+  "replay-test-results": {
+    "native": {
+      "passed": true,
+      "resume_max_error": 9.31323e-10,
+      "core_scale_max_error": 4.76837e-07,
+      "resumed_speech_identical": true,
+      "bounded_reservoir": true,
+      "isolated_replay_membranes": true,
+      "legacy_live_resume": true,
+      "corrupt_replay_rejected": true,
+      "invalid_descriptor_rejected": true
+    }
+  },
+  "synaptic-test-results": {
+    "native": {
+      "passed": true,
+      "resume_max_error": 5.96046e-08,
+      "zero_strength_max_error": 0,
+      "penalty_weight_difference": 0.0126094,
+      "both_cells_checked": true,
+      "speech_identical_after_resume": true,
+      "speech_preserves_synaptic_history": true,
+      "invalid_payloads_rejected": true
+    },
+    "oracle": {
+      "passed": true,
+      "reference": "independent scalar SI and AdamW equations",
+      "gradient_norm_error": 1.6667898228295286e-08,
+      "max_abs_errors": {
+        "updated": 2.3279120853203494e-07,
+        "moment-after": 1.0239681186839135e-11,
+        "variance-after": 5.819776369262071e-12,
+        "clipped-gradient": 2.9637235699452036e-11,
+        "synapses-after-update": 1.1641505814896647e-10,
+        "synapses-after-boundary": 5.493279386925565e-08
+      }
+    }
+  },
+  "test-results": {
+    "native": {
+      "passed": true,
+      "streaming_max_error": 5.96046e-08,
+      "spike_add_max_error": 4.47035e-08,
+      "resume_max_error": 0,
+      "toy_initial_loss": 5.55125,
+      "toy_final_loss": 0.00651434
+    },
+    "oracle": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": false,
+      "cell": 1,
+      "loss": 5.494815826416016,
+      "logits_max_abs_error": 8.940696716308594e-08,
+      "gradients_max_abs_error": 3.3527612686157227e-08,
+      "adam_update_max_abs_error": 1.1771917343139648e-06,
+      "regularized_gradient_max_abs_error": 3.864988684654236e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 9.313225746154785e-09
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 8.731149137020111e-10
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 3.3396645449101925e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 2.9976945370435715e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 2.0489096641540527e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 3.3527612686157227e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 1.964508555829525e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 1.3533281162381172e-09
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 3.3178366720676422e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 2.735760062932968e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 2.2351741790771484e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 1.862645149230957e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 7.639755494892597e-11
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 4.6566128730773926e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 2.9802322387695312e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 7.450580596923828e-09
+        }
+      ]
+    }
+  }
+}

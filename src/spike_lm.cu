@@ -1005,7 +1005,8 @@ void train(const Args &args) {
             << ",\"parameters\":" << model.a.n << ",\"train_hash\":\"" << data.hash << "\",\"val_hash\":\""
             << val.hash << "\",\"activity_cost\":" << s.hp[4] << ",\"burn_in\":" << burn_in
             << ",\"burn_policy\":\"" << burn_policy << "\""
-            << ",\"from_random_initialization\":true,\"resumed\":" << (resumed ? "true" : "false") << "}\n";
+            << ",\"from_random_initialization\":" << (resumed ? "false" : "true")
+            << ",\"resumed\":" << (resumed ? "true" : "false") << "}\n";
     metrics.flush();
     if (initial < s.hp[3]) {
         s.hp[3] = initial;
