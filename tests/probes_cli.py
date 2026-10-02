@@ -170,11 +170,29 @@ def check(exe, out):
     lessons.prepare(spec, out / 'prepared-b')
     for p in (out / 'prepared-a').iterdir():
         assert p.read_bytes() == (out / 'prepared-b' / p.name).read_bytes()
+    reading = out / 'prior-reading.dat'
+    reading.write_bytes(b'A child sees a bird.\x1ePlants need water.\n')
+    lessons.prepare(spec, out / 'with-reading', reading)
+    assert (out / 'with-reading/reading.dat').read_bytes() == reading.read_bytes()
+    assert (out / 'with-reading/reading-lessons.dat').read_bytes() == (
+        reading.read_bytes() + b'\x1e' + (out / 'prepared-a/train.dat').read_bytes())
+    for name, newline in [('lf', b'\n'), ('crlf', b'\r\n')]:
+        contaminated = out / f'contaminated-{name}.dat'
+        contaminated.write_bytes(b'The key is in the box. The hat is in the bag.' + newline)
+        rejected_out = out / f'contaminated-{name}-output'
+        try:
+            lessons.prepare(spec, rejected_out, contaminated)
+        except ValueError as error:
+            assert 'held-out' in str(error)
+        else:
+            raise AssertionError('Contaminated prior reading was accepted')
+        assert not rejected_out.exists()
     result = dict(passed=True, native_commands=calls, cells=['lif', 'alif'],
                   independent_cpu_forward_max_score_error=max_error,
                   independent_cpu_greedy_matches=True, answer_only_scoring_verified=True,
                   pair_order_independent=True, checkpoint_files_unchanged=True,
                   malformed_pairs_rejected=True, prepared_bytes_reproducible=True,
+                  reading_bytes_preserved=True, heldout_reading_lf_and_crlf_rejected=True,
                   heldout_contexts_absent_from_lessons=True, synthetic_fixture_only=True)
     (out / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))

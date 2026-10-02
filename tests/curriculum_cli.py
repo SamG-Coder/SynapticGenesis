@@ -114,6 +114,38 @@ def check(exe, out):
     assert any(expected_scoped[2][i] == 0 for i in range(16, len(expected_scoped[2]), 3))
     scoped_session = json.loads((out / 'scoped-full/session.json').read_text())
     assert scoped_session['online_first_document'] == 1 and scoped_session['online_document_count'] == 1
+    # Version 3 binds answer emphasis to the schedule and keeps the original
+    # annotation when older lessons reappear through replay or a later stage.
+    lesson_a = b'The key is in the box.\nAnswer: box.'
+    lesson_b = b'The cup is in the bag.\nAnswer: bag.'
+    (out / 'feedback-a.dat').write_bytes(lesson_a)
+    (out / 'feedback-b.dat').write_bytes(lesson_a + b'\x1e' + lesson_b)
+    (out / 'feedback-c.dat').write_bytes(lesson_a + b'\x1e' + lesson_b + b'\x1e' + docs[0])
+    feedback_schedule = out / 'feedback.sg'
+    feedback_schedule.write_bytes(b'SGCURRICULUM3\n6 "feedback-a.dat" 1 all 4\n12 "feedback-b.dat" 0.5 new 64\n18 "feedback-c.dat" 0.25 all 1\n')
+    feedback_error = 0
+    for cell in ('lif', 'alif'):
+        for si in (False, True):
+            full, part = out / f'feedback-{cell}-{si}-full', out / f'feedback-{cell}-{si}-split'
+            policy = ['--cell', cell] + (['--consolidation', 'si', '--si-strength', .02] if si else [])
+            run('live', '--curriculum', feedback_schedule, '--out', full, *common, *policy)
+            run('live', '--curriculum', feedback_schedule, '--out', part, '--updates', 8, *common, *policy)
+            run('live', '--curriculum', feedback_schedule, '--out', part, '--resume', part / 'latest.ckpt', '--prompt', 'A')
+            expected, actual = payload(full / 'latest.ckpt'), payload(part / 'latest.ckpt')
+            difference = max(abs(a-b) for a,b in zip(expected[3],actual[3]))
+            feedback_error = max(feedback_error, difference)
+            assert difference < 3e-5 and expected[1:3] == actual[1:3]
+            assert json.loads((full / 'session.json').read_text())['answer_emphasized_documents'] == 2
+            assert speech(full) == speech(part)
+    # Mutating supervision is as material as mutating any future source edition.
+    feedback_schedule.write_bytes(feedback_schedule.read_bytes().replace(b'new 64', b'new 32'))
+    run('live', '--curriculum', feedback_schedule, '--resume', part / 'latest.ckpt',
+        '--out', out / 'feedback-rejected', '--prompt', 'A', reject='identical curriculum')
+    invalid_feedback = out / 'invalid-feedback.sg'
+    invalid_feedback.write_bytes(b'SGCURRICULUM3\n6 "0.dat" 1 all 64\n')
+    run('live', '--curriculum', invalid_feedback, '--out', out / 'invalid-feedback',
+        *common, reject='exactly one nonempty Answer field')
+    assert not (out / 'invalid-feedback').exists()
     prior = out / 'prior-v2'
     run('live', '--data', out / '0.dat', '--out', prior, '--updates', 2, *common)
     run('live', '--resume', prior / 'latest.ckpt', '--curriculum', schedule,
@@ -147,6 +179,9 @@ def check(exe, out):
               'changed_prefix_rejected': True, 'future_heldout_document_rejected': True,
               'invalid_input_writes_no_run': True, 'v4_read_only_commands_checked': True,
               'new_scope_wraps_without_old_online_documents': True, 'scoped_restart_preserves_old_replay': True,
+              'feedback_resume_cases': 4, 'feedback_resume_max_error': feedback_error,
+              'feedback_annotation_persists_across_later_stages': True,
+              'feedback_policy_change_and_missing_answers_rejected': True,
               'checkpoint_sha256': hashlib.sha256(selected.read_bytes()).hexdigest()}
     (out / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))

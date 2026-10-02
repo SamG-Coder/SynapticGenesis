@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "exact_prepared_bytes": true,
+  "reading_contains_no_heldout_context": true,
+  "contaminated_reading_lf_and_crlf_rejected_before_writes": true,
+  "selected_reading_preserved_byte_for_byte": true
+}

@@ -134,7 +134,7 @@ uint64_t food_bytes(Config q) {
 uint64_t working_bytes(Config q, int batch, int context) {
     uint64_t n = uint64_t(batch) * context, c = q.c, h = q.h, l = q.l;
     uint64_t floats =
-        5ull * Layout(q).n + n * (4 * c + 516 + 2 * h) + (l + 1) * n * c +
+        5ull * Layout(q).n + n * (4 * c + 517 + 2 * h) + (l + 1) * n * c +
         l * (n * c + n + (3 + int(q.adaptive())) * n * h + 2 * uint64_t(batch) * h * (1 + int(q.adaptive())));
     return 4 * floats;
 }

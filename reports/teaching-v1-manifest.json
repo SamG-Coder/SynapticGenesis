@@ -3,9 +3,25 @@
   "source_spec_sha256": "732d5f8631e856227b9a9bb09ff7290049de1e1e79cc7ddafdfe18abbbedb401",
   "documents": 312,
   "files": {
+    "answer-1.sg": {
+      "bytes": 80,
+      "sha256": "406b1419b4a37e88f6dd5c05777febabd0a7911e78e36559cfe701eacecbdc4a"
+    },
+    "answer-64.sg": {
+      "bytes": 81,
+      "sha256": "f2d30b4644502a732b032ec5e7d52ef3723d612077916580c9d3b76d401e44e1"
+    },
     "development.sgprobe": {
       "bytes": 11820,
       "sha256": "ad46a15019e8d524931f8dd14dc40183807e8f6f1593ff68c1fa4e38e8d55a78"
+    },
+    "reading-lessons.dat": {
+      "bytes": 609508,
+      "sha256": "04e438cd1cedecf96783e606d8c964042285860ddf607bd5d41af682f217565e"
+    },
+    "reading.dat": {
+      "bytes": 585436,
+      "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda"
     },
     "source-spec.json": {
       "bytes": 1571,
@@ -159,7 +175,7 @@
   },
   "heldout_contexts_absent_from_training": true,
   "predefined_test_not_for_tuning": true,
-  "reading_source": null,
+  "reading_source": "data\\prepared\\development-v2-final\\through-stage-4.dat",
   "provenance": "Original, explicitly selected template lessons authored for SynapticGenesis. Examples and targets are deterministic expansions of the listed vocabulary and literal templates; no pretrained weights or teacher distributions are imported.",
   "limits": "A narrow controlled reading-and-response curriculum, not a general language corpus or evidence of human developmental ages. Evaluation uses held-out object combinations within familiar templates and vocabulary; unseen syntax and real-world competence are not tested."
 }

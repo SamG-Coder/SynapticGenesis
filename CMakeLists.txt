@@ -21,3 +21,4 @@ add_test(NAME spiking-adaptive COMMAND synapticgenesis adaptive-test --out ${CMA
 add_test(NAME spiking-synaptic COMMAND synapticgenesis synaptic-test --out ${CMAKE_BINARY_DIR}/synaptic-test-results)
 add_test(NAME spiking-evolution COMMAND synapticgenesis evolution-test --out ${CMAKE_BINARY_DIR}/evolution-test-results)
 add_test(NAME spiking-curriculum COMMAND synapticgenesis curriculum-test --out ${CMAKE_BINARY_DIR}/curriculum-test-results)
+add_test(NAME spiking-feedback COMMAND synapticgenesis feedback-test --out ${CMAKE_BINARY_DIR}/feedback-test-results)

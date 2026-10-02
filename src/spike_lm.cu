@@ -312,6 +312,11 @@ __global__ void classifier(float *grad, float *loss, const float *logits, const 
     if (j == 0)
         loss[row] = logf(total) + mx - logits[row * 256 + target[row]];
 }
+__global__ void weight_targets(float *gradient, const float *weights, int N, float normalization) {
+    int i = blockIdx.x * blockDim.x + threadIdx.x;
+    if (i < N * 256)
+        gradient[i] *= weights[i / 256] * normalization;
+}
 __global__ void adam(float *w, float *m, float *v, const float *g, const float *mask, int n, float lr,
                      float b1c, float b2c, float wd, int core_end, float core_scale, float *path = nullptr,
                      const float *task_gradient = nullptr) {
@@ -377,7 +382,7 @@ struct Model {
     Layout a;
     int B, T, N;
     cublasHandle_t blas{};
-    Buf w, g, m, v, decay, finalnorm, finalrs, logits, dlogits, losses, dx, dy, dnorm, ds, dz;
+    Buf w, g, m, v, decay, finalnorm, finalrs, logits, dlogits, losses, loss_weights, dx, dy, dnorm, ds, dz;
     std::vector<Buf> x;
     std::vector<Cache> cache;
     // The object exists before views are created; later initialization/restoration
@@ -388,8 +393,8 @@ struct Model {
     Model(Config config, int batch, int time)
         : q(config), a(q), B(batch), T(time), N(batch * time), w(a.n), g(a.n), m(a.n), v(a.n), decay(a.n),
           finalnorm(size_t(N) * q.c), finalrs(N), logits(size_t(N) * 256), dlogits(size_t(N) * 256),
-          losses(N), dx(size_t(N) * q.c), dy(size_t(N) * q.c), dnorm(size_t(N) * q.c), ds(size_t(N) * q.h),
-          dz(size_t(N) * q.h) {
+          losses(N), loss_weights(N), dx(size_t(N) * q.c), dy(size_t(N) * q.c), dnorm(size_t(N) * q.c),
+          ds(size_t(N) * q.h), dz(size_t(N) * q.h) {
         if (B < 1 || B > 256 || T < 1 || T > 4096)
             throw std::runtime_error("Invalid batch/context");
         cb(cublasCreate(&blas));
@@ -540,6 +545,26 @@ struct Model {
         if (!std::isfinite(result))
             throw std::runtime_error("Nonfinite loss");
         return result;
+    }
+    float reweight_targets(const std::vector<float> &weights) {
+        if (weights.size() != size_t(N))
+            throw std::runtime_error("Target weight dimensions differ");
+        double total = 0;
+        for (float weight : weights) {
+            if (!std::isfinite(weight) || weight < 0 || weight > 1000)
+                throw std::runtime_error("Invalid target weight");
+            total += weight;
+        }
+        if (total <= 0)
+            throw std::runtime_error("Target weights must have positive mass");
+        loss_weights.put(weights);
+        weight_targets<<<(N * 256 + 255) / 256, 256>>>(dlogits.p, loss_weights.p, N, float(N / total));
+        ck(cudaGetLastError());
+        auto values = losses.host();
+        double sum = 0;
+        for (size_t i = 0; i < weights.size(); ++i)
+            sum += double(weights[i]) * values[i];
+        return float(sum / total);
     }
     void backward(float activity_cost = 0) {
         g.zero();
@@ -1308,12 +1333,13 @@ void self_test(const Args &args) {
 }
 #include "adaptive_tests.cuh"
 #include "context_bench.cuh"
-#include "language_probes.cuh"
 #include "curriculum_tests.cuh"
 #include "decode_tests.cuh"
 #include "evolution.cuh"
 #include "evolution_tests.cuh"
+#include "feedback_tests.cuh"
 #include "indexed_storage.cuh"
+#include "language_probes.cuh"
 #include "live.cuh"
 #include "memory_bench.cuh"
 #include "population_live.cuh"
@@ -1394,6 +1420,8 @@ int main(int argc, char **argv) {
             context_bench(args);
         else if (cmd == "language-probes")
             probes::run(args);
+        else if (cmd == "feedback-test")
+            feedback_test(args);
         else if (cmd == "retention-bench")
             retention_bench(args);
         else if (cmd == "synaptic-test")

@@ -11,9 +11,9 @@ void evolution_test(const Args &args) {
         auto wb = evolution::inherit(b, a, wa, a, wa, {false, false}, 31);
         Model base(a, 1, 8), widened(b, 1, 8);
         uint64_t actual_buffers = 2ull * base.N * sizeof(int);
-        for (const Buf *buffer :
-             {&base.w, &base.g, &base.m, &base.v, &base.decay, &base.finalnorm, &base.finalrs, &base.logits,
-              &base.dlogits, &base.losses, &base.dx, &base.dy, &base.dnorm, &base.ds, &base.dz})
+        for (const Buf *buffer : {&base.w, &base.g, &base.m, &base.v, &base.decay, &base.finalnorm,
+                                  &base.finalrs, &base.logits, &base.dlogits, &base.losses,
+                                  &base.loss_weights, &base.dx, &base.dy, &base.dnorm, &base.ds, &base.dz})
             actual_buffers += buffer->n * 4;
         for (const auto &buffer : base.x)
             actual_buffers += buffer.n * 4;

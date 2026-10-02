@@ -1,0 +1,1086 @@
+{
+  "protocol": "docs/language-probes.md",
+  "source_manifest": "reports/teaching-v1-manifest.json",
+  "parameters": 1186304,
+  "cell": "signed_lif_v1",
+  "speech_seed": 42,
+  "replay_seed": 1777,
+  "same_source_observations_and_replay_counts": true,
+  "test_partition_evaluated": false,
+  "initial_source_shared_within_each_pair": true,
+  "exact_common_lesson_boundary": false,
+  "founders": [
+    {
+      "founder_seed": 1337,
+      "source_checkpoint": "runs/development-replay-v2-seed-1337/latest.ckpt",
+      "source_sha256": "cf20ee21c825b68dc1380825d8dd3dba6c1d0d0384a0418f5fd1b47c197235bb",
+      "arms": {
+        "uniform": {
+          "answer_scale": 1,
+          "run": "runs/teaching-uniform-1337",
+          "session": {
+            "online_updates": 18000,
+            "curriculum_stage": 2,
+            "curriculum_hash": "12408386127410225579",
+            "curriculum_base_lr": 0.0003000000142,
+            "global_updates": 37500,
+            "online_first_document": 5,
+            "online_document_count": 312,
+            "answer_emphasized_documents": 0,
+            "observed_pairs": 1669212,
+            "generated_bytes": 3456,
+            "elapsed_seconds": 27.8003438,
+            "session_online_updates": 18000,
+            "session_observed_pairs": 1669212,
+            "observed_pairs_per_second": 60042.85458,
+            "replay_updates": 4500,
+            "replay_pairs": 502455,
+            "replay_mode": 1,
+            "replay_items": 1024,
+            "core_scale": 1,
+            "learning_rate": 7.500000356e-05,
+            "replay_every": 4,
+            "graph_decode": true,
+            "update_tick_p50_ms": 0.8628498481,
+            "update_tick_p95_ms": 5.804538754,
+            "update_and_speech_tick_p50_ms": 17.903645,
+            "update_and_speech_tick_p95_ms": 19.52406332,
+            "latency_percentile_bin_relative_width": 0.02189714865,
+            "shared_weights": true,
+            "persistent_membranes": true,
+            "trains_on_generated_text": false,
+            "consolidation": "none",
+            "initial_validation_loss": 2.210849047,
+            "final_validation_loss": 2.425792933
+          },
+          "probes": {
+            "format": "SGPROBE1",
+            "suite_hash": "13902254171324979855",
+            "checkpoint_payload_hash": "3421907743199417859",
+            "items": 72,
+            "pairs": 36,
+            "accuracy": 0.486111111111,
+            "context_erased_accuracy": 0.5,
+            "paired_accuracy": 0,
+            "context_erased_paired_accuracy": 0,
+            "greedy_exact_accuracy": 0.277777777778,
+            "greedy_exact_paired_accuracy": 0,
+            "answer_loss_nats_per_byte": 0.358261533909,
+            "answer_bytes": 288,
+            "elapsed_seconds": 0.3201125,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "two_facts": {
+                "items": 72,
+                "accuracy": 0.486111111111,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.277777777778
+              }
+            }
+          },
+          "reading_loss_before_lessons": 2.129813,
+          "reading_forgetting_during_lessons": 0.2959799329999999,
+          "geography_after_lessons": 2.145447,
+          "checkpoint_sha256": "24670b3d0d3db64b1f1cfc55ff444ffc29a17937b7a1e792148c8ee21d54a313",
+          "example_pairs": [
+            {
+              "id": "two_facts-key-hat-box-bag-0",
+              "pair": "two_facts-key-hat-box-bag",
+              "skill": "two_facts",
+              "gold": 0,
+              "candidate_nll": [
+                1.97838640213,
+                1.03422403336
+              ],
+              "context_erased_nll": [
+                1.85875368118,
+                1.17104816437
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            },
+            {
+              "id": "two_facts-key-hat-box-bag-1",
+              "pair": "two_facts-key-hat-box-bag",
+              "skill": "two_facts",
+              "gold": 1,
+              "candidate_nll": [
+                1.92217588425,
+                0.968723773956
+              ],
+              "context_erased_nll": [
+                1.85875368118,
+                1.17104816437
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            },
+            {
+              "id": "two_facts-key-hat-box-bed-0",
+              "pair": "two_facts-key-hat-box-bed",
+              "skill": "two_facts",
+              "gold": 0,
+              "candidate_nll": [
+                1.9243927002,
+                1.22411727905
+              ],
+              "context_erased_nll": [
+                1.85875368118,
+                1.15777301788
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            },
+            {
+              "id": "two_facts-key-hat-box-bed-1",
+              "pair": "two_facts-key-hat-box-bed",
+              "skill": "two_facts",
+              "gold": 1,
+              "candidate_nll": [
+                1.78136777878,
+                1.34082460403
+              ],
+              "context_erased_nll": [
+                1.85875368118,
+                1.15777301788
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            }
+          ]
+        },
+        "emphasis": {
+          "answer_scale": 64,
+          "run": "runs/teaching-emphasis-1337",
+          "session": {
+            "online_updates": 18000,
+            "curriculum_stage": 2,
+            "curriculum_hash": "17746256852501080240",
+            "curriculum_base_lr": 0.0003000000142,
+            "global_updates": 37500,
+            "online_first_document": 5,
+            "online_document_count": 312,
+            "answer_emphasized_documents": 312,
+            "observed_pairs": 1669212,
+            "generated_bytes": 3456,
+            "elapsed_seconds": 26.8918848,
+            "session_online_updates": 18000,
+            "session_observed_pairs": 1669212,
+            "observed_pairs_per_second": 62071.21637,
+            "replay_updates": 4500,
+            "replay_pairs": 502455,
+            "replay_mode": 1,
+            "replay_items": 1024,
+            "core_scale": 1,
+            "learning_rate": 7.500000356e-05,
+            "replay_every": 4,
+            "graph_decode": true,
+            "update_tick_p50_ms": 0.8628498481,
+            "update_tick_p95_ms": 5.558445353,
+            "update_and_speech_tick_p50_ms": 16.777216,
+            "update_and_speech_tick_p95_ms": 23.72656641,
+            "latency_percentile_bin_relative_width": 0.02189714865,
+            "shared_weights": true,
+            "persistent_membranes": true,
+            "trains_on_generated_text": false,
+            "consolidation": "none",
+            "initial_validation_loss": 2.210849047,
+            "final_validation_loss": 2.363175869
+          },
+          "probes": {
+            "format": "SGPROBE1",
+            "suite_hash": "13902254171324979855",
+            "checkpoint_payload_hash": "5334556292252358431",
+            "items": 72,
+            "pairs": 36,
+            "accuracy": 0.722222222222,
+            "context_erased_accuracy": 0.5,
+            "paired_accuracy": 0.555555555556,
+            "context_erased_paired_accuracy": 0,
+            "greedy_exact_accuracy": 0.527777777778,
+            "greedy_exact_paired_accuracy": 0.25,
+            "answer_loss_nats_per_byte": 0.220413451393,
+            "answer_bytes": 288,
+            "elapsed_seconds": 0.3169603,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "two_facts": {
+                "items": 72,
+                "accuracy": 0.722222222222,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.527777777778
+              }
+            }
+          },
+          "reading_loss_before_lessons": 2.136739,
+          "reading_forgetting_during_lessons": 0.22643686900000004,
+          "geography_after_lessons": 2.089978,
+          "checkpoint_sha256": "7c025332914d2f2f85f0872fca270cf3ac39658d772852e4c56e5ce3899588c9",
+          "example_pairs": [
+            {
+              "id": "two_facts-key-hat-box-bag-0",
+              "pair": "two_facts-key-hat-box-bag",
+              "skill": "two_facts",
+              "gold": 0,
+              "candidate_nll": [
+                2.09710407257,
+                0.785531520844
+              ],
+              "context_erased_nll": [
+                8.9615354538,
+                7.03656196594
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            },
+            {
+              "id": "two_facts-key-hat-box-bag-1",
+              "pair": "two_facts-key-hat-box-bag",
+              "skill": "two_facts",
+              "gold": 1,
+              "candidate_nll": [
+                1.26052093506,
+                0.938868045807
+              ],
+              "context_erased_nll": [
+                8.9615354538,
+                7.03656196594
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            },
+            {
+              "id": "two_facts-key-hat-box-bed-0",
+              "pair": "two_facts-key-hat-box-bed",
+              "skill": "two_facts",
+              "gold": 0,
+              "candidate_nll": [
+                1.42299175262,
+                1.01637411118
+              ],
+              "context_erased_nll": [
+                8.9615354538,
+                7.4057803154
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            },
+            {
+              "id": "two_facts-key-hat-box-bed-1",
+              "pair": "two_facts-key-hat-box-bed",
+              "skill": "two_facts",
+              "gold": 1,
+              "candidate_nll": [
+                1.21028709412,
+                1.12613487244
+              ],
+              "context_erased_nll": [
+                8.9615354538,
+                7.4057803154
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            }
+          ]
+        }
+      },
+      "reading_boundary_max_weight_difference": 0.15889409184455872
+    },
+    {
+      "founder_seed": 2026,
+      "source_checkpoint": "runs/retention-controls-2026/reservoir_low_lr/latest.ckpt",
+      "source_sha256": "ef4cc2d75098a8866240c22d61d5c4b62b432070f23a89df157ac848316af737",
+      "arms": {
+        "uniform": {
+          "answer_scale": 1,
+          "run": "runs/teaching-uniform-2026",
+          "session": {
+            "online_updates": 18000,
+            "curriculum_stage": 2,
+            "curriculum_hash": "12408386127410225579",
+            "curriculum_base_lr": 0.0003000000142,
+            "global_updates": 37500,
+            "online_first_document": 5,
+            "online_document_count": 312,
+            "answer_emphasized_documents": 0,
+            "observed_pairs": 1669212,
+            "generated_bytes": 3456,
+            "elapsed_seconds": 24.0584946,
+            "session_online_updates": 18000,
+            "session_observed_pairs": 1669212,
+            "observed_pairs_per_second": 69381.39845,
+            "replay_updates": 4500,
+            "replay_pairs": 502455,
+            "replay_mode": 1,
+            "replay_items": 1024,
+            "core_scale": 1,
+            "learning_rate": 7.500000356e-05,
+            "replay_every": 4,
+            "graph_decode": true,
+            "update_tick_p50_ms": 0.8443607552,
+            "update_tick_p95_ms": 4.286147298,
+            "update_and_speech_tick_p50_ms": 15.72165761,
+            "update_and_speech_tick_p95_ms": 17.14458919,
+            "latency_percentile_bin_relative_width": 0.02189714865,
+            "shared_weights": true,
+            "persistent_membranes": true,
+            "trains_on_generated_text": false,
+            "consolidation": "none",
+            "initial_validation_loss": 2.198942184,
+            "final_validation_loss": 2.397171736
+          },
+          "probes": {
+            "format": "SGPROBE1",
+            "suite_hash": "13902254171324979855",
+            "checkpoint_payload_hash": "13031311270469706372",
+            "items": 72,
+            "pairs": 36,
+            "accuracy": 0.472222222222,
+            "context_erased_accuracy": 0.5,
+            "paired_accuracy": 0.0555555555556,
+            "context_erased_paired_accuracy": 0,
+            "greedy_exact_accuracy": 0.277777777778,
+            "greedy_exact_paired_accuracy": 0,
+            "answer_loss_nats_per_byte": 0.347962862915,
+            "answer_bytes": 288,
+            "elapsed_seconds": 0.289757,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "two_facts": {
+                "items": 72,
+                "accuracy": 0.472222222222,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.277777777778
+              }
+            }
+          },
+          "reading_loss_before_lessons": 2.133428,
+          "reading_forgetting_during_lessons": 0.26374373600000034,
+          "geography_after_lessons": 2.147542,
+          "checkpoint_sha256": "39a23d034cd16fea0525a10f3956a677df2a0952fd8ca33f205abaa0eecb9a60",
+          "example_pairs": [
+            {
+              "id": "two_facts-key-hat-box-bag-0",
+              "pair": "two_facts-key-hat-box-bag",
+              "skill": "two_facts",
+              "gold": 0,
+              "candidate_nll": [
+                1.78861045837,
+                1.07257986069
+              ],
+              "context_erased_nll": [
+                1.97034645081,
+                1.21971511841
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            },
+            {
+              "id": "two_facts-key-hat-box-bag-1",
+              "pair": "two_facts-key-hat-box-bag",
+              "skill": "two_facts",
+              "gold": 1,
+              "candidate_nll": [
+                1.76097345352,
+                1.11448478699
+              ],
+              "context_erased_nll": [
+                1.97034645081,
+                1.21971511841
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            },
+            {
+              "id": "two_facts-key-hat-box-bed-0",
+              "pair": "two_facts-key-hat-box-bed",
+              "skill": "two_facts",
+              "gold": 0,
+              "candidate_nll": [
+                1.7345700264,
+                1.03999519348
+              ],
+              "context_erased_nll": [
+                1.97034645081,
+                1.14592313766
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bed."
+            },
+            {
+              "id": "two_facts-key-hat-box-bed-1",
+              "pair": "two_facts-key-hat-box-bed",
+              "skill": "two_facts",
+              "gold": 1,
+              "candidate_nll": [
+                1.87677717209,
+                1.17545032501
+              ],
+              "context_erased_nll": [
+                1.97034645081,
+                1.14592313766
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            }
+          ]
+        },
+        "emphasis": {
+          "answer_scale": 64,
+          "run": "runs/teaching-emphasis-2026",
+          "session": {
+            "online_updates": 18000,
+            "curriculum_stage": 2,
+            "curriculum_hash": "17746256852501080240",
+            "curriculum_base_lr": 0.0003000000142,
+            "global_updates": 37500,
+            "online_first_document": 5,
+            "online_document_count": 312,
+            "answer_emphasized_documents": 312,
+            "observed_pairs": 1669212,
+            "generated_bytes": 3456,
+            "elapsed_seconds": 24.8620058,
+            "session_online_updates": 18000,
+            "session_observed_pairs": 1669212,
+            "observed_pairs_per_second": 67139.0721,
+            "replay_updates": 4500,
+            "replay_pairs": 502455,
+            "replay_mode": 1,
+            "replay_items": 1024,
+            "core_scale": 1,
+            "learning_rate": 7.500000356e-05,
+            "replay_every": 4,
+            "graph_decode": true,
+            "update_tick_p50_ms": 0.8628498481,
+            "update_tick_p95_ms": 4.380001703,
+            "update_and_speech_tick_p50_ms": 15.72165761,
+            "update_and_speech_tick_p95_ms": 18.69630709,
+            "latency_percentile_bin_relative_width": 0.02189714865,
+            "shared_weights": true,
+            "persistent_membranes": true,
+            "trains_on_generated_text": false,
+            "consolidation": "none",
+            "initial_validation_loss": 2.198942184,
+            "final_validation_loss": 2.341615438
+          },
+          "probes": {
+            "format": "SGPROBE1",
+            "suite_hash": "13902254171324979855",
+            "checkpoint_payload_hash": "7883810487998801186",
+            "items": 72,
+            "pairs": 36,
+            "accuracy": 0.555555555556,
+            "context_erased_accuracy": 0.5,
+            "paired_accuracy": 0.111111111111,
+            "context_erased_paired_accuracy": 0,
+            "greedy_exact_accuracy": 0.430555555556,
+            "greedy_exact_paired_accuracy": 0.111111111111,
+            "answer_loss_nats_per_byte": 0.306174058053,
+            "answer_bytes": 288,
+            "elapsed_seconds": 0.3008198,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "two_facts": {
+                "items": 72,
+                "accuracy": 0.555555555556,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.430555555556
+              }
+            }
+          },
+          "reading_loss_before_lessons": 2.124157,
+          "reading_forgetting_during_lessons": 0.21745843799999998,
+          "geography_after_lessons": 2.07423,
+          "checkpoint_sha256": "edf8bc646dcda704dab3723fd16734f9bd4c26cb0dfd4948c67b0c05d522cc4c",
+          "example_pairs": [
+            {
+              "id": "two_facts-key-hat-box-bag-0",
+              "pair": "two_facts-key-hat-box-bag",
+              "skill": "two_facts",
+              "gold": 0,
+              "candidate_nll": [
+                2.73265457153,
+                2.40670967102
+              ],
+              "context_erased_nll": [
+                1.68638515472,
+                1.25958490372
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "car."
+            },
+            {
+              "id": "two_facts-key-hat-box-bag-1",
+              "pair": "two_facts-key-hat-box-bag",
+              "skill": "two_facts",
+              "gold": 1,
+              "candidate_nll": [
+                1.96501922607,
+                1.52876281738
+              ],
+              "context_erased_nll": [
+                1.68638515472,
+                1.25958490372
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "car."
+            },
+            {
+              "id": "two_facts-key-hat-box-bed-0",
+              "pair": "two_facts-key-hat-box-bed",
+              "skill": "two_facts",
+              "gold": 0,
+              "candidate_nll": [
+                1.40036296844,
+                0.962529182434
+              ],
+              "context_erased_nll": [
+                1.68638515472,
+                1.64418268204
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bed."
+            },
+            {
+              "id": "two_facts-key-hat-box-bed-1",
+              "pair": "two_facts-key-hat-box-bed",
+              "skill": "two_facts",
+              "gold": 1,
+              "candidate_nll": [
+                1.304292202,
+                0.878842353821
+              ],
+              "context_erased_nll": [
+                1.68638515472,
+                1.64418268204
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bed."
+            }
+          ]
+        }
+      },
+      "reading_boundary_max_weight_difference": 0.14682310819625854
+    },
+    {
+      "founder_seed": 31415,
+      "source_checkpoint": "runs/retention-controls-31415/reservoir_low_lr/latest.ckpt",
+      "source_sha256": "8818cb6ffbc7ec36c2b9d6d9f3104dbb81e57a17f08a92b51dc051f4570466df",
+      "arms": {
+        "uniform": {
+          "answer_scale": 1,
+          "run": "runs/teaching-uniform-31415",
+          "session": {
+            "online_updates": 18000,
+            "curriculum_stage": 2,
+            "curriculum_hash": "12408386127410225579",
+            "curriculum_base_lr": 0.0003000000142,
+            "global_updates": 37500,
+            "online_first_document": 5,
+            "online_document_count": 312,
+            "answer_emphasized_documents": 0,
+            "observed_pairs": 1669212,
+            "generated_bytes": 3456,
+            "elapsed_seconds": 24.6722043,
+            "session_online_updates": 18000,
+            "session_observed_pairs": 1669212,
+            "observed_pairs_per_second": 67655.56817,
+            "replay_updates": 4500,
+            "replay_pairs": 502455,
+            "replay_mode": 1,
+            "replay_items": 1024,
+            "core_scale": 1,
+            "learning_rate": 7.500000356e-05,
+            "replay_every": 4,
+            "graph_decode": true,
+            "update_tick_p50_ms": 0.8628498481,
+            "update_tick_p95_ms": 4.286147298,
+            "update_and_speech_tick_p50_ms": 16.06591708,
+            "update_and_speech_tick_p95_ms": 20.38846745,
+            "latency_percentile_bin_relative_width": 0.02189714865,
+            "shared_weights": true,
+            "persistent_membranes": true,
+            "trains_on_generated_text": false,
+            "consolidation": "none",
+            "initial_validation_loss": 2.239571333,
+            "final_validation_loss": 2.4245193
+          },
+          "probes": {
+            "format": "SGPROBE1",
+            "suite_hash": "13902254171324979855",
+            "checkpoint_payload_hash": "6717260299838735727",
+            "items": 72,
+            "pairs": 36,
+            "accuracy": 0.486111111111,
+            "context_erased_accuracy": 0.5,
+            "paired_accuracy": 0.111111111111,
+            "context_erased_paired_accuracy": 0,
+            "greedy_exact_accuracy": 0.25,
+            "greedy_exact_paired_accuracy": 0.0555555555556,
+            "answer_loss_nats_per_byte": 0.348052198688,
+            "answer_bytes": 288,
+            "elapsed_seconds": 0.3040384,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "two_facts": {
+                "items": 72,
+                "accuracy": 0.486111111111,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.25
+              }
+            }
+          },
+          "reading_loss_before_lessons": 2.146187,
+          "reading_forgetting_during_lessons": 0.2783323000000002,
+          "geography_after_lessons": 2.09634,
+          "checkpoint_sha256": "95d788aa778d82e16f394ca17e27e67977fcab27c2740e770f2e44febaae555f",
+          "example_pairs": [
+            {
+              "id": "two_facts-key-hat-box-bag-0",
+              "pair": "two_facts-key-hat-box-bag",
+              "skill": "two_facts",
+              "gold": 0,
+              "candidate_nll": [
+                1.89684820175,
+                1.17272377014
+              ],
+              "context_erased_nll": [
+                1.94214344025,
+                1.24626922607
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            },
+            {
+              "id": "two_facts-key-hat-box-bag-1",
+              "pair": "two_facts-key-hat-box-bag",
+              "skill": "two_facts",
+              "gold": 1,
+              "candidate_nll": [
+                2.05613708496,
+                1.28856611252
+              ],
+              "context_erased_nll": [
+                1.94214344025,
+                1.24626922607
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            },
+            {
+              "id": "two_facts-key-hat-box-bed-0",
+              "pair": "two_facts-key-hat-box-bed",
+              "skill": "two_facts",
+              "gold": 0,
+              "candidate_nll": [
+                2.18341493607,
+                0.971700668335
+              ],
+              "context_erased_nll": [
+                1.94214344025,
+                1.53235387802
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bed."
+            },
+            {
+              "id": "two_facts-key-hat-box-bed-1",
+              "pair": "two_facts-key-hat-box-bed",
+              "skill": "two_facts",
+              "gold": 1,
+              "candidate_nll": [
+                1.99273252487,
+                1.2102804184
+              ],
+              "context_erased_nll": [
+                1.94214344025,
+                1.53235387802
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            }
+          ]
+        },
+        "emphasis": {
+          "answer_scale": 64,
+          "run": "runs/teaching-emphasis-31415",
+          "session": {
+            "online_updates": 18000,
+            "curriculum_stage": 2,
+            "curriculum_hash": "17746256852501080240",
+            "curriculum_base_lr": 0.0003000000142,
+            "global_updates": 37500,
+            "online_first_document": 5,
+            "online_document_count": 312,
+            "answer_emphasized_documents": 312,
+            "observed_pairs": 1669212,
+            "generated_bytes": 3456,
+            "elapsed_seconds": 24.7691978,
+            "session_online_updates": 18000,
+            "session_observed_pairs": 1669212,
+            "observed_pairs_per_second": 67390.63628,
+            "replay_updates": 4500,
+            "replay_pairs": 502455,
+            "replay_mode": 1,
+            "replay_items": 1024,
+            "core_scale": 1,
+            "learning_rate": 7.500000356e-05,
+            "replay_every": 4,
+            "graph_decode": true,
+            "update_tick_p50_ms": 0.8628498481,
+            "update_tick_p95_ms": 4.286147298,
+            "update_and_speech_tick_p50_ms": 15.72165761,
+            "update_and_speech_tick_p95_ms": 21.75735733,
+            "latency_percentile_bin_relative_width": 0.02189714865,
+            "shared_weights": true,
+            "persistent_membranes": true,
+            "trains_on_generated_text": false,
+            "consolidation": "none",
+            "initial_validation_loss": 2.239571333,
+            "final_validation_loss": 2.409849644
+          },
+          "probes": {
+            "format": "SGPROBE1",
+            "suite_hash": "13902254171324979855",
+            "checkpoint_payload_hash": "16924876134709310034",
+            "items": 72,
+            "pairs": 36,
+            "accuracy": 0.75,
+            "context_erased_accuracy": 0.5,
+            "paired_accuracy": 0.5,
+            "context_erased_paired_accuracy": 0,
+            "greedy_exact_accuracy": 0.611111111111,
+            "greedy_exact_paired_accuracy": 0.277777777778,
+            "answer_loss_nats_per_byte": 0.208646027578,
+            "answer_bytes": 288,
+            "elapsed_seconds": 0.2966181,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "two_facts": {
+                "items": 72,
+                "accuracy": 0.75,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.611111111111
+              }
+            }
+          },
+          "reading_loss_before_lessons": 2.15276,
+          "reading_forgetting_during_lessons": 0.2570896440000001,
+          "geography_after_lessons": 2.113118,
+          "checkpoint_sha256": "ae5d4f79d4a577203da76bf081d20f0a897a6164c3463b363fc180277e6847e4",
+          "example_pairs": [
+            {
+              "id": "two_facts-key-hat-box-bag-0",
+              "pair": "two_facts-key-hat-box-bag",
+              "skill": "two_facts",
+              "gold": 0,
+              "candidate_nll": [
+                1.3954744339,
+                0.963544845581
+              ],
+              "context_erased_nll": [
+                1.22679805756,
+                0.988555431366
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            },
+            {
+              "id": "two_facts-key-hat-box-bag-1",
+              "pair": "two_facts-key-hat-box-bag",
+              "skill": "two_facts",
+              "gold": 1,
+              "candidate_nll": [
+                1.32478952408,
+                0.969672679901
+              ],
+              "context_erased_nll": [
+                1.22679805756,
+                0.988555431366
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 1,
+              "greedy": "bag."
+            },
+            {
+              "id": "two_facts-key-hat-box-bed-0",
+              "pair": "two_facts-key-hat-box-bed",
+              "skill": "two_facts",
+              "gold": 0,
+              "candidate_nll": [
+                1.80445289612,
+                0.463593482971
+              ],
+              "context_erased_nll": [
+                1.22679805756,
+                1.36454343796
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 0,
+              "greedy": "bed."
+            },
+            {
+              "id": "two_facts-key-hat-box-bed-1",
+              "pair": "two_facts-key-hat-box-bed",
+              "skill": "two_facts",
+              "gold": 1,
+              "candidate_nll": [
+                1.46211671829,
+                0.767182350159
+              ],
+              "context_erased_nll": [
+                1.22679805756,
+                1.36454343796
+              ],
+              "prediction": 1,
+              "context_erased_prediction": 0,
+              "greedy": "bed."
+            }
+          ]
+        }
+      },
+      "reading_boundary_max_weight_difference": 0.13417896628379822
+    }
+  ],
+  "aggregate": {
+    "uniform": {
+      "accuracy": {
+        "mean": 0.48148148148133335,
+        "sample_sd": 0.008018753738808969,
+        "values": [
+          0.486111111111,
+          0.472222222222,
+          0.486111111111
+        ]
+      },
+      "paired_accuracy": {
+        "mean": 0.055555555555533334,
+        "sample_sd": 0.0555555555555,
+        "values": [
+          0,
+          0.0555555555556,
+          0.111111111111
+        ]
+      },
+      "greedy_exact_accuracy": {
+        "mean": 0.26851851851866665,
+        "sample_sd": 0.016037507477617906,
+        "values": [
+          0.277777777778,
+          0.277777777778,
+          0.25
+        ]
+      },
+      "greedy_exact_paired_accuracy": {
+        "mean": 0.018518518518533335,
+        "sample_sd": 0.03207501495500487,
+        "values": [
+          0,
+          0,
+          0.0555555555556
+        ]
+      },
+      "answer_loss_nats_per_byte": {
+        "mean": 0.3514255318373333,
+        "sample_sd": 0.005920319962886934,
+        "values": [
+          0.358261533909,
+          0.347962862915,
+          0.348052198688
+        ]
+      },
+      "final_validation_loss": {
+        "mean": 2.4158279896666666,
+        "sample_sd": 0.016169334739281248,
+        "values": [
+          2.425792933,
+          2.397171736,
+          2.4245193
+        ]
+      },
+      "elapsed_seconds": {
+        "mean": 25.510347566666667,
+        "sample_sd": 2.006793950678336,
+        "values": [
+          27.8003438,
+          24.0584946,
+          24.6722043
+        ]
+      },
+      "update_tick_p95_ms": {
+        "mean": 4.792277783333334,
+        "sample_sd": 0.8766437158568277,
+        "values": [
+          5.804538754,
+          4.286147298,
+          4.286147298
+        ]
+      },
+      "update_and_speech_tick_p95_ms": {
+        "mean": 19.019039986666666,
+        "sample_sd": 1.6798729019879712,
+        "values": [
+          19.52406332,
+          17.14458919,
+          20.38846745
+        ]
+      },
+      "reading_forgetting_during_lessons": {
+        "mean": 0.2793519896666668,
+        "sample_sd": 0.016142271355603133,
+        "values": [
+          0.2959799329999999,
+          0.26374373600000034,
+          0.2783323000000002
+        ]
+      },
+      "geography_after_lessons": {
+        "mean": 2.1297763333333335,
+        "sample_sd": 0.028975654372823567,
+        "values": [
+          2.145447,
+          2.147542,
+          2.09634
+        ]
+      }
+    },
+    "emphasis": {
+      "accuracy": {
+        "mean": 0.675925925926,
+        "sample_sd": 0.10516496936636847,
+        "values": [
+          0.722222222222,
+          0.555555555556,
+          0.75
+        ]
+      },
+      "paired_accuracy": {
+        "mean": 0.388888888889,
+        "sample_sd": 0.24216105241914299,
+        "values": [
+          0.555555555556,
+          0.111111111111,
+          0.5
+        ]
+      },
+      "greedy_exact_accuracy": {
+        "mean": 0.5231481481483333,
+        "sample_sd": 0.09036676525871992,
+        "values": [
+          0.527777777778,
+          0.430555555556,
+          0.611111111111
+        ]
+      },
+      "greedy_exact_paired_accuracy": {
+        "mean": 0.212962962963,
+        "sample_sd": 0.08929306260193064,
+        "values": [
+          0.25,
+          0.111111111111,
+          0.277777777778
+        ]
+      },
+      "answer_loss_nats_per_byte": {
+        "mean": 0.24507784567466667,
+        "sample_sd": 0.053237002555029965,
+        "values": [
+          0.220413451393,
+          0.306174058053,
+          0.208646027578
+        ]
+      },
+      "final_validation_loss": {
+        "mean": 2.3715469836666667,
+        "sample_sd": 0.03487883868027248,
+        "values": [
+          2.363175869,
+          2.341615438,
+          2.409849644
+        ]
+      },
+      "elapsed_seconds": {
+        "mean": 25.507696133333333,
+        "sample_sd": 1.199640375242653,
+        "values": [
+          26.8918848,
+          24.8620058,
+          24.7691978
+        ]
+      },
+      "update_tick_p95_ms": {
+        "mean": 4.7415314513333335,
+        "sample_sd": 0.709022851808507,
+        "values": [
+          5.558445353,
+          4.380001703,
+          4.286147298
+        ]
+      },
+      "update_and_speech_tick_p95_ms": {
+        "mean": 21.393410276666668,
+        "sample_sd": 2.534801826540731,
+        "values": [
+          23.72656641,
+          18.69630709,
+          21.75735733
+        ]
+      },
+      "reading_forgetting_during_lessons": {
+        "mean": 0.2336616503333334,
+        "sample_sd": 0.020779947575474612,
+        "values": [
+          0.22643686900000004,
+          0.21745843799999998,
+          0.2570896440000001
+        ]
+      },
+      "geography_after_lessons": {
+        "mean": 2.092442,
+        "sample_sd": 0.019560741499237727,
+        "values": [
+          2.089978,
+          2.07423,
+          2.113118
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Three exploratory founder checkpoints. Answer factor selected after a failed pilot; no independent test confirmation.",
+    "The first founder used the ordinary live profile; the other two used reservoir_low_lr with zero-strength SI tracking in the preceding retention experiment. Each comparison uses the same supplied checkpoint within its founder.",
+    "Reading phases run separately and their weights differ before lessons; this is a whole-protocol comparison.",
+    "Queries always name the first object. Success may be first-location copying and does not establish arbitrary binding or broad reasoning.",
+    "Earlier-reader and geography losses remain worse than prior book-only models. Replay reduces but does not eliminate forgetting.",
+    "Generated general prose remains incoherent. No automatic mastery or parental-distillation claim.",
+    "Timing is one RTX 5080 host, sequential fixed arm order; loop includes speech/replay/checkpoint/logging but excludes setup and endpoint evaluation."
+  ],
+  "initial_weights_and_both_optimizer_moments_verified_identical": true
+}

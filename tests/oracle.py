@@ -109,7 +109,13 @@ def check(directory):
         activities.append(all_spikes.abs().mean())
         x = x + F.linear(all_spikes, wo, bo)
     logits = F.linear(norm(x, final_gain), head, bias)
-    loss = F.cross_entropy(logits.reshape(-1, 256), targets)
+    target_weights_path = directory / 'target_weights.f32'
+    if target_weights_path.exists():
+        target_weights = torch.from_numpy(np.fromfile(target_weights_path, '<f4').copy())
+        token_loss = F.cross_entropy(logits.reshape(-1, 256), targets, reduction='none')
+        loss = (token_loss * target_weights).sum() / target_weights.sum()
+    else:
+        loss = F.cross_entropy(logits.reshape(-1, 256), targets)
     if initial_path.exists():
         native_state = np.fromfile(directory / 'final_state.f32', '<f4')
         assert np.allclose(native_state, torch.stack(final_states).numpy().reshape(-1), atol=2e-5, rtol=1e-5)
@@ -141,7 +147,8 @@ def check(directory):
     regularized_error = float(np.max(np.abs(regularized - weights.grad.numpy())))
     assert np.allclose(regularized, weights.grad.numpy(), atol=3e-6, rtol=5e-4), regularized_error
     result = {'passed': True, 'reference': 'independent CPU PyTorch autograd',
-              'nonzero_boundary_state': initial_path.exists(), 'cell': cfg.get('cell', 1),
+              'nonzero_boundary_state': initial_path.exists(), 'weighted_targets': target_weights_path.exists(),
+              'cell': cfg.get('cell', 1),
               'loss': loss.item(), 'logits_max_abs_error': float(np.max(np.abs(actual_logits - expected_logits))),
               'gradients_max_abs_error': float(np.max(np.abs(actual_grad - expected_grad))),
               'adam_update_max_abs_error': update_error, 'regularized_gradient_max_abs_error': regularized_error,

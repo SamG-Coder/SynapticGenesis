@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "native_commands": 17,
+  "canonical_checkpoint_updated": true,
+  "evolution_reads_exact_learned_payload": true,
+  "inherited_rate_preserved_exactly": true,
+  "mature_parent_base_rates_inherited": true,
+  "live_curriculum_and_si_resume": true,
+  "learning_does_not_reset_age": true,
+  "selected_answer_feedback_in_population_stream": true,
+  "lineage_and_birth_checkpoint_preserved": true,
+  "wrong_evaluation_corpus_rejected": true,
+  "writer_lock_blocks_learning_and_aging": true,
+  "dead_member_cannot_resume_learning": true,
+  "dead_archive_remains_readable": true,
+  "learned_checkpoint_sha256": "2ef54cc66513f0c35e11e7bfbb906e2eecf88a76056357941d1868c78952d3b3"
+}

@@ -17,7 +17,8 @@ The native learner, population registry, fitness-gated reproduction and bounded 
 - Native parent selection, whole-block inheritance, inherited learning settings and probabilistic hidden-neuron growth within size limits.
 - GPU-memory-based population credits, stricter selection under scarcity, inherited lifespans and old-age death.
 - Population-owned live sessions update the exact checkpoint used for selection, preserve lifespan/lineage, and reject deceased members.
-- Eight native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
+- Nine native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
+- Context-reversal language probes and explicit answer emphasis for selected teaching lessons in the same live runtime.
 
 The default model has **1,186,304 parameters**, four residual blocks, width 256 and 512 spiking neurons per block. Training uses dense CUDA/cuBLAS operations, surrogate gradients and AdamW. Spikes do not by themselves establish an energy or speed advantage. See the [architecture](docs/architecture.md) and [development design](docs/general-development.md).
 
@@ -59,7 +60,7 @@ python scripts/prepare_corpus.py
 
 Each `stage-N.dat` contains only that stage's training sources. `train.dat` pools all training stages. The `through-stage-N.dat` files and `curriculum.sg` provide cumulative editions for live development without discarding earlier replay windows. `validation.dat` and `test.dat` contain separate books and never supply training targets. Documents are separated by byte `0x1e`, which the model excludes from sampled windows. Exact normalized paragraphs of at least 120 characters are deduplicated, reserving held-out material first.
 
-This is an initial, small historical reading curriculum. Its stages describe increasing text complexity, not validated human ages. Shared tales, paraphrases, shorter overlap and historical assumptions remain possible. Broader modern subject coverage and independent skill probes are future work. See [data details](docs/data.md).
+This is an initial, small historical reading curriculum. Its stages describe increasing text complexity, not validated human ages. Shared tales, paraphrases, shorter overlap and historical assumptions remain possible. Broader modern subject coverage remains future work; the separate selected lesson probes now assess one narrow context-dependent skill. See [data details](docs/data.md).
 
 ## Optional batched founder training
 
@@ -101,18 +102,21 @@ Optional `--consolidation si --si-strength 0.001` enables a synaptic-importance 
 
 ## Validate
 
-`build.ps1` runs the eight native suites. For independent gradient checks, install CPU PyTorch and NumPy in your own test environment and run:
+`build.ps1` runs the nine native suites. For independent gradient checks, install CPU PyTorch and NumPy in your own test environment and run:
 
 ```powershell
 python tests/oracle.py build/test-results
 python tests/oracle.py build/live-test-results
 python tests/oracle.py build/adaptive-test-results
+python tests/oracle.py build/feedback-test-results/lif
+python tests/oracle.py build/feedback-test-results/alif
 python tests/synaptic_oracle.py build/synaptic-test-results
 python tests/burn_policy.py --out runs/burn-policy-test
 python tests/population_cli.py --out runs/population-cli-test
 python tests/curriculum_cli.py --out runs/curriculum-cli-test
 python tests/population_live_cli.py --out runs/population-live-cli-test
 python tests/retention_cli.py --out runs/retention-cli-test
+python tests/probes_cli.py --out runs/probes-cli-test
 ```
 
 The consolidation oracle and CLI integration test use only Python's standard library. Numerical tests use disposable synthetic models, isolated from founders. [Validation evidence](reports/validation.md) records what was checked for this repository.

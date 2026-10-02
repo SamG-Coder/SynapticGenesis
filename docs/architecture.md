@@ -50,6 +50,8 @@ Replay stores document/offset/length descriptors for previously observed source 
 
 `--core-scale` scales the learning rate for embeddings and spiking blocks; the output head keeps the full rate. It does not eliminate backpropagation or optimizer bookkeeping.
 
+An explicit version-3 curriculum may emphasize answer targets in selected lesson documents. Both live observations and replay use the same per-window normalized weighted loss, while inference and held-out evaluation stay unchanged. The policy is bound by the curriculum identity and restored with its document annotations. See [answer-emphasis semantics](live-curriculum.md). Independent CPU autograd checks the weighted gradients for both cell types, including incoming recurrent state and activity regularization.
+
 ## Selective consolidation
 
 Optional `--consolidation si` records a per-parameter path integral of task gradient times actual optimizer displacement. At each update and completed document boundary:

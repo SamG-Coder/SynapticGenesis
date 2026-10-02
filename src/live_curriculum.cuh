@@ -8,6 +8,8 @@ struct CurriculumStage {
     uint64_t corpus_hash = 0;
     bool new_documents_only = false;
     size_t first_document = 0;
+    size_t added_document = 0, document_count = 0;
+    float answer_scale = 1;
 };
 struct LiveCurriculum {
     std::vector<CurriculumStage> stages;
@@ -25,7 +27,8 @@ struct LiveCurriculum {
         std::getline(input, magic);
         if (!magic.empty() && magic.back() == '\r')
             magic.pop_back();
-        require(magic == "SGCURRICULUM1" || magic == "SGCURRICULUM2", "Unsupported curriculum schedule");
+        require(magic == "SGCURRICULUM1" || magic == "SGCURRICULUM2" || magic == "SGCURRICULUM3",
+                "Unsupported curriculum schedule");
         while (std::getline(input, line)) {
             if (line.find_first_not_of(" \t\r") == std::string::npos)
                 continue;
@@ -33,15 +36,18 @@ struct LiveCurriculum {
             std::string filename, extra, scope = "all";
             std::istringstream row(line);
             row >> stage.end_update >> std::quoted(filename) >> stage.rate_scale;
-            if (magic == "SGCURRICULUM2")
+            if (magic != "SGCURRICULUM1")
                 row >> scope;
+            if (magic == "SGCURRICULUM3")
+                row >> stage.answer_scale;
             require(bool(row) && !(row >> extra) && !filename.empty() &&
                         stage.end_update > (stages.empty() ? 0 : stages.back().end_update) &&
                         stage.end_update <= 100000000 && std::isfinite(stage.rate_scale) &&
                         stage.rate_scale > 0 && stage.rate_scale <= 10 && stages.size() < 4096 &&
-                        (scope == "all" || scope == "new"),
-                    "Invalid curriculum row: expected increasing end-update, quoted path, LR scale and v2 "
-                    "scope all|new");
+                        (scope == "all" || scope == "new") && std::isfinite(stage.answer_scale) &&
+                        stage.answer_scale >= 1 && stage.answer_scale <= 1000,
+                    "Invalid curriculum row: expected end-update, quoted path, LR scale, v2/v3 scope "
+                    "all|new and v3 answer scale in [1,1000]");
             stage.new_documents_only = scope == "new";
             stage.corpus = (path.parent_path() / fs::path(filename)).lexically_normal();
             stages.push_back(stage);
@@ -55,6 +61,9 @@ struct LiveCurriculum {
             if (previous)
                 validate_append(*previous, *current);
             stage.first_document = previous && stage.new_documents_only ? previous->docs.size() : 0;
+            stage.added_document = previous ? previous->docs.size() : 0;
+            stage.document_count = current->docs.size();
+            current->emphasize_answers(stage.added_document, stage.document_count, stage.answer_scale);
             stage.corpus_hash = current->hash;
             hash = hash_bytes(&stage.corpus_hash, sizeof(stage.corpus_hash), hash);
             previous = std::move(current);
@@ -99,9 +108,15 @@ struct LiveCurriculum {
         validate(s);
         LiveCorpus result(stages[size_t(s.extra[15])].corpus);
         result.first_document = stages[size_t(s.extra[15])].first_document;
+        apply_feedback(result, size_t(s.extra[15]));
         require(result.hash == stages[size_t(s.extra[15])].corpus_hash,
                 "Curriculum source changed during this invocation");
         return result;
+    }
+    void apply_feedback(LiveCorpus &data, size_t stage) const {
+        for (size_t i = 0; i <= stage; ++i)
+            data.emphasize_answers(stages[i].added_document, stages[i].document_count,
+                                   stages[i].answer_scale);
     }
     bool advance(LiveEngine &engine, LiveCorpus &data, State &s, std::ostream *events = nullptr) const {
         validate(s);
@@ -110,6 +125,7 @@ struct LiveCurriculum {
             return false;
         LiveCorpus next(stages[index + 1].corpus);
         next.first_document = stages[index + 1].first_document;
+        apply_feedback(next, index + 1);
         require(next.hash == stages[index + 1].corpus_hash,
                 "Curriculum source changed during this invocation");
         validate_append(data, next);
@@ -142,6 +158,8 @@ struct LiveCurriculum {
                     << ",\"online_first_document\":" << data.first_document
                     << ",\"online_document_count\":" << data.docs.size() - data.first_document
                     << ",\"learning_rate\":" << s.hp[0]
+                    << ",\"new_document_answer_scale\":" << stages[index + 1].answer_scale
+                    << ",\"answer_emphasized_documents\":" << data.feedback.size()
                     << ",\"consolidation_events\":" << engine.root.synapses->boundaries << "}\n";
         return true;
     }

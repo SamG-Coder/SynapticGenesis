@@ -12,6 +12,8 @@
   "checkpoint_files_unchanged": true,
   "malformed_pairs_rejected": true,
   "prepared_bytes_reproducible": true,
+  "reading_bytes_preserved": true,
+  "heldout_reading_lf_and_crlf_rejected": true,
   "heldout_contexts_absent_from_lessons": true,
   "synthetic_fixture_only": true
 }

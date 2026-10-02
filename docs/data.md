@@ -50,3 +50,9 @@ python scripts/prepare_corpus.py --sources data/sources-development-v2.json --ou
 ```
 
 Preparation starts at the first lecture/lesson and removes the trailing ebook attribution. The verified edition has 324,154 additional training bytes and 84,318 additional held-out bytes. All original foundation training/stage and final-test bytes remain identical. The extension has 585,436 training bytes including separators. Individual cleaned held-out files support separate old/new-domain evaluation; their different difficulty levels must not be interpreted as directly comparable skill scores.
+
+## Selected original teaching lessons
+
+[lessons-relations-v1.json](../data/lessons-relations-v1.json) selects literal templates and a small vocabulary for 312 short location lessons. These original MIT-licensed lessons add 24,071 training bytes, generated deterministically by `scripts/prepare_lessons.py`; no pretrained parameters or parental output distributions are imported. They are a separate optional teaching experiment, not an expansion of the book allowlist by an uncontrolled scraper.
+
+The [probe protocol](language-probes.md) specifies the split by ordered object pairs, source-derived answers, context-reversal tests and the important first-object limitation. Optional `--reading` retains the selected old training corpus byte for byte and builds two explicit replay curricula. Preparation rejects held-out probe contexts in that reading corpus after normalizing line endings. It does not detect paraphrases or all forms of semantic overlap. [Reproduction evidence](../reports/teaching-reproduction.json) checks all prepared bytes and both LF/CRLF contamination controls. The published [manifest](../reports/teaching-v1-manifest.json) identifies the combined 609,508-byte training edition and both supervision schedules. Neither the development probes nor the reserved test probes enter learning.

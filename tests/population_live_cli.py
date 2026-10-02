@@ -13,10 +13,10 @@ def check(exe, out):
     out.mkdir(parents=True, exist_ok=False)
     train, later, val = out / 'train.dat', out / 'later.dat', out / 'validation.dat'
     train.write_bytes(b'A child sees the bird in a tree. The bird sings. ' * 12)
-    later.write_bytes(train.read_bytes() + b'\x1e' + b'A seed needs water and sunlight. The child waters the garden. ' * 12)
+    later.write_bytes(train.read_bytes() + b'\x1e' + b'The seed needs water.\nAnswer: water.')
     val.write_bytes(b'The child rests near a tree. A bird sees the garden. ' * 12)
     schedule = out / 'curriculum.sg'
-    schedule.write_bytes(b'SGCURRICULUM1\n3 "train.dat" 1\n8 "later.dat" 0.5\n')
+    schedule.write_bytes(b'SGCURRICULUM3\n3 "train.dat" 1 all 1\n8 "later.dat" 0.5 new 64\n')
     population = out / 'population'
     calls = 0
 
@@ -74,6 +74,7 @@ def check(exe, out):
     extras = struct.unpack_from(f'<{meta[31]}Q', learned, 288 + 12 * meta[14] + 4 * meta[18])
     assert meta[24] == 8 and extras[5] == 8 and extras[6] == 4 and extras[15] == 1
     assert struct.unpack_from('<8f', learned, 256)[0] == base_rate * .5
+    assert json.loads((child / 'live/session.json').read_text())['answer_emphasized_documents'] == 1
     events = [json.loads(s) for s in (child / 'live/population.jsonl').read_text().splitlines()]
     assert len(events) == 2 and events[1]['starting_online_updates'] == 3
     assert all(e['age'] == 0 and e['generation'] == 1 and not e['automatic_fitness_promotion'] for e in events)
@@ -110,6 +111,7 @@ def check(exe, out):
               'evolution_reads_exact_learned_payload': True, 'inherited_rate_preserved_exactly': True,
               'mature_parent_base_rates_inherited': True,
               'live_curriculum_and_si_resume': True, 'learning_does_not_reset_age': True,
+              'selected_answer_feedback_in_population_stream': True,
               'lineage_and_birth_checkpoint_preserved': True, 'wrong_evaluation_corpus_rejected': True,
               'writer_lock_blocks_learning_and_aging': True, 'dead_member_cannot_resume_learning': True,
               'dead_archive_remains_readable': True, 'learned_checkpoint_sha256': hashlib.sha256(learned).hexdigest()}

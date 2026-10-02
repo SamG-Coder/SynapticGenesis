@@ -25,7 +25,7 @@ def write_probes(path, rows):
     path.write_bytes(''.join(lines).encode('ascii'))
 
 
-def prepare(spec_path, out):
+def prepare(spec_path, out, reading=None):
     spec_bytes = spec_path.read_bytes()
     spec = json.loads(spec_bytes)
     assert spec['version'] == 'relations-v1'
@@ -72,11 +72,26 @@ def prepare(spec_path, out):
             assert not any(row['context'] in item for item in train)
     documents = sorted(train)
     random.Random(819731).shuffle(documents)
+    original = reading.read_bytes() if reading is not None else None
+    if original is not None:
+        if not original or original.endswith(b'\x1e'):
+            raise ValueError('Prior reading corpus must contain text and end inside a document')
+        normalized = original.replace(b'\r\n', b'\n').replace(b'\r', b'\n')
+        for partition in ('development', 'test'):
+            for row in probes[partition]:
+                if row['context'].encode('ascii') in normalized:
+                    raise ValueError('Prior reading corpus contains a held-out probe context')
     out.mkdir(parents=True, exist_ok=False)
     (out / 'train.dat').write_bytes(b'\x1e'.join(doc.encode('ascii') for doc in documents))
     shutil.copyfile(spec_path, out / 'source-spec.json')
     for partition, rows in probes.items():
         write_probes(out / f'{partition}.sgprobe', rows)
+    if original is not None:
+        (out / 'reading.dat').write_bytes(original)
+        (out / 'reading-lessons.dat').write_bytes(original + b'\x1e' + (out / 'train.dat').read_bytes())
+        for scale in (1, 64):
+            (out / f'answer-{scale}.sg').write_bytes(
+                f'SGCURRICULUM3\n6000 "reading.dat" 1 all 1\n18000 "reading-lessons.dat" 0.25 new {scale}\n'.encode('ascii'))
     files = {p.name: {'bytes': p.stat().st_size, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()}
              for p in sorted(out.iterdir())}
     manifest = dict(version=spec['version'], source_spec_sha256=hashlib.sha256(spec_bytes).hexdigest(),
@@ -85,6 +100,7 @@ def prepare(spec_path, out):
                     probe_items={k: len(v) for k, v in probes.items()},
                     heldout_contexts_absent_from_training=True,
                     predefined_test_not_for_tuning=True,
+                    reading_source=str(reading) if reading is not None else None,
                     provenance=spec['provenance'], limits=spec['limits'])
     (out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
     print(json.dumps({k: v for k, v in manifest.items() if k not in ('object_pairs', 'files')}, indent=2))
@@ -94,5 +110,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--spec', type=Path, default=Path('data/lessons-relations-v1.json'))
     parser.add_argument('--out', type=Path, default=Path('data/prepared/relations-v1'))
+    parser.add_argument('--reading', type=Path, help='Explicitly selected prior training corpus for replay profiles')
     args = parser.parse_args()
-    prepare(args.spec, args.out)
+    prepare(args.spec, args.out, args.reading)

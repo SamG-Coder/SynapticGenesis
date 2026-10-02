@@ -19,6 +19,11 @@ struct LiveCorpus {
     // Earlier documents remain addressable by replay. The online cursor may
     // explicitly repeat only the newly introduced suffix of a curriculum stage.
     size_t first_document = 0;
+    struct Feedback {
+        size_t answer_start;
+        float scale;
+    };
+    std::map<size_t, Feedback> feedback;
     uint64_t hash;
     explicit LiveCorpus(const fs::path &path) {
         std::ifstream f(path, std::ios::binary);
@@ -46,6 +51,35 @@ struct LiveCorpus {
         auto doc = docs[size_t(s.meta[19])];
         if (s.meta[20] >= doc.second - doc.first - 1 || (s.meta[25] && s.meta[20]))
             throw std::runtime_error("Invalid live byte cursor");
+    }
+    void emphasize_answers(size_t first, size_t end, float scale) {
+        require(first < end && end <= docs.size() && std::isfinite(scale) && scale >= 1 && scale <= 1000,
+                "Invalid answer emphasis range/scale");
+        if (scale == 1)
+            return;
+        const std::string marker = "\nAnswer: ";
+        for (size_t i = first; i < end; ++i) {
+            auto doc = docs[i];
+            std::string text(bytes.begin() + doc.first, bytes.begin() + doc.second);
+            size_t at = text.find(marker);
+            require(at != std::string::npos && at + marker.size() < text.size() &&
+                        text.find(marker, at + marker.size()) == std::string::npos,
+                    "Answer emphasis requires exactly one nonempty Answer field per new document");
+            feedback[i] = {at + marker.size(), scale};
+        }
+    }
+    float emphasize(Model &model, size_t document, size_t offset, size_t n, float ordinary_loss) const {
+        auto it = feedback.find(document);
+        if (it == feedback.end())
+            return ordinary_loss;
+        std::vector<float> weights(n, 1.f);
+        bool changed = false;
+        for (size_t i = 0; i < n; ++i)
+            if (offset + i + 1 >= it->second.answer_start) {
+                weights[i] = it->second.scale;
+                changed = true;
+            }
+        return changed ? model.reweight_targets(weights) : ordinary_loss;
     }
     void next(const State &s, int chunk, std::vector<int> &x, std::vector<int> &y) const {
         validate(s);
@@ -167,6 +201,7 @@ LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const
     }
     auto &model = engine.view(int(x.size()));
     float loss = model.forward(x, &y, true);
+    loss = data.emphasize(model, size_t(current.document), size_t(current.offset), x.size(), loss);
     double activity = model.rate();
     model.backward(s.hp[4]);
     float norm = model.update(int(++s.meta[7]), s.hp[0], s.hp[1], s.hp[2], memory.core_scale());
@@ -183,6 +218,8 @@ LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const
         std::vector<int> ry(data.bytes.begin() + at + 1, data.bytes.begin() + at + replayed + 1);
         auto &replay = engine.replay_view(int(replayed));
         replay_loss = replay.forward(rx, &ry); // Reset-state window; no live membrane mutation.
+        replay_loss =
+            data.emphasize(replay, size_t(episode.document), size_t(episode.offset), replayed, replay_loss);
         replay.backward(s.hp[4]);
         replay.update(int(++s.meta[7]), s.hp[0], s.hp[1], s.hp[2], memory.core_scale());
         memory.completed(replayed);
@@ -380,6 +417,8 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
         if (has_synaptic_history(s))
             engine.root.synapses->initialize(engine.root.w, word_float(s.extra[10]), word_float(s.extra[11]));
     }
+    if (curriculum)
+        curriculum->apply_feedback(data, size_t(s.extra[15]));
     s.meta[16] = fast;
     data.validate(s);
     ReplayMemory memory(s);
@@ -495,6 +534,7 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
            << ",\"curriculum_base_lr\":" << (curriculum ? s.hp[7] : 0) << ",\"global_updates\":" << s.meta[7]
            << ",\"online_first_document\":" << data.first_document
            << ",\"online_document_count\":" << data.docs.size() - data.first_document
+           << ",\"answer_emphasized_documents\":" << data.feedback.size()
            << ",\"observed_pairs\":" << s.meta[22] << ",\"generated_bytes\":" << s.meta[30]
            << ",\"elapsed_seconds\":" << seconds
            << ",\"session_online_updates\":" << s.meta[24] - start_updates

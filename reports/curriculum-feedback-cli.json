@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "native_commands": 53,
+  "resume_cases": 12,
+  "resume_max_error": 3.725290298461914e-09,
+  "identical_generated_bytes": true,
+  "both_cells_optional_si": true,
+  "v2_binding_retains_history": true,
+  "rate_override_retains_stage_scale": true,
+  "future_data_mutation_rejected": true,
+  "changed_prefix_rejected": true,
+  "future_heldout_document_rejected": true,
+  "invalid_input_writes_no_run": true,
+  "v4_read_only_commands_checked": true,
+  "new_scope_wraps_without_old_online_documents": true,
+  "scoped_restart_preserves_old_replay": true,
+  "feedback_resume_cases": 4,
+  "feedback_resume_max_error": 7.450580596923828e-09,
+  "feedback_annotation_persists_across_later_stages": true,
+  "feedback_policy_change_and_missing_answers_rejected": true,
+  "checkpoint_sha256": "15293afa2933e69b3acf0b096b3461dd894697ca6ef4528ef1716d8e882ed251"
+}
