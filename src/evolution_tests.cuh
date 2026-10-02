@@ -10,6 +10,20 @@ void evolution_test(const Args &args) {
         auto wa = initialize(a, aa, 19);
         auto wb = evolution::inherit(b, a, wa, a, wa, {false, false}, 31);
         Model base(a, 1, 8), widened(b, 1, 8);
+        uint64_t actual_buffers = 2ull * base.N * sizeof(int);
+        for (const Buf *buffer :
+             {&base.w, &base.g, &base.m, &base.v, &base.decay, &base.finalnorm, &base.finalrs, &base.logits,
+              &base.dlogits, &base.losses, &base.dx, &base.dy, &base.dnorm, &base.ds, &base.dz})
+            actual_buffers += buffer->n * 4;
+        for (const auto &buffer : base.x)
+            actual_buffers += buffer.n * 4;
+        for (const auto &cache : base.cache)
+            for (const Buf *buffer :
+                 {&cache.norm, &cache.rs, &cache.z, &cache.u, &cache.s, &cache.state, &cache.initial_state,
+                  &cache.adapt, &cache.adapt_state, &cache.initial_adapt})
+                actual_buffers += buffer->n * 4;
+        require(actual_buffers == evolution::working_bytes(a, 1, 8),
+                "GPU admission estimate differs from actual explicit buffers");
         base.w.put(wa);
         widened.w.put(wb);
         std::vector<int> x{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'}, y{'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'};
@@ -98,11 +112,15 @@ void evolution_test(const Args &args) {
     }
     selected = evolution::elites(members, .4, 150);
     require(selected == std::vector<size_t>({0, 1}), "Elite ranking admitted a weaker model");
+    members[0].alive = false;
+    selected = evolution::elites(members, .4, 150);
+    require(selected == std::vector<size_t>({1, 2}), "Dead model was allowed to reproduce");
     members[0].state.hp[0] = .0002f;
     members[1].state.hp[0] = .0008f;
     members[0].member.setting_mutation_chance = members[1].member.setting_mutation_chance = 0;
     evolution::Rules rules;
     rules.corpus = 42;
+    rules.tick = 11;
     r0 = 88;
     auto newborn = evolution::child_state(members[0], members[1], rules, r0);
     require(std::abs(newborn.hp[0] - .0004f) < 1e-9 && newborn.meta[7] == 0 && newborn.extra.empty() &&
@@ -110,7 +128,8 @@ void evolution_test(const Args &args) {
             "Parental settings or fresh child history are incorrect");
     evolution::write_rules(out / "population.sg", rules);
     auto restored_rules = evolution::read_rules(out / "population.sg");
-    require(restored_rules.corpus == rules.corpus && restored_rules.size_cost == rules.size_cost,
+    require(restored_rules.corpus == rules.corpus && restored_rules.size_cost == rules.size_cost &&
+                restored_rules.tick == 11,
             "Population protocol roundtrip failed");
     evolution::Member member;
     member.id = "child";
@@ -118,11 +137,28 @@ void evolution_test(const Args &args) {
     member.parent_b = "parent-b";
     member.generation = 2;
     member.ceiling = 1.125;
+    member.born_tick = 3;
+    member.lifespan = 2;
     evolution::write_member(out / "member.sg", member);
     auto restored_member = evolution::read_member(out / "member.sg");
     require(restored_member.generation == 2 && restored_member.ceiling == 1.125 &&
-                restored_member.parent_a == "parent-a",
+                restored_member.parent_a == "parent-a" && restored_member.born_tick == 3 &&
+                restored_member.lifespan == 2,
             "Lineage record roundtrip failed");
+    require(evolution::alive(restored_member, 4) && !evolution::alive(restored_member, 5) &&
+                !evolution::alive(restored_member, 6),
+            "Old-age boundary is incorrect");
+    evolution::Food ample, scarce;
+    ample.capacity = scarce.capacity = 1000;
+    ample.used = 100;
+    scarce.used = 900;
+    require(ample.fits(900) && !ample.fits(901) && !scarce.fits(101),
+            "Resource admission exceeded available credits");
+    require(scarce.elite_fraction(.5) < ample.elite_fraction(.5) &&
+                scarce.improvement(.005) > ample.improvement(.005),
+            "Scarcity did not tighten selection");
+    scarce.capacity = 0;
+    require(!scarce.fits(1) && scarce.pressure() == 1, "Empty food budget permitted birth");
     std::ofstream f(out / "native.json");
     f << std::setprecision(10)
       << "{\"passed\":true,\"both_cells\":true,\"width_growth_max_error\":" << growth_error
@@ -130,7 +166,9 @@ void evolution_test(const Args &args) {
       << ",\"new_neuron_output_weight_change\":" << new_weight_change
       << ",\"mutation_caps_and_seed_checked\":true,\"newborn_gate_checked\":true,"
          "\"improvement_gate_checked\":true,\"elite_ranking_checked\":true,"
-         "\"parent_setting_inheritance_checked\":true,\"lineage_roundtrip_checked\":true}\n";
+         "\"parent_setting_inheritance_checked\":true,\"lineage_roundtrip_checked\":true,"
+         "\"old_age_and_dead_parent_gate_checked\":true,\"scarcity_and_admission_checked\":true,"
+         "\"gpu_buffer_estimate_checked\":true}\n";
     std::cout << "PASS evolution: growth, inherited blocks, new-neuron learning, bounded seeded mutation, "
                  "fitness gates, settings and lineage. Growth max error "
               << growth_error << '\n';

@@ -16,4 +16,8 @@ A fresh default-size founder trained for 1,200 updates per curriculum stage, 3,6
 
 The first inheritance demonstration produced two 1,449,472-parameter children from 1,186,304-parameter parents, expanding hidden width from 512 to 640. The demonstration deliberately used elevated parental growth probabilities (1.0 and 0.5) to exercise expansion. All children require further training and evaluation; crossover alone did not improve their held-out loss.
 
-These checks establish mechanism and pipeline behavior. They do not establish conversational competence, human-like development, inherited intelligence, long-term retention or superior generalization. Population resource/lifespan validation is added in the next stage.
+The resource/lifespan stage also passed all seven native suites. The evolution test checks the GPU-buffer estimate against actual model buffer sizes for both neuron cells, old-age boundaries, dead-parent exclusion, credit admission and scarcity-dependent selectivity.
+
+The [native population CLI integration result](population-cli.json) covers 11 invocations across four simulation ticks. A 1 MiB test credit limit admitted six children from a request for 32 and stopped at capacity. A zero-credit round admitted none. Both four-tick founders then died, remained archived and released their population credits. Untrained children were never admitted as parents. Changed evaluation data, duplicate round names and traversal IDs were rejected without advancing the persisted clock.
+
+These checks establish mechanism and pipeline behavior. They do not establish conversational competence, human-like development, inherited intelligence, long-term retention or superior generalization.

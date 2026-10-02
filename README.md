@@ -14,6 +14,7 @@ The native learner, population registry, fitness-gated reproduction and bounded 
 - CUDA graph decoding, checksum-protected checkpoints and restoration of optimizer, recurrent, replay and learning-history state.
 - A selected general-reading curriculum with three stages, separate validation/test books and reproducible source hashes.
 - Native parent selection, whole-block inheritance, inherited learning settings and probabilistic hidden-neuron growth within size limits.
+- GPU-memory-based population credits, stricter selection under scarcity, inherited lifespans and old-age death.
 - Seven native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
 
 The default model has **1,186,304 parameters**, four residual blocks, width 256 and 512 spiking neurons per block. Training uses dense CUDA/cuBLAS operations, surrogate gradients and AdamW. Spikes do not by themselves establish an energy or speed advantage. See the [architecture](docs/architecture.md) and [development design](docs/general-development.md).
@@ -104,6 +105,7 @@ python tests/oracle.py build/live-test-results
 python tests/oracle.py build/adaptive-test-results
 python tests/synaptic_oracle.py build/synaptic-test-results
 python tests/burn_policy.py --out runs/burn-policy-test
+python tests/population_cli.py --out runs/population-cli-test
 ```
 
 The consolidation oracle and CLI integration test use only Python's standard library. Numerical tests use disposable synthetic models, isolated from founders. [Validation evidence](reports/validation.md) records what was checked for this repository.
@@ -112,7 +114,7 @@ The consolidation oracle and CLI integration test use only Python's standard lib
 
 The [development design](docs/general-development.md) specifies separate developmental stage and generation records, inheritance from two parents, teaching from selected source material, and selection against matched controls. The [native evolution commands](docs/evolution.md) register founders, evaluate eligibility, create children and inherit settings. Whole-block crossover can disrupt learned channel roles and every child must train and requalify; no improvement is assumed merely from birth.
 
-Current development is adding resource-sensitive breeding and lifespans to the population. Stage-specific mastery probes, teacher feedback, channel alignment, structural pruning and a town simulation remain future work.
+Resource-sensitive breeding and lifespans are implemented. Available GPU memory sets the population budget; scarce resources narrow parent selection and raise the required improvement. Models die at their configured simulation lifespan, release population credits and remain archived on disk. Stage-specific mastery probes, teacher feedback, channel alignment, structural pruning and a town simulation remain future work.
 
 ## License and sources
 

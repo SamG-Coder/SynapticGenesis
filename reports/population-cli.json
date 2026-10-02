@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "native_commands": 11,
+  "ticks": 4,
+  "growth_at_birth_checked": true,
+  "newborn_parent_rejection_checked": true,
+  "budget_limited_births": 6,
+  "zero_budget_births": 0,
+  "scarcity_tightens_selection": true,
+  "old_age_deaths": 2,
+  "dead_checkpoints_preserved": true,
+  "dead_population_food_released": true,
+  "clock_persisted_across_processes": true,
+  "changed_evaluation_corpus_rejected": true,
+  "duplicate_round_rejected": true,
+  "path_traversal_id_rejected": true,
+  "final_population_config_sha256": "254ecd87ad377bbea1c34bd707e90bd59d39ab93279d3bc132c492e6fb26ef27"
+}

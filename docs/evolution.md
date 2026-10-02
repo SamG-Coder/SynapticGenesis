@@ -22,9 +22,9 @@ The native evaluator freshly scores each model on identical held-out windows. It
 score = next-byte cross-entropy + size_cost * parameters / 1,000,000
 ```
 
-The default size cost is 0.02 per million parameters. It is a declared resource preference, not a measured energy model. Founders require a completed training update and a score strictly below their registration ceiling. Eligible models are ranked, and the best fraction becomes the parent pool (default one half, with a minimum of two when available). Resource limits exclude oversized models.
+The default size cost is 0.02 per million parameters. It is a declared resource preference, not a measured energy model. Founders require a completed training update and a score strictly below their registration ceiling. Living eligible models are ranked, and the best fraction becomes the parent pool (default one half before scarcity adjustments, with a minimum of two when available). Resource limits exclude oversized models.
 
-Two distinct compatible elites are selected using the recorded RNG seed. Compatibility currently requires equal channel width, block count and cell type. Hidden-neuron counts may differ. Children receive a reproduction ceiling equal to the better parent's measured score minus the required improvement (default 0.005). They cannot reproduce at birth, even if their initial loss happens to be lower. After training they must beat that ceiling and rank among the elites.
+Two distinct compatible elites are selected using the recorded RNG seed. Compatibility currently requires equal channel width, block count and cell type. Hidden-neuron counts may differ. Children receive a reproduction ceiling equal to the better parent's measured score minus the required improvement (base default 0.005, increased under scarcity). They cannot reproduce at birth, even if their initial loss happens to be lower. After training they must beat that ceiling and rank among the elites.
 
 This reuses a development set for selection; it is not proof of improvement on independent tasks. Keep final test data out of reproduction decisions. Generalization, multiple seeds and matched-budget controls remain necessary.
 
@@ -51,4 +51,33 @@ Each child starts with fresh optimizer moments, recurrence, replay and consolida
 
 Train the other child similarly if desired. Selection reads each member's `latest.ckpt`. A weak child stays ineligible; there is no automatic promotion. A child's generation is one plus the larger parent generation, independently of its training exposure or curriculum stage.
 
-Calls are bounded by their requested children and training updates. There is no unattended reproduction service. Use one writer per population directory. GPU memory budgeting, resource-dependent selectivity and lifespan expiry are the next implementation stage.
+Calls are bounded by their requested children and training updates. There is no unattended reproduction service. Use one writer per population directory.
+
+## GPU memory as population food
+
+Each round reads actual free/total GPU memory with `cudaMemGetInfo`. By default it reserves 1,024 MiB for workspace/other use and assigns half of the remaining free memory as population credits. `--food-fraction`, `--reserve-mib` and an optional lower `--food-mib` cap control that policy. Zero food allows the clock to advance but prevents births.
+
+Each living individual consumes 20 bytes per parameter for weights, gradients, Adam moments and a decay array, plus its recurrent stream state. This is a virtual accounting policy: the current population is checkpointed on disk and executed sequentially. It does not assert that every member is GPU-resident. Additional birth/evaluation admission checks account for the explicit native execution buffers and the reserve. CUDA allocations can still fail if another process changes available memory after the check.
+
+At pressure `p = clamp(living_credits / capacity, 0, 1)`:
+
+```text
+effective elite fraction = configured fraction * (1 - 0.9 * p)
+required child improvement = base improvement * (1 + 4 * p)
+```
+
+The parent pool and improvement requirement tighten as resources fill. Parent selection is recalculated before each birth. The minimum pool of two never overrides fitness, lifespan or capacity checks. A birth requires enough remaining credits and temporary execution space; otherwise the round records `resource_limit`. Resource limits are admission rules, not an invitation to allocate every free GPU byte.
+
+```powershell
+.\build\synapticgenesis.exe evolve --population runs/population --data data/prepared/foundations-v1/validation.dat --round round-3 --children 8 --food-fraction 0.5 --reserve-mib 1024 --seed 1339
+```
+
+## Lifespan, death and continued generations
+
+`population-add --lifespan 20` gives a founder 20 simulation ticks by default. Registration records the current population tick as birth time. Each completed `evolve` call advances the clock once, including rounds with no births. A tick is an explicit simulation step, not a human year, a training update, or the model's curriculum level.
+
+A member dies when `current_tick - born_tick >= lifespan`. Dead members are excluded from evaluation/parent selection and consume no population credits. Their checkpoints and lineage stay on disk. The round report records age, lifespan and `old_age` as the death reason. Children inherit the rounded mean parental lifespan and start at age zero, independently of their generation number.
+
+If all qualified adults die before their children improve enough to reproduce, the population can stop producing children. The system records `no_eligible_pairs`; it does not bypass the quality gate to keep births going. Registered founders can seed a new population when explicitly requested.
+
+Version-2 population/member files persist ticks and lifespans. Version-1 records remain readable and begin at tick zero with a 20-tick lifespan because the old format had no age information. The round JSON records both resource decisions and lineage. Keep independent backups for long experiments: population rounds are a single-writer research protocol, not a transactional database or a background service.
