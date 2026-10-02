@@ -12,10 +12,10 @@ The native learner, population registry, fitness-gated reproduction and bounded 
 - Training and generation in one live process using shared weights and persistent neuron state.
 - Bounded replay of previously observed source windows, adjustable core plasticity and optional synaptic-importance consolidation.
 - CUDA graph decoding, checksum-protected checkpoints and restoration of optimizer, recurrent, replay and learning-history state.
-- A selected general-reading curriculum with three stages, separate validation/test books and reproducible source hashes.
+- A selected general-reading curriculum with three stages, separate validation/test books and reproducible source hashes. Native live stage transitions retain replay and consolidation history.
 - Native parent selection, whole-block inheritance, inherited learning settings and probabilistic hidden-neuron growth within size limits.
 - GPU-memory-based population credits, stricter selection under scarcity, inherited lifespans and old-age death.
-- Seven native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
+- Eight native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
 
 The default model has **1,186,304 parameters**, four residual blocks, width 256 and 512 spiking neurons per block. Training uses dense CUDA/cuBLAS operations, surrogate gradients and AdamW. Spikes do not by themselves establish an energy or speed advantage. See the [architecture](docs/architecture.md) and [development design](docs/general-development.md).
 
@@ -55,11 +55,11 @@ python scripts/prepare_corpus.py
 | Validation | New National First Reader |
 | Final test | The Beacon Second Reader |
 
-Each `stage-N.dat` contains only that stage's training sources. `train.dat` pools all training stages. `validation.dat` and `test.dat` contain separate books and never supply training targets. Documents are separated by byte `0x1e`, which the model excludes from sampled windows. Exact normalized paragraphs of at least 120 characters are deduplicated, reserving held-out material first.
+Each `stage-N.dat` contains only that stage's training sources. `train.dat` pools all training stages. The `through-stage-N.dat` files and `curriculum.sg` provide cumulative editions for live development without discarding earlier replay windows. `validation.dat` and `test.dat` contain separate books and never supply training targets. Documents are separated by byte `0x1e`, which the model excludes from sampled windows. Exact normalized paragraphs of at least 120 characters are deduplicated, reserving held-out material first.
 
 This is an initial, small historical reading curriculum. Its stages describe increasing text complexity, not validated human ages. Shared tales, paraphrases, shorter overlap and historical assumptions remain possible. Broader modern subject coverage and independent skill probes are future work. See [data details](docs/data.md).
 
-## Train a founder through the stages
+## Optional batched founder training
 
 Use fresh output directories. These commands start stage 1 from random weights and continue the same model through later material. `--steps` is the cumulative optimizer-update target; `--allow-new-corpus` explicitly permits the next stage's training data.
 
@@ -75,21 +75,23 @@ Use fresh output directories. These commands start stage 1 from random weights a
 .\build\synapticgenesis.exe evaluate --checkpoint runs/founder-stage-3/best.ckpt --data data/prepared/foundations-v1/test.dat --batch 16 --context 128 --batches 64
 ```
 
-This is a manual curriculum schedule. Completing a stage's updates does not prove mastery or promote a model automatically. Each stage inherits weights and optimizer history; the native checkpoint is not yet a population/lineage registry. Continuing with a higher total step count extends the cosine learning-rate schedule. Compare ordered content with shuffled content at equal exposure before claiming a curriculum advantage.
+This is a manual batch schedule. Completing a stage's updates does not prove mastery. Each stage inherits weights and optimizer history; use the live curriculum below to retain an entire ongoing learning stream. Continuing batched training with a higher total step count extends its cosine learning-rate schedule. Compare ordered content with shuffled content at equal exposure before claiming a curriculum advantage.
 
 ## Learn and generate in one runtime
 
 ```powershell
-# Begin directly with random weights, or supply --checkpoint for our own trained model.
-.\build\synapticgenesis.exe live --data data/prepared/foundations-v1/stage-1.dat --out runs/live-founder --updates 2000 --lr 0.0003 --seed 1337 --replay reservoir --replay-capacity 1024 --replay-every 4 --graph --speak-every 500 --tokens 160 --prompt "The bird " --fast
+# Begin with random weights and pause at the end of the first stage.
+.\build\synapticgenesis.exe live --curriculum data/prepared/foundations-v1/curriculum.sg --out runs/live-founder --updates 2000 --lr 0.0003 --seed 1337 --replay reservoir --replay-capacity 1024 --replay-every 4 --graph --speak-every 500 --tokens 160 --prompt "The bird " --fast
 
-# Resume all saved stream state and extend the total live-update target.
-.\build\synapticgenesis.exe live --resume runs/live-founder/latest.ckpt --data data/prepared/foundations-v1/stage-1.dat --out runs/live-founder --updates 4000 --prompt "The bird "
+# Resume the same individual through the remaining stages, retaining its history.
+.\build\synapticgenesis.exe live --resume runs/live-founder/latest.ckpt --curriculum data/prepared/foundations-v1/curriculum.sg --out runs/live-founder --updates 6000 --prompt "The bird "
 ```
 
 Observed text supplies the next-byte target. Generation reads the same mutable parameters and carries neuron state; generated text is not used as its own training target. Learning and speaking alternate at completed update boundaries. Replay uses separate recurrent state but the same weights and optimizer. See [runtime and checkpoint semantics](docs/architecture.md).
 
-Live resume requires the same corpus and prompt. It restores the document cursor, RNGs, neuron state, optimizer and enabled memory policy. Explicit `--lr`, `--replay-every` and `--si-strength` overrides can change supported policy settings. A new `live --checkpoint` stream can read different content, but resets stream/replay/consolidation history. The batch stage commands above do not preserve a live stream's complete history.
+The schedule introduces new documents at fixed update counts while retaining earlier source windows for replay. It keeps weights, optimizer, speech RNG and optional consolidation history, records every transition, and archives each stage checkpoint. These are exposure stages; there is no automatic mastery decision. See the [live curriculum protocol](docs/live-curriculum.md), including how to prepare a fresh output directory if your earlier corpus lacks cumulative files.
+
+Single-corpus `live --data` remains available. Resume requires the same source edition and prompt; curriculum resume also verifies the schedule and future source editions. Explicit `--lr`, `--replay-every` and `--si-strength` overrides change supported policy settings. For a curriculum, `--lr` is the base rate before the stage multiplier. A new `live --checkpoint` stream inherits weights and optimizer but resets stream/replay/consolidation history. The batch commands above also do not preserve the complete live history.
 
 Optional `--consolidation si --si-strength 0.001` enables a synaptic-importance penalty. Its numerical behavior is tested; beneficial long-term retention has not been established on this curriculum. `--cell alif` creates a model with adaptive thresholds. Neither option is automatically better than the default. Neuron-indexed storage is an isolated benchmark, not the active training or generation storage path.
 
@@ -97,7 +99,7 @@ Optional `--consolidation si --si-strength 0.001` enables a synaptic-importance 
 
 ## Validate
 
-`build.ps1` runs the seven native suites. For independent gradient checks, install CPU PyTorch and NumPy in your own test environment and run:
+`build.ps1` runs the eight native suites. For independent gradient checks, install CPU PyTorch and NumPy in your own test environment and run:
 
 ```powershell
 python tests/oracle.py build/test-results
@@ -106,6 +108,7 @@ python tests/oracle.py build/adaptive-test-results
 python tests/synaptic_oracle.py build/synaptic-test-results
 python tests/burn_policy.py --out runs/burn-policy-test
 python tests/population_cli.py --out runs/population-cli-test
+python tests/curriculum_cli.py --out runs/curriculum-cli-test
 ```
 
 The consolidation oracle and CLI integration test use only Python's standard library. Numerical tests use disposable synthetic models, isolated from founders. [Validation evidence](reports/validation.md) records what was checked for this repository.

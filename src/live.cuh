@@ -11,6 +11,8 @@
 // 31 extension word count (live v2); hp[0] online rate, hp[5] temperature,
 // hp[6] core rate multiplier. See live_replay.cuh for the extension payload.
 // Version 3 adds durable per-parameter synaptic memory after the replay payload.
+// Version 4 binds an append-only curriculum (extra[14:15], hp[7] base LR),
+// retaining optional SI history and the replay reservoir across stage changes.
 struct LiveCorpus {
     std::vector<unsigned char> bytes;
     std::vector<std::pair<size_t, size_t>> docs;
@@ -63,6 +65,22 @@ struct LiveCorpus {
         }
     }
 };
+
+void validate_live_holdout(const LiveCorpus &training, const LiveCorpus &holdout) {
+    require(training.hash != holdout.hash, "Validation corpus must differ from live learning corpus");
+    // Whole-document equality only; source preparation handles substantial
+    // paragraph duplicates. This is not a semantic contamination detector.
+    std::map<std::pair<size_t, uint64_t>, bool> documents;
+    for (auto doc : holdout.docs) {
+        size_t length = doc.second - doc.first;
+        documents[{length, hash_bytes(holdout.bytes.data() + doc.first, length)}] = true;
+    }
+    for (auto doc : training.docs) {
+        size_t length = doc.second - doc.first;
+        require(!documents.count({length, hash_bytes(training.bytes.data() + doc.first, length)}),
+                "Learning corpus contains a held-out document");
+    }
+}
 
 #include "live_replay.cuh"
 
@@ -240,6 +258,8 @@ struct LiveLatency {
     }
 };
 
+#include "live_curriculum.cuh"
+
 void live_command(const Args &args) {
     args.allow({"data",          "out",          "checkpoint", "resume",       "chunk",
                 "channels",      "hidden",       "layers",     "seed",         "lr",
@@ -247,7 +267,7 @@ void live_command(const Args &args) {
                 "top-k",         "temperature",  "prompt",     "log-every",    "save-every",
                 "validation",    "eval-batches", "replay",     "replay-every", "replay-capacity",
                 "replay-seed",   "core-scale",   "graph",      "cell",         "consolidation",
-                "si-strength",   "si-damping"});
+                "si-strength",   "si-damping",   "curriculum"});
     fs::path out = args.get("out", "runs/live");
     bool resume = !args.get("resume").empty();
     std::string source = args.get(resume ? "resume" : "checkpoint");
@@ -258,6 +278,14 @@ void live_command(const Args &args) {
     if (fs::exists(out / "STOP"))
         throw std::runtime_error("Remove the live run's STOP file before continuing");
     State s = source.empty() ? State{} : header(source);
+    std::unique_ptr<LiveCurriculum> curriculum;
+    if (!args.get("curriculum").empty()) {
+        if (!args.get("data").empty())
+            throw std::runtime_error("Curriculum specifies its data; omit --data");
+        curriculum = std::make_unique<LiveCurriculum>(args.get("curriculum"));
+    }
+    if (resume && s.meta[17] == 4 && !curriculum)
+        throw std::runtime_error("Curriculum checkpoint resume requires --curriculum");
     Config q = source.empty() ? Config{args.num("channels", 256), args.num("hidden", 512),
                                        args.num("layers", 4), cell_version(args)}
                               : checkpoint_config(s);
@@ -266,7 +294,7 @@ void live_command(const Args &args) {
             if (!args.get(k).empty())
                 throw std::runtime_error(std::string("Checkpoint preserves ") + k);
     if (resume) {
-        if ((s.meta[17] < 1 || s.meta[17] > 3) || s.meta[5] != 1)
+        if ((s.meta[17] < 1 || s.meta[17] > 4) || s.meta[5] != 1)
             throw std::runtime_error(
                 "--resume needs a live checkpoint; use --checkpoint to begin a new stream");
         for (auto k : {"chunk", "seed", "activity-cost", "fast", "speak-every", "tokens", "top-k",
@@ -276,16 +304,17 @@ void live_command(const Args &args) {
                 throw std::runtime_error(std::string("Live resume preserves ") + k);
     }
     int chunk = resume ? int(s.meta[6]) : args.num("chunk", 128);
-    int updates = args.num("updates", 1000), log_every = args.num("log-every", 100),
-        save_every = args.num("save-every", 500);
+    int updates = args.num("updates", curriculum ? int(curriculum->stages.back().end_update) : 1000),
+        log_every = args.num("log-every", 100), save_every = args.num("save-every", 500);
     int eval_batches = args.num("eval-batches", 16);
     if (chunk < 1 || chunk > 4096 || updates < 1 || updates > 100000000 || log_every < 1 || save_every < 1 ||
         eval_batches < 1)
         throw std::runtime_error("Invalid live run limits");
+    if (curriculum && uint64_t(updates) > curriculum->stages.back().end_update)
+        throw std::runtime_error("Requested updates exceed the curriculum schedule");
     std::string prompt = args.get("prompt", "The bird ");
     if (prompt.empty() || prompt.size() > 65536)
         throw std::runtime_error("Live prompt must contain 1..65536 bytes");
-    LiveCorpus data(args.get("data", "data/prepared/foundations-v1/train.dat"));
     bool fast = resume ? s.meta[16] != 0 : (!args.get("fast").empty() || s.meta[16] != 0);
     LiveEngine engine(q, chunk, fast);
     if (!source.empty())
@@ -297,11 +326,21 @@ void live_command(const Args &args) {
         s.meta[10] = s.meta[11] = seed;
         engine.root.w.put(initialize(q, engine.root.a, uint64_t(seed)));
     }
+    LiveCorpus data = curriculum ? (resume && s.meta[17] == 4 ? curriculum->corpus(s)
+                                                              : LiveCorpus(curriculum->stages.front().corpus))
+                                 : LiveCorpus(args.get("data", "data/prepared/foundations-v1/train.dat"));
     if (resume) {
+        data.validate(s);
         ReplayMemory(s).validate(data, chunk);
+        if (curriculum && s.meta[17] != 4)
+            curriculum->initialize(s); // Explicitly bind an existing stream without losing history.
         // Explicit stage changes preserve all learned history, moments, state
         // and RNG. Omitted controls retain their checkpoint values.
-        s.hp[0] = args.real("lr", s.hp[0]);
+        if (curriculum) {
+            curriculum->validate(s);
+            curriculum->rate(s, args.real("lr", s.hp[7]));
+        } else
+            s.hp[0] = args.real("lr", s.hp[0]);
         if (!args.get("si-strength").empty()) {
             if (!engine.root.synapses->active())
                 throw std::runtime_error("Cannot create missing SI history on resume");
@@ -324,8 +363,14 @@ void live_command(const Args &args) {
             s.hp[5] <= 0)
             throw std::runtime_error("Invalid live checkpoint settings");
     } else {
+        float inherited_rate = s.hp[0];
         configure_live(s, args, data, prompt);
-        if (s.meta[17] == 3)
+        if (curriculum) {
+            s.hp[0] = args.real("lr", source.empty() ? .0003f : inherited_rate);
+            curriculum->initialize(s);
+            curriculum->validate(s);
+        }
+        if (has_synaptic_history(s))
             engine.root.synapses->initialize(engine.root.w, word_float(s.extra[10]), word_float(s.extra[11]));
     }
     s.meta[16] = fast;
@@ -338,6 +383,23 @@ void live_command(const Args &args) {
         uint64_t(updates) - s.meta[24] + extra_updates + s.meta[7] > 1000000000ull)
         throw std::runtime_error(
             "--updates must exceed the saved online update count and fit the optimizer limit");
+    std::unique_ptr<Model> evaluator;
+    std::unique_ptr<Data> validation;
+    float initial_val = 0, final_val = 0;
+    if (!args.get("validation").empty()) {
+        LiveCorpus holdout(args.get("validation"));
+        if (curriculum) {
+            // The last cumulative edition contains all current and future data.
+            LiveCorpus all_stages(curriculum->stages.back().corpus);
+            validate_live_holdout(all_stages, holdout);
+        } else
+            validate_live_holdout(data, holdout);
+        validation = std::make_unique<Data>(args.get("validation"), 128);
+        evaluator = std::make_unique<Model>(q, 16, 128);
+        evaluator->w.share(engine.root.w); // Isolated held-out recurrent state.
+        initial_val = evaluate(*evaluator, *validation, eval_batches);
+        std::cout << "initial_validation_loss=" << initial_val << "\n";
+    }
     fs::create_directories(out);
     if (!resume)
         save(out / "initial.ckpt", engine.root, s);
@@ -347,27 +409,18 @@ void live_command(const Args &args) {
         throw std::runtime_error("Cannot write live logs");
     metrics << std::setprecision(10) << "{\"event\":\"session_start\",\"online_update\":" << s.meta[24]
             << ",\"learning_rate\":" << s.hp[0] << ",\"replay_every\":" << memory.every()
-            << ",\"si_strength\":" << engine.root.synapses->strength
+            << ",\"si_strength\":" << engine.root.synapses->strength << ",\"curriculum_hash\":\""
+            << (curriculum ? curriculum->hash : 0)
+            << "\",\"curriculum_stage\":" << (curriculum ? s.extra[15] + 1 : 0)
+            << ",\"curriculum_base_lr\":" << (curriculum ? s.hp[7] : 0) << ",\"corpus_hash\":\"" << data.hash
+            << "\""
             << ",\"resume\":" << (resume ? "true" : "false") << "}\n";
-    std::unique_ptr<Model> evaluator;
-    std::unique_ptr<Data> validation;
-    float initial_val = 0, final_val = 0;
-    if (!args.get("validation").empty()) {
-        validation = std::make_unique<Data>(args.get("validation"), 128);
-        if (validation->hash == data.hash)
-            throw std::runtime_error("Validation corpus must differ from live learning corpus");
-        evaluator = std::make_unique<Model>(q, 16, 128);
-        // Held-out evaluation shares the weights, but has isolated recurrent state.
-        evaluator->w.share(engine.root.w);
-        initial_val = evaluate(*evaluator, *validation, eval_batches);
-        std::cout << "initial_validation_loss=" << initial_val << "\n";
-    }
     std::cout << "live parameters=" << engine.root.a.n
               << " shared_weights=yes persistent_membranes=yes learning=observed_bytes_only"
               << " online_update=" << s.meta[24] << " global_update=" << s.meta[7] << "\n";
     if (engine.root.synapses->active())
-        std::cout << "consolidation=si boundary=document strength=" << engine.root.synapses->strength
-                  << " damping=" << engine.root.synapses->damping << "\n";
+        std::cout << "consolidation=si boundary=document_or_curriculum strength="
+                  << engine.root.synapses->strength << " damping=" << engine.root.synapses->damping << "\n";
     transcript << "\n[session starts at online update " << s.meta[24] << "]\n";
     std::signal(SIGINT, interrupt_handler);
     double loss_sum = 0, activity_sum = 0, replay_loss_sum = 0;
@@ -377,6 +430,11 @@ void live_command(const Args &args) {
     auto started = std::chrono::steady_clock::now();
     for (; s.meta[24] < uint64_t(updates);) {
         auto tick_start = std::chrono::steady_clock::now();
+        if (curriculum && curriculum->advance(engine, data, s, &metrics)) {
+            metrics.flush();
+            std::cout << "curriculum_stage=" << s.extra[15] + 1 << " new_document=" << s.meta[19]
+                      << " replay_windows_preserved=" << memory.count() << '\n';
+        }
         auto result = live_tick(engine, data, s, prompt);
         ck(cudaDeviceSynchronize());
         double duration =
@@ -397,6 +455,7 @@ void live_command(const Args &args) {
         if (s.meta[24] % uint64_t(log_every) == 0 || stop || last) {
             double loss = loss_sum / observed, activity = activity_sum / observed;
             metrics << std::setprecision(10) << "{\"online_update\":" << s.meta[24]
+                    << ",\"curriculum_stage\":" << (curriculum ? s.extra[15] + 1 : 0)
                     << ",\"global_update\":" << s.meta[7] << ",\"observed_pairs\":" << s.meta[22]
                     << ",\"epochs\":" << s.meta[21] << ",\"document\":" << s.meta[19]
                     << ",\"byte_offset\":" << s.meta[20] << ",\"loss\":" << loss
@@ -414,6 +473,8 @@ void live_command(const Args &args) {
         }
         if (s.meta[24] % uint64_t(save_every) == 0 || stop || last)
             save(out / "latest.ckpt", engine.root, s);
+        if (curriculum && s.meta[24] == curriculum->stages[size_t(s.extra[15])].end_update)
+            save(out / ("stage-" + std::to_string(s.extra[15] + 1) + ".ckpt"), engine.root, s);
         if (stop)
             break;
     }
@@ -422,8 +483,11 @@ void live_command(const Args &args) {
         final_val = evaluate(*evaluator, *validation, eval_batches);
     std::ofstream report(out / "session.json");
     report << std::setprecision(10) << "{\"online_updates\":" << s.meta[24]
-           << ",\"global_updates\":" << s.meta[7] << ",\"observed_pairs\":" << s.meta[22]
-           << ",\"generated_bytes\":" << s.meta[30] << ",\"elapsed_seconds\":" << seconds
+           << ",\"curriculum_stage\":" << (curriculum ? s.extra[15] + 1 : 0) << ",\"curriculum_hash\":\""
+           << (curriculum ? curriculum->hash : 0) << "\""
+           << ",\"curriculum_base_lr\":" << (curriculum ? s.hp[7] : 0) << ",\"global_updates\":" << s.meta[7]
+           << ",\"observed_pairs\":" << s.meta[22] << ",\"generated_bytes\":" << s.meta[30]
+           << ",\"elapsed_seconds\":" << seconds
            << ",\"session_online_updates\":" << s.meta[24] - start_updates
            << ",\"session_observed_pairs\":" << s.meta[22] - start_observed
            << ",\"observed_pairs_per_second\":" << (s.meta[22] - start_observed) / seconds

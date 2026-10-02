@@ -11,7 +11,7 @@ struct ReplayMemory {
     static constexpr size_t header_words = 16;
     explicit ReplayMemory(State &state) : s(state) {}
     bool extended() const {
-        return s.meta[17] == 2 || s.meta[17] == 3;
+        return s.meta[17] >= 2 && s.meta[17] <= 4;
     }
     uint64_t mode() const {
         return extended() ? s.extra[1] : 0;
@@ -84,8 +84,9 @@ struct ReplayMemory {
             (mode() != 1 ? (s.extra[3] != 0 || count() != 0) : s.extra[3] == 0) || !std::isfinite(s.hp[6]) ||
             s.hp[6] < 0 || s.hp[6] > 1)
             throw std::runtime_error("Invalid live replay settings/counters");
-        size_t reserved_start = s.meta[17] == 3 ? 14 : 9;
-        if (s.meta[17] == 3 &&
+        validate_curriculum_state(s);
+        size_t reserved_start = s.meta[17] == 4 ? 16 : (s.meta[17] == 3 ? 14 : 9);
+        if (has_synaptic_history(s) &&
             (s.extra[9] != 1 || s.extra[12] > s.meta[24] || s.extra[13] != s.meta[24] + updates()))
             throw std::runtime_error("Invalid consolidation policy/counters");
         for (size_t i = reserved_start; i < header_words; ++i)

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "resume_cases": 12,
+  "stage_transitions_checked": 44,
+  "resume_max_error": 7.45058e-09,
+  "both_cells": true,
+  "optional_si": true,
+  "graph_speech_identical": true,
+  "replay_preserved": true,
+  "same_gpu_allocations": true,
+  "future_source_identity_checked": true,
+  "heldout_document_rejected": true,
+  "base_rate_override_checked": true
+}

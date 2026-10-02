@@ -7,6 +7,8 @@ The initial sources are historical elementary readers, ordered from simple vocab
 ## Outputs
 
 - `stage-1.dat`, `stage-2.dat`, `stage-3.dat`: separate training stages, in declared source order.
+- `through-stage-N.dat`: cumulative training documents through that stage, preserving all prior bytes and document indices.
+- `curriculum.sg`: an editable example live schedule with 2,000 observed-chunk updates per stage and learning-rate scale 1. These counts are experimental exposure budgets, not learned mastery thresholds.
 - `train.dat`: all selected training sources, useful for a pooled/shuffled curriculum control.
 - `validation.dat`: one separate book, used for checkpoints and development comparisons.
 - `test.dat`: one separate book, reserved for final evaluation.

@@ -1,0 +1,127 @@
+{
+  "status": "completed",
+  "host": "Windows; NVIDIA RTX 5080; CUDA 13.3; MSVC 19.51",
+  "initialization": "random, seed 1337; no pretrained weights",
+  "model": "signed LIF; channels 256; hidden 512; layers 4; 1,186,304 parameters",
+  "training": "Native C++/CUDA; TF32; sequential chunks of 128; AdamW base LR 0.0003; reservoir 1024; replay every 4 updates; graph speech every 500 updates, 96 bytes",
+  "command": "./build/synapticgenesis.exe live --curriculum data/prepared/foundations-live-v1/curriculum.sg --validation data/prepared/foundations-live-v1/validation.dat --out runs/live-curriculum-foundation-v1 --seed 1337 --lr 0.0003 --chunk 128 --replay reservoir --replay-capacity 1024 --replay-every 4 --graph --speak-every 500 --tokens 96 --prompt \"The bird \" --fast --eval-batches 32",
+  "schedule": "SGCURRICULUM1\n2000 \"through-stage-1.dat\" 1\n4000 \"through-stage-2.dat\" 1\n6000 \"through-stage-3.dat\" 1\n",
+  "schedule_sha256": "798254d665a341bcea6c124fb5102b049248144b2400eb4550354363565fd046",
+  "original_source_split_bytes_unchanged": true,
+  "all_cumulative_prefixes_checked": true,
+  "session": {
+    "online_updates": 6000,
+    "curriculum_stage": 3,
+    "curriculum_hash": "16026974668855555165",
+    "curriculum_base_lr": 0.0003000000142,
+    "global_updates": 7500,
+    "observed_pairs": 766440,
+    "generated_bytes": 1152,
+    "elapsed_seconds": 6.1474385,
+    "session_online_updates": 6000,
+    "session_observed_pairs": 766440,
+    "observed_pairs_per_second": 124676.3184,
+    "replay_updates": 1500,
+    "replay_pairs": 191704,
+    "replay_mode": 1,
+    "replay_items": 1024,
+    "core_scale": 1,
+    "learning_rate": 0.0003000000142,
+    "replay_every": 4,
+    "graph_decode": true,
+    "update_tick_p50_ms": 0.7912367994,
+    "update_tick_p95_ms": 1.51538191,
+    "update_and_speech_tick_p50_ms": 12.38851562,
+    "update_and_speech_tick_p95_ms": 18.69630709,
+    "latency_percentile_bin_relative_width": 0.02189714865,
+    "shared_weights": true,
+    "persistent_membranes": true,
+    "trains_on_generated_text": false,
+    "consolidation": "none",
+    "initial_validation_loss": 5.553243637,
+    "final_validation_loss": 2.206859827
+  },
+  "transitions": [
+    {
+      "event": "curriculum_transition",
+      "online_update": 2000,
+      "stage": 2,
+      "previous_corpus_hash": "16414661908518310165",
+      "corpus_hash": "16777355464565849377",
+      "previous_document": 1,
+      "previous_offset": 12288,
+      "new_document": 2,
+      "replay_windows_preserved": 1024,
+      "learning_rate": 0.0003000000142,
+      "consolidation_events": 0
+    },
+    {
+      "event": "curriculum_transition",
+      "online_update": 4000,
+      "stage": 3,
+      "previous_corpus_hash": "16777355464565849377",
+      "corpus_hash": "17532723149809119024",
+      "previous_document": 1,
+      "previous_offset": 29184,
+      "new_document": 3,
+      "replay_windows_preserved": 1024,
+      "learning_rate": 0.0003000000142,
+      "consolidation_events": 0
+    }
+  ],
+  "checkpoints": [
+    {
+      "file": "initial.ckpt",
+      "sha256": "400ac40e2a0be06cb4ec7082ed76375b044676c20f8f38adafdbee93c219bde4",
+      "parameters": 1186304,
+      "observed_updates": 0,
+      "optimizer_updates": 0,
+      "observed_pairs": 0,
+      "source_hash": "16414661908518310165"
+    },
+    {
+      "file": "stage-1.ckpt",
+      "sha256": "6203831e76888568fd6568a09431f8aa0c42413b87f3b2708e17d88f6046c3ae",
+      "parameters": 1186304,
+      "observed_updates": 2000,
+      "optimizer_updates": 2500,
+      "observed_pairs": 255149,
+      "source_hash": "16414661908518310165"
+    },
+    {
+      "file": "stage-2.ckpt",
+      "sha256": "b417f972434a870f9883a174382d788b034858058995ad9800ad443dce9610ec",
+      "parameters": 1186304,
+      "observed_updates": 4000,
+      "optimizer_updates": 5000,
+      "observed_pairs": 510706,
+      "source_hash": "16777355464565849377"
+    },
+    {
+      "file": "stage-3.ckpt",
+      "sha256": "809e473dc44749fae54570277cbb33f4496352aae128ceab4d1e02ff8f12b45f",
+      "parameters": 1186304,
+      "observed_updates": 6000,
+      "optimizer_updates": 7500,
+      "observed_pairs": 766440,
+      "source_hash": "17532723149809119024"
+    },
+    {
+      "file": "latest.ckpt",
+      "sha256": "809e473dc44749fae54570277cbb33f4496352aae128ceab4d1e02ff8f12b45f",
+      "parameters": 1186304,
+      "observed_updates": 6000,
+      "optimizer_updates": 7500,
+      "observed_pairs": 766440,
+      "source_hash": "17532723149809119024"
+    }
+  ],
+  "validation_protocol": "Same held-out reader before and after, strict FP32 reset-state windows, B16 T128 32 batches (65536 sampled targets); overlap possible.",
+  "limitations": [
+    "One seed, one small selected historical corpus; no controlled curriculum or retention advantage measured.",
+    "Elapsed training-loop time includes replay, speech, stage I/O, checkpoint saves and log writes; initial/final evaluation and process/model setup are outside it.",
+    "Latency percentiles are logarithmic bin upper bounds with about 2.2 percent width; this is one local run.",
+    "Generated text remains incoherent. Stage advancement measures exposure, not mastery.",
+    "The final test book was not used in this experiment."
+  ]
+}

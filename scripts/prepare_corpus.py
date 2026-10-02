@@ -155,6 +155,8 @@ def main():
         (args.out / f'{name}.dat').write_bytes(payload)
         outputs[name] = {'bytes': len(payload), 'documents': len(documents), 'sha256': sha(payload)}
     stage_outputs = []
+    cumulative = []
+    schedule = ['SGCURRICULUM1']
     for stage in spec['stages']:
         documents = stages[stage['id']]
         if not documents:
@@ -162,8 +164,16 @@ def main():
         payload = b'\x1e'.join(documents)
         filename = f"stage-{stage['id']}.dat"
         (args.out / filename).write_bytes(payload)
+        cumulative.extend(documents)
+        cumulative_payload = b'\x1e'.join(cumulative)
+        cumulative_file = f"through-stage-{stage['id']}.dat"
+        (args.out / cumulative_file).write_bytes(cumulative_payload)
+        schedule.append(f'{(len(stage_outputs)+1)*2000} "{cumulative_file}" 1')
         stage_outputs.append({**stage, 'file': filename, 'bytes': len(payload),
-                              'documents': len(documents), 'sha256': sha(payload)})
+                              'documents': len(documents), 'sha256': sha(payload),
+                              'cumulative_file': cumulative_file, 'cumulative_bytes': len(cumulative_payload),
+                              'cumulative_sha256': sha(cumulative_payload)})
+    (args.out / 'curriculum.sg').write_bytes(('\n'.join(schedule)+'\n').encode('utf-8'))
     manifest = {'version': spec['version'], 'created_utc': datetime.now(timezone.utc).isoformat(),
                 'source_spec_sha256': sha(spec_bytes), 'tokenizer': 'UTF-8 bytes, fixed IDs 0..255, no learned tokenizer',
                 'document_separator': '0x1e, excluded from sampled windows', 'outputs': outputs,

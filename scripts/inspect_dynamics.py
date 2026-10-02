@@ -30,7 +30,7 @@ def inspect(path):
     path = Path(path)
     with path.open('rb') as f:
         meta = struct.unpack('<32Q', f.read(256))
-        f.read(32)
+        hp = struct.unpack('<8f', f.read(32))
         if meta[0] != 0x314D4C53434E5042 or meta[1] not in (1, 2):
             raise ValueError('Unsupported checkpoint format')
         adaptive = meta[1] == 2
@@ -38,12 +38,19 @@ def inspect(path):
         if not (8 <= c <= 2048 and 8 <= h <= 8192 and 1 <= layers <= 32 and 1 <= batch <= 256):
             raise ValueError('Invalid model dimensions')
         expected = 256*c + layers*(c + 2*c*h + 2*h + c + (2*h if adaptive else 0)) + c + 256*c + 256
-        if meta[17] > 3 or (meta[17] < 2 and meta[31]) or meta[31] > 16 + 3*65536:
+        if meta[17] > 4 or (meta[17] < 2 and meta[31]) or meta[31] > 16 + 3*65536:
             raise ValueError('Unsupported live state extension')
-        synaptic_bytes = 12*expected if meta[17] == 3 else 0
+        extra = ()
+        if meta[17] >= 2:
+            f.seek(288 + 12*expected + 4*meta[18])
+            extra = struct.unpack(f'<{meta[31]}Q', f.read(8*meta[31]))
+        if meta[17] == 4 and (len(extra) < 16 or extra[9] not in (0, 1) or not extra[14]):
+            raise ValueError('Invalid curriculum state')
+        synaptic_bytes = 12*expected if meta[17] == 3 or (meta[17] == 4 and extra[9]) else 0
         if meta[14] != expected or path.stat().st_size != 288 + 12*expected + 4*meta[18] + 8*meta[31] + synaptic_bytes:
             raise ValueError('Checkpoint layout/length mismatch')
         weights = array('f')
+        f.seek(288)
         weights.fromfile(f, expected)
         if sys.byteorder != 'little':
             weights.byteswap()
@@ -88,8 +95,11 @@ def inspect(path):
                 membranes = states
             result['saved_reset_membrane_absolute_value'] = summary([abs(v) for v in membranes])
             result['saved_reset_membrane_abs_above_one_fraction'] = sum(abs(v) > 1 for v in membranes)/len(membranes)
-        if meta[17] == 3:
-            extra = struct.unpack(f'<{meta[31]}Q', f.read(8*meta[31]))
+        if meta[17] == 4:
+            result['curriculum'] = {'stage': extra[15] + 1, 'policy_hash': str(extra[14]),
+                                    'base_learning_rate': hp[7], 'current_learning_rate': hp[0]}
+        if synaptic_bytes:
+            f.seek(288 + 12*expected + 4*meta[18] + 8*meta[31])
             synapses = array('f')
             synapses.fromfile(f, 3*expected)
             if sys.byteorder != 'little':

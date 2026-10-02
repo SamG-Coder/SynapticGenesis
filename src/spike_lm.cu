@@ -19,6 +19,7 @@
 #include <map>
 #include <memory>
 #include <numeric>
+#include <sstream>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -623,6 +624,20 @@ struct State {
         hp[3] = std::numeric_limits<float>::max();
     }
 };
+bool has_synaptic_history(const State &s) {
+    return s.meta[17] == 3 || (s.meta[17] == 4 && s.extra.size() >= 16 && s.extra[9] == 1);
+}
+void validate_curriculum_state(const State &s) {
+    if (s.meta[17] != 4)
+        return;
+    if (s.extra.size() < 16 || s.extra[9] > 1 || !s.extra[14] || s.extra[15] >= 4096 ||
+        !std::isfinite(s.hp[7]) || s.hp[7] <= 0 || s.hp[7] > .1f)
+        throw std::runtime_error("Invalid curriculum checkpoint policy");
+    if (!s.extra[9])
+        for (int i = 10; i <= 13; ++i)
+            if (s.extra[i])
+                throw std::runtime_error("Disabled curriculum consolidation has nonempty history");
+}
 // meta:
 // magic/version/C/H/L/B/T/step/target_steps/warmup/RNG/seed/train_hash/val_hash/num_params/payload_hash/fast_math.
 template <class T> void write_raw(std::ofstream &f, const T *p, size_t n) {
@@ -662,10 +677,11 @@ void save(const fs::path &path, Model &m, State &s) {
     if (s.meta[17] >= 2)
         s.meta[31] = s.extra.size();
     else if (!s.extra.empty())
-        throw std::runtime_error("Extended state requires live checkpoint version 2 or 3");
-    if (s.meta[17] == 3) {
+        throw std::runtime_error("Extended state requires live checkpoint version 2, 3 or 4");
+    validate_curriculum_state(s);
+    if (has_synaptic_history(s)) {
         if (!m.synapses->active() || s.extra.size() < 16)
-            throw std::runtime_error("Missing synaptic state for live checkpoint v3");
+            throw std::runtime_error("Missing synaptic state for enabled live consolidation");
         s.extra[9] = 1; // SI policy version.
         s.extra[10] = float_word(m.synapses->strength);
         s.extra[11] = float_word(m.synapses->damping);
@@ -673,7 +689,7 @@ void save(const fs::path &path, Model &m, State &s) {
         s.extra[13] = m.synapses->updates;
         s.synaptic = m.synapses->host();
     } else if (m.synapses->active() || !s.synaptic.empty())
-        throw std::runtime_error("Synaptic state requires live checkpoint version 3");
+        throw std::runtime_error("Synaptic state requires an enabled consolidation policy");
     uint64_t hash = hash_bytes(w.data(), w.size() * 4);
     hash = hash_bytes(mo.data(), mo.size() * 4, hash);
     hash = hash_bytes(vo.data(), vo.size() * 4, hash);
@@ -731,7 +747,7 @@ void load(const fs::path &path, Model &m, State &s, bool restore_runtime = false
     if (s.meta[1] != uint64_t(m.q.cell) || s.meta[2] != uint64_t(m.q.c) || s.meta[3] != uint64_t(m.q.h) ||
         s.meta[4] != uint64_t(m.q.l) || s.meta[14] != m.a.n)
         throw std::runtime_error("Checkpoint model dimensions differ");
-    if (s.meta[17] > 3 || (!s.meta[17] && s.meta[18]) ||
+    if (s.meta[17] > 4 || (!s.meta[17] && s.meta[18]) ||
         (s.meta[17] && (s.meta[5] < 1 || s.meta[5] > 256 ||
                         s.meta[18] != s.meta[5] * m.q.h * m.q.l * (m.q.adaptive() ? 2 : 1))))
         throw std::runtime_error("Invalid live checkpoint dimensions/version");
@@ -739,10 +755,16 @@ void load(const fs::path &path, Model &m, State &s, bool restore_runtime = false
         throw std::runtime_error("Invalid extended checkpoint length");
     if (restore_runtime && (!s.meta[17] || s.meta[5] != uint64_t(m.B)))
         throw std::runtime_error("No compatible live state in checkpoint");
-    size_t synaptic_count = s.meta[17] == 3 ? 3 * m.a.n : 0;
+    // Read the bounded policy before deciding whether a v4 file has SI arrays.
+    std::ifstream f(path, std::ios::binary);
+    f.seekg(std::streamoff(288 + 12 * m.a.n + 4 * s.meta[18]));
+    s.extra.resize(size_t(s.meta[31]));
+    if (!s.extra.empty())
+        read_raw(f, s.extra.data(), s.extra.size());
+    validate_curriculum_state(s);
+    size_t synaptic_count = has_synaptic_history(s) ? 3 * m.a.n : 0;
     if (fs::file_size(path) != 288 + 12 * m.a.n + 4 * s.meta[18] + 8 * s.meta[31] + 4 * synaptic_count)
         throw std::runtime_error("Checkpoint length mismatch");
-    std::ifstream f(path, std::ios::binary);
     f.seekg(288);
     std::vector<float> w(m.a.n), mo(m.a.n), vo(m.a.n), membranes(size_t(s.meta[18]));
     read_raw(f, w.data(), w.size());
@@ -750,9 +772,7 @@ void load(const fs::path &path, Model &m, State &s, bool restore_runtime = false
     read_raw(f, vo.data(), vo.size());
     if (!membranes.empty())
         read_raw(f, membranes.data(), membranes.size());
-    s.extra.resize(size_t(s.meta[31]));
-    if (!s.extra.empty())
-        read_raw(f, s.extra.data(), s.extra.size());
+    f.seekg(std::streamoff(288 + 12 * m.a.n + 4 * s.meta[18] + 8 * s.meta[31]));
     s.synaptic.resize(synaptic_count);
     if (synaptic_count)
         read_raw(f, s.synaptic.data(), s.synaptic.size());
@@ -767,7 +787,7 @@ void load(const fs::path &path, Model &m, State &s, bool restore_runtime = false
             if (!std::isfinite(x))
                 throw std::runtime_error("Nonfinite checkpoint parameter");
     if (synaptic_count) {
-        if (s.extra.size() < 16 || s.extra[9] != 1 || s.extra[14] || s.extra[15] ||
+        if (s.extra.size() < 16 || s.extra[9] != 1 || (s.meta[17] == 3 && (s.extra[14] || s.extra[15])) ||
             s.extra[12] > s.meta[24] || s.extra[13] != s.meta[24] + s.extra[6])
             throw std::runtime_error("Invalid synaptic checkpoint policy/counters");
         float strength = word_float(s.extra[10]), damping = word_float(s.extra[11]);
@@ -1288,6 +1308,7 @@ void self_test(const Args &args) {
 }
 #include "adaptive_tests.cuh"
 #include "context_bench.cuh"
+#include "curriculum_tests.cuh"
 #include "decode_tests.cuh"
 #include "evolution.cuh"
 #include "evolution_tests.cuh"
@@ -1313,6 +1334,8 @@ int main(int argc, char **argv) {
                 << "synapticgenesis live --data train.dat --out runs/live --resume runs/live/latest.ckpt "
                    "--updates "
                    "2000\n"
+                << "synapticgenesis live --curriculum data/prepared/foundations-live-v1/curriculum.sg "
+                   "--out runs/development --replay reservoir --graph\n"
                 << "synapticgenesis storage-bench --checkpoint runs/pilot/best.ckpt --data test.dat --out "
                    "reports/storage\n"
                 << "synapticgenesis decode-bench --checkpoint runs/pilot/best.ckpt --out reports/decode\n"
@@ -1345,6 +1368,8 @@ int main(int argc, char **argv) {
             live_command(args);
         else if (cmd == "live-test")
             live_test(args);
+        else if (cmd == "curriculum-test")
+            curriculum_test(args);
         else if (cmd == "graph-test")
             graph_test(args);
         else if (cmd == "decode-bench")
