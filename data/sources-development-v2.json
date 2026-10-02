@@ -1,0 +1,106 @@
+{
+  "version": "general-development-v2",
+  "purpose": "Selected historical language material for continuous development and a reading-to-science retention experiment.",
+  "policy": "Founders begin with random weights and the fixed 256-byte vocabulary. Only the selected source texts below enter foundation training. Validation and test books never supply weight updates or teacher targets. Synthetic numerical tests use separate disposable models.",
+  "stage_note": "Stages order increasing reading complexity. They are engineering curriculum labels, not measured human ages or evidence of general intelligence.",
+  "stages": [
+    {
+      "id": 1,
+      "name": "Words and simple sentences",
+      "focus": "Familiar objects, actions, short sentences and basic questions."
+    },
+    {
+      "id": 2,
+      "name": "Connected reading",
+      "focus": "Longer sentences, relationships and short stories."
+    },
+    {
+      "id": 3,
+      "name": "Longer stories and explanations",
+      "focus": "Broader vocabulary, event sequences and longer passages."
+    },
+    {
+      "id": 4,
+      "name": "Descriptive natural science",
+      "focus": "Longer explanatory passages on light, air, water, plants and insects; historical language training, not modern scientific ground truth."
+    }
+  ],
+  "sources": [
+    {
+      "id": 14642,
+      "title": "McGuffey's Eclectic Primer, Revised Edition",
+      "author": "William Holmes McGuffey",
+      "split": "train",
+      "stage": 1,
+      "reason": "Starts with simple vocabulary and gradually introduces short sentences and lessons.",
+      "body_start": "^Lesson 1$"
+    },
+    {
+      "id": 14640,
+      "title": "McGuffey's First Eclectic Reader, Revised Edition",
+      "author": "William Holmes McGuffey",
+      "split": "train",
+      "stage": 1,
+      "reason": "Elementary reading about familiar objects, actions and everyday situations.",
+      "body_start": "^LESSON I\\.$"
+    },
+    {
+      "id": 14668,
+      "title": "McGuffey's Second Eclectic Reader",
+      "author": "William Holmes McGuffey",
+      "split": "train",
+      "stage": 2,
+      "reason": "Progresses to connected reading and short stories.",
+      "body_start": "^LESSON I\\.$"
+    },
+    {
+      "id": 14766,
+      "title": "McGuffey's Third Eclectic Reader",
+      "author": "William Holmes McGuffey",
+      "split": "train",
+      "stage": 3,
+      "reason": "Adds longer passages and more varied vocabulary.",
+      "body_start": "^LESSON I\\.$"
+    },
+    {
+      "id": 13853,
+      "title": "New National First Reader",
+      "author": "Charles J. Barnes, Harlan H. Ballard and S. Proctor Thayer",
+      "split": "validation",
+      "stage": 1,
+      "reason": "A separate elementary reader for model selection, excluded from learning.",
+      "body_start": "^LESSON I\\.$",
+      "body_end": "^PHONIC CHART\\.$"
+    },
+    {
+      "id": 15659,
+      "title": "The Beacon Second Reader",
+      "author": "James H. Fassett",
+      "split": "test",
+      "stage": 2,
+      "reason": "A separate collection of reading passages reserved for final evaluation.",
+      "body_start": "^THE SHOEMAKER AND THE ELVES--I$",
+      "body_end": "^End of Project Gutenberg"
+    },
+    {
+      "id": 5726,
+      "title": "The Fairy-Land of Science",
+      "author": "Arabella B. Buckley",
+      "split": "train",
+      "stage": 4,
+      "reason": "An explicit change from elementary reading stories to sustained explanations of physical and natural phenomena. Historical scientific claims require separate modern verification.",
+      "body_start": "^LECTURE I$",
+      "body_end": "^End of Project Gutenberg"
+    },
+    {
+      "id": 12228,
+      "title": "Home Geography for Primary Grades",
+      "author": "C. C. Long",
+      "split": "validation",
+      "stage": 4,
+      "reason": "A different author and book with descriptive lessons on surroundings, weather, land and water, held out to assess transfer to related explanatory prose; not a fact-answer key.",
+      "body_start": "^LESSON I\\.$",
+      "body_end": "^End of Project Gutenberg"
+    }
+  ]
+}

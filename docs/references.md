@@ -6,6 +6,9 @@ SynapticGenesis is an original small C++/CUDA research implementation. These ref
 - [Population Based Training of Neural Networks, Jaderberg et al. (2017)](https://arxiv.org/abs/1711.09846): selecting model states and learning schedules in a population. This is relevant to future selection experiments, not proof of successful two-parent inheritance.
 - [Git Re-Basin: Merging Models modulo Permutation Symmetries, Ainsworth et al. (2023)](https://arxiv.org/abs/2209.04836): learned hidden units can be permuted and require alignment before useful merging. Applicability to recurrent spiking state must be tested.
 - [Findings of the BabyLM Challenge (2023)](https://aclanthology.org/2023.conll-babylm.1/): small-data language-model evaluation and curriculum experiments. This is a research reference; the BabyLM corpus is not automatically added to our allowlist.
+- [Experience Replay for Continual Learning, Rolnick et al. (2019)](https://arxiv.org/abs/1811.11682): bounded memories and replay can limit forgetting in their reinforcement-learning experiments. Our language experiment independently tests whether replayed older source windows help this spiking learner.
+- [Dark Experience for General Continual Learning, Buzzega et al. (2020)](https://papers.nips.cc/paper/2020/hash/b704ea2c39778f07c617f6b7ce480e9e-Abstract.html): combines rehearsal with stored-output distillation. It motivates comparisons that isolate the contribution of memory; stored-logit distillation is not implemented here.
+- [Complementary Learning Systems Theory Updated, Kumaran, Hassabis and McClelland (2016)](https://stanford.edu/~jlmcc/papers/KumaranHassabisMcC16CLSUpdate.pdf): discusses interacting fast episodic and slower statistical learning systems, including replay. Our source reservoir and slowly updated parameters are an engineering analogy, not a biological reproduction or proof of human-like development.
 
 The code includes a small adaptive spike quantization codec fixture inspired by the W8ASpike mathematical format. It is a numerical test, not the learner's neuron model or training method. The learner is not a port of W8ASpike or a reproduction of another published spiking language model.
 
@@ -17,3 +20,5 @@ The code includes a small adaptive spike quantization codec fixture inspired by 
 - [McGuffey's Third Eclectic Reader](https://www.gutenberg.org/ebooks/14766)
 - [New National First Reader](https://www.gutenberg.org/ebooks/13853)
 - [The Beacon Second Reader](https://www.gutenberg.org/ebooks/15659)
+- [The Fairy-Land of Science](https://www.gutenberg.org/ebooks/5726)
+- [Home Geography for Primary Grades](https://www.gutenberg.org/ebooks/12228)

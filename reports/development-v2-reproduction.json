@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "original_foundation_files_unchanged": [
+    "stage-1.dat",
+    "stage-2.dat",
+    "stage-3.dat",
+    "through-stage-1.dat",
+    "through-stage-2.dat",
+    "through-stage-3.dat",
+    "13853.txt",
+    "test.dat"
+  ],
+  "original_pooled_train_preserved": true,
+  "source_spec_bytes_match_manifest": true,
+  "large_normalized_paragraph_overlap": 0,
+  "ebook_attribution_excluded": true,
+  "train_sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+  "source_spec_sha256": "631338669c21af6fcdf1212242f0ce2b170d40bdc67a02bed04c7dc7930a204a",
+  "train_bytes": 585436,
+  "limitations": "Exact paragraph checks do not rule out paraphrases, shared facts, short overlap or historical factual errors."
+}

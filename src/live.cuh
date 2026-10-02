@@ -16,6 +16,9 @@
 struct LiveCorpus {
     std::vector<unsigned char> bytes;
     std::vector<std::pair<size_t, size_t>> docs;
+    // Earlier documents remain addressable by replay. The online cursor may
+    // explicitly repeat only the newly introduced suffix of a curriculum stage.
+    size_t first_document = 0;
     uint64_t hash;
     explicit LiveCorpus(const fs::path &path) {
         std::ifstream f(path, std::ios::binary);
@@ -37,7 +40,8 @@ struct LiveCorpus {
         if (s.meta[12] != hash)
             throw std::runtime_error(
                 "Live resume requires the identical corpus; start a new live run to change it");
-        if (s.meta[19] >= docs.size() || s.meta[25] > 1)
+        if (first_document >= docs.size() || s.meta[19] < first_document || s.meta[19] >= docs.size() ||
+            s.meta[25] > 1)
             throw std::runtime_error("Invalid live document cursor");
         auto doc = docs[size_t(s.meta[19])];
         if (s.meta[20] >= doc.second - doc.first - 1 || (s.meta[25] && s.meta[20]))
@@ -59,7 +63,7 @@ struct LiveCorpus {
             s.meta[20] = 0;
             s.meta[25] = 1;
             if (++s.meta[19] == docs.size()) {
-                s.meta[19] = 0;
+                s.meta[19] = first_document;
                 ++s.meta[21];
             }
         }
@@ -416,7 +420,7 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
             << (curriculum ? curriculum->hash : 0)
             << "\",\"curriculum_stage\":" << (curriculum ? s.extra[15] + 1 : 0)
             << ",\"curriculum_base_lr\":" << (curriculum ? s.hp[7] : 0) << ",\"corpus_hash\":\"" << data.hash
-            << "\""
+            << "\",\"online_first_document\":" << data.first_document
             << ",\"resume\":" << (resume ? "true" : "false") << "}\n";
     std::cout << "live parameters=" << engine.root.a.n
               << " shared_weights=yes persistent_membranes=yes learning=observed_bytes_only"
@@ -489,6 +493,8 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
            << ",\"curriculum_stage\":" << (curriculum ? s.extra[15] + 1 : 0) << ",\"curriculum_hash\":\""
            << (curriculum ? curriculum->hash : 0) << "\""
            << ",\"curriculum_base_lr\":" << (curriculum ? s.hp[7] : 0) << ",\"global_updates\":" << s.meta[7]
+           << ",\"online_first_document\":" << data.first_document
+           << ",\"online_document_count\":" << data.docs.size() - data.first_document
            << ",\"observed_pairs\":" << s.meta[22] << ",\"generated_bytes\":" << s.meta[30]
            << ",\"elapsed_seconds\":" << seconds
            << ",\"session_online_updates\":" << s.meta[24] - start_updates

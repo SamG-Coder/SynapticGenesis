@@ -29,6 +29,18 @@ Every later corpus must begin with exactly the previous corpus bytes, followed b
 
 At a transition the cursor starts at the first newly added document. Once the new material reaches EOF, the normal cursor wraps through the cumulative corpus. Earlier observed windows also remain eligible for reservoir replay. The replay reservoir is bounded, so it does not guarantee a particular quota for every past stage.
 
+Version 2 of the **schedule text** makes that wrap policy explicit:
+
+```text
+SGCURRICULUM2
+6000 "reading.dat" 1 all
+12000 "reading-and-science.dat" 0.25 new
+```
+
+The fourth column is `all` (repeat all documents introduced so far) or `new` (repeat only documents added by this stage). On either setting a transition starts at the first newly added document. With `new`, earlier documents stay addressable for replay but do not silently reappear in the online observation stream when the new books reach EOF. This permits a controlled retention comparison. Old version-1 schedules retain their original `all` behavior.
+
+The scope is bound into the existing live v4 checkpoint through the schedule hash. Resume reconstructs the allowed online document range from the same checked editions. Session and transition logs report `online_first_document` and `online_document_count`. The [retention experiment](retention.md) tests replay under this isolation.
+
 The same GPU parameter and optimizer allocations continue through the transition. Recurrent state receives the ordinary new-document reset on the next observed chunk. If SI is enabled, the unfinished document's path is consolidated at the explicit stage boundary; completed documents are not consolidated twice. Stage changes can abandon the unread remainder of the current document, as expected for a fixed exposure budget.
 
 ## Saved development history

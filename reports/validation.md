@@ -66,3 +66,11 @@ After adding `population-live`, all eight native suites passed again. The [popul
 The child's inherited floating-point learning rate was preserved exactly, its birth checkpoint and lineage stayed unchanged, and learning did not reset its age or advance the population clock. Evolution reported the exact payload hash of the newly learned canonical checkpoint. After the child's lifespan expired, another learning call changed neither its checkpoint nor its metrics. A held population lock rejected both learning and clock advancement without removing the other writer's lock. The original population scarcity/lifespan CLI regression also passed after introducing writer locks.
 
 This verifies lifecycle integration with small synthetic fixture models. It does not show that the full-size children outperform their parents or that a town simulation is implemented. Standalone checkpoint tools can still inspect archived models; death is enforced by population operations.
+
+## Isolated source stages and retention protocol
+
+The [scope CLI result](curriculum-scope-cli.json) expands the curriculum integration test to 39 invocations. A version-2 schedule repeats only newly added documents when requested, while older descriptors remain available to replay. The test verifies repeated EOF wraps, exact source-pair counts and a process restart inside the restricted stage. Legacy schedules keep their previous behavior. All eight native suites also pass.
+
+The [retention CLI fixture](retention-cli.json) checks seven experimental arms in 17 native invocations. It independently reloads every saved checkpoint and reproduces the reported held-out losses, verifies equal observed source counts and expected replay counts, and confirms the online cursor never returns to the old domain after the shift. The fixture uses disposable synthetic models and does not establish a language-learning benefit by itself.
+
+The [development source manifest](development-v2-manifest.json) and [reproduction check](development-v2-reproduction.json) record the selected science training book and separate geography validation book. The original foundation stage, pooled training and final-test bytes remain identical. No normalized paragraph of at least 120 characters overlaps training/validation/test after preparation. This does not exclude paraphrase overlap or historical factual errors.

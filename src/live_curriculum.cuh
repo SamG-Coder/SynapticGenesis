@@ -6,6 +6,8 @@ struct CurriculumStage {
     fs::path corpus;
     float rate_scale = 1;
     uint64_t corpus_hash = 0;
+    bool new_documents_only = false;
+    size_t first_document = 0;
 };
 struct LiveCurriculum {
     std::vector<CurriculumStage> stages;
@@ -23,19 +25,24 @@ struct LiveCurriculum {
         std::getline(input, magic);
         if (!magic.empty() && magic.back() == '\r')
             magic.pop_back();
-        require(magic == "SGCURRICULUM1", "Unsupported curriculum schedule");
+        require(magic == "SGCURRICULUM1" || magic == "SGCURRICULUM2", "Unsupported curriculum schedule");
         while (std::getline(input, line)) {
             if (line.find_first_not_of(" \t\r") == std::string::npos)
                 continue;
             CurriculumStage stage;
-            std::string filename, extra;
+            std::string filename, extra, scope = "all";
             std::istringstream row(line);
             row >> stage.end_update >> std::quoted(filename) >> stage.rate_scale;
+            if (magic == "SGCURRICULUM2")
+                row >> scope;
             require(bool(row) && !(row >> extra) && !filename.empty() &&
                         stage.end_update > (stages.empty() ? 0 : stages.back().end_update) &&
                         stage.end_update <= 100000000 && std::isfinite(stage.rate_scale) &&
-                        stage.rate_scale > 0 && stage.rate_scale <= 10 && stages.size() < 4096,
-                    "Invalid curriculum row: expected increasing end-update, quoted path and LR scale");
+                        stage.rate_scale > 0 && stage.rate_scale <= 10 && stages.size() < 4096 &&
+                        (scope == "all" || scope == "new"),
+                    "Invalid curriculum row: expected increasing end-update, quoted path, LR scale and v2 "
+                    "scope all|new");
+            stage.new_documents_only = scope == "new";
             stage.corpus = (path.parent_path() / fs::path(filename)).lexically_normal();
             stages.push_back(stage);
         }
@@ -47,6 +54,7 @@ struct LiveCurriculum {
             auto current = std::make_unique<LiveCorpus>(stage.corpus);
             if (previous)
                 validate_append(*previous, *current);
+            stage.first_document = previous && stage.new_documents_only ? previous->docs.size() : 0;
             stage.corpus_hash = current->hash;
             hash = hash_bytes(&stage.corpus_hash, sizeof(stage.corpus_hash), hash);
             previous = std::move(current);
@@ -82,12 +90,15 @@ struct LiveCurriculum {
         size_t index = size_t(s.extra[15]);
         uint64_t start = index ? stages[index - 1].end_update : 0;
         require(s.meta[24] >= start && s.meta[24] <= stages[index].end_update &&
-                    s.meta[12] == stages[index].corpus_hash && s.hp[0] == s.hp[7] * stages[index].rate_scale,
+                    s.meta[12] == stages[index].corpus_hash &&
+                    s.hp[0] == s.hp[7] * stages[index].rate_scale &&
+                    s.meta[19] >= stages[index].first_document,
                 "Curriculum stage, source, learning rate or update counter is inconsistent");
     }
     LiveCorpus corpus(const State &s) const {
         validate(s);
         LiveCorpus result(stages[size_t(s.extra[15])].corpus);
+        result.first_document = stages[size_t(s.extra[15])].first_document;
         require(result.hash == stages[size_t(s.extra[15])].corpus_hash,
                 "Curriculum source changed during this invocation");
         return result;
@@ -98,6 +109,7 @@ struct LiveCurriculum {
         if (s.meta[24] < stages[index].end_update || index + 1 == stages.size())
             return false;
         LiveCorpus next(stages[index + 1].corpus);
+        next.first_document = stages[index + 1].first_document;
         require(next.hash == stages[index + 1].corpus_hash,
                 "Curriculum source changed during this invocation");
         validate_append(data, next);
@@ -127,6 +139,8 @@ struct LiveCurriculum {
                     << "\",\"corpus_hash\":\"" << data.hash << "\",\"previous_document\":" << old_document
                     << ",\"previous_offset\":" << old_offset << ",\"new_document\":" << s.meta[19]
                     << ",\"replay_windows_preserved\":" << ReplayMemory(s).count()
+                    << ",\"online_first_document\":" << data.first_document
+                    << ",\"online_document_count\":" << data.docs.size() - data.first_document
                     << ",\"learning_rate\":" << s.hp[0]
                     << ",\"consolidation_events\":" << engine.root.synapses->boundaries << "}\n";
         return true;

@@ -13,6 +13,7 @@ The native learner, population registry, fitness-gated reproduction and bounded 
 - Bounded replay of previously observed source windows, adjustable core plasticity and optional synaptic-importance consolidation.
 - CUDA graph decoding, checksum-protected checkpoints and restoration of optimizer, recurrent, replay and learning-history state.
 - A selected general-reading curriculum with three stages, separate validation/test books and reproducible source hashes. Native live stage transitions retain replay and consolidation history.
+- Optional selected science material and a native controlled retention experiment, with explicit stage repetition and matched new-source observations.
 - Native parent selection, whole-block inheritance, inherited learning settings and probabilistic hidden-neuron growth within size limits.
 - GPU-memory-based population credits, stricter selection under scarcity, inherited lifespans and old-age death.
 - Population-owned live sessions update the exact checkpoint used for selection, preserve lifespan/lineage, and reject deceased members.
@@ -111,9 +112,12 @@ python tests/burn_policy.py --out runs/burn-policy-test
 python tests/population_cli.py --out runs/population-cli-test
 python tests/curriculum_cli.py --out runs/curriculum-cli-test
 python tests/population_live_cli.py --out runs/population-live-cli-test
+python tests/retention_cli.py --out runs/retention-cli-test
 ```
 
 The consolidation oracle and CLI integration test use only Python's standard library. Numerical tests use disposable synthetic models, isolated from founders. [Validation evidence](reports/validation.md) records what was checked for this repository.
+
+The [retention protocol](docs/retention.md) compares old-memory replay, extra current-chunk updates, consolidation and slower learning from the exact same starting model. Its [selected development sources](data/sources-development-v2.json) add a science training book and a different held-out geography book. They are an optional versioned extension; the original foundation source selection stays reproducible.
 
 ## Development direction
 

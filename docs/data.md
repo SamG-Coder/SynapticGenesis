@@ -33,3 +33,20 @@ Raw books, prepared text and model checkpoints stay outside the Git tree. The pr
 Add selected sources with a reason, stage, split and appropriate provenance. Preserve independent evaluation material and use a new corpus version. More advanced stages can cover arithmetic, natural science, geography and everyday procedures, with independently authored/selected skill questions. Source diversity and correctness matter alongside total bytes.
 
 Teacher models should select or annotate approved source examples with provenance. Their generated explanations, if later enabled, must be recorded separately and checked against external targets. Evaluation answers cannot be inherited from the same teachers being evaluated.
+
+## Selected development extension
+
+[sources-development-v2.json](../data/sources-development-v2.json) preserves the foundation selection and adds one training book and one separate evaluation book:
+
+| Source | Role | Reason |
+| --- | --- | --- |
+| [The Fairy-Land of Science, Arabella B. Buckley](https://www.gutenberg.org/ebooks/5726) | Stage 4 training | Sustained explanatory prose on light, air, water, plants and insects gives a subject/style change after elementary reading. |
+| [Home Geography for Primary Grades, C. C. Long](https://www.gutenberg.org/ebooks/12228) | Stage 4 validation only | A different author and book covers observations of surroundings, land, water and weather. It measures transfer to related prose. |
+
+These are historical language sources. The science book includes obsolete explanations, religious framing, transcription artifacts and references to figures. It is not modern scientific ground truth. Neither byte prediction on these books nor a lower loss demonstrates factual understanding. The geography text is never a learning or replay target. The existing Beacon final test book remains reserved.
+
+```powershell
+python scripts/prepare_corpus.py --sources data/sources-development-v2.json --out data/prepared/development-v2-final
+```
+
+Preparation starts at the first lecture/lesson and removes the trailing ebook attribution. The verified edition has 324,154 additional training bytes and 84,318 additional held-out bytes. All original foundation training/stage and final-test bytes remain identical. The extension has 585,436 training bytes including separators. Individual cleaned held-out files support separate old/new-domain evaluation; their different difficulty levels must not be interpreted as directly comparable skill scores.

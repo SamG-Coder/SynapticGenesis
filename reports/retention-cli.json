@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "native_commands": 17,
+  "arms_checked": 7,
+  "metrics_match_independent_checkpoint_evaluation": true,
+  "matched_source_replay_and_generated_counts": true,
+  "source_cursor_stays_in_new_domain": true,
+  "heldout_learning_overlap_rejected": true,
+  "existing_experiment_protected": true,
+  "synthetic_fixture_only": true
+}

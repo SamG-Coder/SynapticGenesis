@@ -1316,6 +1316,7 @@ void self_test(const Args &args) {
 #include "live.cuh"
 #include "memory_bench.cuh"
 #include "population_live.cuh"
+#include "retention_bench.cuh"
 #include "synaptic_tests.cuh"
 int main(int argc, char **argv) {
     try {
@@ -1342,6 +1343,9 @@ int main(int argc, char **argv) {
                 << "synapticgenesis decode-bench --checkpoint runs/pilot/best.ckpt --out reports/decode\n"
                 << "synapticgenesis context-bench --checkpoint runs/pilot/best.ckpt --data validation.dat "
                    "--prefix 512 --output reports/context.json\n"
+                << "synapticgenesis retention-bench --train-a reading.dat --train-b science.dat "
+                   "--validation-a reading-heldout.dat --validation-b science-heldout.dat --out "
+                   "runs/retention\n"
                 << "synapticgenesis memory-bench --cell alif --delay 128 --steps 2000 --out "
                    "runs/memory-test\n"
                 << "synapticgenesis adaptive-test --out reports/adaptive-tests\n"
@@ -1385,6 +1389,8 @@ int main(int argc, char **argv) {
             memory_bench(args);
         else if (cmd == "context-bench")
             context_bench(args);
+        else if (cmd == "retention-bench")
+            retention_bench(args);
         else if (cmd == "synaptic-test")
             synaptic_test(args);
         else if (cmd == "population-add")

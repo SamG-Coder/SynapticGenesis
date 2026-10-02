@@ -94,6 +94,26 @@ def check(exe, out):
                 assert speech(full) == speech(part)
                 cases += 1
     # Existing v2 history can be bound to a curriculum without resetting it.
+    # A v2 schedule can retain earlier books exclusively for replay, including
+    # after repeated EOF wraps and a process restart in the new stage.
+    scoped = out / 'scoped.sg'
+    scoped.write_bytes(b'SGCURRICULUM2\n3 "0.dat" 1 all\n8 "1.dat" 1 new\n')
+    scoped_options = ['--channels', 8, '--hidden', 16, '--layers', 2, '--chunk', 256,
+                      '--replay', 'reservoir', '--replay-capacity', 16, '--replay-every', 2,
+                      '--speak-every', 0, '--prompt', 'A', '--log-every', 1]
+    for name, stop in [('scoped-full', 8), ('scoped-split', 6)]:
+        run('live', '--curriculum', scoped, '--out', out / name, '--updates', stop, *scoped_options)
+    run('live', '--curriculum', scoped, '--resume', out / 'scoped-split/latest.ckpt',
+        '--out', out / 'scoped-split', '--prompt', 'A')
+    expected_scoped = payload(out / 'scoped-full/latest.ckpt')
+    actual_scoped = payload(out / 'scoped-split/latest.ckpt')
+    assert expected_scoped[0][22] == 3 * (len(docs[0])-1) + 5 * (len(docs[1])-1)
+    assert expected_scoped[0][19] == actual_scoped[0][19] == 1
+    assert max(abs(a-b) for a,b in zip(expected_scoped[3],actual_scoped[3])) < 3e-5
+    assert expected_scoped[2] == actual_scoped[2]
+    assert any(expected_scoped[2][i] == 0 for i in range(16, len(expected_scoped[2]), 3))
+    scoped_session = json.loads((out / 'scoped-full/session.json').read_text())
+    assert scoped_session['online_first_document'] == 1 and scoped_session['online_document_count'] == 1
     prior = out / 'prior-v2'
     run('live', '--data', out / '0.dat', '--out', prior, '--updates', 2, *common)
     run('live', '--resume', prior / 'latest.ckpt', '--curriculum', schedule,
@@ -126,6 +146,7 @@ def check(exe, out):
               'rate_override_retains_stage_scale': True, 'future_data_mutation_rejected': True,
               'changed_prefix_rejected': True, 'future_heldout_document_rejected': True,
               'invalid_input_writes_no_run': True, 'v4_read_only_commands_checked': True,
+              'new_scope_wraps_without_old_online_documents': True, 'scoped_restart_preserves_old_replay': True,
               'checkpoint_sha256': hashlib.sha256(selected.read_bytes()).hexdigest()}
     (out / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))
