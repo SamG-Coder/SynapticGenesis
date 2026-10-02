@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "native_commands": 20,
+  "cells": [
+    "lif",
+    "alif"
+  ],
+  "independent_cpu_forward_max_score_error": 1.9073855952456142e-06,
+  "independent_cpu_greedy_matches": true,
+  "answer_only_scoring_verified": true,
+  "pair_order_independent": true,
+  "checkpoint_files_unchanged": true,
+  "malformed_pairs_rejected": true,
+  "prepared_bytes_reproducible": true,
+  "heldout_contexts_absent_from_lessons": true,
+  "synthetic_fixture_only": true
+}

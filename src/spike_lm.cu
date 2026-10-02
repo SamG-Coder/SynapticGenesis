@@ -1308,6 +1308,7 @@ void self_test(const Args &args) {
 }
 #include "adaptive_tests.cuh"
 #include "context_bench.cuh"
+#include "language_probes.cuh"
 #include "curriculum_tests.cuh"
 #include "decode_tests.cuh"
 #include "evolution.cuh"
@@ -1343,6 +1344,8 @@ int main(int argc, char **argv) {
                 << "synapticgenesis decode-bench --checkpoint runs/pilot/best.ckpt --out reports/decode\n"
                 << "synapticgenesis context-bench --checkpoint runs/pilot/best.ckpt --data validation.dat "
                    "--prefix 512 --output reports/context.json\n"
+                << "synapticgenesis language-probes --checkpoint runs/pilot/best.ckpt --probes "
+                   "data/prepared/relations-v1/development.sgprobe --output reports/probes.json\n"
                 << "synapticgenesis retention-bench --train-a reading.dat --train-b science.dat "
                    "--validation-a reading-heldout.dat --validation-b science-heldout.dat --out "
                    "runs/retention\n"
@@ -1389,6 +1392,8 @@ int main(int argc, char **argv) {
             memory_bench(args);
         else if (cmd == "context-bench")
             context_bench(args);
+        else if (cmd == "language-probes")
+            probes::run(args);
         else if (cmd == "retention-bench")
             retention_bench(args);
         else if (cmd == "synaptic-test")

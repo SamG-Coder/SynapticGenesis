@@ -123,6 +123,8 @@ Across three seeds, replay plus a quarter later-stage learning rate gave the low
 
 ## Development direction
 
+The [paired language probes and selected teaching lessons](docs/language-probes.md) now test whether changed facts cause changed answers, with context-erasure controls and unconstrained greedy output. Initial results expose a gap between lower text loss and using sentence context correctly. These skill probes are separate from population fitness and do not automatically promote a model.
+
 The [development design](docs/general-development.md) specifies separate developmental stage and generation records, inheritance from two parents, teaching from selected source material, and selection against matched controls. The [native evolution commands](docs/evolution.md) register founders, evaluate eligibility, create children and inherit settings. Whole-block crossover can disrupt learned channel roles and every child must train and requalify; no improvement is assumed merely from birth.
 
 Resource-sensitive breeding and lifespans are implemented. Available GPU memory sets the population budget; scarce resources narrow parent selection and raise the required improvement. Models die at their configured simulation lifespan, release population credits and remain archived on disk. `population-live` connects a member to the live curriculum, preserving its age and lineage while publishing learning checkpoints directly for the next selection round. Dead members cannot start another population learning session. Stage-specific mastery probes, teacher feedback, channel alignment, structural pruning and a town simulation remain future work.

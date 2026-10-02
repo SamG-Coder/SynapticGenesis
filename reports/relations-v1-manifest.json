@@ -1,0 +1,164 @@
+{
+  "version": "relations-v1",
+  "source_spec_sha256": "732d5f8631e856227b9a9bb09ff7290049de1e1e79cc7ddafdfe18abbbedb401",
+  "documents": 312,
+  "files": {
+    "development.sgprobe": {
+      "bytes": 11820,
+      "sha256": "ad46a15019e8d524931f8dd14dc40183807e8f6f1593ff68c1fa4e38e8d55a78"
+    },
+    "source-spec.json": {
+      "bytes": 1571,
+      "sha256": "732d5f8631e856227b9a9bb09ff7290049de1e1e79cc7ddafdfe18abbbedb401"
+    },
+    "test.sgprobe": {
+      "bytes": 11820,
+      "sha256": "13fb48f9719f2347749e9ef44561630011580de4c0e50a23e1a5d08b90985793"
+    },
+    "train.dat": {
+      "bytes": 24071,
+      "sha256": "568774d888f3d22ba56896566521ad5c5018f34e699aa3717979e606cf1d4cfa"
+    },
+    "train.sgprobe": {
+      "bytes": 35437,
+      "sha256": "e4ae9a61ab174d58db59306e9ff6951f6b8aa6e8c99148d057236454f5c52bd8"
+    }
+  },
+  "object_pairs": {
+    "development": [
+      [
+        "cup",
+        "pen"
+      ],
+      [
+        "hat",
+        "cup"
+      ],
+      [
+        "key",
+        "hat"
+      ],
+      [
+        "mug",
+        "toy"
+      ],
+      [
+        "pen",
+        "mug"
+      ],
+      [
+        "toy",
+        "key"
+      ]
+    ],
+    "test": [
+      [
+        "cup",
+        "mug"
+      ],
+      [
+        "hat",
+        "pen"
+      ],
+      [
+        "key",
+        "cup"
+      ],
+      [
+        "mug",
+        "key"
+      ],
+      [
+        "pen",
+        "toy"
+      ],
+      [
+        "toy",
+        "hat"
+      ]
+    ],
+    "train": [
+      [
+        "cup",
+        "hat"
+      ],
+      [
+        "cup",
+        "key"
+      ],
+      [
+        "cup",
+        "toy"
+      ],
+      [
+        "hat",
+        "key"
+      ],
+      [
+        "hat",
+        "mug"
+      ],
+      [
+        "hat",
+        "toy"
+      ],
+      [
+        "key",
+        "mug"
+      ],
+      [
+        "key",
+        "pen"
+      ],
+      [
+        "key",
+        "toy"
+      ],
+      [
+        "mug",
+        "cup"
+      ],
+      [
+        "mug",
+        "hat"
+      ],
+      [
+        "mug",
+        "pen"
+      ],
+      [
+        "pen",
+        "cup"
+      ],
+      [
+        "pen",
+        "hat"
+      ],
+      [
+        "pen",
+        "key"
+      ],
+      [
+        "toy",
+        "cup"
+      ],
+      [
+        "toy",
+        "mug"
+      ],
+      [
+        "toy",
+        "pen"
+      ]
+    ]
+  },
+  "probe_items": {
+    "development": 72,
+    "test": 72,
+    "train": 216
+  },
+  "heldout_contexts_absent_from_training": true,
+  "predefined_test_not_for_tuning": true,
+  "provenance": "Original, explicitly selected template lessons authored for SynapticGenesis. Examples and targets are deterministic expansions of the listed vocabulary and literal templates; no pretrained weights or teacher distributions are imported.",
+  "limits": "A narrow controlled reading-and-response curriculum, not a general language corpus or evidence of human developmental ages. Evaluation uses held-out object combinations within familiar templates and vocabulary; unseen syntax and real-world competence are not tested."
+}

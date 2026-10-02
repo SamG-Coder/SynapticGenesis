@@ -1,0 +1,22 @@
+{
+  "version": "relations-v1",
+  "provenance": "Original, explicitly selected template lessons authored for SynapticGenesis. Examples and targets are deterministic expansions of the listed vocabulary and literal templates; no pretrained weights or teacher distributions are imported.",
+  "license": "MIT",
+  "objects": ["key", "hat", "cup", "pen", "mug", "toy"],
+  "locations": ["box", "bag", "bed", "car"],
+  "skills": ["single_fact", "two_facts", "changed_fact"],
+  "templates": {
+    "single_fact": "The {object} is in the {location}.\n",
+    "two_facts": "The {object} is in the {location}. The {other} is in the {alternative}.\n",
+    "changed_fact": "The {object} is in the {alternative}. Now the {object} is in the {location}.\n",
+    "query": "Where is the {object}?\nAnswer: ",
+    "answer": "{location}."
+  },
+  "split": {
+    "method": "Hold out ordered object pairs: cyclic distance 1 is development; distance 2 is test; distances 3,4,5 are training. Both answer directions, location choices and skills stay in the same split. Only two_facts appears in evaluation because it depends on an object-pair relation. Single/changed facts teach prerequisite forms using training objects.",
+    "development_distance": 1,
+    "test_distance": 2,
+    "train_distances": [3, 4, 5]
+  },
+  "limits": "A narrow controlled reading-and-response curriculum, not a general language corpus or evidence of human developmental ages. Evaluation uses held-out object combinations within familiar templates and vocabulary; unseen syntax and real-world competence are not tested."
+}
