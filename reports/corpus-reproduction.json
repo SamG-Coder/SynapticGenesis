@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "training_evaluation_and_stage_bytes_identical": true,
+  "committed_allowlist_matches_manifest": true,
+  "exact_allowlist_snapshot_preserved": true,
+  "train_bytes": 261281,
+  "train_sha256": "66116234362cb7fa49d233e671f8c6a388ad2b2181577ea3538a92b95a2be143",
+  "source_spec_sha256": "c72ff3705bbc73aa06cc588c1a67ddad3595b87a4e8712b646f8fa0c9796f4a3"
+}

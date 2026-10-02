@@ -1,7 +1,7 @@
 {
   "version": "general-foundations-v1",
-  "created_utc": "2026-10-02T21:37:27.614047+00:00",
-  "source_spec_sha256": "9e03cc13f2d4f32cf82d84b420fc75f33750650b34048c3b5b925286967cbdb9",
+  "created_utc": "2026-10-02T21:56:20.335425+00:00",
+  "source_spec_sha256": "c72ff3705bbc73aa06cc588c1a67ddad3595b87a4e8712b646f8fa0c9796f4a3",
   "tokenizer": "UTF-8 bytes, fixed IDs 0..255, no learned tokenizer",
   "document_separator": "0x1e, excluded from sampled windows",
   "outputs": {

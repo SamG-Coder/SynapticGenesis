@@ -10,7 +10,7 @@ The initial sources are historical elementary readers, ordered from simple vocab
 - `train.dat`: all selected training sources, useful for a pooled/shuffled curriculum control.
 - `validation.dat`: one separate book, used for checkpoints and development comparisons.
 - `test.dat`: one separate book, reserved for final evaluation.
-- Individual cleaned source texts and `manifest.json`: exact edition URLs, catalogue/raw/clean hashes, selected boundaries, byte/word counts, duplicate removals and stage labels.
+- Individual cleaned source texts, the exact input `source-spec.json`, and `manifest.json`: exact edition URLs, catalogue/raw/clean hashes, selected boundaries, byte/word counts, duplicate removals and stage labels. The source-spec hash binds the saved input bytes, including line endings.
 
 Stage numbers are curriculum labels. A future population registry will separately record developmental mastery, lifetime exposure and parent generation. Finishing a fixed number of steps is not a mastery test.
 

@@ -146,6 +146,9 @@ def main():
         print(f"{source['split']:10s} {book_id:6d} {len(encoded):9d} bytes  {catalog_title}", flush=True)
     if args.download_only:
         return
+    # Preserve the exact allowlist bytes as well as their hash. Windows working
+    # copies and Git checkouts may use different line endings for identical JSON.
+    (args.out / 'source-spec.json').write_bytes(spec_bytes)
     outputs = {}
     for name, documents in splits.items():
         payload = b'\x1e'.join(documents)
