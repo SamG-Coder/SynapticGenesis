@@ -81,22 +81,27 @@ struct Buf {
 #include "synaptic_memory.cuh"
 struct Config {
     int c = 256, h = 512, l = 4;
-    int cell = 1; // 1: signed LIF, 2: adaptive LIF, 3: LIF with filtered spike output.
+    int cell = 1; // 1: LIF, 2: ALIF, 3: filtered spikes, 4: input-gated trace readout.
     bool adaptive() const {
         return cell == 2;
     }
     bool traced() const {
-        return cell == 3;
+        return cell == 3 || cell == 4;
+    }
+    bool gated() const {
+        return cell == 4;
     }
     bool secondary() const {
         return adaptive() || traced();
     }
     const char *name() const {
-        return traced() ? "signed_trace_lif_v3" : (adaptive() ? "signed_alif_v2" : "signed_lif_v1");
+        return gated()
+                   ? "signed_gated_trace_lif_v4"
+                   : (traced() ? "signed_trace_lif_v3" : (adaptive() ? "signed_alif_v2" : "signed_lif_v1"));
     }
 };
 struct Layer {
-    size_t gain, wi, bi, wo, bo, leak, adapt_leak, adapt_scale;
+    size_t gain, wi, bi, wo, bo, leak, adapt_leak, adapt_scale, gate_w, gate_b;
 };
 struct Layout {
     size_t n = 0, emb, final_gain, head, bias;
@@ -111,7 +116,7 @@ struct Layout {
     }
     explicit Layout(Config q) {
         if (q.c < 8 || q.c > 2048 || q.h < 8 || q.h > 8192 || q.l < 1 || q.l > 32 ||
-            (q.cell != 1 && q.cell != 2 && q.cell != 3))
+            (q.cell < 1 || q.cell > 4))
             throw std::runtime_error("Unsupported model dimensions");
         emb = add(256ull * q.c, true);
         for (int i = 0; i < q.l; ++i) {
@@ -125,6 +130,10 @@ struct Layout {
             if (q.secondary()) {
                 a.adapt_leak = add(q.h);
                 a.adapt_scale = add(q.h);
+            }
+            if (q.gated()) {
+                a.gate_w = add(size_t(q.h) * q.c, true);
+                a.gate_b = add(q.h);
             }
             layers.push_back(a);
         }
@@ -375,12 +384,12 @@ __global__ void adaptive_codec(float *out, const float *x, int C, float k) {
 }
 struct Cache {
     Buf norm, rs, z, u, s, state, initial_state;
-    Buf adapt, adapt_state, initial_adapt, emission;
-    Cache(int N, int C, int H, int B, bool secondary, bool traced)
+    Buf adapt, adapt_state, initial_adapt, emission, gate;
+    Cache(int N, int C, int H, int B, bool secondary, bool traced, bool gated)
         : norm(size_t(N) * C), rs(N), z(size_t(N) * H), u(size_t(N) * H), s(size_t(N) * H),
           state(size_t(B) * H), initial_state(size_t(B) * H), adapt(secondary ? size_t(N) * H : 0),
           adapt_state(secondary ? size_t(B) * H : 0), initial_adapt(secondary ? size_t(B) * H : 0),
-          emission(traced ? size_t(N) * H : 0) {
+          emission(traced ? size_t(N) * H : 0), gate(gated ? size_t(N) * H : 0) {
         state.zero();
         if (secondary)
             adapt_state.zero();
@@ -391,7 +400,8 @@ struct Model {
     Layout a;
     int B, T, N;
     cublasHandle_t blas{};
-    Buf w, g, m, v, decay, finalnorm, finalrs, logits, dlogits, losses, loss_weights, dx, dy, dnorm, ds, dz;
+    Buf w, g, m, v, decay, finalnorm, finalrs, logits, dlogits, losses, loss_weights, dx, dy, dnorm, ds, dz,
+        dgate;
     std::vector<Buf> x;
     std::vector<Cache> cache;
     // The object exists before views are created; later initialization/restoration
@@ -403,7 +413,7 @@ struct Model {
         : q(config), a(q), B(batch), T(time), N(batch * time), w(a.n), g(a.n), m(a.n), v(a.n), decay(a.n),
           finalnorm(size_t(N) * q.c), finalrs(N), logits(size_t(N) * 256), dlogits(size_t(N) * 256),
           losses(N), loss_weights(N), dx(size_t(N) * q.c), dy(size_t(N) * q.c), dnorm(size_t(N) * q.c),
-          ds(size_t(N) * q.h), dz(size_t(N) * q.h) {
+          ds(size_t(N) * q.h), dz(size_t(N) * q.h), dgate(q.gated() ? size_t(N) * q.h : 0) {
         if (B < 1 || B > 256 || T < 1 || T > 4096)
             throw std::runtime_error("Invalid batch/context");
         cb(cublasCreate(&blas));
@@ -413,7 +423,7 @@ struct Model {
         for (int i = 0; i <= q.l; ++i)
             x.emplace_back(size_t(N) * q.c);
         for (int i = 0; i < q.l; ++i)
-            cache.emplace_back(N, q.c, q.h, B, q.secondary(), q.traced());
+            cache.emplace_back(N, q.c, q.h, B, q.secondary(), q.traced(), q.gated());
         std::vector<float> mask(a.n, 0);
         for (auto pair : a.decay)
             std::fill_n(mask.data() + pair.first, pair.second, 1.f);
@@ -515,11 +525,13 @@ struct Model {
             }
             rms_fwd<<<N, 256, 0, stream>>>(f.norm.p, f.rs.p, x[l].p, w.p + p.gain, q.c);
             linear(f.z.p, f.norm.p, p.wi, p.bi, q.c, q.h, stream);
+            if (q.gated())
+                linear(f.gate.p, f.norm.p, p.gate_w, p.gate_b, q.c, q.h, stream);
             if (q.traced())
                 trace_fwd<<<(B * q.h + 255) / 256, 256, 0, stream>>>(
                     f.s.p, f.u.p, f.adapt.p, f.emission.p, f.state.p, f.adapt_state.p, f.initial_state.p,
-                    f.initial_adapt.p, f.z.p, w.p + p.leak, w.p + p.adapt_leak, w.p + p.adapt_scale, B, T,
-                    q.h, streaming);
+                    f.initial_adapt.p, f.z.p, w.p + p.leak, w.p + p.adapt_leak, w.p + p.adapt_scale, f.gate.p,
+                    B, T, q.h, streaming);
             else if (q.adaptive())
                 alif_fwd<<<(B * q.h + 255) / 256, 256, 0, stream>>>(
                     f.s.p, f.u.p, f.adapt.p, f.state.p, f.adapt_state.p, f.initial_state.p, f.initial_adapt.p,
@@ -598,7 +610,8 @@ struct Model {
                 trace_bwd<<<(B * q.h + 255) / 256, 256>>>(
                     dz.p, g.p + p.leak, g.p + p.adapt_leak, g.p + p.adapt_scale, ds.p, f.u.p, f.s.p,
                     f.adapt.p, f.initial_state.p, f.initial_adapt.p, w.p + p.leak, w.p + p.adapt_leak,
-                    w.p + p.adapt_scale, B, T, q.h, activity_cost / (float(N) * q.h * q.l));
+                    w.p + p.adapt_scale, f.gate.p, dgate.p, B, T, q.h,
+                    activity_cost / (float(N) * q.h * q.l));
             else if (q.adaptive())
                 alif_bwd<<<(B * q.h + 255) / 256, 256>>>(dz.p, g.p + p.leak, g.p + p.adapt_leak,
                                                          g.p + p.adapt_scale, ds.p, f.u.p, f.s.p, f.adapt.p,
@@ -607,6 +620,10 @@ struct Model {
             else
                 lif_bwd<<<(B * q.h + 255) / 256, 256>>>(dz.p, g.p + p.leak, ds.p, f.u.p, f.s.p,
                                                         f.initial_state.p, w.p + p.leak, B, T, q.h);
+            if (q.gated()) {
+                linear_backward(dnorm.p, f.norm.p, dgate.p, p.gate_w, p.gate_b, q.c, q.h);
+                rms_bwd<<<N, 256>>>(dx.p, g.p + p.gain, dnorm.p, x[l].p, w.p + p.gain, f.rs.p, q.c, true);
+            }
             linear_backward(dnorm.p, f.norm.p, dz.p, p.wi, p.bi, q.c, q.h);
             rms_bwd<<<N, 256>>>(dx.p, g.p + p.gain, dnorm.p, x[l].p, w.p + p.gain, f.rs.p, q.c, true);
         }
@@ -781,7 +798,7 @@ State header(const fs::path &path) {
     State s;
     read_raw(f, s.meta.data(), 32);
     read_raw(f, s.hp.data(), 8);
-    if (s.meta[0] != 0x314d4c53434e5042ull || (s.meta[1] != 1 && s.meta[1] != 2 && s.meta[1] != 3))
+    if (s.meta[0] != 0x314d4c53434e5042ull || s.meta[1] < 1 || s.meta[1] > 4)
         throw std::runtime_error("Unsupported checkpoint architecture/version");
     for (int i = 2; i <= 9; ++i)
         if (s.meta[i] > 1000000000ull)
@@ -956,7 +973,9 @@ int cell_version(const Args &args) {
         return 2;
     if (cell == "trace")
         return 3;
-    throw std::runtime_error("--cell must be lif, alif or trace");
+    if (cell == "gated")
+        return 4;
+    throw std::runtime_error("--cell must be lif, alif, trace or gated");
 }
 Config checkpoint_config(const State &s) {
     return {int(s.meta[2]), int(s.meta[3]), int(s.meta[4]), int(s.meta[1])};
@@ -1375,7 +1394,7 @@ int main(int argc, char **argv) {
             std::cout
                 << "synapticgenesis train --data train.dat --validation validation.dat --out runs/pilot "
                    "[--steps "
-                   "2000] [--cell lif|alif|trace] [--burn-in 512 --burn-policy warm|reset]\n"
+                   "2000] [--cell lif|alif|trace|gated] [--burn-in 512 --burn-policy warm|reset]\n"
                 << "synapticgenesis sample --checkpoint runs/pilot/best.ckpt --prompt \"The bird \" "
                    "[--graph] "
                    "[--spike-add]\n"
@@ -1402,6 +1421,7 @@ int main(int argc, char **argv) {
                    "runs/memory-test\n"
                 << "synapticgenesis adaptive-test --out reports/adaptive-tests\n"
                 << "synapticgenesis trace-test --out reports/trace-tests\n"
+                << "synapticgenesis gated-test --out reports/gated-tests\n"
                 << "synapticgenesis synaptic-test --out reports/synaptic-tests\n"
                 << "synapticgenesis self-test --out reports/native-tests\n"
                 << "synapticgenesis population-add --population runs/population --id founder-a "
@@ -1440,6 +1460,8 @@ int main(int argc, char **argv) {
             adaptive_test(args);
         else if (cmd == "trace-test")
             adaptive_test(args, 3);
+        else if (cmd == "gated-test")
+            adaptive_test(args, 4);
         else if (cmd == "memory-bench")
             memory_bench(args);
         else if (cmd == "context-bench")

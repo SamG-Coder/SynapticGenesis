@@ -2,9 +2,15 @@
 
 Host: Windows, NVIDIA RTX 5080, CUDA 13.3, MSVC 19.51. Model execution, learning, mutation and selection use the native C++/CUDA executable.
 
-## Filtered spike state, binding and lifespan checks
+## Input-dependent read gate and optimization controls
 
-The current build passes ten native suites. The [trace validation report](trace-validation.json) includes the new cell's forward/gradient oracle, weighted supervision, streaming and graph equivalence, full-state restart, shared replay/SI, function-preserving growth and checkpoint type checks. Maximum gradient discrepancy is 6.71e-8. ALIF and trace have equal-sized layouts but cannot load as each other.
+The current build passes eleven native suites. The [gated validation report](gated-validation.json) checks identity-gate recovery of the trace cell, a nonzero gate's full gradients, weighted targets, state/graph consistency, all four cells' curriculum restarts, typed checkpoints, inherited gate weights and population lifespan/resource behavior. Maximum weighted gradient error is 6.71e-8; the curriculum CLI's maximum restart discrepancy is 1.50e-8. All eight batch prefix-policy combinations pass.
+
+The [optimization controls](binding-optimization.json) show LIF and trace can fit a single four-example group at all three tested rates, while higher later-stage rates fail to solve the complete collection. The [read-gate/capacity comparison](gated-binding.json) retains the failed binding results and the narrower earlier-reader loss improvement, with its runtime cost. Six [gated cue runs](gated-cue.json) preserve one-bit recall. [Protocol and limitations](../docs/gated-readout.md).
+
+## Earlier filtered spike state, binding and lifespan checks
+
+At this earlier stage the build passed ten native suites. The [trace validation report](trace-validation.json) includes the cell's forward/gradient oracle, weighted supervision, streaming and graph equivalence, full-state restart, shared replay/SI, function-preserving growth and checkpoint type checks. Maximum gradient discrepancy is 6.71e-8. ALIF and trace have equal-sized layouts but cannot load as each other.
 
 Curriculum integration passes 73 commands with 18 ordinary and six weighted restart cases across all three cells. Separate probe integration checks three cells and rejects trace use in ternary spike-addition/paging paths. The trace population passes all 17 lifecycle invocations, including learned-parent reproduction, child growth, restart, old-age death and rejection of further learning by a deceased member.
 

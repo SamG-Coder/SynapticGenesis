@@ -56,6 +56,21 @@ This experiment is inspired by the persistence and different decay times of [pos
 
 Training differentiates through the trace using the same spike surrogate. The membrane reset remains detached, and the activity penalty applies to raw spikes rather than the continuous emission. Independent autograd checks include signed incoming trace state, weighted answer targets and regularization. Streaming, graph decoding, checkpoint restart, replay, SI, inheritance and function-preserving width growth support this cell. Its continuous emission cannot use ternary spike additions or the current indexed-spike paging benchmark; these paths reject it explicitly. The dense resident path remains active.
 
+## Input-dependent trace readout
+
+`--cell gated` creates the experimental `signed_gated_trace_lif_v4`. It uses the same membrane, spikes and stored trace as the trace cell, with an additional learned projection from the current block input:
+
+```text
+read[t]     = 2 * sigmoid(W_gate * RMSNorm(x[t]) + b_gate)
+emission[t] = spike[t] + gamma * read[t] * trace[t]
+```
+
+The read coefficient lies between 0 and 2. Gate weights and biases initialize to zero, so the coefficient initially equals one and recovers the trace cell exactly at the same dimensions/seed. Initialization consumes no additional random numbers. The gate projection shares the block's normalized input, and both gradient paths contribute to the input and normalization gain. The nonzero-gate CPU fixture checks that second path explicitly.
+
+At width 256, four blocks and 512 neurons per block this gives 1,716,736 parameters. Using 344 neurons gives 1,197,280, close to the default trace model's 1,190,400. It adds a cached gate value per neuron per training position and one gradient scratch buffer, but no additional recurrent state. Population accounting includes these buffers, and the learned gate rows/biases are inherited with their neurons. All cell types remain distinct breeding compatibility groups.
+
+Input-dependent selection is motivated by [selective state-space research](https://arxiv.org/abs/2312.00752). This is a much smaller output-gating experiment over spiking state, not a Mamba implementation or a verified biological mechanism. The gate does not itself establish correct content retrieval. It remains optional; the default is LIF.
+
 ## Shared learning and inference
 
 The live engine has execution views with different chunk sizes over the same weights, Adam moments and neuron state. Observed chunks update parameters; generation then sees those updates directly. CUDA graph decoding captures generation without changing the initial neuron state, and reads the current shared parameter allocation without recapture.
@@ -68,7 +83,7 @@ Replay stores document/offset/length descriptors for previously observed source 
 
 `--core-scale` scales the learning rate for embeddings and spiking blocks; the output head keeps the full rate. It does not eliminate backpropagation or optimizer bookkeeping.
 
-An explicit version-3 curriculum may emphasize answer targets in selected lesson documents. Both live observations and replay use the same per-window normalized weighted loss, while inference and held-out evaluation stay unchanged. The policy is bound by the curriculum identity and restored with its document annotations. See [answer-emphasis semantics](live-curriculum.md). Independent CPU autograd checks the weighted gradients for all three cell types, including incoming recurrent state and activity regularization.
+An explicit version-3 curriculum may emphasize answer targets in selected lesson documents. Both live observations and replay use the same per-window normalized weighted loss, while inference and held-out evaluation stay unchanged. The policy is bound by the curriculum identity and restored with its document annotations. See [answer-emphasis semantics](live-curriculum.md). Independent CPU autograd checks the weighted gradients for all four cell types, including incoming recurrent state and activity regularization.
 
 ## Selective consolidation
 
@@ -88,7 +103,7 @@ Reference, importance and path use three extra float arrays (12 bytes per parame
 
 ## Checkpoints and storage
 
-Checkpoints include a checked architecture version, metadata, parameters, Adam moments and a payload checksum. Architecture versions 1, 2 and 3 represent LIF, ALIF and filtered-spike LIF. The latter two use equal-sized parameter/state layouts with different semantics; a checked version prevents mixing them. Live extensions add recurrence/cursor/RNG state, then replay, then consolidation history. Corrupt lengths, mismatched dimensions, unsupported policies and invalid history are rejected. The diagnostic reader is not a replacement for the native loader's complete validation.
+Checkpoints include a checked architecture version, metadata, parameters, Adam moments and a payload checksum. Architecture versions 1, 2, 3 and 4 represent LIF, ALIF, filtered-spike LIF and gated trace readout. ALIF and the ungated trace use equal-sized parameter/state layouts with different semantics; a checked version prevents mixing them. The architecture version and live-extension version occupy separate header fields. Live extensions add recurrence/cursor/RNG state, then replay, then consolidation history. Corrupt lengths, mismatched dimensions, unsupported policies and invalid history are rejected. The diagnostic reader is not a replacement for the native loader's complete validation.
 
 `live --resume` restores the complete saved stream and requires the same source corpus and prompt. With `--curriculum`, live extension v4 permits declared append-only source transitions and binds all scheduled editions to the checkpoint. It preserves replay descriptors, RNGs and optional SI history. Its policy header uses words 14 and 15 for the combined schedule/source hash and zero-based stage index; hyperparameter slot 7 stores the base learning rate. Optional SI arrays follow the replay payload only when policy word 9 equals 1. The checksum covers all policy fields, state and arrays. Earlier checkpoint versions remain readable.
 

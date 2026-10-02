@@ -47,7 +47,7 @@ def check(exe, out):
         assert (p.returncode != 0) == reject, (args,p.stderr)
 
     checkpoints = [Path('build/test-results/resume.ckpt'),Path('build/adaptive-test-results/resume.ckpt'),
-                   Path('build/trace-test-results/resume.ckpt')]
+                   Path('build/trace-test-results/resume.ckpt'),Path('build/gated-test-results/resume.ckpt')]
     for index, checkpoint in enumerate(checkpoints):
         result = out / f'scores-{index}.json'
         run('language-probes','--checkpoint',checkpoint,'--probes',path,'--output',result)

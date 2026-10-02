@@ -31,15 +31,16 @@ def inspect(path):
     with path.open('rb') as f:
         meta = struct.unpack('<32Q', f.read(256))
         hp = struct.unpack('<8f', f.read(32))
-        if meta[0] != 0x314D4C53434E5042 or meta[1] not in (1, 2, 3):
+        if meta[0] != 0x314D4C53434E5042 or meta[1] not in (1, 2, 3, 4):
             raise ValueError('Unsupported checkpoint format')
         adaptive = meta[1] == 2
-        secondary = meta[1] in (2, 3)
+        secondary = meta[1] in (2, 3, 4)
+        gated = meta[1] == 4
         label = 'adaptation' if adaptive else 'trace'
         c, h, layers, batch = meta[2:6]
         if not (8 <= c <= 2048 and 8 <= h <= 8192 and 1 <= layers <= 32 and 1 <= batch <= 256):
             raise ValueError('Invalid model dimensions')
-        expected = 256*c + layers*(c + 2*c*h + 2*h + c + (2*h if secondary else 0)) + c + 256*c + 256
+        expected = 256*c + layers*(c + 2*c*h + 2*h + c + (2*h if secondary else 0) + (h*c+h if gated else 0)) + c + 256*c + 256
         if meta[17] > 4 or (meta[17] < 2 and meta[31]) or meta[31] > 16 + 3*65536:
             raise ValueError('Unsupported live state extension')
         extra = ()
@@ -76,6 +77,10 @@ def inspect(path):
                 adapt_log_decay = [max(-v, 0) + math.log1p(math.exp(-abs(v))) for v in adapt_leaks]
                 blocks[-1][label + '_e_folding_steps'] = summary([1/v for v in adapt_log_decay])
                 blocks[-1][label + ('_threshold_strength' if adaptive else '_output_strength')] = summary([max(v, 0)+math.log1p(math.exp(-abs(v))) for v in scales])
+            if gated:
+                blocks[-1]['read_gate_weight_absolute_value'] = summary([abs(v) for v in weights[offset:offset+h*c]])
+                blocks[-1]['read_gate_bias'] = summary(weights[offset+h*c:offset+h*c+h])
+                offset += h*c+h
         result = {'checkpoint': path.as_posix(), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
                   'cell_version': meta[1], 'step': meta[7], 'parameters': expected, 'blocks': blocks,
                   'passive_e_folding_steps': summary(all_taus),

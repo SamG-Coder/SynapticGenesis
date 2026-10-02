@@ -60,7 +60,7 @@ def check(exe, out):
     spec.loader.exec_module(dynamics)
     max_error = 0
     cases = 0
-    for cell in ('lif', 'alif', 'trace'):
+    for cell in ('lif', 'alif', 'trace', 'gated'):
         for si in (False, True):
             name = f'{cell}-{int(si)}'
             policy = ['--cell', cell] + (['--consolidation', 'si', '--si-strength', .02] if si else [])
@@ -124,7 +124,7 @@ def check(exe, out):
     feedback_schedule = out / 'feedback.sg'
     feedback_schedule.write_bytes(b'SGCURRICULUM3\n6 "feedback-a.dat" 1 all 4\n12 "feedback-b.dat" 0.5 new 64\n18 "feedback-c.dat" 0.25 all 1\n')
     feedback_error = 0
-    for cell in ('lif', 'alif', 'trace'):
+    for cell in ('lif', 'alif', 'trace', 'gated'):
         for si in (False, True):
             full, part = out / f'feedback-{cell}-{si}-full', out / f'feedback-{cell}-{si}-split'
             policy = ['--cell', cell] + (['--consolidation', 'si', '--si-strength', .02] if si else [])
@@ -169,17 +169,17 @@ def check(exe, out):
         *common, reject='held-out document')
     assert not rejected.exists(), 'Invalid input wrote training artifacts'
     # Inference/evaluation read v4 without requiring the training schedule.
-    selected = out / 'trace-1-full/latest.ckpt'
+    selected = out / 'gated-1-full/latest.ckpt'
     run('sample', '--checkpoint', selected, '--prompt', 'A', '--tokens', 8)
     run('evaluate', '--checkpoint', selected, '--data', out / '0.dat', '--context', 8, '--batch', 2, '--batches', 2)
     result = {'passed': True, 'native_commands': calls, 'resume_cases': cases,
               'resume_max_error': max_error, 'identical_generated_bytes': True,
-              'cells': ['lif', 'alif', 'trace'], 'optional_si': True, 'v2_binding_retains_history': True,
+              'cells': ['lif', 'alif', 'trace', 'gated'], 'optional_si': True, 'v2_binding_retains_history': True,
               'rate_override_retains_stage_scale': True, 'future_data_mutation_rejected': True,
               'changed_prefix_rejected': True, 'future_heldout_document_rejected': True,
               'invalid_input_writes_no_run': True, 'v4_read_only_commands_checked': True,
               'new_scope_wraps_without_old_online_documents': True, 'scoped_restart_preserves_old_replay': True,
-              'feedback_resume_cases': 6, 'feedback_resume_max_error': feedback_error,
+              'feedback_resume_cases': 8, 'feedback_resume_max_error': feedback_error,
               'feedback_annotation_persists_across_later_stages': True,
               'feedback_policy_change_and_missing_answers_rejected': True,
               'checkpoint_sha256': hashlib.sha256(selected.read_bytes()).hexdigest()}

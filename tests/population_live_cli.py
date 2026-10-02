@@ -123,6 +123,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--exe', type=Path, default=Path('build/synapticgenesis.exe'))
     parser.add_argument('--out', type=Path, required=True)
-    parser.add_argument('--cell', choices=['lif', 'alif', 'trace'], default='lif')
+    parser.add_argument('--cell', choices=['lif', 'alif', 'trace', 'gated'], default='lif')
     args = parser.parse_args()
     check(args.exe, args.out, args.cell)

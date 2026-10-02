@@ -133,8 +133,8 @@ uint64_t food_bytes(Config q) {
 // Explicit Model buffer bytes. CUDA/cuBLAS overhead needs additional reserve.
 uint64_t working_bytes(Config q, int batch, int context) {
     uint64_t n = uint64_t(batch) * context, c = q.c, h = q.h, l = q.l;
-    uint64_t floats = 5ull * Layout(q).n + n * (4 * c + 517 + 2 * h) + (l + 1) * n * c +
-                      l * (n * c + n + (3 + int(q.secondary()) + int(q.traced())) * n * h +
+    uint64_t floats = 5ull * Layout(q).n + n * (4 * c + 517 + (2 + int(q.gated())) * h) + (l + 1) * n * c +
+                      l * (n * c + n + (3 + int(q.secondary()) + int(q.traced()) + int(q.gated())) * n * h +
                            2 * uint64_t(batch) * h * (1 + int(q.secondary())));
     return 4 * floats;
 }
@@ -227,6 +227,10 @@ std::vector<float> inherit(Config child, Config a, const std::vector<float> &wa,
         if (child.secondary()) {
             copy(to.adapt_leak, source, from.adapt_leak, q.h);
             copy(to.adapt_scale, source, from.adapt_scale, q.h);
+        }
+        if (child.gated()) {
+            copy(to.gate_w, source, from.gate_w, size_t(q.h) * q.c);
+            copy(to.gate_b, source, from.gate_b, q.h);
         }
         std::fill_n(result.begin() + to.wo, size_t(child.c) * child.h, 0.f);
         for (int c = 0; c < child.c; ++c)

@@ -37,7 +37,7 @@ def check(exe, output):
         return read_checkpoint(destination / 'latest.ckpt')
 
     results = []
-    for cell, version in [('lif', 1), ('alif', 2), ('trace', 3)]:
+    for cell, version in [('lif', 1), ('alif', 2), ('trace', 3), ('gated', 4)]:
         for policy in ('warm', 'reset'):
             name = f'{cell}-{policy}'
             first = output / name

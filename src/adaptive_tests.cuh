@@ -2,11 +2,22 @@
 #include "live.cuh"
 void adaptive_test(const Args &args, int cell = 2) {
     args.allow({"out"});
-    fs::path out = args.get("out", cell == 3 ? "reports/trace-tests" : "reports/adaptive-tests");
+    fs::path out =
+        args.get("out", cell == 4 ? "reports/gated-tests"
+                                  : (cell == 3 ? "reports/trace-tests" : "reports/adaptive-tests"));
     fs::create_directories(out);
     Config q{32, 64, 2, cell};
     Model gradient(q, 2, 16);
     auto weights = initialize(q, gradient.a, 123);
+    if (q.gated()) {
+        // Exercise the gate's input-gradient path, not only its zero-weight initializer.
+        for (auto layer : gradient.a.layers) {
+            for (int i = 0; i < q.h * q.c; ++i)
+                weights[layer.gate_w + i] = .03f * std::sin(float(i) * .19f);
+            for (int i = 0; i < q.h; ++i)
+                weights[layer.gate_b + i] = .04f * std::cos(float(i) * .27f);
+        }
+    }
     gradient.w.put(weights);
     std::vector<float> initial(size_t(q.l) * 2 * 2 * q.h);
     for (int l = 0; l < q.l; ++l)
@@ -68,6 +79,30 @@ void adaptive_test(const Args &args, int cell = 2) {
         graph_error = std::max(graph_error, maxdiff(captured.membranes(), step.membranes()));
     }
     require(chunk_error < 3e-5 && graph_error < 3e-5, "Adaptive streaming/capture disagrees");
+
+    float identity_error = 0;
+    if (q.gated()) {
+        Model identity(q, 1, 4), plain(Config{q.c, q.h, q.l, 3}, 1, 4);
+        identity.w.put(initialize(q, identity.a, 123));
+        plain.w.put(initialize(plain.q, plain.a, 123));
+        identity.membranes(state);
+        plain.membranes(state);
+        for (int t = 0; t < 32; t += 4) {
+            auto bytes = std::vector<int>(x.begin() + t, x.begin() + t + 4);
+            identity.forward(bytes, nullptr, true);
+            plain.forward(bytes, nullptr, true);
+            identity_error = std::max(identity_error, maxdiff(identity.logits.host(), plain.logits.host()));
+            identity_error = std::max(identity_error, maxdiff(identity.membranes(), plain.membranes()));
+        }
+        require(identity_error < 3e-5, "Identity gate does not recover the trace cell");
+        identity.w.put(weights);
+        identity.reset();
+        plain.reset();
+        auto bytes = std::vector<int>(x.begin(), x.begin() + 4);
+        identity.forward(bytes, nullptr, true);
+        plain.forward(bytes, nullptr, true);
+        require(maxdiff(identity.logits.host(), plain.logits.host()) > 1e-5, "Nonzero gate has no effect");
+    }
 
     // Matched initialization, and a secondary-path-disabled negative control.
     Config oldq{q.c, q.h, q.l, 1};
@@ -165,11 +200,14 @@ void adaptive_test(const Args &args, int cell = 2) {
     result << "{\"passed\":true,\"cell\":" << cell << ",\"chunk_max_error\":" << chunk_error
            << ",\"graph_max_error\":" << graph_error
            << ",\"disabled_adaptation_lif_max_error\":" << disabled_error
+           << ",\"identity_gate_trace_max_error\":" << (q.gated() ? std::to_string(identity_error) : "null")
            << ",\"resume_max_error\":" << resume_error
-           << ",\"equal_size_wrong_cell_rejected\":true,\"resumed_speech_identical\":true,\"replay_state_"
+           << ",\"wrong_cell_rejected\":true,\"equal_size_wrong_cell_rejected\":"
+           << (q.gated() ? "null" : "true")
+           << ",\"resumed_speech_identical\":true,\"replay_state_"
               "isolated\":true,\"common_initial_weights_"
               "identical\":true}\n";
-    std::cout << "PASS " << (q.traced() ? "trace" : "adaptive")
+    std::cout << "PASS " << (q.gated() ? "gated" : (q.traced() ? "trace" : "adaptive"))
               << ": oracle fixtures, stream/graph parity, LIF negative control, full "
                  "state/replay/speech resume. Max resume error "
               << resume_error << "\n";

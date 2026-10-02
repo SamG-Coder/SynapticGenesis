@@ -3,8 +3,8 @@
 void feedback_test(const Args &args) {
     args.allow({"out"});
     fs::path base = args.get("out", "reports/feedback-tests");
-    for (int cell : {1, 2, 3}) {
-        fs::path out = base / (cell == 1 ? "lif" : (cell == 2 ? "alif" : "trace"));
+    for (int cell : {1, 2, 3, 4}) {
+        fs::path out = base / (cell == 1 ? "lif" : (cell == 2 ? "alif" : (cell == 3 ? "trace" : "gated")));
         fs::create_directories(out);
         Config q{32, 64, 2, cell};
         Model model(q, 2, 16);

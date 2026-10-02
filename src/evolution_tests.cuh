@@ -4,23 +4,32 @@ void evolution_test(const Args &args) {
     fs::path out = args.get("out", "reports/evolution-tests");
     fs::create_directories(out);
     double growth_error = 0, crossover_error = 0, new_weight_change = 0;
-    for (int cell : {1, 2, 3}) {
+    for (int cell : {1, 2, 3, 4}) {
         Config a{8, 16, 2, cell}, b{8, 24, 2, cell}, c{8, 32, 2, cell};
         Layout aa(a), ba(b), ca(c);
         auto wa = initialize(a, aa, 19);
+        if (a.gated()) {
+            for (auto layer : aa.layers) {
+                for (int i = 0; i < a.c * a.h; ++i)
+                    wa[layer.gate_w + i] = .04f * std::sin(float(i) * .13f);
+                for (int i = 0; i < a.h; ++i)
+                    wa[layer.gate_b + i] = .03f * std::cos(float(i) * .23f);
+            }
+        }
         auto wb = evolution::inherit(b, a, wa, a, wa, {false, false}, 31);
         Model base(a, 1, 8), widened(b, 1, 8);
         uint64_t actual_buffers = 2ull * base.N * sizeof(int);
-        for (const Buf *buffer : {&base.w, &base.g, &base.m, &base.v, &base.decay, &base.finalnorm,
-                                  &base.finalrs, &base.logits, &base.dlogits, &base.losses,
-                                  &base.loss_weights, &base.dx, &base.dy, &base.dnorm, &base.ds, &base.dz})
+        for (const Buf *buffer :
+             {&base.w, &base.g, &base.m, &base.v, &base.decay, &base.finalnorm, &base.finalrs, &base.logits,
+              &base.dlogits, &base.losses, &base.loss_weights, &base.dx, &base.dy, &base.dnorm, &base.ds,
+              &base.dz, &base.dgate})
             actual_buffers += buffer->n * 4;
         for (const auto &buffer : base.x)
             actual_buffers += buffer.n * 4;
         for (const auto &cache : base.cache)
             for (const Buf *buffer :
                  {&cache.norm, &cache.rs, &cache.z, &cache.u, &cache.s, &cache.state, &cache.initial_state,
-                  &cache.adapt, &cache.adapt_state, &cache.initial_adapt, &cache.emission})
+                  &cache.adapt, &cache.adapt_state, &cache.initial_adapt, &cache.emission, &cache.gate})
                 actual_buffers += buffer->n * 4;
         require(actual_buffers == evolution::working_bytes(a, 1, 8),
                 "GPU admission estimate differs from actual explicit buffers");
@@ -68,7 +77,9 @@ void evolution_test(const Args &args) {
         State state;
         state.meta[10] = state.meta[11] = 19;
         auto child_path =
-            out / (cell == 1 ? "lif-child.ckpt" : (cell == 2 ? "alif-child.ckpt" : "trace-child.ckpt"));
+            out / (cell == 1 ? "lif-child.ckpt"
+                             : (cell == 2 ? "alif-child.ckpt"
+                                          : (cell == 3 ? "trace-child.ckpt" : "gated-child.ckpt")));
         save(child_path, mixed, state);
         Model loaded(c, 1, 8);
         State restored;
@@ -182,7 +193,7 @@ void evolution_test(const Args &args) {
     require(!scarce.fits(1) && scarce.pressure() == 1, "Empty food budget permitted birth");
     std::ofstream f(out / "native.json");
     f << std::setprecision(10)
-      << "{\"passed\":true,\"cells\":[1,2,3],\"width_growth_max_error\":" << growth_error
+      << "{\"passed\":true,\"cells\":[1,2,3,4],\"width_growth_max_error\":" << growth_error
       << ",\"block_inheritance_max_error\":" << crossover_error
       << ",\"new_neuron_output_weight_change\":" << new_weight_change
       << ",\"mutation_caps_and_seed_checked\":true,\"newborn_gate_checked\":true,"
