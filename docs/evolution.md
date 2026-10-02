@@ -45,13 +45,23 @@ Each child starts with fresh optimizer moments, recurrence, replay and consolida
 ## Train a child, then run another round
 
 ```powershell
-.\build\synapticgenesis.exe train --resume runs/population/round-1-child-0/latest.ckpt --allow-new-corpus --data data/prepared/foundations-v1/train.dat --validation data/prepared/foundations-v1/validation.dat --out runs/population/round-1-child-0 --steps 3000
+.\build\synapticgenesis.exe population-live --population runs/population --id round-1-child-0 --curriculum data/prepared/foundations-v1/curriculum.sg --validation data/prepared/foundations-v1/validation.dat --updates 2000 --chunk 128 --replay reservoir --replay-every 4 --graph --speak-every 500 --tokens 96 --prompt "The bird "
+
+# Resume the same member, retaining replay, optional SI and its curriculum cursor.
+.\build\synapticgenesis.exe population-live --population runs/population --id round-1-child-0 --curriculum data/prepared/foundations-v1/curriculum.sg --validation data/prepared/foundations-v1/validation.dat --updates 6000 --prompt "The bird "
+
 .\build\synapticgenesis.exe evolve --population runs/population --data data/prepared/foundations-v1/validation.dat --round round-2 --children 2 --seed 1338
 ```
 
-Train the other child similarly if desired. Selection reads each member's `latest.ckpt`. A weak child stays ineligible; there is no automatic promotion. A child's generation is one plus the larger parent generation, independently of its training exposure or curriculum stage.
+Train the other child similarly if desired. Selection reads each member's `latest.ckpt`, which population-owned live sessions update directly at every checkpoint boundary. A weak child stays ineligible; there is no automatic promotion. A child's generation is one plus the larger parent generation, independently of its training exposure or curriculum stage.
 
-Calls are bounded by their requested children and training updates. There is no unattended reproduction service. Use one writer per population directory.
+`population-live` owns the member checkpoint, model dimensions and output location; do not pass `--resume`, `--checkpoint`, `--out` or architecture overrides. It detects whether the member already has live state and resumes that state automatically. On its first session it uses the inherited/mutated learning rate unless explicitly overridden. Subsequent curriculum sessions retain the base rate and stage multiplier. Creation-only options are omitted when resuming, as with ordinary `live`.
+
+Supply selected `--data` for a single-corpus stream or `--curriculum` for staged development. `--validation` is required and must hash to the population's registered evaluation corpus; exact held-out documents are also checked against the complete scheduled training corpus. Live before/after loss uses the live command's diagnostic evaluation protocol; reproduction fitness is always freshly measured by `evolve` using the fixed population protocol.
+
+The member's `live/` directory stores metrics, transcript, session summary, stage archives and a population journal with starting/saved checkpoint hashes. There is no competing `live/latest.ckpt`: the canonical `member/latest.ckpt` is used for both live resume and evolution. The birth checkpoint and `member.sg` are preserved. Learning never resets birth time, lifespan, generation or eligibility ceiling, and it does not advance the simulation clock.
+
+Calls are bounded by their requested children and learning updates. There is no unattended reproduction service. `population-add`, `evolve` and `population-live` acquire an exclusive `.population-lock` directory so a clock change cannot race against live learning. The lock is removed on normal return or handled errors. A killed process leaves it behind; verify no population writer remains before removing that empty directory. Generic standalone training commands do not acquire population locks and should not write a member concurrently.
 
 ## GPU memory as population food
 
@@ -76,7 +86,7 @@ The parent pool and improvement requirement tighten as resources fill. Parent se
 
 `population-add --lifespan 20` gives a founder 20 simulation ticks by default. Registration records the current population tick as birth time. Each completed `evolve` call advances the clock once, including rounds with no births. A tick is an explicit simulation step, not a human year, a training update, or the model's curriculum level.
 
-A member dies when `current_tick - born_tick >= lifespan`. Dead members are excluded from evaluation/parent selection and consume no population credits. Their checkpoints and lineage stay on disk. The round report records age, lifespan and `old_age` as the death reason. Children inherit the rounded mean parental lifespan and start at age zero, independently of their generation number.
+A member dies when `current_tick - born_tick >= lifespan`. Dead members are excluded from evaluation/parent selection and consume no population credits. `population-live` also rejects them before reading training data or writing a learning session. Their checkpoints and lineage stay on disk; read-only sampling and evaluation remain possible. The round report records age, lifespan and `old_age` as the death reason. Children inherit the rounded mean parental lifespan and start at age zero, independently of their generation number.
 
 If all qualified adults die before their children improve enough to reproduce, the population can stop producing children. The system records `no_eligible_pairs`; it does not bypass the quality gate to keep births going. Registered founders can seed a new population when explicitly requested.
 

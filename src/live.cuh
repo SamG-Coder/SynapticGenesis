@@ -260,7 +260,7 @@ struct LiveLatency {
 
 #include "live_curriculum.cuh"
 
-void live_command(const Args &args) {
+void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
     args.allow({"data",          "out",          "checkpoint", "resume",       "chunk",
                 "channels",      "hidden",       "layers",     "seed",         "lr",
                 "activity-cost", "fast",         "updates",    "speak-every",  "tokens",
@@ -269,6 +269,9 @@ void live_command(const Args &args) {
                 "replay-seed",   "core-scale",   "graph",      "cell",         "consolidation",
                 "si-strength",   "si-damping",   "curriculum"});
     fs::path out = args.get("out", "runs/live");
+    // Population-owned sessions publish directly to the canonical member file.
+    // There is one checkpoint authority, including at an interrupted save.
+    fs::path latest = member_checkpoint.empty() ? out / "latest.ckpt" : member_checkpoint;
     bool resume = !args.get("resume").empty();
     std::string source = args.get(resume ? "resume" : "checkpoint");
     if (resume && !args.get("checkpoint").empty())
@@ -472,7 +475,7 @@ void live_command(const Args &args) {
             replay_loss_sum = 0;
         }
         if (s.meta[24] % uint64_t(save_every) == 0 || stop || last)
-            save(out / "latest.ckpt", engine.root, s);
+            save(latest, engine.root, s);
         if (curriculum && s.meta[24] == curriculum->stages[size_t(s.extra[15])].end_update)
             save(out / ("stage-" + std::to_string(s.extra[15] + 1) + ".ckpt"), engine.root, s);
         if (stop)
@@ -520,7 +523,7 @@ void live_command(const Args &args) {
         report << ",\"initial_validation_loss\":" << initial_val
                << ",\"final_validation_loss\":" << final_val;
     report << "}\n";
-    std::cout << "Live state saved: " << (out / "latest.ckpt").string();
+    std::cout << "Live state saved: " << latest.string();
     if (evaluator)
         std::cout << " validation_loss=" << initial_val << " -> " << final_val;
     std::cout << "\n";

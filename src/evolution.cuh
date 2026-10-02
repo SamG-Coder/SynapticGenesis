@@ -3,6 +3,26 @@
 #include <sstream>
 
 namespace evolution {
+// Births, clock changes and live learning must not race on the same population.
+// An empty directory provides process-independent exclusive ownership. A crash
+// leaves it in place; recovery is an explicit operator action, never a timeout.
+struct PopulationLock {
+    fs::path path;
+    explicit PopulationLock(const fs::path &root) : path(root / ".population-lock") {
+        fs::create_directories(root);
+        std::error_code error;
+        bool acquired = fs::create_directory(path, error);
+        require(acquired && !error,
+                "Population is locked; another writer may be active. After a crash, verify no population "
+                "writer is running before removing .population-lock");
+    }
+    PopulationLock(const PopulationLock &) = delete;
+    PopulationLock &operator=(const PopulationLock &) = delete;
+    ~PopulationLock() {
+        std::error_code ignored;
+        fs::remove(path, ignored); // Empty lock directory only, never recursive.
+    }
+};
 struct Rules {
     uint64_t corpus = 0, tick = 0;
     int batch = 8, context = 128, batches = 32;
@@ -246,6 +266,7 @@ void add(const Args &args) {
     require(lifespan >= 1 && lifespan <= 1000000, "Invalid lifespan in simulation ticks");
     m.lifespan = uint64_t(lifespan);
     validate(m);
+    PopulationLock lock(root);
     require(!fs::exists(root / m.id), "Member ID already exists");
     Rules rules;
     bool existing = fs::exists(root / "population.sg");
@@ -292,6 +313,7 @@ void run(const Args &args) {
     require(children >= 1 && children <= 128 && seed > 0 && max_parameters > 0 && improve > 0 &&
                 improve < 1 && crossover >= 0 && crossover <= 1 && max_hidden >= 8 && max_hidden <= 8192,
             "Invalid evolution limits");
+    PopulationLock lock(root);
     require(!fs::exists(root / (round + ".json")), "Round already exists");
     int reserve_mib = args.num("reserve-mib", 1024), food_mib = args.num("food-mib", -1);
     Food food;
@@ -369,6 +391,7 @@ void run(const Args &args) {
         const auto &m = members[i];
         report << (i ? "," : "") << "{\"id\":" << std::quoted(m.member.id)
                << ",\"generation\":" << m.member.generation << ",\"step\":" << m.state.meta[7]
+               << ",\"checkpoint_payload_hash\":\"" << m.state.meta[15] << "\""
                << ",\"loss\":" << m.loss << ",\"score\":" << m.score << ",\"ceiling\":" << m.member.ceiling
                << ",\"parameters\":" << m.parameters << ",\"age_ticks\":" << rules.tick - m.member.born_tick
                << ",\"lifespan_ticks\":" << m.member.lifespan << ",\"alive\":" << (m.alive ? "true" : "false")

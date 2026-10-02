@@ -58,3 +58,11 @@ A [full-size live run](live-curriculum-demonstration.json) started a default 1,1
 | Update plus 96-byte speech tick p50 / p95 | 12.389 / 18.696 ms |
 
 The loop time includes replay, generation, transition I/O, checkpoint saves and logs, but excludes process/model setup and the initial/final held-out evaluations. Latencies are approximately 2.2%-width histogram upper bounds. Evaluation used the same fixed strict-FP32 reset-window protocol before and after (16 sequences × 128 targets × 32 batches). The final test book remained unused. This is one local development run, not a retention ablation, speed comparison or proof of a curriculum advantage. Generated output remains incoherent.
+
+## Live population lifecycle
+
+After adding `population-live`, all eight native suites passed again. The [population live CLI result](population-live-cli.json) covers 15 native invocations: founder registration, a grown child's birth, two live sessions crossing a curriculum boundary with SI/replay/graph generation, fresh selection, parental and child old-age death, rejected dead-member learning, and archived inference.
+
+The child's inherited floating-point learning rate was preserved exactly, its birth checkpoint and lineage stayed unchanged, and learning did not reset its age or advance the population clock. Evolution reported the exact payload hash of the newly learned canonical checkpoint. After the child's lifespan expired, another learning call changed neither its checkpoint nor its metrics. A held population lock rejected both learning and clock advancement without removing the other writer's lock. The original population scarcity/lifespan CLI regression also passed after introducing writer locks.
+
+This verifies lifecycle integration with small synthetic fixture models. It does not show that the full-size children outperform their parents or that a town simulation is implemented. Standalone checkpoint tools can still inspect archived models; death is enforced by population operations.

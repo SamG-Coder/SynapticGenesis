@@ -39,6 +39,8 @@ Live checkpoint extension v4 stores the schedule identity, current stage and bas
 
 An existing single-corpus live v2/v3 checkpoint can be attached with `--resume` if its corpus is the first scheduled edition and its observed-update count still fits stage 1. Legacy v1 checkpoints remain readable but cannot attach directly. Starting a new stream with `--checkpoint` initializes new replay/consolidation history; use `--resume` to preserve it. A curriculum started from a supplied checkpoint uses that checkpoint's saved learning rate unless `--lr` is given.
 
+For a registered population member, use [`population-live`](evolution.md) with its ID and the same curriculum. It owns the checkpoint path, automatically resumes complete live state and preserves the member's birth time and lineage. Its `stage-N.ckpt` archives and logs live under `member/live/`, while the canonical checkpoint remains `member/latest.ckpt`. The population's lifespan rule can terminate an individual's eligibility for further learning even if its curriculum is incomplete.
+
 Validation is isolated from training and speech state. Exact held-out documents included anywhere in the scheduled cumulative corpus are rejected before a run is written. This check and source-preparation paragraph deduplication do not detect paraphrases or all short overlaps. Test material should remain reserved for final comparisons.
 
 ## Verified boundaries

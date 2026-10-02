@@ -1315,6 +1315,7 @@ void self_test(const Args &args) {
 #include "indexed_storage.cuh"
 #include "live.cuh"
 #include "memory_bench.cuh"
+#include "population_live.cuh"
 #include "synaptic_tests.cuh"
 int main(int argc, char **argv) {
     try {
@@ -1349,7 +1350,9 @@ int main(int argc, char **argv) {
                 << "synapticgenesis population-add --population runs/population --id founder-a "
                    "--checkpoint runs/founder/best.ckpt --data validation.dat\n"
                 << "synapticgenesis evolve --population runs/population --data validation.dat "
-                   "--round generation-1 --children 2 --seed 1337\n";
+                   "--round generation-1 --children 2 --seed 1337\n"
+                << "synapticgenesis population-live --population runs/population --id generation-1-child-0 "
+                   "--curriculum curriculum.sg --validation validation.dat\n";
             return 0;
         }
         Args args(argc, argv);
@@ -1386,6 +1389,8 @@ int main(int argc, char **argv) {
             synaptic_test(args);
         else if (cmd == "population-add")
             evolution::add(args);
+        else if (cmd == "population-live")
+            evolution::live(args);
         else if (cmd == "evolve")
             evolution::run(args);
         else if (cmd == "evolution-test")
