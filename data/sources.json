@@ -1,0 +1,81 @@
+{
+  "version": "general-foundations-v1",
+  "purpose": "A small, selected general-reading curriculum for native spiking models that develop through stages and eventually produce new generations.",
+  "policy": "Founders begin with random weights and the fixed 256-byte vocabulary. Only the selected source texts below enter foundation training. Validation and test books never supply weight updates or teacher targets. Synthetic numerical tests use separate disposable models.",
+  "stage_note": "Stages order increasing reading complexity. They are engineering curriculum labels, not measured human ages or evidence of general intelligence.",
+  "stages": [
+    {
+      "id": 1,
+      "name": "Words and simple sentences",
+      "focus": "Familiar objects, actions, short sentences and basic questions."
+    },
+    {
+      "id": 2,
+      "name": "Connected reading",
+      "focus": "Longer sentences, relationships and short stories."
+    },
+    {
+      "id": 3,
+      "name": "Longer stories and explanations",
+      "focus": "Broader vocabulary, event sequences and longer passages."
+    }
+  ],
+  "sources": [
+    {
+      "id": 14642,
+      "title": "McGuffey's Eclectic Primer, Revised Edition",
+      "author": "William Holmes McGuffey",
+      "split": "train",
+      "stage": 1,
+      "reason": "Starts with simple vocabulary and gradually introduces short sentences and lessons.",
+      "body_start": "^Lesson 1$"
+    },
+    {
+      "id": 14640,
+      "title": "McGuffey's First Eclectic Reader, Revised Edition",
+      "author": "William Holmes McGuffey",
+      "split": "train",
+      "stage": 1,
+      "reason": "Elementary reading about familiar objects, actions and everyday situations.",
+      "body_start": "^LESSON I\\.$"
+    },
+    {
+      "id": 14668,
+      "title": "McGuffey's Second Eclectic Reader",
+      "author": "William Holmes McGuffey",
+      "split": "train",
+      "stage": 2,
+      "reason": "Progresses to connected reading and short stories.",
+      "body_start": "^LESSON I\\.$"
+    },
+    {
+      "id": 14766,
+      "title": "McGuffey's Third Eclectic Reader",
+      "author": "William Holmes McGuffey",
+      "split": "train",
+      "stage": 3,
+      "reason": "Adds longer passages and more varied vocabulary.",
+      "body_start": "^LESSON I\\.$"
+    },
+    {
+      "id": 13853,
+      "title": "New National First Reader",
+      "author": "Charles J. Barnes, Harlan H. Ballard and S. Proctor Thayer",
+      "split": "validation",
+      "stage": 1,
+      "reason": "A separate elementary reader for model selection, excluded from learning.",
+      "body_start": "^LESSON I\\.$",
+      "body_end": "^PHONIC CHART\\.$"
+    },
+    {
+      "id": 15659,
+      "title": "The Beacon Second Reader",
+      "author": "James H. Fassett",
+      "split": "test",
+      "stage": 2,
+      "reason": "A separate collection of reading passages reserved for final evaluation.",
+      "body_start": "^THE SHOEMAKER AND THE ELVES--I$",
+      "body_end": "^End of Project Gutenberg"
+    }
+  ]
+}

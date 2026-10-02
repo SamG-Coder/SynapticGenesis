@@ -1,0 +1,16 @@
+/build/
+/data/raw/
+/data/prepared/
+/runs/
+__pycache__/
+*.pyc
+*.tmp
+*.log
+*.ckpt
+*.exe
+*.dll
+*.obj
+*.pdb
+.venv/
+.env
+.env.*
