@@ -25,6 +25,8 @@ struct Suite {
     std::vector<Item> items;
     std::map<std::string, std::vector<size_t>> pairs;
     uint64_t hash = 0;
+    std::string format;
+    size_t group_size = 2;
     explicit Suite(const fs::path &path) {
         require(fs::is_regular_file(path) && fs::file_size(path) <= 64 * 1024 * 1024,
                 "Missing or oversized probe file");
@@ -35,7 +37,10 @@ struct Suite {
         std::string magic;
         size_t count = 0;
         in >> magic >> count;
-        require(bool(in) && magic == "SGPROBE1" && count >= 2 && count <= 10000 && count % 2 == 0,
+        format = magic;
+        group_size = magic == "SGPROBE2" ? 4 : 2;
+        require(bool(in) && (magic == "SGPROBE1" || magic == "SGPROBE2") && count >= group_size &&
+                    count <= 10000 && count % group_size == 0,
                 "Invalid probe header");
         std::map<std::string, bool> ids;
         for (size_t i = 0; i < count; ++i) {
@@ -58,8 +63,27 @@ struct Suite {
         std::string extra;
         require(!(in >> extra), "Unexpected trailing probe content");
         for (const auto &entry : pairs) {
-            require(entry.second.size() == 2, "Each probe pair must contain two items");
+            require(entry.second.size() == group_size, "Incorrect probe group size");
             const auto &a = items[entry.second[0]], &b = items[entry.second[1]];
+            if (group_size == 4) {
+                std::map<std::string, std::map<std::string, int>> grid;
+                for (auto index : entry.second) {
+                    const auto &item = items[index];
+                    require(item.choices == a.choices && item.skill == a.skill &&
+                                !grid[item.context].count(item.query),
+                            "Invalid or duplicate binding context/query");
+                    grid[item.context][item.query] = item.correct;
+                }
+                require(grid.size() == 2, "Binding group requires two contexts");
+                const auto &first = grid.begin()->second, &second = std::next(grid.begin())->second;
+                require(first.size() == 2 && second.size() == 2 &&
+                            first.begin()->second != std::next(first.begin())->second,
+                        "Binding group requires two opposite queries per context");
+                for (const auto &query : first)
+                    require(second.count(query.first) && second.at(query.first) != query.second,
+                            "Binding group must reverse each query across contexts");
+                continue;
+            }
             require(a.context != b.context && a.query == b.query && a.choices == b.choices &&
                         a.correct != b.correct && a.skill == b.skill,
                     "Probe pairs must reverse answers using different context and identical queries/choices");
@@ -169,10 +193,12 @@ void run(const Args &args) {
     double seconds = std::chrono::duration<double>(std::chrono::steady_clock::now() - start).count();
     size_t pair_correct = 0, pair_erased = 0, pair_exact = 0;
     for (const auto &entry : suite.pairs) {
-        size_t a = entry.second[0], b = entry.second[1];
-        pair_correct += correct[a] && correct[b];
-        pair_erased += erased[a] && erased[b];
-        pair_exact += exact[a] && exact[b];
+        auto all = [&](const std::vector<bool> &values) {
+            return std::all_of(entry.second.begin(), entry.second.end(), [&](size_t i) { return values[i]; });
+        };
+        pair_correct += all(correct);
+        pair_erased += all(erased);
+        pair_exact += all(exact);
     }
     require(pair_erased == 0, "Context-erased paired probe leaked a label or mutable state");
     require(before_w == scorer.root.w.host() && before_m == scorer.root.m.host() &&
@@ -184,14 +210,20 @@ void run(const Args &args) {
     auto fraction = [](const std::vector<bool> &values) {
         return double(std::count(values.begin(), values.end(), true)) / values.size();
     };
-    report << std::setprecision(12) << "{\"format\":\"SGPROBE1\",\"suite_hash\":\"" << suite.hash
-           << "\",\"checkpoint_payload_hash\":\"" << state.meta[15] << "\",\"items\":" << suite.items.size()
-           << ",\"pairs\":" << suite.pairs.size() << ",\"accuracy\":" << fraction(correct)
-           << ",\"context_erased_accuracy\":" << fraction(erased)
-           << ",\"paired_accuracy\":" << double(pair_correct) / suite.pairs.size()
-           << ",\"context_erased_paired_accuracy\":0"
+    report << std::setprecision(12) << "{\"format\":" << json(suite.format) << ",\"suite_hash\":\""
+           << suite.hash << "\",\"checkpoint_payload_hash\":\"" << state.meta[15]
+           << "\",\"items\":" << suite.items.size() << ",\"groups\":" << suite.pairs.size()
+           << ",\"group_size\":" << suite.group_size
+           << ",\"joint_accuracy\":" << double(pair_correct) / suite.pairs.size()
+           << ",\"context_erased_joint_accuracy\":0,\"greedy_exact_joint_accuracy\":"
+           << double(pair_exact) / suite.pairs.size();
+    if (suite.group_size == 2)
+        report << ",\"pairs\":" << suite.pairs.size()
+               << ",\"paired_accuracy\":" << double(pair_correct) / suite.pairs.size()
+               << ",\"context_erased_paired_accuracy\":0,\"greedy_exact_paired_accuracy\":"
+               << double(pair_exact) / suite.pairs.size();
+    report << ",\"accuracy\":" << fraction(correct) << ",\"context_erased_accuracy\":" << fraction(erased)
            << ",\"greedy_exact_accuracy\":" << fraction(exact)
-           << ",\"greedy_exact_paired_accuracy\":" << double(pair_exact) / suite.pairs.size()
            << ",\"answer_loss_nats_per_byte\":" << nll / targets << ",\"answer_bytes\":" << targets
            << ",\"elapsed_seconds\":" << seconds
            << ",\"parameters_and_optimizer_unchanged\":true,\"strict_fp32\":true,\"skills\":{";
@@ -208,7 +240,7 @@ void run(const Args &args) {
     report.close();
     require(bool(report), "Cannot write probe report");
     std::cout << "language probes accuracy=" << fraction(correct)
-              << " both-in-pair=" << double(pair_correct) / suite.pairs.size()
+              << " all-in-group=" << double(pair_correct) / suite.pairs.size()
               << " greedy-exact=" << fraction(exact) << " erased=" << fraction(erased)
               << " seconds=" << seconds << '\n';
 }

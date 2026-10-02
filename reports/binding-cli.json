@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "native_commands": 7,
+  "oracle_max_score_error": 1.430552345027536e-06,
+  "independent_fact_query_labels_checked": true,
+  "copy_first_or_last_joint_accuracy": 0,
+  "full_grid_required": true,
+  "group_metric_verified": true,
+  "prepared_bytes_reproduce": true,
+  "test_labels_validated_but_no_model_evaluated_on_test": true
+}

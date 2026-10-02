@@ -127,6 +127,8 @@ Across three seeds, replay plus a quarter later-stage learning rate gave the low
 
 ## Development direction
 
+The [binding assessment](docs/binding.md) now varies which object is queried and requires all four answers across swapped facts and queries. It removes the first-location shortcut in the initial lessons. The stronger default-cell baseline remains near chance, so useful context binding is still unresolved.
+
 The [paired language probes and selected teaching lessons](docs/language-probes.md) now test whether changed facts cause changed answers, with context-erasure controls and unconstrained greedy output. Initial results expose a gap between lower text loss and using sentence context correctly. These skill probes are separate from population fitness and do not automatically promote a model.
 
 The [development design](docs/general-development.md) specifies separate developmental stage and generation records, inheritance from two parents, teaching from selected source material, and selection against matched controls. The [native evolution commands](docs/evolution.md) register founders, evaluate eligibility, create children and inherit settings. Whole-block crossover can disrupt learned channel roles and every child must train and requalify; no improvement is assumed merely from birth.

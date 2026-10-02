@@ -16,8 +16,8 @@ def quoted(value):
     return '"' + value.replace('\\', '\\\\').replace('"', '\\"') + '"'
 
 
-def write_probes(path, rows):
-    lines = [f'SGPROBE1 {len(rows)}\n']
+def write_probes(path, rows, version='SGPROBE1'):
+    lines = [f'{version} {len(rows)}\n']
     for row in rows:
         lines.append(' '.join([quoted(row[k]) for k in ('id', 'pair', 'skill')] +
                               [str(row['correct'])] +

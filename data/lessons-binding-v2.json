@@ -1,0 +1,15 @@
+{
+  "version": "binding-v2",
+  "license": "MIT",
+  "provenance": "Original selected vocabulary and literal templates; deterministic source-derived answers with no imported model weights or teacher distributions.",
+  "objects": ["key", "hat", "cup", "pen", "mug", "toy"],
+  "locations": ["box", "bag", "bed", "car"],
+  "facts": ["The {object} is in the {location}.", "In the {location} is the {object}."],
+  "queries": ["Where is the {object}?\nAnswer: ", "Find the {object}.\nAnswer: "],
+  "answer": "{location}.",
+  "development_pairs": [["key", "hat"], ["cup", "pen"], ["mug", "toy"]],
+  "test_pairs": [["key", "cup"], ["hat", "mug"], ["pen", "toy"]],
+  "split_policy": "Hold out unordered object pairs, including both sentence orders, both query targets, both fact forms, both query forms, and every location assignment. Remaining nine object pairs are training. Single-object prerequisites are training only.",
+  "assessment": "A group has two swapped fact contexts times two queried objects. All four answers must be correct. Always copying the first/last location or ignoring the query cannot pass a group.",
+  "limits": "Small controlled entity-location binding task with familiar vocabulary and syntax. No open-world reasoning, multi-step event tracking or general dialogue claim. Test groups are reserved and not used for tuning."
+}

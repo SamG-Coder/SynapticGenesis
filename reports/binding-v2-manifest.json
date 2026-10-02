@@ -1,0 +1,127 @@
+{
+  "version": "binding-v2",
+  "spec_sha256": "7ecb1719ff45a3c02c151aa3dab786fb27dac7fbf24865798b28148753c7473c",
+  "files": {
+    "binding.dat": {
+      "bytes": 131327,
+      "sha256": "b06d09b730660615d3afb2e2d51b82a1eafc2607fb3f616f627dbbf3ff24243f"
+    },
+    "curriculum.sg": {
+      "bytes": 127,
+      "sha256": "5d755e3316a3c44b3fec354509075c04e0b92c1b03ffde31b62946b84f59d9e6"
+    },
+    "development.sgprobe": {
+      "bytes": 97933,
+      "sha256": "48f9c8cff84b39875da8349b74cfddf0a8c45e67a9e0e90c54688ff2547ca964"
+    },
+    "prerequisites.dat": {
+      "bytes": 5087,
+      "sha256": "88330154ba769a79544aefa2c4a5bdd732bd0f6823f929114e589e9dd5530050"
+    },
+    "reading.dat": {
+      "bytes": 585436,
+      "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda"
+    },
+    "source-spec.json": {
+      "bytes": 1342,
+      "sha256": "7ecb1719ff45a3c02c151aa3dab786fb27dac7fbf24865798b28148753c7473c"
+    },
+    "test.sgprobe": {
+      "bytes": 97933,
+      "sha256": "8e22637b133f3548ae654589a00d453bf462c1cfcd4bb685e8d162a1ecc0ae73"
+    },
+    "through-binding.dat": {
+      "bytes": 721852,
+      "sha256": "7e0fbb3d5b947e0ee2e63cf6b54c7ef6017575ff952128cccf5646ddfce56d51"
+    },
+    "through-prerequisites.dat": {
+      "bytes": 590524,
+      "sha256": "9ece97576da7760024133eb25223918c026c00724b60681acb86f1b2bb42bd11"
+    },
+    "train.sgprobe": {
+      "bytes": 293774,
+      "sha256": "ec14ab04fdd0c3d1b217176e9f63e7cb7986d603bc37804f37bcd0fd30b47a49"
+    }
+  },
+  "documents": {
+    "prerequisites": 96,
+    "binding": 1728
+  },
+  "probe_items": {
+    "development": 576,
+    "test": 576,
+    "train": 1728
+  },
+  "object_pairs": {
+    "development": [
+      [
+        "cup",
+        "pen"
+      ],
+      [
+        "hat",
+        "key"
+      ],
+      [
+        "mug",
+        "toy"
+      ]
+    ],
+    "test": [
+      [
+        "cup",
+        "key"
+      ],
+      [
+        "hat",
+        "mug"
+      ],
+      [
+        "pen",
+        "toy"
+      ]
+    ],
+    "train": [
+      [
+        "cup",
+        "hat"
+      ],
+      [
+        "cup",
+        "mug"
+      ],
+      [
+        "cup",
+        "toy"
+      ],
+      [
+        "hat",
+        "pen"
+      ],
+      [
+        "hat",
+        "toy"
+      ],
+      [
+        "key",
+        "mug"
+      ],
+      [
+        "key",
+        "pen"
+      ],
+      [
+        "key",
+        "toy"
+      ],
+      [
+        "mug",
+        "pen"
+      ]
+    ]
+  },
+  "heldout_contexts_absent_from_training": true,
+  "joint_group_size": 4,
+  "reading_source": "data\\prepared\\development-v2-final\\through-stage-4.dat",
+  "limits": "Small controlled entity-location binding task with familiar vocabulary and syntax. No open-world reasoning, multi-step event tracking or general dialogue claim. Test groups are reserved and not used for tuning."
+}
