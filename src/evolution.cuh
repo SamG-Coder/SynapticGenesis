@@ -128,14 +128,14 @@ bool alive(const Member &m, uint64_t tick) {
 // Virtual food allocation: weights, gradients, two moments, decay and one
 // recurrent stream. Individuals are checkpointed on disk, not all GPU-resident.
 uint64_t food_bytes(Config q) {
-    return 20ull * Layout(q).n + 4ull * q.l * q.h * (q.adaptive() ? 2 : 1);
+    return 20ull * Layout(q).n + 4ull * q.l * q.h * (q.secondary() ? 2 : 1);
 }
 // Explicit Model buffer bytes. CUDA/cuBLAS overhead needs additional reserve.
 uint64_t working_bytes(Config q, int batch, int context) {
     uint64_t n = uint64_t(batch) * context, c = q.c, h = q.h, l = q.l;
-    uint64_t floats =
-        5ull * Layout(q).n + n * (4 * c + 517 + 2 * h) + (l + 1) * n * c +
-        l * (n * c + n + (3 + int(q.adaptive())) * n * h + 2 * uint64_t(batch) * h * (1 + int(q.adaptive())));
+    uint64_t floats = 5ull * Layout(q).n + n * (4 * c + 517 + 2 * h) + (l + 1) * n * c +
+                      l * (n * c + n + (3 + int(q.secondary()) + int(q.traced())) * n * h +
+                           2 * uint64_t(batch) * h * (1 + int(q.secondary())));
     return 4 * floats;
 }
 struct Food {
@@ -224,7 +224,7 @@ std::vector<float> inherit(Config child, Config a, const std::vector<float> &wa,
         copy(to.bi, source, from.bi, q.h);
         copy(to.bo, source, from.bo, q.c);
         copy(to.leak, source, from.leak, q.h);
-        if (child.adaptive()) {
+        if (child.secondary()) {
             copy(to.adapt_leak, source, from.adapt_leak, q.h);
             copy(to.adapt_scale, source, from.adapt_scale, q.h);
         }

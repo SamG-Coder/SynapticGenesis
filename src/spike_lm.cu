@@ -81,12 +81,18 @@ struct Buf {
 #include "synaptic_memory.cuh"
 struct Config {
     int c = 256, h = 512, l = 4;
-    int cell = 1; // 1: signed LIF, 2: signed adaptive LIF.
+    int cell = 1; // 1: signed LIF, 2: adaptive LIF, 3: LIF with filtered spike output.
     bool adaptive() const {
         return cell == 2;
     }
+    bool traced() const {
+        return cell == 3;
+    }
+    bool secondary() const {
+        return adaptive() || traced();
+    }
     const char *name() const {
-        return adaptive() ? "signed_alif_v2" : "signed_lif_v1";
+        return traced() ? "signed_trace_lif_v3" : (adaptive() ? "signed_alif_v2" : "signed_lif_v1");
     }
 };
 struct Layer {
@@ -105,7 +111,7 @@ struct Layout {
     }
     explicit Layout(Config q) {
         if (q.c < 8 || q.c > 2048 || q.h < 8 || q.h > 8192 || q.l < 1 || q.l > 32 ||
-            (q.cell != 1 && q.cell != 2))
+            (q.cell != 1 && q.cell != 2 && q.cell != 3))
             throw std::runtime_error("Unsupported model dimensions");
         emb = add(256ull * q.c, true);
         for (int i = 0; i < q.l; ++i) {
@@ -116,7 +122,7 @@ struct Layout {
             a.wo = add(size_t(q.c) * q.h, true);
             a.bo = add(q.c);
             a.leak = add(q.h);
-            if (q.adaptive()) {
+            if (q.secondary()) {
                 a.adapt_leak = add(q.h);
                 a.adapt_scale = add(q.h);
             }
@@ -165,10 +171,11 @@ std::vector<float> initialize(Config q, const Layout &a, uint64_t seed) {
         for (int j = 0; j < q.h; ++j) {
             float b = 0.5f + 0.49f * j / std::max(1, q.h - 1);
             w[v.leak + j] = std::log(b / (1 - b));
-            if (q.adaptive()) {
+            if (q.secondary()) {
                 // Constants consume no RNG: all common parameters have the
                 // same random initialization as the matched LIF model.
-                double tau = 32 * std::pow(64.0, double(j) / std::max(1, q.h - 1));
+                double tau = q.traced() ? 8 * std::pow(128.0, double(j) / std::max(1, q.h - 1))
+                                        : 32 * std::pow(64.0, double(j) / std::max(1, q.h - 1));
                 double rho = std::exp(-1 / tau);
                 w[v.adapt_leak + j] = float(std::log(rho / (1 - rho)));
                 w[v.adapt_scale + j] = float(std::log(std::expm1(1.0)));
@@ -293,6 +300,7 @@ __global__ void lif_bwd(float *dz, float *dl, const float *ds, const float *u, c
     atomicAdd(dl + j, db * beta * (1 - beta));
 }
 #include "adaptive_neuron.cuh"
+#include "trace_neuron.cuh"
 __global__ void classifier(float *grad, float *loss, const float *logits, const int *target, int N) {
     int row = blockIdx.x, j = threadIdx.x;
     __shared__ float sh[256];
@@ -367,13 +375,14 @@ __global__ void adaptive_codec(float *out, const float *x, int C, float k) {
 }
 struct Cache {
     Buf norm, rs, z, u, s, state, initial_state;
-    Buf adapt, adapt_state, initial_adapt;
-    Cache(int N, int C, int H, int B, bool adaptive)
+    Buf adapt, adapt_state, initial_adapt, emission;
+    Cache(int N, int C, int H, int B, bool secondary, bool traced)
         : norm(size_t(N) * C), rs(N), z(size_t(N) * H), u(size_t(N) * H), s(size_t(N) * H),
-          state(size_t(B) * H), initial_state(size_t(B) * H), adapt(adaptive ? size_t(N) * H : 0),
-          adapt_state(adaptive ? size_t(B) * H : 0), initial_adapt(adaptive ? size_t(B) * H : 0) {
+          state(size_t(B) * H), initial_state(size_t(B) * H), adapt(secondary ? size_t(N) * H : 0),
+          adapt_state(secondary ? size_t(B) * H : 0), initial_adapt(secondary ? size_t(B) * H : 0),
+          emission(traced ? size_t(N) * H : 0) {
         state.zero();
-        if (adaptive)
+        if (secondary)
             adapt_state.zero();
     }
 };
@@ -404,7 +413,7 @@ struct Model {
         for (int i = 0; i <= q.l; ++i)
             x.emplace_back(size_t(N) * q.c);
         for (int i = 0; i < q.l; ++i)
-            cache.emplace_back(N, q.c, q.h, B, q.adaptive());
+            cache.emplace_back(N, q.c, q.h, B, q.secondary(), q.traced());
         std::vector<float> mask(a.n, 0);
         for (auto pair : a.decay)
             std::fill_n(mask.data() + pair.first, pair.second, 1.f);
@@ -437,7 +446,7 @@ struct Model {
         share_parameters(owner);
         for (int l = 0; l < q.l; ++l) {
             cache[l].state.share(owner.cache[l].state);
-            if (q.adaptive())
+            if (q.secondary())
                 cache[l].adapt_state.share(owner.cache[l].adapt_state);
         }
     }
@@ -446,7 +455,7 @@ struct Model {
         for (const auto &c : cache) {
             auto h = c.state.host();
             result.insert(result.end(), h.begin(), h.end());
-            if (q.adaptive()) {
+            if (q.secondary()) {
                 auto adaptation = c.adapt_state.host();
                 result.insert(result.end(), adaptation.begin(), adaptation.end());
             }
@@ -455,12 +464,12 @@ struct Model {
     }
     void membranes(const std::vector<float> &values) {
         size_t width = size_t(B) * q.h;
-        size_t stride = width * (q.adaptive() ? 2 : 1);
+        size_t stride = width * (q.secondary() ? 2 : 1);
         if (values.size() != stride * q.l)
             throw std::runtime_error("Membrane state dimensions differ");
         for (int l = 0; l < q.l; ++l) {
             ck(cudaMemcpy(cache[l].state.p, values.data() + l * stride, width * 4, cudaMemcpyHostToDevice));
-            if (q.adaptive())
+            if (q.secondary())
                 ck(cudaMemcpy(cache[l].adapt_state.p, values.data() + l * stride + width, width * 4,
                               cudaMemcpyHostToDevice));
         }
@@ -485,6 +494,8 @@ struct Model {
     void forward_device(bool streaming, bool additions = false, cudaStream_t stream = nullptr) {
         if (additions && (!streaming || B != 1 || T != 1))
             throw std::runtime_error("Spike additions require streaming B=T=1");
+        if (additions && q.traced())
+            throw std::runtime_error("Trace cell output is not ternary; use dense or graph decoding");
         cb(cublasSetStream(blas, stream));
         embedding<<<(N * q.c + 255) / 256, 256, 0, stream>>>(x[0].p, w.p + a.emb, input, N, q.c);
         for (int l = 0; l < q.l; ++l) {
@@ -495,7 +506,7 @@ struct Model {
                                    stream));
             else
                 ck(cudaMemsetAsync(f.initial_state.p, 0, f.initial_state.n * 4, stream));
-            if (q.adaptive()) {
+            if (q.secondary()) {
                 if (streaming)
                     ck(cudaMemcpyAsync(f.initial_adapt.p, f.adapt_state.p, f.adapt_state.n * 4,
                                        cudaMemcpyDeviceToDevice, stream));
@@ -504,7 +515,12 @@ struct Model {
             }
             rms_fwd<<<N, 256, 0, stream>>>(f.norm.p, f.rs.p, x[l].p, w.p + p.gain, q.c);
             linear(f.z.p, f.norm.p, p.wi, p.bi, q.c, q.h, stream);
-            if (q.adaptive())
+            if (q.traced())
+                trace_fwd<<<(B * q.h + 255) / 256, 256, 0, stream>>>(
+                    f.s.p, f.u.p, f.adapt.p, f.emission.p, f.state.p, f.adapt_state.p, f.initial_state.p,
+                    f.initial_adapt.p, f.z.p, w.p + p.leak, w.p + p.adapt_leak, w.p + p.adapt_scale, B, T,
+                    q.h, streaming);
+            else if (q.adaptive())
                 alif_fwd<<<(B * q.h + 255) / 256, 256, 0, stream>>>(
                     f.s.p, f.u.p, f.adapt.p, f.state.p, f.adapt_state.p, f.initial_state.p, f.initial_adapt.p,
                     f.z.p, w.p + p.leak, w.p + p.adapt_leak, w.p + p.adapt_scale, B, T, q.h, streaming);
@@ -515,7 +531,7 @@ struct Model {
                 spike_add<<<(q.c + 255) / 256, 256, 0, stream>>>(x[l + 1].p, w.p + p.wo, f.s.p, w.p + p.bo,
                                                                  q.c, q.h);
             else
-                linear(x[l + 1].p, f.s.p, p.wo, p.bo, q.h, q.c, stream);
+                linear(x[l + 1].p, q.traced() ? f.emission.p : f.s.p, p.wo, p.bo, q.h, q.c, stream);
             plus<<<(N * q.c + 255) / 256, 256, 0, stream>>>(x[l + 1].p, x[l].p, N * q.c);
         }
         rms_fwd<<<N, 256, 0, stream>>>(finalnorm.p, finalrs.p, x[q.l].p, w.p + a.final_gain, q.c);
@@ -574,11 +590,16 @@ struct Model {
         for (int l = q.l - 1; l >= 0; --l) {
             auto p = a.layers[l];
             auto &f = cache[l];
-            linear_backward(ds.p, f.s.p, dx.p, p.wo, p.bo, q.h, q.c);
-            if (activity_cost > 0)
+            linear_backward(ds.p, q.traced() ? f.emission.p : f.s.p, dx.p, p.wo, p.bo, q.h, q.c);
+            if (activity_cost > 0 && !q.traced())
                 spike_cost_grad<<<(N * q.h + 255) / 256, 256>>>(ds.p, f.s.p, N * q.h,
                                                                 activity_cost / (float(N) * q.h * q.l));
-            if (q.adaptive())
+            if (q.traced())
+                trace_bwd<<<(B * q.h + 255) / 256, 256>>>(
+                    dz.p, g.p + p.leak, g.p + p.adapt_leak, g.p + p.adapt_scale, ds.p, f.u.p, f.s.p,
+                    f.adapt.p, f.initial_state.p, f.initial_adapt.p, w.p + p.leak, w.p + p.adapt_leak,
+                    w.p + p.adapt_scale, B, T, q.h, activity_cost / (float(N) * q.h * q.l));
+            else if (q.adaptive())
                 alif_bwd<<<(B * q.h + 255) / 256, 256>>>(dz.p, g.p + p.leak, g.p + p.adapt_leak,
                                                          g.p + p.adapt_scale, ds.p, f.u.p, f.s.p, f.adapt.p,
                                                          f.initial_state.p, w.p + p.leak, w.p + p.adapt_leak,
@@ -627,7 +648,7 @@ struct Model {
     void reset() {
         for (auto &c : cache) {
             c.state.zero();
-            if (q.adaptive())
+            if (q.secondary())
                 c.adapt_state.zero();
         }
     }
@@ -760,7 +781,7 @@ State header(const fs::path &path) {
     State s;
     read_raw(f, s.meta.data(), 32);
     read_raw(f, s.hp.data(), 8);
-    if (s.meta[0] != 0x314d4c53434e5042ull || (s.meta[1] != 1 && s.meta[1] != 2))
+    if (s.meta[0] != 0x314d4c53434e5042ull || (s.meta[1] != 1 && s.meta[1] != 2 && s.meta[1] != 3))
         throw std::runtime_error("Unsupported checkpoint architecture/version");
     for (int i = 2; i <= 9; ++i)
         if (s.meta[i] > 1000000000ull)
@@ -774,7 +795,7 @@ void load(const fs::path &path, Model &m, State &s, bool restore_runtime = false
         throw std::runtime_error("Checkpoint model dimensions differ");
     if (s.meta[17] > 4 || (!s.meta[17] && s.meta[18]) ||
         (s.meta[17] && (s.meta[5] < 1 || s.meta[5] > 256 ||
-                        s.meta[18] != s.meta[5] * m.q.h * m.q.l * (m.q.adaptive() ? 2 : 1))))
+                        s.meta[18] != s.meta[5] * m.q.h * m.q.l * (m.q.secondary() ? 2 : 1))))
         throw std::runtime_error("Invalid live checkpoint dimensions/version");
     if ((s.meta[17] < 2 && s.meta[31]) || s.meta[31] > 16 + 3 * 65536)
         throw std::runtime_error("Invalid extended checkpoint length");
@@ -933,7 +954,9 @@ int cell_version(const Args &args) {
         return 1;
     if (cell == "alif")
         return 2;
-    throw std::runtime_error("--cell must be lif or alif");
+    if (cell == "trace")
+        return 3;
+    throw std::runtime_error("--cell must be lif, alif or trace");
 }
 Config checkpoint_config(const State &s) {
     return {int(s.meta[2]), int(s.meta[3]), int(s.meta[4]), int(s.meta[1])};
@@ -1352,7 +1375,7 @@ int main(int argc, char **argv) {
             std::cout
                 << "synapticgenesis train --data train.dat --validation validation.dat --out runs/pilot "
                    "[--steps "
-                   "2000] [--cell lif|alif] [--burn-in 512 --burn-policy warm|reset]\n"
+                   "2000] [--cell lif|alif|trace] [--burn-in 512 --burn-policy warm|reset]\n"
                 << "synapticgenesis sample --checkpoint runs/pilot/best.ckpt --prompt \"The bird \" "
                    "[--graph] "
                    "[--spike-add]\n"
@@ -1378,6 +1401,7 @@ int main(int argc, char **argv) {
                 << "synapticgenesis memory-bench --cell alif --delay 128 --steps 2000 --out "
                    "runs/memory-test\n"
                 << "synapticgenesis adaptive-test --out reports/adaptive-tests\n"
+                << "synapticgenesis trace-test --out reports/trace-tests\n"
                 << "synapticgenesis synaptic-test --out reports/synaptic-tests\n"
                 << "synapticgenesis self-test --out reports/native-tests\n"
                 << "synapticgenesis population-add --population runs/population --id founder-a "
@@ -1414,6 +1438,8 @@ int main(int argc, char **argv) {
             replay_test(args);
         else if (cmd == "adaptive-test")
             adaptive_test(args);
+        else if (cmd == "trace-test")
+            adaptive_test(args, 3);
         else if (cmd == "memory-bench")
             memory_bench(args);
         else if (cmd == "context-bench")

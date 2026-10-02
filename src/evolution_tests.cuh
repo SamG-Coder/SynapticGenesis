@@ -4,7 +4,7 @@ void evolution_test(const Args &args) {
     fs::path out = args.get("out", "reports/evolution-tests");
     fs::create_directories(out);
     double growth_error = 0, crossover_error = 0, new_weight_change = 0;
-    for (int cell : {1, 2}) {
+    for (int cell : {1, 2, 3}) {
         Config a{8, 16, 2, cell}, b{8, 24, 2, cell}, c{8, 32, 2, cell};
         Layout aa(a), ba(b), ca(c);
         auto wa = initialize(a, aa, 19);
@@ -20,7 +20,7 @@ void evolution_test(const Args &args) {
         for (const auto &cache : base.cache)
             for (const Buf *buffer :
                  {&cache.norm, &cache.rs, &cache.z, &cache.u, &cache.s, &cache.state, &cache.initial_state,
-                  &cache.adapt, &cache.adapt_state, &cache.initial_adapt})
+                  &cache.adapt, &cache.adapt_state, &cache.initial_adapt, &cache.emission})
                 actual_buffers += buffer->n * 4;
         require(actual_buffers == evolution::working_bytes(a, 1, 8),
                 "GPU admission estimate differs from actual explicit buffers");
@@ -67,10 +67,12 @@ void evolution_test(const Args &args) {
         require(maxdiff(base.logits.host(), mixed.logits.host()) > 1e-5, "Donor block had no effect");
         State state;
         state.meta[10] = state.meta[11] = 19;
-        save(out / (cell == 1 ? "lif-child.ckpt" : "alif-child.ckpt"), mixed, state);
+        auto child_path =
+            out / (cell == 1 ? "lif-child.ckpt" : (cell == 2 ? "alif-child.ckpt" : "trace-child.ckpt"));
+        save(child_path, mixed, state);
         Model loaded(c, 1, 8);
         State restored;
-        load(out / (cell == 1 ? "lif-child.ckpt" : "alif-child.ckpt"), loaded, restored);
+        load(child_path, loaded, restored);
         require(restored.meta[7] == 0 && maxdiff(wc, loaded.w.host()) == 0,
                 "Child birth checkpoint did not roundtrip");
         auto moments = loaded.m.host(), variances = loaded.v.host();
@@ -180,7 +182,7 @@ void evolution_test(const Args &args) {
     require(!scarce.fits(1) && scarce.pressure() == 1, "Empty food budget permitted birth");
     std::ofstream f(out / "native.json");
     f << std::setprecision(10)
-      << "{\"passed\":true,\"both_cells\":true,\"width_growth_max_error\":" << growth_error
+      << "{\"passed\":true,\"cells\":[1,2,3],\"width_growth_max_error\":" << growth_error
       << ",\"block_inheritance_max_error\":" << crossover_error
       << ",\"new_neuron_output_weight_change\":" << new_weight_change
       << ",\"mutation_caps_and_seed_checked\":true,\"newborn_gate_checked\":true,"

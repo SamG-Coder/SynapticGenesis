@@ -33,7 +33,7 @@ void context_bench(const Args &args) {
         history.forward(px, nullptr, true);
         auto state = history.membranes();
         warm_loss += target.forward(x, &y, true);
-        if (q.adaptive()) {
+        if (q.secondary()) {
             target.membranes(state);
             for (auto &c : target.cache) {
                 auto a = c.adapt_state.host();
@@ -53,6 +53,7 @@ void context_bench(const Args &args) {
       << ",\"corpus_hash\":\"" << data.hash << "\",\"warm_context_loss\":" << warm_loss / batches
       << ",\"all_state_reset_loss\":" << reset_loss / batches << ",\"adaptation_reset_loss\":"
       << (q.adaptive() ? std::to_string(no_adaptation_loss / batches) : "null")
+      << ",\"trace_reset_loss\":" << (q.traced() ? std::to_string(no_adaptation_loss / batches) : "null")
       << ",\"mean_adaptation_at_boundary\":"
       << (q.adaptive() ? std::to_string(adaptation_sum / batches) : "null")
       << ",\"parameters_unchanged\":true}\n";

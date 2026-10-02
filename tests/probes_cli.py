@@ -37,7 +37,7 @@ class Reference:
         for _ in range(self.l):
             block = [take(self.c), take(self.h, self.c), take(self.h), take(self.c, self.h),
                      take(self.c), take(self.h)]
-            if self.cell == 2:
+            if self.cell in (2, 3):
                 block += [take(self.h), take(self.h)]
             self.blocks.append(block)
         self.gain, self.head, self.bias = take(self.c), take(256, self.c), take(256)
@@ -53,17 +53,19 @@ class Reference:
             gain, wi, bi, wo, bo, leak = block[:6]
             z = F.linear(norm(x, gain), wi, bi)
             beta, reset, adaptation = torch.sigmoid(leak), torch.zeros(self.h), torch.zeros(self.h)
-            if self.cell == 2:
+            if self.cell in (2, 3):
                 rho, gamma = torch.sigmoid(block[6]), F.softplus(block[7])
             spikes = []
             for at in range(len(text)):
                 u = beta * reset + z[at]
                 theta = 1 + gamma * adaptation if self.cell == 2 else 1
                 spike = (u >= theta).float() - (u <= -theta).float()
-                spikes.append(spike)
                 reset = u - theta * spike
                 if self.cell == 2:
                     adaptation = rho * adaptation + (1 - rho) * spike.abs()
+                if self.cell == 3:
+                    adaptation = rho * adaptation + (1 - rho) * spike
+                spikes.append(spike + gamma * adaptation if self.cell == 3 else spike)
             x += F.linear(torch.stack(spikes), wo, bo)
         return F.linear(norm(x, self.gain), self.head, self.bias)
 
@@ -108,7 +110,7 @@ def check(exe, out):
     lessons.write_probes(suite, rows)
     (out / 'data.dat').write_bytes(b'The key is in the box.\nWhere is the key?\nAnswer: box.\n')
     max_error = 0
-    for cell in ('lif', 'alif'):
+    for cell in ('lif', 'alif', 'trace'):
         model = out / cell
         run('live', '--data', out / 'data.dat', '--out', model, '--channels', 8, '--hidden', 16,
             '--layers', 2, '--cell', cell, '--chunk', 8, '--updates', 4, '--speak-every', 0, '--lr', .001)
@@ -163,6 +165,15 @@ def check(exe, out):
             run('language-probes', '--checkpoint', checkpoint, '--probes', bad, '--output', dest,
                 reject='ERROR:')
             assert not dest.exists()
+        if cell == 'trace':
+            for options in (['--spike-add'], ['--spike-add', '--graph']):
+                run('sample', '--checkpoint', checkpoint, '--tokens', 2, *options,
+                    reject='Trace cell output is not ternary')
+            paging = model / 'unsupported-paging'
+            run('storage-bench', '--checkpoint', checkpoint, '--data', out / 'data.dat', '--out', paging,
+                reject='Indexed spike paging does not support filtered trace emissions')
+            assert not paging.exists()
+            assert initial_hash == hashlib.sha256(checkpoint.read_bytes()).hexdigest()
     # Reproducibility and split isolation are evaluated without a model or any
     # held-out answers being presented to a native learner.
     spec = Path(__file__).parents[1] / 'data/lessons-relations-v1.json'
@@ -187,13 +198,14 @@ def check(exe, out):
         else:
             raise AssertionError('Contaminated prior reading was accepted')
         assert not rejected_out.exists()
-    result = dict(passed=True, native_commands=calls, cells=['lif', 'alif'],
+    result = dict(passed=True, native_commands=calls, cells=['lif', 'alif', 'trace'],
                   independent_cpu_forward_max_score_error=max_error,
                   independent_cpu_greedy_matches=True, answer_only_scoring_verified=True,
                   pair_order_independent=True, checkpoint_files_unchanged=True,
                   malformed_pairs_rejected=True, prepared_bytes_reproducible=True,
                   reading_bytes_preserved=True, heldout_reading_lf_and_crlf_rejected=True,
-                  heldout_contexts_absent_from_lessons=True, synthetic_fixture_only=True)
+                  heldout_contexts_absent_from_lessons=True, synthetic_fixture_only=True,
+                  incompatible_trace_spike_additions_and_paging_rejected=True)
     (out / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))
 

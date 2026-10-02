@@ -2,9 +2,17 @@
 
 Host: Windows, NVIDIA RTX 5080, CUDA 13.3, MSVC 19.51. Model execution, learning, mutation and selection use the native C++/CUDA executable.
 
-## Selected-answer live teaching and contextual probes
+## Filtered spike state, binding and lifespan checks
 
-The current build passes nine native suites. [Paired language probes](probes-cli.json) pass 20 CLI invocations and an independent CPU forward oracle for LIF/ALIF; maximum answer-score discrepancy is 1.91e-6 and greedy bytes match. They verify answer-only scoring, reset-state independence, malformed pairs, unchanged checkpoints and deterministic lesson preparation.
+The current build passes ten native suites. The [trace validation report](trace-validation.json) includes the new cell's forward/gradient oracle, weighted supervision, streaming and graph equivalence, full-state restart, shared replay/SI, function-preserving growth and checkpoint type checks. Maximum gradient discrepancy is 6.71e-8. ALIF and trace have equal-sized layouts but cannot load as each other.
+
+Curriculum integration passes 73 commands with 18 ordinary and six weighted restart cases across all three cells. Separate probe integration checks three cells and rejects trace use in ternary spike-addition/paging paths. The trace population passes all 17 lifecycle invocations, including learned-parent reproduction, child growth, restart, old-age death and rejection of further learning by a deceased member.
+
+The [27-run cue experiment](trace-memory.json) improves one-bit recall with the trace at 64/128/256-byte delays across three seeds. The [matched language comparison](trace-binding.json) fails query-dependent object binding for every cell, including on training questions. The reserved language test remains unused. [Protocol, measured performance and limits](../docs/trace-cell.md) and [comparison figure](trace-comparison.png).
+
+## Earlier selected-answer live teaching and contextual probes
+
+At this earlier stage the build passed nine native suites. [Paired language probes](probes-cli.json) passed 20 CLI invocations and an independent CPU forward oracle for LIF/ALIF; maximum answer-score discrepancy was 1.91e-6 and greedy bytes matched. They verified answer-only scoring, reset-state independence, malformed pairs, unchanged checkpoints and deterministic lesson preparation.
 
 [Weighted-target CPU autograd checks](feedback-numerical.json) cover both neuron types, nonzero incoming state, zero/nonuniform target weights, every parameter gradient, Adam updates and the activity regularizer. Maximum plain-gradient error is 6.90e-8. Native tests additionally check the first answer-byte boundary and invalid weights. The explicit GPU buffer estimate includes the added target-weight scratch space and is checked against actual model allocations.
 

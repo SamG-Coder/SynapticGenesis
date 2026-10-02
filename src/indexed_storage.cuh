@@ -142,10 +142,11 @@ struct NeuronCache {
 void storage_bench(const Args &args) {
     args.allow({"checkpoint", "data", "steps", "block", "cache-blocks", "prefetch", "out"});
     fs::path out = args.get("out", "reports/storage");
-    fs::create_directories(out);
     auto path = args.get("checkpoint");
     State s = header(path);
     Config q = checkpoint_config(s);
+    require(!q.traced(), "Indexed spike paging does not support filtered trace emissions");
+    fs::create_directories(out);
     int steps = args.num("steps", 128), block = args.num("block", 8), slots = args.num("cache-blocks", 16),
         prefetch = args.num("prefetch", 2);
     if (steps < 1 || steps > 10000 || block < 1 || block > q.h || q.h % block || slots < 1 ||

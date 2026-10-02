@@ -64,7 +64,7 @@ CueResult cue_evaluate(Model &owner, int batches) {
         auto state = prefix.membranes();
         result.loss += query.forward(qx, &qy, true);
         result.accuracy += accuracy(query.logits.host());
-        if (owner.q.adaptive()) {
+        if (owner.q.secondary()) {
             query.membranes(state);
             for (auto &c : query.cache)
                 c.adapt_state.zero();
@@ -138,10 +138,11 @@ void memory_bench(const Args &args) {
       << ",\"initial_loss\":" << before.loss << ",\"final_loss\":" << after.loss
       << ",\"accuracy\":" << after.accuracy << ",\"adaptation_erased_accuracy\":"
       << (q.adaptive() ? std::to_string(after.no_adaptation_accuracy) : "null")
+      << ",\"trace_erased_accuracy\":" << (q.traced() ? std::to_string(after.no_adaptation_accuracy) : "null")
       << ",\"all_state_erased_accuracy\":" << after.no_state_accuracy
       << ",\"evaluation_sequences\":" << 64 * B << ",\"training_seconds\":" << seconds
       << ",\"synthetic_only\":true}\n";
     std::cout << "memory result accuracy=" << after.accuracy
-              << " adaptation_erased=" << after.no_adaptation_accuracy
+              << " secondary_state_erased=" << after.no_adaptation_accuracy
               << " all_state_erased=" << after.no_state_accuracy << " seconds=" << seconds << "\n";
 }

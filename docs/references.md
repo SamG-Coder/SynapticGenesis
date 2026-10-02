@@ -2,6 +2,8 @@
 
 SynapticGenesis is an original small C++/CUDA research implementation. These references motivate experiments; they do not establish that its developmental or evolutionary goals already work.
 
+- [Neuronal Dynamics, chapter 3.1: Synapses, Gerstner et al.](https://neuronaldynamics.epfl.ch/online/Ch3.S1.html): exponential synaptic responses and multiple decay times motivate the optional filtered-spike cell. Our signed byte-step trace with a learned gain is a simplified output filter, not a conductance-based synapse or a model of receptor chemistry.
+
 - [Continual Learning Through Synaptic Intelligence, Zenke et al. (2017)](https://arxiv.org/abs/1703.04200): trajectory-based estimates of parameter importance. The optional native penalty is adapted to AdamW and document boundaries, and checked by an independent scalar oracle.
 - [Long short-term memory and Learning-to-learn in networks of spiking neurons, Bellec et al. (2018)](https://papers.nips.cc/paper_files/paper/2018/hash/c203d8a151612acf12457e4d67635a95-Abstract.html): adapting neurons and recurrent connectivity improve temporal computation in their experiments. Our LIF/ALIF cells and controlled cue tests are separate implementations; the paper does not establish that our current language model can use long sentence context.
 - [Population Based Training of Neural Networks, Jaderberg et al. (2017)](https://arxiv.org/abs/1711.09846): selecting model states and learning schedules in a population. This is relevant to future selection experiments, not proof of successful two-parent inheritance.

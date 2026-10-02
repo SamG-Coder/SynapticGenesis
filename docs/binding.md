@@ -18,8 +18,10 @@ This schedule starts from random weights: 6,000 observations on approved reading
 
 The same answer-only strict-FP32 scoring, greedy generation and context-erasure control apply. Every answer begins with independent recurrence and model parameters/moments stay unchanged. Joint accuracy requires all four candidate decisions; greedy exact joint accuracy requires all four unrestricted strings. Ignoring the query and copying either the first or last location achieves 50% item accuracy and zero joint accuracy in this balanced set.
 
-`python tests/binding_cli.py --out runs/binding-cli-test` independently parses the facts and query to verify every source-derived label, checks the copying controls, validates partition membership and reproducible bytes, compares native LIF/ALIF scores and greedy output with the CPU oracle, and rejects malformed groups. The test validates the reserved test labels as data, but does not evaluate a trained model on them.
+`python tests/binding_cli.py --out runs/binding-cli-test` independently parses the facts and query to verify every source-derived label, checks the copying controls, validates partition membership and reproducible bytes, compares native LIF/ALIF/trace scores and greedy output with the CPU oracle, and rejects malformed groups. The test validates the reserved test labels as data, but does not evaluate a trained model on them.
 
 ## Initial result
 
 The earlier answer-emphasized founder scored 49.48% item accuracy and 0.69% joint accuracy on this harder development task. Training the default LIF model from scratch for the complete 34,000-observation schedule produced 50.17% item accuracy and zero joint accuracy, with 50% greedy exact answers. Its earlier-reader loss was 2.65942. This failed learning result motivates testing the temporal representation; repeating familiar answer formats has not established object binding. The reserved test remains unused.
+
+The [matched cell comparison](trace-cell.md) adds ALIF and a learned spike trace from the same common initial parameters, with identical source/replay counts. All three remain near chance and pass zero complete groups on both training and development questions. The trace improves isolated cue recall, but that improvement does not resolve this language task.

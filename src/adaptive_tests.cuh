@@ -1,10 +1,10 @@
 #pragma once
 #include "live.cuh"
-void adaptive_test(const Args &args) {
+void adaptive_test(const Args &args, int cell = 2) {
     args.allow({"out"});
-    fs::path out = args.get("out", "reports/adaptive-tests");
+    fs::path out = args.get("out", cell == 3 ? "reports/trace-tests" : "reports/adaptive-tests");
     fs::create_directories(out);
-    Config q{32, 64, 2, 2};
+    Config q{32, 64, 2, cell};
     Model gradient(q, 2, 16);
     auto weights = initialize(q, gradient.a, 123);
     gradient.w.put(weights);
@@ -12,7 +12,8 @@ void adaptive_test(const Args &args) {
     for (int l = 0; l < q.l; ++l)
         for (int j = 0; j < 2 * q.h; ++j) {
             initial[l * 4 * q.h + j] = 1.7f * std::sin(float(j + l * q.h) * .39f);
-            initial[l * 4 * q.h + 2 * q.h + j] = .35f + .2f * std::cos(float(j) * .17f);
+            initial[l * 4 * q.h + 2 * q.h + j] =
+                q.traced() ? .4f * std::sin(float(j) * .17f) : .35f + .2f * std::cos(float(j) * .17f);
         }
     gradient.membranes(initial);
     std::vector<int> x(32), y(32);
@@ -35,8 +36,9 @@ void adaptive_test(const Args &args) {
     gradient.update(1, .001f, 0, 0);
     dump(out / "updated.f32", gradient.w.host());
     std::ofstream conf(out / "fixture.json");
-    conf << "{\"channels\":32,\"hidden\":64,\"layers\":2,\"cell\":2,\"batch\":2,\"context\":16,\"loss\":"
-         << std::setprecision(10) << loss << ",\"parameters\":" << gradient.a.n << "}";
+    conf << "{\"channels\":32,\"hidden\":64,\"layers\":2,\"cell\":" << cell
+         << ",\"batch\":2,\"context\":16,\"loss\":" << std::setprecision(10) << loss
+         << ",\"parameters\":" << gradient.a.n << "}";
     conf.close();
 
     Model chunk(q, 1, 4), step(q, 1, 1), captured(q, 1, 1);
@@ -67,7 +69,7 @@ void adaptive_test(const Args &args) {
     }
     require(chunk_error < 3e-5 && graph_error < 3e-5, "Adaptive streaming/capture disagrees");
 
-    // Matched initialization, and an adaptation-disabled negative control.
+    // Matched initialization, and a secondary-path-disabled negative control.
     Config oldq{q.c, q.h, q.l, 1};
     Model old(oldq, 1, 1);
     auto oldw = initialize(oldq, old.a, 123), disabled = weights;
@@ -111,7 +113,8 @@ void adaptive_test(const Args &args) {
     save(out / "resume.ckpt", first.root, s);
     State restored;
     load(out / "resume.ckpt", second.root, restored, true);
-    require(s.meta[1] == 2 && s.meta[18] == uint64_t(q.l * q.h * 2), "Adaptive checkpoint layout incorrect");
+    require(s.meta[1] == uint64_t(cell) && s.meta[18] == uint64_t(q.l * q.h * 2),
+            "Secondary-state checkpoint layout incorrect");
     require(maxdiff(first.root.membranes(), second.root.membranes()) == 0, "Adaptive state was not saved");
     for (int i = 0; i < 19; ++i) {
         auto a = live_tick(first, data, s, "A"), b = live_tick(second, data, restored, "A");
@@ -140,13 +143,34 @@ void adaptive_test(const Args &args) {
         rejected = true;
     }
     require(rejected, "Adaptive checkpoint silently loaded as LIF");
+    // These architectures have equal-sized layouts but different state semantics.
+    Model other_secondary(Config{q.c, q.h, q.l, cell == 3 ? 2 : 3}, 1, 8);
+    rejected = false;
+    try {
+        load(out / "resume.ckpt", other_secondary, restored, true);
+    } catch (const std::exception &) {
+        rejected = true;
+    }
+    require(rejected, "ALIF and trace checkpoint semantics were silently mixed");
+    if (q.traced()) {
+        rejected = false;
+        try {
+            step.forward({65}, nullptr, true, true);
+        } catch (const std::exception &) {
+            rejected = true;
+        }
+        require(rejected, "Trace emission was treated as ternary spikes");
+    }
     std::ofstream result(out / "native.json");
-    result << "{\"passed\":true,\"chunk_max_error\":" << chunk_error << ",\"graph_max_error\":" << graph_error
+    result << "{\"passed\":true,\"cell\":" << cell << ",\"chunk_max_error\":" << chunk_error
+           << ",\"graph_max_error\":" << graph_error
            << ",\"disabled_adaptation_lif_max_error\":" << disabled_error
            << ",\"resume_max_error\":" << resume_error
-           << ",\"resumed_speech_identical\":true,\"replay_state_isolated\":true,\"common_initial_weights_"
+           << ",\"equal_size_wrong_cell_rejected\":true,\"resumed_speech_identical\":true,\"replay_state_"
+              "isolated\":true,\"common_initial_weights_"
               "identical\":true}\n";
-    std::cout << "PASS adaptive: oracle fixtures, stream/graph parity, LIF negative control, full "
+    std::cout << "PASS " << (q.traced() ? "trace" : "adaptive")
+              << ": oracle fixtures, stream/graph parity, LIF negative control, full "
                  "state/replay/speech resume. Max resume error "
               << resume_error << "\n";
 }

@@ -1,4 +1,4 @@
-"""Read-only research diagnostics for signed LIF and adaptive LIF checkpoints.
+"""Read-only research diagnostics for signed LIF, ALIF and filtered-spike checkpoints.
 
 Reports passive leak time constants, not measured memory or task performance.
 Does not execute or train a model. Uses only the Python standard library.
@@ -31,13 +31,15 @@ def inspect(path):
     with path.open('rb') as f:
         meta = struct.unpack('<32Q', f.read(256))
         hp = struct.unpack('<8f', f.read(32))
-        if meta[0] != 0x314D4C53434E5042 or meta[1] not in (1, 2):
+        if meta[0] != 0x314D4C53434E5042 or meta[1] not in (1, 2, 3):
             raise ValueError('Unsupported checkpoint format')
         adaptive = meta[1] == 2
+        secondary = meta[1] in (2, 3)
+        label = 'adaptation' if adaptive else 'trace'
         c, h, layers, batch = meta[2:6]
         if not (8 <= c <= 2048 and 8 <= h <= 8192 and 1 <= layers <= 32 and 1 <= batch <= 256):
             raise ValueError('Invalid model dimensions')
-        expected = 256*c + layers*(c + 2*c*h + 2*h + c + (2*h if adaptive else 0)) + c + 256*c + 256
+        expected = 256*c + layers*(c + 2*c*h + 2*h + c + (2*h if secondary else 0)) + c + 256*c + 256
         if meta[17] > 4 or (meta[17] < 2 and meta[31]) or meta[31] > 16 + 3*65536:
             raise ValueError('Unsupported live state extension')
         extra = ()
@@ -67,18 +69,18 @@ def inspect(path):
             all_taus.extend(taus)
             blocks.append({'layer': layer, 'beta': summary([math.exp(-v) for v in log_decay]),
                            'passive_e_folding_steps': summary(taus)})
-            if adaptive:
+            if secondary:
                 adapt_leaks = weights[offset:offset+h]
                 scales = weights[offset+h:offset+2*h]
                 offset += 2*h
                 adapt_log_decay = [max(-v, 0) + math.log1p(math.exp(-abs(v))) for v in adapt_leaks]
-                blocks[-1]['adaptation_e_folding_steps'] = summary([1/v for v in adapt_log_decay])
-                blocks[-1]['adaptation_threshold_strength'] = summary([max(v, 0)+math.log1p(math.exp(-abs(v))) for v in scales])
+                blocks[-1][label + '_e_folding_steps'] = summary([1/v for v in adapt_log_decay])
+                blocks[-1][label + ('_threshold_strength' if adaptive else '_output_strength')] = summary([max(v, 0)+math.log1p(math.exp(-abs(v))) for v in scales])
         result = {'checkpoint': path.as_posix(), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
                   'cell_version': meta[1], 'step': meta[7], 'parameters': expected, 'blocks': blocks,
                   'passive_e_folding_steps': summary(all_taus),
                   'fraction_with_tau_at_least_128_steps': sum(v >= 128 for v in all_taus)/len(all_taus),
-                  'recurrent_state_bytes': batch*layers*h*4*(2 if adaptive else 1),
+                  'recurrent_state_bytes': batch*layers*h*4*(2 if secondary else 1),
                   'one_f32_input_weight_eligibility_trace_bytes': layers*c*h*4}
         if meta[17]:
             f.seek(288 + 12*expected)
@@ -86,11 +88,11 @@ def inspect(path):
             states.fromfile(f, meta[18])
             if sys.byteorder != 'little':
                 states.byteswap()
-            if adaptive:
+            if secondary:
                 stride = batch*h
                 membranes = [v for layer in range(layers) for v in states[layer*2*stride:layer*2*stride+stride]]
                 adaptation = [v for layer in range(layers) for v in states[layer*2*stride+stride:(layer+1)*2*stride]]
-                result['saved_adaptation_state'] = summary(adaptation)
+                result['saved_' + label + '_state'] = summary(adaptation)
             else:
                 membranes = states
             result['saved_reset_membrane_absolute_value'] = summary([abs(v) for v in membranes])

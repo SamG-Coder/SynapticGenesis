@@ -8,7 +8,7 @@ The native learner, population registry, fitness-gated reproduction and bounded 
 
 ## What runs today
 
-- Signed leaky integrate-and-fire neurons, with an optional adaptive-threshold cell.
+- Signed leaky integrate-and-fire neurons, with optional adaptive thresholds or learned fading spike traces.
 - Training and generation in one live process using shared weights and persistent neuron state.
 - Bounded replay of previously observed source windows, adjustable core plasticity and optional synaptic-importance consolidation.
 - CUDA graph decoding, checksum-protected checkpoints and restoration of optimizer, recurrent, replay and learning-history state.
@@ -17,7 +17,7 @@ The native learner, population registry, fitness-gated reproduction and bounded 
 - Native parent selection, whole-block inheritance, inherited learning settings and probabilistic hidden-neuron growth within size limits.
 - GPU-memory-based population credits, stricter selection under scarcity, inherited lifespans and old-age death.
 - Population-owned live sessions update the exact checkpoint used for selection, preserve lifespan/lineage, and reject deceased members.
-- Nine native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
+- Ten native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
 - Context-reversal language probes and explicit answer emphasis for selected teaching lessons in the same live runtime.
 
 The default model has **1,186,304 parameters**, four residual blocks, width 256 and 512 spiking neurons per block. Training uses dense CUDA/cuBLAS operations, surrogate gradients and AdamW. Spikes do not by themselves establish an energy or speed advantage. See the [architecture](docs/architecture.md) and [development design](docs/general-development.md).
@@ -102,14 +102,16 @@ Optional `--consolidation si --si-strength 0.001` enables a synaptic-importance 
 
 ## Validate
 
-`build.ps1` runs the nine native suites. For independent gradient checks, install CPU PyTorch and NumPy in your own test environment and run:
+`build.ps1` runs the ten native suites. For independent gradient checks, install CPU PyTorch and NumPy in your own test environment and run:
 
 ```powershell
 python tests/oracle.py build/test-results
 python tests/oracle.py build/live-test-results
 python tests/oracle.py build/adaptive-test-results
+python tests/oracle.py build/trace-test-results
 python tests/oracle.py build/feedback-test-results/lif
 python tests/oracle.py build/feedback-test-results/alif
+python tests/oracle.py build/feedback-test-results/trace
 python tests/synaptic_oracle.py build/synaptic-test-results
 python tests/burn_policy.py --out runs/burn-policy-test
 python tests/population_cli.py --out runs/population-cli-test
@@ -117,6 +119,9 @@ python tests/curriculum_cli.py --out runs/curriculum-cli-test
 python tests/population_live_cli.py --out runs/population-live-cli-test
 python tests/retention_cli.py --out runs/retention-cli-test
 python tests/probes_cli.py --out runs/probes-cli-test
+python tests/binding_cli.py --out runs/binding-cli-test
+python tests/population_live_cli.py --cell trace --out runs/trace-population-test
+python tests/population_cli.py --cell trace --out runs/trace-scarcity-test
 ```
 
 The consolidation oracle and CLI integration test use only Python's standard library. Numerical tests use disposable synthetic models, isolated from founders. [Validation evidence](reports/validation.md) records what was checked for this repository.
@@ -128,6 +133,8 @@ Across three seeds, replay plus a quarter later-stage learning rate gave the low
 ## Development direction
 
 The [binding assessment](docs/binding.md) now varies which object is queried and requires all four answers across swapped facts and queries. It removes the first-location shortcut in the initial lessons. The stronger default-cell baseline remains near chance, so useful context binding is still unresolved.
+
+The experimental [fading spike-trace cell](docs/trace-cell.md) improves delayed one-bit recall across three seeds, reaching 100% at the tested 64/128/256-byte delays. It still fails the stronger language-binding task. It supports live learning, graph decoding, population growth and old-age death; the default remains LIF. The report records the failed language result alongside the memory benefit and measured runtime costs.
 
 The [paired language probes and selected teaching lessons](docs/language-probes.md) now test whether changed facts cause changed answers, with context-erasure controls and unconstrained greedy output. Initial results expose a gap between lower text loss and using sentence context correctly. These skill probes are separate from population fitness and do not automatically promote a model.
 

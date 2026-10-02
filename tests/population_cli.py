@@ -11,7 +11,7 @@ import struct
 import subprocess
 
 
-def check(exe, out):
+def check(exe, out, cell='lif'):
     exe = exe.resolve()
     out.mkdir(parents=True, exist_ok=False)
     train, val = out / 'train.dat', out / 'validation.dat'
@@ -33,7 +33,7 @@ def check(exe, out):
     for index in range(2):
         source = out / f'founder-{index}'
         run('train', '--data', train, '--validation', val, '--out', source, '--steps', 100,
-            '--channels', 8, '--hidden', 16, '--layers', 2, '--batch', 2, '--context', 16,
+            '--channels', 8, '--hidden', 16, '--layers', 2, '--cell', cell, '--batch', 2, '--context', 16,
             '--eval-batches', 2, '--eval-every', 100, '--warmup', 0, '--seed', 41 + index)
         extra = ['--batch', 2, '--context', 16, '--batches', 2] if index == 0 else []
         run('population-add', '--population', population, '--id', f'founder-{index}',
@@ -72,7 +72,7 @@ def check(exe, out):
         assert ckpt.is_file(), 'Old-age death must preserve the archived checkpoint'
         meta = struct.unpack_from('<32Q', ckpt.read_bytes())
         if member['alive']:
-            expected_food += 20 * meta[14] + 4 * meta[4] * meta[3] * (2 if meta[1] == 2 else 1)
+            expected_food += 20 * meta[14] + 4 * meta[4] * meta[3] * (2 if meta[1] in (2, 3) else 1)
     assert deaths['food_used_before_bytes'] == expected_food
     old = (population / 'population.sg').read_bytes()
     run('evolve', '--population', population, '--data', train, '--round', 'invalid',
@@ -106,5 +106,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--exe', type=Path, default=Path('build/synapticgenesis.exe'))
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--cell', choices=['lif', 'alif', 'trace'], default='lif')
     args = parser.parse_args()
-    check(args.exe, args.out)
+    check(args.exe, args.out, args.cell)

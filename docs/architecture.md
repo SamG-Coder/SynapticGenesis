@@ -38,6 +38,24 @@ rho          = sigmoid(learned_adaptation_leak)
 
 This adds 4,096 parameters at the default size. The adaptation state modulates excitability. It does not grow synapses, encode chronological age or implement structural development. State units are byte steps, not biological milliseconds.
 
+## Filtered spike cell
+
+`--cell trace` creates the experimental `signed_trace_lif_v3`. It keeps the default signed LIF membrane and adds a learned fading trace of each neuron's signed spikes:
+
+```text
+rho         = sigmoid(learned_trace_leak)
+gamma       = softplus(learned_trace_gain)
+trace[t]    = rho * trace[t-1] + (1-rho) * spike[t]
+emission[t] = spike[t] + gamma * trace[t]
+x_next[t]   = x[t] + W_out * emission[t] + b_out
+```
+
+Trace time constants initially span 8 to 1,024 byte steps; training adjusts decay and gain. Shared LIF parameters start identically for a given seed and size. The trace path adds 4,096 parameters at default size, giving 1,190,400 total. It adds one recurrent float per neuron and one cached emission per neuron per training position. Unlike ALIF's nonnegative adaptation state, this trace is signed and affects the output signal directly. Disabling its gain recovers ordinary LIF output.
+
+This experiment is inspired by the persistence and different decay times of [postsynaptic responses](https://neuronaldynamics.epfl.ch/online/Ch3.S1.html). The byte-step filter is an engineering approximation; it does not model receptor chemistry or biological age. A long passive decay is not proof of useful memory.
+
+Training differentiates through the trace using the same spike surrogate. The membrane reset remains detached, and the activity penalty applies to raw spikes rather than the continuous emission. Independent autograd checks include signed incoming trace state, weighted answer targets and regularization. Streaming, graph decoding, checkpoint restart, replay, SI, inheritance and function-preserving width growth support this cell. Its continuous emission cannot use ternary spike additions or the current indexed-spike paging benchmark; these paths reject it explicitly. The dense resident path remains active.
+
 ## Shared learning and inference
 
 The live engine has execution views with different chunk sizes over the same weights, Adam moments and neuron state. Observed chunks update parameters; generation then sees those updates directly. CUDA graph decoding captures generation without changing the initial neuron state, and reads the current shared parameter allocation without recapture.
@@ -50,7 +68,7 @@ Replay stores document/offset/length descriptors for previously observed source 
 
 `--core-scale` scales the learning rate for embeddings and spiking blocks; the output head keeps the full rate. It does not eliminate backpropagation or optimizer bookkeeping.
 
-An explicit version-3 curriculum may emphasize answer targets in selected lesson documents. Both live observations and replay use the same per-window normalized weighted loss, while inference and held-out evaluation stay unchanged. The policy is bound by the curriculum identity and restored with its document annotations. See [answer-emphasis semantics](live-curriculum.md). Independent CPU autograd checks the weighted gradients for both cell types, including incoming recurrent state and activity regularization.
+An explicit version-3 curriculum may emphasize answer targets in selected lesson documents. Both live observations and replay use the same per-window normalized weighted loss, while inference and held-out evaluation stay unchanged. The policy is bound by the curriculum identity and restored with its document annotations. See [answer-emphasis semantics](live-curriculum.md). Independent CPU autograd checks the weighted gradients for all three cell types, including incoming recurrent state and activity regularization.
 
 ## Selective consolidation
 
@@ -70,7 +88,7 @@ Reference, importance and path use three extra float arrays (12 bytes per parame
 
 ## Checkpoints and storage
 
-Checkpoints include a checked architecture version, metadata, parameters, Adam moments and a payload checksum. Architecture versions 1 and 2 represent LIF and ALIF. Live extensions add recurrence/cursor/RNG state, then replay, then consolidation history. Corrupt lengths, mismatched dimensions, unsupported policies and invalid history are rejected. The diagnostic reader is not a replacement for the native loader's complete validation.
+Checkpoints include a checked architecture version, metadata, parameters, Adam moments and a payload checksum. Architecture versions 1, 2 and 3 represent LIF, ALIF and filtered-spike LIF. The latter two use equal-sized parameter/state layouts with different semantics; a checked version prevents mixing them. Live extensions add recurrence/cursor/RNG state, then replay, then consolidation history. Corrupt lengths, mismatched dimensions, unsupported policies and invalid history are rejected. The diagnostic reader is not a replacement for the native loader's complete validation.
 
 `live --resume` restores the complete saved stream and requires the same source corpus and prompt. With `--curriculum`, live extension v4 permits declared append-only source transitions and binds all scheduled editions to the checkpoint. It preserves replay descriptors, RNGs and optional SI history. Its policy header uses words 14 and 15 for the combined schedule/source hash and zero-based stage index; hyperparameter slot 7 stores the base learning rate. Optional SI arrays follow the replay payload only when policy word 9 equals 1. The checksum covers all policy fields, state and arrays. Earlier checkpoint versions remain readable.
 

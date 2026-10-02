@@ -7,7 +7,7 @@ import struct
 import subprocess
 
 
-def check(exe, out):
+def check(exe, out, cell='lif'):
     exe = exe.resolve()
     out = out.resolve()
     out.mkdir(parents=True, exist_ok=False)
@@ -33,7 +33,7 @@ def check(exe, out):
     for index in range(2):
         source = out / f'founder-{index}'
         run('train', '--data', train, '--validation', val, '--out', source,
-            '--channels', 8, '--hidden', 16, '--layers', 2, '--batch', 2, '--context', 16,
+            '--channels', 8, '--hidden', 16, '--layers', 2, '--cell', cell, '--batch', 2, '--context', 16,
             '--steps', 100, '--warmup', 0, '--lr', (.00073571 if index == 0 else .00041239), '--seed', 11 + index,
             '--eval-every', 100, '--eval-batches', 2)
         fixed = ['--batch', 2, '--context', 16, '--batches', 2] if index == 0 else []
@@ -107,7 +107,7 @@ def check(exe, out):
     assert (child / 'latest.ckpt').read_bytes() == learned and (child / 'live/metrics.jsonl').read_bytes() == logs
     assert (child / 'member.sg').read_bytes() == lineage and not lock.exists()
     run('sample', '--checkpoint', child / 'latest.ckpt', '--tokens', 8, '--prompt', 'A')
-    report = {'passed': True, 'native_commands': calls, 'canonical_checkpoint_updated': True,
+    report = {'passed': True, 'cell': cell, 'native_commands': calls, 'canonical_checkpoint_updated': True,
               'evolution_reads_exact_learned_payload': True, 'inherited_rate_preserved_exactly': True,
               'mature_parent_base_rates_inherited': True,
               'live_curriculum_and_si_resume': True, 'learning_does_not_reset_age': True,
@@ -123,5 +123,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--exe', type=Path, default=Path('build/synapticgenesis.exe'))
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--cell', choices=['lif', 'alif', 'trace'], default='lif')
     args = parser.parse_args()
-    check(args.exe, args.out)
+    check(args.exe, args.out, args.cell)
