@@ -1,0 +1,1481 @@
+{
+  "version": "selected-physics-v2",
+  "purpose": "General physics reading and complete worked examples after elementary prose; no assignment to biological ages.",
+  "upstream_repository": "https://github.com/openstax/osbooks-physics",
+  "upstream_commit": "dfb731c737e5056750e792643fe6377425b0a067",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "chapter_policy": {
+    "What is Physics?": {
+      "chapter_number": 1,
+      "split": "train",
+      "stage": 1
+    },
+    "Motion in One Dimension": {
+      "chapter_number": 2,
+      "split": "train",
+      "stage": 1
+    },
+    "Acceleration": {
+      "chapter_number": 3,
+      "split": "train",
+      "stage": 1
+    },
+    "Forces and Newton\u2019s Laws of Motion": {
+      "chapter_number": 4,
+      "split": "train",
+      "stage": 1
+    },
+    "Motion in Two Dimensions": {
+      "chapter_number": 5,
+      "split": "train",
+      "stage": 1
+    },
+    "Circular and Rotational Motion": {
+      "chapter_number": 6,
+      "split": "train",
+      "stage": 2
+    },
+    "Newton's Law of Gravitation": {
+      "chapter_number": 7,
+      "split": "train",
+      "stage": 2
+    },
+    "Momentum": {
+      "chapter_number": 8,
+      "split": "validation",
+      "stage": 2
+    },
+    "Work, Energy, and Simple Machines": {
+      "chapter_number": 9,
+      "split": "train",
+      "stage": 2
+    },
+    "Special Relativity": {
+      "chapter_number": 10,
+      "split": "train",
+      "stage": 2
+    },
+    "Thermal Energy, Heat, and Work": {
+      "chapter_number": 11,
+      "split": "train",
+      "stage": 2
+    },
+    "Thermodynamics": {
+      "chapter_number": 12,
+      "split": "train",
+      "stage": 2
+    },
+    "Waves and Their Properties": {
+      "chapter_number": 13,
+      "split": "train",
+      "stage": 3
+    },
+    "Sound": {
+      "chapter_number": 14,
+      "split": "train",
+      "stage": 3
+    },
+    "Light": {
+      "chapter_number": 15,
+      "split": "train",
+      "stage": 3
+    },
+    "Mirrors and Lenses": {
+      "chapter_number": 16,
+      "split": "train",
+      "stage": 3
+    },
+    "Diffraction and Interference": {
+      "chapter_number": 17,
+      "split": "train",
+      "stage": 3
+    },
+    "Static Electricity": {
+      "chapter_number": 18,
+      "split": "train",
+      "stage": 3
+    },
+    "Electrical Circuits": {
+      "chapter_number": 19,
+      "split": "test",
+      "stage": 3
+    },
+    "Magnetism": {
+      "chapter_number": 20,
+      "split": "train",
+      "stage": 3
+    },
+    "The Quantum Nature of Light": {
+      "chapter_number": 21,
+      "split": "train",
+      "stage": 4
+    },
+    "The Atom": {
+      "chapter_number": 22,
+      "split": "train",
+      "stage": 4
+    },
+    "Particle Physics": {
+      "chapter_number": 23,
+      "split": "train",
+      "stage": 4
+    },
+    "Front or back matter": {
+      "chapter_number": 0,
+      "split": "train",
+      "stage": 4
+    }
+  },
+  "stages": [
+    {
+      "id": 1,
+      "name": "Units, motion and forces"
+    },
+    {
+      "id": 2,
+      "name": "Mechanics, heat and thermodynamics"
+    },
+    {
+      "id": 3,
+      "name": "Waves, optics, electricity and magnetism"
+    },
+    {
+      "id": 4,
+      "name": "Quantum, atomic and particle physics with reference tables"
+    }
+  ],
+  "source_review_spec": "data/physics-source-review-v1.json",
+  "source_review_spec_sha256": "0615630abd6c8c3f6f74e0abf373c8051a74b9a6d4d819545748b84d80472444",
+  "source_edits": "data/physics-edits-v1.json",
+  "source_edits_sha256": "a4f78daa7a4d35c5ba7111de33ffa5a6c9803a0cca161e62d0a7b7c754854986",
+  "passage_review": "data/physics-passage-review-v1.json",
+  "passage_review_sha256": "aa9c4dd717c247c6cfa06433a6237f87fc3fce481e4f075bd14d411eb98c5d13",
+  "corrected_review": "reports/physics-edited-review.json",
+  "corrected_review_sha256": "38c1ca1fc8ad4a73208503480350b3cbbbec7a143cc0544b717d287e372e69a3",
+  "protected_files": [
+    {
+      "path": "data/prepared/selected-foundations-v1/validation.dat",
+      "sha256": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f",
+      "kind": "documents"
+    },
+    {
+      "path": "data/prepared/selected-foundations-v1/test.dat",
+      "sha256": "a574e87875aad9c79c1cd321500091ce56c1e92e9fa16574d23e45419122b373",
+      "kind": "documents"
+    },
+    {
+      "path": "data/prepared/development-v2-final/validation.dat",
+      "sha256": "01649aedf02f109d717eefda28bbd4a66aafe517e8bbd73ea02a3ac9e422278d",
+      "kind": "documents"
+    },
+    {
+      "path": "data/prepared/development-v2-final/test.dat",
+      "sha256": "a574e87875aad9c79c1cd321500091ce56c1e92e9fa16574d23e45419122b373",
+      "kind": "documents"
+    },
+    {
+      "path": "data/prepared/stories-v1/validation.dat",
+      "sha256": "ba7af24e2867906fe4dbbd2d37a817a3c95a53456b4dc4b77b3ad951869354e7",
+      "kind": "documents"
+    },
+    {
+      "path": "data/prepared/stories-v1/test.dat",
+      "sha256": "8da322e936c1391b58629a6c679116d90d7dbf26940f1a5f7f26e958b782c3a1",
+      "kind": "documents"
+    },
+    {
+      "path": "data/prepared/prose-scale-v1-pinned/validation.dat",
+      "sha256": "8088fc5794627156885a87d23dd45a4ba9548959cf40cb77d686240bfda96c97",
+      "kind": "documents"
+    },
+    {
+      "path": "data/prepared/prose-scale-v1-pinned/test.dat",
+      "sha256": "b63ad69bdea938464b8d9247593a7bed8a4f84188be96e8fbca68682ff0f573b",
+      "kind": "documents"
+    },
+    {
+      "path": "data/prepared/astronomy-v1-reviewed/validation.dat",
+      "sha256": "2b392a78e81620c957b37dae85666410891b591f61c5dfdff2cffe2bbc6b6cca",
+      "kind": "documents"
+    },
+    {
+      "path": "data/prepared/astronomy-v1-reviewed/test.dat",
+      "sha256": "0afdcfd87b07a752777c0a68de95ad7248001de166cfa165e51cf4c1ba06d9e5",
+      "kind": "documents"
+    },
+    {
+      "path": "data/prepared/binding-diversity-v1/development.sgprobe",
+      "sha256": "48f9c8cff84b39875da8349b74cfddf0a8c45e67a9e0e90c54688ff2547ca964",
+      "kind": "probe"
+    },
+    {
+      "path": "data/prepared/binding-diversity-v1/test.sgprobe",
+      "sha256": "8e22637b133f3548ae654589a00d453bf462c1cfcd4bb685e8d162a1ecc0ae73",
+      "kind": "probe"
+    },
+    {
+      "path": "data/prepared/relations-v1-reviewed/development.sgprobe",
+      "sha256": "ad46a15019e8d524931f8dd14dc40183807e8f6f1593ff68c1fa4e38e8d55a78",
+      "kind": "probe"
+    },
+    {
+      "path": "data/prepared/relations-v1-reviewed/test.sgprobe",
+      "sha256": "13fb48f9719f2347749e9ef44561630011580de4c0e50a23e1a5d08b90985793",
+      "kind": "probe"
+    },
+    {
+      "path": "data/prepared/teaching-v1-reproduction2/development.sgprobe",
+      "sha256": "ad46a15019e8d524931f8dd14dc40183807e8f6f1593ff68c1fa4e38e8d55a78",
+      "kind": "probe"
+    },
+    {
+      "path": "data/prepared/teaching-v1-reproduction2/test.sgprobe",
+      "sha256": "13fb48f9719f2347749e9ef44561630011580de4c0e50a23e1a5d08b90985793",
+      "kind": "probe"
+    },
+    {
+      "path": "data/prepared/prealgebra-worked-v1-pinned/validation.dat",
+      "sha256": "731f5d17373c0febecef14eda51b9b2f38f1da1b6465630cf80e4e540239ef26",
+      "kind": "documents"
+    },
+    {
+      "path": "data/prepared/prealgebra-worked-v1-pinned/test.dat",
+      "sha256": "f594b78c56e5af2d7d5a335c3971f1429cb96358439cd29f1d5439c1624c2ad8",
+      "kind": "documents"
+    }
+  ],
+  "sources": [
+    {
+      "id": "m54082",
+      "title": "Introduction",
+      "chapter": "What is Physics?",
+      "chapter_number": 1,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "222e51eb2081fd458438c4410ad710978724c4cbdebb84818779e1f3af5e3098",
+      "extracted_sha256": "3d068d14399db771b1335b9c41c53bcf87072591f5daff9ac1aafb8a384933a1",
+      "corrected_sha256": "3d068d14399db771b1335b9c41c53bcf87072591f5daff9ac1aafb8a384933a1",
+      "correction_ids": []
+    },
+    {
+      "id": "m54057",
+      "title": "Physics: Definitions and Applications",
+      "chapter": "What is Physics?",
+      "chapter_number": 1,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "5940a2a70420390e526648ab320f16e6d5fb51b38aab579aea0e945f556df196",
+      "extracted_sha256": "93b1571d1367258a548f25bec59ada6076465eb7301cad03732a59972ae30cb4",
+      "corrected_sha256": "93b1571d1367258a548f25bec59ada6076465eb7301cad03732a59972ae30cb4",
+      "correction_ids": []
+    },
+    {
+      "id": "m54083",
+      "title": "The Scientific Methods",
+      "chapter": "What is Physics?",
+      "chapter_number": 1,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "7e05225ffebd7df4a4ce44095d917143372f270a5d726ad773adfd9efb975e99",
+      "extracted_sha256": "f0770f53b1405c0d642895a505e0e8b052b58886c9b65830a7c6827328d918c9",
+      "corrected_sha256": "f0770f53b1405c0d642895a505e0e8b052b58886c9b65830a7c6827328d918c9",
+      "correction_ids": []
+    },
+    {
+      "id": "m54599",
+      "title": "The Language of Physics: Physical Quantities and Units",
+      "chapter": "What is Physics?",
+      "chapter_number": 1,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "239377c40ee72bec10c5caad89b2dfbbe2a20377ef33b8166dbebd65f9690898",
+      "extracted_sha256": "04984455d5a7d288d80d3a09fe83700debd3a294a3fa22798d9d73e143be7518",
+      "corrected_sha256": "04984455d5a7d288d80d3a09fe83700debd3a294a3fa22798d9d73e143be7518",
+      "correction_ids": []
+    },
+    {
+      "id": "m54097",
+      "title": "Introduction",
+      "chapter": "Motion in One Dimension",
+      "chapter_number": 2,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "00ab10c57b589d23fcc3ad9c6b487a4f5fb48a3aa84fca3e230bf6e9fcf7498c",
+      "extracted_sha256": "de592a656cbd4b7966187497339ca8197b99790f0e0a4b4ef7cda0d644c40e41",
+      "corrected_sha256": "de592a656cbd4b7966187497339ca8197b99790f0e0a4b4ef7cda0d644c40e41",
+      "correction_ids": []
+    },
+    {
+      "id": "m54108",
+      "title": "Relative Motion, Distance, and Displacement",
+      "chapter": "Motion in One Dimension",
+      "chapter_number": 2,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "09165a087ea36f16f69f43b6e887f9560256b69769d91cd8a5538ed133f6e80b",
+      "extracted_sha256": "8569e9c27c0aaa927e5b50dafe00ed53c33eca34613b66b86317bf5794707b25",
+      "corrected_sha256": "8569e9c27c0aaa927e5b50dafe00ed53c33eca34613b66b86317bf5794707b25",
+      "correction_ids": []
+    },
+    {
+      "id": "m54104",
+      "title": "Speed and Velocity",
+      "chapter": "Motion in One Dimension",
+      "chapter_number": 2,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "43329635586b3aa15573bba2d37f78aae08f4ce47375f5422451fbed5ac66fa7",
+      "extracted_sha256": "d3259b620e2c57ca6700a534ca095460f091545dcd871526ac08f851c81bd1e5",
+      "corrected_sha256": "d3259b620e2c57ca6700a534ca095460f091545dcd871526ac08f851c81bd1e5",
+      "correction_ids": []
+    },
+    {
+      "id": "m54110",
+      "title": "Position vs. Time Graphs",
+      "chapter": "Motion in One Dimension",
+      "chapter_number": 2,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "3587788e5840d95516c161880f6a6ca7663571a267cc70d44e5391b4323f0010",
+      "extracted_sha256": "73a03ef32caf11ca0eb47348087e7cecdf37f97ad0c13fe00407f820191c3dad",
+      "corrected_sha256": "73a03ef32caf11ca0eb47348087e7cecdf37f97ad0c13fe00407f820191c3dad",
+      "correction_ids": []
+    },
+    {
+      "id": "m54094",
+      "title": "Velocity vs. Time Graphs",
+      "chapter": "Motion in One Dimension",
+      "chapter_number": 2,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "abf3bdc3a56189c123fa1a34e0462efd6deef2d34a388150f3264c0eed5e43af",
+      "extracted_sha256": "d80e55fe83a8ed34af8068032dc8819fb4cb7c25e5f5c7fae9207ced3d00f519",
+      "corrected_sha256": "d80e55fe83a8ed34af8068032dc8819fb4cb7c25e5f5c7fae9207ced3d00f519",
+      "correction_ids": []
+    },
+    {
+      "id": "m54119",
+      "title": "Introduction",
+      "chapter": "Acceleration",
+      "chapter_number": 3,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "2e9d7b3b66dedf3c30be9509b802d32b41764646a97acac040b7132d4fc6cd0e",
+      "extracted_sha256": "4b453e0e36661cf0371ab480b19ac428aab1052325c71929b2c5e313cdb6b042",
+      "corrected_sha256": "4b453e0e36661cf0371ab480b19ac428aab1052325c71929b2c5e313cdb6b042",
+      "correction_ids": []
+    },
+    {
+      "id": "m54123",
+      "title": "Acceleration",
+      "chapter": "Acceleration",
+      "chapter_number": 3,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "9eb2446e65f380aaf94261200d9953ced33b2430c75b1c934d70c92b7272bbde",
+      "extracted_sha256": "b10b9b24863ab8ee48e757225c124986147f1d18c719d1ae665ef2435513202f",
+      "corrected_sha256": "b10b9b24863ab8ee48e757225c124986147f1d18c719d1ae665ef2435513202f",
+      "correction_ids": []
+    },
+    {
+      "id": "m54116",
+      "title": "Representing Acceleration with Equations and Graphs",
+      "chapter": "Acceleration",
+      "chapter_number": 3,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "67b4dd378f779e492ddd8bac04192577f94ff2270217befd2a66dfa94adba4ad",
+      "extracted_sha256": "4a742eab887cdcda0eab4b7f3a294e5ae542cfe5270f3357c7b8a47124b4b7d0",
+      "corrected_sha256": "4a742eab887cdcda0eab4b7f3a294e5ae542cfe5270f3357c7b8a47124b4b7d0",
+      "correction_ids": []
+    },
+    {
+      "id": "m54144",
+      "title": "Introduction",
+      "chapter": "Forces and Newton\u2019s Laws of Motion",
+      "chapter_number": 4,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "aa114cb59c892bf49a1c91cd7967137d82196ef29dd02335f1bffa197c24f60b",
+      "extracted_sha256": "8a1f659bd821ab03ace8a1e220a9df77cce1ae64a2723343fa0918676a438ac4",
+      "corrected_sha256": "8a1f659bd821ab03ace8a1e220a9df77cce1ae64a2723343fa0918676a438ac4",
+      "correction_ids": []
+    },
+    {
+      "id": "m54135",
+      "title": "Force",
+      "chapter": "Forces and Newton\u2019s Laws of Motion",
+      "chapter_number": 4,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "3116e4a02adda4ccf042e6a0ecfd881f0d913d199181eace9214c1b002399a03",
+      "extracted_sha256": "c17363fc16ff9b7d10aa50601774d0b849eb1158e488612792db1464a18f5e52",
+      "corrected_sha256": "736f223d0656bbd0033169d669a7876f37af5d98ef8e2ee5b0c53ab8e2fbe2a2",
+      "correction_ids": [
+        "net_force_changes_velocity"
+      ]
+    },
+    {
+      "id": "m54138",
+      "title": "Newton's First Law of Motion: Inertia",
+      "chapter": "Forces and Newton\u2019s Laws of Motion",
+      "chapter_number": 4,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "984642455b05a416f1d307e43dea55bfe5bfbf1e47ac4503d894dc176fb39683",
+      "extracted_sha256": "c00f3040f0ace3de9dde6cf90276c3bbc9ecbd330a7b5b7b102272afc7582985",
+      "corrected_sha256": "c00f3040f0ace3de9dde6cf90276c3bbc9ecbd330a7b5b7b102272afc7582985",
+      "correction_ids": []
+    },
+    {
+      "id": "m54142",
+      "title": "Newton's Second Law of Motion",
+      "chapter": "Forces and Newton\u2019s Laws of Motion",
+      "chapter_number": 4,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "abc11d4bc87d9527c93acbb7cb1b3e78cb0eee7254569a4aaec32a03b9de01ce",
+      "extracted_sha256": "ec832c0d2f9eb6f47a3c3b7df65a118dd144b12d95672bb9f2b06ab6c75f8a64",
+      "corrected_sha256": "ec832c0d2f9eb6f47a3c3b7df65a118dd144b12d95672bb9f2b06ab6c75f8a64",
+      "correction_ids": []
+    },
+    {
+      "id": "m54131",
+      "title": "Newton's Third Law of Motion",
+      "chapter": "Forces and Newton\u2019s Laws of Motion",
+      "chapter_number": 4,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "255cca5b620792b2e57b340d62abc7eeaa04b2303e3366336b5a6f605a7f9fda",
+      "extracted_sha256": "9675f991cd82b6cbf7dcb0609d92a54c7a2541bc0cfd319c6163f8f9c82e63b4",
+      "corrected_sha256": "9675f991cd82b6cbf7dcb0609d92a54c7a2541bc0cfd319c6163f8f9c82e63b4",
+      "correction_ids": []
+    },
+    {
+      "id": "m54145",
+      "title": "Introduction",
+      "chapter": "Motion in Two Dimensions",
+      "chapter_number": 5,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "a46b750b1985353001da692133fe768ab873602fd97854139bde053c04560607",
+      "extracted_sha256": "39a3fc7f2af27f27929e200fbc9ec6115fb68704ccc4c6fe0e8010a92c93c43b",
+      "corrected_sha256": "39a3fc7f2af27f27929e200fbc9ec6115fb68704ccc4c6fe0e8010a92c93c43b",
+      "correction_ids": []
+    },
+    {
+      "id": "m54165",
+      "title": "Vector Addition and Subtraction: Graphical Methods",
+      "chapter": "Motion in Two Dimensions",
+      "chapter_number": 5,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "2a31b9e7eced1ed254a763918e9502ec87528f880c85117c9ac6c7ea7b9dab18",
+      "extracted_sha256": "e496edd97eeb9db9f869f7b632bb963478ff47911ea22a4452082bfceeacf1d0",
+      "corrected_sha256": "e496edd97eeb9db9f869f7b632bb963478ff47911ea22a4452082bfceeacf1d0",
+      "correction_ids": []
+    },
+    {
+      "id": "m54147",
+      "title": "Vector Addition and Subtraction: Analytical Methods",
+      "chapter": "Motion in Two Dimensions",
+      "chapter_number": 5,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "6279130fc068183e38b6f8a43eb60d35614b3894b99a196580426d00eea3c8d5",
+      "extracted_sha256": "950b43cdd0d1cd779be82d3d461e499146775161cba3f7de40b34d091910916a",
+      "corrected_sha256": "950b43cdd0d1cd779be82d3d461e499146775161cba3f7de40b34d091910916a",
+      "correction_ids": []
+    },
+    {
+      "id": "m54162",
+      "title": "Projectile Motion",
+      "chapter": "Motion in Two Dimensions",
+      "chapter_number": 5,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "4e681890b4191a16599f21dede2088c6d2f722048443ca946d0fea3171d36b14",
+      "extracted_sha256": "af5dc05323db6f71a51bda3c99b3f31683a0a47c3359d0f2f6751746e32203f6",
+      "corrected_sha256": "af5dc05323db6f71a51bda3c99b3f31683a0a47c3359d0f2f6751746e32203f6",
+      "correction_ids": []
+    },
+    {
+      "id": "m54159",
+      "title": "Inclined Planes",
+      "chapter": "Motion in Two Dimensions",
+      "chapter_number": 5,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "21193864e34f88334cd6b399957fdd0a656706c48a4686f9e1323683d08d5ad2",
+      "extracted_sha256": "c3bfb68ceb05d8b4d5fc99d5b6a4287a009b6aa0e28464baaf0b97d6b85fd57e",
+      "corrected_sha256": "c3bfb68ceb05d8b4d5fc99d5b6a4287a009b6aa0e28464baaf0b97d6b85fd57e",
+      "correction_ids": []
+    },
+    {
+      "id": "m54154",
+      "title": "Simple Harmonic Motion",
+      "chapter": "Motion in Two Dimensions",
+      "chapter_number": 5,
+      "split": "train",
+      "stage": 1,
+      "raw_sha256": "9e24b744ea3a5edddca092fb915845ca58a5d5326ce37fcecabdddf203bd12b6",
+      "extracted_sha256": "be34cf2e430e96e570b9f489e26feebb03a019bf44eb97615ab77628dda40254",
+      "corrected_sha256": "be34cf2e430e96e570b9f489e26feebb03a019bf44eb97615ab77628dda40254",
+      "correction_ids": []
+    },
+    {
+      "id": "m54173",
+      "title": "Introduction",
+      "chapter": "Circular and Rotational Motion",
+      "chapter_number": 6,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "707036aee8060ad1648fc75fd9fbb6f6dee1c2d743258b7ab4ed82e997ccf301",
+      "extracted_sha256": "a1d4af5beee6f0cd441a9dac4e3c5a3b5b875506acd720feaab48120148d7a93",
+      "corrected_sha256": "a1d4af5beee6f0cd441a9dac4e3c5a3b5b875506acd720feaab48120148d7a93",
+      "correction_ids": []
+    },
+    {
+      "id": "m54176",
+      "title": "Angle of Rotation and Angular Velocity",
+      "chapter": "Circular and Rotational Motion",
+      "chapter_number": 6,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "c5dfffadc2560ccff1ec5e02a42793c8106796598c736727d01b15531dfdf38b",
+      "extracted_sha256": "e0925d0a14b3d6531dca388320b221b2453268f50987bc2583584e66708c8a49",
+      "corrected_sha256": "e0925d0a14b3d6531dca388320b221b2453268f50987bc2583584e66708c8a49",
+      "correction_ids": []
+    },
+    {
+      "id": "m54181",
+      "title": "Uniform Circular Motion",
+      "chapter": "Circular and Rotational Motion",
+      "chapter_number": 6,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "8eada1c5086fa9c3492aa47c29fb47226bd924b9d219be288b5af0c2e71854f6",
+      "extracted_sha256": "a19f7b0023c74aece3ad8b017103f313e2687ecdc4384062c762992da95671f2",
+      "corrected_sha256": "a19f7b0023c74aece3ad8b017103f313e2687ecdc4384062c762992da95671f2",
+      "correction_ids": []
+    },
+    {
+      "id": "m54180",
+      "title": "Rotational Motion",
+      "chapter": "Circular and Rotational Motion",
+      "chapter_number": 6,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "e3cd1cecbf867feb2f2a5364acea69330feb98f0f95f4222b373b61aa0c83a6a",
+      "extracted_sha256": "42b90a255f7877a7fe24deb695a3bd24a049aa22f4bcc77a5f1c63b795bc60ef",
+      "corrected_sha256": "42b90a255f7877a7fe24deb695a3bd24a049aa22f4bcc77a5f1c63b795bc60ef",
+      "correction_ids": []
+    },
+    {
+      "id": "m54196",
+      "title": "Introduction",
+      "chapter": "Newton's Law of Gravitation",
+      "chapter_number": 7,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "67db9164fadd689bdbc419a0fac8a2c6415f95b7fc49c032e5cf61fcb27fe7b5",
+      "extracted_sha256": "a055d86e30e15a4ceb3b5d9e75df393d32031285d7f103cabd0e2c1dc496a630",
+      "corrected_sha256": "a055d86e30e15a4ceb3b5d9e75df393d32031285d7f103cabd0e2c1dc496a630",
+      "correction_ids": []
+    },
+    {
+      "id": "m54192",
+      "title": "Kepler's Laws of Planetary Motion",
+      "chapter": "Newton's Law of Gravitation",
+      "chapter_number": 7,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "b95a95fed9b7857c69292eb3ae7079f3ad97eb8ed685bec27a29baa04b7e9399",
+      "extracted_sha256": "3fb2a9a5fbf151b118bea9603b5be17ca04a8f251b25320d78d68ddc11defe60",
+      "corrected_sha256": "3fb2a9a5fbf151b118bea9603b5be17ca04a8f251b25320d78d68ddc11defe60",
+      "correction_ids": []
+    },
+    {
+      "id": "m54189",
+      "title": "Newton's Law of Universal Gravitation and Einstein's Theory of General Relativity",
+      "chapter": "Newton's Law of Gravitation",
+      "chapter_number": 7,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "742d5f543b2db64a3fa8d54244fdc43a757dd9d50422f88fd8a326e9f482e5fb",
+      "extracted_sha256": "c29158fad4907e85232de11de72bc7a94e81acbc0cd33212b4c2c9ce645e98f6",
+      "corrected_sha256": "c29158fad4907e85232de11de72bc7a94e81acbc0cd33212b4c2c9ce645e98f6",
+      "correction_ids": []
+    },
+    {
+      "id": "m54212",
+      "title": "Introduction",
+      "chapter": "Momentum",
+      "chapter_number": 8,
+      "split": "validation",
+      "stage": 2,
+      "raw_sha256": "ad39fe3218e79b364eb968e646765dba98453c949cf23b0c15d93c8b02674669",
+      "extracted_sha256": "c06d0a9999734e82c09fd167cf399cb1d0bd7626126fae7b605191bef4f8d950",
+      "corrected_sha256": "c06d0a9999734e82c09fd167cf399cb1d0bd7626126fae7b605191bef4f8d950",
+      "correction_ids": []
+    },
+    {
+      "id": "m54215",
+      "title": "Linear Momentum, Force, and Impulse",
+      "chapter": "Momentum",
+      "chapter_number": 8,
+      "split": "validation",
+      "stage": 2,
+      "raw_sha256": "f0ae3d8187826baed0cd49485149c7c566b64d050557a92c082943fd6ac14542",
+      "extracted_sha256": "226cfa132bb70fc390e7b754dd5d1b372b7cf6581f3c764e71f2c0dd056f913a",
+      "corrected_sha256": "2ca499830de031b0516431de4903e456def893b9f97a53aec53605f345f28518",
+      "correction_ids": [
+        "negative_axis_not_opposite_motion"
+      ]
+    },
+    {
+      "id": "m54202",
+      "title": "Conservation of Momentum",
+      "chapter": "Momentum",
+      "chapter_number": 8,
+      "split": "validation",
+      "stage": 2,
+      "raw_sha256": "4ab904f2a671424a4ef2c99163bb9e6e7e4a615dd6eebc238902a8f67d6e6ff8",
+      "extracted_sha256": "dc893a6a11b9dcf5ef4e420fef36759ac6b59094c3b506a3e1fa95eb6da1e66d",
+      "corrected_sha256": "dc893a6a11b9dcf5ef4e420fef36759ac6b59094c3b506a3e1fa95eb6da1e66d",
+      "correction_ids": []
+    },
+    {
+      "id": "m54209",
+      "title": "Elastic and Inelastic Collisions",
+      "chapter": "Momentum",
+      "chapter_number": 8,
+      "split": "validation",
+      "stage": 2,
+      "raw_sha256": "4d55b85673aa7c84b6159500f30fbdf034e5c69c09ff4f85d0eb3b009d9e65ba",
+      "extracted_sha256": "9d73ad5fae9fb407a08a3847a9b5cf7bd5bb368f92b9c90812677a8b44c5d201",
+      "corrected_sha256": "9d73ad5fae9fb407a08a3847a9b5cf7bd5bb368f92b9c90812677a8b44c5d201",
+      "correction_ids": []
+    },
+    {
+      "id": "m54268",
+      "title": "Introduction",
+      "chapter": "Work, Energy, and Simple Machines",
+      "chapter_number": 9,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "11e3161f0bf38d910cac5dc11abf127790b9acacd482a25ce6eb035829f84003",
+      "extracted_sha256": "6657c9237378e2cf1b16f2d58917f699f7e822922f43d03cc4c2de7ad09f3612",
+      "corrected_sha256": "6657c9237378e2cf1b16f2d58917f699f7e822922f43d03cc4c2de7ad09f3612",
+      "correction_ids": []
+    },
+    {
+      "id": "m54271",
+      "title": "Work, Power, and the Work\u2013Energy Theorem",
+      "chapter": "Work, Energy, and Simple Machines",
+      "chapter_number": 9,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "5b7f18cc7c3b11acd31e2a46bfba72ac825975cdda410826667bc7b472103c32",
+      "extracted_sha256": "c23f474391b1777450183255c518d096e1381e098966ed113b2d9f517a9fbec7",
+      "corrected_sha256": "c23f474391b1777450183255c518d096e1381e098966ed113b2d9f517a9fbec7",
+      "correction_ids": []
+    },
+    {
+      "id": "m54273",
+      "title": "Mechanical Energy and Conservation of Energy",
+      "chapter": "Work, Energy, and Simple Machines",
+      "chapter_number": 9,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "d7cbed99a524693ddd4d0f2259d47bb16e62ee97f02c6f0302246f334625f8ab",
+      "extracted_sha256": "63be23491b4061de3df87ef29e5a085684b15b7ef7dbf23103c75f459fc4a541",
+      "corrected_sha256": "a40edd878e8dc9510ce130e9148aee337285e6d88899ffc059ea3a736750c9f8",
+      "correction_ids": [
+        "energy-balance-signs"
+      ]
+    },
+    {
+      "id": "m54274",
+      "title": "Simple Machines",
+      "chapter": "Work, Energy, and Simple Machines",
+      "chapter_number": 9,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "3702de9885e3a1254d624fbcae77a7c912a203ae301d08d2b426237b1a5cc606",
+      "extracted_sha256": "991831cb715ec2948c27b7be65532af04d35efb7045e1985f848afa89ebbe5bb",
+      "corrected_sha256": "991831cb715ec2948c27b7be65532af04d35efb7045e1985f848afa89ebbe5bb",
+      "correction_ids": []
+    },
+    {
+      "id": "m54277",
+      "title": "Introduction",
+      "chapter": "Special Relativity",
+      "chapter_number": 10,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "d21b3959bcc9843f5bb21e4aeac8a12b59b2b522ef3d2c3283245b5e074ce4aa",
+      "extracted_sha256": "8ea89529c5a98b6715ec0f7bae84d6f22670bd5fca7a5205e2f2db860df457d5",
+      "corrected_sha256": "8ea89529c5a98b6715ec0f7bae84d6f22670bd5fca7a5205e2f2db860df457d5",
+      "correction_ids": []
+    },
+    {
+      "id": "m54280",
+      "title": "Postulates of Special Relativity",
+      "chapter": "Special Relativity",
+      "chapter_number": 10,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "b26836e125aea986fe1d66cf28338d868ebe23ba51b53c9904d59b664672654e",
+      "extracted_sha256": "f56d45f4f0cba7e4256a250cfad5c79e654b7c051dd8e56c62c8304be611c74f",
+      "corrected_sha256": "f56d45f4f0cba7e4256a250cfad5c79e654b7c051dd8e56c62c8304be611c74f",
+      "correction_ids": []
+    },
+    {
+      "id": "m54282",
+      "title": "Consequences of Special Relativity",
+      "chapter": "Special Relativity",
+      "chapter_number": 10,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "21c33d4e3a04ccd666cf4cba5ce61fa6c57ceb953e1e96696f59f485e87f3325",
+      "extracted_sha256": "73ba1737f0496dc72aa3d3fb022157d5e560d86867c8425cadfe5f52d39c5316",
+      "corrected_sha256": "73ba1737f0496dc72aa3d3fb022157d5e560d86867c8425cadfe5f52d39c5316",
+      "correction_ids": []
+    },
+    {
+      "id": "m54283",
+      "title": "Introduction",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "chapter_number": 11,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "c31fc004e27e2802abc93582f0d28bf6f6147225b3d4e883c2ddcf1b30b0eedf",
+      "extracted_sha256": "f029152ef963ec9b60434268030c20bb444b54e5f9ff0751b15edffa2f81c4bb",
+      "corrected_sha256": "f029152ef963ec9b60434268030c20bb444b54e5f9ff0751b15edffa2f81c4bb",
+      "correction_ids": []
+    },
+    {
+      "id": "m54287",
+      "title": "Temperature and Thermal Energy",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "chapter_number": 11,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "5ddec4d8f0e56daed4cdd241a448ab3b1cccee23b204289a8d743d844088dfc6",
+      "extracted_sha256": "a676ec5cce75a8b161e74caa05a0a25bb4bee7a7056e3f425ec4994c9d9d76cc",
+      "corrected_sha256": "14c00d9e796a3f14f496ad9858b1cd7086a4e60790c951014f20c4b8f76cbd7f",
+      "correction_ids": [
+        "thermal-energy-total",
+        "thermal-energy-glossary",
+        "absolute-zero-quantum",
+        "absolute-zero-summary",
+        "absolute-zero-glossary"
+      ]
+    },
+    {
+      "id": "m54290",
+      "title": "Heat, Specific Heat, and Heat Transfer",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "chapter_number": 11,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "136958077cb63d398a50388e6e6056b42f1bc1748c7e9ddfdf1173dc5d99d4e5",
+      "extracted_sha256": "f4d303c1a854912761716d4f07e9482bdc40a19d8ec90546f95390922f861c57",
+      "corrected_sha256": "04f62996cb03d946f90602bd2dbffdf3f41b23e857ba2f8097cd174cbfe11abe",
+      "correction_ids": [
+        "heat-capacity-mass"
+      ]
+    },
+    {
+      "id": "m54292",
+      "title": "Phase Change and Latent Heat",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "chapter_number": 11,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "496ba89cd612ca6e2f434954e3b8393712c252addbf382dc5aa56ed924fe8fff",
+      "extracted_sha256": "c479e1223a9266ad76785e979da218b65687dddd66c3f3f3e1c787e93c738291",
+      "corrected_sha256": "c479e1223a9266ad76785e979da218b65687dddd66c3f3f3e1c787e93c738291",
+      "correction_ids": []
+    },
+    {
+      "id": "m54300",
+      "title": "Introduction",
+      "chapter": "Thermodynamics",
+      "chapter_number": 12,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "ee58ad308425500aafba668430566acc40486db2d54eaf42bf52459e3e82b5a8",
+      "extracted_sha256": "236f0e0bc99d2830bd456afda4c5199802f2c29876b4502cac7a58495fcc8003",
+      "corrected_sha256": "236f0e0bc99d2830bd456afda4c5199802f2c29876b4502cac7a58495fcc8003",
+      "correction_ids": []
+    },
+    {
+      "id": "m54302",
+      "title": "Zeroth Law of Thermodynamics: Thermal Equilibrium",
+      "chapter": "Thermodynamics",
+      "chapter_number": 12,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "b5e6d61772e6f46ace2e175a9bc784f8a884cadd28ea73e92a9e8d274c250a32",
+      "extracted_sha256": "4e56b9409bed7c0e2a10b37ba114bc03f46a65676b5f2bec9cb2dda98fd1b357",
+      "corrected_sha256": "681b0322237399f4cd0033bbba918b70f63fbedcc2f61852b9bf2fdabe8d6367",
+      "correction_ids": [
+        "radiation_crosses_empty_space"
+      ]
+    },
+    {
+      "id": "m54305",
+      "title": "First law of Thermodynamics: Thermal Energy and Work",
+      "chapter": "Thermodynamics",
+      "chapter_number": 12,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "d005b9b5460b4dd326de1255b5676736dd44d1a63584c8ded6e5b61222b4faa6",
+      "extracted_sha256": "795a4d8b3387a6820cee9078f05f012cf564bf2df1d98f6d37bb0ca51e5757e6",
+      "corrected_sha256": "795a4d8b3387a6820cee9078f05f012cf564bf2df1d98f6d37bb0ca51e5757e6",
+      "correction_ids": []
+    },
+    {
+      "id": "m54306",
+      "title": "Second Law of Thermodynamics: Entropy",
+      "chapter": "Thermodynamics",
+      "chapter_number": 12,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "e80ccd00f8ade4526834a4e6cebf15429da67da37af7d3e3aa4467ff8cab1a6c",
+      "extracted_sha256": "bf1456dd266a3aba0a386b27352073017e28c18e03a8eab68120e3137e7179f2",
+      "corrected_sha256": "bf1456dd266a3aba0a386b27352073017e28c18e03a8eab68120e3137e7179f2",
+      "correction_ids": []
+    },
+    {
+      "id": "m54307",
+      "title": "Applications of Thermodynamics: Heat Engines, Heat Pumps, and Refrigerators",
+      "chapter": "Thermodynamics",
+      "chapter_number": 12,
+      "split": "train",
+      "stage": 2,
+      "raw_sha256": "c4f8ea317666b34b4b499f5523496f22dcea83d812b84e4ebfc8f0aa9fc495cd",
+      "extracted_sha256": "478a2b687cfee744889f4a5b1f315edc64894343e64f7f2cf8d020398ff8d33d",
+      "corrected_sha256": "478a2b687cfee744889f4a5b1f315edc64894343e64f7f2cf8d020398ff8d33d",
+      "correction_ids": []
+    },
+    {
+      "id": "m54312",
+      "title": "Introduction",
+      "chapter": "Waves and Their Properties",
+      "chapter_number": 13,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "b582f1a8b374c6c76391d974aa9fcfe9f70d6d6795eba35bf016b805da7e0d9d",
+      "extracted_sha256": "2bf875d289d99ef8bdd81a34baae1e3f0ceff09d48ecc850e8bc8e5cc78749b4",
+      "corrected_sha256": "2bf875d289d99ef8bdd81a34baae1e3f0ceff09d48ecc850e8bc8e5cc78749b4",
+      "correction_ids": []
+    },
+    {
+      "id": "m54314",
+      "title": "Types of Waves",
+      "chapter": "Waves and Their Properties",
+      "chapter_number": 13,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "b0f82d2d51c11ce54d52ad7c011e32da434570260b74fa29dbbff1093ad9ac04",
+      "extracted_sha256": "436503199192a5a9bc09e70099c94c4434499182cccfeb0e2e62315eecacf71b",
+      "corrected_sha256": "436503199192a5a9bc09e70099c94c4434499182cccfeb0e2e62315eecacf71b",
+      "correction_ids": []
+    },
+    {
+      "id": "m54321",
+      "title": "Wave Properties: Speed, Amplitude, Frequency, and Period",
+      "chapter": "Waves and Their Properties",
+      "chapter_number": 13,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "bb95a81cf5a811a39f27e4f93aca637dddee1e90c846aaa0b6c1843c93dda7bd",
+      "extracted_sha256": "f68f1edd561e404a15e949094334148303ab3a2c475826a9512cabcc891371c8",
+      "corrected_sha256": "f68f1edd561e404a15e949094334148303ab3a2c475826a9512cabcc891371c8",
+      "correction_ids": []
+    },
+    {
+      "id": "m54318",
+      "title": "Wave Interaction: Superposition and Interference",
+      "chapter": "Waves and Their Properties",
+      "chapter_number": 13,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "21a3ea8218826c0c35c3fa7ab45d5c286ccc3fc94391d7c61cd0846744cfbb5e",
+      "extracted_sha256": "15abfa87397b33a267a6e6c11868dbbb991ad643341f5b5a7cc3a48288eee0f4",
+      "corrected_sha256": "15abfa87397b33a267a6e6c11868dbbb991ad643341f5b5a7cc3a48288eee0f4",
+      "correction_ids": []
+    },
+    {
+      "id": "m54327",
+      "title": "Introduction",
+      "chapter": "Sound",
+      "chapter_number": 14,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "42bec9b6a32a34fc8bda66cbddb5465d01127e14d19b0d71306cfcc763d13972",
+      "extracted_sha256": "69efeb25fff3f9010b8b6b83719b7d82e45e067e148547086b89b3f660524bdc",
+      "corrected_sha256": "69efeb25fff3f9010b8b6b83719b7d82e45e067e148547086b89b3f660524bdc",
+      "correction_ids": []
+    },
+    {
+      "id": "m54331",
+      "title": "Speed of Sound, Frequency, and Wavelength",
+      "chapter": "Sound",
+      "chapter_number": 14,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "2234cf046e679b1dc931f9b398478c359cdb1ffa3699484a05366d977a7f9a87",
+      "extracted_sha256": "9a0956d9d9ac43b8d6f2c5304d38b5696a7c5d90b650d36d3552c9906d644633",
+      "corrected_sha256": "9a0956d9d9ac43b8d6f2c5304d38b5696a7c5d90b650d36d3552c9906d644633",
+      "correction_ids": []
+    },
+    {
+      "id": "m54333",
+      "title": "Sound Intensity and Sound Level",
+      "chapter": "Sound",
+      "chapter_number": 14,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "318e9a4d50a98d274f64df06911f94ae01744eae539f725f988c5d0ef7a79590",
+      "extracted_sha256": "fe3b94fcf3298a66a999b7cc85ee2bb2d8f046d6a678914f3f3ab8d567183258",
+      "corrected_sha256": "fe3b94fcf3298a66a999b7cc85ee2bb2d8f046d6a678914f3f3ab8d567183258",
+      "correction_ids": []
+    },
+    {
+      "id": "m54334",
+      "title": "Doppler Effect and Sonic Booms",
+      "chapter": "Sound",
+      "chapter_number": 14,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "2b8cd7c6cd0cfd35f17e93691e1e9b11df4fb0d072b4790ca69c8e77cf62d1c8",
+      "extracted_sha256": "b461b5a9e31c9a62ccb99d77d69923b45e378594a3b1d8ab51324f5e8ba5bc91",
+      "corrected_sha256": "b461b5a9e31c9a62ccb99d77d69923b45e378594a3b1d8ab51324f5e8ba5bc91",
+      "correction_ids": []
+    },
+    {
+      "id": "m54335",
+      "title": "Sound Interference and Resonance",
+      "chapter": "Sound",
+      "chapter_number": 14,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "2eed6c30e086b04f6ce45a7fdc23d686b7b1aecd9d5a31e7065378875c06ca20",
+      "extracted_sha256": "fdbc658a40da429eb9127ea12cfca3074839ddf8dc7cd2573558e422233a9fbf",
+      "corrected_sha256": "fdbc658a40da429eb9127ea12cfca3074839ddf8dc7cd2573558e422233a9fbf",
+      "correction_ids": []
+    },
+    {
+      "id": "m54336",
+      "title": "Introduction",
+      "chapter": "Light",
+      "chapter_number": 15,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "56237753fded42f8aa8d6567252fb69f8622c72e757d92339b14c2e20e83b23e",
+      "extracted_sha256": "f2b4a106e1024520fb14b2f1cc65f4c63cddb71a43bb4615f9456b90cec71701",
+      "corrected_sha256": "f2b4a106e1024520fb14b2f1cc65f4c63cddb71a43bb4615f9456b90cec71701",
+      "correction_ids": []
+    },
+    {
+      "id": "m54342",
+      "title": "The Electromagnetic Spectrum",
+      "chapter": "Light",
+      "chapter_number": 15,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "1be969e5301489501d35eb92ba49acd23ef7eeaf586f3c7ff9ec05f77cbf56fe",
+      "extracted_sha256": "7eb88cc36f31cee846ad1f7bd1e21089a504e2f631fd6438144c40a2654c9031",
+      "corrected_sha256": "7eb88cc36f31cee846ad1f7bd1e21089a504e2f631fd6438144c40a2654c9031",
+      "correction_ids": []
+    },
+    {
+      "id": "m54346",
+      "title": "The Behavior of Electromagnetic Radiation",
+      "chapter": "Light",
+      "chapter_number": 15,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "39b4a145ba7aa0d30b47a059ad70d353fa6ba1d3ad03e91c29a06e04dd14ddcf",
+      "extracted_sha256": "37f4fdaf6dabcf060e577c37879c6b55530951a9de02e4c8736ec7fcbaec409b",
+      "corrected_sha256": "37f4fdaf6dabcf060e577c37879c6b55530951a9de02e4c8736ec7fcbaec409b",
+      "correction_ids": []
+    },
+    {
+      "id": "m54366",
+      "title": "Introduction",
+      "chapter": "Mirrors and Lenses",
+      "chapter_number": 16,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "4b06127a4732ec1dbccf8ed0925bb1bbc7d427bdb172203e3fadc02f0f2851ec",
+      "extracted_sha256": "c5fda81d58f79a383991102e75001560718c1e609cb3a6df28ed5b8d7d2772c3",
+      "corrected_sha256": "c5fda81d58f79a383991102e75001560718c1e609cb3a6df28ed5b8d7d2772c3",
+      "correction_ids": []
+    },
+    {
+      "id": "m54357",
+      "title": "Reflection",
+      "chapter": "Mirrors and Lenses",
+      "chapter_number": 16,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "28b784e5015399281b2959fe5efa57d6ae6aaaf76a4cb733996525401236c05c",
+      "extracted_sha256": "4d7735c7b81f1386dfc63589b79b16177339a0a92509183e0cf6cc8aebb09f43",
+      "corrected_sha256": "4d7735c7b81f1386dfc63589b79b16177339a0a92509183e0cf6cc8aebb09f43",
+      "correction_ids": []
+    },
+    {
+      "id": "m54365",
+      "title": "Refraction",
+      "chapter": "Mirrors and Lenses",
+      "chapter_number": 16,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "9fbfa5d19d8dbf95a4164abed07f825cfb699cdd089cc4b584f119a6ed9db22b",
+      "extracted_sha256": "e21c5dfeee5de1a7856246d6d33020851c5fa0f8f220d7d942f1b7ef99472e8b",
+      "corrected_sha256": "e21c5dfeee5de1a7856246d6d33020851c5fa0f8f220d7d942f1b7ef99472e8b",
+      "correction_ids": []
+    },
+    {
+      "id": "m54361",
+      "title": "Lenses",
+      "chapter": "Mirrors and Lenses",
+      "chapter_number": 16,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "067cb5bbc392bf94d376a33c92005089247fa9d486165d6d3ca5b8bdc40d38e4",
+      "extracted_sha256": "72631c06fbf94968a681aacff6fc53f1a6508b670e5f1adb10c5bb589e3551b9",
+      "corrected_sha256": "72631c06fbf94968a681aacff6fc53f1a6508b670e5f1adb10c5bb589e3551b9",
+      "correction_ids": []
+    },
+    {
+      "id": "m54376",
+      "title": "Introduction",
+      "chapter": "Diffraction and Interference",
+      "chapter_number": 17,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "2383b0f3b981ad372e5a5bc625346cff7d6f830a1a3d7869075c4d2ed19c34f7",
+      "extracted_sha256": "930952cec54d77bb43e8792ad823710f0b934d8ce756213f2369eec1acf4ad61",
+      "corrected_sha256": "930952cec54d77bb43e8792ad823710f0b934d8ce756213f2369eec1acf4ad61",
+      "correction_ids": []
+    },
+    {
+      "id": "m54369",
+      "title": "Understanding Diffraction and Interference",
+      "chapter": "Diffraction and Interference",
+      "chapter_number": 17,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "e227b77e353fca68c0ebde5748df72a257c0cbe4daf41de1ced75f7c26d8e45d",
+      "extracted_sha256": "9e92cc5ef2dac4e324922c41172c54e6ba1197620639afc6b194352c08e33ca4",
+      "corrected_sha256": "9e92cc5ef2dac4e324922c41172c54e6ba1197620639afc6b194352c08e33ca4",
+      "correction_ids": []
+    },
+    {
+      "id": "m54371",
+      "title": "Applications of Diffraction, Interference, and Coherence",
+      "chapter": "Diffraction and Interference",
+      "chapter_number": 17,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "4c7460f373a742d0300786f885331c51fc2513ad1a3860faff5e00dfe5ef64b2",
+      "extracted_sha256": "5b805bf9495ab53e69e5fbe2714be4c8724e1d2c87b0b7ee22eff1a9f37d7c35",
+      "corrected_sha256": "5b805bf9495ab53e69e5fbe2714be4c8724e1d2c87b0b7ee22eff1a9f37d7c35",
+      "correction_ids": []
+    },
+    {
+      "id": "m54417",
+      "title": "Introduction",
+      "chapter": "Static Electricity",
+      "chapter_number": 18,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "4db7cdb1ed61c21863c9646e407e2d46b7e45a753e2f4084c47abb178d3c5f19",
+      "extracted_sha256": "25467ae7225e80065cdf2f5fd2af9da67d71cd3515164b447885a28a478f143f",
+      "corrected_sha256": "25467ae7225e80065cdf2f5fd2af9da67d71cd3515164b447885a28a478f143f",
+      "correction_ids": []
+    },
+    {
+      "id": "m54410",
+      "title": "Electrical Charges, Conservation of Charge, and Transfer of Charge",
+      "chapter": "Static Electricity",
+      "chapter_number": 18,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "5410ccc252fc4456f0c72a840208ed28df1cbec2efbf1c6d53788d74fcf0ec0e",
+      "extracted_sha256": "44e43d1828b09ec33f5ca4812a03b413c5c5b6f510c3b3bceb21f7134241eea9",
+      "corrected_sha256": "44e43d1828b09ec33f5ca4812a03b413c5c5b6f510c3b3bceb21f7134241eea9",
+      "correction_ids": []
+    },
+    {
+      "id": "m54414",
+      "title": "Coulomb's law",
+      "chapter": "Static Electricity",
+      "chapter_number": 18,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "426fbb7ded42a86499ea698be864c91a59a12f561d2f39b5bd5a571589e57e61",
+      "extracted_sha256": "dcaa98fe1722ad91f40d71f77396d20e95ac433a5d09825de6dbced2ea3534a9",
+      "corrected_sha256": "dcaa98fe1722ad91f40d71f77396d20e95ac433a5d09825de6dbced2ea3534a9",
+      "correction_ids": []
+    },
+    {
+      "id": "m54428",
+      "title": "Electric Field",
+      "chapter": "Static Electricity",
+      "chapter_number": 18,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "1ae39ad3ea7141305e8d13c3f371be12dd2b14700a3d8e32b4a6270643611ac5",
+      "extracted_sha256": "2e2cb570f7a6b99146ba062d07ac141b5d8d676b76b183c5ae54eb18be45539a",
+      "corrected_sha256": "2e2cb570f7a6b99146ba062d07ac141b5d8d676b76b183c5ae54eb18be45539a",
+      "correction_ids": []
+    },
+    {
+      "id": "m54426",
+      "title": "Electric Potential",
+      "chapter": "Static Electricity",
+      "chapter_number": 18,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "5134a70b367d7361c0275b2d4b85ce3969fdc85aad3e5b10428bae8dddbd0e72",
+      "extracted_sha256": "17b28fdb750f6d8b3677ba852c29a9db0f6fa2540b2f90095f113c7bc277ebc6",
+      "corrected_sha256": "17b28fdb750f6d8b3677ba852c29a9db0f6fa2540b2f90095f113c7bc277ebc6",
+      "correction_ids": []
+    },
+    {
+      "id": "m63179",
+      "title": "Capacitors and Dielectrics",
+      "chapter": "Static Electricity",
+      "chapter_number": 18,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "999d718102e615c056822c3d9aba9ff21cb178f5b8780b7da80493600d702f91",
+      "extracted_sha256": "7683809c1f35488474a14264b2c7c637e27e2f1668fb7d387dd49167d45eb00f",
+      "corrected_sha256": "7683809c1f35488474a14264b2c7c637e27e2f1668fb7d387dd49167d45eb00f",
+      "correction_ids": []
+    },
+    {
+      "id": "m54450",
+      "title": "Introduction",
+      "chapter": "Electrical Circuits",
+      "chapter_number": 19,
+      "split": "test",
+      "stage": 3,
+      "raw_sha256": "072e0eae536ac11d8e65eb3c1978e160e0409380266a8bda2011a76986338b59",
+      "extracted_sha256": "8c71ad0ea0559a6205289a1047c1aa9480f4a4352276fc2105167afdf0b69420",
+      "corrected_sha256": "8c71ad0ea0559a6205289a1047c1aa9480f4a4352276fc2105167afdf0b69420",
+      "correction_ids": []
+    },
+    {
+      "id": "m54437",
+      "title": "Ohm's law",
+      "chapter": "Electrical Circuits",
+      "chapter_number": 19,
+      "split": "test",
+      "stage": 3,
+      "raw_sha256": "aa47b5d387d8ee37d96d89c7661da08337df48fd61fc253e4b899706446fae60",
+      "extracted_sha256": "240b4896adc2abb07b1a190716d75a7503055f8032f286d4959629d5a8aaeb53",
+      "corrected_sha256": "240b4896adc2abb07b1a190716d75a7503055f8032f286d4959629d5a8aaeb53",
+      "correction_ids": []
+    },
+    {
+      "id": "m54435",
+      "title": "Series Circuits",
+      "chapter": "Electrical Circuits",
+      "chapter_number": 19,
+      "split": "test",
+      "stage": 3,
+      "raw_sha256": "17ca123160d610f22fb221fe3fc2392a8a3d3ccdf89f6aae558bb4e1ff2949b2",
+      "extracted_sha256": "fa025960c1d4e1688a2f8391fc610fa5b7acd4a518e1f4dcd28c9b7abee50b8b",
+      "corrected_sha256": "fa025960c1d4e1688a2f8391fc610fa5b7acd4a518e1f4dcd28c9b7abee50b8b",
+      "correction_ids": []
+    },
+    {
+      "id": "m54442",
+      "title": "Parallel Circuits",
+      "chapter": "Electrical Circuits",
+      "chapter_number": 19,
+      "split": "test",
+      "stage": 3,
+      "raw_sha256": "f7a118ec8e1a9f6d3ea61ab183ba8e9f5003096b531fab3bc0a4e1dea257f6a1",
+      "extracted_sha256": "ff0c9fe7b7f1602f6d77a35ce9393cc40d4132fa82c3f5bbe8962e2bb84ceb63",
+      "corrected_sha256": "ff0c9fe7b7f1602f6d77a35ce9393cc40d4132fa82c3f5bbe8962e2bb84ceb63",
+      "correction_ids": []
+    },
+    {
+      "id": "m54446",
+      "title": "Electric Power",
+      "chapter": "Electrical Circuits",
+      "chapter_number": 19,
+      "split": "test",
+      "stage": 3,
+      "raw_sha256": "67c9d41c654302b5c157168769af319858a2ebe988bf83405fd2cdb3b80722b6",
+      "extracted_sha256": "1a03c2329d8211d4bd9ffa0b212558d3bef93b33ac2d59aff65fc2647b3160af",
+      "corrected_sha256": "1a03c2329d8211d4bd9ffa0b212558d3bef93b33ac2d59aff65fc2647b3160af",
+      "correction_ids": []
+    },
+    {
+      "id": "m54460",
+      "title": "Introduction",
+      "chapter": "Magnetism",
+      "chapter_number": 20,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "495e1b5120d52e2bf38f4a82a22ccdc449b00ffa596982324df0d882602be504",
+      "extracted_sha256": "9c4dafea99b52bc672cfd267fb763025c624217fa8022b8b31539c8bc24e5485",
+      "corrected_sha256": "9c4dafea99b52bc672cfd267fb763025c624217fa8022b8b31539c8bc24e5485",
+      "correction_ids": []
+    },
+    {
+      "id": "m54465",
+      "title": "Magnetic Fields, Field Lines, and Force",
+      "chapter": "Magnetism",
+      "chapter_number": 20,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "ac4c06ecdd3ff4d249e6ad81693b5c85401e9d0b75790f7ae8edbb8a32b6b0ae",
+      "extracted_sha256": "a48f08c1bdda9c0cd7397287ad67acf4ede7741078ff1dad7b1ae1423d91e41a",
+      "corrected_sha256": "a48f08c1bdda9c0cd7397287ad67acf4ede7741078ff1dad7b1ae1423d91e41a",
+      "correction_ids": []
+    },
+    {
+      "id": "m54467",
+      "title": "Motors, Generators, and Transformers",
+      "chapter": "Magnetism",
+      "chapter_number": 20,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "38d022377438c2649899906659d7a61a44b52e48f01b7218e4a1ee6f9fbd37ac",
+      "extracted_sha256": "be55d6ecf010477185293ec46d43d5a961fadcb76591d6d0b21314a8175532b1",
+      "corrected_sha256": "be55d6ecf010477185293ec46d43d5a961fadcb76591d6d0b21314a8175532b1",
+      "correction_ids": []
+    },
+    {
+      "id": "m54456",
+      "title": "Electromagnetic Induction",
+      "chapter": "Magnetism",
+      "chapter_number": 20,
+      "split": "train",
+      "stage": 3,
+      "raw_sha256": "ef9d0f769d74716f7903c57eb786c0007c72f0979d5ec13f44eb0b2a2d9f6563",
+      "extracted_sha256": "22fb37f0cd46f18c9737e907205610b9d55eb30977cfc22c4cd990b615f7c071",
+      "corrected_sha256": "22fb37f0cd46f18c9737e907205610b9d55eb30977cfc22c4cd990b615f7c071",
+      "correction_ids": []
+    },
+    {
+      "id": "m54562",
+      "title": "Introduction",
+      "chapter": "The Quantum Nature of Light",
+      "chapter_number": 21,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "2271f2eaa450896efcbeb302c54e9a13f7a5a83cc199aace1e384671904f1a8a",
+      "extracted_sha256": "c35c8fe4a1814412a07d40860d7fd0350e090a61d3ed57d06f25c2948480b3bb",
+      "corrected_sha256": "c35c8fe4a1814412a07d40860d7fd0350e090a61d3ed57d06f25c2948480b3bb",
+      "correction_ids": []
+    },
+    {
+      "id": "m54566",
+      "title": "Planck and Quantum Nature of Light",
+      "chapter": "The Quantum Nature of Light",
+      "chapter_number": 21,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "4d31e1edd7089c066d1e6a421d10aed01f7f17be1f25256b1a3e4aab2998ca31",
+      "extracted_sha256": "64e29004dbd5756ad4cadae489d09df10bc37f3fb98ecdcc7dd1cdf0b85df51f",
+      "corrected_sha256": "5887bc2bf16b4c89d4b9d769cc154ad0e3a880e08b238b00e5794a866e31ce9d",
+      "correction_ids": [
+        "blackbody_is_idealization"
+      ]
+    },
+    {
+      "id": "m54559",
+      "title": "Einstein and the Photoelectric Effect",
+      "chapter": "The Quantum Nature of Light",
+      "chapter_number": 21,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "9da5e254e9cbf838c1998a1936b83afe32a907bc08e0fa435fd93370c0c34443",
+      "extracted_sha256": "9b5be2055f6eee1588f9104d8d10c060b5a7a63db5b0812612fdbd5d394fd760",
+      "corrected_sha256": "9b5be2055f6eee1588f9104d8d10c060b5a7a63db5b0812612fdbd5d394fd760",
+      "correction_ids": []
+    },
+    {
+      "id": "m54552",
+      "title": "The Dual Nature of Light",
+      "chapter": "The Quantum Nature of Light",
+      "chapter_number": 21,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "716c6190ab3e61f3c54830c7deaac39e85122ff4a168de637bf134919e29fa56",
+      "extracted_sha256": "099576d4fec4a83752b6b5a47d5d2721f0ef43d6baddb592f33517cb64ea0092",
+      "corrected_sha256": "099576d4fec4a83752b6b5a47d5d2721f0ef43d6baddb592f33517cb64ea0092",
+      "correction_ids": []
+    },
+    {
+      "id": "m54583",
+      "title": "Introduction",
+      "chapter": "The Atom",
+      "chapter_number": 22,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "4c2fc48a92ced23778df80fdc60c00c9aca5661bddaab9cf312353cf43190e99",
+      "extracted_sha256": "0c24e3aab8a9575eaffa1b4806882b57523343b81b7f286a171b390f8d9b7fde",
+      "corrected_sha256": "0c24e3aab8a9575eaffa1b4806882b57523343b81b7f286a171b390f8d9b7fde",
+      "correction_ids": []
+    },
+    {
+      "id": "m54582",
+      "title": "The Structure of the Atom",
+      "chapter": "The Atom",
+      "chapter_number": 22,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "4014ada9352b0fc536db997e315dbcb828f9aae7f0229b9a1083e0bbf3a08787",
+      "extracted_sha256": "ccc9204e2a928d6743ff52979d59a6160fac61a2343fc4258df502ecd58a7b47",
+      "corrected_sha256": "ccc9204e2a928d6743ff52979d59a6160fac61a2343fc4258df502ecd58a7b47",
+      "correction_ids": []
+    },
+    {
+      "id": "m54580",
+      "title": "Nuclear Forces and Radioactivity",
+      "chapter": "The Atom",
+      "chapter_number": 22,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "96a87679a8f8f1b716b13a274f3e9d4aa876f555ef5a954f09ca2b462c48e2b1",
+      "extracted_sha256": "b5ea2c54ffe05e9dfadf2066849720e9d2b34992c6712e1913cd8db2922c4b25",
+      "corrected_sha256": "b5ea2c54ffe05e9dfadf2066849720e9d2b34992c6712e1913cd8db2922c4b25",
+      "correction_ids": []
+    },
+    {
+      "id": "m63183",
+      "title": "Half Life and Radiometric Dating",
+      "chapter": "The Atom",
+      "chapter_number": 22,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "9aac9634c739567dcace2f17e72dfdb2916f220640dc336c62002c7bb07b7b15",
+      "extracted_sha256": "6fe82575fbf8afd469ec0d0ca418e53ec1467bd1dd4bac3276e16f873e385ff0",
+      "corrected_sha256": "6fe82575fbf8afd469ec0d0ca418e53ec1467bd1dd4bac3276e16f873e385ff0",
+      "correction_ids": []
+    },
+    {
+      "id": "m54574",
+      "title": "Nuclear Fission and Fusion",
+      "chapter": "The Atom",
+      "chapter_number": 22,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "65cf5b37310ce3757452d05d08cc9059058e1c89f5d23e107808e68cce8eecca",
+      "extracted_sha256": "2a8f66076de6f591564748996ec16c8bb427eb4c2aaa0671b129fd62567bd60a",
+      "corrected_sha256": "2a8f66076de6f591564748996ec16c8bb427eb4c2aaa0671b129fd62567bd60a",
+      "correction_ids": []
+    },
+    {
+      "id": "m54578",
+      "title": "Medical Applications of Radioactivity: Diagnostic Imaging and Radiation",
+      "chapter": "The Atom",
+      "chapter_number": 22,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "a576baa806b59499556c4daa6daa63ddb7319da9c226f44695f87994d1b12f98",
+      "extracted_sha256": "d29de5109752fbd858cf52c9ed8f40914f5cc00f23647b5d14645902753e790d",
+      "corrected_sha256": "d29de5109752fbd858cf52c9ed8f40914f5cc00f23647b5d14645902753e790d",
+      "correction_ids": []
+    },
+    {
+      "id": "m54584",
+      "title": "Introduction",
+      "chapter": "Particle Physics",
+      "chapter_number": 23,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "f36aa1a4e309a695a6f70353b61749157b6839878d9e93bfc4273a5276541c5b",
+      "extracted_sha256": "f31bd6fb83998dbccb1ab2b945f236071fbadc282028d32b138c928a10dc412f",
+      "corrected_sha256": "f31bd6fb83998dbccb1ab2b945f236071fbadc282028d32b138c928a10dc412f",
+      "correction_ids": []
+    },
+    {
+      "id": "m54593",
+      "title": "The Four Fundamental Forces",
+      "chapter": "Particle Physics",
+      "chapter_number": 23,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "92a61184e0ebbf7f329637c62fc4a3ef150e5821548be03c7391796ddf39dd12",
+      "extracted_sha256": "6d6a6f021a13d427ba7b8cde84b640bcf7017bcca5b7cbe8d4bdd07a61ec2559",
+      "corrected_sha256": "6d6a6f021a13d427ba7b8cde84b640bcf7017bcca5b7cbe8d4bdd07a61ec2559",
+      "correction_ids": []
+    },
+    {
+      "id": "m54595",
+      "title": "Quarks",
+      "chapter": "Particle Physics",
+      "chapter_number": 23,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "ed0f8054e13394605d9f2d1fd2a7f3b6705181d9ffea220fee3a835baf434259",
+      "extracted_sha256": "0448d0fbc17d096666c89b07e3a7d4203e28a1ffb71b44e8b93782547724a92c",
+      "corrected_sha256": "0448d0fbc17d096666c89b07e3a7d4203e28a1ffb71b44e8b93782547724a92c",
+      "correction_ids": []
+    },
+    {
+      "id": "m54588",
+      "title": "The Unification of Forces",
+      "chapter": "Particle Physics",
+      "chapter_number": 23,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "a5e6aae3f925ac4387e2f269c6c0e74d73b0dc1ce2761140b62f26280c460229",
+      "extracted_sha256": "2adf7fafd1aefeb902199e27cdfd0f414f1131df28308388be204717a9629cbe",
+      "corrected_sha256": "2adf7fafd1aefeb902199e27cdfd0f414f1131df28308388be204717a9629cbe",
+      "correction_ids": []
+    },
+    {
+      "id": "m54602",
+      "title": "Reference Tables",
+      "chapter": "Front or back matter",
+      "chapter_number": 0,
+      "split": "train",
+      "stage": 4,
+      "raw_sha256": "c9f8f9877bd7c8ddf5c32afc7ae0a22057ffed08767c85cc2c45893fe628bc4e",
+      "extracted_sha256": "3b292d5d3b60c72b5162f0653d2696d25425db0013a96b2c4dfe0dbbd62192bc",
+      "corrected_sha256": "8829bef6cd368a5a7d3a8336a15fb97ca70b933f204a81e99e9b4829cdd2f564",
+      "correction_ids": [
+        "periodic_table_independent_color_codes"
+      ]
+    }
+  ],
+  "overlap_omissions": [],
+  "attribution": "Physics by OpenStax at Rice University and the authors and contributors credited in the preserved original preface. Source snapshot: https://github.com/openstax/osbooks-physics/tree/dfb731c737e5056750e792643fe6377425b0a067 . The pinned source license and collection declare Creative Commons Attribution 4.0 International. The review normalizes mathematical layout, preserves bold symbols and isotope indices, moves list titles to enclosing sections, omits specified teacher/activity notes, empty external exercise placeholders and vocabulary grids, retains source image descriptions rather than images, and repairs five explicitly reviewed CP1252 punctuation characters without altering the cached source bytes. This adaptation is recorded in the selected-physics-v1 source specification and passage review. No endorsement is implied; the MIT code license does not replace the book license. This corrected review additionally repairs two explicitly identified table-width declarations, preserves one four-item Roman list as labeled paragraphs, corrects three nuclide formulas in two paragraphs, and adds two descriptions authored after inspecting the pinned source diagrams. Original source files remain unchanged. These adaptations do not certify all factual content or all diagrams. Empty question/exercise wrappers left after omitting external exercise placeholders are removed; all substantive questions, solutions and trailing text are retained. Five further explicitly recorded text adaptations clarify net force, the direction of momentum, heat transfer across space, real materials versus an ideal blackbody, and the periodic-table legend. Entire modules with exact protected-content overlap are omitted rather than deleting parts of questions or solutions. The Momentum chapter supplies validation text and the Electrical Circuits chapter supplies reserved tests. Follow-up edition selected-physics-v2 applies seven separately reviewed text corrections in three training modules: the conserved-energy subtraction and its numerical substitution, total thermal energy versus a per-particle average, quantum ground-state motion at absolute zero, and the mass dependence of heat capacity. The exact before/after passages, original XML identities, research references and independent arithmetic checks accompany this revision. The original source files and all validation/test modules remain unchanged. This targeted errata set does not certify the rest of the textbook.",
+  "limitations": [
+    "Representative review is not exhaustive factual or diagram verification.",
+    "This is an introductory textbook with historical examples and approximations, not a current scientific reference for every field.",
+    "Only three source diagrams have been directly inspected; remaining source descriptions may omit information.",
+    "Questions without worked answers and their multiple-choice alternatives remain in complete book context.",
+    "Whole-module overlap rejection checks exact normalized full texts, paragraphs of at least 120 characters, and authored probe contexts; it does not prove absence of shorter overlap or paraphrases.",
+    "Topic stages are engineering curriculum groups, not biological ages.",
+    "Material is prepared but no native learner has consumed it, and no QA or retention improvement is established.",
+    "Seven follow-up text corrections affect three training modules; all prior selection limitations still apply. This is a revised edition, not additional independent text."
+  ],
+  "base_source_spec": "data/sources-physics-v1.json",
+  "base_source_spec_sha256": "580f6fb69672c6829478e0da7ec3fcb6f68408db95cc7f4d1920cc06d419ce63",
+  "base_preparation_audit": "reports/physics-selection.json",
+  "base_preparation_audit_sha256": "4e9b1735aac28233388e34b83452bab4b9c7073a69bb8759accae4e512e50860",
+  "base_manifest": "data/prepared/physics-v1-reviewed/manifest.json",
+  "base_manifest_sha256": "e758b32429a69de4b3a1fd7421f5b8bf63a1200af7461e06df8be0193fad8441",
+  "followup_errata": "data/physics-followup-errata-v1.json",
+  "followup_errata_sha256": "91984ac5f08e7af767656717b5fa96e476e7a0ca52ec5aae5c70d23d05eb9824",
+  "followup_review": "reports/physics-followup-errata-review.json",
+  "followup_review_sha256": "8f0250aa46843bd8e15f404272d2529e89b3e6de7911b02e3bc8a75a245a8493",
+  "followup_checks": "reports/physics-followup-errata-checks.json",
+  "followup_checks_sha256": "d37d098d94fe0f3d1613911eceddb72a698e838c44dfc2c77a0ce666155501e5"
+}

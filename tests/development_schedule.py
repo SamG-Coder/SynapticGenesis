@@ -1,6 +1,7 @@
 """Independently enumerate the continuation and reject altered learning inputs."""
 import argparse
 from collections import Counter
+from functools import partial
 from pathlib import Path
 import shlex
 import shutil
@@ -9,12 +10,16 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from corpus.paired_selection import PairReservations
 from corpus.reviewed_edition import require_clear
-from development_schedule import prepare
+from development_schedule import PHYSICS_AUDIT, PHYSICS_SOURCES, prepare as prepare_schedule
 from native_experiment import read, sha
 from prose_founder import write
 
 
-def audit(edition, out, report):
+def audit(edition, out, report, *, physics_sources=PHYSICS_SOURCES,
+          physics=Path('data/prepared/physics-v1-reviewed'), physics_audit=PHYSICS_AUDIT):
+    prepare = partial(prepare_schedule, physics_sources=physics_sources, physics_audit=physics_audit)
+    source_paths = {'prealgebra': Path('data/sources-prealgebra-v1.json'), 'physics': physics_sources}
+    revision = read(physics_sources)['version'] == 'selected-physics-v2'
     out.mkdir(parents=True, exist_ok=False)
     plan = read(edition / 'protocol.json')
     assert plan['native_commands'] == 0 and not plan['learning_queued'] and not plan['checkpoints_selected']
@@ -29,8 +34,8 @@ def audit(edition, out, report):
     combined = (original.parent / original_rows[-1][1]).read_bytes()
     corpus_counts, expected_ids, stage_rows = {}, [], []
     for label, prepared in [('prealgebra', Path('data/prepared/prealgebra-worked-v1-pinned')),
-                            ('physics', Path('data/prepared/physics-v1-reviewed'))]:
-        spec = read(f'data/sources-{label}-v1.json')
+                            ('physics', physics)]:
+        spec = read(source_paths[label])
         selected = [r for r in spec['sources'] if r['split'] == 'train']
         seen = []
         topic_groups = [[1, 2, 3, 4]] if label == 'prealgebra' else [[n] for n in range(1, 5)]
@@ -79,11 +84,11 @@ def audit(edition, out, report):
         expected_ids.extend((spec['version'], ident) for ident in seen)
         corpus_counts[spec['version']] = len(seen)
     assert len(set(expected_ids)) == total_docs == 258
-    assert (total_windows, total_pairs, end) == (14057, 1783551, 230346)
+    assert (total_windows, total_pairs, end) == (14057, 1783364 if revision else 1783551, 230346)
     assert (plan['added_observations'], plan['added_source_pairs'], plan['end_update']) == (
         total_windows, total_pairs, end)
     assert (plan['final_unique_documents'], plan['final_training_bytes']) == (313, len(combined))
-    assert len(combined) == 28680483
+    assert len(combined) == (28680296 if revision else 28680483)
     assert [r['observations'] for r in plan['arithmetic_topics_in_source_order']] == [237, 269, 275, 28]
     conditional = plan['conditional_replay_occupancy']
     assert conditional['capacity'] == 16384
@@ -96,26 +101,36 @@ def audit(edition, out, report):
     attribution_files = 0
     for label, prepared, handoff in [
         ('prealgebra', Path('data/prepared/prealgebra-worked-v1-pinned'), 'after-arithmetic-1'),
-        ('physics', Path('data/prepared/physics-v1-reviewed'), 'after-physics-4'),
+        ('physics', physics, 'after-physics-4'),
         ('prealgebra', Path('data/prepared/prealgebra-worked-v1-pinned'), 'after-physics-4'),
     ]:
-        spec = read(f'data/sources-{label}-v1.json')
+        spec = read(source_paths[label])
         destination = edition / handoff / 'provenance' / spec['version']
         for name in ('LICENSE-source.txt', 'original-preface.cnxml', 'original-collection.xml',
                      'ATTRIBUTION.txt', 'source-spec.json', 'passage-review.json', 'manifest.json'):
             assert (destination / name).read_bytes() == (prepared / name).read_bytes()
             attribution_files += 1
+        if label == 'physics' and revision:
+            for name in ('base-source-spec.json', 'base-preparation-audit.json', 'base-manifest.json',
+                         'followup-errata.json', 'followup-review.json', 'followup-checks.json'):
+                assert (destination / name).read_bytes() == (prepared / name).read_bytes()
+                attribution_files += 1
 
     # Check preflight against changed real editions without touching any archived inputs.
     copies = {}
-    for label, folder in [('arithmetic', 'prealgebra-worked-v1-pinned'), ('physics', 'physics-v1-reviewed')]:
+    for label, folder in [('arithmetic', Path('data/prepared/prealgebra-worked-v1-pinned')),
+                          ('physics', physics)]:
         copies[label] = out / label
-        shutil.copytree(Path('data/prepared') / folder, copies[label])
+        shutil.copytree(folder, copies[label])
     rejected = []
     for label, directory in copies.items():
         record = next(r for r in read(directory / 'manifest.json')['sources'] if r['split'] == 'train')
-        for name in (record['id'] + '.txt', 'train.dat', 'stage-1.dat', 'LICENSE-source.txt',
-                     'passage-review.json', 'ATTRIBUTION.txt'):
+        names = [record['id'] + '.txt', 'train.dat', 'stage-1.dat', 'LICENSE-source.txt',
+                 'passage-review.json', 'ATTRIBUTION.txt']
+        if label == 'physics' and revision:
+            names.extend(('base-source-spec.json', 'base-preparation-audit.json', 'base-manifest.json',
+                          'followup-errata.json', 'followup-review.json', 'followup-checks.json'))
+        for name in names:
             path = directory / name
             unchanged = path.read_bytes()
             path.write_bytes(unchanged + b'altered')
@@ -179,5 +194,9 @@ if __name__ == '__main__':
     parser.add_argument('--edition', type=Path, default=Path('runs/prose-arithmetic-physics-curriculum-v2'))
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--report', type=Path, required=True)
+    parser.add_argument('--physics-sources', type=Path, default=PHYSICS_SOURCES)
+    parser.add_argument('--physics', type=Path, default=Path('data/prepared/physics-v1-reviewed'))
+    parser.add_argument('--physics-audit', type=Path, default=PHYSICS_AUDIT)
     args = parser.parse_args()
-    audit(args.edition, args.out, args.report)
+    audit(args.edition, args.out, args.report, physics_sources=args.physics_sources,
+          physics=args.physics, physics_audit=args.physics_audit)

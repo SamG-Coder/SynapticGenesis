@@ -90,6 +90,15 @@ def authenticate(spec_path, audit_path, prepared, *, paired=False):
             inputs.append(prepared / filename)
         provenance[filename] = path
         inputs.append(path)
+    if spec['version'] == 'selected-physics-v2':
+        from corpus.physics_revision import REVISION_PROVENANCE
+        for key, filename in REVISION_PROVENANCE.items():
+            path = Path(spec[key])
+            require(sha(path) == spec[key + '_sha256'] and
+                    (prepared / filename).read_bytes() == path.read_bytes(),
+                    'Prepared revision provenance changed: ' + key)
+            provenance[filename] = path
+            inputs.extend((path, prepared / filename))
     auxiliary_spec = read(spec['source_review_spec']) if 'source_review_spec' in spec else spec
     auxiliary = {r['name']: r for r in auxiliary_spec['auxiliary_files']}
     for name, filename in (('license', 'LICENSE-source.txt'), ('preface', 'original-preface.cnxml'),

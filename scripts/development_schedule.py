@@ -10,6 +10,11 @@ from native_experiment import read, sha, verified_book_manifest
 from prose_founder import write
 
 
+ROOT = Path(__file__).resolve().parents[1]
+PHYSICS_SOURCES = Path('data/sources-physics-v1.json')
+PHYSICS_AUDIT = Path('reports/physics-selection.json')
+
+
 def prose_history(curriculum):
     source, audit_path = Path('data/sources-prose-scale-v1.json'), Path('reports/prose-scale-corpus.json')
     prepared = Path('data/prepared/prose-scale-v1-pinned')
@@ -34,13 +39,14 @@ def prose_history(curriculum):
     return stages, protocol, inputs
 
 
-def prepare(curriculum, arithmetic, physics, out):
+def prepare(curriculum, arithmetic, physics, out, *, physics_sources=PHYSICS_SOURCES,
+            physics_audit=PHYSICS_AUDIT):
     require(not out.exists(), 'Use a fresh continuation directory')
     earlier, parent, inputs = prose_history(curriculum)
     editions = [
         authenticate('data/sources-prealgebra-v1.json', 'reports/prealgebra-worked-selection.json',
                      arithmetic, paired=True),
-        authenticate('data/sources-physics-v1.json', 'reports/physics-selection.json', physics),
+        authenticate(physics_sources, physics_audit, physics),
     ]
     registry, protected = reservations(editions)
     require_clear(earlier[-1]['content'], registry)
@@ -54,10 +60,12 @@ def prepare(curriculum, arithmetic, physics, out):
         seen.update(added)
         inputs.extend(edition.inputs)
     inputs.extend(Path(r['path']) for r in protected)
-    inputs.extend([SELECTION, Path(__file__), Path('scripts/corpus/reviewed_edition.py'),
-                   Path('scripts/corpus/paired_selection.py'), Path('scripts/corpus/selection.py'),
-                   Path('scripts/extend_curriculum.py'), Path('scripts/native_experiment.py'),
-                   Path('scripts/prose_founder.py'), Path('src/stage_replay.cuh')])
+    inputs.extend([SELECTION, Path(__file__), *(ROOT / name for name in (
+        'scripts/corpus/reviewed_edition.py', 'scripts/corpus/paired_selection.py',
+        'scripts/corpus/selection.py', 'scripts/extend_curriculum.py',
+        'scripts/native_experiment.py', 'scripts/prose_founder.py', 'src/stage_replay.cuh'))])
+    if editions[1].spec['version'] == 'selected-physics-v2':
+        inputs.append(ROOT / 'scripts/corpus/physics_revision.py')
     arithmetic_topics = []
     for stage in editions[0].manifest['stages']:
         added = documents((arithmetic / stage['file']).read_bytes())
@@ -154,8 +162,11 @@ if __name__ == '__main__':
     parser.add_argument('--curriculum', type=Path, default=Path('runs/prose-scale-curriculum/curriculum.sg'))
     parser.add_argument('--arithmetic', type=Path, default=Path('data/prepared/prealgebra-worked-v1-pinned'))
     parser.add_argument('--physics', type=Path, default=Path('data/prepared/physics-v1-reviewed'))
+    parser.add_argument('--physics-sources', type=Path, default=PHYSICS_SOURCES)
+    parser.add_argument('--physics-audit', type=Path, default=PHYSICS_AUDIT)
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
-    result = prepare(args.curriculum, args.arithmetic, args.physics, args.out)
+    result = prepare(args.curriculum, args.arithmetic, args.physics, args.out,
+                     physics_sources=args.physics_sources, physics_audit=args.physics_audit)
     print('Prepared', len(result['stages']), 'new stages:', result['added_observations'],
           'source observations,', result['added_source_pairs'], 'next-byte targets.')

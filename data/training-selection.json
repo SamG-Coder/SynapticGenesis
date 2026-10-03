@@ -34,6 +34,10 @@
     "selected-physics-v1": {
       "sources": "data/sources-physics-v1.json",
       "sha256": "580f6fb69672c6829478e0da7ec3fcb6f68408db95cc7f4d1920cc06d419ce63"
+    },
+    "selected-physics-v2": {
+      "sources": "data/sources-physics-v2.json",
+      "sha256": "ebc730598163c352ac0d6660c590fb7a86c4a57430cba635da837f9131058d44"
     }
   },
   "retired_editions": {

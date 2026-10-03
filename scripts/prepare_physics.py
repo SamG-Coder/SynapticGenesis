@@ -90,6 +90,9 @@ def reviewed_modules(spec, cache, download=False):
 
 
 def compiled_selection(spec, cache, download=False):
+    if spec['version'] == 'selected-physics-v2':
+        from corpus.physics_revision import compiled_revision
+        return compiled_revision(spec, cache, download)
     require(spec['version'] == 'selected-physics-v1', 'Unknown Physics edition')
     rows, auxiliary, edits, passage = reviewed_modules(spec, cache, download)
     selected, omitted = select_documents(rows, protected_inputs(spec['protected_files']))
@@ -132,6 +135,12 @@ def prepare(spec_path, cache, out, download=False):
         'source-edits.json':Path(spec['source_edits']).read_bytes(),'LICENSE-source.txt':auxiliary['license'],
         'original-preface.cnxml':auxiliary['preface'],'original-collection.xml':auxiliary['collection'],
         'ATTRIBUTION.txt':(spec['attribution']+'\n').encode('utf-8')})
+    if spec['version'] == 'selected-physics-v2':
+        from corpus.physics_revision import REVISION_PROVENANCE
+        for key, name in REVISION_PROVENANCE.items():
+            raw = Path(spec[key]).read_bytes()
+            require(digest(raw) == spec[key + '_sha256'], 'Revision provenance changed: ' + key)
+            payloads[name] = raw
     out.mkdir(parents=True)
     for name,raw in payloads.items(): (out/name).write_bytes(raw)
     write(out/'manifest.json',manifest)
