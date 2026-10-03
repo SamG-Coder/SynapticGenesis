@@ -1,0 +1,5 @@
+{
+  "error": "Native predecessor exited with code 1; no GPU work started",
+  "completed_models": 0,
+  "artifacts_preserved": true
+}

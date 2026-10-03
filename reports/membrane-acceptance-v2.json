@@ -1,0 +1,1460 @@
+{
+  "passed": true,
+  "native": {
+    "passed": true,
+    "gradient_fixtures": 8,
+    "exact_restart_cases": 8,
+    "independent_oracle_still_required": true,
+    "old_binary_disabled_parity_still_required": true
+  },
+  "oracles": [
+    {
+      "cell": 3,
+      "batch": 1,
+      "result": {
+        "passed": true,
+        "reference": "independent CPU PyTorch autograd",
+        "nonzero_boundary_state": true,
+        "weighted_targets": true,
+        "cell": 3,
+        "loss": 5.522508144378662,
+        "logits_max_abs_error": 1.043081283569336e-07,
+        "gradients_max_abs_error": 7.450580596923828e-08,
+        "adam_update_max_abs_error": 7.450580596923828e-09,
+        "regularized_gradient_max_abs_error": 7.450580596923828e-08,
+        "tensors": [
+          {
+            "tensor": "embedding",
+            "max_abs_gradient_error": 1.257285475730896e-08
+          },
+          {
+            "tensor": "0.gain",
+            "max_abs_gradient_error": 2.0954757928848267e-09
+          },
+          {
+            "tensor": "0.input.weight",
+            "max_abs_gradient_error": 5.122274160385132e-09
+          },
+          {
+            "tensor": "0.input.bias",
+            "max_abs_gradient_error": 5.587935447692871e-09
+          },
+          {
+            "tensor": "0.output.weight",
+            "max_abs_gradient_error": 5.21540641784668e-08
+          },
+          {
+            "tensor": "0.output.bias",
+            "max_abs_gradient_error": 4.842877388000488e-08
+          },
+          {
+            "tensor": "0.leak",
+            "max_abs_gradient_error": 4.802132025361061e-10
+          },
+          {
+            "tensor": "0.trace_leak",
+            "max_abs_gradient_error": 3.346940502524376e-10
+          },
+          {
+            "tensor": "0.trace_scale",
+            "max_abs_gradient_error": 5.238689482212067e-10
+          },
+          {
+            "tensor": "1.gain",
+            "max_abs_gradient_error": 4.889443516731262e-09
+          },
+          {
+            "tensor": "1.input.weight",
+            "max_abs_gradient_error": 8.847564458847046e-09
+          },
+          {
+            "tensor": "1.input.bias",
+            "max_abs_gradient_error": 1.0244548320770264e-08
+          },
+          {
+            "tensor": "1.output.weight",
+            "max_abs_gradient_error": 2.421438694000244e-08
+          },
+          {
+            "tensor": "1.output.bias",
+            "max_abs_gradient_error": 1.4901161193847656e-08
+          },
+          {
+            "tensor": "1.leak",
+            "max_abs_gradient_error": 1.5133991837501526e-09
+          },
+          {
+            "tensor": "1.trace_leak",
+            "max_abs_gradient_error": 1.7462298274040222e-10
+          },
+          {
+            "tensor": "1.trace_scale",
+            "max_abs_gradient_error": 2.3283064365386963e-10
+          },
+          {
+            "tensor": "final.gain",
+            "max_abs_gradient_error": 2.7939677238464355e-09
+          },
+          {
+            "tensor": "head.weight",
+            "max_abs_gradient_error": 7.450580596923828e-08
+          },
+          {
+            "tensor": "head.bias",
+            "max_abs_gradient_error": 1.1175870895385742e-08
+          }
+        ],
+        "membrane": {
+          "cost": 0.2,
+          "band": 1.5,
+          "observed_loss": 5.487326145172119,
+          "objective_loss": 5.522508144378662,
+          "adam_step": 7
+        }
+      },
+      "sha256": "52ed4195875684dbe61ea0e1c8b151fa4bd9f25e4adf3e1e15c854785f2daf2c"
+    },
+    {
+      "cell": 3,
+      "batch": 2,
+      "result": {
+        "passed": true,
+        "reference": "independent CPU PyTorch autograd",
+        "nonzero_boundary_state": true,
+        "weighted_targets": true,
+        "cell": 3,
+        "loss": 5.544773578643799,
+        "logits_max_abs_error": 8.940696716308594e-08,
+        "gradients_max_abs_error": 3.725290298461914e-08,
+        "adam_update_max_abs_error": 7.450580596923828e-09,
+        "regularized_gradient_max_abs_error": 3.725290298461914e-08,
+        "tensors": [
+          {
+            "tensor": "embedding",
+            "max_abs_gradient_error": 9.313225746154785e-09
+          },
+          {
+            "tensor": "0.gain",
+            "max_abs_gradient_error": 1.3969838619232178e-09
+          },
+          {
+            "tensor": "0.input.weight",
+            "max_abs_gradient_error": 6.05359673500061e-09
+          },
+          {
+            "tensor": "0.input.bias",
+            "max_abs_gradient_error": 7.916241884231567e-09
+          },
+          {
+            "tensor": "0.output.weight",
+            "max_abs_gradient_error": 3.3527612686157227e-08
+          },
+          {
+            "tensor": "0.output.bias",
+            "max_abs_gradient_error": 2.9802322387695312e-08
+          },
+          {
+            "tensor": "0.leak",
+            "max_abs_gradient_error": 1.7462298274040222e-10
+          },
+          {
+            "tensor": "0.trace_leak",
+            "max_abs_gradient_error": 3.055902197957039e-10
+          },
+          {
+            "tensor": "0.trace_scale",
+            "max_abs_gradient_error": 4.94765117764473e-10
+          },
+          {
+            "tensor": "1.gain",
+            "max_abs_gradient_error": 1.862645149230957e-09
+          },
+          {
+            "tensor": "1.input.weight",
+            "max_abs_gradient_error": 2.561137080192566e-09
+          },
+          {
+            "tensor": "1.input.bias",
+            "max_abs_gradient_error": 3.259629011154175e-09
+          },
+          {
+            "tensor": "1.output.weight",
+            "max_abs_gradient_error": 2.0023435354232788e-08
+          },
+          {
+            "tensor": "1.output.bias",
+            "max_abs_gradient_error": 1.862645149230957e-08
+          },
+          {
+            "tensor": "1.leak",
+            "max_abs_gradient_error": 8.149072527885437e-10
+          },
+          {
+            "tensor": "1.trace_leak",
+            "max_abs_gradient_error": 6.548361852765083e-11
+          },
+          {
+            "tensor": "1.trace_scale",
+            "max_abs_gradient_error": 2.3283064365386963e-10
+          },
+          {
+            "tensor": "final.gain",
+            "max_abs_gradient_error": 1.862645149230957e-09
+          },
+          {
+            "tensor": "head.weight",
+            "max_abs_gradient_error": 3.725290298461914e-08
+          },
+          {
+            "tensor": "head.bias",
+            "max_abs_gradient_error": 1.1175870895385742e-08
+          }
+        ],
+        "membrane": {
+          "cost": 0.2,
+          "band": 1.5,
+          "observed_loss": 5.51098108291626,
+          "objective_loss": 5.544773578643799,
+          "adam_step": 7
+        }
+      },
+      "sha256": "bf6337d005a5a3120015b9a87c0dc52c4df6e262ed288f8bbae15ec709fa1137"
+    },
+    {
+      "cell": 4,
+      "batch": 1,
+      "result": {
+        "passed": true,
+        "reference": "independent CPU PyTorch autograd",
+        "nonzero_boundary_state": true,
+        "weighted_targets": true,
+        "cell": 4,
+        "loss": 5.522918701171875,
+        "logits_max_abs_error": 1.1920928955078125e-07,
+        "gradients_max_abs_error": 5.960464477539063e-08,
+        "adam_update_max_abs_error": 2.9802322387695312e-08,
+        "regularized_gradient_max_abs_error": 8.940696716308594e-08,
+        "tensors": [
+          {
+            "tensor": "embedding",
+            "max_abs_gradient_error": 1.30385160446167e-08
+          },
+          {
+            "tensor": "0.gain",
+            "max_abs_gradient_error": 2.7939677238464355e-09
+          },
+          {
+            "tensor": "0.input.weight",
+            "max_abs_gradient_error": 7.450580596923828e-09
+          },
+          {
+            "tensor": "0.input.bias",
+            "max_abs_gradient_error": 8.381903171539307e-09
+          },
+          {
+            "tensor": "0.output.weight",
+            "max_abs_gradient_error": 5.587935447692871e-08
+          },
+          {
+            "tensor": "0.output.bias",
+            "max_abs_gradient_error": 5.3085386753082275e-08
+          },
+          {
+            "tensor": "0.leak",
+            "max_abs_gradient_error": 6.111804395914078e-10
+          },
+          {
+            "tensor": "0.trace_leak",
+            "max_abs_gradient_error": 7.566995918750763e-10
+          },
+          {
+            "tensor": "0.trace_scale",
+            "max_abs_gradient_error": 6.111804395914078e-10
+          },
+          {
+            "tensor": "0.read_gate.weight",
+            "max_abs_gradient_error": 4.0745362639427185e-10
+          },
+          {
+            "tensor": "0.read_gate.bias",
+            "max_abs_gradient_error": 4.3655745685100555e-10
+          },
+          {
+            "tensor": "1.gain",
+            "max_abs_gradient_error": 2.7939677238464355e-09
+          },
+          {
+            "tensor": "1.input.weight",
+            "max_abs_gradient_error": 7.2177499532699585e-09
+          },
+          {
+            "tensor": "1.input.bias",
+            "max_abs_gradient_error": 8.149072527885437e-09
+          },
+          {
+            "tensor": "1.output.weight",
+            "max_abs_gradient_error": 3.725290298461914e-08
+          },
+          {
+            "tensor": "1.output.bias",
+            "max_abs_gradient_error": 2.2351741790771484e-08
+          },
+          {
+            "tensor": "1.leak",
+            "max_abs_gradient_error": 1.6298145055770874e-09
+          },
+          {
+            "tensor": "1.trace_leak",
+            "max_abs_gradient_error": 2.0372681319713593e-10
+          },
+          {
+            "tensor": "1.trace_scale",
+            "max_abs_gradient_error": 2.1827872842550278e-10
+          },
+          {
+            "tensor": "1.read_gate.weight",
+            "max_abs_gradient_error": 4.0745362639427185e-10
+          },
+          {
+            "tensor": "1.read_gate.bias",
+            "max_abs_gradient_error": 1.1641532182693481e-10
+          },
+          {
+            "tensor": "final.gain",
+            "max_abs_gradient_error": 1.979060471057892e-09
+          },
+          {
+            "tensor": "head.weight",
+            "max_abs_gradient_error": 5.960464477539063e-08
+          },
+          {
+            "tensor": "head.bias",
+            "max_abs_gradient_error": 7.450580596923828e-09
+          }
+        ],
+        "membrane": {
+          "cost": 0.2,
+          "band": 1.5,
+          "observed_loss": 5.487749099731445,
+          "objective_loss": 5.522918701171875,
+          "adam_step": 7
+        }
+      },
+      "sha256": "93d2da1a797e552305c59f1cef0a4b51245aff37ddee9d17ce664bd9b75986d2"
+    },
+    {
+      "cell": 4,
+      "batch": 2,
+      "result": {
+        "passed": true,
+        "reference": "independent CPU PyTorch autograd",
+        "nonzero_boundary_state": true,
+        "weighted_targets": true,
+        "cell": 4,
+        "loss": 5.545223712921143,
+        "logits_max_abs_error": 8.940696716308594e-08,
+        "gradients_max_abs_error": 4.470348358154297e-08,
+        "adam_update_max_abs_error": 7.450580596923828e-09,
+        "regularized_gradient_max_abs_error": 4.842877388000488e-08,
+        "tensors": [
+          {
+            "tensor": "embedding",
+            "max_abs_gradient_error": 9.313225746154785e-09
+          },
+          {
+            "tensor": "0.gain",
+            "max_abs_gradient_error": 1.862645149230957e-09
+          },
+          {
+            "tensor": "0.input.weight",
+            "max_abs_gradient_error": 7.916241884231567e-09
+          },
+          {
+            "tensor": "0.input.bias",
+            "max_abs_gradient_error": 9.313225746154785e-09
+          },
+          {
+            "tensor": "0.output.weight",
+            "max_abs_gradient_error": 2.7008354663848877e-08
+          },
+          {
+            "tensor": "0.output.bias",
+            "max_abs_gradient_error": 2.60770320892334e-08
+          },
+          {
+            "tensor": "0.leak",
+            "max_abs_gradient_error": 1.7462298274040222e-10
+          },
+          {
+            "tensor": "0.trace_leak",
+            "max_abs_gradient_error": 3.637978807091713e-10
+          },
+          {
+            "tensor": "0.trace_scale",
+            "max_abs_gradient_error": 2.473825588822365e-10
+          },
+          {
+            "tensor": "0.read_gate.weight",
+            "max_abs_gradient_error": 2.6193447411060333e-10
+          },
+          {
+            "tensor": "0.read_gate.bias",
+            "max_abs_gradient_error": 2.0372681319713593e-10
+          },
+          {
+            "tensor": "1.gain",
+            "max_abs_gradient_error": 1.862645149230957e-09
+          },
+          {
+            "tensor": "1.input.weight",
+            "max_abs_gradient_error": 3.259629011154175e-09
+          },
+          {
+            "tensor": "1.input.bias",
+            "max_abs_gradient_error": 3.259629011154175e-09
+          },
+          {
+            "tensor": "1.output.weight",
+            "max_abs_gradient_error": 1.862645149230957e-08
+          },
+          {
+            "tensor": "1.output.bias",
+            "max_abs_gradient_error": 1.4901161193847656e-08
+          },
+          {
+            "tensor": "1.leak",
+            "max_abs_gradient_error": 1.0477378964424133e-09
+          },
+          {
+            "tensor": "1.trace_leak",
+            "max_abs_gradient_error": 1.1641532182693481e-10
+          },
+          {
+            "tensor": "1.trace_scale",
+            "max_abs_gradient_error": 2.0372681319713593e-10
+          },
+          {
+            "tensor": "1.read_gate.weight",
+            "max_abs_gradient_error": 2.9103830456733704e-10
+          },
+          {
+            "tensor": "1.read_gate.bias",
+            "max_abs_gradient_error": 1.6007106751203537e-10
+          },
+          {
+            "tensor": "final.gain",
+            "max_abs_gradient_error": 2.444721758365631e-09
+          },
+          {
+            "tensor": "head.weight",
+            "max_abs_gradient_error": 4.470348358154297e-08
+          },
+          {
+            "tensor": "head.bias",
+            "max_abs_gradient_error": 1.1175870895385742e-08
+          }
+        ],
+        "membrane": {
+          "cost": 0.2,
+          "band": 1.5,
+          "observed_loss": 5.511520862579346,
+          "objective_loss": 5.545223712921143,
+          "adam_step": 7
+        }
+      },
+      "sha256": "055438b7360f48e04c12d13a3e1740d9cd524e6335e07f40b4973a26828df3cf"
+    },
+    {
+      "cell": 5,
+      "batch": 1,
+      "result": {
+        "passed": true,
+        "reference": "independent CPU PyTorch autograd",
+        "nonzero_boundary_state": true,
+        "weighted_targets": true,
+        "cell": 5,
+        "loss": 5.521607398986816,
+        "logits_max_abs_error": 1.1920928955078125e-07,
+        "gradients_max_abs_error": 5.960464477539063e-08,
+        "adam_update_max_abs_error": 7.450580596923828e-09,
+        "regularized_gradient_max_abs_error": 5.960464477539063e-08,
+        "tensors": [
+          {
+            "tensor": "embedding",
+            "max_abs_gradient_error": 1.1175870895385742e-08
+          },
+          {
+            "tensor": "0.gain",
+            "max_abs_gradient_error": 2.3283064365386963e-09
+          },
+          {
+            "tensor": "0.input.weight",
+            "max_abs_gradient_error": 6.05359673500061e-09
+          },
+          {
+            "tensor": "0.input.bias",
+            "max_abs_gradient_error": 8.381903171539307e-09
+          },
+          {
+            "tensor": "0.output.weight",
+            "max_abs_gradient_error": 4.6566128730773926e-08
+          },
+          {
+            "tensor": "0.output.bias",
+            "max_abs_gradient_error": 4.563480615615845e-08
+          },
+          {
+            "tensor": "0.leak",
+            "max_abs_gradient_error": 5.820766091346741e-10
+          },
+          {
+            "tensor": "0.trace_leak",
+            "max_abs_gradient_error": 4.656612873077393e-10
+          },
+          {
+            "tensor": "0.trace_scale",
+            "max_abs_gradient_error": 3.4378899727016687e-10
+          },
+          {
+            "tensor": "0.retention_gate.weight",
+            "max_abs_gradient_error": 4.656612873077393e-10
+          },
+          {
+            "tensor": "0.retention_gate.bias",
+            "max_abs_gradient_error": 4.656612873077393e-10
+          },
+          {
+            "tensor": "1.gain",
+            "max_abs_gradient_error": 2.3283064365386963e-09
+          },
+          {
+            "tensor": "1.input.weight",
+            "max_abs_gradient_error": 5.587935447692871e-09
+          },
+          {
+            "tensor": "1.input.bias",
+            "max_abs_gradient_error": 5.122274160385132e-09
+          },
+          {
+            "tensor": "1.output.weight",
+            "max_abs_gradient_error": 2.9802322387695312e-08
+          },
+          {
+            "tensor": "1.output.bias",
+            "max_abs_gradient_error": 1.4901161193847656e-08
+          },
+          {
+            "tensor": "1.leak",
+            "max_abs_gradient_error": 1.0477378964424133e-09
+          },
+          {
+            "tensor": "1.trace_leak",
+            "max_abs_gradient_error": 1.1641532182693481e-10
+          },
+          {
+            "tensor": "1.trace_scale",
+            "max_abs_gradient_error": 1.8917489796876907e-10
+          },
+          {
+            "tensor": "1.retention_gate.weight",
+            "max_abs_gradient_error": 1.7462298274040222e-10
+          },
+          {
+            "tensor": "1.retention_gate.bias",
+            "max_abs_gradient_error": 1.1641532182693481e-10
+          },
+          {
+            "tensor": "final.gain",
+            "max_abs_gradient_error": 3.725290298461914e-09
+          },
+          {
+            "tensor": "head.weight",
+            "max_abs_gradient_error": 5.960464477539063e-08
+          },
+          {
+            "tensor": "head.bias",
+            "max_abs_gradient_error": 2.2351741790771484e-08
+          }
+        ],
+        "membrane": {
+          "cost": 0.2,
+          "band": 1.5,
+          "observed_loss": 5.486459255218506,
+          "objective_loss": 5.521607398986816,
+          "adam_step": 7
+        }
+      },
+      "sha256": "14e8d858ef222843f55a0e91cbe2e65094905ad6c058a200216e4332c6ecf322"
+    },
+    {
+      "cell": 5,
+      "batch": 2,
+      "result": {
+        "passed": true,
+        "reference": "independent CPU PyTorch autograd",
+        "nonzero_boundary_state": true,
+        "weighted_targets": true,
+        "cell": 5,
+        "loss": 5.543782711029053,
+        "logits_max_abs_error": 8.940696716308594e-08,
+        "gradients_max_abs_error": 4.470348358154297e-08,
+        "adam_update_max_abs_error": 1.4901161193847656e-08,
+        "regularized_gradient_max_abs_error": 4.470348358154297e-08,
+        "tensors": [
+          {
+            "tensor": "embedding",
+            "max_abs_gradient_error": 1.862645149230957e-08
+          },
+          {
+            "tensor": "0.gain",
+            "max_abs_gradient_error": 1.3969838619232178e-09
+          },
+          {
+            "tensor": "0.input.weight",
+            "max_abs_gradient_error": 6.05359673500061e-09
+          },
+          {
+            "tensor": "0.input.bias",
+            "max_abs_gradient_error": 6.752088665962219e-09
+          },
+          {
+            "tensor": "0.output.weight",
+            "max_abs_gradient_error": 3.5390257835388184e-08
+          },
+          {
+            "tensor": "0.output.bias",
+            "max_abs_gradient_error": 3.4458935260772705e-08
+          },
+          {
+            "tensor": "0.leak",
+            "max_abs_gradient_error": 1.4006218407303095e-10
+          },
+          {
+            "tensor": "0.trace_leak",
+            "max_abs_gradient_error": 1.4551915228366852e-10
+          },
+          {
+            "tensor": "0.trace_scale",
+            "max_abs_gradient_error": 2.3283064365386963e-10
+          },
+          {
+            "tensor": "0.retention_gate.weight",
+            "max_abs_gradient_error": 3.1104718800634146e-10
+          },
+          {
+            "tensor": "0.retention_gate.bias",
+            "max_abs_gradient_error": 1.4551915228366852e-10
+          },
+          {
+            "tensor": "1.gain",
+            "max_abs_gradient_error": 1.3969838619232178e-09
+          },
+          {
+            "tensor": "1.input.weight",
+            "max_abs_gradient_error": 2.7939677238464355e-09
+          },
+          {
+            "tensor": "1.input.bias",
+            "max_abs_gradient_error": 3.725290298461914e-09
+          },
+          {
+            "tensor": "1.output.weight",
+            "max_abs_gradient_error": 2.9802322387695312e-08
+          },
+          {
+            "tensor": "1.output.bias",
+            "max_abs_gradient_error": 1.4901161193847656e-08
+          },
+          {
+            "tensor": "1.leak",
+            "max_abs_gradient_error": 4.656612873077393e-10
+          },
+          {
+            "tensor": "1.trace_leak",
+            "max_abs_gradient_error": 1.1641532182693481e-10
+          },
+          {
+            "tensor": "1.trace_scale",
+            "max_abs_gradient_error": 2.0372681319713593e-10
+          },
+          {
+            "tensor": "1.retention_gate.weight",
+            "max_abs_gradient_error": 2.3283064365386963e-10
+          },
+          {
+            "tensor": "1.retention_gate.bias",
+            "max_abs_gradient_error": 8.731149137020111e-11
+          },
+          {
+            "tensor": "final.gain",
+            "max_abs_gradient_error": 2.0954757928848267e-09
+          },
+          {
+            "tensor": "head.weight",
+            "max_abs_gradient_error": 4.470348358154297e-08
+          },
+          {
+            "tensor": "head.bias",
+            "max_abs_gradient_error": 7.450580596923828e-09
+          }
+        ],
+        "membrane": {
+          "cost": 0.2,
+          "band": 1.5,
+          "observed_loss": 5.5100178718566895,
+          "objective_loss": 5.543782711029053,
+          "adam_step": 7
+        }
+      },
+      "sha256": "71ba1b7a4e74dff5afbdab2bb6d9b6261f3abaac7a8cd63a1fd20314620f6a41"
+    },
+    {
+      "cell": 6,
+      "batch": 1,
+      "result": {
+        "passed": true,
+        "reference": "independent CPU PyTorch autograd",
+        "nonzero_boundary_state": true,
+        "weighted_targets": true,
+        "cell": 6,
+        "loss": 5.521292686462402,
+        "logits_max_abs_error": 1.043081283569336e-07,
+        "gradients_max_abs_error": 7.450580596923828e-08,
+        "adam_update_max_abs_error": 1.4901161193847656e-08,
+        "regularized_gradient_max_abs_error": 7.450580596923828e-08,
+        "tensors": [
+          {
+            "tensor": "embedding",
+            "max_abs_gradient_error": 1.1175870895385742e-08
+          },
+          {
+            "tensor": "0.gain",
+            "max_abs_gradient_error": 2.0954757928848267e-09
+          },
+          {
+            "tensor": "0.input.weight",
+            "max_abs_gradient_error": 7.916241884231567e-09
+          },
+          {
+            "tensor": "0.input.bias",
+            "max_abs_gradient_error": 1.0710209608078003e-08
+          },
+          {
+            "tensor": "0.output.weight",
+            "max_abs_gradient_error": 3.702007234096527e-08
+          },
+          {
+            "tensor": "0.output.bias",
+            "max_abs_gradient_error": 4.237517714500427e-08
+          },
+          {
+            "tensor": "0.leak",
+            "max_abs_gradient_error": 6.548361852765083e-10
+          },
+          {
+            "tensor": "0.trace_leak",
+            "max_abs_gradient_error": 1.7462298274040222e-10
+          },
+          {
+            "tensor": "0.trace_scale",
+            "max_abs_gradient_error": 5.420588422566652e-10
+          },
+          {
+            "tensor": "0.retention_gate.weight",
+            "max_abs_gradient_error": 4.0745362639427185e-10
+          },
+          {
+            "tensor": "0.retention_gate.bias",
+            "max_abs_gradient_error": 2.0372681319713593e-10
+          },
+          {
+            "tensor": "0.association.projection",
+            "max_abs_gradient_error": 6.912159733474255e-10
+          },
+          {
+            "tensor": "0.association.bias",
+            "max_abs_gradient_error": 5.820766091346741e-10
+          },
+          {
+            "tensor": "0.association.readout",
+            "max_abs_gradient_error": 5.587935447692871e-09
+          },
+          {
+            "tensor": "0.association.readout_bias",
+            "max_abs_gradient_error": 4.237517714500427e-08
+          },
+          {
+            "tensor": "1.gain",
+            "max_abs_gradient_error": 4.190951585769653e-09
+          },
+          {
+            "tensor": "1.input.weight",
+            "max_abs_gradient_error": 3.026798367500305e-09
+          },
+          {
+            "tensor": "1.input.bias",
+            "max_abs_gradient_error": 3.026798367500305e-09
+          },
+          {
+            "tensor": "1.output.weight",
+            "max_abs_gradient_error": 2.2351741790771484e-08
+          },
+          {
+            "tensor": "1.output.bias",
+            "max_abs_gradient_error": 1.6763806343078613e-08
+          },
+          {
+            "tensor": "1.leak",
+            "max_abs_gradient_error": 1.5133991837501526e-09
+          },
+          {
+            "tensor": "1.trace_leak",
+            "max_abs_gradient_error": 1.4915713109076023e-10
+          },
+          {
+            "tensor": "1.trace_scale",
+            "max_abs_gradient_error": 2.000888343900442e-10
+          },
+          {
+            "tensor": "1.retention_gate.weight",
+            "max_abs_gradient_error": 3.4924596548080444e-10
+          },
+          {
+            "tensor": "1.retention_gate.bias",
+            "max_abs_gradient_error": 1.7462298274040222e-10
+          },
+          {
+            "tensor": "1.association.projection",
+            "max_abs_gradient_error": 4.656612873077393e-10
+          },
+          {
+            "tensor": "1.association.bias",
+            "max_abs_gradient_error": 3.2014213502407074e-10
+          },
+          {
+            "tensor": "1.association.readout",
+            "max_abs_gradient_error": 3.725290298461914e-09
+          },
+          {
+            "tensor": "1.association.readout_bias",
+            "max_abs_gradient_error": 1.6763806343078613e-08
+          },
+          {
+            "tensor": "final.gain",
+            "max_abs_gradient_error": 3.725290298461914e-09
+          },
+          {
+            "tensor": "head.weight",
+            "max_abs_gradient_error": 7.450580596923828e-08
+          },
+          {
+            "tensor": "head.bias",
+            "max_abs_gradient_error": 1.1175870895385742e-08
+          }
+        ],
+        "membrane": {
+          "cost": 0.2,
+          "band": 1.5,
+          "observed_loss": 5.485383987426758,
+          "objective_loss": 5.521292686462402,
+          "adam_step": 7
+        }
+      },
+      "sha256": "4f4ae827df3bd96401c7f9f916a17a53bf40aa447f6155ee1b476bb9e6fd4340"
+    },
+    {
+      "cell": 6,
+      "batch": 2,
+      "result": {
+        "passed": true,
+        "reference": "independent CPU PyTorch autograd",
+        "nonzero_boundary_state": true,
+        "weighted_targets": true,
+        "cell": 6,
+        "loss": 5.543261528015137,
+        "logits_max_abs_error": 8.940696716308594e-08,
+        "gradients_max_abs_error": 4.470348358154297e-08,
+        "adam_update_max_abs_error": 7.450580596923828e-09,
+        "regularized_gradient_max_abs_error": 4.470348358154297e-08,
+        "tensors": [
+          {
+            "tensor": "embedding",
+            "max_abs_gradient_error": 7.450580596923828e-09
+          },
+          {
+            "tensor": "0.gain",
+            "max_abs_gradient_error": 1.5133991837501526e-09
+          },
+          {
+            "tensor": "0.input.weight",
+            "max_abs_gradient_error": 7.450580596923828e-09
+          },
+          {
+            "tensor": "0.input.bias",
+            "max_abs_gradient_error": 1.0011717677116394e-08
+          },
+          {
+            "tensor": "0.output.weight",
+            "max_abs_gradient_error": 2.60770320892334e-08
+          },
+          {
+            "tensor": "0.output.bias",
+            "max_abs_gradient_error": 2.9802322387695312e-08
+          },
+          {
+            "tensor": "0.leak",
+            "max_abs_gradient_error": 2.6193447411060333e-10
+          },
+          {
+            "tensor": "0.trace_leak",
+            "max_abs_gradient_error": 2.0372681319713593e-10
+          },
+          {
+            "tensor": "0.trace_scale",
+            "max_abs_gradient_error": 3.055902197957039e-10
+          },
+          {
+            "tensor": "0.retention_gate.weight",
+            "max_abs_gradient_error": 2.7284841053187847e-10
+          },
+          {
+            "tensor": "0.retention_gate.bias",
+            "max_abs_gradient_error": 2.3283064365386963e-10
+          },
+          {
+            "tensor": "0.association.projection",
+            "max_abs_gradient_error": 4.420144250616431e-10
+          },
+          {
+            "tensor": "0.association.bias",
+            "max_abs_gradient_error": 7.275957614183426e-10
+          },
+          {
+            "tensor": "0.association.readout",
+            "max_abs_gradient_error": 4.6566128730773926e-09
+          },
+          {
+            "tensor": "0.association.readout_bias",
+            "max_abs_gradient_error": 2.9802322387695312e-08
+          },
+          {
+            "tensor": "1.gain",
+            "max_abs_gradient_error": 9.313225746154785e-10
+          },
+          {
+            "tensor": "1.input.weight",
+            "max_abs_gradient_error": 2.7939677238464355e-09
+          },
+          {
+            "tensor": "1.input.bias",
+            "max_abs_gradient_error": 4.6566128730773926e-09
+          },
+          {
+            "tensor": "1.output.weight",
+            "max_abs_gradient_error": 2.2351741790771484e-08
+          },
+          {
+            "tensor": "1.output.bias",
+            "max_abs_gradient_error": 1.1175870895385742e-08
+          },
+          {
+            "tensor": "1.leak",
+            "max_abs_gradient_error": 1.0477378964424133e-09
+          },
+          {
+            "tensor": "1.trace_leak",
+            "max_abs_gradient_error": 1.0186340659856796e-10
+          },
+          {
+            "tensor": "1.trace_scale",
+            "max_abs_gradient_error": 1.4551915228366852e-10
+          },
+          {
+            "tensor": "1.retention_gate.weight",
+            "max_abs_gradient_error": 2.9103830456733704e-10
+          },
+          {
+            "tensor": "1.retention_gate.bias",
+            "max_abs_gradient_error": 1.3096723705530167e-10
+          },
+          {
+            "tensor": "1.association.projection",
+            "max_abs_gradient_error": 3.2014213502407074e-10
+          },
+          {
+            "tensor": "1.association.bias",
+            "max_abs_gradient_error": 2.0372681319713593e-10
+          },
+          {
+            "tensor": "1.association.readout",
+            "max_abs_gradient_error": 2.3283064365386963e-09
+          },
+          {
+            "tensor": "1.association.readout_bias",
+            "max_abs_gradient_error": 1.1175870895385742e-08
+          },
+          {
+            "tensor": "final.gain",
+            "max_abs_gradient_error": 2.7939677238464355e-09
+          },
+          {
+            "tensor": "head.weight",
+            "max_abs_gradient_error": 4.470348358154297e-08
+          },
+          {
+            "tensor": "head.bias",
+            "max_abs_gradient_error": 1.862645149230957e-08
+          }
+        ],
+        "membrane": {
+          "cost": 0.2,
+          "band": 1.5,
+          "observed_loss": 5.508888244628906,
+          "objective_loss": 5.543261528015137,
+          "adam_step": 7
+        }
+      },
+      "sha256": "1d32955c3c11442dd87dc296c29449528d4b2c325993dbac7fa0ef14fff15d54"
+    }
+  ],
+  "ctest": {
+    "passed": true,
+    "cases": 18,
+    "junit_sha256": "140e01f6da6bfffb7056b1590e0ef7d84d21ff49fcdded91ade2dc21f91a82c1"
+  },
+  "disabled_parity": {
+    "passed": true,
+    "cases": [
+      {
+        "cell": "lif",
+        "tf32": false,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "lif",
+        "tf32": true,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "alif",
+        "tf32": false,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "alif",
+        "tf32": true,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "trace",
+        "tf32": false,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "trace",
+        "tf32": true,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "gated",
+        "tf32": false,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "gated",
+        "tf32": true,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "selective",
+        "tf32": false,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "selective",
+        "tf32": true,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "associative",
+        "tf32": false,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "associative",
+        "tf32": true,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      }
+    ],
+    "old_sha256": "4e65f54c44fb52603da839aa3cba41dff1f0788371cc3ffcc9cefd9e63613d62",
+    "new_sha256": "bbc94b245887c8a6d473ae8cbe44dda6afa5993e29504f32baabeb02971ec481",
+    "fixture_sha256": "1587057052bba2d4a2a1bd8ffc89531e1e6c6d3347864fee845cb57f994fe36e",
+    "document_lengths": [
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64
+    ],
+    "native_commands": 48
+  },
+  "teacher_parity": {
+    "passed": true,
+    "exact_artifacts": {
+      "alif-control/latest.ckpt": "31c2d82d867a15614361423c9b409ca0c69ab5739bd9f3b2f0e8bcabf006d8a4",
+      "alif-control/stage-1.ckpt": "a9a863a8a672894f294e337bbe4bb5e6630bfcfcaf10123942ba0c9f4799e21c",
+      "alif-control/stage-2.ckpt": "f38ddba7f53522ca4194c897513e8d6675d25a2fb06bbd115866e40665762f8c",
+      "alif-control/stage-3.ckpt": "31c2d82d867a15614361423c9b409ca0c69ab5739bd9f3b2f0e8bcabf006d8a4",
+      "alif-control/transcript.txt": "771d327602ce6ac24fe13a0f201ce127e62fbb53fa2954d9793659d197c92a51",
+      "alif-off/latest.ckpt": "118aca417e5977e51936911aa8a63835d8791b55c014c250eb1bb6872f5501b9",
+      "alif-off/stage-1.ckpt": "e8f850885c4c296f070b72f7f2a7210c9dfc2ef9592b5261830cd91609fd886a",
+      "alif-off/stage-2.ckpt": "4b57fde7c8f0b545a969a600236f2ea6243e0aebe4ef5e482b6c2c92a558bfe7",
+      "alif-off/stage-3.ckpt": "118aca417e5977e51936911aa8a63835d8791b55c014c250eb1bb6872f5501b9",
+      "alif-off/transcript.txt": "771d327602ce6ac24fe13a0f201ce127e62fbb53fa2954d9793659d197c92a51",
+      "alif-start/initial.ckpt": "41c9e0562a851985733d6fd0f78f3e71b28096c52dc5d8593c171b58a8fb73b3",
+      "alif-start/latest.ckpt": "bbd1faff5f5defd0f5c5c99f841ca4938ec3f8b946909924fc90bb3426c0dae0",
+      "alif-start/transcript.txt": "2abea2a28c98168fe52404e6a1b08df9437a1c291dd4cc29a99e5ce57c515383",
+      "alif-zero/latest.ckpt": "c308011e3c3d64bfc466c105dfae182578e98c31cdc8f2591f238dfae4f97ddc",
+      "alif-zero/stage-1.ckpt": "240bf557d0cf46969ca925d04bf3ea622373e1775a8ca436db31334b92cc80e4",
+      "alif-zero/stage-2.ckpt": "58f70dbc1b7fe42db641b4a37a85f36f9386dbc8b7e7c46c0954146962fdb836",
+      "alif-zero/stage-3.ckpt": "c308011e3c3d64bfc466c105dfae182578e98c31cdc8f2591f238dfae4f97ddc",
+      "alif-zero/transcript.txt": "771d327602ce6ac24fe13a0f201ce127e62fbb53fa2954d9793659d197c92a51",
+      "associative-control/latest.ckpt": "8e5073423bc4f55d01bce60f394efa06ae5fb4805a4983c932436edf39085d2b",
+      "associative-control/stage-1.ckpt": "945a8c01cd029d780de75f0ab3a553361084acad74283abb96d7cb54ad3c927c",
+      "associative-control/stage-2.ckpt": "177e48f4cf4a679e61cb6288559bc41f72fdc0111994f73011c49807188d9618",
+      "associative-control/stage-3.ckpt": "8e5073423bc4f55d01bce60f394efa06ae5fb4805a4983c932436edf39085d2b",
+      "associative-control/transcript.txt": "6cc9a250ad198e58d250ad148eb791bbcd9ca09b3a08ef30f53a65d950cf2a56",
+      "associative-off/latest.ckpt": "b7255e3f62da4a4a321785eb31720c6185c3b0d9e22ed63a590aff2bec31fe9e",
+      "associative-off/stage-1.ckpt": "b5afba88fe416bffcf4dd6729191fc420cb8d6d4370390bd0411931b198ca634",
+      "associative-off/stage-2.ckpt": "6dfcc4798f9615c502466abbd4fff564bb258d9b890a2fa628006cdcd8fe42f7",
+      "associative-off/stage-3.ckpt": "b7255e3f62da4a4a321785eb31720c6185c3b0d9e22ed63a590aff2bec31fe9e",
+      "associative-off/transcript.txt": "6cc9a250ad198e58d250ad148eb791bbcd9ca09b3a08ef30f53a65d950cf2a56",
+      "associative-split/latest.ckpt": "2ebbd1211944a40c4b2187bb9b1f98403ba1d6fcb97423cdb1b6730a07279741",
+      "associative-split/stage-1.ckpt": "8c831f90c2cfc137113b6d9fb55ccf78910e52d07f0ba8fa1015b88d4586d3dd",
+      "associative-split/stage-2.ckpt": "92f8e1e2a464d6f07b8d0804bbf81907f875c7f0e96de2e49069b258fdd4b09c",
+      "associative-split/stage-3.ckpt": "2ebbd1211944a40c4b2187bb9b1f98403ba1d6fcb97423cdb1b6730a07279741",
+      "associative-split/transcript.txt": "325d54486ce1c43277e2c2474f3d8454f9000dd74900f5fcfcf3bcb816b3d14a",
+      "associative-start/initial.ckpt": "8ff16c2f55786bfb3528873bdbf34112f475e241f05db5d22ee0e9dd45a8bf40",
+      "associative-start/latest.ckpt": "1ec4c7deaf2af08db86e16d721952486f142a9ace4610da41414acf8252e424c",
+      "associative-start/transcript.txt": "59acbe06a1cba85e871e7ff71506f8c7cbf6a00cda238667e5ef4a592a3063fb",
+      "associative-taught/latest.ckpt": "2ebbd1211944a40c4b2187bb9b1f98403ba1d6fcb97423cdb1b6730a07279741",
+      "associative-taught/stage-1.ckpt": "8c831f90c2cfc137113b6d9fb55ccf78910e52d07f0ba8fa1015b88d4586d3dd",
+      "associative-taught/stage-2.ckpt": "92f8e1e2a464d6f07b8d0804bbf81907f875c7f0e96de2e49069b258fdd4b09c",
+      "associative-taught/stage-3.ckpt": "2ebbd1211944a40c4b2187bb9b1f98403ba1d6fcb97423cdb1b6730a07279741",
+      "associative-taught/transcript.txt": "ad9fd6e2c00a1d0378494327be97c3b717aa8c943185f6bf17dd1a9231b80df7",
+      "associative-zero/latest.ckpt": "20bbb6dbeb77632834c8bfa097daa7cb97ca313aa43a6b40db6fd20aee5d5c4c",
+      "associative-zero/stage-1.ckpt": "5aea7528a1d88e2d7b20e781e91b999579677842c55ed10b0eaea9f9e24acbba",
+      "associative-zero/stage-2.ckpt": "da1252c98595dc764c4bae3fbd17fccb50a6caacde2f41f249291d7b46fe0cf1",
+      "associative-zero/stage-3.ckpt": "20bbb6dbeb77632834c8bfa097daa7cb97ca313aa43a6b40db6fd20aee5d5c4c",
+      "associative-zero/transcript.txt": "6cc9a250ad198e58d250ad148eb791bbcd9ca09b3a08ef30f53a65d950cf2a56",
+      "bad-missing/teacher-1.ckpt": "96f78176ae57ec45613d2b7d7967082f472ab85a132bb30f15ce5de4ad3b9929",
+      "bad-source/teacher-0.ckpt": "b28240b8e009a78f48a97e9331b33446ba59a90accf88bd9291326410d11db84",
+      "bad-source/teacher-1.ckpt": "96f78176ae57ec45613d2b7d7967082f472ab85a132bb30f15ce5de4ad3b9929",
+      "bad-trailing/teacher-0.ckpt": "b28240b8e009a78f48a97e9331b33446ba59a90accf88bd9291326410d11db84",
+      "bad-trailing/teacher-1.ckpt": "96f78176ae57ec45613d2b7d7967082f472ab85a132bb30f15ce5de4ad3b9929",
+      "bad-weights/teacher-0.ckpt": "a3f169a9156abb8ba084c29ff2e01975184c3c3396833bb1ed2694bf6f6944a8",
+      "bad-weights/teacher-1.ckpt": "96f78176ae57ec45613d2b7d7967082f472ab85a132bb30f15ce5de4ad3b9929",
+      "counter.ckpt": "1b5e6d974f6de5769560d05e518f8baa3e1834e9e01f121bcf59e26ba23949d5",
+      "dimensions.ckpt": "0e9707b0681805361ef464c5bc78894224ab81865e36756ae0473fdab2da647e",
+      "duplicate.ckpt": "50988abe73235b7473b1de51835802fcc6c2264df5ee3901716d77c0fd948c06",
+      "gated-control/latest.ckpt": "29336ef0b27cdc12ddfc86c17ff0571ed22177e8bb1a1a12217b2ff6044a4c5a",
+      "gated-control/stage-1.ckpt": "88a9eebc34678f313436eb01604047e5fdaec51e584ef0d84bba1b1444e242e1",
+      "gated-control/stage-2.ckpt": "0b3ad9db2f2280c7fb9ea1cd59500f2b3982177774685136e622ea7e32c1555b",
+      "gated-control/stage-3.ckpt": "29336ef0b27cdc12ddfc86c17ff0571ed22177e8bb1a1a12217b2ff6044a4c5a",
+      "gated-control/transcript.txt": "38dfeeeeefb6a14d55cc6c60d0bc6331c6e16f5bd9ad1f1a5e60a04d8178656e",
+      "gated-off/latest.ckpt": "03b38657446eb92f9c148d098bc62094f9a7dcb8d97739b0afc8fc7ba0f4f8b7",
+      "gated-off/stage-1.ckpt": "cc53a5f819993a8467d8cda56471b406c04afe0ccb6346dc1bac3cb355cfe55d",
+      "gated-off/stage-2.ckpt": "b1975eb9ff6dcf7e786acb242b695dd8a55389ed7a67d80e1eb262f2a5a138ed",
+      "gated-off/stage-3.ckpt": "03b38657446eb92f9c148d098bc62094f9a7dcb8d97739b0afc8fc7ba0f4f8b7",
+      "gated-off/transcript.txt": "38dfeeeeefb6a14d55cc6c60d0bc6331c6e16f5bd9ad1f1a5e60a04d8178656e",
+      "gated-start/initial.ckpt": "14f6eda920d5267de32a7aba428e9a3843ccc677e96a96d9bb09c0d1bc1b24bd",
+      "gated-start/latest.ckpt": "f5aeba9e59be2884c38248371b26196935360ec483d8586eef6aeeeec5d31558",
+      "gated-start/transcript.txt": "0451c92c998265cd20746cdc0b1411ab93a9f3cc865b25bf81cbef17d1cd03eb",
+      "gated-zero/latest.ckpt": "3cc24593db6ceea0a29bd14e7b318ad8adbf89ce285ef866f49291112108af43",
+      "gated-zero/stage-1.ckpt": "978bfdc9b466c1268da0f50cd0516a384f4b6edd2c7863e86e8aba7100141fc3",
+      "gated-zero/stage-2.ckpt": "2ef263f5748e66926b2258b2381aae5cb5287614b9a48442e4ff6ab367eb717f",
+      "gated-zero/stage-3.ckpt": "3cc24593db6ceea0a29bd14e7b318ad8adbf89ce285ef866f49291112108af43",
+      "gated-zero/transcript.txt": "38dfeeeeefb6a14d55cc6c60d0bc6331c6e16f5bd9ad1f1a5e60a04d8178656e",
+      "inheritance/ancestor-0/latest.ckpt": "b31b55b455757900a57c6c3a352608b6b7b5d39d5c85954e7f23f7940421c13b",
+      "inheritance/ancestor-1/latest.ckpt": "b31b55b455757900a57c6c3a352608b6b7b5d39d5c85954e7f23f7940421c13b",
+      "inheritance/child-child-0/initial.ckpt": "c8929a684bd58d45d19d9e97995372cfd72b0d4ba32d5b06da0cc66047838df9",
+      "inheritance/child-child-0/latest.ckpt": "c8929a684bd58d45d19d9e97995372cfd72b0d4ba32d5b06da0cc66047838df9",
+      "lif-control/latest.ckpt": "44d62fcd0f7ed9d1771182bff94161f11f5993a2f28c669d0d9aa679699d3541",
+      "lif-control/stage-1.ckpt": "5e685d1771e8126dcaa78360fafcc98bf9a6ea694b617c9cde9ed684bb10112f",
+      "lif-control/stage-2.ckpt": "7eec220a630db129d2681affe243e5ea7cbbb29d7bcf284137377ce2992037fe",
+      "lif-control/stage-3.ckpt": "44d62fcd0f7ed9d1771182bff94161f11f5993a2f28c669d0d9aa679699d3541",
+      "lif-control/transcript.txt": "38a75715b87f7fd3d0c32401013be4a050e020bd226217d1a8b25c7093057d1f",
+      "lif-off/latest.ckpt": "74d33820c7b4ebda9d5ea8ffcd07753ed9a8d7681f5cd99e78c2d84f8adb87fc",
+      "lif-off/stage-1.ckpt": "d8a9582daf0aaeeab40eae89b5f9862979437b87d46df34e81d8ee8407f180a4",
+      "lif-off/stage-2.ckpt": "974c73af8d37c842ac189352a8329d0cbee2834ed524474f83eab259d6fa2278",
+      "lif-off/stage-3.ckpt": "74d33820c7b4ebda9d5ea8ffcd07753ed9a8d7681f5cd99e78c2d84f8adb87fc",
+      "lif-off/transcript.txt": "38a75715b87f7fd3d0c32401013be4a050e020bd226217d1a8b25c7093057d1f",
+      "lif-split/latest.ckpt": "b31b55b455757900a57c6c3a352608b6b7b5d39d5c85954e7f23f7940421c13b",
+      "lif-split/stage-1.ckpt": "524425b1d66f746d19608f691aafbbd1fe1dd6f62d723d38b9b5f117b4f85a4e",
+      "lif-split/stage-2.ckpt": "84ba69074ee4b4317d8b3f97f853fa739bb46f3e0ce00c0a46fc4bb712d9a6a6",
+      "lif-split/stage-3.ckpt": "b31b55b455757900a57c6c3a352608b6b7b5d39d5c85954e7f23f7940421c13b",
+      "lif-split/transcript.txt": "0928e340bfed331b2d23495575dcfb36e621285d720920dadc042ce4cb5fbdd1",
+      "lif-start/initial.ckpt": "0a6c3e2e97f9dd7a1091ab95d277cf9c55ad1557d68579ae8005e983798d0dac",
+      "lif-start/latest.ckpt": "72cb9259e4eb1385d1377ce05bab9b974856775b830a7cffa11c749952bbc4f4",
+      "lif-start/transcript.txt": "3e45d554f539c80c9a5257eb96d0277ece1a6d19201cc86518d1b51591a7f425",
+      "lif-taught/latest.ckpt": "b31b55b455757900a57c6c3a352608b6b7b5d39d5c85954e7f23f7940421c13b",
+      "lif-taught/stage-1.ckpt": "524425b1d66f746d19608f691aafbbd1fe1dd6f62d723d38b9b5f117b4f85a4e",
+      "lif-taught/stage-2.ckpt": "84ba69074ee4b4317d8b3f97f853fa739bb46f3e0ce00c0a46fc4bb712d9a6a6",
+      "lif-taught/stage-3.ckpt": "b31b55b455757900a57c6c3a352608b6b7b5d39d5c85954e7f23f7940421c13b",
+      "lif-taught/transcript.txt": "78d7762cba9575933f58984139523d4f0a09f2780a8706b785c41248a2a8424b",
+      "lif-zero/latest.ckpt": "86fc38333327e45c10b5319d6af6027693efd41ae73eca1dd966c006e1b727dc",
+      "lif-zero/stage-1.ckpt": "e973bcdfa6e3dec8d7f090ff1d71f6c806b15df6de9f4c4ab8faba333af039c5",
+      "lif-zero/stage-2.ckpt": "260cca73033817343c03b82fe091193d42eb126f64e64425944ec6c3f97ba17a",
+      "lif-zero/stage-3.ckpt": "86fc38333327e45c10b5319d6af6027693efd41ae73eca1dd966c006e1b727dc",
+      "lif-zero/transcript.txt": "38a75715b87f7fd3d0c32401013be4a050e020bd226217d1a8b25c7093057d1f",
+      "long.ckpt": "8289f1f8593f259e6912e44d75d4e25d593bc3e0a0aa8542bc171baf0363de2e",
+      "mode-off/latest.ckpt": "a3295a56c9cf1c33a436d0656f879553df7579856fc031a99fc72eff0c881dbe",
+      "mode-off/stage-4.ckpt": "a3295a56c9cf1c33a436d0656f879553df7579856fc031a99fc72eff0c881dbe",
+      "mode-off/transcript.txt": "3d0dd2fae02747c09aa4be5184b3aaa6a91f97327c40ecd4d581740463b7aacd",
+      "one-teacher/initial.ckpt": "445b4842d984350df8f1a0b82d797f7779feaf130dd170df05dc6ba2f11907f4",
+      "one-teacher/latest.ckpt": "9f8bd44fc7c482979f44ef9ce1b49a82f649002a259cbfa5c513443dd15abf54",
+      "one-teacher/transcript.txt": "5d5b8c681bcc03139c054dee60e63699b4a2ba84ba602fe6d9a32c9726f2db72",
+      "parent-0/best.ckpt": "b28240b8e009a78f48a97e9331b33446ba59a90accf88bd9291326410d11db84",
+      "parent-0/initial.ckpt": "602b0f8f17d9de6a9eca1575b26c20adcfa5a05cadd03911eb384768640125cd",
+      "parent-0/latest.ckpt": "b28240b8e009a78f48a97e9331b33446ba59a90accf88bd9291326410d11db84",
+      "parent-1/best.ckpt": "96f78176ae57ec45613d2b7d7967082f472ab85a132bb30f15ce5de4ad3b9929",
+      "parent-1/initial.ckpt": "57e257232c669276b788c4a13a982ea8bf74db9e68b227e9384e789cd83e112a",
+      "parent-1/latest.ckpt": "96f78176ae57ec45613d2b7d7967082f472ab85a132bb30f15ce5de4ad3b9929",
+      "partial-bundle/teacher-0.ckpt": "b28240b8e009a78f48a97e9331b33446ba59a90accf88bd9291326410d11db84",
+      "partial-bundle/teacher-1.ckpt": "96f78176ae57ec45613d2b7d7967082f472ab85a132bb30f15ce5de4ad3b9929",
+      "reserved-float-bits.ckpt": "bf801ccd9ecbf4106c9fa550408a3fa677e9b403d272ea3eb0f412f4e386e49e",
+      "scope.ckpt": "8fe1c268cb76c02762b08bc2a3a8f4a94ca3fb81d1c91ee36d1c5fbbbd37a0e1",
+      "selective-control/latest.ckpt": "1d68cdce8be220770e0c07437383e07544a1ddecc29dbe180b14f82ec1662efd",
+      "selective-control/stage-1.ckpt": "0ae1a69f84391a18ba040920d22df00a87f5e3f914283dd99eff8f935af168da",
+      "selective-control/stage-2.ckpt": "6367165bfd0757f64c2bf3b23b2028b0eedba2612addb191da573537be3b9ebb",
+      "selective-control/stage-3.ckpt": "1d68cdce8be220770e0c07437383e07544a1ddecc29dbe180b14f82ec1662efd",
+      "selective-control/transcript.txt": "b126c2ac160d20b3c56273a08f99261e37600aee22c216f32863615e1062759c",
+      "selective-off/latest.ckpt": "db6c7129790a584e6af5a6ab8bd394aaea84426a4f3caccd6302c67f56325104",
+      "selective-off/stage-1.ckpt": "2a55a3df16b015d56de6b3e1a211676fa4fde0dfa0022d6470dcb0b6d1277baa",
+      "selective-off/stage-2.ckpt": "c65f029969faae49b0770c40e5c7e8884639cdbe7d5470037936a7ededdc4bdf",
+      "selective-off/stage-3.ckpt": "db6c7129790a584e6af5a6ab8bd394aaea84426a4f3caccd6302c67f56325104",
+      "selective-off/transcript.txt": "b126c2ac160d20b3c56273a08f99261e37600aee22c216f32863615e1062759c",
+      "selective-start/initial.ckpt": "e7cae2443244f4de3cf511a3725a9ee091abbb09d11c2087eda5d03d0b5b9a6f",
+      "selective-start/latest.ckpt": "539cb671718e765779b2050ba01d5425b4312eb2c0290ff2a8f29e4b7bc83020",
+      "selective-start/transcript.txt": "6fa89f61ff1e0499e4d91cb94ed96ff4243788d13a027c2beed4ebdbaa65da13",
+      "selective-zero/latest.ckpt": "2d846665010c6c0db7df26011fc3b8abffcdd2e8a47db8c7ea5eb2db76762236",
+      "selective-zero/stage-1.ckpt": "7ed1a3da33300815d1eeec467e589bd47331290f778341e0d894c090c64f178a",
+      "selective-zero/stage-2.ckpt": "0d21e7dace881aec3e21e600e3c5875fd67ec8878085da9e2bf0cb8c3661fcc8",
+      "selective-zero/stage-3.ckpt": "2d846665010c6c0db7df26011fc3b8abffcdd2e8a47db8c7ea5eb2db76762236",
+      "selective-zero/transcript.txt": "b126c2ac160d20b3c56273a08f99261e37600aee22c216f32863615e1062759c",
+      "short.ckpt": "e8ddb552fea60dabf930fc65381817dd3e3f8bbf3c2070f4dc56f32435db7a3a",
+      "single/teacher-0.ckpt": "b28240b8e009a78f48a97e9331b33446ba59a90accf88bd9291326410d11db84",
+      "teachers/teacher-0.ckpt": "b28240b8e009a78f48a97e9331b33446ba59a90accf88bd9291326410d11db84",
+      "teachers/teacher-1.ckpt": "96f78176ae57ec45613d2b7d7967082f472ab85a132bb30f15ce5de4ad3b9929",
+      "temperature.ckpt": "43b29e963dd2f6dfdb149e5de7bd51b1f1657e082a7ea619437e47d5f60d47e1",
+      "trace-control/latest.ckpt": "0c3ebcdf89299a02ae3ef331d4a8870c3221dcb465e330c5b803314a56c50030",
+      "trace-control/stage-1.ckpt": "9d894b4973ca71d93ab0dd1624486f7aa7d59a00a22ce97c4089a4682ae0860f",
+      "trace-control/stage-2.ckpt": "2760c7642ede46115c02e9dc3d98f0e2393b06c4e4aaada4b25bddca8ba74ac0",
+      "trace-control/stage-3.ckpt": "0c3ebcdf89299a02ae3ef331d4a8870c3221dcb465e330c5b803314a56c50030",
+      "trace-control/transcript.txt": "ff17bc386ee77ae35145dd561abcafc687eb5abb95b6503553bfcb0c30a05b2a",
+      "trace-off/latest.ckpt": "28fdfbd57e1ad1b7f9bdcd1a0a991c2baf1b7085fcb914600fe0ccc9e9696518",
+      "trace-off/stage-1.ckpt": "fe6b026f4597f32a0bf7894591d618ace85f35be8cb54ac4dd0650fe3e1ad14e",
+      "trace-off/stage-2.ckpt": "eb2fa8105f57a294c4a64b47d53ad3715d10f47f0c64da0f89ea97014edd6ade",
+      "trace-off/stage-3.ckpt": "28fdfbd57e1ad1b7f9bdcd1a0a991c2baf1b7085fcb914600fe0ccc9e9696518",
+      "trace-off/transcript.txt": "ff17bc386ee77ae35145dd561abcafc687eb5abb95b6503553bfcb0c30a05b2a",
+      "trace-start/initial.ckpt": "3d9b089efa466ac56f4d032f855e5bb85c3a7c40c08afb52e0d09a4d93e2066d",
+      "trace-start/latest.ckpt": "089f74b4d55f513591d6ad6c15e3696cde2403e4d80e87cd55ff74ed04ced376",
+      "trace-start/transcript.txt": "0451c92c998265cd20746cdc0b1411ab93a9f3cc865b25bf81cbef17d1cd03eb",
+      "trace-zero/latest.ckpt": "c2868ffb88c3662299b4005ffd25915fb46991703c9fd20d9aa619551d8eb200",
+      "trace-zero/stage-1.ckpt": "3a9e57015effddc71211d574ef5c76050f62a6ccaacfd461789fc2eef87b2928",
+      "trace-zero/stage-2.ckpt": "d32301c1ff7e4b1ba206ba0fb0169be0b3e2cc3ac9bac9f529534cee9e8df34f",
+      "trace-zero/stage-3.ckpt": "c2868ffb88c3662299b4005ffd25915fb46991703c9fd20d9aa619551d8eb200",
+      "trace-zero/transcript.txt": "ff17bc386ee77ae35145dd561abcafc687eb5abb95b6503553bfcb0c30a05b2a",
+      "unselected-bundle/teacher-0.ckpt": "b28240b8e009a78f48a97e9331b33446ba59a90accf88bd9291326410d11db84",
+      "unselected-bundle/teacher-1.ckpt": "96f78176ae57ec45613d2b7d7967082f472ab85a132bb30f15ce5de4ad3b9929",
+      "zero/teacher-0.ckpt": "b28240b8e009a78f48a97e9331b33446ba59a90accf88bd9291326410d11db84",
+      "zero/teacher-1.ckpt": "96f78176ae57ec45613d2b7d7967082f472ab85a132bb30f15ce5de4ad3b9929"
+    }
+  },
+  "regularized_teacher": {
+    "passed": true,
+    "native_commands": 11,
+    "regularized_checkpoint_exact_on_restart": true,
+    "speech_exact_on_restart": true,
+    "restart_speech": {
+      "speech_records": 9,
+      "generated_bytes": 81,
+      "restart_marker_source_update": 23,
+      "next_speech_source_update": 28,
+      "all_other_transcript_bytes_exact": true,
+      "full_transcript_sha256": "56c4a8fc3362af7c129ad163dacafa8631c36c34713c9e84a67eed19c77e7672",
+      "resumed_transcript_sha256": "12e95962895f2a5c35508ec0e5fd80af0a54724bd58db900db6baffa96fa4f42"
+    },
+    "enabled_cost_changes_learned_weights": true,
+    "two_teachers_active": true,
+    "optional_si_exercised": true,
+    "source_updates": 64,
+    "teacher_updates": 22,
+    "teacher_pairs": 325,
+    "full_checkpoint_sha256": "30407e6dc04de08154f040fcd4bc7e18db6321d214584632230df4eb8cfcd461",
+    "regularized_weights_sha256": "8e2805f5653adb2c646c6de5ffd7cedeef4f0471fef96365dedd048dc7d026ee",
+    "disabled_weights_sha256": "ca512927aa33a591e0c349e8a49b746ba7e8757958d2cec709158ed4c560eb2b",
+    "read_only_commands_preserve_checkpoint": true,
+    "forbidden_resume_override_and_teacher_promotion_rejected": true,
+    "language_quality_established": false,
+    "new_sources_admitted": false
+  },
+  "language_quality_established": false,
+  "reproduction_admitted": false,
+  "complete": true,
+  "protocol_sha256": "642bedc90b0cebc1cdbfd06dfc4a5069f7684af9b487d191aba6a55d7884af5d",
+  "commands": [
+    {
+      "label": "membrane-native",
+      "returncode": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "membrane-oracle-3-1",
+      "returncode": 0,
+      "log_sha256": "62c6a55ebebd875dea351bceb7c5e5a63a9d816660ec56f8f4f2d36886126b9b"
+    },
+    {
+      "label": "membrane-oracle-3-2",
+      "returncode": 0,
+      "log_sha256": "2badb3e6fff2991b30aa720985b17965257046e3f82b4c0b20ba3bf9218c4684"
+    },
+    {
+      "label": "membrane-oracle-4-1",
+      "returncode": 0,
+      "log_sha256": "4e28d66adc454bf0e6a0c8558cfdbd872da36dd06c9e4d09e7b9f837590131b0"
+    },
+    {
+      "label": "membrane-oracle-4-2",
+      "returncode": 0,
+      "log_sha256": "849523045f01c6268f62ff2a8b9f380d22839bf62597307f35c65414599c27c6"
+    },
+    {
+      "label": "membrane-oracle-5-1",
+      "returncode": 0,
+      "log_sha256": "cbc416ca0df15fd44b57c13ba3f48be5e6c57f008c285efb9020b978babdcba9"
+    },
+    {
+      "label": "membrane-oracle-5-2",
+      "returncode": 0,
+      "log_sha256": "cdb12919f7f2cd5b47f667845742ee1825a90c07c32a218c244d74bca3139a40"
+    },
+    {
+      "label": "membrane-oracle-6-1",
+      "returncode": 0,
+      "log_sha256": "3d4d53cc045f1e3739883a3499daada24c77000dbdde169c8f9decb0bb48482b"
+    },
+    {
+      "label": "membrane-oracle-6-2",
+      "returncode": 0,
+      "log_sha256": "b1bb41759be38fa143c54f0db1c8bf9ba4a28182810342eacb39f9951b038c56"
+    },
+    {
+      "label": "native-suite",
+      "returncode": 0,
+      "log_sha256": "887868e8c297b98af8f8e8fde10e5abbbd34f85aa6090f23116445d9ae4dcde6"
+    },
+    {
+      "label": "legacy-oracle-test",
+      "returncode": 0,
+      "log_sha256": "1c1c4d1d48553d54f65f61fcf6d357c238009f29b986f758a5e811346b3beeed"
+    },
+    {
+      "label": "legacy-oracle-adaptive-test",
+      "returncode": 0,
+      "log_sha256": "93909ea6c29c2d8ed6e6ba56e9abb3f98f50e2f42d4a4384ad3062b8f87db87c"
+    },
+    {
+      "label": "legacy-oracle-trace-test",
+      "returncode": 0,
+      "log_sha256": "c1d452dbf3a0d1a70a6f69a66fb796765f0467e16d0c2977e9bbfe9e6fc35fb1"
+    },
+    {
+      "label": "legacy-oracle-gated-test",
+      "returncode": 0,
+      "log_sha256": "32ed53f9d699267fdcbd01cd71c2502485706f31a8dac1b22c078d9567485bf2"
+    },
+    {
+      "label": "legacy-oracle-selective-test",
+      "returncode": 0,
+      "log_sha256": "0722b6a862ec5fe220d2fd68034155c0766f9172d81ce35238cc9d652849d69a"
+    },
+    {
+      "label": "legacy-oracle-associative-test",
+      "returncode": 0,
+      "log_sha256": "b6c124fb033f8f70154d8292ef391ba221c70401244eac3c992b4482403b6d55"
+    },
+    {
+      "label": "disabled-runtime-parity",
+      "returncode": 0,
+      "log_sha256": "56c8393195480076220989365bb5b29302617f38231a04059e7cb7bc37601163"
+    },
+    {
+      "label": "teacher-cli-old",
+      "returncode": 0,
+      "log_sha256": "2c7fbaf4f44426c4ed15838c6f080e136b6ffbe466b037f8f53686d115ec0d32"
+    },
+    {
+      "label": "teacher-cli-new",
+      "returncode": 0,
+      "log_sha256": "dd17987f2d062454870543faa99a9c709dffd1f8c4d935d6f6fa644c30504a9f"
+    },
+    {
+      "label": "membrane-teacher-cli",
+      "returncode": 0,
+      "log_sha256": "53091f64c4ab01b721c15bfc1911e00b0869ce9c96d7c5a40b9e55032a6b1cc3"
+    }
+  ],
+  "predecessor_verification_sha256": "188f92d22923efcbd0c89a2feb97f0a789065130915c5ddc7f61df979b132c81"
+}

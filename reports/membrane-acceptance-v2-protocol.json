@@ -1,0 +1,795 @@
+{
+  "version": "membrane-acceptance-v1",
+  "status": "declared_before_gpu_execution",
+  "created_utc": "2026-10-03T20:37:55.989497+00:00",
+  "source_commit": "890110f025b08d95a0d8afc92f4ef35ca623295a",
+  "root": "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree",
+  "workspace": "D:\\SynapticGenesis",
+  "predecessor": "D:\\SynapticGenesis\\runs\\prose-411m-v1",
+  "predecessor_protocol_sha256": "daba74f6fecd44f8fd9334c07d07120bd5b9ac4466f46e9e2fa741f38c851244",
+  "wait_for_driver": null,
+  "executables": {
+    "old": "D:\\SynapticGenesis\\build\\validated-shared-views\\synapticgenesis.exe",
+    "new": "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\synapticgenesis.exe",
+    "probe": "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\membrane-checkpoint-test\\synaptic-membrane-checkpoint-test.exe",
+    "python": "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+    "ctest": "C:\\Program Files\\CMake\\bin\\ctest.exe"
+  },
+  "ctest": [
+    {
+      "backtrace": 1,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "self-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/test-results"
+      ],
+      "name": "spiking-native",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 3,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "live-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/live-test-results"
+      ],
+      "name": "spiking-live",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 5,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "graph-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/graph-test-results"
+      ],
+      "name": "spiking-graph",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 7,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "replay-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/replay-test-results"
+      ],
+      "name": "spiking-replay",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 9,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "adaptive-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/adaptive-test-results"
+      ],
+      "name": "spiking-adaptive",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 11,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "synaptic-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synaptic-test-results"
+      ],
+      "name": "spiking-synaptic",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 13,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "evolution-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/evolution-test-results"
+      ],
+      "name": "spiking-evolution",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 15,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "curriculum-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/curriculum-test-results"
+      ],
+      "name": "spiking-curriculum",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 17,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "feedback-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/feedback-test-results"
+      ],
+      "name": "spiking-feedback",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 19,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "distillation-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/distillation-test-results"
+      ],
+      "name": "spiking-distillation",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 21,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "teacher-replay-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/teacher-replay-test-results"
+      ],
+      "name": "spiking-teacher-replay",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 23,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "trace-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/trace-test-results"
+      ],
+      "name": "spiking-trace",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 25,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "gated-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/gated-test-results"
+      ],
+      "name": "spiking-gated",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 27,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "selective-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/selective-test-results"
+      ],
+      "name": "spiking-selective",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 29,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "associative-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/associative-test-results"
+      ],
+      "name": "spiking-associative",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 31,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "association-layout-bench",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/association-layout-results",
+        "--rounds",
+        "3",
+        "--iterations",
+        "8"
+      ],
+      "name": "spiking-association-layout",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 33,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "stage-replay-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/stage-replay-test-results"
+      ],
+      "name": "spiking-stage-replay",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    },
+    {
+      "backtrace": 35,
+      "command": [
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/synapticgenesis.exe",
+        "reduction-test",
+        "--out",
+        "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build/reduction-test-results"
+      ],
+      "name": "spiking-reductions",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "D:/SynapticGenesis/runs/membrane-acceptance-fix-worktree/build"
+        }
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "label": "membrane-native",
+      "argv": [
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\membrane-checkpoint-test\\synaptic-membrane-checkpoint-test.exe",
+        "gpu-test",
+        "--out",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\membrane-gpu"
+      ]
+    },
+    {
+      "label": "membrane-oracle-3-1",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\membrane-gpu\\cell-3-batch-1"
+      ]
+    },
+    {
+      "label": "membrane-oracle-3-2",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\membrane-gpu\\cell-3-batch-2"
+      ]
+    },
+    {
+      "label": "membrane-oracle-4-1",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\membrane-gpu\\cell-4-batch-1"
+      ]
+    },
+    {
+      "label": "membrane-oracle-4-2",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\membrane-gpu\\cell-4-batch-2"
+      ]
+    },
+    {
+      "label": "membrane-oracle-5-1",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\membrane-gpu\\cell-5-batch-1"
+      ]
+    },
+    {
+      "label": "membrane-oracle-5-2",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\membrane-gpu\\cell-5-batch-2"
+      ]
+    },
+    {
+      "label": "membrane-oracle-6-1",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\membrane-gpu\\cell-6-batch-1"
+      ]
+    },
+    {
+      "label": "membrane-oracle-6-2",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\membrane-gpu\\cell-6-batch-2"
+      ]
+    },
+    {
+      "label": "native-suite",
+      "argv": [
+        "C:\\Program Files\\CMake\\bin\\ctest.exe",
+        "--test-dir",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build",
+        "--parallel",
+        "1",
+        "--no-tests=error",
+        "--output-on-failure",
+        "--output-junit",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\ctest.xml"
+      ]
+    },
+    {
+      "label": "legacy-oracle-test",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\test-results"
+      ]
+    },
+    {
+      "label": "legacy-oracle-adaptive-test",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\adaptive-test-results"
+      ]
+    },
+    {
+      "label": "legacy-oracle-trace-test",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\trace-test-results"
+      ]
+    },
+    {
+      "label": "legacy-oracle-gated-test",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\gated-test-results"
+      ]
+    },
+    {
+      "label": "legacy-oracle-selective-test",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\selective-test-results"
+      ]
+    },
+    {
+      "label": "legacy-oracle-associative-test",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\associative-test-results"
+      ]
+    },
+    {
+      "label": "disabled-runtime-parity",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\live_views.py",
+        "--out",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\disabled-parity",
+        "--old-exe",
+        "D:\\SynapticGenesis\\build\\validated-shared-views\\synapticgenesis.exe",
+        "--new-exe",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\synapticgenesis.exe"
+      ]
+    },
+    {
+      "label": "teacher-cli-old",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\teacher_replay_cli.py",
+        "--exe",
+        "D:\\SynapticGenesis\\build\\validated-shared-views\\synapticgenesis.exe",
+        "--out",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\teacher-old"
+      ]
+    },
+    {
+      "label": "teacher-cli-new",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\teacher_replay_cli.py",
+        "--exe",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\synapticgenesis.exe",
+        "--out",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\teacher-new"
+      ]
+    },
+    {
+      "label": "membrane-teacher-cli",
+      "argv": [
+        "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\membrane_teacher_cli.py",
+        "--exe",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\synapticgenesis.exe",
+        "--out",
+        "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2\\membrane-teacher"
+      ]
+    }
+  ],
+  "authenticated_inputs": {
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\synapticgenesis.exe": "bbc94b245887c8a6d473ae8cbe44dda6afa5993e29504f32baabeb02971ec481",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\membrane-checkpoint-test\\synaptic-membrane-checkpoint-test.exe": "9d5ee1f4f2108d659cfb93212552ce87056a712b2e1aef29968adbbe7df19755",
+    "D:\\SynapticGenesis\\build\\validated-shared-views\\synapticgenesis.exe": "4e65f54c44fb52603da839aa3cba41dff1f0788371cc3ffcc9cefd9e63613d62",
+    "D:\\SBILM\\.local\\venv\\Scripts\\python.exe": "9b7bffc26240463c965a2a2a5fada1d8e741c21c25cd2e977728c339b82d9977",
+    "C:\\Program Files\\CMake\\bin\\ctest.exe": "1692fa27fa742b3c77ef900ce1fcfff68975c3ef3c44c2f04f586b5057981c4e",
+    "D:\\SynapticGenesis\\runs\\prose-411m-v1\\protocol.json": "daba74f6fecd44f8fd9334c07d07120bd5b9ac4466f46e9e2fa741f38c851244",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\CTestTestfile.cmake": "2cfb36deb2f190c773c516c2002e92250016fb5c6bb5bb9846a0907350ceb2a4",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\reports\\membrane-policy-integration.json": "8bc53b90e2b20a6f38abd65f511baf0e6cb42193b1a3851b6c1176fbf14634fd",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\CMakeLists.txt": "e2365baf0b3b061f7462c23826af2fbe5509039ebcfeb9ce86fe41b75a7b7d60",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build.ps1": "b9dbae5de4e7dbad74c4399f3885c7e4873bdd8ce2c18fbcf46ea55be9d25310",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\spike_lm.cu": "000315e0601f5fc2f497696462bce7fa3a80d17619ebe96d6c042b6690fa1e67",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\adaptive_neuron.cuh": "55d88c666e2417b757cb3e29a968a27e460ae3a5b63d463c45aa66e7f829bcce",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\adaptive_tests.cuh": "b93c5e762cab1df346fd382c51c36bf65cc67db1b6197dec17ee88a70aa8b7c9",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\associative_bench.cuh": "a7cfd18ada923d7e393fadae84b837f8eee80fb23a915a6f1c8f61fb9b7a55fd",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\associative_memory.cuh": "920a788386f0182e436e8f43061503cdf8695468dd7304ebfce49eab82154b3b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\associative_tests.cuh": "48f2e65d5ba71a60246b0bfb1fcff1e75a407835bbfcf6ef3c9d954af234d2cc",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\checkpoint.cuh": "51db7891a046fb8a47c0b7ad22564c3a76c69257c43acbfb6de03e4d3d867bfb",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\context_bench.cuh": "c301e214a51f8bf5a4cf0b4813cc666b5df5085ec1601a3d24e89d1d5998c274",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\curriculum_tests.cuh": "76b1f4e8672cb3280e8bea143416d226d728e46dac309e2ae62f9ae1d76f7909",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\decode_tests.cuh": "e2d6799e3c16b209d07dde037015db45a3cef070201192ba81bd59712cbf1a6c",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\distillation.cuh": "ecc1c2b1aa1f8fbcf848a5f7bac50ceac106a38559b09220c12d04af7113a18e",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\distillation_tests.cuh": "cf68dc009b9352406681dce922c2e77a1efb4d0434338f18f6e2812f43e14b3a",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\evolution.cuh": "2a04054df703cc37b0a2ecc722970585563258268ed8efd1c6d580de4dd40b7f",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\evolution_tests.cuh": "b4fd746ed03d7e81c5098996288914564892066e6d20ddf2e59cc1afdd1f3656",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\feedback_tests.cuh": "d7361dc9661b0f9921359f2caa431ff0682b7c92967f7a9a2f667cea09575acb",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\frozen_model_tests.cuh": "5e40f7cb32967f8a2dec7e3ebef4a374aa42241181d1d61221e74cd2c1fa58f5",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\gradient_reductions.cuh": "d39b7f958b5fc4cd89aab9ed741133d8139b1adbb0aa9ddfc4720e1aea83c2cd",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\graph_decoder.cuh": "93073bf0b78488c388916926c8a0ce20a9bd015846f0f1e4bebf2ce3829902c8",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\indexed_storage.cuh": "139ea0fa2d9ad9e962700a9e49b32174be53e067d07a6c1cd68825ad119cc147",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\language_objective.cuh": "8b72e29e1a835a7add36af0f9f22e037067406b39ce9023cf1bc46636781e186",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\language_probes.cuh": "153f821810a028cde1878a9420da5b27ec23c66b4d4ada72e4a66694df0510dc",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\live.cuh": "96415e849dcc4b79178321360346087606bb91bd625883499aaf8bf5fd9958d8",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\live_curriculum.cuh": "cbe4820faedd8253a751aaca204af0ce660b7a16d646a8b45adad665566c69f7",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\live_replay.cuh": "1955b4ff3ae19d36fff0a45cc5267bcb3fbe6281d501011ae79b73a26641e363",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\live_views.cuh": "c4c6500ebb491bed33222b02f7c10f2ace89bd0bf50980ee40c1fa61d4d75176",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\membrane_penalty.cuh": "49d3ca7692cc8fd66a1eb5c8469a7bd1e463408a2a069280b3c12474ab558b14",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\membrane_policy.cuh": "1746e170e00f87a0dd88d97ae5a39c73c12b282d71d9eb2e7a5330a54220a01b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\memory_bench.cuh": "84e378f93d4704a961a4d0e658c95c0f4873ba81c58493648f576620eafaad0a",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\model.cuh": "3da41a6f806a1dec008e4e75965c252797f0f8b3999c5008215638b8f9da2e80",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\model_memory.cuh": "2a16c13e629965af69cb189fd6bede63a030a52ca27c7daec4fc571ac15c7a4e",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\population_live.cuh": "6650fa83dd3da299a938e5e1012a11b911a9d8006440cce0cf89c0f012118018",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\population_teachers.cuh": "6fceb6d94ba53c51b18b2291b91e3b9cc1cf6bf475045dcb31c1728ea8471c78",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\reduction_tests.cuh": "c324c8f508db375d64c21a8153873facbe2f1a0bc334eaa2aa45cc5d56a5bfbc",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\retention_bench.cuh": "d5f451677eb90c97dc9b11da213e2a2fceca2035b6d291d0ff1e2221ac9e54ea",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\stage_replay.cuh": "f998e55933720f1069000a186f222dfaf5aa4a1e04ae64f12bd4c7c61f58481f",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\stage_replay_tests.cuh": "accc2c662dd7ba53580b5130f9d07964b7b972bdbf9f8b732338026bcbacdd4b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\synaptic_memory.cuh": "99c07936d379a5f3730fb0186bad11b55e25ab18c06ec2d296a643f04728b775",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\synaptic_tests.cuh": "3423956f1f0b36a407daf55aa08e968c6d945302b4e1001cdc77c31e0e899e18",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\teacher_bundle.cuh": "2b155f33883fae345c90f9eb64341e4967fbd911511e3e3c5b62e5838c690c55",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\teacher_replay.cuh": "d568530fd6cd1d2344d8e41a7c651302d32ad8d8a5771989a7a32ce938515d59",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\teacher_replay_tests.cuh": "453bc9fb15c4da7861ff261b7fad1d115366f46a49336eb1851cd7afc4c1c2a6",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\teaching_state.cuh": "b7b903e1209511186ebe74601d8475504174dae26348434d3a2d55c00b66fc79",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\test_fixtures.cuh": "c37fc4c8b05f9e63158910892e29cebcd86797f9966f3dcdd2b31d74a6b37edd",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\src\\trace_neuron.cuh": "168ad244928f9f160998f1e783ae8aadc8f94e4c5dc3695438e56f0eea487226",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\activity_metrics.py": "0b75641467154b9379977a03cb2c2e205684016254d44cf27dab90aa0804cfb2",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\activity_panel.py": "be272bb60334687bba86274842e578d7c3b34cc0e36acc2dac80f96ee047b043",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\activity_penalty_reach.py": "6f700dc17ef862b53c8e14633b98fbcf19b1b898ab08071a462539b7cf5956c3",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\adaptation_experiment.py": "a31a01f48b41b0f5ccb8889fba9266b741957a217110bf2cc09b54a4fbf7e690",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\adaptation_sources.py": "250a67061960bd7bdb09443fcb483ed0742484634e4e54e506414980a8d5b298",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\association_runtime_experiment.py": "cec8314e2e6b4f4dfeea3ca438a6e338ca4310eaa3b123b82ee9bc4a5438c8a5",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\associative_experiment.py": "3af5c570a25c705ec6af38d5a714d81307b9a8e792b5cbca139c9883c5792387",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\astronomy_schedule.py": "7e2fc286c747e8710d92d45a147fe6bb8a41c9ec21e04d93034742d87dc4e828",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\audit_binding.py": "95df9863c82ca1821644f5861625f680ce2f8e60b7b0558570c9c71917b9cb18",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\binding_lessons.py": "75534ffc28ce52b453edd4bbc74f49fd4bdc96d347817125b1c3a4dc1c0a085e",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\capacity_experiment.py": "7f4065cb7f2f2e39eea12768d6a6375de6e3151f5ce0c553e5f4e6b722d2d6c4",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\checkpoint_assessment.py": "9bbb58e2f42e9283fa784e063f1af5c9246fa1ec7a9bb819f73df2204c0adf96",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\compare_binding_rates.py": "7d3b8ba042aee6c5204ae478a2bce5fbe25ceabf8c1d8dbf640ee13014ac2ee7",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\compare_memory_cells.py": "484472d67675e217acd7479b848439a22202c272f8f290529404f63c21ed7e1d",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\corpus\\__init__.py": "5d912f2b6b09cadefe3446e4d5bac52551d92bac9fa2c0da4bc57725a4480a93",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\corpus\\african_storybook.py": "bc9d9827a0069063dc50995461e59341fd528c49fbc2383ed51bd8858b756694",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\corpus\\openstax.py": "818f628e9bb36be4737c9eb7112758ab99c4dd96b3ad75140cae6e23d719250b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\corpus\\overlap.py": "dc2c0ffdff0d8df6ebec060a8de26da0588a74cb3992f0aacd41e2c6c2ec90b3",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\corpus\\paired_selection.py": "e0b42be625bcae81be7a7ca189476e9248a09810c74e8a8559d4a738d812373d",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\corpus\\physics.py": "022cc3ac3cc6d29294cd94592867b4d2fa9b39010bdc7974810d766f44b443ed",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\corpus\\physics_edits.py": "31e62e91028d8dcb5417a35c5b1d46ace9508e1c8a43e608b4011063ffe99919",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\corpus\\prealgebra_math.py": "136105f09d484e263ab6cda11aae57b264c6f5c5ebf02607b7291f0d3050951f",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\corpus\\selection.py": "3921ec62ea1882302b36c8c4857a3a5a5c374c3eb33d7f39a37178fc6a52e552",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\corpus\\storybooks.py": "cc5d671efe211c720efbad6da7b7533c160437906a1f756b81d6957a1cf01b67",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\diagnose_binding.py": "59beaf55c85027c4142cdfa6d4510e79688a5634d454f47c84538b6ade8ada56",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\diversity_experiment.py": "8b21973d9eacea772833e8e16f432783c357d0ec80eca469f4e5aafb1a1b0dde",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\early_width_observations.py": "f2644796e985aa49c5ae28534a22bec0b77f1c3fcd3f1df61110b06aebd14c04",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\experiment_checkpoint.py": "05230406735e3a1bf6cab6f2ef52da7ac3f52238d9f1727d2a0156bd6c6deaef",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\extend_curriculum.py": "94c405269b4fe20159a7cdfa116a6d7df41de80ce004fdd87a91d6cff1f93c12",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\gated_experiment.py": "ad791ed46130eaf42a557ae10ad8d213cde328ea895c67daad19ebc3df0896f6",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\gradient_projection_geometry.py": "02a6fa59b30e67139553be5b1aae07438d9c4cdd6f0f016d05876ea6bb3c0a68",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\inspect_dynamics.py": "d3ff50d6ebde5c0f3e6adda2beb356d483ffc60fbbc13c9ef48d93f5d3f51ea0",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\inspect_native_activity.py": "3e9aaefe01f6de30d0abf59994ee5bc623abacf458ecf7c7972d9df38fa1c335",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\large_founder_inputs.py": "221f45236325974c9bf82d61c2f407a19ae919b19c9f52308213784158648a1a",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\large_founder_verification.py": "00acfdf913df933c2518cba92e0876ad160a5016b1d682df43e3dd0ca7ed2ef7",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\live_extension_experiment.py": "8da4d716d25a15cfbc0a410e10a400104ea29a473ecc015f6bf0e89389b8b216",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\live_reading_experiment.py": "16b146c88bc891ddba27e6a2ad067df9cb37ff493ca5371e9b5e56ed4c743d89",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\membrane_acceptance.py": "2adeac6be8459631474bc3547d317c8cd1914f288c189ab0a2ffac4348b6a9c9",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\narrative_experiment.py": "d07f6d52271cb419cc79469b7f832b87803768efd9fc6d6eda362a1e99d20522",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\native_demonstration.py": "d89a316937211c74aa207d1ab7432d5bcd1bc46b0448c2ec2f5cd0ef1247d13d",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\native_experiment.py": "71a2ae4afa55f8e330d6d678b175a84322abc111d8dfc66c2207c2322009712c",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\order_experiment.py": "3f53b2b75968d603a40c682a92b4d915da7aa06b878fc545c0c7aa44af93e5b2",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\plot_adaptation.py": "8ffd6aaa2a26451ac6c275f18b461b9ea6f44c0f03ed9d9b65e967dcf9356a03",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\plot_associative.py": "c7a4afe17b49eb2b625eeb8c15f00f954352738650079e9f508c6906045da6fd",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\plot_associative_history.py": "1fd58f74b46ab5edd3dc109b8b78aed32ea40059adb0ea48112569f5bfb2b752",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\plot_diversity.py": "436ed435a5c30fa0e2f0b4eaae55c3d6386f0d6650a21d38518242f1bed3e9cd",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\plot_narrative.py": "fc96a2bd21c25e40ebcbb022f7babbc41ff691813272ded032a035b1daf71cf1",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\plot_order.py": "1588d83e7d4d23e683f00731af0668310804b75b329207f13b9f94fd0fb6f7e8",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\plot_replay.py": "17a5f49141faa5a45bec79c1abc83b4fa28176fe983b10bbf2f5da83c2ed76b1",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\plot_retention.py": "1985cbe6cd9363d114c05129562bf783c0321a78c1b202992cc08e59cdbcbabc",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\plot_selective.py": "6aed7046519700168ba982acb7ce7b98f4a9d2277e89be564cf7317be7530bba",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\plot_teacher_retention.py": "855f5d159251c2e5fa2c4a9808ef1e96d4064987d1fa0f9471a9c87137a25aee",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\plot_teaching.py": "55a7afc0d15ec03640f7732802911b00b1b5885097b53c24c854b2654e2e03a3",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\plot_trace.py": "26966d3dfa608cbe5728be6d62a12bd5440e3a641f23c5400c3ffc600cb4f490",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prepare_binding.py": "4a51d161b4b8180035c1adde0a42d70bfd5c81d99123e162f0e89c6c217b5481",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prepare_binding_diversity.py": "c8eae90feb6959bb535a0d7e0e586b89d77364274827afefa22cba2b8fe19b7a",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prepare_corpus.py": "54e3e10303729249cb94ca993bd5ea82c7ad3bee85dac0b5d058f6edb8186ac7",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prepare_curriculum_order.py": "0d084962f7e6dc63bb2cfc54b1c2d08ce9ce64ea9a991810f31d5dc66f7c3e89",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prepare_early_readers.py": "8304efef80ec7e9b9eda9cefbe97b4eba78b9d25c2025db0d19aca3cde689b9f",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prepare_lessons.py": "c4f407d618b37cf1280633240e44d8ac16cf58854d5ed0731ff9087bc74ec622",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prepare_openstax.py": "e1cf77faa734bfa1b64b06968697a3d5ba078b201ab384d673b619401fc94d23",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prepare_physics.py": "56a075f3ca32b9817ed61ff618a05ad7b394a37b2b7b59711200683dd463d3dd",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prepare_prealgebra.py": "82534f31462f839a524aaa92720bf15800e76834b20e7a9dd7d2cc6157d9e63a",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prepare_reading_breadth.py": "b8fa8c0152d8ec8365bdb76141b8820d906bea14dfef21b6edc674e559e1adf2",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\process_gate.py": "9cce7bb72fdb721ea1948f82dd94c43cc1fdc3fae7e9febf88ba94ed28fe2dc7",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prose_early_width.py": "2061fda1ac4199f4720d7cdbf70f3b172abf4aa39a11007d5a7bcb20125b12d5",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prose_evaluation.py": "059422854cafe600c0cbbf66a4aadae8ad8b98d93e116e684e0cb91f31fd5c45",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prose_founder.py": "06cd69e294a27f405d9e24a3e174c68c5669194f14bd4d24df0bcc0f4464aa00",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prose_large_founder.py": "14580740d28e316792f8972bfeccaf7294b547ee8f61526a57e0f36df9ace22c",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prose_projection_snapshot.py": "292e27d2af0a0c94d54fb343d620a20a32a2e135f8ecc1cd5cb109fee058a774",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prose_replay_capacity.py": "1a579b5f2e2f386a7ef7577a2579059e4ec4a9259391479d3cf1655c997a64cf",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prose_replay_coverage.py": "1837072997d6f348503267dd445f405e60ac54ff8d527b5378a35c8b02ebe71d",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prose_retention_inputs.py": "d279514cffbbd7633e71cb5159de69e59041bddeda4688ca5b5913a695579589",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prose_retention_lr.py": "59b1586f6554551e0c8855ad655b6a59620c87de1cfa8fe37c6e65e0c3a499bd",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prose_scale_schedule.py": "1cb78cf4a8b13971f570118f9168873c691f642c1ebe266657610f75930f1dcd",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prose_size_comparison.py": "f310c8a340a129e74c67320cf4fd39469826533dc4f61ae3c711790e77c6bf00",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\prose_spike_panel.py": "3c1f241d62736f83454e1cd1a3b7235ba89baa77b277762fdfd1e274e6652c81",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\publish_adaptation.py": "6a676c1c1d905cd1dfd17f0041193d82bd96198bb2ef29050fb6d03f3e44dd64",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\publish_early_width.py": "99a9c9f4e968b60f727dfcfaec4f8f40262193dbe62b5f3731bf7de0b19e2fbc",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\publish_prose_sizes.py": "83614e0ff794ca643d0828692191a83793b80922dd0c94ff247a7c6254b3f88a",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\publish_prose_spikes.py": "be605246ee336c7dc6345ec94906574bd67e8cce28fdb7bf38403d778c612a0d",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\publish_replay_capacity.py": "d38b6a5c91f4a3d63bff1a562f7ba1608103a9084bc3334ec201d70c3fdcff70",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\publish_replay_priority.py": "451d40e4e091af90c0d37a6a94434e0c144acba3f36e9812a3ea87ee001ee91e",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\publish_retention_control.py": "fde3ee3eadf57bcf6b28465dc6d1ccca7949f0f67f5999f7b6bdce734a00ee13",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\publish_retention_rates.py": "873cf9a33dc9aacaa3d702b8ccea874c0f5a72b38edf904525ffcb63fa1ae92b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\reading_breadth_experiment.py": "a80d83295932cf2b8a77543773d55ab15a6aca89fcb228de5e49d6bcfa80a53a",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\reading_breadth_sources.py": "4d6fb64fa8fcd019c9c8e0824c5a64d3dfab2f87e164a958c0f943f1add5a951",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\reduction_experiment.py": "c2909d27dde56b6d5a5c8ec2f8cfbd165b410b8c6438e29a3fffd2fff90192af",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\replay_experiment.py": "83e8cfcd76d031ff062deb18b7264027777af0d730f5353b0ab51301587ebcc8",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\replay_priority_experiment.py": "45db3bd4988b8204ef5bbf59889d17be280d8eecc0ef46094d3dfca8753237b4",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\replay_score_graph_experiment.py": "0c7645687a063399eb9d829fb0fa83a51f46d864ecd4f631a29ff04b7747edfa",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\replay_selection_experiment.py": "e24f3d0144cf0126dd859d87d3bfa6d613d2c66a60dc5882c4dc238415e24f99",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\retention_evidence.py": "6756de8d2ef83399329616c052e9f3861d17a3871546a5694bf5b1270ae8d3dd",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\review_physics.py": "bc273208a9bc03eef48794788782c03c1e7417b6fc34db34b2703c3186a299c2",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\review_physics_edition.py": "e72696ffa0d8866bd80959cc07443d25b22a1185f4a1c7cd3c387f6cd5ce0206",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\review_prealgebra_integrity.py": "b1032578b75305873e2f2fcfa5e90d0b6a862095b6991219633e68aba2eae171",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\sample_live_reading_questions.py": "c6372cbdf0e114d1fa796f754cc6c78f13539db3298c132724c6e5ad6bf2113f",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\selective_experiment.py": "063cc89378b516cf52441331ebe9700ffa97b114c26cc335962cdbf52723ec5c",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\spike_regime.py": "6723eb5d36eb121114a3a747ddc7e2d9d63916c4e154df2c1b065d1c67420f6a",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\spike_state_snapshot.py": "55c029734624822aa44b64b27af295b70b0f150711d24d02e6ab93528a13a16e",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_activity.py": "cd0c90af9e552cab0d033fd138251e8355c2a596dea1e027793063e30828c72d",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_adaptation.py": "16042ad47b9275168af70eae2cf3cd20b66c5c3f8dd3c8604946d0f7b031f59c",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_association_runtime.py": "738f8651f65276bd870772a3ccfdc5fa86d69cc51d0a608fb06d2a487e10e20b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_associative.py": "a6a54dc6a2b526df41c6b013bf9f2a3efa66fa5c4caa2d443822308745690633",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_associative_history.py": "2fd9660a9f6f827c2b28eb73dda20f4b6c45b648edbd2519162ac4472d07eb1c",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_associative_validation.py": "042d862e7d4c74cdadf745828fe645e6294a57158fc4af7eed55d97c58a0e420",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_binding_diagnostics.py": "45e7433ad6c53f6acf7aa18876ba5a3fed8e984ecb2d30aee71bae4530e34208",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_diversity.py": "6b168127c9735be55fb227aaf630319695fe695d29e2a0da176f54e6876bdb52",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_frozen_teachers.py": "2599ead65f7064209f14bdac517764b19937cab1e4cc5986646a530f2d8e0434",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_gated.py": "8600c03ed1bda38a8a8fc22af26e894badf4d52f86eeb76274d47f12fbaef399",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_live_extension.py": "53ac8c1b2e84cf8fd0e6ec9df54f20d0de8cf0ab6abdf0f4c444897df23df78c",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_live_reading.py": "c65abbf72b37d82c03729cd49fea8ddb5a61efc7922bc8770f6e496319ac3cd5",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_narrative.py": "005519effc61c002364d280b9b0d49b3de67e7398a040eb9b4b688617182b852",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_order.py": "8398e40765d40a234b7b1828f387f7677f0d6a429703db28357201bc9a93c72f",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_reading_breadth.py": "01a2fb7f74671758a3487fe132765ec2d48cdaa6572c54218304266a93927e41",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_reductions.py": "25eaa6b06a99b179a7378d5bad495cab259d8ac099ea0ec262fa5a024e763780",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_replay.py": "0c82de4d710f2002371cddb94005fd24a7590eb721f2d004641bb740e31932e9",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_replay_priority.py": "6dda6594005037f9bb9923b7d37a41827d2f0098babdd76edb118b0aa1886c61",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_replay_selection.py": "6183215185f14f77406fed3b1cd2f44f0614a6808eded3dccae6318024aaf3e0",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_selective.py": "471927349c2464c31cd750b27efd30a119069b20a691c21f31b636e10fa159ad",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_teacher_retention.py": "771d1c8b23e03d13330f95b5bf0371e6a0b78acd975acb38720075524d2d8848",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_teachers.py": "ec9dc1aa92519af8f8a45e0974bca448aa9867804cc8afd4c0aa5a4b0d7f3fef",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\summarize_trace.py": "4e0d21351caf6f275315ddad44f605550acfcf10a39f3cf4e48f48d6f49b99c2",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\scripts\\teacher_retention_experiment.py": "c42bebf4ae8add67d803f8bad24525637c1dc480ab9a53c5ce35b039af1caeb5",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\activity_metrics.py": "ee1d1d46bb04734e37f2a9fffc9237ad6ea57b49633d69e7192665206e0ee685",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\activity_penalty_reach.py": "e3bcdde0b14e1a25fe7bba41135b03c4e9eeb5def315321a38dd786e824c1b46",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\adaptation_experiment.py": "4d20aed97af46b705fc4cd036e6bbb3b9a2a105f132b26dea9d6de767dda5779",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\adaptation_probe.py": "428fb196cfe8df99a6504147274876231d2e2a433ced9e5d82f11a3aaa80d96a",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\associative_experiment.py": "cfcf4a80c65e2ccbb612f99117d9a8047b94708128c16ec886c072cff290d778",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\associative_history.py": "016348b4351ae977c33a57b6deab07ccecfdd58b03c5c4d4280a7b6f489f3529",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\associative_reference.py": "695da51d9560d01821b5da3cab63d3c27005543b51acf709231f89b40f3a61f2",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\associative_threshold.py": "0760e23f2442be1b03f0f722ed4cf1e1c7dfd61005fec04a477b7ce97e33cde3",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\astronomy_schedule.py": "fb8d96ea89670dd473e40a64e70dbf81df8fe3933dc94b6646537f8e50b56e75",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\binding_cli.py": "35a77a272e6b3bb44c9bd0858b240cacfe619c458eeb7d0b6bfde09001e62fc3",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\binding_cpu_audit.py": "8da91bd9824d5794e5ddcf288690049cfeb0793ceb8efa2c83842f77971883f7",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\binding_diversity.py": "0d025ac559c9320bc827bc0f5c3c22fccf9fc7645c13a4043c2096218788610b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\binding_learned_oracle.py": "2af5156e7defdf6d617d9eed3c51a3e9938aaa3c8dfbf245515c3f6cb1b6177b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\burn_policy.py": "8ccc2581c5ee7cba2a030a7c657617994c88c1ac0e28529bf5c990fc592f3ddf",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\capacity_probe.py": "2d5e7a0d315142b28d05c4ba3fdedc7f84d74d57cdb070da79c4a3e98b9a11cf",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\checkpoint_assessment.py": "46e62f405229dccfe35ccd5bf946e07537fbd0779bf63884c92d4ebc1e482e0e",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\corpus_selection.py": "28cda0422b5534a993b9dbc38a5bb029d9fba8f8f1b5bf94455c0e970af99a60",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\current_corpus_selection.py": "ad4433f9b101706659a8508394b869ac4ef9453e415d2781d08405af6b0eb74e",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\curriculum_cli.py": "1f112b2febfa4369ae54dbf58ee7b41d03979bb40cbf3605c30c0651bbc6938b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\curriculum_extension_cli.py": "1998811c2d5f199b3e3eaee982ac825d870a350f3f6e454a62f6b6760271e705",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\curriculum_order.py": "f232ae2b54e7f04d59d33d813e27c40da24da95ba9146af50c2b2c6c6199edbd",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\distillation_oracle.py": "6ca8063db43edfdc934a838e4db90635702b3e758c77c7b9792d886d42e3b2ec",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\diversity_learned_oracle.py": "0d774a4767f55ac5b04646d775211c73832d40ff34eebc7309988416cf30414b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\early_reader_corpus.py": "e9b4a38ebe400b131a9128d32d16229d2c14f905d36562bf489006c2e5f4553d",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\early_width_publication.py": "f31922f9ff85889a69b260ef42d696227f7ee34f0c8fd98ee54007f2fe0f4d8f",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\early_width_speech.py": "82fff3d62fc963c53f7e2664d3c8c93101a5cc89c9ef45dad97bd3fab832bc03",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\extension_preparation.py": "65251ca5a25f5f5955b23fb8d06b3f7c2c6b79fc7cc16dcb5b7616bc9f2f3b7b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\frozen_teacher_compatibility.py": "d9965c8f2170d3e0c5a5ef8523b9906642bcbe2403b827027448d8012115a417",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\large_prose_founder.py": "56bc875134ce0cb9b6613d1e2ef13c8c474b08870854ff83302f794ca98d43d4",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\learned_threshold.py": "350977ad62ffa890bcecb44bbdcf3466b3b732be712532f56786a8572a735f0e",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\live_reading_experiment.py": "ca9a17b0d1a2bd819039e6f0aed76a7886bab27edf6f7e508c0a8deed0f1bbcd",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\live_views.py": "ccc112860316588475bf0e4a2e319894b987ed9797cf8191c6d88f6270222280",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\membrane_acceptance.py": "a88cb0a2dedefc6ec7f93b13331afb1b9bdfccd29293360f9b646ff6a16c2968",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\membrane_policy_readers.py": "1c93841d89f5739c46219bbb08cd7830f5ccc13385ec352f74a9edf3322e3a8a",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\membrane_teacher_cli.py": "f3b8f77c5268fbb45c5b451a4e981daa4dd21273293a73fc285b9ab91c31f7e8",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\membrane_teacher_transcript.py": "b3ba009ef2b2054e592596a4005c2a45be3a89bbe63179cd36b85b6f6b28932e",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\narrative_experiment.py": "5445ee95081a6359dd958a48dbc498f06ae7f33f245df848e041e4c6f2afc8e0",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\openstax_corpus.py": "f10765f473363ab9c41c7f7d3c38c5810c9291a7d7c8c05b68907f074877ceb5",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\oracle.py": "f206882ed63ed9ccecc71ba30229ecc92478d4282f0de3b8ce53bee165042568",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\physics_edits.py": "f02ec3403454c8c25d3c2238111276fa31f3c59b62439d7582682aa31fb8ec9d",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\physics_extraction.py": "ff1f81fb9fca6d9e354101a02aa6460bec4ee836b407f1c063f3c984530f820f",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\physics_review.py": "cc35c03a0b8e99f744a9e73dfc6cf489b2e7d2b649e17ccbf9911f4f39b75e02",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\physics_selection.py": "27ba02905ea07eb9d3021dd11a82fb4d0f547342c053517b56de7de10c27ce4b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\population_cli.py": "a82b1a0d582387279e88a55566fb1650e036a7988d7145078d363aaaba6fadf2",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\population_live_cli.py": "7da232275d2cb4c1d237f67c2b06324bf5acbc422d5e09807a18705055157160",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\population_teachers_cli.py": "e74b871e1d9a1484715d91a19d547b794d2e826e54312595681245b612db936f",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\prealgebra_integrity.py": "729fd251958052d1d622cc6c9de83e05696a9bdf95c0a976688fa9bc954dbb80",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\prealgebra_math.py": "b542aaa257229fc188d418d0d73584979a040c636f0518537439669eda2b9291",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\prealgebra_selection.py": "f7fb275c792931b2962dd69910153454141c635a855b5da27fb58c8acdbdf08e",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\probes_cli.py": "1bb5c7ece07850a61c292312c6b15735649a98041f2805899924a565095b1609",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\prose_early_width.py": "f0a7f9ea29d20159af98ee6a85c2c84e88b0e2780488d240750d627652b1bb0b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\prose_projection_snapshot.py": "1677c8fb2b64f0d937eec98cbdafc535430eeccc924dcba11752be351e477c38",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\prose_replay_capacity.py": "2183e6421e6b1e044dca207d8564c1ab305bf9a9b0815165de97b4a078de39f7",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\prose_replay_coverage.py": "4c2b8acbea4646be9b554ac9064da99075af5276cd523260eda4a36850e2f2e1",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\prose_retention_lr.py": "f7a24e0eb1b63da07a98daed24090a9eaee6a8df2293ab1a048a317c2369402c",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\prose_scale_corpus.py": "16ae89899b6406677c6a7c3c4ab9c7f21f3b707fef9871f2b3d79aee97b2fbb5",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\reading_breadth_corpus.py": "7b047166d116aec905438fe9d4c8327a7cf4745b4d6406214dc1c7982e72fe95",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\reading_breadth_experiment.py": "72dc85a57f1b34c0b0f99244bedf3fbba84de90aa97a934782010e5be0194efa",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\replay_capacity_publication.py": "14028d54b28a8eda7b1d44b11f9ad9be2ac5ffcc49d785a581c3542885b8be16",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\replay_priority_diagnosis.py": "20751f14df1699c128c2faf36c265fbffc2bd217b556558848dd70aff13d4cec",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\replay_priority_experiment.py": "f772754099a43a7eb2d1951c8330f94469a7de562c969ae921f6aa2ef65dff9d",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\replay_priority_probe.py": "59ee919642032be1edaa51900d9d4dec917da13de5cc25d4f68b11d3839a37f9",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\replay_selection_experiment.py": "80dc37f9b7a1ed0fe18c0aaff3b4477516efcb2d402e57c899018542177c3988",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\replay_selection_probe.py": "f1c1431773162c713cbd796f040ac0b2d506f4548e996bb88baf70cb86aacdcc",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\retention_cli.py": "7288c51c7d78b03e364e12a697c984a853e4f7aa2a6beb76dfaa7c2c70c5910e",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\retention_evidence.py": "83a6e5c495564e11064bf1b6e74f85e92ec6ce1f3a23ff14a99d0cdba41cba7e",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\score_diagnosis.py": "2c8d0d6b22c62ab4f3ec8ba48bd4555da36d98042fb89322a0896c0245aeb482",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\spike_regime.py": "e88212f48f6adf4914bcfb39ec5515fe1ecbfa59ac6c6c3f43749c3961883a16",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\stage_replay_cli.py": "6dc5698b438353f6a01b3c0f8d656c021935ad8c3b3a1b974a3e145deb4d5ce4",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\stage_replay_reference.py": "563e1ae33188b562df477f824ccf21bbd03d9e80c0379c3eb8c8d95e79f35be8",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\story_corpus.py": "1eff4928ae04cb9e5cd78af7e5e214fd110a4a70483280d52bc70827c3a9bf06",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\synaptic_oracle.py": "d9b56c5acbebd88a65f0f4d174647150225252d9bd651d2311705e465b9420ce",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\teacher_compatibility.py": "608cc0bdadfa12b78d69e70a4834e508066621e92c63a7c25806415f5df75741",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\teacher_large_smoke.py": "5c89087938958df145f40a4bca93124e13ebbb1189539d601d3a719b4a8e1522",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\teacher_replay_cli.py": "c0d4654f7264a2cd3ecb5513a9b0db1d28aac682e251332a3573d412279136e8",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\teacher_retention_experiment.py": "4af13483171d87bc7bb74e29402301bb4db7db63641cd8f589e2517615aa4965",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\trace_comparison.py": "1cdc7729a6d7fc0726d782846516e32344c18e4f590033fb9ff9ce9a5a5b6f4d",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\view_callers.py": "c6c03d52c53aa0cf15877e800c071930a9482ab35a4f2a563e6eaca03444866b",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\membrane_checkpoint.cu": "f1d3758c6295d689f5c8082c7d4fd4fbb84c0b82d32c49a8ee29d21db83fa0e6",
+    "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\tests\\membrane_learning.cuh": "d63d931c5fb9fed3c7a5493b62208fd75301b57af5c8da5f1aef2e3bbdebcde7"
+  },
+  "new_sources_admitted": false,
+  "language_trial": false,
+  "reproduction_admitted": false,
+  "scope": "GPU derivative/restart checks and disabled-runtime compatibility, not language quality or speed."
+}

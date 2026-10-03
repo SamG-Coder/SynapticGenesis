@@ -1,0 +1,114 @@
+{
+  "recorded_at_utc": "2026-10-03T20:41:42.354913+00:00",
+  "study": "D:\\SynapticGenesis\\runs\\membrane-learning-v2",
+  "protocol_sha256": "6712a77215645612c1f4b9144dd2685c66670941ada673fa4212ac6b328037bd",
+  "authenticated_inputs_rechecked": 475,
+  "source_checkout": "D:\\SynapticGenesis\\runs\\membrane-learning-worktree",
+  "source_commit": "d193b1204a9ab4b2bea44bbf261e05bc773f6abf",
+  "candidate_runtime": "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\synapticgenesis.exe",
+  "candidate_runtime_sha256": "bbc94b245887c8a6d473ae8cbe44dda6afa5993e29504f32baabeb02971ec481",
+  "acceptance": "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\runs\\membrane-acceptance-v2",
+  "acceptance_protocol_sha256": "642bedc90b0cebc1cdbfd06dfc4a5069f7684af9b487d191aba6a55d7884af5d",
+  "acceptance_result_sha256": "905d3dd5f8212058ecdaf90f951b9e063e0a0f42877c90fa81c54bbd0e24d44d",
+  "independent_acceptance_verification_sha256": "fb01808bfd6a0e70da449d54c8a633ff838cb8920415a94b6033597cb11f9e49",
+  "acceptance_exit": {
+    "pid": 17992,
+    "executable": "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+    "creation_filetime": 134355334890954030,
+    "exit_code": 0
+  },
+  "execution": {
+    "protocol_sha256": "6712a77215645612c1f4b9144dd2685c66670941ada673fa4212ac6b328037bd",
+    "phase": "learning",
+    "native_work_started": true,
+    "case_index": 0,
+    "case": "1337-control",
+    "completed_models": 0
+  },
+  "last_observed_source_metric": {
+    "online_update": 3375,
+    "curriculum_stage": 1,
+    "global_update": 4218,
+    "observed_pairs": 431402,
+    "epochs": 1,
+    "document": 3,
+    "byte_offset": 41344,
+    "loss": 2.122925758,
+    "spike_rate": 0.9090237617,
+    "gradient_norm": 2.722766638,
+    "replay_updates": 843,
+    "replay_pairs": 107786,
+    "replay_loss": null,
+    "consolidation_events": 0
+  },
+  "initial_control_checkpoint_sha256": "5a35fc86a63c9e56247aec16dee6a4f5eecd12066c150a1ffa065e3c68b07879",
+  "initial_control_exactly_matches_archived_105m": true,
+  "completed_models": 0,
+  "planned_models": 15,
+  "planned_assessments": 360,
+  "learning_policy_changed_from_first_declaration": false,
+  "specification": {
+    "version": "membrane-learning-v1",
+    "profile": "105m",
+    "shape": [
+      1024,
+      4096,
+      8
+    ],
+    "parameters": 104851472,
+    "seeds": [
+      1337,
+      2027,
+      4099
+    ],
+    "arms": [
+      {
+        "name": "control",
+        "activity_cost": 0,
+        "membrane_cost": 0
+      },
+      {
+        "name": "activity-0p1",
+        "activity_cost": 0.1,
+        "membrane_cost": 0
+      },
+      {
+        "name": "membrane-0p001",
+        "activity_cost": 0,
+        "membrane_cost": 0.001
+      },
+      {
+        "name": "membrane-0p01",
+        "activity_cost": 0,
+        "membrane_cost": 0.01
+      },
+      {
+        "name": "membrane-0p1",
+        "activity_cost": 0,
+        "membrane_cost": 0.1
+      }
+    ],
+    "membrane_band": 1.5,
+    "endpoints": [
+      8176,
+      26110
+    ],
+    "learning_rate": 0.0003,
+    "replay_capacity": 16384,
+    "replay_every": 4,
+    "log_every": 1,
+    "save_every": 8192,
+    "evaluation_spec": "data/prose-evaluation-v1.json",
+    "stage_two_training_monitors": [
+      572,
+      420
+    ],
+    "legacy_control_result": "reports/prose-replay-capacity-results.json",
+    "gradient_evidence": "reports/membrane-gradient-audit.json",
+    "primary_endpoint": "Paired equal-book validation loss after 26110 source observations, reporting every arm and all three seeds.",
+    "secondary_endpoints": "Each early-reader retention loss change from stage one to stage two; each stage-two training book before and after introduction; source-update loss, firing, logged gradient norms and above-clip counts; all four raw generation prompts at both endpoints.",
+    "scope": "Fresh randomized founders on the unchanged first two prose stages. Same source, replay, speech, optimizer and logging policy; only the declared objective changes. Coefficients are an exploratory logarithmic comparison, not matched-gradient penalties or biological ages.",
+    "limits": "No model promotion, teacher or reproduction admission, reserved test scoring, or coefficient selection by activity alone. Source-update clipping uses rounded logged norms; equality to the clip is recorded separately. Replay-update gradient norms are not logged. Full-curriculum language, 411M transfer and new-science retention remain separate work."
+  },
+  "limits": "Launch snapshot after all native gates passed. The first control is still learning; endpoint identity, objective comparisons, language improvements and all later models remain pending."
+}

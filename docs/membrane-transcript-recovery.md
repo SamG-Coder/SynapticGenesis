@@ -47,6 +47,24 @@ revalidates its results. The standalone CLI pass is not substituted for full
 acceptance. No learning quality or objective benefit has been established by
 repairing this test.
 
+The fresh [v2 acceptance](../reports/membrane-acceptance-v2.json) subsequently
+passed all twenty commands: eight CUDA gradient fixtures, eight exact native
+restart cases, eight independent gradient oracles, all eighteen CTest cases,
+six legacy oracles, disabled-runtime parity and both teacher paths. The
+[separate verification](../reports/membrane-acceptance-v2-verification.json)
+rechecks the command journals, results and completed 411M predecessor. The
+[declaration](../reports/membrane-acceptance-v2-protocol.json) preserves all
+258 input identities and the exact commands.
+
+The [new learning launch](../reports/membrane-learning-launch-v2.json) records
+the first 105M control actually learning after this successful handoff, with
+all 475 inputs reauthenticated and an initial checkpoint identical to the
+archived control. The five settings, three seeds and source schedule are
+unchanged from the original declaration. The
+[aborted first launch](../reports/membrane-learning-aborted-v1.json) remains a
+failed attempt with zero learned models. No completed objective comparison or
+language improvement is claimed by the new launch snapshot.
+
 ```powershell
 python -X utf8 tests/membrane_teacher_transcript.py --failed D:/SynapticGenesis/runs/membrane-regularization-worktree/runs/membrane-acceptance-v1/membrane-teacher --out runs/transcript-check-local.json
 python -X utf8 tests/membrane_teacher_cli.py --exe build/synapticgenesis.exe --out runs/membrane-teacher-local
