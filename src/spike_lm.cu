@@ -40,7 +40,18 @@ struct Buf {
     explicit Buf(size_t count) : n(count) {
         if (n) {
             ck(cudaMalloc(&p, n * 4));
+#ifdef SG_BUFFER_ALLOCATION_OBSERVER
+            // Optional diagnostic accounting of successful explicit float
+            // allocations. Sharing adds no allocation; final release removes it.
+            SG_BUFFER_ALLOCATION_OBSERVER(n * 4, true);
+            const size_t bytes = n * 4;
+            allocation = std::shared_ptr<float>(p, [bytes](float *v) {
+                cudaFree(v);
+                SG_BUFFER_ALLOCATION_OBSERVER(bytes, false);
+            });
+#else
             allocation = std::shared_ptr<float>(p, [](float *v) { cudaFree(v); });
+#endif
         }
     }
     Buf(const Buf &) = delete;

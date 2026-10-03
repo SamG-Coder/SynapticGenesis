@@ -8,12 +8,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from native_experiment import NativeCommands, sha
 
 
-def check(out):
+def check(out, old_exe='build/pre-bounded-live/synapticgenesis.exe',
+          new_exe='build/synapticgenesis.exe'):
     out.mkdir(parents=True, exist_ok=False)
     old_dir, new_dir = out / 'old', out / 'new'
     old_dir.mkdir(); new_dir.mkdir()
-    old = NativeCommands('build/pre-bounded-live/synapticgenesis.exe', old_dir)
-    new = NativeCommands('build/synapticgenesis.exe', new_dir)
+    old = NativeCommands(old_exe, old_dir)
+    new = NativeCommands(new_exe, new_dir)
     data = out / 'ragged.dat'
     phrase = b'The red ball is in the box. A cat watches the ball. '
     data.write_bytes(b'\x1e'.join((phrase * 3)[:33 + i] for i in range(32)))
@@ -45,4 +46,7 @@ def check(out):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--out', type=Path, required=True)
-    check(parser.parse_args().out)
+    parser.add_argument('--old-exe', type=Path, default=Path('build/pre-bounded-live/synapticgenesis.exe'))
+    parser.add_argument('--new-exe', type=Path, default=Path('build/synapticgenesis.exe'))
+    args = parser.parse_args()
+    check(args.out, args.old_exe, args.new_exe)

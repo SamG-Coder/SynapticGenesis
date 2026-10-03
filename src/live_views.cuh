@@ -23,8 +23,8 @@ class LiveViews {
                 views_.erase(oldest->first);
                 used_.erase(oldest);
             }
-            auto view = std::make_unique<Model>(root.q, root.B, length);
-            share(*view, root, stream);
+            auto view = std::make_unique<Model>(root, length,
+                stream ? ModelViewState::shared : ModelViewState::independent);
             view->fast(fast);
             found = views_.emplace(length, std::move(view)).first;
         }

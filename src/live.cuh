@@ -137,8 +137,8 @@ struct LiveEngine {
     std::unique_ptr<GraphDecoder> decoder;
     std::unique_ptr<teachers::Replay> teacher_replay;
     bool fast_math;
-    LiveEngine(Config q, int chunk, bool fast) : root(q, 1, chunk), speaker(q, 1, 1), fast_math(fast) {
-        LiveViews::share(speaker, root, true);
+    LiveEngine(Config q, int chunk, bool fast)
+        : root(q, 1, chunk), speaker(root, 1, ModelViewState::shared), fast_math(fast) {
         root.fast(fast);
         speaker.fast(fast);
     }

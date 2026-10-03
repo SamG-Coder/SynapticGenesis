@@ -2,6 +2,7 @@
 // live learners, generation views and frozen teachers.
 #pragma once
 enum class ModelBuffers { learning, frozen_forward };
+enum class ModelViewState { shared, independent };
 struct Cache {
     Buf norm, rs, z, u, s, state, initial_state;
     Buf adapt, adapt_state, initial_adapt, emission, gate;
@@ -35,9 +36,26 @@ struct Model {
     int *input = nullptr;
     int *target = nullptr;
     Model(Config config, int batch, int time, ModelBuffers buffers = ModelBuffers::learning)
-        : q(config), a(q), B(batch), T(time), N(batch * time),
-          learning_buffers(buffers == ModelBuffers::learning), w(a.n), g(learning_buffers ? a.n : 0),
-          m(learning_buffers ? a.n : 0), v(learning_buffers ? a.n : 0), decay(learning_buffers ? a.n : 0),
+        : Model(config, batch, time, buffers, nullptr, ModelViewState::independent) {}
+    // Sequential execution views allocate scratch without their own parameter
+    // workspace, then attach to the owner during construction. They must not
+    // initialize the owner's optimizer/decay state.
+    Model(Model &owner, int time, ModelViewState state)
+        : Model(owner.q, owner.B, time, ModelBuffers::learning, &owner, state) {}
+
+  private:
+    static Config construction_config(Config config, int batch, int time, Model *owner) {
+        if (batch < 1 || batch > 256 || time < 1 || time > 4096)
+            throw std::runtime_error("Invalid batch/context");
+        if (owner)
+            owner->require_learning("Execution view");
+        return config;
+    }
+    Model(Config config, int batch, int time, ModelBuffers buffers, Model *owner, ModelViewState state)
+        : q(construction_config(config, batch, time, owner)), a(q), B(batch), T(time), N(batch * time),
+          learning_buffers(buffers == ModelBuffers::learning), w(owner ? 0 : a.n),
+          g(learning_buffers && !owner ? a.n : 0), m(learning_buffers && !owner ? a.n : 0),
+          v(learning_buffers && !owner ? a.n : 0), decay(learning_buffers && !owner ? a.n : 0),
           finalnorm(size_t(N) * q.c), finalrs(N), logits(size_t(N) * 256),
           dlogits(learning_buffers ? size_t(N) * 256 : 0), losses(learning_buffers ? N : 0),
           loss_weights(learning_buffers ? N : 0), dx(learning_buffers ? size_t(N) * q.c : 0),
@@ -46,8 +64,6 @@ struct Model {
           dz(learning_buffers ? size_t(N) * q.h : 0),
           dgate(learning_buffers && q.gated() ? size_t(N) * q.h : 0),
           neuron_partials(learning_buffers && B > 1 ? size_t(B) * q.h * (q.secondary() ? 3 : 1) : 0) {
-        if (B < 1 || B > 256 || T < 1 || T > 4096)
-            throw std::runtime_error("Invalid batch/context");
         cb(cublasCreate(&blas));
         cb(cublasSetMathMode(blas, CUBLAS_PEDANTIC_MATH));
         cb(cublasSetAtomicsMode(blas, CUBLAS_ATOMICS_NOT_ALLOWED));
@@ -59,7 +75,14 @@ struct Model {
         for (int i = 0; i < q.l; ++i)
             cache.emplace_back(N, q.c, q.h, B, q.secondary(), q.traced(), q.gated(), q.associative(),
                                learning_buffers);
-        if (learning_buffers) {
+        if (owner) {
+            if (state == ModelViewState::shared)
+                share_runtime(*owner);
+            else
+                share_parameters(*owner);
+            g.share(owner->g);
+            decay.share(owner->decay);
+        } else if (learning_buffers) {
             std::vector<float> mask(a.n, 0);
             for (auto pair : a.decay)
                 std::fill_n(mask.data() + pair.first, pair.second, 1.f);
@@ -68,6 +91,8 @@ struct Model {
             v.zero();
         }
     }
+
+  public:
     ~Model() {
         cudaFree(input);
         cudaFree(target);
