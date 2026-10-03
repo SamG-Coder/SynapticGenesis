@@ -1,0 +1,168 @@
+{
+  "complete": true,
+  "protocol": {
+    "status": "declared_before_learning",
+    "source_commit": "13d634de89ff971d2b2bd804f0015a64d4de6639",
+    "profile": "105m",
+    "channels": 1024,
+    "neurons_per_layer": 4096,
+    "layers": 8,
+    "cell": "associative",
+    "seed": 1337,
+    "random_initialization": true,
+    "imported_weights": false,
+    "updates": 8176,
+    "full_schedule_updates": 216289,
+    "source_schedule": {
+      "source_spec_sha256": "662efb7b6690f97811333838b20de179aa3ae6639acf461678d1e16004683015",
+      "prepared_manifest_sha256": "a0e938120e0007fca06f90d17aa68d445d1b0248bbcb849aaeb3987c2bffa28e",
+      "chunk": 128,
+      "stages": [
+        {
+          "stage": 1,
+          "passes": 4,
+          "documents": 4,
+          "source_pairs_per_pass": 261274,
+          "observations_per_pass": 2044,
+          "end_update": 8176,
+          "cumulative_source": "data\\prepared\\prose-scale-v1-pinned\\through-stage-1.dat",
+          "source_sha256": "66116234362cb7fa49d233e671f8c6a388ad2b2181577ea3538a92b95a2be143"
+        },
+        {
+          "stage": 2,
+          "passes": 1,
+          "documents": 10,
+          "source_pairs_per_pass": 2294824,
+          "observations_per_pass": 17934,
+          "end_update": 26110,
+          "cumulative_source": "data\\prepared\\prose-scale-v1-pinned\\through-stage-2.dat",
+          "source_sha256": "819fa6afc9be7c066ab39786335bf7ccb5fdc35422c5c8e9ce19d24936c985e0"
+        },
+        {
+          "stage": 3,
+          "passes": 1,
+          "documents": 20,
+          "source_pairs_per_pass": 8842953,
+          "observations_per_pass": 69097,
+          "end_update": 95207,
+          "cumulative_source": "data\\prepared\\prose-scale-v1-pinned\\through-stage-3.dat",
+          "source_sha256": "fe78064ddbf592f032b436b4c0a2b8ff5ce93b59727281514fd57d1951757911"
+        },
+        {
+          "stage": 4,
+          "passes": 1,
+          "documents": 21,
+          "source_pairs_per_pass": 15497256,
+          "observations_per_pass": 121082,
+          "end_update": 216289,
+          "cumulative_source": "data\\prepared\\prose-scale-v1-pinned\\through-stage-4.dat",
+          "source_sha256": "1ef65088ebe714800673c9a89711e732061b86c65a368d9806ddf9a3167125b5"
+        }
+      ],
+      "schedule_sha256": "95c67a6ee99e8c57101556cf141ae0031d9de2e4c1da7fc4ab652c7f253ea1e3",
+      "source_pairs": 27680129,
+      "online_updates": 216289,
+      "policy": "Complete four foundation passes and one pass of each later stage, with new-document source traversal and ordinary balanced stage replay. This is an initial exposure schedule, not a demonstrated optimum or stopping rule."
+    },
+    "authenticated_inputs": {
+      "data\\sources-prose-scale-v1.json": "662efb7b6690f97811333838b20de179aa3ae6639acf461678d1e16004683015",
+      "data\\prepared\\prose-scale-v1-pinned\\manifest.json": "a0e938120e0007fca06f90d17aa68d445d1b0248bbcb849aaeb3987c2bffa28e",
+      "runs\\prose-scale-curriculum\\curriculum.sg": "95c67a6ee99e8c57101556cf141ae0031d9de2e4c1da7fc4ab652c7f253ea1e3",
+      "build\\synapticgenesis.exe": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+      "data\\prepared\\prose-scale-v1-pinned\\through-stage-1.dat": "66116234362cb7fa49d233e671f8c6a388ad2b2181577ea3538a92b95a2be143",
+      "data\\prepared\\prose-scale-v1-pinned\\through-stage-2.dat": "819fa6afc9be7c066ab39786335bf7ccb5fdc35422c5c8e9ce19d24936c985e0",
+      "data\\prepared\\prose-scale-v1-pinned\\through-stage-3.dat": "fe78064ddbf592f032b436b4c0a2b8ff5ce93b59727281514fd57d1951757911",
+      "data\\prepared\\prose-scale-v1-pinned\\through-stage-4.dat": "1ef65088ebe714800673c9a89711e732061b86c65a368d9806ddf9a3167125b5"
+    },
+    "learning_rate": 0.0003,
+    "replay": "ordinary stage-balanced, every four source observations, 1024 stored descriptors",
+    "graph_speech_every": 500,
+    "generated_bytes_per_speech": 96,
+    "generated_text_targets": false,
+    "reserved_tests_scored": false,
+    "reproduction_admitted": false,
+    "scope": "Initial learning checkpoint at a declared exposure; not a language-quality or scaling comparison."
+  },
+  "session": {
+    "online_updates": 8176,
+    "gradient_reductions": "ordered_v1",
+    "curriculum_stage": 1,
+    "curriculum_hash": "8949573117487022712",
+    "curriculum_extended": false,
+    "curriculum_base_lr": 0.0003000000142,
+    "global_updates": 10220,
+    "online_first_document": 0,
+    "online_document_count": 4,
+    "answer_emphasized_documents": 0,
+    "observed_pairs": 1045096,
+    "generated_bytes": 1536,
+    "elapsed_seconds": 156.0373542,
+    "session_online_updates": 8176,
+    "session_observed_pairs": 1045096,
+    "observed_pairs_per_second": 6697.729562,
+    "replay_updates": 2044,
+    "replay_pairs": 261337,
+    "replay_state_bytes": 24752,
+    "replay_mode": 3,
+    "replay_items": 1024,
+    "core_scale": 1,
+    "learning_rate": 0.0003000000142,
+    "replay_every": 4,
+    "graph_decode": true,
+    "update_tick_p50_ms": 14.41682359,
+    "update_tick_p95_ms": 28.83364719,
+    "update_and_speech_tick_p50_ms": 105.7622842,
+    "update_and_speech_tick_p95_ms": 112.8632063,
+    "latency_percentile_bin_relative_width": 0.02189714865,
+    "shared_weights": true,
+    "persistent_membranes": true,
+    "trains_on_generated_text": false,
+    "replay_groups": [
+      {
+        "stage": 1,
+        "document_end": 4,
+        "seen_windows": 8176,
+        "stored_windows": 1024,
+        "quota": 1024,
+        "replay_updates": 2044,
+        "replay_pairs": 261337
+      }
+    ],
+    "consolidation": "none"
+  },
+  "checkpoint": "runs\\prose-105m-founder\\stage-1.ckpt",
+  "checkpoint_sha256": "b6303acdcee8a3e942f27db4ea930a17690035ab54bae9860a2c719f25580550",
+  "parameters": 104851472,
+  "spiking_neurons": 32768,
+  "quality_evaluated": true,
+  "full_corpus_completed": false,
+  "assessment": {
+    "reader_development": {
+      "step": 10220,
+      "loss_nats_per_byte": 2.187037,
+      "bits_per_byte": 3.155227,
+      "evaluated_bytes": 65536,
+      "corpus_hash": "7937286900399289444"
+    },
+    "samples": [
+      {
+        "prompt": "The bird ",
+        "generated_bytes": 128,
+        "output_utf8": "The bird moning in\na now hi live son find every lingir to night it.\n\n2. Sfeee inie made which bing to soors, to be hay, found, this let\ns",
+        "output_hex": "5468652062697264206d6f6e696e6720696e0a61206e6f77206869206c69766520736f6e2066696e64206576657279206c696e67697220746f206e696768742069742e0a0a322e20536665656520696e6965206d6164652077686963682062696e6720746f20736f6f72732c20746f206265206861792c20666f756e642c2074686973206c65740a73",
+        "sha256": "a0ad2b22fcf81cb0e2e3a987e970cccf9fe3f661f9c9e0fd13132ebe65fb5fbc"
+      },
+      {
+        "prompt": "Question: What is water?\nAnswer:",
+        "generated_bytes": 128,
+        "output_utf8": "Question: What is water?\nAnswer: I knear birls thart, and white must our out, and\nof the childres.\n\n2. A loow which were boid this nerse, a rise of mountier. \"I",
+        "output_hex": "5175657374696f6e3a20576861742069732077617465723f0a416e737765723a2049206b6e656172206269726c732074686172742c20616e64207768697465206d757374206f7572206f75742c20616e640a6f6620746865206368696c647265732e0a0a322e2041206c6f6f77207768696368207765726520626f69642074686973206e657273652c20612072697365206f66206d6f756e746965722e202249",
+        "sha256": "7295cc92191520300f599fe46e3b3af3cafc804b5cec42ad3a74cc5e4a7b0584"
+      }
+    ],
+    "checkpoint_unchanged": true,
+    "math": "strict FP32",
+    "scope": "Exploratory first-stage reading assessment; no reserved tests, general QA score or model-size comparison."
+  },
+  "driver_sha256": "0313a08d408cf2bc5c707005719d5b439032ffac3d5823560ef1ac1c62a6d537"
+}
