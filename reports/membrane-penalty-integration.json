@@ -70,5 +70,26 @@
     "path": "runs/membrane-penalty-host-v1.json",
     "sha256": "cc30ecae8540ff6130f8ca47c37160d12ebd996000d24819f9be98c418f636fa"
   },
-  "host_report_publication": "Windows native text output is normalized from CRLF to LF for Git publication; parsed JSON is identical. The raw native report remains preserved with its own hash."
+  "host_report_publication": "Windows native text output is normalized from CRLF to LF for Git publication; parsed JSON is identical. The raw native report remains preserved with its own hash.",
+  "published_git_blobs_sha256": {
+    "experiments/membrane_penalty.cuh": "92d4f4e76c3b6806e55a0ffc607b97c6995936a1d27ea50525963e07a686f900",
+    "tests/membrane_penalty_reference.cu": "2c0ec44aa08f36600d7ece94ef38aef498c456366b49be81a8e0c2cb18281f8e",
+    "scripts/activity_penalty_reach.py": "6f700dc17ef862b53c8e14633b98fbcf19b1b898ab08071a462539b7cf5956c3",
+    "tests/activity_penalty_reach.py": "e3bcdde0b14e1a25fe7bba41135b03c4e9eeb5def315321a38dd786e824c1b46",
+    "CMakeLists.txt": "d0d3e34de269ef7ab8fb4ae1a1cd9ad33e220d3f08e5be4cc2e8c48df04331d4",
+    "build.ps1": "8ac048287e54fd2914f40e4cf3d80806b627b0412d5c52ab806813d2532a8364",
+    "tests/build_selectors.ps1": "ee899eabe156f8a39cf70c36f709b2c57a0ab79e1ea902270d16b52c7b7d1098",
+    "reports/activity-penalty-reach.json": "4094960f80bb058925a495d10736cd28765927c839b3bc05728a203f896b0566",
+    "reports/activity-penalty-reach-checks.json": "7d1c6a1bf96985120882fea54223ea766bbabbdd5db4c07b23d1429d7e02ac96",
+    "reports/membrane-penalty-host.json": "f55be210c98275c38a36b296ae0222ed66ab6b9be5dddcd9632ab653c2da28b6",
+    "reports/membrane-penalty-build-selectors.json": "1ee043c0f14d5c1429827e6d1419277c08f087a242da97abdb66a9560111a956",
+    "data/membrane-penalty-audit-v1.json": "3769ebfd60d9cf10dfd6510992f6d653b222eb343dece3fe976e08869f3652d3",
+    "reports/membrane-regularization-research.json": "cd6e4b3450a08dd11f59c618050ffd1bc8a698df8e4052da5cedf5e46f2753e9"
+  },
+  "git_normalized_text_files": [
+    "CMakeLists.txt",
+    "build.ps1",
+    "tests/build_selectors.ps1"
+  ],
+  "source_hash_scope": "source_and_evidence_sha256 records exact local build/analysis bytes. published_git_blobs_sha256 separately records Git canonical contents; Git CRLF normalization changes the three listed build-script file hashes without changing their text. The native host report has separate raw and published identities."
 }
