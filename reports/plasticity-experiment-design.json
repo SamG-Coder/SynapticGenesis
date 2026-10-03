@@ -1,0 +1,286 @@
+{
+  "review_date": "2026-10-03",
+  "kind": "Targeted primary-source follow-up and unexecuted adaptation pilot design",
+  "repository_base": "08b6742174ff572d8cedb12896fe27e015008282",
+  "document": "docs/plasticity-experiment-design.md",
+  "external_implementations_executed": false,
+  "external_model_weights_used": false,
+  "sources_added_to_model_training": false,
+  "sources": [
+    {
+      "id": "lyle-2023",
+      "title": "Understanding Plasticity in Neural Networks",
+      "url": "https://proceedings.mlr.press/v202/lyle23b/lyle23b.pdf",
+      "status": "ICML 2023 paper",
+      "read_scope": "Definition, probe methodology, motivating examples and Appendix B.1"
+    },
+    {
+      "id": "lyle-2024-2025",
+      "title": "Disentangling the Causes of Plasticity Loss in Neural Networks",
+      "url": "https://proceedings.mlr.press/v274/lyle25a.html",
+      "status": "PMLR 274 published record; preprint v1 dated 2024-02-29",
+      "fulltext": "https://arxiv.org/html/2402.18762v1",
+      "read_scope": "Publisher abstract; preprint definitions, mechanisms and selected experiment details",
+      "access_limit": "Publisher PDF browser fetch failed; no exact-version equivalence assumed"
+    },
+    {
+      "id": "hernandez-garcia-2025-2026",
+      "title": "Reinitializing weights vs units for maintaining plasticity in neural networks",
+      "url": "https://proceedings.mlr.press/v330/hernandez-garcia26a.html",
+      "status": "CoLLAs 2025; PMLR 330 published 2026; preprint v2",
+      "fulltext": "https://arxiv.org/html/2508.00212v2",
+      "read_scope": "Main definitions, method, comparisons, optimizer and tuning appendices",
+      "access_limit": "Publisher PDF browser fetch failed; detailed claims use preprint v2"
+    },
+    {
+      "id": "prakash-2026",
+      "title": "Spectral Collapse Drives Loss of Plasticity in Deep Continual Learning",
+      "url": "https://proceedings.mlr.press/v306/prakash26b.html",
+      "status": "ICML 2026 published record",
+      "read_scope": "Publisher abstract only",
+      "access_limit": "No full-paper assumptions, implementation or external execution verified"
+    }
+  ],
+  "local_evidence_sha256": {
+    "reports/native-activity-panel.json": "f9de925f008d66efc0d10bd274563bca3499f6ed94b494bee31272df9d506e70",
+    "reports/native-activity-summary.json": "5c0e5af48d9b99e8aafd9d503b01330c07de3e8e69f79cb0e1e8423eabcbf460",
+    "reports/teacher-retention-summary.json": "f21f1238566dff6c1d35c501965c79de894bb59c05f35c7f129ecd8b295b4e14",
+    "reports/frozen-teachers-validation.json": "119fdbc84b03683783e65028007555a7021f36f5a424f5fa097d096642db9bb5",
+    "reports/gradient-projection-geometry.json": "fbc3b6c30d7989a61b766e6bfa945e694f9f880d249b44eddd09fb493217e40d",
+    "src/model.cuh": "453c0aea5e331667c60b7ad0053747ac97312a1375e4887d6df121d08c226876",
+    "src/checkpoint.cuh": "ac967392c2ff80deb2dfa3403a0f501a15402230d335426b67b170eb2fa7d096",
+    "src/spike_lm.cu": "0e6ea9a8073c686f5c142b79964e32233cb377e874a99bc18f8a9e7f1005b14c",
+    "docs/plasticity-experiment-design.md": "92dd5ebad858378e93769d1461275d6ff931ec239eac33a14425e7de710a1b13"
+  },
+  "proposal": {
+    "status": "design_declared_before_probe_training; native driver not yet implemented",
+    "architecture": {
+      "cell": 6,
+      "channels": 256,
+      "hidden": 512,
+      "layers": 4
+    },
+    "seeds": [
+      1337,
+      2026,
+      31415
+    ],
+    "experienced_starts": [
+      {
+        "label": "1337-associative-parent",
+        "seed": 1337,
+        "architecture": "associative",
+        "role": "parent",
+        "online_updates": 130000,
+        "checkpoint": "D:/SynapticGenesis/runs/associative-long-panel/1337-associative/checkpoint-130000.ckpt",
+        "checkpoint_sha256": "b518dac1dfc7c28fe4d7e3bb80be314f5fbd49527cf15c39468b023a57581894"
+      },
+      {
+        "label": "1337-associative-control",
+        "seed": 1337,
+        "architecture": "associative",
+        "role": "control",
+        "online_updates": 190000,
+        "checkpoint": "D:/SynapticGenesis/runs/teacher-retention-panel/1337-associative-control/checkpoint-190000.ckpt",
+        "checkpoint_sha256": "bda9174ccab435119bb489d7321da85e01fc279777df81347e5b68b4ee3d893f"
+      },
+      {
+        "label": "1337-associative-teacher",
+        "seed": 1337,
+        "architecture": "associative",
+        "role": "teacher",
+        "online_updates": 190000,
+        "checkpoint": "D:/SynapticGenesis/runs/teacher-retention-panel/1337-associative-teacher/checkpoint-190000.ckpt",
+        "checkpoint_sha256": "71c7a7154c83785ef2a8af1256f2c78d1b676246683ba78d105cbbb83a082ac1"
+      },
+      {
+        "label": "2026-associative-teacher",
+        "seed": 2026,
+        "architecture": "associative",
+        "role": "teacher",
+        "online_updates": 190000,
+        "checkpoint": "D:/SynapticGenesis/runs/teacher-retention-panel/2026-associative-teacher/checkpoint-190000.ckpt",
+        "checkpoint_sha256": "1cfa2b72bb611e5a5d4e3e5f6e3d3074ab1b82a83b1aae20d64e27612f8a5e7b"
+      },
+      {
+        "label": "2026-associative-parent",
+        "seed": 2026,
+        "architecture": "associative",
+        "role": "parent",
+        "online_updates": 130000,
+        "checkpoint": "D:/SynapticGenesis/runs/associative-long-panel/2026-associative/checkpoint-130000.ckpt",
+        "checkpoint_sha256": "eadbc6f0e2a9b53e3741669c527a0a4179b635beaeda4577077e559c84524f13"
+      },
+      {
+        "label": "2026-associative-control",
+        "seed": 2026,
+        "architecture": "associative",
+        "role": "control",
+        "online_updates": 190000,
+        "checkpoint": "D:/SynapticGenesis/runs/teacher-retention-panel/2026-associative-control/checkpoint-190000.ckpt",
+        "checkpoint_sha256": "dfc71bee48963ecddbf68d8797c87fd96bb388a87f903d4418cd2097c9ab0cef"
+      },
+      {
+        "label": "31415-associative-parent",
+        "seed": 31415,
+        "architecture": "associative",
+        "role": "parent",
+        "online_updates": 130000,
+        "checkpoint": "D:/SynapticGenesis/runs/associative-long-panel/31415-associative/checkpoint-130000.ckpt",
+        "checkpoint_sha256": "ccf310f157472280c1916fa3c5eebd63fe902c17c6750fbddaa6f30305403ba5"
+      },
+      {
+        "label": "31415-associative-control",
+        "seed": 31415,
+        "architecture": "associative",
+        "role": "control",
+        "online_updates": 190000,
+        "checkpoint": "D:/SynapticGenesis/runs/teacher-retention-panel/31415-associative-control/checkpoint-190000.ckpt",
+        "checkpoint_sha256": "46856b6298d96409fedc0f10fbfe3ba550d2c30e3c7f64f39ff7b0d17f815d40"
+      },
+      {
+        "label": "31415-associative-teacher",
+        "seed": 31415,
+        "architecture": "associative",
+        "role": "teacher",
+        "online_updates": 190000,
+        "checkpoint": "D:/SynapticGenesis/runs/teacher-retention-panel/31415-associative-teacher/checkpoint-190000.ckpt",
+        "checkpoint_sha256": "594b1dfdbc1a5b6e40a9ee811105e1d47c32863a01b8f319bc1dc378aebe5fb6"
+      }
+    ],
+    "fresh_starts": 3,
+    "experienced_carry_starts": 9,
+    "experienced_reset_starts": 9,
+    "learning_rates": [
+      7.5e-05,
+      0.0003
+    ],
+    "trajectories": 42,
+    "endpoints": [
+      0,
+      64,
+      256,
+      1024,
+      4096
+    ],
+    "batch": 1,
+    "context": 128,
+    "pairs_per_trajectory": 524288,
+    "math": "strict FP32",
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.95,
+      "epsilon": 1e-08,
+      "weight_decay": 0.01,
+      "norm_clip": 1.0,
+      "core_scale": 1.0
+    },
+    "optimizer_state": "Carry both moments and stored global step, or reset all three while preserving weights.",
+    "source_edition": {
+      "path": "data/prepared/early-readers-v1",
+      "manifest_sha256": "e97f7f359973c078822204ab7b93a18c46423b8053c118df1ef4f3ce3f6280fe",
+      "source_spec_sha256": "b0c0b6bc2f4ebcfba9fc5455a3e5b4242d473bf5809afba351c0c3951f94da46",
+      "upstream_commit": "be28dab38ac55e8eb2185edb6631b11615d02185",
+      "outputs": {
+        "train": {
+          "documents": 10,
+          "bytes": 14201,
+          "sha256": "332244884070ee9b2fa80313f2c47e17c82807eff2294492844b790e4792addb"
+        },
+        "validation": {
+          "documents": 3,
+          "bytes": 3306,
+          "sha256": "eb653f6be87d130259270f42f3be387bd68d845c3ab5ec42fe575754040ec7f3"
+        },
+        "test": {
+          "documents": 3,
+          "bytes": 3760,
+          "sha256": "19da3ed9c3533e2456f106da7a84ac7586fa90e2895596d201d210d15849f843"
+        }
+      },
+      "training_sources": [
+        {
+          "id": "0008",
+          "title": "What are you doing?",
+          "bytes": 139,
+          "sha256": "40cf9303a969975c0626f13b1212a3d96b5bc9afd3b6607f716264d87d4ff321"
+        },
+        {
+          "id": "0087",
+          "title": "I like to read!",
+          "bytes": 214,
+          "sha256": "c0cc696105ffb240695fc1ff4e4676f07c9cf69e66b98ed155fb0ba2f753bbb0"
+        },
+        {
+          "id": "0001",
+          "title": "A very tall man",
+          "bytes": 379,
+          "sha256": "c0df905de359f03593206437cfac2dfbbf936065c600715744b0cc07b09b1955"
+        },
+        {
+          "id": "0027",
+          "title": "Decision",
+          "bytes": 1039,
+          "sha256": "5b5b0b2a6df6bde793ef9fcf220471bc3557ae4680bd6dddc878ab260b368983"
+        },
+        {
+          "id": "0089",
+          "title": "Khalai talks to plants",
+          "bytes": 904,
+          "sha256": "ab557c293dff0eda9f8fb9912bac15955e6cb51f2a8b9fe44f41600d355ae983"
+        },
+        {
+          "id": "0095",
+          "title": "Zama is great!",
+          "bytes": 636,
+          "sha256": "546923a17038b028d78bd524a14ab4b9f27678754dd19c11b9ebddd399b263b5"
+        },
+        {
+          "id": "0110",
+          "title": "A Tiny Seed: The Story of Wangari Maathai",
+          "bytes": 2247,
+          "sha256": "67d4f0521b4c98d2823974ac07e349fb5e56195206839c8ffca8b907eb3169f9"
+        },
+        {
+          "id": "0315",
+          "title": "Sakima's song",
+          "bytes": 2506,
+          "sha256": "676adc16df692a73304598dd84083006264c3282e7636768be9ff02e64f18217"
+        },
+        {
+          "id": "0243",
+          "title": "Holidays with grandmother",
+          "bytes": 3264,
+          "sha256": "97f9446e6feae074f98b0521b98b659c13f3d0929954885b9c1dd2c9ac66a0c4"
+        },
+        {
+          "id": "0294",
+          "title": "Grandma's bananas",
+          "bytes": 2864,
+          "sha256": "d81c8b3d0f9666c82873b6a5007c5a64b0e5a16104bef3e84d0a51d4592296b5"
+        }
+      ]
+    },
+    "source_schedule": "Materialize 4096 windows per seed; uniform training document, then uniform valid byte start; 129 source bytes per window. Shared unchanged across starts and rates.",
+    "reset_recurrence_each_window": true,
+    "weighted_answers": false,
+    "earlier_source_replay": false,
+    "teacher_feedback": false,
+    "consolidation_penalty": false,
+    "reserved_tests_scored": false,
+    "checkpoint_mutations": false,
+    "source_schedules_materialized": false,
+    "native_driver_implemented": false,
+    "training_executed": false,
+    "adaptation_results_available": false,
+    "known_independent_numerical_failures_resolved": false,
+    "promotion_gate": "No production algorithm promotion from this diagnostic; report all curves and paired outcomes.",
+    "required_pre_execution_checks": [
+      "Authenticate all source/checkpoint/executable identities and save window schedules before training.",
+      "Equal initial weights between carry/reset copies and unchanged original checkpoints.",
+      "No held-out training targets or cross-document windows; exact presented-pair counts.",
+      "Finite native outcomes and complete uninterrupted/resumed probe equivalence.",
+      "Separate train fitting, development generalization and earlier-skill retention."
+    ]
+  }
+}
