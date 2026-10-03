@@ -78,8 +78,11 @@ The current prepared directory is `data/prepared/astronomy-v1-reviewed`. The
 earlier uncorrected draft is not the admitted selection. The current directory
 contains separate training, validation and test files,
 four topic-stage files, a manifest, attribution, the original license and
-preface. It deliberately contains no automatic native curriculum: a future
-learning stage must declare its exposure, prior-memory checks and replay mix.
+preface. It contains no automatic native curriculum. A separate
+[append-only curriculum preparation](astronomy-curriculum.md) now declares one
+complete pass of each topic stage after the prose curriculum. No model has
+learned it yet; checkpoint selection, prior-memory checks and replay settings
+must be bound by the subsequent learning experiment.
 
 ## Attribution and edition
 
