@@ -121,7 +121,7 @@ void stage_replay_test(const Args &args) {
     LiveCurriculum curriculum(schedule);
     float error = 0;
     int cases = 0;
-    for (int cell : {1, 2, 3, 4, 5})
+    for (int cell : {1, 2, 3, 4, 5, 6})
         for (bool si : {false, true}) {
             Args options = args;
             options.values["--replay"] = "stage";
@@ -177,7 +177,7 @@ void stage_replay_test(const Args &args) {
          "\"inclusion_frequency_trials\":"
       << trials
       << ",\"equal_group_selection_checked\":true,"
-         "\"invalid_payload_rejected\":true,\"all_five_cells\":true,\"optional_si\":true,\"graph_speech_"
+         "\"invalid_payload_rejected\":true,\"cells\":[1,2,3,4,5,6],\"optional_si\":true,\"graph_speech_"
          "identical\":true}\n";
     std::cout << "PASS stage replay: bounded quotas, selection, returning sources, typed restart and shared "
                  "live state\n";

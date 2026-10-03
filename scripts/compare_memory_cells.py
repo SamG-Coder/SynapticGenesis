@@ -68,7 +68,7 @@ if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--exe', type=Path, default=Path('build/synapticgenesis.exe'))
     p.add_argument('--out', type=Path, required=True)
-    p.add_argument('--cells', nargs='+', choices=['lif', 'alif', 'trace', 'gated', 'selective'],
+    p.add_argument('--cells', nargs='+', choices=['lif', 'alif', 'trace', 'gated', 'selective', 'associative'],
                    default=['lif', 'alif', 'trace'])
     p.add_argument('--hidden', type=int, default=128)
     p.add_argument('--delays', nargs='+', type=int, default=[64, 128, 256])

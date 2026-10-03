@@ -1,5 +1,6 @@
 // Independent scalar references plus complete same-device training repeats.
 #pragma once
+#include "test_fixtures.cuh"
 void reduction_test(const Args &args) {
     args.allow({"out"});
     fs::path out = args.get("out", "reports/reduction-tests");
@@ -75,12 +76,13 @@ void reduction_test(const Args &args) {
     auto identical = [](const std::vector<float> &a, const std::vector<float> &b) {
         return a.size() == b.size() && !std::memcmp(a.data(), b.data(), a.size() * sizeof(float));
     };
-    for (int cell : {1, 2, 3, 4, 5})
+    for (int cell : {1, 2, 3, 4, 5, 6})
         for (int batch : {1, 3})
             for (bool fast : {false, true}) {
                 Config q{40, 72, 2, cell};
                 Model first(q, batch, 17), second(q, batch, 17);
                 auto weights = initialize(q, first.a, 1337), state = first.membranes();
+                activate_association_fixture(q, first.a, weights);
                 if (q.gated())
                     for (auto layer : first.a.layers)
                         for (int i = 0; i < q.c * q.h; ++i)
@@ -118,7 +120,7 @@ void reduction_test(const Args &args) {
            << ",\"embedding_max_abs_error\":" << embedding_error
            << ",\"rms_input_max_abs_error\":" << input_error << ",\"rms_gain_max_abs_error\":" << gain_error
            << ",\"complete_repeat_cases\":" << repeat_cases
-           << ",\"updates_per_repeat\":24,\"all_five_cells\":true,\"strict_fp32_and_tf32\":true,"
+           << ",\"updates_per_repeat\":24,\"cells\":[1,2,3,4,5,6],\"strict_fp32_and_tf32\":true,"
               "\"single_and_multiple_sequences\":true,\"training_arrays_bitwise_identical\":true}";
     std::cout << "PASS ordered reductions: scalar references and " << repeat_cases
               << " complete repeated training cases\n";

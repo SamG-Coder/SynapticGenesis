@@ -8,6 +8,7 @@ from pathlib import Path
 import numpy as np
 import torch
 import torch.nn.functional as F
+from associative_reference import forward as associative_forward
 
 
 class SignedSpike(torch.autograd.Function):
@@ -44,9 +45,10 @@ def check(directory):
     c, h, layers = cfg['channels'], cfg['hidden'], cfg['layers']
     batch, time = cfg['batch'], cfg['context']
     adaptive = cfg.get('cell', 1) == 2
-    traced = cfg.get('cell', 1) in (3, 4, 5)
-    gated = cfg.get('cell', 1) in (4, 5)
-    selective = cfg.get('cell', 1) == 5
+    traced = cfg.get('cell', 1) in (3, 4, 5, 6)
+    gated = cfg.get('cell', 1) in (4, 5, 6)
+    selective = cfg.get('cell', 1) in (5, 6)
+    associative = cfg.get('cell', 1) == 6
     secondary = adaptive or traced
     raw = np.fromfile(directory / 'weights.f32', dtype='<f4').copy()
     weights = torch.tensor(raw, requires_grad=True)
@@ -73,6 +75,9 @@ def check(directory):
         if gated:
             label = 'retention_gate' if selective else 'read_gate'
             block += (take(f'{i}.{label}.weight', h, c), take(f'{i}.{label}.bias', h))
+        if associative:
+            block += (take(f'{i}.association.projection', 98, h), take(f'{i}.association.bias', 98),
+                      take(f'{i}.association.readout', c, 32), take(f'{i}.association.readout_bias', c))
         blocks.append(block)
     final_gain = take('final.gain', c)
     head = take('head.weight', 256, c)
@@ -87,9 +92,9 @@ def check(directory):
 
     activities = []
     initial_path = directory / 'initial_state.f32'
-    state_shape = (layers, 2 if secondary else 1, batch, h)
-    initial_states = (torch.from_numpy(np.fromfile(initial_path, '<f4').copy()).view(state_shape)
-                      if initial_path.exists() else torch.zeros(state_shape))
+    recurrent = (2 if secondary else 1) * batch * h + (batch * 1024 if associative else 0)
+    initial_states = (torch.from_numpy(np.fromfile(initial_path, '<f4').copy()).view(layers, recurrent)
+                      if initial_path.exists() else torch.zeros(layers, recurrent))
     final_states = []
     for i, block in enumerate(blocks):
         gain, wi, bi, wo, bo, leak = block[:6]
@@ -99,11 +104,11 @@ def check(directory):
         beta = torch.sigmoid(leak)
         # A saved boundary state is a constant for truncated BPTT. Its effect on
         # the first timestep's leak derivative must still be included.
-        reset = initial_states[i, 0]
+        reset = initial_states[i, :batch*h].view(batch, h)
         if secondary:
             rho = torch.sigmoid(block[6])
             gamma = F.softplus(block[7])
-            adaptation = initial_states[i, 1]
+            adaptation = initial_states[i, batch*h:2*batch*h].view(batch, h)
         spikes = []
         emissions = []
         for t in range(time):
@@ -120,10 +125,18 @@ def check(directory):
                 adaptation = retention * adaptation + (1 - retention) * spike
                 read = 2 * torch.sigmoid(gate_logits[:, t, :]) if gated and not selective else 1
                 emissions.append(spike + gamma * read * adaptation)
-        final_states.append(torch.stack([reset.detach(), adaptation.detach()]) if secondary else reset.detach().unsqueeze(0))
+        final_states.append(reset.detach().reshape(-1))
+        if secondary:
+            final_states.append(adaptation.detach().reshape(-1))
         all_spikes = torch.stack(spikes, dim=1)
         activities.append(all_spikes.abs().mean())
-        x = x + F.linear(torch.stack(emissions, dim=1) if traced else all_spikes, wo, bo)
+        emission = torch.stack(emissions, dim=1) if traced else all_spikes
+        x = x + F.linear(emission, wo, bo)
+        if associative:
+            memory = initial_states[i, 2*batch*h:].view(batch, 32, 32)
+            output, memory = associative_forward(emission, *block[10:14], initial=memory)
+            x = x + output
+            final_states.append(memory.detach().reshape(-1))
     logits = F.linear(norm(x, final_gain), head, bias)
     target_weights_path = directory / 'target_weights.f32'
     if target_weights_path.exists():
@@ -134,7 +147,7 @@ def check(directory):
         loss = F.cross_entropy(logits.reshape(-1, 256), targets)
     if initial_path.exists():
         native_state = np.fromfile(directory / 'final_state.f32', '<f4')
-        assert np.allclose(native_state, torch.stack(final_states).numpy().reshape(-1), atol=2e-5, rtol=1e-5)
+        assert np.allclose(native_state, torch.cat(final_states).numpy(), atol=2e-5, rtol=1e-5)
     loss.backward(retain_graph=True)
     actual_logits = np.fromfile(directory / 'logits.f32', '<f4')
     expected_logits = logits.detach().numpy().reshape(-1)
@@ -146,9 +159,9 @@ def check(directory):
     for name, start, end in names:
         a, b = actual_grad[start:end], expected_grad[start:end]
         err = float(np.max(np.abs(a - b)))
-        tolerance = 1e-8 if ('.adapt_' in name or '.trace_' in name or '_gate.' in name) else 2e-6
+        tolerance = 1e-8 if ('.adapt_' in name or '.trace_' in name or '_gate.' in name or '.association.' in name) else 2e-6
         assert np.allclose(a, b, atol=tolerance, rtol=5e-4), (name, err)
-        if '.adapt_' in name or '.trace_' in name or '_gate.' in name:
+        if '.adapt_' in name or '.trace_' in name or '_gate.' in name or '.association.' in name:
             assert float(np.linalg.norm(b)) > 1e-9, (name, 'fixture must exercise adaptation gradients')
         tensor_results.append({'tensor': name, 'max_abs_gradient_error': err})
     # The native test performs its first unclipped, zero-decay Adam update.

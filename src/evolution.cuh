@@ -128,7 +128,7 @@ bool alive(const Member &m, uint64_t tick) {
 // Virtual food allocation: weights, gradients, two moments, decay and one
 // recurrent stream. Individuals are checkpointed on disk, not all GPU-resident.
 uint64_t food_bytes(Config q) {
-    return 20ull * Layout(q).n + 4ull * q.l * q.h * (q.secondary() ? 2 : 1);
+    return 20ull * Layout(q).n + 4ull * q.l * q.recurrent_per_layer();
 }
 // Explicit Model buffer bytes. CUDA/cuBLAS overhead needs additional reserve.
 uint64_t working_bytes(Config q, int batch, int context) {
@@ -138,6 +138,8 @@ uint64_t working_bytes(Config q, int batch, int context) {
                            2 * uint64_t(batch) * h * (1 + int(q.secondary())));
     if (batch > 1)
         floats += uint64_t(batch) * h * (q.secondary() ? 3 : 1);
+    if (q.associative())
+        floats += l * association::Cache::floats(batch, context, q.h);
     return 4 * floats;
 }
 struct Food {
@@ -233,6 +235,15 @@ std::vector<float> inherit(Config child, Config a, const std::vector<float> &wa,
         if (child.gated()) {
             copy(to.gate_w, source, from.gate_w, size_t(q.h) * q.c);
             copy(to.gate_b, source, from.gate_b, q.h);
+        }
+        if (child.associative()) {
+            std::fill_n(result.begin() + to.association_w, size_t(association::packed) * child.h, 0.f);
+            for (int row = 0; row < association::packed; ++row)
+                copy(to.association_w + size_t(row) * child.h, source, from.association_w + size_t(row) * q.h,
+                     q.h);
+            copy(to.association_b, source, from.association_b, association::packed);
+            copy(to.association_out, source, from.association_out, size_t(child.c) * association::width);
+            copy(to.association_bias, source, from.association_bias, child.c);
         }
         std::fill_n(result.begin() + to.wo, size_t(child.c) * child.h, 0.f);
         for (int c = 0; c < child.c; ++c)

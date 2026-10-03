@@ -1,0 +1,1759 @@
+{
+  "passed": true,
+  "native_test_suites": 15,
+  "independent_gradient_fixtures": 13,
+  "executable_sha256": "41a43f3ca3a69ba0770c2dd3a81dade9771ba35830730c07422693164c1dac88",
+  "prior_selective_fixtures_byte_identical": true,
+  "archived_executable_sha256": "b0e75baf28ed19d79808613775d48514e3f7ac40ca0bad02e17d66c78046b5bb",
+  "source_parent_commit": "5f7f20edd5bf347c04e20badc850e68cef9648ae",
+  "source_sha256": {
+    "src/adaptive_neuron.cuh": "55d88c666e2417b757cb3e29a968a27e460ae3a5b63d463c45aa66e7f829bcce",
+    "src/adaptive_tests.cuh": "b93c5e762cab1df346fd382c51c36bf65cc67db1b6197dec17ee88a70aa8b7c9",
+    "src/associative_memory.cuh": "3a7fb32e7a894f832b83248a51894711813150243ed0e2936e79719886c7f620",
+    "src/associative_tests.cuh": "b2fa14fe0fb04e4405e987a25e9bf50d234417d5660c15c6e217ad772fcd32ed",
+    "src/context_bench.cuh": "5f89d33d414b35900fd9dc4b51c8b1cca629e92e5a0e336d9437b9ee33285e27",
+    "src/curriculum_tests.cuh": "76b1f4e8672cb3280e8bea143416d226d728e46dac309e2ae62f9ae1d76f7909",
+    "src/decode_tests.cuh": "9cefd53ab09738f6f11e81e18cbdd91aef9d332d2ffd1f0c2879dfaf6bf40fb0",
+    "src/evolution.cuh": "9681a98bdae6f1406e503c15c2809d3be0824de0f76e6f07a0a6e7e0a2a2f074",
+    "src/evolution_tests.cuh": "88d5f1074697682cc27eb43501981c0ac800b88b46c79df066933c416d989511",
+    "src/feedback_tests.cuh": "d7361dc9661b0f9921359f2caa431ff0682b7c92967f7a9a2f667cea09575acb",
+    "src/gradient_reductions.cuh": "d39b7f958b5fc4cd89aab9ed741133d8139b1adbb0aa9ddfc4720e1aea83c2cd",
+    "src/graph_decoder.cuh": "93073bf0b78488c388916926c8a0ce20a9bd015846f0f1e4bebf2ce3829902c8",
+    "src/indexed_storage.cuh": "139ea0fa2d9ad9e962700a9e49b32174be53e067d07a6c1cd68825ad119cc147",
+    "src/language_probes.cuh": "1443c13904fae32c85c6749bed821edff2112aed5489c1398fb50e82f310b76b",
+    "src/live.cuh": "e87fa76447d123dda797f76cc8fc94d3c34836149f6fc6fa4187fc1241030a6b",
+    "src/live_curriculum.cuh": "45a9dce2fdc5447b991bbf9920d2588a75f6d20181149e80f6db7182f224df50",
+    "src/live_replay.cuh": "a6f49cdc46f32c243af0fc6947a65ed3f31266c8d0ee06513a7b9aaa219d6a11",
+    "src/memory_bench.cuh": "99159f61fc1670b524add842d2d3ad1f8ad487018852fb96e530db0484c2e2a5",
+    "src/population_live.cuh": "accfaba1718e637ce3c73f63d1af9ebb2b2253228676e46f813b29c757d94693",
+    "src/reduction_tests.cuh": "c324c8f508db375d64c21a8153873facbe2f1a0bc334eaa2aa45cc5d56a5bfbc",
+    "src/retention_bench.cuh": "d5f451677eb90c97dc9b11da213e2a2fceca2035b6d291d0ff1e2221ac9e54ea",
+    "src/spike_lm.cu": "eec2ed392e045daba1c11063fefadd06316a5ee42aedfce20ce4a27f6bb13efb",
+    "src/stage_replay.cuh": "3047922064bd6fd05e3d18a08af40f9336951e321c38bc687518416b307b2cb8",
+    "src/stage_replay_tests.cuh": "accc2c662dd7ba53580b5130f9d07964b7b972bdbf9f8b732338026bcbacdd4b",
+    "src/synaptic_memory.cuh": "99c07936d379a5f3730fb0186bad11b55e25ab18c06ec2d296a643f04728b775",
+    "src/synaptic_tests.cuh": "3423956f1f0b36a407daf55aa08e968c6d945302b4e1001cdc77c31e0e899e18",
+    "src/test_fixtures.cuh": "bd9de15031d50ade1fcc7fdceeabdc0a9c6285a74644700d4216dabc601e7f3e",
+    "src/trace_neuron.cuh": "d346931acdff5a4711dea5740b185e6212dc7d0dd906349ffdb8973081ed71b6",
+    "tests/associative_reference.py": "5e17125f860df2aa492ced072a4834b91b6d05d0c3b1b040bf1875817f28a39b",
+    "tests/oracle.py": "840e44c00727bff93ca24221dcdddf28dfdb1bb06f3233ea7b4672f0fff66fad",
+    "tests/probes_cli.py": "248ef6ce6be064688d44f397719de5c72d8f562efeb649dfffcd45083370ff7b"
+  },
+  "evidence": {
+    "native": {
+      "passed": true,
+      "cell": 6,
+      "chunk_max_error": 1.2815e-06,
+      "graph_max_error": 0,
+      "disabled_adaptation_lif_max_error": 0,
+      "identity_gate_trace_max_error": 0.0,
+      "nonzero_gate_first_trace_difference": 0.0380309,
+      "resume_max_error": 0,
+      "wrong_cell_rejected": true,
+      "equal_size_wrong_cell_rejected": null,
+      "resumed_speech_identical": true,
+      "replay_state_isolated": true,
+      "common_initial_weights_identical": true
+    },
+    "causal_memory": {
+      "passed": true,
+      "literal_delta_error": 0,
+      "stored_state_logit_effect": 0.0489753,
+      "initial_readout_gradient": 0.0152251,
+      "subsequent_projection_gradient": 0.00103204,
+      "causal": true,
+      "targets_excluded": true,
+      "slow_weights_unchanged_by_forward": true,
+      "independent_streams": true,
+      "nonstreaming_state_isolated": true
+    },
+    "inheritance_and_resources": {
+      "passed": true,
+      "cells": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "width_growth_max_error": 0,
+      "block_inheritance_max_error": 0,
+      "new_neuron_output_weight_change": 0.0009999999311,
+      "mutation_caps_and_seed_checked": true,
+      "newborn_gate_checked": true,
+      "improvement_gate_checked": true,
+      "elite_ranking_checked": true,
+      "parent_setting_inheritance_checked": true,
+      "lineage_roundtrip_checked": true,
+      "base_rate_inherited_without_developmental_slowdown": true,
+      "old_age_and_dead_parent_gate_checked": true,
+      "scarcity_and_admission_checked": true,
+      "gpu_buffer_estimate_checked": true
+    },
+    "curriculum": {
+      "passed": true,
+      "resume_cases": 36,
+      "stage_transitions_checked": 132,
+      "resume_max_error": 0,
+      "cells": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "optional_si": true,
+      "graph_speech_identical": true,
+      "replay_preserved": true,
+      "same_gpu_allocations": true,
+      "future_source_identity_checked": true,
+      "heldout_document_rejected": true,
+      "base_rate_override_checked": true,
+      "extension_preserves_history": true,
+      "extension_rejection_transactional": true
+    },
+    "stage_replay": {
+      "passed": true,
+      "restart_cases": 12,
+      "resume_max_error": 0,
+      "one_stage_matches_reservoir": true,
+      "quota_shrink_and_returning_source_checked": true,
+      "inclusion_frequency_trials": 4000,
+      "equal_group_selection_checked": true,
+      "invalid_payload_rejected": true,
+      "cells": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "optional_si": true,
+      "graph_speech_identical": true
+    },
+    "repeatability": {
+      "passed": true,
+      "scalar_reference_cases": 12,
+      "embedding_max_abs_error": 2.97965016216e-07,
+      "rms_input_max_abs_error": 4.73721512018e-09,
+      "rms_gain_max_abs_error": 4.80162284378e-08,
+      "complete_repeat_cases": 24,
+      "updates_per_repeat": 24,
+      "cells": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "strict_fp32_and_tf32": true,
+      "single_and_multiple_sequences": true,
+      "training_arrays_bitwise_identical": true
+    },
+    "curriculum_cli": {
+      "passed": true,
+      "native_commands": 133,
+      "resume_cases": 36,
+      "resume_max_error": 0,
+      "identical_generated_bytes": true,
+      "cells": [
+        "lif",
+        "alif",
+        "trace",
+        "gated",
+        "selective",
+        "associative"
+      ],
+      "optional_si": true,
+      "v2_binding_retains_history": true,
+      "rate_override_retains_stage_scale": true,
+      "future_data_mutation_rejected": true,
+      "changed_prefix_rejected": true,
+      "future_heldout_document_rejected": true,
+      "invalid_input_writes_no_run": true,
+      "v4_read_only_commands_checked": true,
+      "new_scope_wraps_without_old_online_documents": true,
+      "scoped_restart_preserves_old_replay": true,
+      "feedback_resume_cases": 12,
+      "feedback_resume_max_error": 0,
+      "feedback_annotation_persists_across_later_stages": true,
+      "feedback_policy_change_and_missing_answers_rejected": true,
+      "checkpoint_sha256": "d3a4bb0543a860eed916c3700d9658fadba0032b6aa23e061c2018cf1abb9963"
+    },
+    "curriculum_extension_cli": {
+      "passed": true,
+      "replay_policy": "stage",
+      "native_commands": 179,
+      "extension_cases": 48,
+      "cells": [
+        "lif",
+        "alif",
+        "trace",
+        "gated",
+        "selective",
+        "associative"
+      ],
+      "optional_si": true,
+      "graph_speech_identical": true,
+      "final_payload_max_error": 0,
+      "repeated_extension_matches_full_schedule": true,
+      "prefix_policy_and_all_source_editions_preserved": true,
+      "invalid_extension_writes_no_run": true,
+      "heldout_new_document_rejected": true,
+      "initial_and_completed_stage_archives_preserved": true,
+      "population_age_and_lineage_preserved": true,
+      "dead_member_extension_rejected": true,
+      "deceased_archive_readable": true,
+      "reserved_language_test_unused": true,
+      "source_sha256": "1a2091ed5c1ca5cf596b33f55ff47db880060cfe6ab5f4b52b5737378bb1fe6c"
+    },
+    "probes_cli": {
+      "passed": true,
+      "native_commands": 72,
+      "cells": [
+        "lif",
+        "alif",
+        "trace",
+        "gated",
+        "selective",
+        "associative"
+      ],
+      "independent_cpu_forward_max_score_error": 1.9073976069705623e-06,
+      "independent_cpu_greedy_matches": true,
+      "answer_only_scoring_verified": true,
+      "pair_order_independent": true,
+      "checkpoint_files_unchanged": true,
+      "malformed_pairs_rejected": true,
+      "prepared_bytes_reproducible": true,
+      "reading_bytes_preserved": true,
+      "heldout_reading_lf_and_crlf_rejected": true,
+      "heldout_contexts_absent_from_lessons": true,
+      "synthetic_fixture_only": true,
+      "incompatible_trace_spike_additions_and_paging_rejected": true
+    },
+    "binding_cli": {
+      "passed": true,
+      "native_commands": 11,
+      "oracle_max_score_error": 1.430552345027536e-06,
+      "independent_fact_query_labels_checked": true,
+      "copy_first_or_last_joint_accuracy": 0,
+      "full_grid_required": true,
+      "group_metric_verified": true,
+      "prepared_bytes_reproduce": true,
+      "test_labels_validated_but_no_model_evaluated_on_test": true
+    },
+    "burn_policy": {
+      "passed": true,
+      "scope": "CLI policy persistence and explicit overrides on tiny synthetic models",
+      "pairs": [
+        {
+          "cell": "lif",
+          "policy": "warm",
+          "resume_max_abs_error": 0.0,
+          "switched_policy_weight_max_abs_difference": 0.0008292905986309052
+        },
+        {
+          "cell": "lif",
+          "policy": "reset",
+          "resume_max_abs_error": 0.0,
+          "switched_policy_weight_max_abs_difference": 0.0007719993591308594
+        },
+        {
+          "cell": "alif",
+          "policy": "warm",
+          "resume_max_abs_error": 0.0,
+          "switched_policy_weight_max_abs_difference": 0.0009068669751286507
+        },
+        {
+          "cell": "alif",
+          "policy": "reset",
+          "resume_max_abs_error": 0.0,
+          "switched_policy_weight_max_abs_difference": 0.0008706394582986832
+        },
+        {
+          "cell": "trace",
+          "policy": "warm",
+          "resume_max_abs_error": 0.0,
+          "switched_policy_weight_max_abs_difference": 0.000828881748020649
+        },
+        {
+          "cell": "trace",
+          "policy": "reset",
+          "resume_max_abs_error": 0.0,
+          "switched_policy_weight_max_abs_difference": 0.0008170160581357777
+        },
+        {
+          "cell": "gated",
+          "policy": "warm",
+          "resume_max_abs_error": 0.0,
+          "switched_policy_weight_max_abs_difference": 0.0008767469553276896
+        },
+        {
+          "cell": "gated",
+          "policy": "reset",
+          "resume_max_abs_error": 0.0,
+          "switched_policy_weight_max_abs_difference": 0.0008885773131623864
+        },
+        {
+          "cell": "selective",
+          "policy": "warm",
+          "resume_max_abs_error": 0.0,
+          "switched_policy_weight_max_abs_difference": 0.001047021010890603
+        },
+        {
+          "cell": "selective",
+          "policy": "reset",
+          "resume_max_abs_error": 0.0,
+          "switched_policy_weight_max_abs_difference": 0.0008095442317426205
+        },
+        {
+          "cell": "associative",
+          "policy": "warm",
+          "resume_max_abs_error": 0.0,
+          "switched_policy_weight_max_abs_difference": 0.0009187906980514526
+        },
+        {
+          "cell": "associative",
+          "policy": "reset",
+          "resume_max_abs_error": 0.0,
+          "switched_policy_weight_max_abs_difference": 0.0010613352060317993
+        }
+      ],
+      "continuous_schedule_equivalence_tested": false
+    },
+    "population_live_cli": {
+      "passed": true,
+      "replay_policy": "stage",
+      "cell": "associative",
+      "native_commands": 17,
+      "canonical_checkpoint_updated": true,
+      "evolution_reads_exact_learned_payload": true,
+      "inherited_rate_preserved_exactly": true,
+      "mature_parent_base_rates_inherited": true,
+      "live_curriculum_and_si_resume": true,
+      "learning_does_not_reset_age": true,
+      "selected_answer_feedback_in_population_stream": true,
+      "lineage_and_birth_checkpoint_preserved": true,
+      "wrong_evaluation_corpus_rejected": true,
+      "writer_lock_blocks_learning_and_aging": true,
+      "dead_member_cannot_resume_learning": true,
+      "dead_archive_remains_readable": true,
+      "learned_checkpoint_sha256": "b6359799d9c7b27be8a4d0210897d5cf9d44fdd899dc7be45b6242395fc118ff"
+    },
+    "population_scarcity": {
+      "passed": true,
+      "native_commands": 12,
+      "ticks": 4,
+      "growth_at_birth_checked": true,
+      "newborn_parent_rejection_checked": true,
+      "budget_limited_births": 5,
+      "zero_budget_births": 0,
+      "scarcity_tightens_selection": true,
+      "old_age_deaths": 2,
+      "dead_checkpoints_preserved": true,
+      "dead_population_food_released": true,
+      "clock_persisted_across_processes": true,
+      "changed_evaluation_corpus_rejected": true,
+      "duplicate_round_rejected": true,
+      "path_traversal_id_rejected": true,
+      "inherited_child_training_origin_recorded": true,
+      "final_population_config_sha256": "254ecd87ad377bbea1c34bd707e90bd59d39ab93279d3bc132c492e6fb26ef27"
+    }
+  },
+  "oracles": {
+    "test-results": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": false,
+      "weighted_targets": false,
+      "cell": 1,
+      "loss": 5.494815826416016,
+      "logits_max_abs_error": 8.940696716308594e-08,
+      "gradients_max_abs_error": 3.3527612686157227e-08,
+      "adam_update_max_abs_error": 1.1771917343139648e-06,
+      "regularized_gradient_max_abs_error": 3.864988684654236e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 9.313225746154785e-09
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 8.731149137020111e-10
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 3.3396645449101925e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 2.9976945370435715e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 2.0489096641540527e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 3.3527612686157227e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 1.964508555829525e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 1.355147105641663e-09
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 3.3178366720676422e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 2.735760062932968e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 2.2351741790771484e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 1.862645149230957e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 7.639755494892597e-11
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 4.6566128730773926e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 2.9802322387695312e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 7.450580596923828e-09
+        }
+      ]
+    },
+    "live-test-results": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "weighted_targets": false,
+      "cell": 1,
+      "loss": 5.488603115081787,
+      "logits_max_abs_error": 1.4901161193847656e-07,
+      "gradients_max_abs_error": 4.470348358154297e-08,
+      "adam_update_max_abs_error": 1.341104507446289e-07,
+      "regularized_gradient_max_abs_error": 4.470348358154297e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 7.450580596923828e-09
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 5.820766091346741e-10
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 1.5133991837501526e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 1.5133991837501526e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 2.2351741790771484e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 1.7695128917694092e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 3.7834979593753815e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 9.458744898438454e-10
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 1.57160684466362e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 1.862645149230957e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 1.862645149230957e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 2.0489096641540527e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 1.8189894035458565e-10
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 3.899913281202316e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 4.470348358154297e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 7.450580596923828e-09
+        }
+      ]
+    },
+    "adaptive-test-results": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "weighted_targets": false,
+      "cell": 2,
+      "loss": 5.511878967285156,
+      "logits_max_abs_error": 1.1920928955078125e-07,
+      "gradients_max_abs_error": 3.166496753692627e-08,
+      "adam_update_max_abs_error": 1.6205012798309326e-07,
+      "regularized_gradient_max_abs_error": 2.9802322387695312e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 6.984919309616089e-09
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 9.458744898438454e-10
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 1.7462298274040222e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 3.725290298461914e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 1.862645149230957e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 3.166496753692627e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 1.3096723705530167e-10
+        },
+        {
+          "tensor": "0.adapt_leak",
+          "max_abs_gradient_error": 1.0913936421275139e-11
+        },
+        {
+          "tensor": "0.adapt_scale",
+          "max_abs_gradient_error": 1.1641532182693481e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 9.89530235528946e-10
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 1.5133991837501526e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 2.3283064365386963e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 1.3969838619232178e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 1.4901161193847656e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 4.3655745685100555e-11
+        },
+        {
+          "tensor": "1.adapt_leak",
+          "max_abs_gradient_error": 1.1368683772161603e-11
+        },
+        {
+          "tensor": "1.adapt_scale",
+          "max_abs_gradient_error": 6.184563972055912e-11
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 1.3969838619232178e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 2.9802322387695312e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 7.450580596923828e-09
+        }
+      ]
+    },
+    "trace-test-results": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "weighted_targets": false,
+      "cell": 3,
+      "loss": 5.501357078552246,
+      "logits_max_abs_error": 7.450580596923828e-08,
+      "gradients_max_abs_error": 5.21540641784668e-08,
+      "adam_update_max_abs_error": 3.0919909477233887e-07,
+      "regularized_gradient_max_abs_error": 5.21540641784668e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 8.381903171539307e-09
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 6.984919309616089e-10
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 1.1641532182693481e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 1.6298145055770874e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 2.60770320892334e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 2.0489096641540527e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 8.026290743146092e-11
+        },
+        {
+          "tensor": "0.trace_leak",
+          "max_abs_gradient_error": 2.6193447411060333e-10
+        },
+        {
+          "tensor": "0.trace_scale",
+          "max_abs_gradient_error": 2.9103830456733704e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 8.512870408594608e-10
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 1.6298145055770874e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 2.0954757928848267e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 2.60770320892334e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 1.862645149230957e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 1.0550138540565968e-10
+        },
+        {
+          "tensor": "1.trace_leak",
+          "max_abs_gradient_error": 7.275957614183426e-11
+        },
+        {
+          "tensor": "1.trace_scale",
+          "max_abs_gradient_error": 2.0372681319713593e-10
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 2.0954757928848267e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 5.21540641784668e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 3.725290298461914e-09
+        }
+      ]
+    },
+    "gated-test-results": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "weighted_targets": false,
+      "cell": 4,
+      "loss": 5.500522613525391,
+      "logits_max_abs_error": 7.450580596923828e-08,
+      "gradients_max_abs_error": 2.9802322387695312e-08,
+      "adam_update_max_abs_error": 1.261010766029358e-06,
+      "regularized_gradient_max_abs_error": 2.9802322387695312e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 8.381903171539307e-09
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 5.675246939063072e-10
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 1.1641532182693481e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 1.6298145055770874e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 2.2351741790771484e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 2.2351741790771484e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 8.36735125631094e-11
+        },
+        {
+          "tensor": "0.trace_leak",
+          "max_abs_gradient_error": 7.275957614183426e-11
+        },
+        {
+          "tensor": "0.trace_scale",
+          "max_abs_gradient_error": 1.8189894035458565e-10
+        },
+        {
+          "tensor": "0.read_gate.weight",
+          "max_abs_gradient_error": 2.9103830456733704e-10
+        },
+        {
+          "tensor": "0.read_gate.bias",
+          "max_abs_gradient_error": 1.7462298274040222e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 1.0913936421275139e-09
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 1.6298145055770874e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 1.3969838619232178e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 2.2351741790771484e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 1.4901161193847656e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 7.821654435247183e-11
+        },
+        {
+          "tensor": "1.trace_leak",
+          "max_abs_gradient_error": 1.0186340659856796e-10
+        },
+        {
+          "tensor": "1.trace_scale",
+          "max_abs_gradient_error": 1.7462298274040222e-10
+        },
+        {
+          "tensor": "1.read_gate.weight",
+          "max_abs_gradient_error": 2.3283064365386963e-10
+        },
+        {
+          "tensor": "1.read_gate.bias",
+          "max_abs_gradient_error": 1.1641532182693481e-10
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 1.9208528101444244e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 2.9802322387695312e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 3.725290298461914e-09
+        }
+      ]
+    },
+    "selective-test-results": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "weighted_targets": false,
+      "cell": 5,
+      "loss": 5.503247261047363,
+      "logits_max_abs_error": 8.940696716308594e-08,
+      "gradients_max_abs_error": 3.166496753692627e-08,
+      "adam_update_max_abs_error": 1.02166086435318e-06,
+      "regularized_gradient_max_abs_error": 4.563480615615845e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 7.450580596923828e-09
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 7.785274647176266e-10
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 1.6298145055770874e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 1.57160684466362e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 2.60770320892334e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 3.026798367500305e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 8.003553375601768e-11
+        },
+        {
+          "tensor": "0.trace_leak",
+          "max_abs_gradient_error": 7.275957614183426e-11
+        },
+        {
+          "tensor": "0.trace_scale",
+          "max_abs_gradient_error": 2.3283064365386963e-10
+        },
+        {
+          "tensor": "0.retention_gate.weight",
+          "max_abs_gradient_error": 2.0372681319713593e-10
+        },
+        {
+          "tensor": "0.retention_gate.bias",
+          "max_abs_gradient_error": 8.731149137020111e-11
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 1.3969838619232178e-09
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 1.1641532182693481e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 1.862645149230957e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 3.166496753692627e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 2.0721927285194397e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 9.458744898438454e-11
+        },
+        {
+          "tensor": "1.trace_leak",
+          "max_abs_gradient_error": 1.4551915228366852e-10
+        },
+        {
+          "tensor": "1.trace_scale",
+          "max_abs_gradient_error": 1.6007106751203537e-10
+        },
+        {
+          "tensor": "1.retention_gate.weight",
+          "max_abs_gradient_error": 2.6193447411060333e-10
+        },
+        {
+          "tensor": "1.retention_gate.bias",
+          "max_abs_gradient_error": 1.382431946694851e-10
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 2.561137080192566e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 2.9802322387695312e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 5.587935447692871e-09
+        }
+      ]
+    },
+    "associative-test-results": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "weighted_targets": false,
+      "cell": 6,
+      "loss": 5.4990949630737305,
+      "logits_max_abs_error": 8.940696716308594e-08,
+      "gradients_max_abs_error": 3.725290298461914e-08,
+      "adam_update_max_abs_error": 1.909211277961731e-06,
+      "regularized_gradient_max_abs_error": 3.725290298461914e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 5.587935447692871e-09
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 5.820766091346741e-10
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 1.1641532182693481e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 1.6880221664905548e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 2.2351741790771484e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 2.421438694000244e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 7.821654435247183e-11
+        },
+        {
+          "tensor": "0.trace_leak",
+          "max_abs_gradient_error": 1.1641532182693481e-10
+        },
+        {
+          "tensor": "0.trace_scale",
+          "max_abs_gradient_error": 2.0372681319713593e-10
+        },
+        {
+          "tensor": "0.retention_gate.weight",
+          "max_abs_gradient_error": 1.7462298274040222e-10
+        },
+        {
+          "tensor": "0.retention_gate.bias",
+          "max_abs_gradient_error": 8.731149137020111e-11
+        },
+        {
+          "tensor": "0.association.projection",
+          "max_abs_gradient_error": 4.656612873077393e-10
+        },
+        {
+          "tensor": "0.association.bias",
+          "max_abs_gradient_error": 4.511093720793724e-10
+        },
+        {
+          "tensor": "0.association.readout",
+          "max_abs_gradient_error": 3.725290298461914e-09
+        },
+        {
+          "tensor": "0.association.readout_bias",
+          "max_abs_gradient_error": 2.421438694000244e-08
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 7.566995918750763e-10
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 1.280568540096283e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 1.979060471057892e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 1.862645149230957e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 1.4901161193847656e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 2.0372681319713593e-10
+        },
+        {
+          "tensor": "1.trace_leak",
+          "max_abs_gradient_error": 1.1641532182693481e-10
+        },
+        {
+          "tensor": "1.trace_scale",
+          "max_abs_gradient_error": 1.4551915228366852e-10
+        },
+        {
+          "tensor": "1.retention_gate.weight",
+          "max_abs_gradient_error": 1.7462298274040222e-10
+        },
+        {
+          "tensor": "1.retention_gate.bias",
+          "max_abs_gradient_error": 1.1641532182693481e-10
+        },
+        {
+          "tensor": "1.association.projection",
+          "max_abs_gradient_error": 4.0745362639427185e-10
+        },
+        {
+          "tensor": "1.association.bias",
+          "max_abs_gradient_error": 2.473825588822365e-10
+        },
+        {
+          "tensor": "1.association.readout",
+          "max_abs_gradient_error": 2.6775524020195007e-09
+        },
+        {
+          "tensor": "1.association.readout_bias",
+          "max_abs_gradient_error": 1.4901161193847656e-08
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 1.6298145055770874e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 3.725290298461914e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 5.587935447692871e-09
+        }
+      ]
+    },
+    "feedback-test-results/lif": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "weighted_targets": true,
+      "cell": 1,
+      "loss": 5.5215373039245605,
+      "logits_max_abs_error": 8.940696716308594e-08,
+      "gradients_max_abs_error": 6.891787052154541e-08,
+      "adam_update_max_abs_error": 8.987262845039368e-08,
+      "regularized_gradient_max_abs_error": 7.543712854385376e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 2.0489096641540527e-08
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 2.3283064365386963e-09
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 3.725290298461914e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 6.51925802230835e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 3.725290298461914e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 6.891787052154541e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 1.7280399333685637e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 2.561137080192566e-09
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 8.381903171539307e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 1.0710209608078003e-08
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 4.470348358154297e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 2.2351741790771484e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 2.3283064365386963e-10
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 1.862645149230957e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 5.960464477539063e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 7.450580596923828e-09
+        }
+      ]
+    },
+    "feedback-test-results/alif": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "weighted_targets": true,
+      "cell": 2,
+      "loss": 5.517654895782471,
+      "logits_max_abs_error": 8.940696716308594e-08,
+      "gradients_max_abs_error": 5.960464477539063e-08,
+      "adam_update_max_abs_error": 3.511086106300354e-07,
+      "regularized_gradient_max_abs_error": 5.960464477539063e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 2.60770320892334e-08
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 1.6298145055770874e-09
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 6.984919309616089e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 1.4901161193847656e-08
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 4.470348358154297e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 3.725290298461914e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 3.7834979593753815e-10
+        },
+        {
+          "tensor": "0.adapt_leak",
+          "max_abs_gradient_error": 2.546585164964199e-11
+        },
+        {
+          "tensor": "0.adapt_scale",
+          "max_abs_gradient_error": 1.2005330063402653e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 2.444721758365631e-09
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 5.122274160385132e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 8.381903171539307e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 4.470348358154297e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 4.470348358154297e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 2.1827872842550278e-10
+        },
+        {
+          "tensor": "1.adapt_leak",
+          "max_abs_gradient_error": 1.2732925824820995e-11
+        },
+        {
+          "tensor": "1.adapt_scale",
+          "max_abs_gradient_error": 1.1641532182693481e-10
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 5.122274160385132e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 5.960464477539063e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 1.4901161193847656e-08
+        }
+      ]
+    },
+    "feedback-test-results/trace": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "weighted_targets": true,
+      "cell": 3,
+      "loss": 5.515639781951904,
+      "logits_max_abs_error": 8.940696716308594e-08,
+      "gradients_max_abs_error": 6.705522537231445e-08,
+      "adam_update_max_abs_error": 8.344650268554688e-07,
+      "regularized_gradient_max_abs_error": 5.960464477539063e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 1.862645149230957e-08
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 1.6298145055770874e-09
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 3.725290298461914e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 9.313225746154785e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 6.705522537231445e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 6.51925802230835e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 1.7826096154749393e-10
+        },
+        {
+          "tensor": "0.trace_leak",
+          "max_abs_gradient_error": 3.7834979593753815e-10
+        },
+        {
+          "tensor": "0.trace_scale",
+          "max_abs_gradient_error": 9.313225746154785e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 1.7462298274040222e-09
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 5.122274160385132e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 8.381903171539307e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 5.21540641784668e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 2.9802322387695312e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 2.6193447411060333e-10
+        },
+        {
+          "tensor": "1.trace_leak",
+          "max_abs_gradient_error": 2.9103830456733704e-10
+        },
+        {
+          "tensor": "1.trace_scale",
+          "max_abs_gradient_error": 3.710738383233547e-10
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 4.6566128730773926e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 5.960464477539063e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 1.4901161193847656e-08
+        }
+      ]
+    },
+    "feedback-test-results/gated": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "weighted_targets": true,
+      "cell": 4,
+      "loss": 5.515639781951904,
+      "logits_max_abs_error": 8.940696716308594e-08,
+      "gradients_max_abs_error": 6.705522537231445e-08,
+      "adam_update_max_abs_error": 8.344650268554688e-07,
+      "regularized_gradient_max_abs_error": 5.960464477539063e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 1.862645149230957e-08
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 1.6298145055770874e-09
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 3.725290298461914e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 9.313225746154785e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 6.705522537231445e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 6.51925802230835e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 1.7826096154749393e-10
+        },
+        {
+          "tensor": "0.trace_leak",
+          "max_abs_gradient_error": 3.7834979593753815e-10
+        },
+        {
+          "tensor": "0.trace_scale",
+          "max_abs_gradient_error": 9.313225746154785e-10
+        },
+        {
+          "tensor": "0.read_gate.weight",
+          "max_abs_gradient_error": 6.984919309616089e-10
+        },
+        {
+          "tensor": "0.read_gate.bias",
+          "max_abs_gradient_error": 6.984919309616089e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 1.7462298274040222e-09
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 5.122274160385132e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 8.381903171539307e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 5.21540641784668e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 2.9802322387695312e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 2.6193447411060333e-10
+        },
+        {
+          "tensor": "1.trace_leak",
+          "max_abs_gradient_error": 2.9103830456733704e-10
+        },
+        {
+          "tensor": "1.trace_scale",
+          "max_abs_gradient_error": 3.710738383233547e-10
+        },
+        {
+          "tensor": "1.read_gate.weight",
+          "max_abs_gradient_error": 6.548361852765083e-10
+        },
+        {
+          "tensor": "1.read_gate.bias",
+          "max_abs_gradient_error": 3.4924596548080444e-10
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 4.6566128730773926e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 5.960464477539063e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 1.4901161193847656e-08
+        }
+      ]
+    },
+    "feedback-test-results/selective": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "weighted_targets": true,
+      "cell": 5,
+      "loss": 5.515639781951904,
+      "logits_max_abs_error": 8.940696716308594e-08,
+      "gradients_max_abs_error": 6.705522537231445e-08,
+      "adam_update_max_abs_error": 8.344650268554688e-07,
+      "regularized_gradient_max_abs_error": 5.960464477539063e-08,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 1.862645149230957e-08
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 1.6298145055770874e-09
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 3.725290298461914e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 9.313225746154785e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 6.705522537231445e-08
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 6.51925802230835e-08
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 1.7826096154749393e-10
+        },
+        {
+          "tensor": "0.trace_leak",
+          "max_abs_gradient_error": 3.310560714453459e-10
+        },
+        {
+          "tensor": "0.trace_scale",
+          "max_abs_gradient_error": 9.313225746154785e-10
+        },
+        {
+          "tensor": "0.retention_gate.weight",
+          "max_abs_gradient_error": 6.984919309616089e-10
+        },
+        {
+          "tensor": "0.retention_gate.bias",
+          "max_abs_gradient_error": 3.7834979593753815e-10
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 1.7462298274040222e-09
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 5.122274160385132e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 8.381903171539307e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 5.21540641784668e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 2.9802322387695312e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 2.6193447411060333e-10
+        },
+        {
+          "tensor": "1.trace_leak",
+          "max_abs_gradient_error": 2.3283064365386963e-10
+        },
+        {
+          "tensor": "1.trace_scale",
+          "max_abs_gradient_error": 3.710738383233547e-10
+        },
+        {
+          "tensor": "1.retention_gate.weight",
+          "max_abs_gradient_error": 5.238689482212067e-10
+        },
+        {
+          "tensor": "1.retention_gate.bias",
+          "max_abs_gradient_error": 1.7462298274040222e-10
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 4.6566128730773926e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 5.960464477539063e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 1.4901161193847656e-08
+        }
+      ]
+    },
+    "feedback-test-results/associative": {
+      "passed": true,
+      "reference": "independent CPU PyTorch autograd",
+      "nonzero_boundary_state": true,
+      "weighted_targets": true,
+      "cell": 6,
+      "loss": 5.527195453643799,
+      "logits_max_abs_error": 1.043081283569336e-07,
+      "gradients_max_abs_error": 1.1920928955078125e-07,
+      "adam_update_max_abs_error": 1.3224780559539795e-06,
+      "regularized_gradient_max_abs_error": 1.4901161193847656e-07,
+      "tensors": [
+        {
+          "tensor": "embedding",
+          "max_abs_gradient_error": 2.2351741790771484e-08
+        },
+        {
+          "tensor": "0.gain",
+          "max_abs_gradient_error": 1.862645149230957e-09
+        },
+        {
+          "tensor": "0.input.weight",
+          "max_abs_gradient_error": 4.190951585769653e-09
+        },
+        {
+          "tensor": "0.input.bias",
+          "max_abs_gradient_error": 8.381903171539307e-09
+        },
+        {
+          "tensor": "0.output.weight",
+          "max_abs_gradient_error": 1.0803341865539551e-07
+        },
+        {
+          "tensor": "0.output.bias",
+          "max_abs_gradient_error": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "0.leak",
+          "max_abs_gradient_error": 2.837623469531536e-10
+        },
+        {
+          "tensor": "0.trace_leak",
+          "max_abs_gradient_error": 4.0745362639427185e-10
+        },
+        {
+          "tensor": "0.trace_scale",
+          "max_abs_gradient_error": 9.313225746154785e-10
+        },
+        {
+          "tensor": "0.retention_gate.weight",
+          "max_abs_gradient_error": 1.0477378964424133e-09
+        },
+        {
+          "tensor": "0.retention_gate.bias",
+          "max_abs_gradient_error": 4.2928149923682213e-10
+        },
+        {
+          "tensor": "0.association.projection",
+          "max_abs_gradient_error": 3.259629011154175e-09
+        },
+        {
+          "tensor": "0.association.bias",
+          "max_abs_gradient_error": 2.0954757928848267e-09
+        },
+        {
+          "tensor": "0.association.readout",
+          "max_abs_gradient_error": 2.2351741790771484e-08
+        },
+        {
+          "tensor": "0.association.readout_bias",
+          "max_abs_gradient_error": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "1.gain",
+          "max_abs_gradient_error": 3.0122464522719383e-09
+        },
+        {
+          "tensor": "1.input.weight",
+          "max_abs_gradient_error": 8.381903171539307e-09
+        },
+        {
+          "tensor": "1.input.bias",
+          "max_abs_gradient_error": 9.778887033462524e-09
+        },
+        {
+          "tensor": "1.output.weight",
+          "max_abs_gradient_error": 5.21540641784668e-08
+        },
+        {
+          "tensor": "1.output.bias",
+          "max_abs_gradient_error": 2.9802322387695312e-08
+        },
+        {
+          "tensor": "1.leak",
+          "max_abs_gradient_error": 4.5838532969355583e-10
+        },
+        {
+          "tensor": "1.trace_leak",
+          "max_abs_gradient_error": 2.6193447411060333e-10
+        },
+        {
+          "tensor": "1.trace_scale",
+          "max_abs_gradient_error": 6.402842700481415e-10
+        },
+        {
+          "tensor": "1.retention_gate.weight",
+          "max_abs_gradient_error": 4.656612873077393e-10
+        },
+        {
+          "tensor": "1.retention_gate.bias",
+          "max_abs_gradient_error": 2.3283064365386963e-10
+        },
+        {
+          "tensor": "1.association.projection",
+          "max_abs_gradient_error": 1.862645149230957e-09
+        },
+        {
+          "tensor": "1.association.bias",
+          "max_abs_gradient_error": 1.6298145055770874e-09
+        },
+        {
+          "tensor": "1.association.readout",
+          "max_abs_gradient_error": 2.9802322387695312e-08
+        },
+        {
+          "tensor": "1.association.readout_bias",
+          "max_abs_gradient_error": 2.9802322387695312e-08
+        },
+        {
+          "tensor": "final.gain",
+          "max_abs_gradient_error": 6.51925802230835e-09
+        },
+        {
+          "tensor": "head.weight",
+          "max_abs_gradient_error": 8.940696716308594e-08
+        },
+        {
+          "tensor": "head.bias",
+          "max_abs_gradient_error": 7.450580596923828e-09
+        }
+      ]
+    }
+  },
+  "source_reports": {
+    "native": {
+      "path": "build/associative-test-results/native.json",
+      "sha256": "12daa4df4da3348d255d9c5096bae3a18e624ce8554ff7b48eed61c0b22d4e9a"
+    },
+    "causal_memory": {
+      "path": "build/associative-test-results/association.json",
+      "sha256": "6a042bc768e9cf951ddfc62bf2d153bef3456cc4a96fa2375186d493fc28e976"
+    },
+    "inheritance_and_resources": {
+      "path": "build/evolution-test-results/native.json",
+      "sha256": "b0128ae0ffab30ebb4cc5c784f784c24264b00136f73a8d1ac13fb5859b60743"
+    },
+    "curriculum": {
+      "path": "build/curriculum-test-results/native.json",
+      "sha256": "bc7f5640c2e8bc008eba7d87a3af2c3d7b3822054b883c19913cd377dd31147e"
+    },
+    "stage_replay": {
+      "path": "build/stage-replay-test-results/native.json",
+      "sha256": "2bb227b3f360f69903c83a5e90f93047bb4435f82484eebca71900a1503d3eda"
+    },
+    "repeatability": {
+      "path": "build/reduction-test-results/native.json",
+      "sha256": "d80cc69e4da9b6e8494279b2364f6250ff7735d5df067d15602c0c45d4eef1bd"
+    },
+    "curriculum_cli": {
+      "path": "runs/associative-validation-v1/curriculum_cli/result.json",
+      "sha256": "dd7c97c0b23ae0799addbf1d4096ff8083486f5ec8aed597ef60f383c754d6c7"
+    },
+    "curriculum_extension_cli": {
+      "path": "runs/associative-validation-v1/curriculum_extension_cli/result.json",
+      "sha256": "566577837e9e35582e6325377617bbda7ffd3735848f6aeceb1d96351b0bc496"
+    },
+    "probes_cli": {
+      "path": "runs/associative-validation-v1/probes_cli/result.json",
+      "sha256": "914ad7280e3e916a431ca15d208050577d2a252f0a21a49cf84bf70c9a058425"
+    },
+    "binding_cli": {
+      "path": "runs/associative-validation-v1/binding_cli/result.json",
+      "sha256": "c1744acb34565b3d259370c753a2c3b94c5ec18713ea15f4d43eb6c45d1badfa"
+    },
+    "burn_policy": {
+      "path": "runs/associative-validation-v1/burn_policy/result.json",
+      "sha256": "8890c38302b616f8a48d3f0d732ebf994585932a50ffd8335f331857347a973b"
+    },
+    "population_live_cli": {
+      "path": "runs/associative-validation-v1/population_live_cli/result.json",
+      "sha256": "09eccde29efd376f58c2c6519f7553adb1412124f3d8524b10678626475e66bb"
+    },
+    "population_scarcity": {
+      "path": "runs/associative-validation-v1/population_cli-v2/result.json",
+      "sha256": "ad7216c5015559b1dfb94be7524b3bf3738ec0beee6c76fee7c5f22a60c609d0"
+    }
+  },
+  "test_fixture_correction": "The old fixed 1 MiB scarcity test correctly allowed zero births for the larger cell. The test now derives a small budget from resident costs, admits some offspring, then verifies exhaustion. The zero-budget and old-age controls remain.",
+  "limits": "Correctness and lifecycle evidence only. No claim of language improvement or biological equivalence."
+}

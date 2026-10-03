@@ -49,7 +49,11 @@ def check(exe, out, cell='lif'):
     assert first['tick'] == 1 and first['births'] == 2
     assert all(c['grew'] and c['hidden'] == 24 and c['lifespan_ticks'] == 4
                and c['generation'] == 1 and not c['eligible_at_birth'] for c in first['children'])
-    scarce = evolve('scarce', 32, 1)
+    # Allow at least one birth for every cell, then exhaust a small budget.
+    # A fixed 1 MiB already leaves insufficient headroom for associative cells.
+    required = first['food_used_after_bytes'] + 2 * first['children'][0]['food_bytes']
+    scarce_budget = (required + 1024*1024 - 1) // (1024*1024)
+    scarce = evolve('scarce', 32, scarce_budget)
     assert scarce['tick'] == 2 and 0 < scarce['births'] < 32
     assert scarce['stop_reason'] == 'resource_limit'
     assert scarce['food_used_after_bytes'] <= scarce['food_capacity_bytes']
@@ -72,7 +76,8 @@ def check(exe, out, cell='lif'):
         assert ckpt.is_file(), 'Old-age death must preserve the archived checkpoint'
         meta = struct.unpack_from('<32Q', ckpt.read_bytes())
         if member['alive']:
-            expected_food += 20 * meta[14] + 4 * meta[4] * meta[3] * (2 if meta[1] in (2, 3, 4, 5) else 1)
+            recurrent = meta[3] * (2 if meta[1] in (2, 3, 4, 5, 6) else 1) + (1024 if meta[1] == 6 else 0)
+            expected_food += 20 * meta[14] + 4 * meta[4] * recurrent
     assert deaths['food_used_before_bytes'] == expected_food
     old = (population / 'population.sg').read_bytes()
     run('evolve', '--population', population, '--data', train, '--round', 'invalid',
@@ -106,6 +111,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--exe', type=Path, default=Path('build/synapticgenesis.exe'))
     parser.add_argument('--out', type=Path, required=True)
-    parser.add_argument('--cell', choices=['lif', 'alif', 'trace', 'gated', 'selective'], default='lif')
+    parser.add_argument('--cell', choices=['lif', 'alif', 'trace', 'gated', 'selective', 'associative'], default='lif')
     args = parser.parse_args()
     check(args.exe, args.out, args.cell)

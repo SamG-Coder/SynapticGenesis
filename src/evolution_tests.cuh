@@ -1,4 +1,5 @@
 #pragma once
+#include "test_fixtures.cuh"
 void evolution_test(const Args &args) {
     args.allow({"out"});
     fs::path out = args.get("out", "reports/evolution-tests");
@@ -13,14 +14,22 @@ void evolution_test(const Args &args) {
             bytes += buffer->n * 4;
         for (const auto &buffer : model.x)
             bytes += buffer.n * 4;
-        for (const auto &cache : model.cache)
+        for (const auto &cache : model.cache) {
             for (const Buf *buffer :
                  {&cache.norm, &cache.rs, &cache.z, &cache.u, &cache.s, &cache.state, &cache.initial_state,
                   &cache.adapt, &cache.adapt_state, &cache.initial_adapt, &cache.emission, &cache.gate})
                 bytes += buffer->n * 4;
+            if (cache.fast_memory) {
+                const auto &fast = *cache.fast_memory;
+                for (const Buf *buffer :
+                     {&fast.raw, &fast.features, &fast.inverse, &fast.reads, &fast.previous, &fast.state,
+                      &fast.initial, &fast.dread, &fast.draw, &fast.demission})
+                    bytes += buffer->n * 4;
+            }
+        }
         return bytes;
     };
-    for (int cell : {1, 2, 3, 4, 5}) {
+    for (int cell : {1, 2, 3, 4, 5, 6}) {
         Config a{8, 16, 2, cell}, b{8, 24, 2, cell}, c{8, 32, 2, cell};
         Layout aa(a), ba(b), ca(c);
         auto wa = initialize(a, aa, 19);
@@ -32,6 +41,7 @@ void evolution_test(const Args &args) {
                     wa[layer.gate_b + i] = .03f * std::cos(float(i) * .23f);
             }
         }
+        activate_association_fixture(a, aa, wa);
         auto wb = evolution::inherit(b, a, wa, a, wa, {false, false}, 31);
         Model base(a, 1, 8), widened(b, 1, 8);
         require(explicit_bytes(base) == evolution::working_bytes(a, 1, 8),
@@ -68,6 +78,10 @@ void evolution_test(const Args &args) {
         for (size_t i = 0; i < size_t(b.c) * b.h; ++i)
             wb[block.wo + i] *= 1.2f;
         wb[block.bo] += .03f;
+        if (b.associative()) {
+            wb[block.association_out] += .07f;
+            wb[block.association_b + 3 * association::width + 1] += .3f;
+        }
         auto wc = evolution::inherit(c, a, wa, b, wb, {false, true}, 55);
         Model expected(b, 1, 8), mixed(c, 1, 8);
         expected.w.put(wb);
@@ -82,10 +96,7 @@ void evolution_test(const Args &args) {
         require(maxdiff(base.logits.host(), mixed.logits.host()) > 1e-5, "Donor block had no effect");
         State state;
         state.meta[10] = state.meta[11] = 19;
-        auto child_path =
-            out / (cell == 1 ? "lif-child.ckpt"
-                             : (cell == 2 ? "alif-child.ckpt"
-                                          : (cell == 3 ? "trace-child.ckpt" : "gated-child.ckpt")));
+        auto child_path = out / (std::string(a.name()) + "-child.ckpt");
         save(child_path, mixed, state);
         Model loaded(c, 1, 8);
         State restored;
@@ -199,7 +210,7 @@ void evolution_test(const Args &args) {
     require(!scarce.fits(1) && scarce.pressure() == 1, "Empty food budget permitted birth");
     std::ofstream f(out / "native.json");
     f << std::setprecision(10)
-      << "{\"passed\":true,\"cells\":[1,2,3,4,5],\"width_growth_max_error\":" << growth_error
+      << "{\"passed\":true,\"cells\":[1,2,3,4,5,6],\"width_growth_max_error\":" << growth_error
       << ",\"block_inheritance_max_error\":" << crossover_error
       << ",\"new_neuron_output_weight_change\":" << new_weight_change
       << ",\"mutation_caps_and_seed_checked\":true,\"newborn_gate_checked\":true,"

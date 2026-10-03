@@ -78,27 +78,35 @@ struct Buf {
         ck(cudaMemcpy(p, x.data(), n * 4, cudaMemcpyHostToDevice));
     }
 };
+#include "associative_memory.cuh"
 #include "synaptic_memory.cuh"
 struct Config {
     int c = 256, h = 512, l = 4;
-    int cell = 1; // 1: LIF, 2: ALIF, 3: trace, 4: trace read gate, 5: selective trace retention.
+    int cell = 1; // 1: LIF, 2: ALIF, 3: trace, 4: read gate, 5: retention gate, 6: associative.
+    bool associative() const {
+        return cell == 6;
+    }
     bool adaptive() const {
         return cell == 2;
     }
     bool traced() const {
-        return cell == 3 || cell == 4 || cell == 5;
+        return cell == 3 || cell == 4 || cell == 5 || associative();
     }
     bool gated() const {
-        return cell == 4 || cell == 5;
+        return cell == 4 || cell == 5 || associative();
     }
     bool selective() const {
-        return cell == 5;
+        return cell == 5 || associative();
     }
     bool secondary() const {
         return adaptive() || traced();
     }
+    size_t recurrent_per_layer(int batch = 1) const {
+        return size_t(batch) * (h * (secondary() ? 2 : 1) + (associative() ? association::matrix : 0));
+    }
     const char *name() const {
-        return selective() ? "signed_selective_trace_lif_v5"
+        return associative() ? "signed_associative_trace_lif_v6"
+               : selective() ? "signed_selective_trace_lif_v5"
                : gated()
                    ? "signed_gated_trace_lif_v4"
                    : (traced() ? "signed_trace_lif_v3" : (adaptive() ? "signed_alif_v2" : "signed_lif_v1"));
@@ -106,6 +114,7 @@ struct Config {
 };
 struct Layer {
     size_t gain, wi, bi, wo, bo, leak, adapt_leak, adapt_scale, gate_w, gate_b;
+    size_t association_w, association_b, association_out, association_bias;
 };
 struct Layout {
     size_t n = 0, emb, final_gain, head, bias;
@@ -120,7 +129,7 @@ struct Layout {
     }
     explicit Layout(Config q) {
         if (q.c < 8 || q.c > 2048 || q.h < 8 || q.h > 8192 || q.l < 1 || q.l > 32 ||
-            (q.cell < 1 || q.cell > 5))
+            (q.cell < 1 || q.cell > 6))
             throw std::runtime_error("Unsupported model dimensions");
         emb = add(256ull * q.c, true);
         for (int i = 0; i < q.l; ++i) {
@@ -138,6 +147,12 @@ struct Layout {
             if (q.gated()) {
                 a.gate_w = add(size_t(q.h) * q.c, true);
                 a.gate_b = add(q.h);
+            }
+            if (q.associative()) {
+                a.association_w = add(size_t(association::packed) * q.h, true);
+                a.association_b = add(association::packed);
+                a.association_out = add(size_t(q.c) * association::width, true);
+                a.association_bias = add(q.c);
             }
             layers.push_back(a);
         }
@@ -172,6 +187,9 @@ std::vector<float> initialize(Config q, const Layout &a, uint64_t seed) {
     if (!seed)
         throw std::runtime_error("Seed must be nonzero");
     std::vector<float> w(a.n, 0);
+    uint64_t associative_seed = seed ^ 0x85ebca6b9e3779b9ull;
+    if (!associative_seed)
+        associative_seed = 1;
     auto fill = [&](size_t at, size_t n, float sd) {
         for (size_t i = 0; i < n; ++i)
             w[at + i] = normal(seed) * sd;
@@ -197,6 +215,19 @@ std::vector<float> initialize(Config q, const Layout &a, uint64_t seed) {
     }
     std::fill_n(w.data() + a.final_gain, q.c, 1.f);
     fill(a.head, 256ull * q.c, 0.1f / std::sqrt(float(q.c)));
+    if (q.associative()) {
+        // Separate RNG and zero readout preserve the selective model's initial
+        // function and all common parameters at the same seed and dimensions.
+        for (const auto &v : a.layers) {
+            for (int row = 0; row < 3 * association::width; ++row)
+                for (int j = 0; j < q.h; ++j)
+                    w[v.association_w + size_t(row) * q.h + j] =
+                        normal(associative_seed) / std::sqrt(float(q.h));
+            float decay = std::exp(-1.f / 128.f);
+            w[v.association_b + 3 * association::width] = std::log(decay / (1 - decay));
+            w[v.association_b + 3 * association::width + 1] = -std::log(7.f);
+        }
+    }
     return w;
 }
 __device__ float reduce_sum(float v) {
@@ -371,7 +402,8 @@ __global__ void adaptive_codec(float *out, const float *x, int C, float k) {
 struct Cache {
     Buf norm, rs, z, u, s, state, initial_state;
     Buf adapt, adapt_state, initial_adapt, emission, gate;
-    Cache(int N, int C, int H, int B, bool secondary, bool traced, bool gated)
+    std::unique_ptr<association::Cache> fast_memory;
+    Cache(int N, int C, int H, int B, bool secondary, bool traced, bool gated, bool associative)
         : norm(size_t(N) * C), rs(N), z(size_t(N) * H), u(size_t(N) * H), s(size_t(N) * H),
           state(size_t(B) * H), initial_state(size_t(B) * H), adapt(secondary ? size_t(N) * H : 0),
           adapt_state(secondary ? size_t(B) * H : 0), initial_adapt(secondary ? size_t(B) * H : 0),
@@ -379,6 +411,8 @@ struct Cache {
         state.zero();
         if (secondary)
             adapt_state.zero();
+        if (associative)
+            fast_memory = std::make_unique<association::Cache>(B, N / B, H);
     }
 };
 struct Model {
@@ -411,7 +445,7 @@ struct Model {
         for (int i = 0; i <= q.l; ++i)
             x.emplace_back(size_t(N) * q.c);
         for (int i = 0; i < q.l; ++i)
-            cache.emplace_back(N, q.c, q.h, B, q.secondary(), q.traced(), q.gated());
+            cache.emplace_back(N, q.c, q.h, B, q.secondary(), q.traced(), q.gated(), q.associative());
         std::vector<float> mask(a.n, 0);
         for (auto pair : a.decay)
             std::fill_n(mask.data() + pair.first, pair.second, 1.f);
@@ -446,6 +480,8 @@ struct Model {
             cache[l].state.share(owner.cache[l].state);
             if (q.secondary())
                 cache[l].adapt_state.share(owner.cache[l].adapt_state);
+            if (q.associative())
+                cache[l].fast_memory->state.share(owner.cache[l].fast_memory->state);
         }
     }
     std::vector<float> membranes() const {
@@ -457,12 +493,16 @@ struct Model {
                 auto adaptation = c.adapt_state.host();
                 result.insert(result.end(), adaptation.begin(), adaptation.end());
             }
+            if (q.associative()) {
+                auto memory = c.fast_memory->state.host();
+                result.insert(result.end(), memory.begin(), memory.end());
+            }
         }
         return result;
     }
     void membranes(const std::vector<float> &values) {
         size_t width = size_t(B) * q.h;
-        size_t stride = width * (q.secondary() ? 2 : 1);
+        size_t stride = q.recurrent_per_layer(B);
         if (values.size() != stride * q.l)
             throw std::runtime_error("Membrane state dimensions differ");
         for (int l = 0; l < q.l; ++l) {
@@ -470,6 +510,9 @@ struct Model {
             if (q.secondary())
                 ck(cudaMemcpy(cache[l].adapt_state.p, values.data() + l * stride + width, width * 4,
                               cudaMemcpyHostToDevice));
+            if (q.associative())
+                ck(cudaMemcpy(cache[l].fast_memory->state.p, values.data() + l * stride + 2 * width,
+                              size_t(B) * association::matrix * 4, cudaMemcpyHostToDevice));
         }
     }
     void linear(float *out, const float *in, size_t weight, size_t bias, int I, int O,
@@ -533,6 +576,24 @@ struct Model {
             else
                 linear(x[l + 1].p, q.traced() ? f.emission.p : f.s.p, p.wo, p.bo, q.h, q.c, stream);
             plus<<<(N * q.c + 255) / 256, 256, 0, stream>>>(x[l + 1].p, x[l].p, N * q.c);
+            if (q.associative()) {
+                auto &memory = *f.fast_memory;
+                if (streaming)
+                    ck(cudaMemcpyAsync(memory.initial.p, memory.state.p, memory.state.n * 4,
+                                       cudaMemcpyDeviceToDevice, stream));
+                else
+                    ck(cudaMemsetAsync(memory.initial.p, 0, memory.initial.n * 4, stream));
+                linear(memory.raw.p, f.emission.p, p.association_w, p.association_b, q.h, association::packed,
+                       stream);
+                association::prepare<<<N, 32, 0, stream>>>(memory.raw.p, memory.features.p, memory.inverse.p,
+                                                           N);
+                association::forward<<<B, 256, 0, stream>>>(memory.features.p, memory.initial.p,
+                                                            memory.previous.p, memory.reads.p, memory.state.p,
+                                                            T, streaming);
+                linear(dy.p, memory.reads.p, p.association_out, p.association_bias, association::width, q.c,
+                       stream);
+                plus<<<(N * q.c + 255) / 256, 256, 0, stream>>>(x[l + 1].p, dy.p, N * q.c);
+            }
         }
         rms_fwd<<<N, 256, 0, stream>>>(finalnorm.p, finalrs.p, x[q.l].p, w.p + a.final_gain, q.c);
         linear(logits.p, finalnorm.p, a.head, a.bias, q.c, 256, stream);
@@ -595,6 +656,16 @@ struct Model {
             float *dk =
                 q.secondary() ? (B == 1 ? g.p + p.adapt_scale : neuron_partials.p + 2 * B * q.h) : nullptr;
             linear_backward(ds.p, q.traced() ? f.emission.p : f.s.p, dx.p, p.wo, p.bo, q.h, q.c);
+            if (q.associative()) {
+                auto &memory = *f.fast_memory;
+                linear_backward(memory.dread.p, memory.reads.p, dx.p, p.association_out, p.association_bias,
+                                association::width, q.c);
+                association::backward<<<B, 256>>>(memory.features.p, memory.inverse.p, memory.previous.p,
+                                                  memory.dread.p, memory.draw.p, T);
+                linear_backward(memory.demission.p, f.emission.p, memory.draw.p, p.association_w,
+                                p.association_b, q.h, association::packed);
+                plus<<<(N * q.h + 255) / 256, 256>>>(ds.p, memory.demission.p, N * q.h);
+            }
             if (activity_cost > 0 && !q.traced())
                 spike_cost_grad<<<(N * q.h + 255) / 256, 256>>>(ds.p, f.s.p, N * q.h,
                                                                 activity_cost / (float(N) * q.h * q.l));
@@ -663,6 +734,8 @@ struct Model {
             c.state.zero();
             if (q.secondary())
                 c.adapt_state.zero();
+            if (q.associative())
+                c.fast_memory->state.zero();
         }
     }
 };
@@ -800,7 +873,7 @@ State header(const fs::path &path) {
     State s;
     read_raw(f, s.meta.data(), 32);
     read_raw(f, s.hp.data(), 8);
-    if (s.meta[0] != 0x314d4c53434e5042ull || s.meta[1] < 1 || s.meta[1] > 5)
+    if (s.meta[0] != 0x314d4c53434e5042ull || s.meta[1] < 1 || s.meta[1] > 6)
         throw std::runtime_error("Unsupported checkpoint architecture/version");
     for (int i = 2; i <= 9; ++i)
         if (s.meta[i] > 1000000000ull)
@@ -813,8 +886,8 @@ void load(const fs::path &path, Model &m, State &s, bool restore_runtime = false
         s.meta[4] != uint64_t(m.q.l) || s.meta[14] != m.a.n)
         throw std::runtime_error("Checkpoint model dimensions differ");
     if (s.meta[17] > 5 || (!s.meta[17] && s.meta[18]) ||
-        (s.meta[17] && (s.meta[5] < 1 || s.meta[5] > 256 ||
-                        s.meta[18] != s.meta[5] * m.q.h * m.q.l * (m.q.secondary() ? 2 : 1))))
+        (s.meta[17] &&
+         (s.meta[5] < 1 || s.meta[5] > 256 || s.meta[18] != m.q.recurrent_per_layer(int(s.meta[5])) * m.q.l)))
         throw std::runtime_error("Invalid live checkpoint dimensions/version");
     if ((s.meta[17] < 2 && s.meta[31]) || s.meta[31] > (s.meta[17] == 5 ? 17 + 5 * 4096 : 16) + 3 * 65536)
         throw std::runtime_error("Invalid extended checkpoint length");
@@ -981,7 +1054,9 @@ int cell_version(const Args &args) {
         return 4;
     if (cell == "selective")
         return 5;
-    throw std::runtime_error("--cell must be lif, alif, trace, gated or selective");
+    if (cell == "associative")
+        return 6;
+    throw std::runtime_error("--cell must be lif, alif, trace, gated, selective or associative");
 }
 Config checkpoint_config(const State &s) {
     return {int(s.meta[2]), int(s.meta[3]), int(s.meta[4]), int(s.meta[1])};
@@ -1381,6 +1456,7 @@ void self_test(const Args &args) {
               << first << " -> " << last << ". CPU-autograd fixture: " << out.string() << "\n";
 }
 #include "adaptive_tests.cuh"
+#include "associative_tests.cuh"
 #include "context_bench.cuh"
 #include "curriculum_tests.cuh"
 #include "decode_tests.cuh"
@@ -1396,6 +1472,7 @@ void self_test(const Args &args) {
 #include "retention_bench.cuh"
 #include "stage_replay_tests.cuh"
 #include "synaptic_tests.cuh"
+#include "test_fixtures.cuh"
 int main(int argc, char **argv) {
     try {
         std::cout.setf(std::ios::unitbuf);
@@ -1403,7 +1480,8 @@ int main(int argc, char **argv) {
             std::cout
                 << "synapticgenesis train --data train.dat --validation validation.dat --out runs/pilot "
                    "[--steps "
-                   "2000] [--cell lif|alif|trace|gated|selective] [--burn-in 512 --burn-policy warm|reset]\n"
+                   "2000] [--cell lif|alif|trace|gated|selective|associative] [--burn-in 512 --burn-policy "
+                   "warm|reset]\n"
                 << "synapticgenesis sample --checkpoint runs/pilot/best.ckpt --prompt \"The bird \" "
                    "[--graph] "
                    "[--spike-add]\n"
@@ -1432,6 +1510,7 @@ int main(int argc, char **argv) {
                 << "synapticgenesis trace-test --out reports/trace-tests\n"
                 << "synapticgenesis gated-test --out reports/gated-tests\n"
                 << "synapticgenesis selective-test --out reports/selective-tests\n"
+                << "synapticgenesis associative-test --out reports/associative-tests\n"
                 << "synapticgenesis synaptic-test --out reports/synaptic-tests\n"
                 << "synapticgenesis self-test --out reports/native-tests\n"
                 << "synapticgenesis population-add --population runs/population --id founder-a "
@@ -1478,6 +1557,8 @@ int main(int argc, char **argv) {
             adaptive_test(args, 4);
         else if (cmd == "selective-test")
             adaptive_test(args, 5);
+        else if (cmd == "associative-test")
+            associative_test(args);
         else if (cmd == "memory-bench")
             memory_bench(args);
         else if (cmd == "context-bench")

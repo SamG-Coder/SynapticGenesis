@@ -1,9 +1,11 @@
 #pragma once
 #include "live.cuh"
+#include "test_fixtures.cuh"
 void adaptive_test(const Args &args, int cell = 2) {
     args.allow({"out"});
     fs::path out =
-        args.get("out", cell == 5   ? "reports/selective-tests"
+        args.get("out", cell == 6   ? "reports/associative-tests"
+                        : cell == 5 ? "reports/selective-tests"
                         : cell == 4 ? "reports/gated-tests"
                                     : (cell == 3 ? "reports/trace-tests" : "reports/adaptive-tests"));
     fs::create_directories(out);
@@ -19,14 +21,19 @@ void adaptive_test(const Args &args, int cell = 2) {
                 weights[layer.gate_b + i] = .04f * std::cos(float(i) * .27f);
         }
     }
+    activate_association_fixture(q, gradient.a, weights);
     gradient.w.put(weights);
-    std::vector<float> initial(size_t(q.l) * 2 * 2 * q.h);
+    std::vector<float> initial(size_t(q.l) * q.recurrent_per_layer(2));
     for (int l = 0; l < q.l; ++l)
         for (int j = 0; j < 2 * q.h; ++j) {
-            initial[l * 4 * q.h + j] = 1.7f * std::sin(float(j + l * q.h) * .39f);
-            initial[l * 4 * q.h + 2 * q.h + j] =
+            initial[l * q.recurrent_per_layer(2) + j] = 1.7f * std::sin(float(j + l * q.h) * .39f);
+            initial[l * q.recurrent_per_layer(2) + 2 * q.h + j] =
                 q.traced() ? .4f * std::sin(float(j) * .17f) : .35f + .2f * std::cos(float(j) * .17f);
         }
+    if (q.associative())
+        for (int l = 0; l < q.l; ++l)
+            for (int j = 0; j < 2 * association::matrix; ++j)
+                initial[l * q.recurrent_per_layer(2) + 4 * q.h + j] = .1f * std::sin(float(j) * .13f);
     gradient.membranes(initial);
     std::vector<int> x(32), y(32);
     for (int i = 0; i < 32; ++i) {
@@ -56,8 +63,13 @@ void adaptive_test(const Args &args, int cell = 2) {
     Model chunk(q, 1, 4), step(q, 1, 1), captured(q, 1, 1);
     auto state = chunk.membranes();
     for (int l = 0; l < q.l; ++l) {
-        std::copy_n(initial.data() + l * 4 * q.h, q.h, state.data() + l * 2 * q.h);
-        std::copy_n(initial.data() + l * 4 * q.h + 2 * q.h, q.h, state.data() + l * 2 * q.h + q.h);
+        std::copy_n(initial.data() + l * q.recurrent_per_layer(2), q.h,
+                    state.data() + l * q.recurrent_per_layer());
+        std::copy_n(initial.data() + l * q.recurrent_per_layer(2) + 2 * q.h, q.h,
+                    state.data() + l * q.recurrent_per_layer() + q.h);
+        if (q.associative())
+            std::copy_n(initial.data() + l * q.recurrent_per_layer(2) + 4 * q.h, association::matrix,
+                        state.data() + l * q.recurrent_per_layer() + 2 * q.h);
     }
     for (Model *m : {&chunk, &step, &captured}) {
         m->w.put(weights);
@@ -87,13 +99,22 @@ void adaptive_test(const Args &args, int cell = 2) {
         identity.w.put(initialize(q, identity.a, 123));
         plain.w.put(initialize(plain.q, plain.a, 123));
         identity.membranes(state);
-        plain.membranes(state);
+        auto plain_state = plain.membranes();
+        for (int l = 0; l < q.l; ++l)
+            std::copy_n(state.data() + l * q.recurrent_per_layer(), 2 * q.h,
+                        plain_state.data() + l * 2 * q.h);
+        plain.membranes(plain_state);
         for (int t = 0; t < 32; t += 4) {
             auto bytes = std::vector<int>(x.begin() + t, x.begin() + t + 4);
             identity.forward(bytes, nullptr, true);
             plain.forward(bytes, nullptr, true);
             identity_error = std::max(identity_error, maxdiff(identity.logits.host(), plain.logits.host()));
-            identity_error = std::max(identity_error, maxdiff(identity.membranes(), plain.membranes()));
+            for (int l = 0; l < q.l; ++l) {
+                identity_error = std::max(
+                    identity_error, maxdiff(identity.cache[l].state.host(), plain.cache[l].state.host()));
+                identity_error = std::max(identity_error, maxdiff(identity.cache[l].adapt_state.host(),
+                                                                  plain.cache[l].adapt_state.host()));
+            }
         }
         require(identity_error < 3e-5, "Identity gate does not recover the trace cell");
         identity.w.put(weights);
@@ -119,6 +140,10 @@ void adaptive_test(const Args &args, int cell = 2) {
         require(std::equal(oldw.begin() + a.gain, oldw.begin() + a.leak + q.h, weights.begin() + b.gain),
                 "Common block initialization differs");
         std::fill_n(disabled.data() + b.adapt_scale, q.h, -100.f);
+        if (q.associative()) {
+            std::fill_n(disabled.data() + b.association_out, q.c * association::width, 0.f);
+            std::fill_n(disabled.data() + b.association_bias, q.c, 0.f);
+        }
     }
     require(std::equal(oldw.begin() + old.a.final_gain, oldw.end(), weights.begin() + step.a.final_gain),
             "Readout RNG changed");
@@ -153,7 +178,7 @@ void adaptive_test(const Args &args, int cell = 2) {
     save(out / "resume.ckpt", first.root, s);
     State restored;
     load(out / "resume.ckpt", second.root, restored, true);
-    require(s.meta[1] == uint64_t(cell) && s.meta[18] == uint64_t(q.l * q.h * 2),
+    require(s.meta[1] == uint64_t(cell) && s.meta[18] == q.l * q.recurrent_per_layer(),
             "Secondary-state checkpoint layout incorrect");
     require(maxdiff(first.root.membranes(), second.root.membranes()) == 0, "Adaptive state was not saved");
     for (int i = 0; i < 19; ++i) {
@@ -185,7 +210,8 @@ void adaptive_test(const Args &args, int cell = 2) {
     require(rejected, "Adaptive checkpoint silently loaded as LIF");
     // These architectures have equal-sized layouts but different state semantics.
     Model other_secondary(Config{q.c, q.h, q.l, q.gated() ? (cell == 4 ? 5 : 4) : (cell == 3 ? 2 : 3)}, 1, 8);
-    require(other_secondary.a.n == first.root.a.n, "Wrong-version fixture must have equal-sized layouts");
+    if (!q.associative())
+        require(other_secondary.a.n == first.root.a.n, "Wrong-version fixture must have equal-sized layouts");
     rejected = false;
     try {
         load(out / "resume.ckpt", other_secondary, restored, true);
@@ -209,7 +235,8 @@ void adaptive_test(const Args &args, int cell = 2) {
            << ",\"identity_gate_trace_max_error\":" << (q.gated() ? std::to_string(identity_error) : "null")
            << ",\"nonzero_gate_first_trace_difference\":" << first_trace_difference
            << ",\"resume_max_error\":" << resume_error
-           << ",\"wrong_cell_rejected\":true,\"equal_size_wrong_cell_rejected\":true"
+           << ",\"wrong_cell_rejected\":true,\"equal_size_wrong_cell_rejected\":"
+           << (q.associative() ? "null" : "true")
            << ",\"resumed_speech_identical\":true,\"replay_state_"
               "isolated\":true,\"common_initial_weights_"
               "identical\":true}\n";

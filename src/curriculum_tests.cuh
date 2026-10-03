@@ -29,7 +29,7 @@ void curriculum_test(const Args &args) {
         }
         require(rejected, "Invalid curriculum or checkpoint accepted");
     };
-    for (int cell : {1, 2, 3, 4, 5})
+    for (int cell : {1, 2, 3, 4, 5, 6})
         for (bool si : {false, true})
             for (int split : {2, 3, 4}) {
                 Config q{8, 16, 2, cell};
@@ -187,7 +187,7 @@ void curriculum_test(const Args &args) {
     report
         << "{\"passed\":true,\"resume_cases\":" << cases << ",\"stage_transitions_checked\":" << transitions
         << ",\"resume_max_error\":" << error
-        << ",\"cells\":[1,2,3,4,5],\"optional_si\":true,\"graph_speech_identical\":true,"
+        << ",\"cells\":[1,2,3,4,5,6],\"optional_si\":true,\"graph_speech_identical\":true,"
            "\"replay_preserved\":true,\"same_gpu_allocations\":true,\"future_source_identity_checked\":true,"
            "\"heldout_document_rejected\":true,\"base_rate_override_checked\":true,"
            "\"extension_preserves_history\":true,\"extension_rejection_transactional\":true}\n";

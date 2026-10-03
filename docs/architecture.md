@@ -92,6 +92,10 @@ Its parameter, cache, recurrent-state and population-memory sizes equal the read
 
 Backpropagation uses the **next timestep's** retention factor to carry gradients from the future trace. Both the base trace logit and projected input gate receive the derivative of the current retention coefficient. CPU autograd checks nonzero gate matrices, signed incoming trace state, weighted answers, regularization and Adam updates. The [selective-trace protocol](selective-trace.md) records the measured language behavior; the default remains LIF.
 
+## Fast associative memory
+
+`--cell associative` adds a learned 32-by-32 fast matrix to each selective trace block. Normalized queries and keys, bounded values, and learned decay/write gates drive a delta-rule update during the common forward path. The matrix participates in graph decoding and is differentiated through during each training chunk. Its [equations, state contract, costs and research limits](associative-memory.md) describe architecture ID 6.
+
 ## Shared learning and inference
 
 The live engine has execution views with different chunk sizes over the same weights, Adam moments and neuron state. Observed chunks update parameters; generation then sees those updates directly. CUDA graph decoding captures generation without changing the initial neuron state, and reads the current shared parameter allocation without recapture.
@@ -106,7 +110,7 @@ With a curriculum, optional `--replay stage` divides a fixed slot budget among i
 
 `--core-scale` scales the learning rate for embeddings and spiking blocks; the output head keeps the full rate. It does not eliminate backpropagation or optimizer bookkeeping.
 
-An explicit version-3 curriculum may emphasize answer targets in selected lesson documents. Both live observations and replay use the same per-window normalized weighted loss, while inference and held-out evaluation stay unchanged. The policy is bound by the curriculum identity and restored with its document annotations. See [answer-emphasis semantics](live-curriculum.md). Independent CPU autograd checks the weighted gradients for all five cell types, including incoming recurrent state and activity regularization.
+An explicit version-3 curriculum may emphasize answer targets in selected lesson documents. Both live observations and replay use the same per-window normalized weighted loss, while inference and held-out evaluation stay unchanged. The policy is bound by the curriculum identity and restored with its document annotations. See [answer-emphasis semantics](live-curriculum.md). Independent CPU autograd checks the weighted gradients for all six cell types, including incoming recurrent state and activity regularization.
 
 ## Selective consolidation
 
@@ -126,7 +130,7 @@ Reference, importance and path use three extra float arrays (12 bytes per parame
 
 ## Checkpoints and storage
 
-Checkpoints include a checked architecture version, metadata, parameters, Adam moments and a payload checksum. Architecture versions 1–5 represent LIF, ALIF, filtered-spike LIF, gated trace readout and selective trace retention. ALIF/trace and read-gate/retention-gate pairs use equal-sized layouts with different semantics; checked versions prevent mixing them. The architecture version and live-extension version occupy separate header fields. Live extensions add recurrence/cursor/RNG state, then replay, then consolidation history. Corrupt lengths, mismatched dimensions, unsupported policies and invalid history are rejected. The diagnostic reader is not a replacement for the native loader's complete validation.
+Checkpoints include a checked architecture version, metadata, parameters, Adam moments and a payload checksum. Architecture versions 1–6 represent LIF, ALIF, filtered-spike LIF, gated trace readout, selective trace retention and associative trace memory. ALIF/trace and read-gate/retention-gate pairs use equal-sized layouts with different semantics; checked versions prevent mixing them. The architecture version and live-extension version occupy separate header fields. Live extensions add recurrence/cursor/RNG state, then replay, then consolidation history. Corrupt lengths, mismatched dimensions, unsupported policies and invalid history are rejected. The diagnostic reader is not a replacement for the native loader's complete validation.
 
 `live --resume` restores the complete saved stream and requires the same source corpus and prompt. With `--curriculum`, live extension v4 permits declared append-only source transitions and binds all scheduled editions to the checkpoint. It preserves replay descriptors, RNGs and optional SI history. Its policy header uses words 14 and 15 for the combined schedule/source hash and zero-based stage index; hyperparameter slot 7 stores the base learning rate. Optional SI arrays follow the replay payload only when policy word 9 equals 1. The checksum covers all policy fields, state and arrays. Earlier checkpoint versions remain readable.
 
@@ -145,6 +149,8 @@ Neuron-indexed outgoing-weight storage and predicted-route paging are benchmark 
 The [project conventions](../AGENTS.md) make modularity part of ongoing implementation. Growing responsibilities should become focused modules with explicit interfaces: neuron kernels, model state, the live learning loop, curricula, checkpoints and population rules. CLI dispatch should delegate to those modules as commands expand. Shared training/inference state and checkpoint semantics remain common across these boundaries.
 
 Structural changes should accompany the feature that needs them and preserve numerical/runtime behavior through the relevant existing checks. This convention records the intended organization; it does not claim that every current implementation has already been split into a separate translation unit.
+
+The fast associative component owns its CUDA recurrence and allocations in `src/associative_memory.cuh`; model orchestration owns its learned parameter layout and state sharing. `src/associative_tests.cuh` adds focused causal and memory controls while reusing the common neuron/live-state suite. `tests/associative_reference.py` shares an independent CPU matrix equation between gradient and scoring oracles, avoiding a second runtime implementation.
 
 Selected teaching-data preparation shares literal fact/query rendering in `scripts/binding_lessons.py`; each preparation script owns its edition's selection, split rules and manifest. Experiment drivers share the read-only checkpoint view in `scripts/experiment_checkpoint.py`, while native code retains authoritative checkpoint validation and all model computation. The [lesson-diversity experiment](lesson-diversity.md) verifies the original prepared bytes after this extraction.
 

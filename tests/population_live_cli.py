@@ -123,7 +123,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--exe', type=Path, default=Path('build/synapticgenesis.exe'))
     parser.add_argument('--out', type=Path, required=True)
-    parser.add_argument('--cell', choices=['lif', 'alif', 'trace', 'gated', 'selective'], default='lif')
+    parser.add_argument('--cell', choices=['lif', 'alif', 'trace', 'gated', 'selective', 'associative'], default='lif')
     parser.add_argument('--replay', choices=['reservoir','stage'], default='reservoir')
     args = parser.parse_args()
     check(args.exe, args.out, args.cell, args.replay)

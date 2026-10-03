@@ -31,17 +31,20 @@ def inspect(path):
     with path.open('rb') as f:
         meta = struct.unpack('<32Q', f.read(256))
         hp = struct.unpack('<8f', f.read(32))
-        if meta[0] != 0x314D4C53434E5042 or meta[1] not in (1, 2, 3, 4, 5):
+        if meta[0] != 0x314D4C53434E5042 or meta[1] not in (1, 2, 3, 4, 5, 6):
             raise ValueError('Unsupported checkpoint format')
         adaptive = meta[1] == 2
-        secondary = meta[1] in (2, 3, 4, 5)
-        gated = meta[1] in (4, 5)
-        selective = meta[1] == 5
+        secondary = meta[1] in (2, 3, 4, 5, 6)
+        gated = meta[1] in (4, 5, 6)
+        selective = meta[1] in (5, 6)
+        associative = meta[1] == 6
         label = 'adaptation' if adaptive else 'trace'
         c, h, layers, batch = meta[2:6]
         if not (8 <= c <= 2048 and 8 <= h <= 8192 and 1 <= layers <= 32 and 1 <= batch <= 256):
             raise ValueError('Invalid model dimensions')
         expected = 256*c + layers*(c + 2*c*h + 2*h + c + (2*h if secondary else 0) + (h*c+h if gated else 0)) + c + 256*c + 256
+        if associative:
+            expected += layers * (98*h + 98 + 32*c + c)
         if meta[17] > 5 or (meta[17] < 2 and meta[31]) or meta[31] > (17 + 5*4096 if meta[17] == 5 else 16) + 3*65536:
             raise ValueError('Unsupported live state extension')
         extra = ()
@@ -83,11 +86,22 @@ def inspect(path):
                 blocks[-1][gate_name + '_weight_absolute_value'] = summary([abs(v) for v in weights[offset:offset+h*c]])
                 blocks[-1][gate_name + '_bias'] = summary(weights[offset+h*c:offset+h*c+h])
                 offset += h*c+h
+            if associative:
+                blocks[-1]['association_projection_absolute_value'] = summary([abs(v) for v in weights[offset:offset+98*h]])
+                offset += 98*h
+                blocks[-1]['association_decay_bias'] = weights[offset+96]
+                blocks[-1]['association_write_bias'] = weights[offset+97]
+                offset += 98
+                blocks[-1]['association_readout_absolute_value'] = summary([abs(v) for v in weights[offset:offset+32*c]])
+                offset += 32*c+c
+        recurrent_per_layer = batch * (h*(2 if secondary else 1) + (1024 if associative else 0))
+        if meta[17] and meta[18] != layers * recurrent_per_layer:
+            raise ValueError('Saved recurrent state length mismatch')
         result = {'checkpoint': path.as_posix(), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
                   'cell_version': meta[1], 'step': meta[7], 'parameters': expected, 'blocks': blocks,
                   'passive_e_folding_steps': summary(all_taus),
                   'fraction_with_tau_at_least_128_steps': sum(v >= 128 for v in all_taus)/len(all_taus),
-                  'recurrent_state_bytes': batch*layers*h*4*(2 if secondary else 1),
+                  'recurrent_state_bytes': layers*recurrent_per_layer*4,
                   'one_f32_input_weight_eligibility_trace_bytes': layers*c*h*4}
         if meta[17]:
             f.seek(288 + 12*expected)
@@ -97,9 +111,12 @@ def inspect(path):
                 states.byteswap()
             if secondary:
                 stride = batch*h
-                membranes = [v for layer in range(layers) for v in states[layer*2*stride:layer*2*stride+stride]]
-                adaptation = [v for layer in range(layers) for v in states[layer*2*stride+stride:(layer+1)*2*stride]]
+                membranes = [v for layer in range(layers) for v in states[layer*recurrent_per_layer:layer*recurrent_per_layer+stride]]
+                adaptation = [v for layer in range(layers) for v in states[layer*recurrent_per_layer+stride:layer*recurrent_per_layer+2*stride]]
                 result['saved_' + label + '_state'] = summary(adaptation)
+                if associative:
+                    memory = [v for layer in range(layers) for v in states[layer*recurrent_per_layer+2*stride:(layer+1)*recurrent_per_layer]]
+                    result['saved_associative_state'] = summary(memory)
             else:
                 membranes = states
             result['saved_reset_membrane_absolute_value'] = summary([abs(v) for v in membranes])

@@ -10,6 +10,7 @@ import subprocess
 import numpy as np
 import torch
 import torch.nn.functional as F
+from associative_reference import forward as associative_forward
 
 module = importlib.util.spec_from_file_location('lessons', Path(__file__).parents[1] / 'scripts/prepare_lessons.py')
 lessons = importlib.util.module_from_spec(module)
@@ -37,10 +38,12 @@ class Reference:
         for _ in range(self.l):
             block = [take(self.c), take(self.h, self.c), take(self.h), take(self.c, self.h),
                      take(self.c), take(self.h)]
-            if self.cell in (2, 3, 4, 5):
+            if self.cell in (2, 3, 4, 5, 6):
                 block += [take(self.h), take(self.h)]
-            if self.cell in (4, 5):
+            if self.cell in (4, 5, 6):
                 block += [take(self.h, self.c), take(self.h)]
+            if self.cell == 6:
+                block += [take(98, self.h), take(98), take(self.c, 32), take(self.c)]
             self.blocks.append(block)
         self.gain, self.head, self.bias = take(self.c), take(256, self.c), take(256)
         assert offset == len(w)
@@ -55,9 +58,9 @@ class Reference:
             gain, wi, bi, wo, bo, leak = block[:6]
             normalized = norm(x, gain)
             z = F.linear(normalized, wi, bi)
-            gate_logits = F.linear(normalized, block[8], block[9]) if self.cell in (4, 5) else None
+            gate_logits = F.linear(normalized, block[8], block[9]) if self.cell in (4, 5, 6) else None
             beta, reset, adaptation = torch.sigmoid(leak), torch.zeros(self.h), torch.zeros(self.h)
-            if self.cell in (2, 3, 4, 5):
+            if self.cell in (2, 3, 4, 5, 6):
                 rho, gamma = torch.sigmoid(block[6]), F.softplus(block[7])
             spikes, membranes, decisions = [], [], []
             for at in range(len(text)):
@@ -75,16 +78,19 @@ class Reference:
                 reset = u - theta * spike
                 if self.cell == 2:
                     adaptation = rho * adaptation + (1 - rho) * spike.abs()
-                if self.cell in (3, 4, 5):
-                    retention = torch.sigmoid(block[6] + gate_logits[at]) if self.cell == 5 else rho
+                if self.cell in (3, 4, 5, 6):
+                    retention = torch.sigmoid(block[6] + gate_logits[at]) if self.cell in (5, 6) else rho
                     adaptation = retention * adaptation + (1 - retention) * spike
                 read = 2 * torch.sigmoid(gate_logits[at]) if self.cell == 4 else 1
-                spikes.append(spike + gamma * read * adaptation if self.cell in (3, 4, 5) else spike)
+                spikes.append(spike + gamma * read * adaptation if self.cell in (3, 4, 5, 6) else spike)
             emission = torch.stack(spikes)
             if traces is not None:
                 traces.append(dict(norm=normalized, z=z, gate=gate_logits, u=torch.stack(membranes),
                                    spikes=torch.stack(decisions), emission=emission))
             x += F.linear(emission, wo, bo)
+            if self.cell == 6:
+                output, _ = associative_forward(emission.unsqueeze(0), *block[10:14])
+                x += output.squeeze(0)
         return F.linear(norm(x, self.gain), self.head, self.bias)
 
     def score(self, prompt, answer):
@@ -128,7 +134,7 @@ def check(exe, out):
     lessons.write_probes(suite, rows)
     (out / 'data.dat').write_bytes(b'The key is in the box.\nWhere is the key?\nAnswer: box.\n')
     max_error = 0
-    for cell in ('lif', 'alif', 'trace', 'gated', 'selective'):
+    for cell in ('lif', 'alif', 'trace', 'gated', 'selective', 'associative'):
         model = out / cell
         run('live', '--data', out / 'data.dat', '--out', model, '--channels', 8, '--hidden', 16,
             '--layers', 2, '--cell', cell, '--chunk', 8, '--updates', 4, '--speak-every', 0, '--lr', .001)
@@ -183,7 +189,7 @@ def check(exe, out):
             run('language-probes', '--checkpoint', checkpoint, '--probes', bad, '--output', dest,
                 reject='ERROR:')
             assert not dest.exists()
-        if cell in ('trace', 'gated', 'selective'):
+        if cell in ('trace', 'gated', 'selective', 'associative'):
             for options in (['--spike-add'], ['--spike-add', '--graph']):
                 run('sample', '--checkpoint', checkpoint, '--tokens', 2, *options,
                     reject='Trace cell output is not ternary')
@@ -216,7 +222,7 @@ def check(exe, out):
         else:
             raise AssertionError('Contaminated prior reading was accepted')
         assert not rejected_out.exists()
-    result = dict(passed=True, native_commands=calls, cells=['lif', 'alif', 'trace', 'gated', 'selective'],
+    result = dict(passed=True, native_commands=calls, cells=['lif', 'alif', 'trace', 'gated', 'selective', 'associative'],
                   independent_cpu_forward_max_score_error=max_error,
                   independent_cpu_greedy_matches=True, answer_only_scoring_verified=True,
                   pair_order_independent=True, checkpoint_files_unchanged=True,

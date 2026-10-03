@@ -8,7 +8,7 @@ The native learner, population registry, fitness-gated reproduction and bounded 
 
 ## What runs today
 
-- Signed leaky integrate-and-fire neurons, with optional adaptive thresholds, learned fading spike traces, input-dependent readout and selective trace retention.
+- Signed leaky integrate-and-fire neurons, with optional adaptive thresholds, learned fading spike traces, input-dependent readout, selective trace retention and [fast associative memory](docs/associative-memory.md).
 - Training and generation in one live process using shared weights and persistent neuron state.
 - Bounded replay of previously observed source windows, adjustable core plasticity and optional synaptic-importance consolidation.
 - CUDA graph decoding, checksum-protected checkpoints and restoration of optimizer, recurrent, replay and learning-history state.
@@ -124,11 +124,13 @@ python tests/oracle.py build/adaptive-test-results
 python tests/oracle.py build/trace-test-results
 python tests/oracle.py build/gated-test-results
 python tests/oracle.py build/selective-test-results
+python tests/oracle.py build/associative-test-results
 python tests/oracle.py build/feedback-test-results/lif
 python tests/oracle.py build/feedback-test-results/alif
 python tests/oracle.py build/feedback-test-results/trace
 python tests/oracle.py build/feedback-test-results/gated
 python tests/oracle.py build/feedback-test-results/selective
+python tests/oracle.py build/feedback-test-results/associative
 python tests/synaptic_oracle.py build/synaptic-test-results
 python tests/burn_policy.py --out runs/burn-policy-test
 python tests/population_cli.py --out runs/population-cli-test

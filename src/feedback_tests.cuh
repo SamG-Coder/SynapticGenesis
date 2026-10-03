@@ -1,16 +1,19 @@
 // Numerical fixture for explicitly weighted observed targets; all model math is native.
 #pragma once
+#include "test_fixtures.cuh"
 void feedback_test(const Args &args) {
     args.allow({"out"});
     fs::path base = args.get("out", "reports/feedback-tests");
-    for (int cell : {1, 2, 3, 4, 5}) {
-        fs::path out = base / (cell == 5   ? "selective"
+    for (int cell : {1, 2, 3, 4, 5, 6}) {
+        fs::path out = base / (cell == 6   ? "associative"
+                               : cell == 5 ? "selective"
                                : cell == 1 ? "lif"
                                            : (cell == 2 ? "alif" : (cell == 3 ? "trace" : "gated")));
         fs::create_directories(out);
         Config q{32, 64, 2, cell};
         Model model(q, 2, 16);
         auto w = initialize(q, model.a, 123);
+        activate_association_fixture(q, model.a, w);
         model.w.put(w);
         auto initial = model.membranes();
         for (size_t i = 0; i < initial.size(); ++i)
