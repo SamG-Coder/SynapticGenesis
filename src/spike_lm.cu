@@ -691,11 +691,15 @@ struct State {
         hp[3] = std::numeric_limits<float>::max();
     }
 };
+#include "stage_replay.cuh"
+bool has_curriculum(const State &s) {
+    return s.meta[17] == 4 || s.meta[17] == 5;
+}
 bool has_synaptic_history(const State &s) {
-    return s.meta[17] == 3 || (s.meta[17] == 4 && s.extra.size() >= 16 && s.extra[9] == 1);
+    return s.meta[17] == 3 || (has_curriculum(s) && s.extra.size() >= 16 && s.extra[9] == 1);
 }
 void validate_curriculum_state(const State &s) {
-    if (s.meta[17] != 4)
+    if (!has_curriculum(s))
         return;
     if (s.extra.size() < 16 || s.extra[9] > 1 || !s.extra[14] || s.extra[15] >= 4096 ||
         !std::isfinite(s.hp[7]) || s.hp[7] <= 0 || s.hp[7] > .1f)
@@ -744,8 +748,10 @@ void save(const fs::path &path, Model &m, State &s) {
     if (s.meta[17] >= 2)
         s.meta[31] = s.extra.size();
     else if (!s.extra.empty())
-        throw std::runtime_error("Extended state requires live checkpoint version 2, 3 or 4");
+        throw std::runtime_error("Extended state requires live checkpoint version 2 through 5");
     validate_curriculum_state(s);
+    if (s.meta[17] == 5)
+        StageReplay(s).validate();
     if (has_synaptic_history(s)) {
         if (!m.synapses->active() || s.extra.size() < 16)
             throw std::runtime_error("Missing synaptic state for enabled live consolidation");
@@ -814,11 +820,11 @@ void load(const fs::path &path, Model &m, State &s, bool restore_runtime = false
     if (s.meta[1] != uint64_t(m.q.cell) || s.meta[2] != uint64_t(m.q.c) || s.meta[3] != uint64_t(m.q.h) ||
         s.meta[4] != uint64_t(m.q.l) || s.meta[14] != m.a.n)
         throw std::runtime_error("Checkpoint model dimensions differ");
-    if (s.meta[17] > 4 || (!s.meta[17] && s.meta[18]) ||
+    if (s.meta[17] > 5 || (!s.meta[17] && s.meta[18]) ||
         (s.meta[17] && (s.meta[5] < 1 || s.meta[5] > 256 ||
                         s.meta[18] != s.meta[5] * m.q.h * m.q.l * (m.q.secondary() ? 2 : 1))))
         throw std::runtime_error("Invalid live checkpoint dimensions/version");
-    if ((s.meta[17] < 2 && s.meta[31]) || s.meta[31] > 16 + 3 * 65536)
+    if ((s.meta[17] < 2 && s.meta[31]) || s.meta[31] > (s.meta[17] == 5 ? 17 + 5 * 4096 : 16) + 3 * 65536)
         throw std::runtime_error("Invalid extended checkpoint length");
     if (restore_runtime && (!s.meta[17] || s.meta[5] != uint64_t(m.B)))
         throw std::runtime_error("No compatible live state in checkpoint");
@@ -829,6 +835,8 @@ void load(const fs::path &path, Model &m, State &s, bool restore_runtime = false
     if (!s.extra.empty())
         read_raw(f, s.extra.data(), s.extra.size());
     validate_curriculum_state(s);
+    if (s.meta[17] == 5)
+        StageReplay(s).validate();
     size_t synaptic_count = has_synaptic_history(s) ? 3 * m.a.n : 0;
     if (fs::file_size(path) != 288 + 12 * m.a.n + 4 * s.meta[18] + 8 * s.meta[31] + 4 * synaptic_count)
         throw std::runtime_error("Checkpoint length mismatch");
@@ -1392,6 +1400,7 @@ void self_test(const Args &args) {
 #include "memory_bench.cuh"
 #include "population_live.cuh"
 #include "retention_bench.cuh"
+#include "stage_replay_tests.cuh"
 #include "synaptic_tests.cuh"
 int main(int argc, char **argv) {
     try {
@@ -1463,6 +1472,8 @@ int main(int argc, char **argv) {
             decode_bench(args);
         else if (cmd == "replay-test")
             replay_test(args);
+        else if (cmd == "stage-replay-test")
+            stage_replay_test(args);
         else if (cmd == "adaptive-test")
             adaptive_test(args);
         else if (cmd == "trace-test")

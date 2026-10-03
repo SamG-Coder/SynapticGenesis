@@ -2,16 +2,13 @@
 // corpus. No generated speech or held-out data enters this memory. Replaying a
 // descriptor reconstructs a reset-state training window, not an old GPU state.
 #pragma once
-struct Episode {
-    uint64_t document, offset, length;
-};
 struct ReplayMemory {
     State &s;
     static constexpr uint64_t magic = 0x3159414c504552ull;
     static constexpr size_t header_words = 16;
     explicit ReplayMemory(State &state) : s(state) {}
     bool extended() const {
-        return s.meta[17] >= 2 && s.meta[17] <= 4;
+        return s.meta[17] >= 2 && s.meta[17] <= 5;
     }
     uint64_t mode() const {
         return extended() ? s.extra[1] : 0;
@@ -20,7 +17,8 @@ struct ReplayMemory {
         return extended() ? s.extra[2] : 0;
     }
     uint64_t count() const {
-        return extended() ? (s.extra.size() - header_words) / 3 : 0;
+        return s.meta[17] == 5 ? StageReplay(s).count()
+                               : (extended() ? (s.extra.size() - header_words) / 3 : 0);
     }
     uint64_t updates() const {
         return extended() ? s.extra[6] : 0;
@@ -38,17 +36,17 @@ struct ReplayMemory {
         s.meta[17] = 2;
         s.extra.assign(header_words, 0);
         auto mode = args.get("replay", "none");
-        if (mode != "none" && mode != "reservoir" && mode != "recent")
-            throw std::runtime_error("--replay must be none, reservoir or recent");
-        int capacity = args.num("replay-capacity", mode == "reservoir" ? 1024 : 0);
+        if (mode != "none" && mode != "reservoir" && mode != "recent" && mode != "stage")
+            throw std::runtime_error("--replay must be none, reservoir, recent or stage");
+        bool stored = mode == "reservoir" || mode == "stage";
+        int capacity = args.num("replay-capacity", stored ? 1024 : 0);
         int every = args.num("replay-every", mode == "none" ? 0 : 4);
         int seed = args.num("replay-seed", 1777);
-        if (capacity < 0 || capacity > 65536 || (mode == "reservoir" && !capacity) ||
-            (mode != "reservoir" && capacity) || seed <= 0 || every < 0 ||
-            (mode == "none" ? every != 0 : every < 1))
+        if (capacity < 0 || capacity > 65536 || (stored && !capacity) || (!stored && capacity) || seed <= 0 ||
+            every < 0 || (mode == "none" ? every != 0 : every < 1))
             throw std::runtime_error("Invalid replay capacity, interval or seed");
         s.extra[0] = magic;
-        s.extra[1] = mode == "reservoir" ? 1 : (mode == "recent" ? 2 : 0);
+        s.extra[1] = mode == "stage" ? 3 : (mode == "reservoir" ? 1 : (mode == "recent" ? 2 : 0));
         s.extra[2] = every;
         s.extra[3] = capacity;
         s.extra[4] = seed;
@@ -58,6 +56,8 @@ struct ReplayMemory {
             throw std::runtime_error("--core-scale must be in [0,1]");
     }
     Episode at(uint64_t index) const {
+        if (s.meta[17] == 5)
+            return StageReplay(s).at(index);
         size_t start = header_words + size_t(index) * 3;
         return {s.extra.at(start), s.extra.at(start + 1), s.extra.at(start + 2)};
     }
@@ -76,16 +76,23 @@ struct ReplayMemory {
                 throw std::runtime_error("Unsupported live policy version");
             return;
         }
-        if (s.extra.size() < header_words || (s.extra.size() - header_words) % 3 || s.extra[0] != magic)
+        if (s.meta[17] == 5) {
+            StageReplay(s).validate();
+            if (StageReplay(s).value(size_t(s.extra[15]), 0) != data.docs.size())
+                throw std::runtime_error("Stage replay document ranges differ from corpus");
+        }
+        if (s.extra.size() < header_words || (s.meta[17] != 5 && (s.extra.size() - header_words) % 3) ||
+            s.extra[0] != magic)
             throw std::runtime_error("Invalid live replay layout");
-        if (mode() > 2 || s.extra[3] > 65536 || !s.extra[4] || count() > s.extra[3] || count() > s.extra[5] ||
-            s.extra[5] != s.meta[24] || s.extra[8] > 1 || updates() > s.meta[24] || updates() > s.meta[7] ||
+        if (mode() > 3 || (mode() == 3) != (s.meta[17] == 5) || s.extra[3] > 65536 || !s.extra[4] ||
+            count() > s.extra[3] || count() > s.extra[5] || s.extra[5] != s.meta[24] || s.extra[8] > 1 ||
+            updates() > s.meta[24] || updates() > s.meta[7] ||
             (mode() == 0 ? every() != 0 : (every() < 1 || every() > 1000000000ull)) ||
-            (mode() != 1 ? (s.extra[3] != 0 || count() != 0) : s.extra[3] == 0) || !std::isfinite(s.hp[6]) ||
-            s.hp[6] < 0 || s.hp[6] > 1)
+            (mode() != 1 && mode() != 3 ? (s.extra[3] != 0 || count() != 0) : s.extra[3] == 0) ||
+            !std::isfinite(s.hp[6]) || s.hp[6] < 0 || s.hp[6] > 1)
             throw std::runtime_error("Invalid live replay settings/counters");
         validate_curriculum_state(s);
-        size_t reserved_start = s.meta[17] == 4 ? 16 : (s.meta[17] == 3 ? 14 : 9);
+        size_t reserved_start = has_curriculum(s) ? 16 : (s.meta[17] == 3 ? 14 : 9);
         if (has_synaptic_history(s) &&
             (s.extra[9] != 1 || s.extra[12] > s.meta[24] || s.extra[13] != s.meta[24] + updates()))
             throw std::runtime_error("Invalid consolidation policy/counters");
@@ -107,6 +114,10 @@ struct ReplayMemory {
         if (!extended())
             return;
         uint64_t seen = ++s.extra[5];
+        if (mode() == 3) {
+            StageReplay(s).remember(episode);
+            return;
+        }
         if (mode() != 1)
             return;
         uint64_t slot = count();
@@ -128,10 +139,14 @@ struct ReplayMemory {
         return every() && s.meta[24] % every() == 0 && (mode() == 2 || count() > 0);
     }
     Episode choose(const Episode &current) {
+        if (mode() == 3)
+            return StageReplay(s).choose();
         return mode() == 2 ? current : at(random(count()));
     }
-    void completed(size_t n) {
+    void completed(const Episode &episode) {
         ++s.extra[6];
-        s.extra[7] += n;
+        s.extra[7] += episode.length;
+        if (mode() == 3)
+            StageReplay(s).completed(episode);
     }
 };

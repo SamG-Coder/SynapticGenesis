@@ -241,7 +241,7 @@ std::vector<float> inherit(Config child, Config a, const std::vector<float> &wa,
 float inherited_learning_rate(const State &state) {
     // A developmental stage changes current plasticity, not the inherited base
     // trait. Newborns start their own schedule and do not inherit parental age.
-    float rate = state.meta[17] == 4 ? state.hp[7] : state.hp[0];
+    float rate = has_curriculum(state) ? state.hp[7] : state.hp[0];
     require(std::isfinite(rate) && rate > 0 && rate <= .1f, "Invalid parental learning rate");
     return rate;
 }

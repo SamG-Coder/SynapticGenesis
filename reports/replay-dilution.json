@@ -1,0 +1,70 @@
+{
+  "source": "Earlier selective-trace experiment, not the new policy comparison.",
+  "stage_order": [
+    "reading",
+    "prerequisites",
+    "binding"
+  ],
+  "runs": [
+    {
+      "cell": "gated",
+      "online_updates": 34000,
+      "stored_windows_by_source_stage": [
+        180,
+        141,
+        703
+      ],
+      "checkpoint_sha256": "df1b577715a045d8a62d4285ecc7f35cdced91316f7250089714527951688641"
+    },
+    {
+      "cell": "gated",
+      "online_updates": 67000,
+      "stored_windows_by_source_stage": [
+        91,
+        76,
+        857
+      ],
+      "checkpoint_sha256": "73376245910e53eab748f1505acee58bf91b40966cda83813af9ff541bbb5a73"
+    },
+    {
+      "cell": "gated",
+      "online_updates": 130000,
+      "stored_windows_by_source_stage": [
+        51,
+        39,
+        934
+      ],
+      "checkpoint_sha256": "d0a9d6a99b1682c12d360aa8222d131b532bad8312a04984adf37b64160d9e1f"
+    },
+    {
+      "cell": "selective",
+      "online_updates": 34000,
+      "stored_windows_by_source_stage": [
+        180,
+        141,
+        703
+      ],
+      "checkpoint_sha256": "c62fe81670295c2cf783d30e790485c391563e37011300fd3588c6b72b0eb6a6"
+    },
+    {
+      "cell": "selective",
+      "online_updates": 67000,
+      "stored_windows_by_source_stage": [
+        91,
+        76,
+        857
+      ],
+      "checkpoint_sha256": "f13c0369b30c76945925b0d8102f0fe8431c1559571cf23d58a2cd3473851b9d"
+    },
+    {
+      "cell": "selective",
+      "online_updates": 130000,
+      "stored_windows_by_source_stage": [
+        51,
+        39,
+        934
+      ],
+      "checkpoint_sha256": "ce19e12a38cec333c0b7642ba7dfb2a1fc567047c6fddb6ad7b8c39e3e53464d"
+    }
+  ]
+}

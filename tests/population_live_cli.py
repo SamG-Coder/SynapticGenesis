@@ -7,7 +7,7 @@ import struct
 import subprocess
 
 
-def check(exe, out, cell='lif'):
+def check(exe, out, cell='lif', replay='reservoir'):
     exe = exe.resolve()
     out = out.resolve()
     out.mkdir(parents=True, exist_ok=False)
@@ -42,7 +42,7 @@ def check(exe, out, cell='lif'):
             '--lifespan', 2, '--growth-chance', 1, '--setting-mutation-chance', 1, *fixed)
         run('population-live', '--population', population, '--id', f'founder-{index}',
             '--curriculum', schedule, '--validation', val, '--updates', 8, '--chunk', 8,
-            '--speak-every', 0, '--eval-batches', 2)
+            '--speak-every', 0, '--eval-batches', 2, '--replay', replay, '--replay-capacity', 16)
     run('evolve', '--population', population, '--data', val, '--round', 'birth', '--children', 1, '--seed', 7)
     child = population / 'birth-child-0'
     birth = json.loads((population / 'birth.json').read_text())['children'][0]
@@ -58,7 +58,7 @@ def check(exe, out, cell='lif'):
     clock = (population / 'population.sg').read_bytes()
     base_rate = struct.unpack_from('<8f', before, 256)[0]
     run('population-live', '--population', population, '--id', child.name, '--curriculum', schedule,
-        '--validation', val, '--updates', 3, '--chunk', 8, '--replay', 'reservoir', '--replay-capacity', 16,
+        '--validation', val, '--updates', 3, '--chunk', 8, '--replay', replay, '--replay-capacity', 16,
         '--replay-every', 2, '--graph', '--speak-every', 2, '--tokens', 7, '--prompt', 'A',
         '--consolidation', 'si', '--si-strength', .001, '--eval-batches', 2)
     first = (child / 'latest.ckpt').read_bytes()
@@ -107,7 +107,7 @@ def check(exe, out, cell='lif'):
     assert (child / 'latest.ckpt').read_bytes() == learned and (child / 'live/metrics.jsonl').read_bytes() == logs
     assert (child / 'member.sg').read_bytes() == lineage and not lock.exists()
     run('sample', '--checkpoint', child / 'latest.ckpt', '--tokens', 8, '--prompt', 'A')
-    report = {'passed': True, 'cell': cell, 'native_commands': calls, 'canonical_checkpoint_updated': True,
+    report = {'passed': True, 'replay_policy': replay, 'cell': cell, 'native_commands': calls, 'canonical_checkpoint_updated': True,
               'evolution_reads_exact_learned_payload': True, 'inherited_rate_preserved_exactly': True,
               'mature_parent_base_rates_inherited': True,
               'live_curriculum_and_si_resume': True, 'learning_does_not_reset_age': True,
@@ -124,5 +124,6 @@ if __name__ == '__main__':
     parser.add_argument('--exe', type=Path, default=Path('build/synapticgenesis.exe'))
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--cell', choices=['lif', 'alif', 'trace', 'gated', 'selective'], default='lif')
+    parser.add_argument('--replay', choices=['reservoir','stage'], default='reservoir')
     args = parser.parse_args()
-    check(args.exe, args.out, args.cell)
+    check(args.exe, args.out, args.cell, args.replay)

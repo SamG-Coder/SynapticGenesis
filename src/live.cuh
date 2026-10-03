@@ -222,7 +222,7 @@ LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const
             data.emphasize(replay, size_t(episode.document), size_t(episode.offset), replayed, replay_loss);
         replay.backward(s.hp[4]);
         replay.update(int(++s.meta[7]), s.hp[0], s.hp[1], s.hp[2], memory.core_scale());
-        memory.completed(replayed);
+        memory.completed(episode);
     }
     memory.remember(current); // Reservoir selection above only sees older observations.
     if (engine.root.synapses->active()) {
@@ -341,6 +341,7 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
     // There is one checkpoint authority, including at an interrupted save.
     fs::path latest = member_checkpoint.empty() ? out / "latest.ckpt" : member_checkpoint;
     bool resume = !args.get("resume").empty();
+    bool adopt_stage_replay = resume && args.get("replay") == "stage";
     std::string source = args.get(resume ? "resume" : "checkpoint");
     if (resume && !args.get("checkpoint").empty())
         throw std::runtime_error("Choose --checkpoint for a new live stream or --resume for its saved state");
@@ -355,16 +356,18 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
             throw std::runtime_error("Curriculum specifies its data; omit --data");
         curriculum = std::make_unique<LiveCurriculum>(args.get("curriculum"));
     }
-    if (resume && s.meta[17] == 4 && !curriculum)
+    if (resume && has_curriculum(s) && !curriculum)
         throw std::runtime_error("Curriculum checkpoint resume requires --curriculum");
     if (!args.get("extend-curriculum").empty()) {
-        require(resume && s.meta[17] == 4 && curriculum,
+        require(resume && has_curriculum(s) && curriculum,
                 "--extend-curriculum requires --resume from a curriculum checkpoint and its original "
                 "--curriculum");
         previous_curriculum = std::move(curriculum);
         curriculum = std::make_unique<LiveCurriculum>(args.get("extend-curriculum"));
         curriculum->validate_extension(*previous_curriculum);
     }
+    if (args.get("replay") == "stage" && !curriculum)
+        throw std::runtime_error("--replay stage requires --curriculum");
     Config q = source.empty() ? Config{args.num("channels", 256), args.num("hidden", 512),
                                        args.num("layers", 4), cell_version(args)}
                               : checkpoint_config(s);
@@ -373,12 +376,14 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
             if (!args.get(k).empty())
                 throw std::runtime_error(std::string("Checkpoint preserves ") + k);
     if (resume) {
-        if ((s.meta[17] < 1 || s.meta[17] > 4) || s.meta[5] != 1)
+        if ((s.meta[17] < 1 || s.meta[17] > 5) || s.meta[5] != 1)
             throw std::runtime_error(
                 "--resume needs a live checkpoint; use --checkpoint to begin a new stream");
-        for (auto k : {"chunk", "seed", "activity-cost", "fast", "speak-every", "tokens", "top-k",
-                       "temperature", "replay", "replay-capacity", "replay-seed", "core-scale", "graph",
-                       "consolidation", "si-damping"})
+        if (!args.get("replay").empty() && !adopt_stage_replay)
+            throw std::runtime_error("Live resume preserves replay except first-stage conversion to stage");
+        for (auto k :
+             {"chunk", "seed", "activity-cost", "fast", "speak-every", "tokens", "top-k", "temperature",
+              "replay-capacity", "replay-seed", "core-scale", "graph", "consolidation", "si-damping"})
             if (!args.get(k).empty())
                 throw std::runtime_error(std::string("Live resume preserves ") + k);
     }
@@ -407,14 +412,21 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
     }
     if (previous_curriculum)
         curriculum->extend(s, *previous_curriculum);
-    LiveCorpus data = curriculum ? (resume && s.meta[17] == 4 ? curriculum->corpus(s)
-                                                              : LiveCorpus(curriculum->stages.front().corpus))
-                                 : LiveCorpus(args.get("data", "data/prepared/foundations-v1/train.dat"));
+    LiveCorpus data = curriculum
+                          ? (resume && has_curriculum(s) ? curriculum->corpus(s)
+                                                         : LiveCorpus(curriculum->stages.front().corpus))
+                          : LiveCorpus(args.get("data", "data/prepared/foundations-v1/train.dat"));
     if (resume) {
         data.validate(s);
         ReplayMemory(s).validate(data, chunk);
-        if (curriculum && s.meta[17] != 4)
+        if (curriculum && !has_curriculum(s))
             curriculum->initialize(s); // Explicitly bind an existing stream without losing history.
+        if (adopt_stage_replay) {
+            require(curriculum && curriculum->stages.size() <= s.extra[3],
+                    "Stage replay capacity must cover every scheduled stage");
+            StageReplay(s).adopt_first_stage(curriculum->stages.front().document_count);
+            ReplayMemory(s).validate(data, chunk);
+        }
         // Explicit stage changes preserve all learned history, moments, state
         // and RNG. Omitted controls retain their checkpoint values.
         if (curriculum) {
@@ -490,6 +502,10 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
     std::ofstream transcript(out / "transcript.txt", std::ios::app | std::ios::binary);
     if (!metrics || !transcript)
         throw std::runtime_error("Cannot write live logs");
+    if (adopt_stage_replay)
+        metrics << "{\"event\":\"replay_policy_conversion\",\"from\":1,\"to\":3,\"online_update\":"
+                << s.meta[24] << ",\"replay_windows_preserved\":" << memory.count()
+                << ",\"replay_updates_preserved\":" << memory.updates() << "}\n";
     if (previous_curriculum)
         metrics << "{\"event\":\"curriculum_extension\",\"online_update\":" << s.meta[24]
                 << ",\"global_update\":" << s.meta[7] << ",\"previous_curriculum_hash\":\""
@@ -591,9 +607,9 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
            << ",\"session_observed_pairs\":" << s.meta[22] - start_observed
            << ",\"observed_pairs_per_second\":" << (s.meta[22] - start_observed) / seconds
            << ",\"replay_updates\":" << memory.updates() << ",\"replay_pairs\":" << memory.pairs()
-           << ",\"replay_mode\":" << memory.mode() << ",\"replay_items\":" << memory.count()
-           << ",\"core_scale\":" << memory.core_scale() << ",\"learning_rate\":" << s.hp[0]
-           << ",\"replay_every\":" << memory.every()
+           << ",\"replay_state_bytes\":" << s.extra.size() * 8 << ",\"replay_mode\":" << memory.mode()
+           << ",\"replay_items\":" << memory.count() << ",\"core_scale\":" << memory.core_scale()
+           << ",\"learning_rate\":" << s.hp[0] << ",\"replay_every\":" << memory.every()
            << ",\"graph_decode\":" << (memory.graph() ? "true" : "false")
            << ",\"update_tick_p50_ms\":" << tick_ms.percentile(.5)
            << ",\"update_tick_p95_ms\":" << tick_ms.percentile(.95)
@@ -601,6 +617,8 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
            << ",\"update_and_speech_tick_p95_ms\":" << speak_ms.percentile(.95)
            << ",\"latency_percentile_bin_relative_width\":" << std::exp2(1.0 / 32) - 1
            << ",\"shared_weights\":true,\"persistent_membranes\":true,\"trains_on_generated_text\":false";
+    if (s.meta[17] == 5)
+        StageReplay(s).report(report);
     if (engine.root.synapses->active()) {
         auto importance = engine.root.synapses->importance.host();
         double sum = std::accumulate(importance.begin(), importance.end(), 0.0);

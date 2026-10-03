@@ -91,11 +91,22 @@ struct LiveCurriculum {
         s.extra[14] = hash;
         s.extra[15] = 0;
         rate(s, s.hp[0]);
+        if (s.extra[1] == 3) {
+            require(stages.size() <= s.extra[3], "Stage replay capacity must cover every scheduled stage");
+            StageReplay(s).initialize(stages.front().document_count);
+        }
     }
     void validate(const State &s) const {
         validate_curriculum_state(s);
-        require(s.meta[17] == 4 && s.extra[14] == hash && s.extra[15] < stages.size(),
+        require(has_curriculum(s) && s.extra[14] == hash && s.extra[15] < stages.size(),
                 "Resume requires the identical curriculum schedule and all source editions");
+        if (s.meta[17] == 5) {
+            StageReplayView(s).validate();
+            require(stages.size() <= s.extra[3], "Stage replay capacity must cover every scheduled stage");
+            for (size_t g = 0; g <= s.extra[15]; ++g)
+                require(StageReplayView(s).value(g, 0) == stages[g].document_count,
+                        "Stage replay ranges differ from curriculum");
+        }
         size_t index = size_t(s.extra[15]);
         uint64_t start = index ? stages[index - 1].end_update : 0;
         require(s.meta[24] >= start && s.meta[24] <= stages[index].end_update &&
@@ -168,6 +179,8 @@ struct LiveCurriculum {
         s.meta[25] = 1; // Usual document boundary reset on the next tick.
         s.meta[12] = next.hash;
         ++s.extra[15];
+        if (s.meta[17] == 5)
+            StageReplay(s).add_group(next.docs.size());
         rate(s, s.hp[7]);
         data = std::move(next);
         validate(s);

@@ -17,7 +17,7 @@ The native learner, population registry, fitness-gated reproduction and bounded 
 - Native parent selection, whole-block inheritance, inherited learning settings and probabilistic hidden-neuron growth within size limits.
 - GPU-memory-based population credits, stricter selection under scarcity, inherited lifespans and old-age death.
 - Population-owned live sessions update the exact checkpoint used for selection, preserve lifespan/lineage, and reject deceased members.
-- Twelve native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
+- Thirteen native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
 - Context-reversal language probes and explicit answer emphasis for selected teaching lessons in the same live runtime.
 
 The default model has **1,186,304 parameters**, four residual blocks, width 256 and 512 spiking neurons per block. Training uses dense CUDA/cuBLAS operations, surrogate gradients and AdamW. Spikes do not by themselves establish an energy or speed advantage. See the [architecture](docs/architecture.md) and [development design](docs/general-development.md).
@@ -92,6 +92,8 @@ This is a manual batch schedule. Completing a stage's updates does not prove mas
 
 Observed text supplies the next-byte target. Generation reads the same mutable parameters and carries neuron state; generated text is not used as its own training target. Learning and speaking alternate at completed update boundaries. Replay uses separate recurrent state but the same weights and optimizer. See [runtime and checkpoint semantics](docs/architecture.md).
 
+Optional [`--replay stage`](docs/stage-replay.md) reserves a share of the fixed memory budget for each introduced source stage. It keeps earlier material available when newer lessons repeat many times, and reports per-stage replay exposure. It supports ordinary resume, lesson extension, population learning and an explicit first-stage conversion from a reservoir without resetting learned history. Its learning benefit is assessed by a separate controlled experiment.
+
 The schedule introduces new documents at fixed update counts while retaining earlier source windows for replay. It keeps weights, optimizer, speech RNG and optional consolidation history, records every transition, and archives each stage checkpoint. An existing stream can admit additional selected lessons with `--curriculum old.sg --extend-curriculum next.sg`; every earlier stage and source edition must remain intact. These are exposure stages; there is no automatic mastery decision. See the [live curriculum protocol](docs/live-curriculum.md), including how to prepare a fresh output directory if your earlier corpus lacks cumulative files.
 
 Single-corpus `live --data` remains available. Resume requires the same source edition and prompt; curriculum resume also verifies the schedule and future source editions. Explicit `--lr`, `--replay-every` and `--si-strength` overrides change supported policy settings. For a curriculum, `--lr` is the base rate before the stage multiplier. A new `live --checkpoint` stream inherits weights and optimizer but resets stream/replay/consolidation history. The batch commands above also do not preserve the complete live history.
@@ -104,7 +106,7 @@ Optional `--consolidation si --si-strength 0.001` enables a synaptic-importance 
 
 ## Validate
 
-`build.ps1` runs the twelve native suites. For independent gradient checks, install CPU PyTorch and NumPy in your own test environment and run:
+`build.ps1` runs the thirteen native suites. For independent gradient checks, install CPU PyTorch and NumPy in your own test environment and run:
 
 ```powershell
 python tests/oracle.py build/test-results
@@ -132,6 +134,9 @@ python tests/population_live_cli.py --cell trace --out runs/trace-population-tes
 python tests/population_cli.py --cell trace --out runs/trace-scarcity-test
 python tests/population_live_cli.py --cell selective --out runs/selective-population-test
 python tests/population_cli.py --cell selective --out runs/selective-scarcity-test
+python tests/stage_replay_cli.py --out runs/stage-replay-check
+python tests/curriculum_extension_cli.py --replay stage --out runs/stage-replay-extension-check
+python tests/population_live_cli.py --cell selective --replay stage --out runs/stage-replay-population-check
 ```
 
 The consolidation oracle and CLI integration test use only Python's standard library. Numerical tests use disposable synthetic models, isolated from founders. [Validation evidence](reports/validation.md) records what was checked for this repository.

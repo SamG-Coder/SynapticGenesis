@@ -12,7 +12,7 @@ import subprocess
 from curriculum_cli import payload
 
 
-def check(exe, out):
+def check(exe, out, replay='reservoir'):
     exe, out = exe.resolve(), out.resolve()
     out.mkdir(parents=True, exist_ok=False)
     docs = [b'A child sees a bird in a tree. The bird sings to the child. ' * 3,
@@ -57,7 +57,7 @@ def check(exe, out):
                 if block.startswith(b'online update')]
 
     common = ['--channels', 8, '--hidden', 16, '--layers', 2, '--chunk', 16,
-              '--replay', 'reservoir', '--replay-capacity', 32, '--replay-every', 2,
+              '--replay', replay, '--replay-capacity', 32, '--replay-every', 2,
               '--lr', .0008, '--graph', '--seed', 1337, '--speak-every', 2, '--tokens', 7,
               '--prompt', 'A', '--log-every', 1, '--save-every', 100]
     for cell in ('lif', 'alif', 'trace', 'gated', 'selective'):
@@ -172,7 +172,7 @@ def check(exe, out):
         '--extend-curriculum', newest, '--validation', val, '--prompt', 'A', reject='died of old age')
     assert (member / 'latest.ckpt').read_bytes() == learned
     run('sample', '--checkpoint', member / 'latest.ckpt', '--tokens', 8, '--prompt', 'A')
-    result = dict(passed=True, native_commands=calls, extension_cases=cases,
+    result = dict(passed=True, replay_policy=replay, native_commands=calls, extension_cases=cases,
                   cells=['lif', 'alif', 'trace', 'gated', 'selective'], optional_si=True, graph_speech_identical=True,
                   final_payload_max_error=max_error, repeated_extension_matches_full_schedule=True,
                   prefix_policy_and_all_source_editions_preserved=True,
@@ -189,5 +189,6 @@ if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--exe', type=Path, default=Path('build/synapticgenesis.exe'))
     p.add_argument('--out', type=Path, required=True)
+    p.add_argument('--replay', choices=['reservoir','stage'], default='reservoir')
     a = p.parse_args()
-    check(a.exe, a.out)
+    check(a.exe, a.out, a.replay)

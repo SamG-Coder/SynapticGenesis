@@ -42,15 +42,15 @@ def inspect(path):
         if not (8 <= c <= 2048 and 8 <= h <= 8192 and 1 <= layers <= 32 and 1 <= batch <= 256):
             raise ValueError('Invalid model dimensions')
         expected = 256*c + layers*(c + 2*c*h + 2*h + c + (2*h if secondary else 0) + (h*c+h if gated else 0)) + c + 256*c + 256
-        if meta[17] > 4 or (meta[17] < 2 and meta[31]) or meta[31] > 16 + 3*65536:
+        if meta[17] > 5 or (meta[17] < 2 and meta[31]) or meta[31] > (17 + 5*4096 if meta[17] == 5 else 16) + 3*65536:
             raise ValueError('Unsupported live state extension')
         extra = ()
         if meta[17] >= 2:
             f.seek(288 + 12*expected + 4*meta[18])
             extra = struct.unpack(f'<{meta[31]}Q', f.read(8*meta[31]))
-        if meta[17] == 4 and (len(extra) < 16 or extra[9] not in (0, 1) or not extra[14]):
+        if meta[17] in (4, 5) and (len(extra) < 16 or extra[9] not in (0, 1) or not extra[14]):
             raise ValueError('Invalid curriculum state')
-        synaptic_bytes = 12*expected if meta[17] == 3 or (meta[17] == 4 and extra[9]) else 0
+        synaptic_bytes = 12*expected if meta[17] == 3 or (meta[17] in (4, 5) and extra[9]) else 0
         if meta[14] != expected or path.stat().st_size != 288 + 12*expected + 4*meta[18] + 8*meta[31] + synaptic_bytes:
             raise ValueError('Checkpoint layout/length mismatch')
         weights = array('f')
@@ -104,7 +104,7 @@ def inspect(path):
                 membranes = states
             result['saved_reset_membrane_absolute_value'] = summary([abs(v) for v in membranes])
             result['saved_reset_membrane_abs_above_one_fraction'] = sum(abs(v) > 1 for v in membranes)/len(membranes)
-        if meta[17] == 4:
+        if meta[17] in (4, 5):
             result['curriculum'] = {'stage': extra[15] + 1, 'policy_hash': str(extra[14]),
                                     'base_learning_rate': hp[7], 'current_learning_rate': hp[0]}
         if synaptic_bytes:

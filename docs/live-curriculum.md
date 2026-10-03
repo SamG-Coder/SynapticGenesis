@@ -29,6 +29,8 @@ Every later corpus must begin with exactly the previous corpus bytes, followed b
 
 At a transition the cursor starts at the first newly added document. Once the new material reaches EOF, the normal cursor wraps through the cumulative corpus. Earlier observed windows also remain eligible for reservoir replay. The replay reservoir is bounded, so it does not guarantee a particular quota for every past stage.
 
+Optional [`--replay stage`](stage-replay.md) gives each introduced source stage a share of the same total slot budget and chooses replay groups equally. It retains separate observation counters when earlier sources recur. Its live extension v5 supports the same curriculum transitions, extensions and population lifecycle. A first-stage ordinary reservoir can explicitly convert without resetting learned history; later conversion is rejected.
+
 Version 2 of the **schedule text** makes that wrap policy explicit:
 
 ```text

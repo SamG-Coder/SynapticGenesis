@@ -1,0 +1,47 @@
+{
+  "status": "Stopped; not used as a complete policy comparison.",
+  "reason": "Identical initialization and first-stage data/replay history produced divergent learned arrays. Cause not fully isolated; replaced by a common learned ancestor per seed.",
+  "protocol": {
+    "cell": "selective",
+    "seeds": [
+      1337,
+      2026,
+      31415
+    ],
+    "online_endpoints": [
+      34000,
+      67000,
+      130000
+    ],
+    "replay_policies": [
+      "reservoir",
+      "stage"
+    ],
+    "slots": 1024,
+    "replay_every": 4,
+    "learning_rate": 0.0003,
+    "later_stage_multiplier": 0.25,
+    "answer_emphasis": 64,
+    "generated_bytes_per_500_observations": 96,
+    "save_every": 5000,
+    "source_spec_sha256": "7ecb1719ff45a3c02c151aa3dab786fb27dac7fbf24865798b28148753c7473c",
+    "reserved_test_evaluated": false,
+    "executable_sha256": "d19524d76823ee5239ef019d4599eb568effe531992e7ab56355804dc172d7d8",
+    "primary_endpoint": "Earlier-reader loss at 130000, accompanied by new lesson training/development scores.",
+    "comparisons": "Same initial model and online targets; equal replay updates and descriptor slots. Replay target identities and byte counts intentionally differ; report runtime cost. No checkpoint selection based on development scores."
+  },
+  "initial_arrays_identical": true,
+  "first_stage_checkpoint_hashes": [
+    "de8649d779aeeffe1ea40c99d1f94d173d55ffac17a81d98fe922cb4d93fda01",
+    "5abc6bb70c1bfcaf96661bac157a848cdd47a0f4cad770f1e3b97da71c638687"
+  ],
+  "first_stage_policy_rng_identical": true,
+  "first_stage_descriptors_identical": true,
+  "first_stage_max_errors": {
+    "weights": 0.4056842029094696,
+    "first_moment": 0.014964781701564789,
+    "second_moment": 0.004519890062510967,
+    "recurrence": 45.94582962989807
+  },
+  "limits": "Interrupted intermediate rows are not accepted as completed observation endpoints."
+}
