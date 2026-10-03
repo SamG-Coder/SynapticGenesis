@@ -5,6 +5,11 @@ The pinned OpenStax **Physics** book now has a reproducible review extraction:
 These are candidate passages, not an admitted training edition. No curriculum,
 split, checkpoint or model was created from this material.
 
+The later [corrected review](physics-edits.md) resolves the enumerated source
+and extraction issues and removes empty external-question wrappers. It retains
+this original review and its outputs unchanged; training admission is still
+pending.
+
 The source is [OpenStax Physics at commit
 dfb731c](https://github.com/openstax/osbooks-physics/tree/dfb731c737e5056750e792643fe6377425b0a067),
 the high-school book, distinct from College Physics 2e. Its pinned LICENSE and
@@ -66,7 +71,7 @@ by [Unicode's Microsoft CP1252 table](https://www.unicode.org/Public/MAPPINGS/VE
 Other C1 control characters remain rejected. No source equations or answers
 are corrected by this policy.
 
-## Remaining source problems
+## Problems found by the original review
 
 Three complete modules remain outside the candidate text:
 

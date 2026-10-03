@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "recorded_at_utc": "2026-10-03T18:05:24.085298+00:00",
+  "preserved_studies": [
+    {
+      "protocol": "runs/prose-retention-lr/protocol.json",
+      "sha256": "9c50dc898d73ac1b123d07f1aca7a83e92a5b6ccb1402c838fc3c8cfceaaa9b3",
+      "authenticated_references": 90
+    },
+    {
+      "protocol": "runs/prose-replay-capacity/protocol.json",
+      "sha256": "20096651488db77581529f4a08a681af646ca5fefd7245efe51c9f2a05c27e19",
+      "authenticated_references": 89
+    },
+    {
+      "protocol": "runs/prose-early-width/protocol.json",
+      "sha256": "76d3ab3fefe4d8afd1d0904c260f59a0e14d8d02cf2ca40f8444ad2f078911db",
+      "authenticated_references": 136
+    },
+    {
+      "protocol": "runs/prose-early-width-v2/protocol.json",
+      "sha256": "c870c8419f7b62768fb697aab40c4e49c388770f919a10acd96bba13ef943773",
+      "authenticated_references": 137
+    },
+    {
+      "protocol": "runs/prose-411m-v1/protocol.json",
+      "sha256": "daba74f6fecd44f8fd9334c07d07120bd5b9ac4466f46e9e2fa741f38c851244",
+      "authenticated_references": 137
+    }
+  ],
+  "total_authenticated_references": 589,
+  "distinct_authenticated_files": 299,
+  "all_pins_match": true,
+  "unchanged_original_physics_converter_sha256": {
+    "scripts/review_physics.py": "bc273208a9bc03eef48794788782c03c1e7417b6fc34db34b2703c3186a299c2",
+    "scripts/corpus/physics.py": "022cc3ac3cc6d29294cd94592867b4d2fa9b39010bdc7974810d766f44b443ed",
+    "scripts/corpus/openstax.py": "818f628e9bb36be4737c9eb7112758ab99c4dd96b3ad75140cae6e23d719250b",
+    "scripts/corpus/prealgebra_math.py": "136105f09d484e263ab6cda11aae57b264c6f5c5ebf02607b7291f0d3050951f"
+  },
+  "production_cuda_files_unchanged": 42,
+  "preserved_main_runtime": {
+    "path": "D:\\SynapticGenesis\\build\\synapticgenesis.exe",
+    "sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+    "archive_path": "D:\\SynapticGenesis\\build\\preserved-runtime-f73d30d8\\synapticgenesis.exe",
+    "archive_sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda"
+  },
+  "validated_runtime": {
+    "path": "D:\\SynapticGenesis\\build\\validated-shared-views\\synapticgenesis.exe",
+    "sha256": "4e65f54c44fb52603da839aa3cba41dff1f0788371cc3ffcc9cefd9e63613d62",
+    "byte_identical_to_tested_candidate": true
+  },
+  "training_selection_sha256": "61c94b6051603544e7ea523362bdff22530488459a48c18214c42f6726aab4a3",
+  "training_selection_modified": false,
+  "new_review_sha256": "38c1ca1fc8ad4a73208503480350b3cbbbec7a143cc0544b717d287e372e69a3",
+  "verification_sha256": "8f240e222088865424002121840b3885c927dbae100fe7ac38841c83ddc70af9",
+  "new_native_commands": 0,
+  "training_admitted": false,
+  "limits": "Source-processing checks only. Existing converters, source registry, native runtime and study inputs are unchanged; this is not a language-quality result."
+}

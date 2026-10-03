@@ -1,0 +1,156 @@
+{
+  "version": "physics-edits-v1",
+  "status": "reviewed_source_edits_not_training_admission",
+  "upstream_repository": "https://github.com/openstax/osbooks-physics",
+  "upstream_commit": "dfb731c737e5056750e792643fe6377425b0a067",
+  "source_review_spec_sha256": "0615630abd6c8c3f6f74e0abf373c8051a74b9a6d4d819545748b84d80472444",
+  "attribution": "Physics by OpenStax at Rice University and the authors and contributors credited in the preserved original preface. Source snapshot: https://github.com/openstax/osbooks-physics/tree/dfb731c737e5056750e792643fe6377425b0a067 . The pinned source license and collection declare Creative Commons Attribution 4.0 International. The review normalizes mathematical layout, preserves bold symbols and isotope indices, moves list titles to enclosing sections, omits specified teacher/activity notes, empty external exercise placeholders and vocabulary grids, retains source image descriptions rather than images, and repairs five explicitly reviewed CP1252 punctuation characters without altering the cached source bytes. This is research material, not an admitted training edition. No endorsement is implied; the MIT code license does not replace the book license. This corrected review additionally repairs two explicitly identified table-width declarations, preserves one four-item Roman list as labeled paragraphs, corrects three nuclide formulas in two paragraphs, and adds two descriptions authored after inspecting the pinned source diagrams. Original source files remain unchanged. These adaptations do not certify all factual content or all diagrams. Empty question/exercise wrappers left after omitting external exercise placeholders are removed; all substantive questions, solutions and trailing text are retained.",
+  "records": [
+    {
+      "module": "m54192",
+      "source_sha256": "b95a95fed9b7857c69292eb3ae7079f3ad97eb8ed685bec27a29baa04b7e9399",
+      "element_id": "fs-id1167065824697",
+      "element_sha256": "9de7e6baabfc58a658a7ad17b1c3e39b0592e776a645289e708e745332e39f1f",
+      "operation": "table_columns",
+      "reason": "The five reviewed rows each pair one equation label with one equation. Correct the declaration from one column to two, retaining every entry and its order.",
+      "references": [
+        "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54192/index.cnxml"
+      ],
+      "old_columns": 1,
+      "new_columns": 2
+    },
+    {
+      "module": "m54314",
+      "source_sha256": "b0f82d2d51c11ce54d52ad7c011e32da434570260b74fa29dbbff1093ad9ac04",
+      "element_id": "fs-id1167065885587",
+      "element_sha256": "247aa8b29660e6e876a91694684768fd4f6803d88994fde70441b88cd74757dd",
+      "operation": "table_columns",
+      "reason": "Both reviewed vocabulary rows contain four entries, including the final empty entry. Correct the declaration from three columns to four without altering the vocabulary.",
+      "references": [
+        "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54314/index.cnxml"
+      ],
+      "old_columns": 3,
+      "new_columns": 4
+    },
+    {
+      "module": "m54273",
+      "source_sha256": "d7cbed99a524693ddd4d0f2259d47bb16e62ee97f02c6f0302246f334625f8ab",
+      "element_id": "fs-id1163727237961",
+      "element_sha256": "b26a22743de7f49f541d81c13d0ed71a568c3b147f750fcec269fca6a02795a6",
+      "operation": "literal_list_labels",
+      "reason": "Preserve the four upper-Roman spring scenario labels as literal paragraph prefixes. The subsequent answers refer to I, II, III and IV; numeric substitution would change those references.",
+      "references": [
+        "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54273/index.cnxml"
+      ],
+      "labels": [
+        "(I)",
+        "(II)",
+        "(III)",
+        "(IV)"
+      ]
+    },
+    {
+      "module": "m54580",
+      "source_sha256": "96a87679a8f8f1b716b13a274f3e9d4aa876f555ef5a954f09ca2b462c48e2b1",
+      "element_id": "fs-id1167063667227",
+      "element_sha256": "61999a89e5409d02c69f71e16c8aabba38100606248ae30cdb768c8d81e9f933",
+      "operation": "replace_formulas",
+      "reason": "Place atomic number Z below and mass number A above the chemical symbol. Where deuterium is written with an explicit neutron subscript, use N=1, consistent with its one proton and one neutron. All surrounding source prose remains unchanged.",
+      "references": [
+        "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54580/index.cnxml",
+        "https://openstax.org/books/university-physics-volume-3/pages/10-1-properties-of-nuclei",
+        "https://openstax.org/books/college-physics/pages/31-3-substructure-of-the-nucleus"
+      ],
+      "formula_count": 1,
+      "formulas": [
+        {
+          "index": 0,
+          "before_sha256": "6580a4eebd25d3e14439fc1f72a767b39f47e14873392e62a6f3c605fde30546",
+          "replacement_xml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msubsup><mrow/><mi>Z</mi><mi>A</mi></msubsup><mi>X</mi><msub><mrow/><mi>N</mi></msub></math>"
+        }
+      ]
+    },
+    {
+      "module": "m54580",
+      "source_sha256": "96a87679a8f8f1b716b13a274f3e9d4aa876f555ef5a954f09ca2b462c48e2b1",
+      "element_id": "fs-id1167063419008",
+      "element_sha256": "3e1f849f89e8c18f111024eb16703dab2faa806e0ffd113592663910f678c493",
+      "operation": "replace_formulas",
+      "reason": "Place atomic number Z below and mass number A above the chemical symbol. Where deuterium is written with an explicit neutron subscript, use N=1, consistent with its one proton and one neutron. All surrounding source prose remains unchanged.",
+      "references": [
+        "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54580/index.cnxml",
+        "https://openstax.org/books/university-physics-volume-3/pages/10-1-properties-of-nuclei",
+        "https://openstax.org/books/college-physics/pages/31-3-substructure-of-the-nucleus"
+      ],
+      "formula_count": 4,
+      "formulas": [
+        {
+          "index": 0,
+          "before_sha256": "1451b317d4395607be87afa68d6fc0526cf69bc6b5be6d3971929137435b24bb",
+          "replacement_xml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msubsup><mrow/><mi>Z</mi><mi>A</mi></msubsup><mi>X</mi><msub><mrow/><mi>N</mi></msub></math>"
+        },
+        {
+          "index": 2,
+          "before_sha256": "fcf7cfd755e54b24fed28cf658a8222bd35da90b74cdda1b513e9414a46ac2a1",
+          "replacement_xml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msubsup><mrow/><mn>1</mn><mn>2</mn></msubsup><mtext>H</mtext><msub><mrow/><mn>1</mn></msub></math>"
+        }
+      ]
+    },
+    {
+      "module": "m54357",
+      "source_sha256": "28b784e5015399281b2959fe5efa57d6ae6aaaf76a4cb733996525401236c05c",
+      "element_id": "eip-idm520812096",
+      "element_sha256": "61ba0bd7a31b64d4b5275c12a9f1f0a97944165cace401fddb18d43344c0a822",
+      "operation": "media_description",
+      "reason": "Replace the three-dot placeholder with an explicit description of the inspected mirror ray paths; preserve the original question and options.",
+      "references": [
+        "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54357/index.cnxml",
+        "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/media/CNX_HSPhysics_16_01_Curved3.jpg"
+      ],
+      "before": "...",
+      "after": "A lightbulb lies between two facing concave mirrors. A large mirror on the right reflects rays from the bulb into parallel rays traveling to the left. A smaller mirror on the left returns rays through the bulb toward the large mirror.",
+      "media_sha256": "a0e7e896fc9b1b49be3f3e4f9bdca2d655acc99844a0a7bb9de5adb9d67dbbba"
+    },
+    {
+      "module": "m54365",
+      "source_sha256": "9fbfa5d19d8dbf95a4164abed07f825cfb699cdd089cc4b584f119a6ed9db22b",
+      "element_id": "eip-idm377810576",
+      "element_sha256": "14a925c297d3b11c77be56427f3d039a52e16a7f32b0a457541bc765248dcf7a",
+      "operation": "media_description",
+      "reason": "Replace the three-dot placeholder with an explicit description of the inspected refraction diagram. The 25 degree water angle and refractive indices remain supplied by the original question; no angle is inferred from drawing scale.",
+      "references": [
+        "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54365/index.cnxml",
+        "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/media/CNX_HSPhysics_16_02_Scuba_img.jpg"
+      ],
+      "before": "...",
+      "after": "An instructor stands to the left above a pool, and a diver is underwater to the right. A light ray from the instructor meets the surface and bends toward the vertical normal as it travels into the water toward the diver. Dashed ray extensions and pale figures show apparent positions. The diagram labels a horizontal 2.0 m separation along the pool edge to the ray entry point and a vertical depth d = 2.0 m.",
+      "media_sha256": "900d6f2d748208c74203ff1f84bc0b5ca18f09a13bcc85667455cf260bc121df"
+    }
+  ],
+  "inspected_media": [
+    {
+      "cache_file": "raw/physics-media/CNX_HSPhysics_16_01_Curved3.jpg",
+      "upstream_path": "media/CNX_HSPhysics_16_01_Curved3.jpg",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/media/CNX_HSPhysics_16_01_Curved3.jpg",
+      "sha256": "a0e7e896fc9b1b49be3f3e4f9bdca2d655acc99844a0a7bb9de5adb9d67dbbba",
+      "git_blob_sha1": "1ff2a89a8387d2307a16173ae4473897728c5661",
+      "bytes": 32268,
+      "review": "Inspected the pinned raster. The small mirror returns rays through the bulb toward the large mirror; the large mirror sends parallel rays to the left. No focal-point labels are printed.",
+      "reviewer": "assistant direct image inspection",
+      "image_loaded_and_inspected": true
+    },
+    {
+      "cache_file": "raw/physics-media/CNX_HSPhysics_16_02_Scuba_img.jpg",
+      "upstream_path": "media/CNX_HSPhysics_16_02_Scuba_img.jpg",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/media/CNX_HSPhysics_16_02_Scuba_img.jpg",
+      "sha256": "900d6f2d748208c74203ff1f84bc0b5ca18f09a13bcc85667455cf260bc121df",
+      "git_blob_sha1": "8c430a508b8d35ea1fb725d49e13f44ee25f9fa5",
+      "bytes": 88771,
+      "review": "Inspected the pinned raster. The instructor is on the left above water and the diver on the right below water. Rays meet at the surface normal; pale figures and dashed extensions mark apparent positions. The image has two 2.0 m dimensions but no angle label. The question itself supplies the 25 degree underwater angle; use that stated angle, not a pixel measurement.",
+      "reviewer": "assistant direct image inspection",
+      "image_loaded_and_inspected": true
+    }
+  ],
+  "limits": "Seven explicitly reviewed source elements only. No silent global correction and no assertion of full-book factual or diagram certification. The diagrams are evidence for text descriptions, not image inputs to this byte model.",
+  "empty_exercise_policy": "omit_whitespace_only_problem_and_exercise_wrappers"
+}

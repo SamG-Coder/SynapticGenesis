@@ -1,0 +1,5449 @@
+{
+  "complete": true,
+  "source_review_spec_sha256": "0615630abd6c8c3f6f74e0abf373c8051a74b9a6d4d819545748b84d80472444",
+  "edits_sha256": "a4f78daa7a4d35c5ba7111de33ffa5a6c9803a0cca161e62d0a7b7c754854986",
+  "upstream_commit": "dfb731c737e5056750e792643fe6377425b0a067",
+  "totals": {
+    "text_bytes": 1855083,
+    "word_like_units": 299768,
+    "media_descriptions": 565,
+    "retained_formulas": 2942,
+    "omitted_empty_problem": 783,
+    "omitted_empty_exercise": 775
+  },
+  "records": [
+    {
+      "module": "m54082",
+      "chapter": "What is Physics?",
+      "title": "Introduction",
+      "raw_sha256": "222e51eb2081fd458438c4410ad710978724c4cbdebb84818779e1f3af5e3098",
+      "git_blob_sha1": "1cf731a6aba46320f904b29220a1ba57ae15e2c4",
+      "bytes": 2818,
+      "path": "modules/m54082/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "af944843b3f011cef17609ac1e65fe0992abbbf480a4b4b1380d4bd953c15354",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "3d068d14399db771b1335b9c41c53bcf87072591f5daff9ac1aafb8a384933a1",
+      "text_bytes": 1231,
+      "word_like_units": 201,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54057",
+      "chapter": "What is Physics?",
+      "title": "Physics: Definitions and Applications",
+      "raw_sha256": "5940a2a70420390e526648ab320f16e6d5fb51b38aab579aea0e945f556df196",
+      "git_blob_sha1": "23568e10c149d1207fc485a0ff78d17d1ff516ae",
+      "bytes": 56902,
+      "path": "modules/m54057/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "a027b3c5064fd04c02558d227e2c2ee0729789f29d553d9b25f97d03eecd3494",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "eip-id1166851226091",
+          "fs-id1164354588450",
+          "fs-id1164354572834",
+          "fs-id1164354529675",
+          "fs-id1164354536542",
+          "fs-id1164354616242",
+          "eip-id1167065712545",
+          "eip-id1166849856741",
+          "fs-id1164353406565",
+          "fs-id1164354628665",
+          "fs-id1164354950593",
+          "eip-id1166850980027",
+          "eip-id1167063582695",
+          "fs-id1164354610431",
+          "eip-id1166849441846",
+          "eip-id1166847262236",
+          "eip-id1166849847074",
+          "fs-id1164354532591",
+          "fs-id1164354953958"
+        ],
+        "exercise": [
+          "eip-id1166848778702",
+          "fs-id1164354623959",
+          "fs-id1164354952431",
+          "fs-id1164354529871",
+          "fs-id1164354457617",
+          "fs-id1164354610536",
+          "eip-id1167066038325",
+          "eip-id1166849874445",
+          "fs-id1164354513340",
+          "fs-id1164354528662",
+          "fs-id1164354879297",
+          "eip-id1166849098325",
+          "eip-id1167063514988",
+          "fs-id1164353343036",
+          "eip-id1166849441842",
+          "eip-id1166847545455",
+          "eip-id1166849329693",
+          "fs-id1164354483858",
+          "fs-id1164354494682"
+        ]
+      },
+      "text_sha256": "93b1571d1367258a548f25bec59ada6076465eb7301cad03732a59972ae30cb4",
+      "text_bytes": 31052,
+      "word_like_units": 4937,
+      "media": {
+        "media_elements": 10
+      },
+      "policy": {
+        "omitted_notes": 14,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 13,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 19
+      },
+      "extraction": {
+        "image_descriptions": 10
+      },
+      "punctuation_repairs": {
+        "U+0092": 1,
+        "U+0097": 2
+      }
+    },
+    {
+      "module": "m54083",
+      "chapter": "What is Physics?",
+      "title": "The Scientific Methods",
+      "raw_sha256": "7e05225ffebd7df4a4ce44095d917143372f270a5d726ad773adfd9efb975e99",
+      "git_blob_sha1": "d37ce78af85a9ef8e446fde2c45e6babbf3bc7eb",
+      "bytes": 34869,
+      "path": "modules/m54083/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "34543f75af929222a867fa9b5d0ccc24a99c4181cd7973a83ed5f1698eb09105",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1164355716369",
+          "fs-id1164355875698",
+          "fs-id1164355889838",
+          "eip-id1166851095442",
+          "fs-id1164355657293",
+          "fs-id1164355730988",
+          "fs-id1164355973507",
+          "fs-id1164355864724",
+          "fs-id1164355926976",
+          "eip-id1166848815347",
+          "fs-id1164355616689",
+          "fs-id1164355853226",
+          "eip-id1166849783395",
+          "eip-id1166851379530",
+          "fs-id1164355721582",
+          "fs-id1164356027753",
+          "fs-id1164352316739",
+          "fs-id1164355643110",
+          "fs-id1164355738713",
+          "fs-id1164355923059",
+          "fs-id1164355754297",
+          "fs-id1164355738777",
+          "fs-id1164355690778",
+          "fs-id1164355732887"
+        ],
+        "exercise": [
+          "fs-id1164355755473",
+          "fs-id1164355712678",
+          "fs-id1164355686901",
+          "eip-id1166851210437",
+          "fs-id1164355721244",
+          "fs-id1164356026696",
+          "fs-id1164356087635",
+          "fs-id1164355636785",
+          "fs-id1164355852925",
+          "eip-id1166851100510",
+          "fs-id1164355664768",
+          "fs-id1164355752702",
+          "eip-id1166849444792",
+          "eip-id1166851181934",
+          "fs-id1164355765640",
+          "fs-id1164355750108",
+          "fs-id1164355693642",
+          "fs-id1164355847064",
+          "fs-id1164355659368",
+          "fs-id1164355832372",
+          "fs-id1164355637738",
+          "fs-id1164355737539",
+          "fs-id1164355718714",
+          "fs-id1164355882712"
+        ]
+      },
+      "text_sha256": "f0770f53b1405c0d642895a505e0e8b052b58886c9b65830a7c6827328d918c9",
+      "text_bytes": 13778,
+      "word_like_units": 2246,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 24
+      },
+      "extraction": {
+        "image_descriptions": 1,
+        "omitted_label": 1,
+        "math_expressions": 1
+      },
+      "punctuation_repairs": {
+        "U+0092": 2
+      }
+    },
+    {
+      "module": "m54599",
+      "chapter": "What is Physics?",
+      "title": "The Language of Physics: Physical Quantities and Units",
+      "raw_sha256": "239377c40ee72bec10c5caad89b2dfbbe2a20377ef33b8166dbebd65f9690898",
+      "git_blob_sha1": "7cebebccb96970916f3db7bef9e0141a972e6a86",
+      "bytes": 152966,
+      "path": "modules/m54599/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "210107278268eae45bb5f689a74da0a8571173f0bb2f3bb56bebeed67362cb3f",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167065968057",
+          "fs-id1167065848020",
+          "fs-id1167065848002",
+          "fs-id1167065847985",
+          "fs-id1167065977588",
+          "fs-id1167065977562",
+          "fs-id1167066048048",
+          "eip-id1166851318046",
+          "fs-id1167065967858",
+          "fs-id1167065967841",
+          "fs-id1167065967823",
+          "fs-id1167065967886",
+          "fs-id1167065967869",
+          "fs-id1167065954879",
+          "eip-id1166849857440",
+          "eip-id1166849257131",
+          "fs-id1167066173489",
+          "fs-id1167065661505",
+          "eip-id1166848775165",
+          "eip-id1166849547079",
+          "fs-id1167066169904",
+          "fs-id1167066091190",
+          "fs-id1167065739602"
+        ],
+        "exercise": [
+          "fs-id1167065968052",
+          "fs-id1167065848016",
+          "fs-id1167065847998",
+          "fs-id1167065847980",
+          "fs-id1167065977584",
+          "fs-id1167065977559",
+          "fs-id1167066048044",
+          "eip-id1166851318042",
+          "fs-id1167065967854",
+          "fs-id1167065967836",
+          "fs-id1167065967819",
+          "fs-id1167065967882",
+          "fs-id1167065954892",
+          "fs-id1167065954874",
+          "eip-id1166849972575",
+          "eip-id1166849257127",
+          "fs-id1167066173485",
+          "fs-id1167065661501",
+          "eip-id1166848775161",
+          "eip-id1166849250709",
+          "fs-id1167066091204",
+          "fs-id1167066152485"
+        ]
+      },
+      "text_sha256": "04984455d5a7d288d80d3a09fe83700debd3a294a3fa22798d9d73e143be7518",
+      "text_bytes": 73709,
+      "word_like_units": 11619,
+      "media": {
+        "media_elements": 18
+      },
+      "policy": {
+        "omitted_notes": 12,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 10,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 22
+      },
+      "extraction": {
+        "image_descriptions": 18,
+        "math_expressions": 85,
+        "omitted_label": 44
+      },
+      "punctuation_repairs": {
+        "U+0092": 3,
+        "U+0097": 1
+      }
+    },
+    {
+      "module": "m54097",
+      "chapter": "Motion in One Dimension",
+      "title": "Introduction",
+      "raw_sha256": "00ab10c57b589d23fcc3ad9c6b487a4f5fb48a3aa84fca3e230bf6e9fcf7498c",
+      "git_blob_sha1": "2f18b9908c6012037d5e2a7c2a03009552d2d74e",
+      "bytes": 3771,
+      "path": "modules/m54097/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "9b4aea4498cb3ca576029ad62ab6f2b9c19b0e290f7170420fd01febbcdf3d1d",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "de592a656cbd4b7966187497339ca8197b99790f0e0a4b4ef7cda0d644c40e41",
+      "text_bytes": 1135,
+      "word_like_units": 189,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54108",
+      "chapter": "Motion in One Dimension",
+      "title": "Relative Motion, Distance, and Displacement",
+      "raw_sha256": "09165a087ea36f16f69f43b6e887f9560256b69769d91cd8a5538ed133f6e80b",
+      "git_blob_sha1": "40ef14ccb9bf5194b2b9dc5a7ed68106dd9f233a",
+      "bytes": 55662,
+      "path": "modules/m54108/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "fc768d03ff395b551d2c03fac893679bf12dffad39ca6a81fe1a006f7a5bb828",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167067088619",
+          "fs-id1167067180163",
+          "fs-id1167067036436",
+          "eip-id1166849115245",
+          "fs-id1167066966798",
+          "fs-id1167067140420",
+          "fs-id1167067093010",
+          "fs-id1167067292494",
+          "eip-id1166851066091",
+          "fs-id1167063519781",
+          "eip-id1166850904428",
+          "fs-id1167063422130",
+          "eip-id1166849972229",
+          "fs-id1167067194960",
+          "fs-id1167067007926",
+          "fs-id1167067174246",
+          "fs-id1167066861127",
+          "fs-id1167067076458"
+        ],
+        "exercise": [
+          "fs-id1167067179467",
+          "fs-id1167066828691",
+          "fs-id1167067077206",
+          "eip-id1166848680009",
+          "fs-id1167063693938",
+          "fs-id1167067068710",
+          "fs-id1167063506333",
+          "fs-id1167066854836",
+          "eip-id1166851298946",
+          "fs-id1167066963400",
+          "eip-id1166848771592",
+          "fs-id1167063790536",
+          "eip-id1166850143916",
+          "fs-id1167066826408",
+          "fs-id1167067030969",
+          "fs-id1167063635724",
+          "fs-id1167067195791",
+          "fs-id1167067000489"
+        ]
+      },
+      "text_sha256": "8569e9c27c0aaa927e5b50dafe00ed53c33eca34613b66b86317bf5794707b25",
+      "text_bytes": 20379,
+      "word_like_units": 3522,
+      "media": {
+        "media_elements": 8
+      },
+      "policy": {
+        "omitted_notes": 15,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 11,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 2,
+        "omitted_external_exercise_placeholders": 18,
+        "omitted_note_watch-physics": 1
+      },
+      "extraction": {
+        "image_descriptions": 8,
+        "math_expressions": 9,
+        "omitted_label": 7
+      },
+      "punctuation_repairs": {
+        "U+0092": 6
+      }
+    },
+    {
+      "module": "m54104",
+      "chapter": "Motion in One Dimension",
+      "title": "Speed and Velocity",
+      "raw_sha256": "43329635586b3aa15573bba2d37f78aae08f4ce47375f5422451fbed5ac66fa7",
+      "git_blob_sha1": "5de456de67a38ff7b3f1271f0c88eaa7e5a8ea19",
+      "bytes": 44849,
+      "path": "modules/m54104/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "120670d999ef0ff616f081d58d18ee12183d5838c38912e0df7c6bead87e29d5",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066042421",
+          "fs-id1167066096774",
+          "fs-id1167065733288",
+          "fs-id1167065842617",
+          "eip-id1166845497187",
+          "eip-id1166850284281",
+          "fs-id1167065699905",
+          "eip-id1166848814323",
+          "fs-id1167065849518",
+          "fs-id1167064877432",
+          "eip-id1166847724407",
+          "fs-id1167065872599",
+          "eip-id1166849390496",
+          "fs-id1167066069251",
+          "fs-id1167065801670",
+          "fs-id1167065654893"
+        ],
+        "exercise": [
+          "fs-id1167065940063",
+          "fs-id1167065825588",
+          "fs-id1167065702980",
+          "fs-id1167065734109",
+          "eip-id1166845497183",
+          "eip-id1166849948595",
+          "fs-id1167065762451",
+          "eip-id1166851117652",
+          "fs-id1167065823586",
+          "fs-id1167066055803",
+          "eip-id1166849928524",
+          "fs-id1167066056614",
+          "eip-id1166849390492",
+          "fs-id1167066121956"
+        ]
+      },
+      "text_sha256": "d3259b620e2c57ca6700a534ca095460f091545dcd871526ac08f851c81bd1e5",
+      "text_bytes": 13541,
+      "word_like_units": 2244,
+      "media": {
+        "media_elements": 2
+      },
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 16,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_virtual-physics": 1
+      },
+      "extraction": {
+        "math_expressions": 13,
+        "omitted_label": 24,
+        "image_descriptions": 2
+      },
+      "punctuation_repairs": {
+        "U+0092": 5
+      }
+    },
+    {
+      "module": "m54110",
+      "chapter": "Motion in One Dimension",
+      "title": "Position vs. Time Graphs",
+      "raw_sha256": "3587788e5840d95516c161880f6a6ca7663571a267cc70d44e5391b4323f0010",
+      "git_blob_sha1": "a6de0701db1097f11cfaa894e971307f20669d9e",
+      "bytes": 45079,
+      "path": "modules/m54110/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "75960ad79a0f821aaf2fcbb9af4aa087057f73ee10b179ac1649ecde2dbfb20f",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167063723598",
+          "fs-id1167067266484",
+          "eip-id1166848696825",
+          "fs-id1167066974275",
+          "fs-id1167067072449"
+        ],
+        "exercise": [
+          "fs-id1167067293581",
+          "fs-id1167063491389",
+          "eip-id1166848704807",
+          "fs-id1167067210271"
+        ]
+      },
+      "text_sha256": "73a03ef32caf11ca0eb47348087e7cecdf37f97ad0c13fe00407f820191c3dad",
+      "text_bytes": 16046,
+      "word_like_units": 2736,
+      "media": {
+        "media_elements": 12
+      },
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 5
+      },
+      "extraction": {
+        "math_expressions": 13,
+        "image_descriptions": 12,
+        "omitted_label": 13
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54094",
+      "chapter": "Motion in One Dimension",
+      "title": "Velocity vs. Time Graphs",
+      "raw_sha256": "abf3bdc3a56189c123fa1a34e0462efd6deef2d34a388150f3264c0eed5e43af",
+      "git_blob_sha1": "43a8d3c59667e8e9bb24acaabb729d89e7ff1674",
+      "bytes": 53574,
+      "path": "modules/m54094/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "41e71dc01c7a3a4b00a8ce8178d5b00dec0af16d5e495f5cc3678b9b705ed41a",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167064819148",
+          "fs-id1167065671452",
+          "fs-id1167065847229",
+          "fs-id1167065865383"
+        ],
+        "exercise": [
+          "fs-id1167065941054",
+          "fs-id1167065792383",
+          "fs-id1167064994334",
+          "fs-id1167065948563"
+        ]
+      },
+      "text_sha256": "d80e55fe83a8ed34af8068032dc8819fb4cb7c25e5f5c7fae9207ced3d00f519",
+      "text_bytes": 25471,
+      "word_like_units": 4450,
+      "media": {
+        "media_elements": 18
+      },
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 8,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 4
+      },
+      "extraction": {
+        "image_descriptions": 18,
+        "math_expressions": 12,
+        "omitted_label": 9
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54119",
+      "chapter": "Acceleration",
+      "title": "Introduction",
+      "raw_sha256": "2e9d7b3b66dedf3c30be9509b802d32b41764646a97acac040b7132d4fc6cd0e",
+      "git_blob_sha1": "a4817a4f76bd7b62ab0bb6b99b2c144795e86f5d",
+      "bytes": 4829,
+      "path": "modules/m54119/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "d7d841173b80821132837be0d97ff9fb83f05230ab5914adcfe7aa7e5954ed45",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "4b453e0e36661cf0371ab480b19ac428aab1052325c71929b2c5e313cdb6b042",
+      "text_bytes": 1453,
+      "word_like_units": 244,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54123",
+      "chapter": "Acceleration",
+      "title": "Acceleration",
+      "raw_sha256": "9eb2446e65f380aaf94261200d9953ced33b2430c75b1c934d70c92b7272bbde",
+      "git_blob_sha1": "7faa7ae5c0d387c4bf62b9dcd5dc7ef75450af18",
+      "bytes": 46287,
+      "path": "modules/m54123/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "0cb4c5c1858efbc1811c82bc7f0f0cb075d33396b97390cdbed95f11c8c91d6e",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-idm15178352",
+          "fs-idp34972432",
+          "eip-id1166851228580",
+          "fs-idp32355296",
+          "eip-id1166849291151",
+          "eip-id1166850079032",
+          "eip-id1166849924045",
+          "fs-idp15818576",
+          "fs-idp59062448"
+        ],
+        "exercise": [
+          "fs-idm11852608",
+          "fs-idp40450800",
+          "eip-id1166851054480",
+          "fs-idm25988896",
+          "eip-id1166850195250",
+          "eip-id1166849855451",
+          "eip-id1166849834668",
+          "fs-idp37722688",
+          "fs-idp25744304"
+        ]
+      },
+      "text_sha256": "b10b9b24863ab8ee48e757225c124986147f1d18c719d1ae665ef2435513202f",
+      "text_bytes": 13386,
+      "word_like_units": 2162,
+      "media": {
+        "media_elements": 3
+      },
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 9,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1
+      },
+      "extraction": {
+        "math_expressions": 8,
+        "omitted_label": 13,
+        "image_descriptions": 3
+      },
+      "punctuation_repairs": {
+        "U+0097": 1
+      }
+    },
+    {
+      "module": "m54116",
+      "chapter": "Acceleration",
+      "title": "Representing Acceleration with Equations and Graphs",
+      "raw_sha256": "67b4dd378f779e492ddd8bac04192577f94ff2270217befd2a66dfa94adba4ad",
+      "git_blob_sha1": "db369d11c092fde114b4302519edcf07e2b80108",
+      "bytes": 79455,
+      "path": "modules/m54116/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "cdfa0b04e473911c979e22e797921654bf6f4dacec1671a872be0fbe71dd4468",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-idp66955968",
+          "fs-id1168437906805",
+          "eip-id1166851452013",
+          "eip-id1166848741304",
+          "fs-idm72850416",
+          "fs-idp50727056",
+          "fs-idp51740416",
+          "fs-idp17447440"
+        ],
+        "exercise": [
+          "fs-idp66955584",
+          "fs-id1168437906802",
+          "eip-id1166851452009",
+          "eip-id1166849129794",
+          "fs-idm71779728",
+          "fs-idp24857200",
+          "fs-idp59208496",
+          "fs-idm13108496"
+        ]
+      },
+      "text_sha256": "4a742eab887cdcda0eab4b7f3a294e5ae542cfe5270f3357c7b8a47124b4b7d0",
+      "text_bytes": 29854,
+      "word_like_units": 4854,
+      "media": {
+        "media_elements": 10
+      },
+      "policy": {
+        "omitted_notes": 13,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 11,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 8,
+        "external_exercise_unicode_hyphen_aliases": 1,
+        "titled_lists_preserved": 1
+      },
+      "extraction": {
+        "math_expressions": 48,
+        "image_descriptions": 10,
+        "omitted_label": 17
+      },
+      "punctuation_repairs": {
+        "U+0092": 1,
+        "U+0093": 4,
+        "U+0094": 4,
+        "U+0097": 1
+      }
+    },
+    {
+      "module": "m54144",
+      "chapter": "Forces and Newton\u2019s Laws of Motion",
+      "title": "Introduction",
+      "raw_sha256": "aa114cb59c892bf49a1c91cd7967137d82196ef29dd02335f1bffa197c24f60b",
+      "git_blob_sha1": "521956a755c5e1a660e04d5f7cbf76f6f44b11ae",
+      "bytes": 2663,
+      "path": "modules/m54144/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "89e7a6db6ddc9a12bfd2bcad768f27dfec89100a72e5657f1c13469c78b1c68c",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "8a1f659bd821ab03ace8a1e220a9df77cce1ae64a2723343fa0918676a438ac4",
+      "text_bytes": 975,
+      "word_like_units": 162,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54135",
+      "chapter": "Forces and Newton\u2019s Laws of Motion",
+      "title": "Force",
+      "raw_sha256": "3116e4a02adda4ccf042e6a0ecfd881f0d913d199181eace9214c1b002399a03",
+      "git_blob_sha1": "8bb09f83898312d6c945b12ab2c76c55c16facd5",
+      "bytes": 26977,
+      "path": "modules/m54135/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "829ab34d54d610e658ff7362cddf9f3fc510a3736c05c67441817371c77f32f3",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-idp91666064",
+          "fs-idm249888",
+          "fs-idp4092784"
+        ],
+        "exercise": [
+          "fs-idp2156448",
+          "fs-idp63678384",
+          "fs-idp149776"
+        ]
+      },
+      "text_sha256": "c17363fc16ff9b7d10aa50601774d0b849eb1158e488612792db1464a18f5e52",
+      "text_bytes": 12901,
+      "word_like_units": 2318,
+      "media": {
+        "media_elements": 2
+      },
+      "policy": {
+        "omitted_notes": 5,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 3
+      },
+      "extraction": {
+        "image_descriptions": 2
+      },
+      "punctuation_repairs": {
+        "U+0097": 2
+      }
+    },
+    {
+      "module": "m54138",
+      "chapter": "Forces and Newton\u2019s Laws of Motion",
+      "title": "Newton's First Law of Motion: Inertia",
+      "raw_sha256": "984642455b05a416f1d307e43dea55bfe5bfbf1e47ac4503d894dc176fb39683",
+      "git_blob_sha1": "6a98ad426efd9b541c2ec0d479e3f93e366e7032",
+      "bytes": 36629,
+      "path": "modules/m54138/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "befb46226dfb2e9f8b0770bd4c25bad70d345bcd84dc8ee1c9574ebc8364e9b0",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-idp79837600",
+          "fs-idp49854768",
+          "fs-idp53190224"
+        ],
+        "exercise": [
+          "fs-idp77930016",
+          "fs-idm23719536",
+          "fs-idp72241184"
+        ]
+      },
+      "text_sha256": "c00f3040f0ace3de9dde6cf90276c3bbc9ecbd330a7b5b7b102272afc7582985",
+      "text_bytes": 16717,
+      "word_like_units": 3023,
+      "media": {
+        "media_elements": 2
+      },
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 3
+      },
+      "extraction": {
+        "math_expressions": 5,
+        "image_descriptions": 2,
+        "omitted_label": 2
+      },
+      "punctuation_repairs": {
+        "U+0092": 7,
+        "U+0097": 2
+      }
+    },
+    {
+      "module": "m54142",
+      "chapter": "Forces and Newton\u2019s Laws of Motion",
+      "title": "Newton's Second Law of Motion",
+      "raw_sha256": "abc11d4bc87d9527c93acbb7cb1b3e78cb0eee7254569a4aaec32a03b9de01ce",
+      "git_blob_sha1": "01277fe456468e5871b9b47d3d2ee63a957cbc9d",
+      "bytes": 56206,
+      "path": "modules/m54142/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "1c8e7d1551d961cf4ad9c819178d0dd7b675afc1b3a0ee3691bc20185de3bc13",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-idm86333008",
+          "eip-id1166851352297"
+        ],
+        "exercise": [
+          "fs-idm42655584",
+          "eip-id1166850953720"
+        ]
+      },
+      "text_sha256": "ec832c0d2f9eb6f47a3c3b7df65a118dd144b12d95672bb9f2b06ab6c75f8a64",
+      "text_bytes": 22596,
+      "word_like_units": 3794,
+      "media": {
+        "media_elements": 3
+      },
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 2
+      },
+      "extraction": {
+        "omitted_label": 14,
+        "math_expressions": 44,
+        "image_descriptions": 3
+      },
+      "punctuation_repairs": {
+        "U+0092": 4,
+        "U+0097": 1
+      }
+    },
+    {
+      "module": "m54131",
+      "chapter": "Forces and Newton\u2019s Laws of Motion",
+      "title": "Newton's Third Law of Motion",
+      "raw_sha256": "255cca5b620792b2e57b340d62abc7eeaa04b2303e3366336b5a6f605a7f9fda",
+      "git_blob_sha1": "856c1a66873940189e0be993b71db4365b8d7b32",
+      "bytes": 54537,
+      "path": "modules/m54131/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "92e2b23fd69ab84a5c97727626e6f7c38fc3e5b42b8390b70b00bba1ad46ab2e",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "eip-id1166849858290",
+          "fs-idp28856560"
+        ],
+        "exercise": [
+          "eip-id1166849307165",
+          "fs-idm44978336"
+        ]
+      },
+      "text_sha256": "9675f991cd82b6cbf7dcb0609d92a54c7a2541bc0cfd319c6163f8f9c82e63b4",
+      "text_bytes": 27509,
+      "word_like_units": 4779,
+      "media": {
+        "media_elements": 4
+      },
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 2
+      },
+      "extraction": {
+        "math_expressions": 31,
+        "image_descriptions": 4,
+        "omitted_label": 12
+      },
+      "punctuation_repairs": {
+        "U+0092": 16,
+        "U+0097": 3
+      }
+    },
+    {
+      "module": "m54145",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Introduction",
+      "raw_sha256": "a46b750b1985353001da692133fe768ab873602fd97854139bde053c04560607",
+      "git_blob_sha1": "45dc8b638acf386ffe7fba12f5d10aecd8c2f8a2",
+      "bytes": 2897,
+      "path": "modules/m54145/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "41f9709ef0559fa72e5ac954e630f7f06ccde2e1e30281094f07b0895e1e3319",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "39a3fc7f2af27f27929e200fbc9ec6115fb68704ccc4c6fe0e8010a92c93c43b",
+      "text_bytes": 1176,
+      "word_like_units": 179,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 3,
+        "omitted_note_os-teacher": 3
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54165",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Vector Addition and Subtraction: Graphical Methods",
+      "raw_sha256": "2a31b9e7eced1ed254a763918e9502ec87528f880c85117c9ac6c7ea7b9dab18",
+      "git_blob_sha1": "0be700e22806b0f95185d59b3e6e095da8c0aeb4",
+      "bytes": 56688,
+      "path": "modules/m54165/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "e59c2d1050e01d144c0f390aa30f1064e323cc3112dfaceb87f71926254347ea",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167065859449",
+          "fs-id1167065961596",
+          "eip-id1166849331641",
+          "eip-id1166850102395",
+          "fs-id1167065850971",
+          "fs-id1167065938130",
+          "eip-id1166849331531",
+          "eip-id1166849934582",
+          "fs-id1167066970745",
+          "fs-id1167065812356",
+          "fs-id1167065654470"
+        ],
+        "exercise": [
+          "fs-id1167065859446",
+          "fs-id1167065961593",
+          "eip-id1166849964506",
+          "eip-id1166849406980",
+          "fs-id1167065850968",
+          "fs-id1167065938127",
+          "eip-id1166849329823",
+          "eip-id1166849254639",
+          "fs-id1167066975379",
+          "fs-id1167065892563",
+          "fs-id1167065882472"
+        ]
+      },
+      "text_sha256": "e496edd97eeb9db9f869f7b632bb963478ff47911ea22a4452082bfceeacf1d0",
+      "text_bytes": 22900,
+      "word_like_units": 3881,
+      "media": {
+        "media_elements": 15
+      },
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 6,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 11,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1
+      },
+      "extraction": {
+        "math_expressions": 32,
+        "image_descriptions": 15,
+        "omitted_label": 12
+      },
+      "punctuation_repairs": {
+        "U+0097": 3
+      }
+    },
+    {
+      "module": "m54147",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Vector Addition and Subtraction: Analytical Methods",
+      "raw_sha256": "6279130fc068183e38b6f8a43eb60d35614b3894b99a196580426d00eea3c8d5",
+      "git_blob_sha1": "3af1ad1387bf9e58796ef448961af24208c4592b",
+      "bytes": 103542,
+      "path": "modules/m54147/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "8bd94cbacddfab2af0d727026ce9c266aa7dcfccbe14e8f6a2017d722f3bac7b",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167067086964",
+          "fs-id1167067086921",
+          "fs-id1167067086909",
+          "fs-id1167067095583",
+          "fs-id1167067095572",
+          "fs-id1167067095552",
+          "fs-id1167067095540",
+          "fs-id1167067095515",
+          "eip-id1166845386070",
+          "fs-id1167066983887",
+          "fs-id1167066983870",
+          "fs-id1167065893011",
+          "fs-id1167067086859"
+        ],
+        "exercise": [
+          "fs-id1167067086961",
+          "fs-id1167067086918",
+          "fs-id1167067086906",
+          "fs-id1167067095580",
+          "fs-id1167067095569",
+          "fs-id1167067095548",
+          "fs-id1167067095537",
+          "fs-id1167067095511",
+          "eip-id1166845386067",
+          "fs-id1167066983883",
+          "fs-id1167066983866",
+          "fs-id1167065978621",
+          "fs-id1167067086852"
+        ]
+      },
+      "text_sha256": "950b43cdd0d1cd779be82d3d461e499146775161cba3f7de40b34d091910916a",
+      "text_bytes": 24224,
+      "word_like_units": 3767,
+      "media": {
+        "media_elements": 10
+      },
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 13
+      },
+      "extraction": {
+        "image_descriptions": 10,
+        "math_expressions": 176,
+        "omitted_label": 34
+      },
+      "punctuation_repairs": {
+        "U+0097": 1
+      }
+    },
+    {
+      "module": "m54162",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Projectile Motion",
+      "raw_sha256": "4e681890b4191a16599f21dede2088c6d2f722048443ca946d0fea3171d36b14",
+      "git_blob_sha1": "41e94bd6397750245c062fa4c12e336ca55fcdb0",
+      "bytes": 93017,
+      "path": "modules/m54162/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "5e31ff6cf6c1fdd849da4521fcb500c4ac83489f38526c279986bef7400a8572",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066966561",
+          "fs-id1167066966552",
+          "fs-id1167067139241",
+          "fs-id1167067078054",
+          "eip-id1166847372058",
+          "fs-id1167067007988",
+          "fs-id1167067080154",
+          "fs-id1167067217775",
+          "eip-id1166849906810",
+          "fs-id1167067082898",
+          "fs-id1167067154402",
+          "fs-id1167067043993",
+          "fs-id1167067040773",
+          "fs-id1167065842519",
+          "fs-id1167065824470"
+        ],
+        "exercise": [
+          "fs-id1167066966558",
+          "fs-id1167067044064",
+          "fs-id1167067139239",
+          "fs-id1167067078052",
+          "eip-id1166847372054",
+          "fs-id1167067007986",
+          "fs-id1167067080152",
+          "fs-id1167067191346",
+          "eip-id1166849906805",
+          "fs-id1167067082895",
+          "fs-id1167067030963"
+        ]
+      },
+      "text_sha256": "af5dc05323db6f71a51bda3c99b3f31683a0a47c3359d0f2f6751746e32203f6",
+      "text_bytes": 22722,
+      "word_like_units": 3410,
+      "media": {
+        "media_elements": 6
+      },
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 13,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1
+      },
+      "extraction": {
+        "image_descriptions": 6,
+        "math_expressions": 105,
+        "omitted_label": 34
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54159",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Inclined Planes",
+      "raw_sha256": "21193864e34f88334cd6b399957fdd0a656706c48a4686f9e1323683d08d5ad2",
+      "git_blob_sha1": "160dc9d599db0317eefebd9e194d222d7ee08e60",
+      "bytes": 80642,
+      "path": "modules/m54159/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "6e0a4e4df87b5959c59ea27a2d9ff90dfeefdc66436ca5ccdd71369ab798f7d9",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167067045071",
+          "fs-id1167066852158",
+          "fs-id1167067074291",
+          "fs-id1167066829427",
+          "fs-id1167067061810",
+          "eip-id1166851245779",
+          "fs-id1167067080137",
+          "fs-id1167066948134",
+          "eip-id1166851318331",
+          "eip-id1166848763197",
+          "eip-id1166849840873",
+          "fs-id1167067044021",
+          "fs-id1167067176390",
+          "fs-id1167067040780"
+        ],
+        "exercise": [
+          "fs-id1167067045069",
+          "fs-id1167066852155",
+          "fs-id1167067074288",
+          "fs-id1167066960819",
+          "fs-id1167067061808",
+          "eip-id1166851245775",
+          "fs-id1167067080135",
+          "fs-id1167066948131",
+          "eip-id1166848893438",
+          "eip-id1166849159463",
+          "eip-id1166849868061",
+          "fs-id1167067079051",
+          "fs-id1167067176387",
+          "fs-id1167067195746"
+        ]
+      },
+      "text_sha256": "c3bfb68ceb05d8b4d5fc99d5b6a4287a009b6aa0e28464baaf0b97d6b85fd57e",
+      "text_bytes": 21101,
+      "word_like_units": 3302,
+      "media": {
+        "media_elements": 4
+      },
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 14,
+        "omitted_note_snap-lab": 1
+      },
+      "extraction": {
+        "image_descriptions": 4,
+        "omitted_label": 25,
+        "math_expressions": 74
+      },
+      "punctuation_repairs": {
+        "U+0097": 1
+      }
+    },
+    {
+      "module": "m54154",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Simple Harmonic Motion",
+      "raw_sha256": "9e24b744ea3a5edddca092fb915845ca58a5d5326ce37fcecabdddf203bd12b6",
+      "git_blob_sha1": "08903b56294e2c3e0e32f7cdd2ca2617a0496c9d",
+      "bytes": 54469,
+      "path": "modules/m54154/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "4a27b3aa20bf9aaa29b5508cd44553bfe6727da899ad21d7094dea5afad4e466",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066880620",
+          "fs-id1167066983724",
+          "eip-id1166851289631",
+          "eip-id1166848849634",
+          "fs-id1167067026788",
+          "fs-id1167067076521",
+          "fs-id1167066873855",
+          "fs-id1167066847896",
+          "eip-id1166849081900",
+          "fs-id1167066783059",
+          "fs-id1167066825687",
+          "fs-id1167066869100",
+          "fs-id1167067012897"
+        ],
+        "exercise": [
+          "fs-id1167066833080",
+          "fs-id1167066836139",
+          "eip-id1166848770418",
+          "eip-id1166851431511",
+          "fs-id1167066840503",
+          "fs-id1167066965762",
+          "fs-id1167066861616",
+          "fs-id1167067095567",
+          "eip-id1166848776330",
+          "fs-id1167066875693",
+          "fs-id1167066972334",
+          "fs-id1167066864038",
+          "fs-id1167067099088"
+        ]
+      },
+      "text_sha256": "be34cf2e430e96e570b9f489e26feebb03a019bf44eb97615ab77628dda40254",
+      "text_bytes": 18285,
+      "word_like_units": 3055,
+      "media": {
+        "media_elements": 5
+      },
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 13,
+        "omitted_note_snap-lab": 1
+      },
+      "extraction": {
+        "omitted_label": 16,
+        "math_expressions": 23,
+        "image_descriptions": 5
+      },
+      "punctuation_repairs": {
+        "U+0092": 1,
+        "U+0097": 1
+      }
+    },
+    {
+      "module": "m54173",
+      "chapter": "Circular and Rotational Motion",
+      "title": "Introduction",
+      "raw_sha256": "707036aee8060ad1648fc75fd9fbb6f6dee1c2d743258b7ab4ed82e997ccf301",
+      "git_blob_sha1": "5c64f9fd92d3dd5971be324e411267f990294000",
+      "bytes": 2177,
+      "path": "modules/m54173/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "1d846b7a8bcb1e4b183f9136fa70d705dbbd08591621207c3ff9789336900f7c",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "a1d4af5beee6f0cd441a9dac4e3c5a3b5b875506acd720feaab48120148d7a93",
+      "text_bytes": 995,
+      "word_like_units": 163,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 1,
+        "omitted_note_os-teacher": 1
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54176",
+      "chapter": "Circular and Rotational Motion",
+      "title": "Angle of Rotation and Angular Velocity",
+      "raw_sha256": "c5dfffadc2560ccff1ec5e02a42793c8106796598c736727d01b15531dfdf38b",
+      "git_blob_sha1": "602fa80c6886356deae34e28d0ab14cc7f5a6b1c",
+      "bytes": 50405,
+      "path": "modules/m54176/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "2492170e56a19bbab1e79e32f61fd67631a3766919f749c036dd4c80e3616e8b",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167064819415",
+          "fs-id1167065772558",
+          "fs-id1167066097559",
+          "fs-id1167066034969",
+          "fs-id1167064907951",
+          "fs-id1167065771593",
+          "eip-id1166848767171",
+          "eip-id1166849165174",
+          "fs-id1167064914956",
+          "fs-id1167064541515",
+          "fs-id1167065974172",
+          "fs-id1167065872627",
+          "fs-id1167065853254",
+          "fs-id1167066163181",
+          "fs-id1167064906376",
+          "fs-id1167065937485",
+          "fs-id1167064818575",
+          "fs-id1167064979477",
+          "fs-id1167062361875",
+          "fs-id1167066113012"
+        ],
+        "exercise": [
+          "fs-id1167064819412",
+          "fs-id1167065772556",
+          "fs-id1167066097557",
+          "fs-id1167066034967",
+          "fs-id1167065764061",
+          "fs-id1167065771591",
+          "eip-id1166848911524",
+          "eip-id1166851382786",
+          "fs-id1167064914954",
+          "fs-id1167064541512",
+          "fs-id1167065898630",
+          "fs-id1167065872625",
+          "fs-id1167065853252",
+          "fs-id1167065073134",
+          "fs-id1167064906373",
+          "fs-id1167065852838",
+          "fs-id1167064818572",
+          "fs-id1167065894196",
+          "fs-id1167062361872",
+          "fs-id1167066113008"
+        ]
+      },
+      "text_sha256": "e0925d0a14b3d6531dca388320b221b2453268f50987bc2583584e66708c8a49",
+      "text_bytes": 17658,
+      "word_like_units": 2909,
+      "media": {
+        "media_elements": 5
+      },
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 20
+      },
+      "extraction": {
+        "image_descriptions": 5,
+        "math_expressions": 65,
+        "omitted_label": 11
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54181",
+      "chapter": "Circular and Rotational Motion",
+      "title": "Uniform Circular Motion",
+      "raw_sha256": "8eada1c5086fa9c3492aa47c29fb47226bd924b9d219be288b5af0c2e71854f6",
+      "git_blob_sha1": "81a9d666cc4fea579b98751d9fd03dc188cb4e1d",
+      "bytes": 53942,
+      "path": "modules/m54181/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "7a2caea0f68b835cd780aa1d4618c3dd48206d656cb3c2df5330f3558faeb70a",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167065684358",
+          "fs-id1167065024168",
+          "fs-id1167065976312",
+          "fs-id1167066154303",
+          "fs-id1167065949118",
+          "fs-id1167065824405",
+          "eip-id1166847245934",
+          "eip-id1166849781701",
+          "fs-id1167062355517",
+          "fs-id1167066034516",
+          "eip-id1166851215284",
+          "fs-id1167065947893",
+          "fs-id1167066055880",
+          "fs-id1167065843009",
+          "fs-id1167065968370",
+          "fs-id1167066057848"
+        ],
+        "exercise": [
+          "fs-id1167065775974",
+          "fs-id1167066020649",
+          "fs-id1167065808864",
+          "fs-id1167064907983",
+          "fs-id1167064825666",
+          "fs-id1167065958915",
+          "eip-id1166849868061",
+          "eip-id1166849412816",
+          "fs-id1167065966922",
+          "fs-id1167065956344",
+          "eip-id1166846580500",
+          "fs-id1167064872633",
+          "fs-id1167064914696",
+          "fs-id1167065792783",
+          "fs-id1167064916151",
+          "fs-id1167065955117"
+        ]
+      },
+      "text_sha256": "a19f7b0023c74aece3ad8b017103f313e2687ecdc4384062c762992da95671f2",
+      "text_bytes": 17602,
+      "word_like_units": 2914,
+      "media": {
+        "media_elements": 4
+      },
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 6,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 16
+      },
+      "extraction": {
+        "math_expressions": 34,
+        "image_descriptions": 4,
+        "omitted_label": 13
+      },
+      "punctuation_repairs": {
+        "U+0092": 2
+      }
+    },
+    {
+      "module": "m54180",
+      "chapter": "Circular and Rotational Motion",
+      "title": "Rotational Motion",
+      "raw_sha256": "e3cd1cecbf867feb2f2a5364acea69330feb98f0f95f4222b373b61aa0c83a6a",
+      "git_blob_sha1": "f56ddb31f0339716bc6143e177ab63737240c803",
+      "bytes": 62420,
+      "path": "modules/m54180/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "7361cc5d98f265bf83eb49434ee6122e253a4a15f3fea4230b1ea2553b998f2e",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167063852611",
+          "fs-id1167067105265",
+          "fs-id1167063471476",
+          "fs-id1167066868080",
+          "eip-id1166851054007",
+          "fs-id1167067029843",
+          "fs-id1167067176086",
+          "eip-id1166850287891",
+          "fs-id1167063447398",
+          "fs-id1167067043759",
+          "fs-id1167063484338",
+          "fs-id1167063541036",
+          "fs-id1167067160332"
+        ],
+        "exercise": [
+          "fs-id1167067080146",
+          "fs-id1167067108854",
+          "fs-id1167067216567",
+          "fs-id1167066868077",
+          "eip-id1166851434262",
+          "fs-id1167067029840",
+          "fs-id1167067176083",
+          "eip-id1166850287886",
+          "fs-id1167067107337",
+          "fs-id1167067043756",
+          "fs-id1167066790496",
+          "fs-id1167067073134",
+          "fs-id1167067160328"
+        ]
+      },
+      "text_sha256": "42b90a255f7877a7fe24deb695a3bd24a049aa22f4bcc77a5f1c63b795bc60ef",
+      "text_bytes": 21303,
+      "word_like_units": 3173,
+      "media": {
+        "media_elements": 4
+      },
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 13
+      },
+      "extraction": {
+        "math_expressions": 75,
+        "omitted_label": 12,
+        "image_descriptions": 4,
+        "table_span_cells": 2
+      },
+      "punctuation_repairs": {
+        "U+0092": 2
+      }
+    },
+    {
+      "module": "m54196",
+      "chapter": "Newton's Law of Gravitation",
+      "title": "Introduction",
+      "raw_sha256": "67db9164fadd689bdbc419a0fac8a2c6415f95b7fc49c032e5cf61fcb27fe7b5",
+      "git_blob_sha1": "feda768a554a5f50c49fdd677be2566184bf1622",
+      "bytes": 3151,
+      "path": "modules/m54196/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "adbc14d8705e67ea43b41fcd5dff127111f5cdaae85b752772d1b90bc394f129",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "a055d86e30e15a4ceb3b5d9e75df393d32031285d7f103cabd0e2c1dc496a630",
+      "text_bytes": 1022,
+      "word_like_units": 160,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 3,
+        "omitted_note_os-teacher": 3
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54192",
+      "chapter": "Newton's Law of Gravitation",
+      "title": "Kepler's Laws of Planetary Motion",
+      "raw_sha256": "b95a95fed9b7857c69292eb3ae7079f3ad97eb8ed685bec27a29baa04b7e9399",
+      "git_blob_sha1": "5b8382a8213470ca1250221dbec76b0a366d7c69",
+      "bytes": 66287,
+      "path": "modules/m54192/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [
+        "fs-id1167065824697"
+      ],
+      "amended_source_sha256": "cb66140b5541c352c22f498e096a854b807635abafe8061134dfd7aa268f0405",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167064902328",
+          "fs-id1167065013735",
+          "fs-id1167065878971",
+          "fs-id1167066156734",
+          "fs-id1167065949146",
+          "eip-id1166849464580",
+          "eip-id1166849891035",
+          "fs-id1167065959670",
+          "fs-id1167065856317"
+        ],
+        "exercise": [
+          "fs-id1167064902325",
+          "fs-id1167064818969",
+          "fs-id1167065878968",
+          "fs-id1167066156731",
+          "fs-id1167065968564",
+          "eip-id1166849864204",
+          "eip-id1166849927657",
+          "fs-id1167065959667",
+          "fs-id1167064908172"
+        ]
+      },
+      "text_sha256": "3fb2a9a5fbf151b118bea9603b5be17ca04a8f251b25320d78d68ddc11defe60",
+      "text_bytes": 22260,
+      "word_like_units": 3795,
+      "media": {
+        "media_elements": 7
+      },
+      "policy": {
+        "omitted_notes": 17,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 15,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 9
+      },
+      "extraction": {
+        "image_descriptions": 7,
+        "omitted_label": 12,
+        "math_expressions": 31
+      },
+      "punctuation_repairs": {
+        "U+0092": 9
+      }
+    },
+    {
+      "module": "m54189",
+      "chapter": "Newton's Law of Gravitation",
+      "title": "Newton's Law of Universal Gravitation and Einstein's Theory of General Relativity",
+      "raw_sha256": "742d5f543b2db64a3fa8d54244fdc43a757dd9d50422f88fd8a326e9f482e5fb",
+      "git_blob_sha1": "f774a31fdcbf49ced57559112bd5726a4867bab5",
+      "bytes": 69363,
+      "path": "modules/m54189/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "713b6956b13adec76264fba21ab26f0f32174415b552e032a4b65bd9347364a3",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167067231418",
+          "fs-id1167067061518",
+          "eip-id1166848824677",
+          "fs-id1167067146951",
+          "eip-id1166851398703",
+          "eip-id1166848780542",
+          "fs-id1167067236120",
+          "fs-id1167067147870",
+          "fs-id1167067106161",
+          "fs-id1167063525875",
+          "fs-id1167066850726",
+          "fs-id1167067084942",
+          "fs-id1167067103120"
+        ],
+        "exercise": [
+          "fs-id1167067215676",
+          "fs-id1167063826273",
+          "eip-id1166848824672",
+          "fs-id1167067146207",
+          "eip-id1166849189261",
+          "eip-id1166848717794",
+          "fs-id1167067236117",
+          "fs-id1167067029525",
+          "fs-id1167067261938",
+          "fs-id1167067053632",
+          "fs-id1167067226632",
+          "fs-id1167066854507",
+          "fs-id1167066790526"
+        ]
+      },
+      "text_sha256": "c29158fad4907e85232de11de72bc7a94e81acbc0cd33212b4c2c9ce645e98f6",
+      "text_bytes": 24856,
+      "word_like_units": 4002,
+      "media": {
+        "media_elements": 6
+      },
+      "policy": {
+        "omitted_notes": 20,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 15,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 13,
+        "omitted_note_watch-physics": 2
+      },
+      "extraction": {
+        "image_descriptions": 6,
+        "omitted_label": 12,
+        "math_expressions": 26
+      },
+      "punctuation_repairs": {
+        "U+0092": 6
+      }
+    },
+    {
+      "module": "m54212",
+      "chapter": "Momentum",
+      "title": "Introduction",
+      "raw_sha256": "ad39fe3218e79b364eb968e646765dba98453c949cf23b0c15d93c8b02674669",
+      "git_blob_sha1": "5ba6a51c1dfd200f783d871d9324144bc95a44de",
+      "bytes": 2980,
+      "path": "modules/m54212/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "1d8e1613c2f7e1ef3d5af7620029e60fbf7a6737b9bff17d999807efa1e0b4b3",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "c06d0a9999734e82c09fd167cf399cb1d0bd7626126fae7b605191bef4f8d950",
+      "text_bytes": 1414,
+      "word_like_units": 232,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54215",
+      "chapter": "Momentum",
+      "title": "Linear Momentum, Force, and Impulse",
+      "raw_sha256": "f0ae3d8187826baed0cd49485149c7c566b64d050557a92c082943fd6ac14542",
+      "git_blob_sha1": "16d1544286baf805cded6c75fcd804491ec5c3de",
+      "bytes": 60965,
+      "path": "modules/m54215/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "84e763de95924d99f2af55a8be1930e1c0a675a893cd5234f01bdf58c6ff5778",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066821196",
+          "fs-id1167066939931",
+          "fs-id1167066827408",
+          "fs-id1167066790418",
+          "eip-id1166850011314",
+          "fs-id1167066855898",
+          "fs-id1167066869927",
+          "fs-id1167067089142",
+          "eip-id1166851318301",
+          "fs-id1167066845688",
+          "fs-id1167066861532"
+        ],
+        "exercise": [
+          "fs-id1167067153842",
+          "fs-id1167066829793",
+          "fs-id1167066880257",
+          "fs-id1167066844387",
+          "eip-id1166850011310",
+          "fs-id1167066799155",
+          "fs-id1167067197486",
+          "fs-id1167067099274",
+          "eip-id1166851228815",
+          "fs-id1167067085892",
+          "fs-id1167067042742"
+        ]
+      },
+      "text_sha256": "226cfa132bb70fc390e7b754dd5d1b372b7cf6581f3c764e71f2c0dd056f913a",
+      "text_bytes": 19416,
+      "word_like_units": 3122,
+      "media": {
+        "media_elements": 2
+      },
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 11
+      },
+      "extraction": {
+        "omitted_label": 25,
+        "math_expressions": 64,
+        "image_descriptions": 2
+      },
+      "punctuation_repairs": {
+        "U+0092": 8
+      }
+    },
+    {
+      "module": "m54202",
+      "chapter": "Momentum",
+      "title": "Conservation of Momentum",
+      "raw_sha256": "4ab904f2a671424a4ef2c99163bb9e6e7e4a615dd6eebc238902a8f67d6e6ff8",
+      "git_blob_sha1": "e228455c480fd632ad0664781a1ec2a6aa3cdac9",
+      "bytes": 33490,
+      "path": "modules/m54202/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "232f0667cf02dce2182d50b5c8e0195d9d871ce81ff8b5b27d6f99973bca05b4",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "eip-id1166849937762",
+          "fs-id1167066826308",
+          "eip-id1166849475174",
+          "fs-id1167067066052"
+        ],
+        "exercise": [
+          "eip-id1166850215823",
+          "fs-id1167067078052",
+          "eip-id1166849941538",
+          "fs-id1167063525323"
+        ]
+      },
+      "text_sha256": "dc893a6a11b9dcf5ef4e420fef36759ac6b59094c3b506a3e1fa95eb6da1e66d",
+      "text_bytes": 14182,
+      "word_like_units": 2367,
+      "media": {
+        "media_elements": 2
+      },
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 4
+      },
+      "extraction": {
+        "image_descriptions": 2,
+        "omitted_label": 8,
+        "math_expressions": 17
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54209",
+      "chapter": "Momentum",
+      "title": "Elastic and Inelastic Collisions",
+      "raw_sha256": "4d55b85673aa7c84b6159500f30fbdf034e5c69c09ff4f85d0eb3b009d9e65ba",
+      "git_blob_sha1": "ae6c5df1fb634d36dbc6b792930caf8d40d394a1",
+      "bytes": 87773,
+      "path": "modules/m54209/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "ef5aecfec76c5d68041ac4742bf6f379ccacf91a98696e6883a9d79f3b2fab6d",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167065776056",
+          "fs-id1167062410931",
+          "eip-id1166851303516",
+          "fs-id1167065034065",
+          "fs-id1167062339943",
+          "fs-id1167066136959",
+          "fs-id1167064881665"
+        ],
+        "exercise": [
+          "fs-id1167065776054",
+          "fs-id1167062410929",
+          "eip-id1166851333159",
+          "fs-id1167065034062",
+          "fs-id1167062339941",
+          "fs-id1167065790393",
+          "fs-id1167062315876"
+        ]
+      },
+      "text_sha256": "9d73ad5fae9fb407a08a3847a9b5cf7bd5bb368f92b9c90812677a8b44c5d201",
+      "text_bytes": 28377,
+      "word_like_units": 4227,
+      "media": {
+        "media_elements": 6
+      },
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 7
+      },
+      "extraction": {
+        "image_descriptions": 6,
+        "omitted_label": 38,
+        "math_expressions": 49
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54268",
+      "chapter": "Work, Energy, and Simple Machines",
+      "title": "Introduction",
+      "raw_sha256": "11e3161f0bf38d910cac5dc11abf127790b9acacd482a25ce6eb035829f84003",
+      "git_blob_sha1": "cf7cfbd94b81a25bf743b84fa46fa8af13cbf688",
+      "bytes": 3328,
+      "path": "modules/m54268/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "2721e7b19258da1dd243b69e8ebc61b503eaf7f3a90f733c43b0a7928d8301ad",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "6657c9237378e2cf1b16f2d58917f699f7e822922f43d03cc4c2de7ad09f3612",
+      "text_bytes": 1196,
+      "word_like_units": 197,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54271",
+      "chapter": "Work, Energy, and Simple Machines",
+      "title": "Work, Power, and the Work\u2013Energy Theorem",
+      "raw_sha256": "5b7f18cc7c3b11acd31e2a46bfba72ac825975cdda410826667bc7b472103c32",
+      "git_blob_sha1": "781e1d844c906cd4a5db5e38052f77cb66fe4bd2",
+      "bytes": 51213,
+      "path": "modules/m54271/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "4fd761d748ce7ad430ee7336458ec859ed064e2c39e29241aa4ada55c9eb59a3",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167065729243",
+          "fs-id1167065839005",
+          "fs-id1167066123169",
+          "fs-id1167064876732",
+          "eip-id1166848872530",
+          "fs-id1167065873933",
+          "fs-id1167065775584",
+          "fs-id1167064872203",
+          "fs-id1167065827169"
+        ],
+        "exercise": [
+          "fs-id1167065855845",
+          "fs-id1167065687593",
+          "fs-id1167064734113",
+          "fs-id1167065713051",
+          "eip-id1166851282166",
+          "fs-id1167065897264",
+          "fs-id1167066041286",
+          "fs-id1167065776078",
+          "fs-id1167066138820"
+        ]
+      },
+      "text_sha256": "c23f474391b1777450183255c518d096e1381e098966ed113b2d9f517a9fbec7",
+      "text_bytes": 17868,
+      "word_like_units": 3100,
+      "media": {
+        "media_elements": 4
+      },
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 8,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_external_exercise_placeholders": 9
+      },
+      "extraction": {
+        "math_expressions": 21,
+        "omitted_label": 12,
+        "image_descriptions": 4
+      },
+      "punctuation_repairs": {
+        "U+0092": 5,
+        "U+0096": 2,
+        "U+0097": 1
+      }
+    },
+    {
+      "module": "m54273",
+      "chapter": "Work, Energy, and Simple Machines",
+      "title": "Mechanical Energy and Conservation of Energy",
+      "raw_sha256": "d7cbed99a524693ddd4d0f2259d47bb16e62ee97f02c6f0302246f334625f8ab",
+      "git_blob_sha1": "35e172f1e3ae5aab823d66907e10d65c4e6bf009",
+      "bytes": 45901,
+      "path": "modules/m54273/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [
+        "fs-id1163727237961"
+      ],
+      "amended_source_sha256": "5ecbc0e0375915b65b777f86c8683270edc1af733da9f6abd03de573a61a2d6b",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167065769338",
+          "fs-id1167065854992",
+          "fs-id1167065711498",
+          "eip-id1166848711175",
+          "eip-id1166851233515",
+          "fs-id1167064916016",
+          "fs-id1167065822598",
+          "fs-id1167065851342",
+          "fs-id1167062299486",
+          "eip-id1166849953485",
+          "fs-id1167065843538",
+          "fs-id1167064876210"
+        ],
+        "exercise": [
+          "fs-id1167066201031",
+          "fs-id1167065980209",
+          "fs-id1167065711478",
+          "eip-id1166848672907",
+          "eip-id1166851302746",
+          "fs-id1167065711708",
+          "fs-id1167065847063",
+          "fs-id1167065969773",
+          "fs-id1167066198427",
+          "eip-id1166849291693",
+          "fs-id1167065862304",
+          "fs-id1167065827971"
+        ]
+      },
+      "text_sha256": "63be23491b4061de3df87ef29e5a085684b15b7ef7dbf23103c75f459fc4a541",
+      "text_bytes": 10976,
+      "word_like_units": 1888,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 6,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 12
+      },
+      "extraction": {
+        "image_descriptions": 1,
+        "omitted_label": 5,
+        "math_expressions": 14
+      },
+      "punctuation_repairs": {
+        "U+0092": 6,
+        "U+0096": 1,
+        "U+0097": 5
+      }
+    },
+    {
+      "module": "m54274",
+      "chapter": "Work, Energy, and Simple Machines",
+      "title": "Simple Machines",
+      "raw_sha256": "3702de9885e3a1254d624fbcae77a7c912a203ae301d08d2b426237b1a5cc606",
+      "git_blob_sha1": "2260a26c452cab78fcfd21bba692818d75b860d9",
+      "bytes": 65799,
+      "path": "modules/m54274/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "b29a675093ce87d99fa0eb05a2b803c2382f3c426440fa866de2241b1efe5afc",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167067021282",
+          "eip-id1166850224153",
+          "fs-id1167066875644",
+          "fs-id1167067075103",
+          "fs-id1167067034753"
+        ],
+        "exercise": [
+          "fs-id1167063852276",
+          "eip-id1166849665188",
+          "fs-id1167067140297",
+          "fs-id1167066799305",
+          "fs-id1167066864978"
+        ]
+      },
+      "text_sha256": "991831cb715ec2948c27b7be65532af04d35efb7045e1985f848afa89ebbe5bb",
+      "text_bytes": 22830,
+      "word_like_units": 4086,
+      "media": {
+        "media_elements": 14
+      },
+      "policy": {
+        "omitted_notes": 14,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 11,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_external_exercise_placeholders": 5
+      },
+      "extraction": {
+        "image_descriptions": 14,
+        "omitted_label": 9,
+        "math_expressions": 21
+      },
+      "punctuation_repairs": {
+        "U+0097": 2
+      }
+    },
+    {
+      "module": "m54277",
+      "chapter": "Special Relativity",
+      "title": "Introduction",
+      "raw_sha256": "d21b3959bcc9843f5bb21e4aeac8a12b59b2b522ef3d2c3283245b5e074ce4aa",
+      "git_blob_sha1": "f92e0e2a6d95eb85aa42500f267062bb7b98bfa5",
+      "bytes": 5392,
+      "path": "modules/m54277/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "59a1a0faa947d7d64681a2b7a64b5542b136434711105ebd72477831033c28c9",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "8ea89529c5a98b6715ec0f7bae84d6f22670bd5fca7a5205e2f2db860df457d5",
+      "text_bytes": 1683,
+      "word_like_units": 256,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54280",
+      "chapter": "Special Relativity",
+      "title": "Postulates of Special Relativity",
+      "raw_sha256": "b26836e125aea986fe1d66cf28338d868ebe23ba51b53c9904d59b664672654e",
+      "git_blob_sha1": "b9eed15d1808a1e0a1e8cb3247b1390e37044c91",
+      "bytes": 57301,
+      "path": "modules/m54280/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "2dfc923432798297e6a532d29dea3d127031b0293336b76059aae2aa6b9f6921",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "eip-id1166848859394",
+          "eip-id1166849842345",
+          "fs-id1164355733405",
+          "eip-id1166849904746",
+          "fs-id1164356122506",
+          "fs-id1164355745613",
+          "fs-id1164355864724"
+        ],
+        "exercise": [
+          "eip-id1166851195782",
+          "eip-id1166848023794",
+          "fs-id1164355717060",
+          "eip-id1166849393611",
+          "fs-id1164356078548",
+          "fs-id1164356097272",
+          "fs-id1164355677732"
+        ]
+      },
+      "text_sha256": "f56d45f4f0cba7e4256a250cfad5c79e654b7c051dd8e56c62c8304be611c74f",
+      "text_bytes": 23516,
+      "word_like_units": 4012,
+      "media": {
+        "media_elements": 3
+      },
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 8,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 7
+      },
+      "extraction": {
+        "image_descriptions": 3,
+        "math_expressions": 6,
+        "table_span_cells": 1,
+        "omitted_label": 5
+      },
+      "punctuation_repairs": {
+        "U+0092": 2,
+        "U+0096": 4
+      }
+    },
+    {
+      "module": "m54282",
+      "chapter": "Special Relativity",
+      "title": "Consequences of Special Relativity",
+      "raw_sha256": "21c33d4e3a04ccd666cf4cba5ce61fa6c57ceb953e1e96696f59f485e87f3325",
+      "git_blob_sha1": "8e6e995607f08274aff2820e2a3a2a36caa477e5",
+      "bytes": 91879,
+      "path": "modules/m54282/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "963524c7d01c0b84998fce6630a6e80d98595ab44d3c2bc9eee3fd56d1c8f086",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1164354871623",
+          "eip-id1166850258845",
+          "fs-id1164354625912",
+          "eip-id1166849457271",
+          "fs-id1164354903009"
+        ],
+        "exercise": [
+          "fs-id1164354871620",
+          "eip-id1166850258841",
+          "fs-id1164354666684",
+          "eip-id1166849457266",
+          "fs-id1164354903006"
+        ]
+      },
+      "text_sha256": "73ba1737f0496dc72aa3d3fb022157d5e560d86867c8425cadfe5f52d39c5316",
+      "text_bytes": 30736,
+      "word_like_units": 4899,
+      "media": {
+        "media_elements": 5
+      },
+      "policy": {
+        "omitted_notes": 12,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 11,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 5
+      },
+      "extraction": {
+        "image_descriptions": 5,
+        "math_expressions": 103,
+        "omitted_label": 16
+      },
+      "punctuation_repairs": {
+        "U+0092": 5,
+        "U+0097": 3
+      }
+    },
+    {
+      "module": "m54283",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "title": "Introduction",
+      "raw_sha256": "c31fc004e27e2802abc93582f0d28bf6f6147225b3d4e883c2ddcf1b30b0eedf",
+      "git_blob_sha1": "d6fb72ce0b0f340cd732ee8a4ad25b33f309eba1",
+      "bytes": 2813,
+      "path": "modules/m54283/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "25c6c0f07645fdd085abe087769b4fa50d9d1689a8bd9c16735a87d86c0034c5",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "f029152ef963ec9b60434268030c20bb444b54e5f9ff0751b15edffa2f81c4bb",
+      "text_bytes": 1300,
+      "word_like_units": 229,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54287",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "title": "Temperature and Thermal Energy",
+      "raw_sha256": "5ddec4d8f0e56daed4cdd241a448ab3b1cccee23b204289a8d743d844088dfc6",
+      "git_blob_sha1": "9b6447b26462f2dce9ae8e37687cd892f699a54f",
+      "bytes": 41392,
+      "path": "modules/m54287/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "5d3219cae39f68ec317912daa2d90fd6a7cc30521e3f19882c98b31b8458e977",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167067068634",
+          "fs-id1167067152071",
+          "fs-id1167063798559",
+          "fs-id1167067314814",
+          "fs-id1167063499024",
+          "eip-id1166849463954",
+          "fs-id1167062567221"
+        ],
+        "exercise": [
+          "fs-id1167066833202",
+          "fs-id1167067146143",
+          "fs-id1167067044298",
+          "fs-id1167067053516",
+          "fs-id1167063596723",
+          "eip-id1166849748148",
+          "fs-id1167065790623"
+        ]
+      },
+      "text_sha256": "a676ec5cce75a8b161e74caa05a0a25bb4bee7a7056e3f425ec4994c9d9d76cc",
+      "text_bytes": 13296,
+      "word_like_units": 2052,
+      "media": {
+        "media_elements": 2
+      },
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 9,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 7
+      },
+      "extraction": {
+        "math_expressions": 49,
+        "image_descriptions": 2,
+        "omitted_label": 8
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54290",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "title": "Heat, Specific Heat, and Heat Transfer",
+      "raw_sha256": "136958077cb63d398a50388e6e6056b42f1bc1748c7e9ddfdf1173dc5d99d4e5",
+      "git_blob_sha1": "bf4016e12f6f5c200c7793a4e359b43f6ceb444f",
+      "bytes": 54388,
+      "path": "modules/m54290/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "0a36500b16b1dbd46b6474999061c184d9314ae7a2b09673f60eeda487f98003",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167065980129",
+          "fs-id1167064537792",
+          "fs-id1167065727420",
+          "fs-id1167064919682",
+          "fs-id1167066000561",
+          "fs-id1167062551443",
+          "fs-id1167064540899",
+          "fs-id1167065948547",
+          "fs-id1167065713975"
+        ],
+        "exercise": [
+          "fs-id1167062299394",
+          "fs-id1167065883162",
+          "fs-id1167064709454",
+          "fs-id1167066096328",
+          "fs-id1167064650807",
+          "fs-id1167065869078",
+          "fs-id1167065976028",
+          "fs-id1167064790663",
+          "fs-id1167064919292"
+        ]
+      },
+      "text_sha256": "f4d303c1a854912761716d4f07e9482bdc40a19d8ec90546f95390922f861c57",
+      "text_bytes": 22348,
+      "word_like_units": 3579,
+      "media": {
+        "media_elements": 6
+      },
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 9
+      },
+      "extraction": {
+        "math_expressions": 35,
+        "image_descriptions": 6,
+        "omitted_label": 9
+      },
+      "punctuation_repairs": {
+        "U+0097": 1
+      }
+    },
+    {
+      "module": "m54292",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "title": "Phase Change and Latent Heat",
+      "raw_sha256": "496ba89cd612ca6e2f434954e3b8393712c252addbf382dc5aa56ed924fe8fff",
+      "git_blob_sha1": "afb84c0ef430d7716facb184ee7191e4731044a6",
+      "bytes": 51308,
+      "path": "modules/m54292/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "072c46a52f7ac489ad1a50c70fcc64501d9673b67c3681763d26b97366bb14a0",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "eip-id1166849748732",
+          "fs-id1167067314814",
+          "fs-id1167067185604",
+          "fs-id1167063720842",
+          "fs-id1167067075451",
+          "fs-id1167067199345"
+        ],
+        "exercise": [
+          "eip-id1166849287009",
+          "fs-id1167067053516",
+          "fs-id1167067005890",
+          "fs-id1167063743204",
+          "fs-id1167063647124",
+          "fs-id1167066968399"
+        ]
+      },
+      "text_sha256": "c479e1223a9266ad76785e979da218b65687dddd66c3f3f3e1c787e93c738291",
+      "text_bytes": 18537,
+      "word_like_units": 3038,
+      "media": {
+        "media_elements": 4
+      },
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 6,
+        "omitted_note_os-interactive": 1,
+        "titled_lists_preserved": 1
+      },
+      "extraction": {
+        "image_descriptions": 4,
+        "math_expressions": 28,
+        "omitted_label": 7
+      },
+      "punctuation_repairs": {
+        "U+0097": 1
+      }
+    },
+    {
+      "module": "m54300",
+      "chapter": "Thermodynamics",
+      "title": "Introduction",
+      "raw_sha256": "ee58ad308425500aafba668430566acc40486db2d54eaf42bf52459e3e82b5a8",
+      "git_blob_sha1": "f3963cca809187746c25e1afc0bb33a521b003e7",
+      "bytes": 4494,
+      "path": "modules/m54300/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "1f7ba6313d9353441d9552b5cc8470c9deefeeb24758f2fa50234fd9e74d733d",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "236f0e0bc99d2830bd456afda4c5199802f2c29876b4502cac7a58495fcc8003",
+      "text_bytes": 1937,
+      "word_like_units": 328,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54302",
+      "chapter": "Thermodynamics",
+      "title": "Zeroth Law of Thermodynamics: Thermal Equilibrium",
+      "raw_sha256": "b5e6d61772e6f46ace2e175a9bc784f8a884cadd28ea73e92a9e8d274c250a32",
+      "git_blob_sha1": "7da4a0fc5edb6d34ba07915290f08dca9efcde38",
+      "bytes": 18455,
+      "path": "modules/m54302/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "728986c32ae43725ead91ee9514d98ff4a9acb8b1a656c90125013ec1c3f1c3a",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066834733",
+          "fs-id1167067011344",
+          "fs-id1167067142420"
+        ],
+        "exercise": [
+          "fs-id1167063471662",
+          "fs-id1167067205973",
+          "fs-id1167063484097"
+        ]
+      },
+      "text_sha256": "4e56b9409bed7c0e2a10b37ba114bc03f46a65676b5f2bec9cb2dda98fd1b357",
+      "text_bytes": 9159,
+      "word_like_units": 1493,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 3
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54305",
+      "chapter": "Thermodynamics",
+      "title": "First law of Thermodynamics: Thermal Energy and Work",
+      "raw_sha256": "d005b9b5460b4dd326de1255b5676736dd44d1a63584c8ded6e5b61222b4faa6",
+      "git_blob_sha1": "9fdbafa9da18e84313e22d224a14a8600a592603",
+      "bytes": 60659,
+      "path": "modules/m54305/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "1dbff1c266b3ecb8bde5d34e885dacfd94945253fa50d7304e92f1aa18ab1c09",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066971352",
+          "eip-id1167067231255",
+          "eip-id1167067061448",
+          "eip-id1167067144799",
+          "eip-id1167066121556",
+          "eip-id1167066874152",
+          "eip-id1167064915757",
+          "eip-id1166849630223",
+          "eip-id1167064893413",
+          "eip-id1167065790225",
+          "eip-id1167061628549",
+          "fs-id1167062462485",
+          "fs-id1167066095886",
+          "fs-id1167064990172",
+          "eip-id1167063964839",
+          "eip-id1167061367708",
+          "fs-id1167064927228",
+          "fs-id1167065825401",
+          "fs-id1167065735128",
+          "fs-id1167066094473",
+          "fs-id1167065791273",
+          "fs-id1167062967370",
+          "fs-id1167065871130",
+          "fs-id1167065072016"
+        ],
+        "exercise": [
+          "fs-id1167067101920",
+          "eip-376",
+          "eip-581",
+          "eip-692",
+          "eip-573",
+          "eip-273",
+          "eip-292",
+          "eip-id1166849457715",
+          "eip-118",
+          "eip-751",
+          "eip-798",
+          "fs-id1167064914603",
+          "fs-id1167064741127",
+          "fs-id1167064948100",
+          "eip-899",
+          "eip-155",
+          "fs-id1167065911673",
+          "fs-id1167064573712",
+          "fs-id1167065869126",
+          "fs-id1167064537878",
+          "fs-id1167065848240",
+          "fs-id1167065714141",
+          "fs-id1167064927085",
+          "fs-id1167065658829"
+        ]
+      },
+      "text_sha256": "795a4d8b3387a6820cee9078f05f012cf564bf2df1d98f6d37bb0ca51e5757e6",
+      "text_bytes": 25282,
+      "word_like_units": 4385,
+      "media": {
+        "media_elements": 6
+      },
+      "policy": {
+        "omitted_notes": 12,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 8,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 3,
+        "omitted_external_exercise_placeholders": 24
+      },
+      "extraction": {
+        "math_expressions": 41,
+        "image_descriptions": 6,
+        "omitted_label": 7
+      },
+      "punctuation_repairs": {
+        "U+0092": 4
+      }
+    },
+    {
+      "module": "m54306",
+      "chapter": "Thermodynamics",
+      "title": "Second Law of Thermodynamics: Entropy",
+      "raw_sha256": "e80ccd00f8ade4526834a4e6cebf15429da67da37af7d3e3aa4467ff8cab1a6c",
+      "git_blob_sha1": "3e5d94782b606a121d7e130281539faca087bbb1",
+      "bytes": 35918,
+      "path": "modules/m54306/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "08c097eed68e5606537bdcfdf7133a278c433df9363735236d5ab9999fb1c869",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167063457285",
+          "fs-id1167063634444",
+          "fs-id1167063593748",
+          "fs-id1167066961992",
+          "fs-id1167067020194",
+          "fs-id1167067142281",
+          "fs-id1167065919699",
+          "fs-id1167067149586",
+          "fs-id1167067038805",
+          "fs-id1167065734178",
+          "fs-id1167062351044",
+          "fs-id1167066039314",
+          "fs-id1167065070057"
+        ],
+        "exercise": [
+          "fs-id1167067023183",
+          "fs-id1167067263871",
+          "fs-id1167063416632",
+          "fs-id1167066856974",
+          "fs-id1167063443315",
+          "fs-id1167066962983",
+          "fs-id1167064769518",
+          "fs-id1167067252425",
+          "fs-id1167063509697",
+          "fs-id1167065789672",
+          "fs-id1167063095366",
+          "fs-id1167062901002",
+          "fs-id1167064749668"
+        ]
+      },
+      "text_sha256": "bf1456dd266a3aba0a386b27352073017e28c18e03a8eab68120e3137e7179f2",
+      "text_bytes": 16675,
+      "word_like_units": 2784,
+      "media": {
+        "media_elements": 4
+      },
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 13
+      },
+      "extraction": {
+        "math_expressions": 23,
+        "omitted_label": 5,
+        "image_descriptions": 4
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54307",
+      "chapter": "Thermodynamics",
+      "title": "Applications of Thermodynamics: Heat Engines, Heat Pumps, and Refrigerators",
+      "raw_sha256": "c4f8ea317666b34b4b499f5523496f22dcea83d812b84e4ebfc8f0aa9fc495cd",
+      "git_blob_sha1": "6627127edd99e08f14a08392796b77fab424a635",
+      "bytes": 52547,
+      "path": "modules/m54307/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "da83c778dd2bddae08a7e43cd47f208dcba1a3103f1641ed346210c36e157208",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167067112387",
+          "fs-id1167061212607",
+          "fs-id1167067049047",
+          "fs-id1167067090772",
+          "fs-id1167067294884",
+          "fs-id1167063588082",
+          "fs-id1167061253144",
+          "fs-id1167063652327",
+          "fs-id1167063504287"
+        ],
+        "exercise": [
+          "fs-id1167066871500",
+          "fs-id1167066963040",
+          "fs-id1167063697117",
+          "fs-id1167063525752",
+          "fs-id1167067077287",
+          "fs-id1167067233855",
+          "fs-id1167067139346",
+          "fs-id1167066851142",
+          "fs-id1167067292543"
+        ]
+      },
+      "text_sha256": "478a2b687cfee744889f4a5b1f315edc64894343e64f7f2cf8d020398ff8d33d",
+      "text_bytes": 21910,
+      "word_like_units": 3723,
+      "media": {
+        "media_elements": 4
+      },
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 9,
+        "titled_lists_preserved": 2
+      },
+      "extraction": {
+        "image_descriptions": 4,
+        "math_expressions": 55,
+        "omitted_label": 8
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54312",
+      "chapter": "Waves and Their Properties",
+      "title": "Introduction",
+      "raw_sha256": "b582f1a8b374c6c76391d974aa9fcfe9f70d6d6795eba35bf016b805da7e0d9d",
+      "git_blob_sha1": "6241be3a16609f29ec819a6e4017f21dcfe3aece",
+      "bytes": 2203,
+      "path": "modules/m54312/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "144466fa0f2db3fc67d07a2b55f19bedf0dd5885b4a1d83f303536b7fcb368b1",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "2bf875d289d99ef8bdd81a34baae1e3f0ceff09d48ecc850e8bc8e5cc78749b4",
+      "text_bytes": 945,
+      "word_like_units": 152,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54314",
+      "chapter": "Waves and Their Properties",
+      "title": "Types of Waves",
+      "raw_sha256": "b0f82d2d51c11ce54d52ad7c011e32da434570260b74fa29dbbff1093ad9ac04",
+      "git_blob_sha1": "24e0b8dcfce2d09759c3b4c5aa3e7640755fbd7f",
+      "bytes": 28722,
+      "path": "modules/m54314/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [
+        "fs-id1167065885587"
+      ],
+      "amended_source_sha256": "9c87624c4d9088b6b1d9e46d70ea3492a4234d9486c48452701e9a30c5f704a6",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167065826634",
+          "fs-id1167065034020",
+          "fs-id1167065952436",
+          "fs-id1167062368486",
+          "fs-id1167065972026",
+          "fs-id1167066128082",
+          "eip-id1166849075206",
+          "fs-id1167065877558",
+          "eip-id1166851054273",
+          "fs-id1167066142102",
+          "fs-id1167065973638",
+          "fs-id1167065062256",
+          "fs-id1167065865118",
+          "fs-id1167065984689",
+          "fs-id1167065914807",
+          "fs-id1167065975261"
+        ],
+        "exercise": [
+          "fs-id1167065936036",
+          "fs-id1167064651167",
+          "fs-id1167065058085",
+          "fs-id1167062367493",
+          "fs-id1167066089107",
+          "fs-id1167062322292",
+          "eip-id1166848909395",
+          "fs-id1167066159109",
+          "eip-id1166848906398",
+          "fs-id1167065827470",
+          "fs-id1167064900429",
+          "fs-id1167066025210",
+          "fs-id1167064910771",
+          "fs-id1167065759415",
+          "fs-id1167064650744",
+          "fs-id1167066041584"
+        ]
+      },
+      "text_sha256": "436503199192a5a9bc09e70099c94c4434499182cccfeb0e2e62315eecacf71b",
+      "text_bytes": 12056,
+      "word_like_units": 1973,
+      "media": {
+        "media_elements": 5
+      },
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 6,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 16
+      },
+      "extraction": {
+        "omitted_label": 1,
+        "image_descriptions": 5
+      },
+      "punctuation_repairs": {
+        "U+0092": 1
+      }
+    },
+    {
+      "module": "m54321",
+      "chapter": "Waves and Their Properties",
+      "title": "Wave Properties: Speed, Amplitude, Frequency, and Period",
+      "raw_sha256": "bb95a81cf5a811a39f27e4f93aca637dddee1e90c846aaa0b6c1843c93dda7bd",
+      "git_blob_sha1": "7051d20a5f7aad35efa58dd1be2c1b3d74d35d89",
+      "bytes": 42055,
+      "path": "modules/m54321/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "dede6fdfb9cb8e8949a35ce7ef21d5284ef69318aa0dc4b472c545db2fe8af6b",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167064769920",
+          "fs-id1167065680019",
+          "fs-id1167065865396",
+          "fs-id1167062339383",
+          "fs-id1167062408588",
+          "fs-id1167066030093",
+          "eip-id1166851333382",
+          "eip-id1166851203137",
+          "fs-id1167065947358",
+          "eip-id1166851049815",
+          "eip-id1166851219947",
+          "fs-id1167062339567",
+          "fs-id1167066154347",
+          "fs-id1167066089777",
+          "fs-id1167065799105"
+        ],
+        "exercise": [
+          "fs-id1167065873744",
+          "fs-id1167064581570",
+          "fs-id1167062604135",
+          "fs-id1167065837717",
+          "fs-id1167065910264",
+          "fs-id1167066202775",
+          "eip-id1166850947646",
+          "eip-id1166848788010",
+          "fs-id1167064669244",
+          "eip-id1166851123800",
+          "eip-id1166851090883",
+          "fs-id1167065919699",
+          "fs-id1167066024903",
+          "fs-id1167064928795",
+          "fs-id1167065809826"
+        ]
+      },
+      "text_sha256": "f68f1edd561e404a15e949094334148303ab3a2c475826a9512cabcc891371c8",
+      "text_bytes": 13970,
+      "word_like_units": 2375,
+      "media": {
+        "media_elements": 3
+      },
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 15
+      },
+      "extraction": {
+        "math_expressions": 33,
+        "image_descriptions": 3,
+        "omitted_label": 11
+      },
+      "punctuation_repairs": {
+        "U+0092": 1
+      }
+    },
+    {
+      "module": "m54318",
+      "chapter": "Waves and Their Properties",
+      "title": "Wave Interaction: Superposition and Interference",
+      "raw_sha256": "21a3ea8218826c0c35c3fa7ab45d5c286ccc3fc94391d7c61cd0846744cfbb5e",
+      "git_blob_sha1": "f2e295d656c31919ededc8abb26b39acbc608931",
+      "bytes": 35624,
+      "path": "modules/m54318/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "5e56df31572a53f3bd7a08c5e0d1b0f329e6d757cae49a854c5294818e4c918a",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167064902499",
+          "fs-id1167064626507",
+          "fs-id1167065661776",
+          "fs-id1167064892656",
+          "fs-id1167065034592",
+          "fs-id1167065895064",
+          "fs-id1167065895191",
+          "fs-id1167063527254",
+          "fs-id1167062910305",
+          "fs-id1167066058661",
+          "fs-id1167067236262",
+          "eip-id1166850213966",
+          "fs-id1167064736363",
+          "fs-id1167065788219",
+          "fs-id1167063515606",
+          "fs-id1167065769235",
+          "fs-id1167065879692",
+          "fs-id1167062461062",
+          "fs-id1167065877396"
+        ],
+        "exercise": [
+          "fs-id1167064792106",
+          "fs-id1167063014640",
+          "fs-id1167065893598",
+          "fs-id1167064754567",
+          "fs-id1167065894171",
+          "fs-id1167065680507",
+          "fs-id1167065747084",
+          "fs-id1167066953226",
+          "fs-id1167065927022",
+          "fs-id1167065790570",
+          "fs-id1167063863053",
+          "eip-id1166848023801",
+          "fs-id1167065065640",
+          "fs-id1167062547768",
+          "fs-id1167063484113",
+          "fs-id1167066142064",
+          "fs-id1167065871444",
+          "fs-id1167065886218",
+          "fs-id1167062901331"
+        ]
+      },
+      "text_sha256": "15abfa87397b33a267a6e6c11868dbbb991ad643341f5b5a7cc3a48288eee0f4",
+      "text_bytes": 15428,
+      "word_like_units": 2477,
+      "media": {
+        "media_elements": 9
+      },
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 19
+      },
+      "extraction": {
+        "image_descriptions": 9,
+        "math_expressions": 2
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54327",
+      "chapter": "Sound",
+      "title": "Introduction",
+      "raw_sha256": "42bec9b6a32a34fc8bda66cbddb5465d01127e14d19b0d71306cfcc763d13972",
+      "git_blob_sha1": "f8cfbc455460ceb17577ae119fa3b5b3a903f49b",
+      "bytes": 2678,
+      "path": "modules/m54327/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "1620de6cdccb93b693eaea80a6038609277ed6c0a304f2751f0ad3970526da69",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "69efeb25fff3f9010b8b6b83719b7d82e45e067e148547086b89b3f660524bdc",
+      "text_bytes": 1204,
+      "word_like_units": 214,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 1,
+        "omitted_note_os-teacher": 1
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54331",
+      "chapter": "Sound",
+      "title": "Speed of Sound, Frequency, and Wavelength",
+      "raw_sha256": "2234cf046e679b1dc931f9b398478c359cdb1ffa3699484a05366d977a7f9a87",
+      "git_blob_sha1": "3133dae257a6fe6320a72ae7366f8979df89d6ac",
+      "bytes": 40640,
+      "path": "modules/m54331/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "9a1d27772e4329cc37e2a8c97726471cbbfe5f1582a40af918d8b16c1722e341",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066803715",
+          "fs-id1167067033792",
+          "eip-id1166851055655",
+          "eip-id1166851406662",
+          "fs-id1167067013035",
+          "fs-id1167066874186",
+          "fs-id1167066811090",
+          "fs-id1167060078844",
+          "fs-id1167067013495",
+          "fs-id1167063690138",
+          "fs-id1167063515101",
+          "fs-id1167067279962",
+          "fs-id1167067039580",
+          "fs-id1167063895525"
+        ],
+        "exercise": [
+          "fs-id1167063852326",
+          "fs-id1167067156886",
+          "eip-id1166849099184",
+          "eip-id1166848782346",
+          "fs-id1167061252037",
+          "fs-id1167066992606",
+          "fs-id1167061706144",
+          "fs-id1167063938972",
+          "fs-id1167067146332",
+          "fs-id1167066799051",
+          "fs-id1167066793123",
+          "fs-id1167067039003",
+          "fs-id1167061202556",
+          "fs-id1167066844933"
+        ]
+      },
+      "text_sha256": "9a0956d9d9ac43b8d6f2c5304d38b5696a7c5d90b650d36d3552c9906d644633",
+      "text_bytes": 14325,
+      "word_like_units": 2355,
+      "media": {
+        "media_elements": 7
+      },
+      "policy": {
+        "omitted_notes": 12,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 9,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 14
+      },
+      "extraction": {
+        "image_descriptions": 7,
+        "table_span_cells": 3,
+        "math_expressions": 17,
+        "omitted_label": 4
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54333",
+      "chapter": "Sound",
+      "title": "Sound Intensity and Sound Level",
+      "raw_sha256": "318e9a4d50a98d274f64df06911f94ae01744eae539f725f988c5d0ef7a79590",
+      "git_blob_sha1": "eb83b9cc474c8d6e27f7c3c1754d65f9041b2078",
+      "bytes": 49026,
+      "path": "modules/m54333/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "a5465f6ae4f934baf4699902480e595f32e61bd5ecf44568f9dce24af164ac1f",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167062475850",
+          "fs-id1167062955066",
+          "fs-id1167065067718",
+          "fs-id1167064669253",
+          "fs-id1167065809582",
+          "fs-id1167066072950",
+          "fs-id1167065721228",
+          "fs-id1167064927293",
+          "fs-id1167064586206",
+          "fs-id1167064784235",
+          "fs-id1167065908340",
+          "fs-id1167064982046",
+          "fs-id1167064871451",
+          "fs-id1167062443235",
+          "eip-id1166849306494",
+          "fs-id1167064799141",
+          "fs-id1167064807322",
+          "fs-id1167064872051",
+          "fs-id1167065762787",
+          "fs-id1167065812131",
+          "fs-id1167065898519",
+          "fs-id1167065865038",
+          "fs-id1167065764074",
+          "fs-id1167066140708",
+          "fs-id1167066014601"
+        ],
+        "exercise": [
+          "fs-id1167065864902",
+          "fs-id1167063102560",
+          "fs-id1167065726417",
+          "fs-id1167065713858",
+          "fs-id1167065722817",
+          "fs-id1167065941470",
+          "fs-id1167062511648",
+          "fs-id1167065858153",
+          "fs-id1167066057063",
+          "fs-id1167064928934",
+          "fs-id1167065893370",
+          "fs-id1167064868204",
+          "fs-id1167064922364",
+          "fs-id1167066120621",
+          "eip-id1166849951742",
+          "fs-id1167066197623",
+          "fs-id1167063010143",
+          "fs-id1167064896990",
+          "fs-id1167066020799",
+          "fs-id1167062305549",
+          "fs-id1167066085971",
+          "fs-id1167066183158",
+          "fs-id1167065853972",
+          "fs-id1167065683834",
+          "fs-id1167065892310"
+        ]
+      },
+      "text_sha256": "fe3b94fcf3298a66a999b7cc85ee2bb2d8f046d6a678914f3f3ab8d567183258",
+      "text_bytes": 18403,
+      "word_like_units": 2992,
+      "media": {
+        "media_elements": 5
+      },
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 25
+      },
+      "extraction": {
+        "image_descriptions": 5,
+        "math_expressions": 22,
+        "omitted_label": 7
+      },
+      "punctuation_repairs": {
+        "U+0093": 3,
+        "U+0094": 3
+      }
+    },
+    {
+      "module": "m54334",
+      "chapter": "Sound",
+      "title": "Doppler Effect and Sonic Booms",
+      "raw_sha256": "2b8cd7c6cd0cfd35f17e93691e1e9b11df4fb0d072b4790ca69c8e77cf62d1c8",
+      "git_blob_sha1": "f888ebd1c02427f8a575efeae00e14007de438ba",
+      "bytes": 38898,
+      "path": "modules/m54334/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "3a3e819465388f38cf7f0d00bfcca34c64058fd875b1b82582e34d8805bff72b",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066966555",
+          "fs-id1167067055024",
+          "fs-id1167063730176",
+          "fs-id1167063522640",
+          "eip-id1166848666311",
+          "fs-id1167067275851",
+          "fs-id1167066983441",
+          "fs-id1167067052970",
+          "fs-id1167061403886",
+          "fs-id1167063663458",
+          "eip-id1166849883516",
+          "fs-id1167061325753",
+          "eip-id1166849457480",
+          "fs-id1167067115207",
+          "fs-id1167066983349",
+          "fs-id1167063773156",
+          "fs-id1167067174613",
+          "fs-id1167061400834",
+          "fs-id1167066963466"
+        ],
+        "exercise": [
+          "fs-id1167066966552",
+          "fs-id1167067055020",
+          "fs-id1167063892311",
+          "fs-id1167063522637",
+          "eip-id1166848689459",
+          "fs-id1167067217280",
+          "fs-id1167066983438",
+          "fs-id1167063535717",
+          "fs-id1167061403883",
+          "fs-id1167063663455",
+          "eip-id1166850235602",
+          "fs-id1167063751814",
+          "eip-id1166849859389",
+          "fs-id1167067148176",
+          "fs-id1167067181078",
+          "fs-id1167063429830",
+          "fs-id1167067197154",
+          "fs-id1167067009677",
+          "fs-id1167067071918"
+        ]
+      },
+      "text_sha256": "b461b5a9e31c9a62ccb99d77d69923b45e378594a3b1d8ab51324f5e8ba5bc91",
+      "text_bytes": 12778,
+      "word_like_units": 2210,
+      "media": {
+        "media_elements": 4
+      },
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 6,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 3,
+        "omitted_external_exercise_placeholders": 19
+      },
+      "extraction": {
+        "image_descriptions": 4,
+        "math_expressions": 14,
+        "omitted_label": 4
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54335",
+      "chapter": "Sound",
+      "title": "Sound Interference and Resonance",
+      "raw_sha256": "2eed6c30e086b04f6ce45a7fdc23d686b7b1aecd9d5a31e7065378875c06ca20",
+      "git_blob_sha1": "76af064a300e55122970973ac3612409ba9f51f4",
+      "bytes": 53394,
+      "path": "modules/m54335/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "7ef86aa30e94adb7ca22721cb19509b3d81163d121674947e86054c6b4bccda5",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167064534899",
+          "fs-id1167065879559",
+          "fs-id1167065948710",
+          "fs-id1167066000842",
+          "fs-id1167065039418",
+          "fs-id1167062371036",
+          "fs-id1167066057038",
+          "fs-id1167064571099",
+          "fs-id1167064894877",
+          "fs-id1167065799116",
+          "fs-id1167065869128",
+          "fs-id1167062536212",
+          "fs-id1167065821878",
+          "fs-id1167066098390",
+          "fs-id1167065895924",
+          "fs-id1167064648326",
+          "eip-id1166848665034",
+          "fs-id1167062305648",
+          "fs-id1167064775068",
+          "fs-id1167066188562",
+          "fs-id1167065727540",
+          "fs-id1167064743492"
+        ],
+        "exercise": [
+          "fs-id1167064905128",
+          "fs-id1167064817899",
+          "fs-id1167065954356",
+          "fs-id1167064706274",
+          "fs-id1167065873026",
+          "fs-id1167065927172",
+          "fs-id1167065859622",
+          "fs-id1167065683669",
+          "fs-id1167064905132",
+          "fs-id1167064832944",
+          "fs-id1167062509633",
+          "fs-id1167064573289",
+          "fs-id1167062853869",
+          "fs-id1167063010414",
+          "fs-id1167065946138",
+          "fs-id1167062403807",
+          "eip-id1166850919314",
+          "fs-id1167065017723",
+          "fs-id1167066069231",
+          "fs-id1167065894268",
+          "fs-id1167064899248",
+          "fs-id1167066095822"
+        ]
+      },
+      "text_sha256": "fdbc658a40da429eb9127ea12cfca3074839ddf8dc7cd2573558e422233a9fbf",
+      "text_bytes": 22255,
+      "word_like_units": 3673,
+      "media": {
+        "media_elements": 10
+      },
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 22
+      },
+      "extraction": {
+        "image_descriptions": 10,
+        "math_expressions": 28,
+        "omitted_label": 10
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54336",
+      "chapter": "Light",
+      "title": "Introduction",
+      "raw_sha256": "56237753fded42f8aa8d6567252fb69f8622c72e757d92339b14c2e20e83b23e",
+      "git_blob_sha1": "9a13d9ca2b07c95fdcf939190bb581075cacf013",
+      "bytes": 3254,
+      "path": "modules/m54336/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "3921f52b48c6fd36919175c33e4631636ec49547dbab2b566ec23f96fb0e2aed",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "f2b4a106e1024520fb14b2f1cc65f4c63cddb71a43bb4615f9456b90cec71701",
+      "text_bytes": 1049,
+      "word_like_units": 164,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54342",
+      "chapter": "Light",
+      "title": "The Electromagnetic Spectrum",
+      "raw_sha256": "1be969e5301489501d35eb92ba49acd23ef7eeaf586f3c7ff9ec05f77cbf56fe",
+      "git_blob_sha1": "2c7267568e447e444e9c855ff6ce744d43bb20a8",
+      "bytes": 65333,
+      "path": "modules/m54342/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "1457ce8cc878a350f92a53ed87d30ba41cdf9570867a747d268b29cfe823581b",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066030723",
+          "fs-id1167065972620",
+          "fs-id1167062789044",
+          "eip-id1166849870900",
+          "eip-id1166849839343",
+          "eip-id1166849941750",
+          "fs-id1167064826691",
+          "fs-id1167065654103",
+          "fs-id1167065744119",
+          "fs-id1167065859102"
+        ],
+        "exercise": [
+          "fs-id1167065973704",
+          "fs-id1167065039667",
+          "fs-id1167064927129",
+          "eip-id1166849311703",
+          "eip-id1166849568085",
+          "eip-id1166849963901",
+          "fs-id1167065007989",
+          "fs-id1167065847146",
+          "fs-id1167062411088",
+          "fs-id1167064781080"
+        ]
+      },
+      "text_sha256": "7eb88cc36f31cee846ad1f7bd1e21089a504e2f631fd6438144c40a2654c9031",
+      "text_bytes": 29942,
+      "word_like_units": 4685,
+      "media": {
+        "media_elements": 7
+      },
+      "policy": {
+        "omitted_notes": 15,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 11,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_virtual-physics": 2,
+        "omitted_external_exercise_placeholders": 10,
+        "omitted_note_os-interactive": 1
+      },
+      "extraction": {
+        "image_descriptions": 7,
+        "math_expressions": 5
+      },
+      "punctuation_repairs": {
+        "U+0097": 3
+      }
+    },
+    {
+      "module": "m54346",
+      "chapter": "Light",
+      "title": "The Behavior of Electromagnetic Radiation",
+      "raw_sha256": "39b4a145ba7aa0d30b47a059ad70d353fa6ba1d3ad03e91c29a06e04dd14ddcf",
+      "git_blob_sha1": "a8a4408028e976c703578d251637eccdb41e8229",
+      "bytes": 55874,
+      "path": "modules/m54346/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "f2518fc97a2237d952338fedb77127927949dcacab599e40fefaee54f00435bc",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167067250756",
+          "fs-id1167066807501",
+          "eip-id1166849325362",
+          "fs-id1167063520063"
+        ],
+        "exercise": [
+          "fs-id1167066955438",
+          "fs-id1167067147813",
+          "eip-id1166848000288",
+          "fs-id1167063574168"
+        ]
+      },
+      "text_sha256": "37f4fdaf6dabcf060e577c37879c6b55530951a9de02e4c8736ec7fcbaec409b",
+      "text_bytes": 24137,
+      "word_like_units": 3920,
+      "media": {
+        "media_elements": 4
+      },
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 8,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 4
+      },
+      "extraction": {
+        "image_descriptions": 4,
+        "math_expressions": 16,
+        "omitted_label": 10
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54366",
+      "chapter": "Mirrors and Lenses",
+      "title": "Introduction",
+      "raw_sha256": "4b06127a4732ec1dbccf8ed0925bb1bbc7d427bdb172203e3fadc02f0f2851ec",
+      "git_blob_sha1": "34e8ce64649519b8faea9a504e38963f33802edf",
+      "bytes": 4980,
+      "path": "modules/m54366/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "fd2a2cc5181031b6d8e21ff97255e42daeb5e0af5258c00fdf06b60a0c4aa1d5",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "c5fda81d58f79a383991102e75001560718c1e609cb3a6df28ed5b8d7d2772c3",
+      "text_bytes": 1643,
+      "word_like_units": 279,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54357",
+      "chapter": "Mirrors and Lenses",
+      "title": "Reflection",
+      "raw_sha256": "28b784e5015399281b2959fe5efa57d6ae6aaaf76a4cb733996525401236c05c",
+      "git_blob_sha1": "8ae426f535861ada3602bfabb078ff45cefdb734",
+      "bytes": 66026,
+      "path": "modules/m54357/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [
+        "eip-idm520812096"
+      ],
+      "amended_source_sha256": "8cb23c609ea33ea09cacfd6608d4da5af55e827e50d67b5a7404d384f94a4502",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167062469237",
+          "fs-id1167066170448",
+          "fs-id1167065702567",
+          "eip-id1166851119910",
+          "fs-id1167064932070",
+          "fs-id1167062385742"
+        ],
+        "exercise": [
+          "fs-id1167065893209",
+          "fs-id1167065016153",
+          "fs-id1167064541361",
+          "eip-id1166851119906",
+          "fs-id1167062957204",
+          "fs-id1167065066856"
+        ]
+      },
+      "text_sha256": "4d7735c7b81f1386dfc63589b79b16177339a0a92509183e0cf6cc8aebb09f43",
+      "text_bytes": 27774,
+      "word_like_units": 4790,
+      "media": {
+        "media_elements": 15
+      },
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 7
+      },
+      "extraction": {
+        "image_descriptions": 15,
+        "math_expressions": 30,
+        "omitted_label": 12
+      },
+      "punctuation_repairs": {
+        "U+0096": 5
+      }
+    },
+    {
+      "module": "m54365",
+      "chapter": "Mirrors and Lenses",
+      "title": "Refraction",
+      "raw_sha256": "9fbfa5d19d8dbf95a4164abed07f825cfb699cdd089cc4b584f119a6ed9db22b",
+      "git_blob_sha1": "e41c8214ebaca3b37c9e21d6db487727487ece91",
+      "bytes": 71911,
+      "path": "modules/m54365/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [
+        "eip-idm377810576"
+      ],
+      "amended_source_sha256": "fdac34e853c44f41f54652874261079c6eba66e0d54d063af0e282b3219e740a",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167065030306",
+          "eip-id1166849863719",
+          "eip-id1166849293728",
+          "fs-id1167065879839",
+          "fs-id1167065950968",
+          "eip-id1166851304814",
+          "fs-id1167062888015",
+          "fs-id1167064583486",
+          "fs-id1167064877480"
+        ],
+        "exercise": [
+          "fs-id1167065788721",
+          "eip-id1166849814868",
+          "eip-id1166849409866",
+          "fs-id1167066045914",
+          "fs-id1167064638776",
+          "eip-id1166851055752",
+          "fs-id1167065945752",
+          "fs-id1167062329363",
+          "fs-id1167064951281"
+        ]
+      },
+      "text_sha256": "e21c5dfeee5de1a7856246d6d33020851c5fa0f8f220d7d942f1b7ef99472e8b",
+      "text_bytes": 30121,
+      "word_like_units": 4906,
+      "media": {
+        "media_elements": 11
+      },
+      "policy": {
+        "omitted_notes": 12,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_external_exercise_placeholders": 10
+      },
+      "extraction": {
+        "image_descriptions": 11,
+        "math_expressions": 46,
+        "omitted_label": 17
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54361",
+      "chapter": "Mirrors and Lenses",
+      "title": "Lenses",
+      "raw_sha256": "067cb5bbc392bf94d376a33c92005089247fa9d486165d6d3ca5b8bdc40d38e4",
+      "git_blob_sha1": "8aed6b9664ace51732cee5ab456af5e49c0399f6",
+      "bytes": 80972,
+      "path": "modules/m54361/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "fba68a0872eb8f637d1990470c979a3e49a3c42ad0ba31bce0c752b9ac5717de",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167064909591",
+          "fs-id1167065892462",
+          "fs-id1167063010215",
+          "fs-id1167065033154",
+          "eip-id1166847407100",
+          "fs-id1167065854749",
+          "fs-id1167064649424",
+          "fs-id1167064649316",
+          "fs-id1167066069110",
+          "fs-id1167065979614"
+        ],
+        "exercise": [
+          "fs-id1167064984547",
+          "fs-id1167065847016",
+          "fs-id1167062314796",
+          "fs-id1167062359290",
+          "eip-id1166849750427",
+          "fs-id1167065774567",
+          "fs-id1167065938967",
+          "fs-id1167062557237",
+          "fs-id1167065851647",
+          "fs-id1167065961598"
+        ]
+      },
+      "text_sha256": "72631c06fbf94968a681aacff6fc53f1a6508b670e5f1adb10c5bb589e3551b9",
+      "text_bytes": 38409,
+      "word_like_units": 6625,
+      "media": {
+        "media_elements": 12
+      },
+      "policy": {
+        "omitted_notes": 12,
+        "omitted_note_learning-objectives": 1,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-teacher": 8,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 10,
+        "titled_lists_preserved": 1
+      },
+      "extraction": {
+        "image_descriptions": 12,
+        "omitted_label": 15,
+        "math_expressions": 23,
+        "table_span_cells": 1
+      },
+      "punctuation_repairs": {
+        "U+0092": 1,
+        "U+0096": 2
+      }
+    },
+    {
+      "module": "m54376",
+      "chapter": "Diffraction and Interference",
+      "title": "Introduction",
+      "raw_sha256": "2383b0f3b981ad372e5a5bc625346cff7d6f830a1a3d7869075c4d2ed19c34f7",
+      "git_blob_sha1": "67366122e141afae59008c7ce0a51185614c001d",
+      "bytes": 4363,
+      "path": "modules/m54376/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "06571219b66c6b617f1dc6e42cfdf574beff073ccbb2fc1071e3eb0cc76871c7",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "930952cec54d77bb43e8792ad823710f0b934d8ce756213f2369eec1acf4ad61",
+      "text_bytes": 1192,
+      "word_like_units": 197,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54369",
+      "chapter": "Diffraction and Interference",
+      "title": "Understanding Diffraction and Interference",
+      "raw_sha256": "e227b77e353fca68c0ebde5748df72a257c0cbe4daf41de1ced75f7c26d8e45d",
+      "git_blob_sha1": "1a8e7b3d4195604ab938708710147254c492b006",
+      "bytes": 63212,
+      "path": "modules/m54369/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "eb00a9cc05951a676c4af400fcefad76272c8cb6ad2302c5072e14cd95357f8b",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167067198204",
+          "fs-id1167067226623",
+          "fs-id1167067019360",
+          "fs-id1167067234421",
+          "fs-id1167061706190",
+          "eip-id1166847529146",
+          "fs-id1167060080893",
+          "fs-id1167063882492",
+          "fs-id1167066971486"
+        ],
+        "exercise": [
+          "fs-id1167066878195",
+          "fs-id1167066959412",
+          "fs-id1167066876963",
+          "fs-id1167067036737",
+          "fs-id1167066770323",
+          "eip-id1166850247853",
+          "fs-id1167063574288",
+          "fs-id1167067145919",
+          "fs-id1167066811195"
+        ]
+      },
+      "text_sha256": "9e92cc5ef2dac4e324922c41172c54e6ba1197620639afc6b194352c08e33ca4",
+      "text_bytes": 30975,
+      "word_like_units": 5047,
+      "media": {
+        "media_elements": 11
+      },
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 9
+      },
+      "extraction": {
+        "omitted_label": 20,
+        "math_expressions": 64,
+        "image_descriptions": 11
+      },
+      "punctuation_repairs": {
+        "U+0092": 1
+      }
+    },
+    {
+      "module": "m54371",
+      "chapter": "Diffraction and Interference",
+      "title": "Applications of Diffraction, Interference, and Coherence",
+      "raw_sha256": "4c7460f373a742d0300786f885331c51fc2513ad1a3860faff5e00dfe5ef64b2",
+      "git_blob_sha1": "a27d4f0ba680e6469b549e37a2214bd627179ec7",
+      "bytes": 65758,
+      "path": "modules/m54371/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "19cdbc028e53245f813486efe408a886fd3ad024f58c01dafb12a7eba7a4ce4d",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167064910778",
+          "fs-id1167065075840",
+          "fs-id1167065887529",
+          "eip-id1166848791900",
+          "fs-id1167062409071",
+          "eip-id1166851223622",
+          "eip-id1166848848342",
+          "eip-id1166849075764",
+          "fs-id1167064875673",
+          "fs-id1167066105583"
+        ],
+        "exercise": [
+          "fs-id1167062606225",
+          "fs-id1167062814482",
+          "fs-id1167066164982",
+          "eip-id1166848791896",
+          "fs-id1167062571142",
+          "eip-id1166850949099",
+          "eip-id1166850992201",
+          "eip-id1166849075760",
+          "fs-id1167065892288",
+          "fs-id1167065071192"
+        ]
+      },
+      "text_sha256": "5b805bf9495ab53e69e5fbe2714be4c8724e1d2c87b0b7ee22eff1a9f37d7c35",
+      "text_bytes": 32258,
+      "word_like_units": 5206,
+      "media": {
+        "media_elements": 8
+      },
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_snap-lab": 2,
+        "omitted_external_exercise_placeholders": 11,
+        "omitted_note_watch-physics": 1,
+        "titled_lists_preserved": 1
+      },
+      "extraction": {
+        "image_descriptions": 8,
+        "omitted_label": 13,
+        "math_expressions": 34
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54417",
+      "chapter": "Static Electricity",
+      "title": "Introduction",
+      "raw_sha256": "4db7cdb1ed61c21863c9646e407e2d46b7e45a753e2f4084c47abb178d3c5f19",
+      "git_blob_sha1": "da8434eb393981eea21d3ef79d86012c23807363",
+      "bytes": 5350,
+      "path": "modules/m54417/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "b4053ad79c4da22fbdb78a1795c7f7f40bb66c9cf390eddb92a218bac8bbb077",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "25467ae7225e80065cdf2f5fd2af9da67d71cd3515164b447885a28a478f143f",
+      "text_bytes": 1464,
+      "word_like_units": 238,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 3,
+        "omitted_note_os-teacher": 3
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54410",
+      "chapter": "Static Electricity",
+      "title": "Electrical Charges, Conservation of Charge, and Transfer of Charge",
+      "raw_sha256": "5410ccc252fc4456f0c72a840208ed28df1cbec2efbf1c6d53788d74fcf0ec0e",
+      "git_blob_sha1": "ae848dc6e8377843865a81c3f021d12dc7a01bd6",
+      "bytes": 90221,
+      "path": "modules/m54410/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "ec8c605994e43da4e6d47219e1a8621add204e842f68f5858e74d64fee7e1956",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167067267331",
+          "fs-id1167067032126",
+          "fs-id1167067217271",
+          "fs-id1167063537537",
+          "fs-id1167063558218",
+          "fs-id1167063855778",
+          "fs-id1167063605911"
+        ],
+        "exercise": [
+          "fs-id1167063471504",
+          "fs-id1167067073622",
+          "fs-id1167067101589",
+          "fs-id1167063517169",
+          "fs-id1167066836403",
+          "fs-id1167067203898",
+          "fs-id1167066994233"
+        ]
+      },
+      "text_sha256": "44e43d1828b09ec33f5ca4812a03b413c5c5b6f510c3b3bceb21f7134241eea9",
+      "text_bytes": 45645,
+      "word_like_units": 7477,
+      "media": {
+        "media_elements": 11
+      },
+      "policy": {
+        "omitted_notes": 13,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 9,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 2,
+        "omitted_external_exercise_placeholders": 7,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1
+      },
+      "extraction": {
+        "image_descriptions": 11,
+        "math_expressions": 27,
+        "omitted_label": 8
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54414",
+      "chapter": "Static Electricity",
+      "title": "Coulomb's law",
+      "raw_sha256": "426fbb7ded42a86499ea698be864c91a59a12f561d2f39b5bd5a571589e57e61",
+      "git_blob_sha1": "d3854dd005755c18127be5ab5311ff75aff95210",
+      "bytes": 55795,
+      "path": "modules/m54414/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "62da25c580662bfb6cb05b475182b4badf78bef9e7310a9e8781c8c086e8b594",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167065937519",
+          "eip-id1166848694850",
+          "eip-id1166848787454",
+          "fs-id1167065944331"
+        ],
+        "exercise": [
+          "fs-id1167062548552",
+          "eip-id1166848712919",
+          "eip-id1166848989112",
+          "fs-id1167064881723"
+        ]
+      },
+      "text_sha256": "dcaa98fe1722ad91f40d71f77396d20e95ac433a5d09825de6dbced2ea3534a9",
+      "text_bytes": 18941,
+      "word_like_units": 3027,
+      "media": {
+        "media_elements": 2
+      },
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 3,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 4
+      },
+      "extraction": {
+        "omitted_label": 10,
+        "math_expressions": 37,
+        "image_descriptions": 2
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54428",
+      "chapter": "Static Electricity",
+      "title": "Electric Field",
+      "raw_sha256": "1ae39ad3ea7141305e8d13c3f371be12dd2b14700a3d8e32b4a6270643611ac5",
+      "git_blob_sha1": "7d12ad50ffebb5bba6dad656cad7990e26e37bba",
+      "bytes": 48381,
+      "path": "modules/m54428/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "368298cc8aba44218ee90c7eedf0db0c33ca0e971412c3df5c6b57ca92c3b138",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "2e2cb570f7a6b99146ba062d07ac141b5d8d676b76b183c5ae54eb18be45539a",
+      "text_bytes": 20012,
+      "word_like_units": 3260,
+      "media": {
+        "media_elements": 5
+      },
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_watch-physics": 1
+      },
+      "extraction": {
+        "omitted_label": 9,
+        "math_expressions": 29,
+        "image_descriptions": 5
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54426",
+      "chapter": "Static Electricity",
+      "title": "Electric Potential",
+      "raw_sha256": "5134a70b367d7361c0275b2d4b85ce3969fdc85aad3e5b10428bae8dddbd0e72",
+      "git_blob_sha1": "e33ef395b29412790a62140c92a9dbe058760044",
+      "bytes": 81220,
+      "path": "modules/m54426/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "c6684344c499a53dd3be5d12ad156f0cdb55326aad55e885be5cb9a2a737dc3d",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167064573460",
+          "eip-id1166851082923"
+        ],
+        "exercise": [
+          "fs-id1167064903980",
+          "eip-id1166851082919"
+        ]
+      },
+      "text_sha256": "17b28fdb750f6d8b3677ba852c29a9db0f6fa2540b2f90095f113c7bc277ebc6",
+      "text_bytes": 33344,
+      "word_like_units": 5380,
+      "media": {
+        "media_elements": 7
+      },
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_external_exercise_placeholders": 2
+      },
+      "extraction": {
+        "image_descriptions": 7,
+        "math_expressions": 90,
+        "omitted_label": 15
+      },
+      "punctuation_repairs": {
+        "U+0096": 1
+      }
+    },
+    {
+      "module": "m63179",
+      "chapter": "Static Electricity",
+      "title": "Capacitors and Dielectrics",
+      "raw_sha256": "999d718102e615c056822c3d9aba9ff21cb178f5b8780b7da80493600d702f91",
+      "git_blob_sha1": "ae9931e885d783234ebea7355bf90107ed1c5ab1",
+      "bytes": 76420,
+      "path": "modules/m63179/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "8c33e2575fc173433e0cef81276021237f6ae8e2ab769f1bc101ec6e45aa2c06",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167065765454",
+          "fs-id1167066138999",
+          "fs-id1167062889689",
+          "fs-id1167065725876"
+        ],
+        "exercise": [
+          "fs-id1167062370288",
+          "fs-id1167065842388",
+          "fs-id1167066147592",
+          "fs-id1167064911742"
+        ]
+      },
+      "text_sha256": "7683809c1f35488474a14264b2c7c637e27e2f1668fb7d387dd49167d45eb00f",
+      "text_bytes": 26581,
+      "word_like_units": 4183,
+      "media": {
+        "media_elements": 5
+      },
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 4
+      },
+      "extraction": {
+        "image_descriptions": 5,
+        "omitted_label": 22,
+        "math_expressions": 47
+      },
+      "punctuation_repairs": {
+        "U+0096": 7,
+        "U+0097": 2
+      }
+    },
+    {
+      "module": "m54450",
+      "chapter": "Electrical Circuits",
+      "title": "Introduction",
+      "raw_sha256": "072e0eae536ac11d8e65eb3c1978e160e0409380266a8bda2011a76986338b59",
+      "git_blob_sha1": "bf849f9b46f57c451613d8317805058018e48a14",
+      "bytes": 2340,
+      "path": "modules/m54450/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "02bbaaff11dabfe660f2982f8c6e09dd6b83a4e692e14690808640915e454a28",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "8c71ad0ea0559a6205289a1047c1aa9480f4a4352276fc2105167afdf0b69420",
+      "text_bytes": 1212,
+      "word_like_units": 181,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 1,
+        "omitted_note_os-teacher": 1
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54437",
+      "chapter": "Electrical Circuits",
+      "title": "Ohm's law",
+      "raw_sha256": "aa47b5d387d8ee37d96d89c7661da08337df48fd61fc253e4b899706446fae60",
+      "git_blob_sha1": "2825d2ad3c73a0ea48c9fb97016b15b6f378365c",
+      "bytes": 59274,
+      "path": "modules/m54437/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "609ac6f7525656f1677a85abedb8d52b55ce3fac40e66dec04d84533cf766d33",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167067214127",
+          "fs-id1167063502624",
+          "fs-id1167066955911",
+          "fs-id1167066811328",
+          "fs-id1167066999079",
+          "fs-id1167063422144",
+          "eip-id1166849137648",
+          "fs-id1167067250724",
+          "fs-id1167067190884",
+          "fs-id1167066857271",
+          "fs-id1167063717313",
+          "eip-id1166851161937",
+          "eip-id1166851367641",
+          "fs-id1167067204058",
+          "fs-id1167063466291",
+          "fs-id1167066856658",
+          "fs-id1167067179536",
+          "fs-id1167063527232",
+          "fs-id1167067214494",
+          "fs-id1167063624538",
+          "fs-id1167063520218"
+        ],
+        "exercise": [
+          "fs-id1167063659078",
+          "fs-id1167067193696",
+          "fs-id1167067077963",
+          "fs-id1167067315669",
+          "fs-id1167067064635",
+          "fs-id1167066955006",
+          "eip-id1166849137644",
+          "fs-id1167063489237",
+          "fs-id1167066952611",
+          "fs-id1167066809832",
+          "fs-id1167067006136",
+          "eip-id1166851161933",
+          "eip-id1166851367637",
+          "fs-id1164562099828",
+          "fs-id1167066939783",
+          "fs-id1167067028755",
+          "fs-id1167066842331",
+          "fs-id1167067032344",
+          "fs-id1167067056321",
+          "fs-id1167067058388",
+          "fs-id1167067253892"
+        ]
+      },
+      "text_sha256": "240b4896adc2abb07b1a190716d75a7503055f8032f286d4959629d5a8aaeb53",
+      "text_bytes": 20042,
+      "word_like_units": 3244,
+      "media": {
+        "media_elements": 7
+      },
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 21,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1
+      },
+      "extraction": {
+        "image_descriptions": 7,
+        "omitted_label": 18,
+        "math_expressions": 48
+      },
+      "punctuation_repairs": {
+        "U+0092": 1
+      }
+    },
+    {
+      "module": "m54435",
+      "chapter": "Electrical Circuits",
+      "title": "Series Circuits",
+      "raw_sha256": "17ca123160d610f22fb221fe3fc2392a8a3d3ccdf89f6aae558bb4e1ff2949b2",
+      "git_blob_sha1": "1a8b9068cda68e65a0470ff3c2fdefd43d811df1",
+      "bytes": 76391,
+      "path": "modules/m54435/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "af9093a40cc9c4c2d3c904f68beab58c6fb1d40d5df4ebaac4979569c10e564e",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167062867837",
+          "fs-id1167066036937",
+          "fs-id1167062299460",
+          "fs-id1167064951293",
+          "eip-id1166849948410",
+          "fs-id1167066160362"
+        ],
+        "exercise": [
+          "fs-id1167064540997",
+          "fs-id1167066036933",
+          "fs-id1167062892582",
+          "fs-id1167066145902",
+          "eip-id1166850202200",
+          "fs-id1167066160358"
+        ]
+      },
+      "text_sha256": "fa025960c1d4e1688a2f8391fc610fa5b7acd4a518e1f4dcd28c9b7abee50b8b",
+      "text_bytes": 32349,
+      "word_like_units": 5276,
+      "media": {
+        "media_elements": 19
+      },
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 2,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 6
+      },
+      "extraction": {
+        "math_expressions": 62,
+        "image_descriptions": 19,
+        "omitted_label": 12
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54442",
+      "chapter": "Electrical Circuits",
+      "title": "Parallel Circuits",
+      "raw_sha256": "f7a118ec8e1a9f6d3ea61ab183ba8e9f5003096b531fab3bc0a4e1dea257f6a1",
+      "git_blob_sha1": "ed53e061d0868b31e55245f088bca4fa74105ab5",
+      "bytes": 85345,
+      "path": "modules/m54442/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "833bcc69add49285579ffbab60280fd1e236b0eac5bb5d08f9829ff6df393ab8",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167064819245",
+          "fs-id1167066098108",
+          "fs-id1167064755527",
+          "eip-id1166848988833",
+          "fs-id1167066153543",
+          "fs-id1167064911934"
+        ],
+        "exercise": [
+          "fs-id1167065857602",
+          "fs-id1167064982333",
+          "fs-id1167066199346",
+          "eip-id1166848711141",
+          "fs-id1167066057379",
+          "fs-id1167062368078"
+        ]
+      },
+      "text_sha256": "ff0c9fe7b7f1602f6d77a35ce9393cc40d4132fa82c3f5bbe8962e2bb84ceb63",
+      "text_bytes": 29696,
+      "word_like_units": 4439,
+      "media": {
+        "media_elements": 20
+      },
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 6,
+        "omitted_note_watch-physics": 2
+      },
+      "extraction": {
+        "math_expressions": 72,
+        "image_descriptions": 20,
+        "omitted_label": 15
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54446",
+      "chapter": "Electrical Circuits",
+      "title": "Electric Power",
+      "raw_sha256": "67c9d41c654302b5c157168769af319858a2ebe988bf83405fd2cdb3b80722b6",
+      "git_blob_sha1": "727e737c273985df70967f737e9df6acbd0c733b",
+      "bytes": 53236,
+      "path": "modules/m54446/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "5075b9b16d017b72a2b0897d01a491da794097f92f25f850cb570ca5f56f9e85",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167062601414",
+          "fs-id1167062372034",
+          "eip-id1166851386422",
+          "fs-id1167064589368",
+          "fs-id1167064981483",
+          "fs-id1167062407936"
+        ],
+        "exercise": [
+          "fs-id1167062555538",
+          "fs-id1167066198317",
+          "eip-id1166851081813",
+          "fs-id1167064905249",
+          "fs-id1167064979628",
+          "fs-id1167065870627"
+        ]
+      },
+      "text_sha256": "1a03c2329d8211d4bd9ffa0b212558d3bef93b33ac2d59aff65fc2647b3160af",
+      "text_bytes": 17930,
+      "word_like_units": 2935,
+      "media": {
+        "media_elements": 5
+      },
+      "policy": {
+        "omitted_notes": 3,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 2,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 6,
+        "titled_lists_preserved": 1
+      },
+      "extraction": {
+        "image_descriptions": 5,
+        "math_expressions": 53,
+        "omitted_label": 14
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54460",
+      "chapter": "Magnetism",
+      "title": "Introduction",
+      "raw_sha256": "495e1b5120d52e2bf38f4a82a22ccdc449b00ffa596982324df0d882602be504",
+      "git_blob_sha1": "7099189fbde635cd9be170430aa8893c0e8fff5a",
+      "bytes": 2462,
+      "path": "modules/m54460/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "32b677057d5401e44a3e3fddb7fc543764d4ad4db4b257676c42aedd2ba6eff2",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "9c4dafea99b52bc672cfd267fb763025c624217fa8022b8b31539c8bc24e5485",
+      "text_bytes": 971,
+      "word_like_units": 157,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 1,
+        "omitted_note_os-teacher": 1
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54465",
+      "chapter": "Magnetism",
+      "title": "Magnetic Fields, Field Lines, and Force",
+      "raw_sha256": "ac4c06ecdd3ff4d249e6ad81693b5c85401e9d0b75790f7ae8edbb8a32b6b0ae",
+      "git_blob_sha1": "7ee6dd9f1842da7615a4f762be45de7b256c5805",
+      "bytes": 88154,
+      "path": "modules/m54465/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "40773896b5158bc2ff7fd2859123f8bc672f3df33c7b2928f66483bca5f3a9b9",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066014740",
+          "fs-id1167062586946",
+          "fs-id1167066095017",
+          "eip-id1166849822257",
+          "fs-id1167062506410",
+          "eip-id1166850270605",
+          "fs-id1167064818009",
+          "fs-id1167066055472",
+          "fs-id1167064740651",
+          "fs-id1167065914115",
+          "fs-id1167064871559"
+        ],
+        "exercise": [
+          "fs-id1167066014736",
+          "fs-id1167062586941",
+          "fs-id1167066095013",
+          "eip-id1166850149378",
+          "fs-id1167064531096",
+          "eip-id1166850255373",
+          "fs-id1167065866187",
+          "fs-id1167064740665",
+          "fs-id1167065876230",
+          "fs-id1167064853696",
+          "fs-id1167065869755"
+        ]
+      },
+      "text_sha256": "a48f08c1bdda9c0cd7397287ad67acf4ede7741078ff1dad7b1ae1423d91e41a",
+      "text_bytes": 41672,
+      "word_like_units": 6896,
+      "media": {
+        "media_elements": 29
+      },
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 2,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_os-interactive": 2,
+        "omitted_note_virtual-physics": 2,
+        "omitted_external_exercise_placeholders": 11
+      },
+      "extraction": {
+        "image_descriptions": 29,
+        "math_expressions": 58,
+        "omitted_label": 11
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54467",
+      "chapter": "Magnetism",
+      "title": "Motors, Generators, and Transformers",
+      "raw_sha256": "38d022377438c2649899906659d7a61a44b52e48f01b7218e4a1ee6f9fbd37ac",
+      "git_blob_sha1": "81511a380dabfdd8f990c736aa5b6de65bed6a5e",
+      "bytes": 55485,
+      "path": "modules/m54467/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "bade892ce4ff97cc0db854a9a3dd8bf7b123e088b8ab89d8c72f54f3d31b1b35",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167064757975",
+          "fs-id1167062967320",
+          "fs-id1167065871070",
+          "eip-id1166851245673",
+          "fs-id1167064780561",
+          "fs-id1167064716023",
+          "fs-id1167064818397",
+          "fs-id1167064748786",
+          "fs-id1167064635745",
+          "fs-id1167064695675"
+        ],
+        "exercise": [
+          "fs-id1167064757971",
+          "fs-id1167065944561",
+          "fs-id1167065871066",
+          "eip-id1166851379679",
+          "fs-id1167064780558",
+          "fs-id1167064716019",
+          "fs-id1167064550046",
+          "fs-id1167064748783",
+          "fs-id1167064635742",
+          "fs-id1167062315281"
+        ]
+      },
+      "text_sha256": "be55d6ecf010477185293ec46d43d5a961fadcb76591d6d0b21314a8175532b1",
+      "text_bytes": 26988,
+      "word_like_units": 4447,
+      "media": {
+        "media_elements": 10
+      },
+      "policy": {
+        "omitted_notes": 4,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 2,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 10
+      },
+      "extraction": {
+        "math_expressions": 69,
+        "image_descriptions": 10
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54456",
+      "chapter": "Magnetism",
+      "title": "Electromagnetic Induction",
+      "raw_sha256": "ef9d0f769d74716f7903c57eb786c0007c72f0979d5ec13f44eb0b2a2d9f6563",
+      "git_blob_sha1": "b147c7f579234e84724f435b31f743372aaf21f5",
+      "bytes": 62994,
+      "path": "modules/m54456/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "e687492284a84bbbd5089063c471429773bcfc5534f1e8327bb243a7db635128",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167067295326",
+          "eip-id1166851316864",
+          "fs-id1167063519740",
+          "eip-id1166848909338",
+          "eip-id1166848675844",
+          "fs-id1167061216917",
+          "fs-id1167066804960"
+        ],
+        "exercise": [
+          "fs-id1167063551780",
+          "eip-id1166848667252",
+          "fs-id1167063509696",
+          "eip-id1166851314867",
+          "eip-id1166848706782",
+          "fs-id1167067198299",
+          "fs-id1167067090594"
+        ]
+      },
+      "text_sha256": "22fb37f0cd46f18c9737e907205610b9d55eb30977cfc22c4cd990b615f7c071",
+      "text_bytes": 27757,
+      "word_like_units": 4656,
+      "media": {
+        "media_elements": 10
+      },
+      "policy": {
+        "omitted_notes": 5,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 1,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 2,
+        "omitted_note_virtual-physics": 2,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 7
+      },
+      "extraction": {
+        "image_descriptions": 10,
+        "math_expressions": 61,
+        "omitted_label": 8
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54562",
+      "chapter": "The Quantum Nature of Light",
+      "title": "Introduction",
+      "raw_sha256": "2271f2eaa450896efcbeb302c54e9a13f7a5a83cc199aace1e384671904f1a8a",
+      "git_blob_sha1": "c76a85d0cf8f16186cede19251237f86c759e0d2",
+      "bytes": 3948,
+      "path": "modules/m54562/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "59a0b52a637f1105e38e487dbba79366c504e5bc99d47d74af9307b3ea8ad66f",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "c35c8fe4a1814412a07d40860d7fd0350e090a61d3ed57d06f25c2948480b3bb",
+      "text_bytes": 1421,
+      "word_like_units": 228,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54566",
+      "chapter": "The Quantum Nature of Light",
+      "title": "Planck and Quantum Nature of Light",
+      "raw_sha256": "4d31e1edd7089c066d1e6a421d10aed01f7f17be1f25256b1a3e4aab2998ca31",
+      "git_blob_sha1": "f8dde144568067acee23f1bd8b5565c4abdf3800",
+      "bytes": 56637,
+      "path": "modules/m54566/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "cb032ba384e2945372bb127d60a3c8d82853bc0b94a293d6c1e21acdf9598c1d",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167063606381",
+          "fs-id1167066959411",
+          "fs-id1167067032545",
+          "fs-id1167066971131",
+          "fs-id1167067145858",
+          "fs-id1167066804347",
+          "eip-id1166851112016",
+          "fs-id1167067038732",
+          "fs-id1167067180580",
+          "eip-id1166851017281",
+          "fs-id1167067205246",
+          "fs-id1167063675248",
+          "fs-id1167067241561",
+          "fs-id1167067070704"
+        ],
+        "exercise": [
+          "fs-id1167067061025",
+          "fs-id1167063497283",
+          "fs-id1167067086215",
+          "fs-id1167067049284",
+          "fs-id1167067105266",
+          "fs-id1167067070263",
+          "eip-id1166851294647",
+          "fs-id1167063601122",
+          "fs-id1167066829339",
+          "eip-id1166850908950",
+          "fs-id1167063579610",
+          "fs-id1167067082912",
+          "fs-id1167067066494",
+          "fs-id1167066827561"
+        ]
+      },
+      "text_sha256": "64e29004dbd5756ad4cadae489d09df10bc37f3fb98ecdcc7dd1cdf0b85df51f",
+      "text_bytes": 25090,
+      "word_like_units": 3892,
+      "media": {
+        "media_elements": 4
+      },
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 14
+      },
+      "extraction": {
+        "image_descriptions": 4,
+        "math_expressions": 14,
+        "omitted_label": 7
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54559",
+      "chapter": "The Quantum Nature of Light",
+      "title": "Einstein and the Photoelectric Effect",
+      "raw_sha256": "9da5e254e9cbf838c1998a1936b83afe32a907bc08e0fa435fd93370c0c34443",
+      "git_blob_sha1": "f934a921d5987f782dcdc212dc265010d4680a10",
+      "bytes": 57996,
+      "path": "modules/m54559/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "1965452d01d27cb1306c44fbdba9716cb3d4edc6f8a83efcc5edb3581e386f1f",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167062309692",
+          "fs-id1167064766072",
+          "fs-id1167065911669",
+          "fs-id1167062814564",
+          "fs-id1167065914612",
+          "eip-id1166851319712",
+          "eip-id1166848957370",
+          "fs-id1167063013644",
+          "fs-id1167064894617",
+          "fs-id1167065941703",
+          "eip-id1166851286026",
+          "fs-id1167064996555",
+          "fs-id1167065979335",
+          "fs-id1167063095765"
+        ],
+        "exercise": [
+          "fs-id1167064916374",
+          "fs-id1167062488238",
+          "fs-id1167065957855",
+          "fs-id1167065897028",
+          "fs-id1167065965172",
+          "eip-id1166848883931",
+          "eip-id1166849104759",
+          "fs-id1167064916405",
+          "fs-id1167064534956",
+          "fs-id1167065028523",
+          "eip-id1166851384857",
+          "fs-id1167062308177",
+          "fs-id1167065979332",
+          "fs-id1167063095762"
+        ]
+      },
+      "text_sha256": "9b5be2055f6eee1588f9104d8d10c060b5a7a63db5b0812612fdbd5d394fd760",
+      "text_bytes": 26531,
+      "word_like_units": 4281,
+      "media": {
+        "media_elements": 5
+      },
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 14
+      },
+      "extraction": {
+        "image_descriptions": 5,
+        "omitted_label": 6,
+        "math_expressions": 25
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54552",
+      "chapter": "The Quantum Nature of Light",
+      "title": "The Dual Nature of Light",
+      "raw_sha256": "716c6190ab3e61f3c54830c7deaac39e85122ff4a168de637bf134919e29fa56",
+      "git_blob_sha1": "513ce4d859fe365a1d95dba0ab4273c4031d7494",
+      "bytes": 51014,
+      "path": "modules/m54552/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "337ea603338e107f348442e667d05ec2a903b7e0590497dc1ad52e24b03abe9f",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066955569",
+          "fs-id1167067000189",
+          "fs-id1167063557960",
+          "fs-id1167067324772",
+          "fs-id1167067264764",
+          "fs-id1167061391879",
+          "eip-id1166849114790",
+          "fs-id1167067146450",
+          "fs-id1167066999924",
+          "fs-id1167067030419",
+          "fs-id1167067152100"
+        ],
+        "exercise": [
+          "fs-id1167067050237",
+          "fs-id1167063715198",
+          "fs-id1167066946581",
+          "fs-id1167066839604",
+          "fs-id1167067150208",
+          "fs-id1167067199955",
+          "eip-id1166848841868",
+          "fs-id1167067252958",
+          "fs-id1167063734144",
+          "fs-id1167063474060",
+          "fs-id1167063526431"
+        ]
+      },
+      "text_sha256": "099576d4fec4a83752b6b5a47d5d2721f0ef43d6baddb592f33517cb64ea0092",
+      "text_bytes": 22788,
+      "word_like_units": 3622,
+      "media": {
+        "media_elements": 6
+      },
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 11
+      },
+      "extraction": {
+        "image_descriptions": 6,
+        "math_expressions": 16,
+        "omitted_label": 6
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54583",
+      "chapter": "The Atom",
+      "title": "Introduction",
+      "raw_sha256": "4c2fc48a92ced23778df80fdc60c00c9aca5661bddaab9cf312353cf43190e99",
+      "git_blob_sha1": "cc4a45293447b27c2bb984f1f93cee69355807dc",
+      "bytes": 2028,
+      "path": "modules/m54583/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "553b04033f497df01cedbac26a2578208045ead50a599a7ff382e8fe9d55a7ed",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "0c24e3aab8a9575eaffa1b4806882b57523343b81b7f286a171b390f8d9b7fde",
+      "text_bytes": 947,
+      "word_like_units": 152,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {
+        "omitted_notes": 1,
+        "omitted_note_os-teacher": 1
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54582",
+      "chapter": "The Atom",
+      "title": "The Structure of the Atom",
+      "raw_sha256": "4014ada9352b0fc536db997e315dbcb828f9aae7f0229b9a1083e0bbf3a08787",
+      "git_blob_sha1": "03fb1b0db343298dff46c992e9377831734a9343",
+      "bytes": 99624,
+      "path": "modules/m54582/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "e0c83261be42beefee95cf3cec9f1820372e8e3f0707afd135f5a1ee9f04ed2c",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "eip-id1166849930442",
+          "eip-id1166849946230",
+          "fs-id1167067078679",
+          "fs-id1167063447497",
+          "eip-id1166850234530",
+          "eip-id1166850098173",
+          "eip-id1166849948595"
+        ],
+        "exercise": [
+          "eip-id1166849867711",
+          "eip-id1166849815621",
+          "fs-id1167067076201",
+          "fs-id1167067024027",
+          "eip-id1166850234526",
+          "eip-id1166850271077",
+          "eip-id1166850062523"
+        ]
+      },
+      "text_sha256": "ccc9204e2a928d6743ff52979d59a6160fac61a2343fc4258df502ecd58a7b47",
+      "text_bytes": 43042,
+      "word_like_units": 6748,
+      "media": {
+        "media_elements": 14
+      },
+      "policy": {
+        "omitted_notes": 20,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 17,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 2,
+        "omitted_note_os-interactive": 1,
+        "omitted_external_exercise_placeholders": 7
+      },
+      "extraction": {
+        "image_descriptions": 14,
+        "math_expressions": 74,
+        "omitted_label": 10
+      },
+      "punctuation_repairs": {
+        "U+0092": 5
+      }
+    },
+    {
+      "module": "m54580",
+      "chapter": "The Atom",
+      "title": "Nuclear Forces and Radioactivity",
+      "raw_sha256": "96a87679a8f8f1b716b13a274f3e9d4aa876f555ef5a954f09ca2b462c48e2b1",
+      "git_blob_sha1": "7118ac07589d9fc3505666c86da65cf49aa024d1",
+      "bytes": 64520,
+      "path": "modules/m54580/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [
+        "fs-id1167063667227",
+        "fs-id1167063419008"
+      ],
+      "amended_source_sha256": "41af548cd91de75442f20de1fcc178b58d5a696b216546d268087965d4069a1d",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "eip-id1166847998403",
+          "eip-id1166849474790",
+          "eip-id1166849155109",
+          "fs-id1167067067135",
+          "eip-id1166848689021"
+        ],
+        "exercise": [
+          "eip-id1166849262120",
+          "eip-id1166849443626",
+          "eip-id1166848703815",
+          "fs-id1167067153381",
+          "eip-id1166848989048"
+        ]
+      },
+      "text_sha256": "b5ea2c54ffe05e9dfadf2066849720e9d2b34992c6712e1913cd8db2922c4b25",
+      "text_bytes": 30339,
+      "word_like_units": 4767,
+      "media": {
+        "media_elements": 8
+      },
+      "policy": {
+        "omitted_notes": 14,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 12,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 5
+      },
+      "extraction": {
+        "math_expressions": 57,
+        "image_descriptions": 8,
+        "omitted_label": 11
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m63183",
+      "chapter": "The Atom",
+      "title": "Half Life and Radiometric Dating",
+      "raw_sha256": "9aac9634c739567dcace2f17e72dfdb2916f220640dc336c62002c7bb07b7b15",
+      "git_blob_sha1": "e9e79982e48d8d4b46be47d4cd0486b5354f50ee",
+      "bytes": 38729,
+      "path": "modules/m63183/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "f2d1bc5a56fcbd19ad974ee6ccc9c90192cc56c3b837a26a4e8b19a93481181a",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "eip-id1166850253988"
+        ],
+        "exercise": [
+          "eip-id1166847907391"
+        ]
+      },
+      "text_sha256": "6fe82575fbf8afd469ec0d0ca418e53ec1467bd1dd4bac3276e16f873e385ff0",
+      "text_bytes": 14810,
+      "word_like_units": 2317,
+      "media": {
+        "media_elements": 2
+      },
+      "policy": {
+        "omitted_notes": 5,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 3,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 1
+      },
+      "extraction": {
+        "math_expressions": 66,
+        "image_descriptions": 2,
+        "omitted_label": 7
+      },
+      "punctuation_repairs": {
+        "U+0096": 1
+      }
+    },
+    {
+      "module": "m54574",
+      "chapter": "The Atom",
+      "title": "Nuclear Fission and Fusion",
+      "raw_sha256": "65cf5b37310ce3757452d05d08cc9059058e1c89f5d23e107808e68cce8eecca",
+      "git_blob_sha1": "e840700483b8d960fa36178f2e945fba2acface5",
+      "bytes": 54799,
+      "path": "modules/m54574/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "b114b08d869c8e0ca78fbe78014d8e3d167c1be57cfdbbf0d65c64c072b4dd5c",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "eip-id1166851379535",
+          "eip-id1166848756366",
+          "fs-id1167066959715",
+          "fs-id1167067064621",
+          "eip-id1166849802648"
+        ],
+        "exercise": [
+          "eip-id1166848723854",
+          "eip-id1166848814783",
+          "fs-id1167066775119",
+          "fs-id1167063910861",
+          "eip-id1166847411734"
+        ]
+      },
+      "text_sha256": "2a8f66076de6f591564748996ec16c8bb427eb4c2aaa0671b129fd62567bd60a",
+      "text_bytes": 31031,
+      "word_like_units": 4887,
+      "media": {
+        "media_elements": 11
+      },
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 5
+      },
+      "extraction": {
+        "image_descriptions": 11,
+        "omitted_label": 5,
+        "math_expressions": 35
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54578",
+      "chapter": "The Atom",
+      "title": "Medical Applications of Radioactivity: Diagnostic Imaging and Radiation",
+      "raw_sha256": "a576baa806b59499556c4daa6daa63ddb7319da9c226f44695f87994d1b12f98",
+      "git_blob_sha1": "7412f663009b7f863f657fbdac7c3eb383bee2ff",
+      "bytes": 33077,
+      "path": "modules/m54578/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "db3a9f01506f4c4bc45315e4eaa8dbefdc83bf3fc8829c909ef6b06e2778b551",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "eip-id1166849685829",
+          "eip-id1166847368650",
+          "eip-id1166850148020",
+          "fs-id1167067196062",
+          "fs-id1167067184844"
+        ],
+        "exercise": [
+          "eip-id1166849688908",
+          "eip-id1166849864118",
+          "eip-id1166850221902",
+          "fs-id1167067025489",
+          "fs-id1167067099097"
+        ]
+      },
+      "text_sha256": "d29de5109752fbd858cf52c9ed8f40914f5cc00f23647b5d14645902753e790d",
+      "text_bytes": 19071,
+      "word_like_units": 2916,
+      "media": {
+        "media_elements": 5
+      },
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 5,
+        "titled_lists_preserved": 1
+      },
+      "extraction": {
+        "math_expressions": 20,
+        "image_descriptions": 5,
+        "omitted_label": 1
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54584",
+      "chapter": "Particle Physics",
+      "title": "Introduction",
+      "raw_sha256": "f36aa1a4e309a695a6f70353b61749157b6839878d9e93bfc4273a5276541c5b",
+      "git_blob_sha1": "b20d3e5f41863f497a984c5feb7df8af495c08ae",
+      "bytes": 4736,
+      "path": "modules/m54584/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "67d219163a92b394c440ce47d85cdf5d95a6228957b8ef701464f981ec7a6d16",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "f31bd6fb83998dbccb1ab2b945f236071fbadc282028d32b138c928a10dc412f",
+      "text_bytes": 3703,
+      "word_like_units": 596,
+      "media": {
+        "media_elements": 2
+      },
+      "policy": {},
+      "extraction": {
+        "image_descriptions": 2
+      },
+      "punctuation_repairs": {}
+    },
+    {
+      "module": "m54593",
+      "chapter": "Particle Physics",
+      "title": "The Four Fundamental Forces",
+      "raw_sha256": "92a61184e0ebbf7f329637c62fc4a3ef150e5821548be03c7391796ddf39dd12",
+      "git_blob_sha1": "793a45d8ee62e050f701cd19c67a0223b377ec1b",
+      "bytes": 63763,
+      "path": "modules/m54593/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "62dc2bad5b33946b20e87fec6da5d76d4c709428b3ed59de0393e23d0cce06fe",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167063425307",
+          "fs-id1167066939964",
+          "fs-id1167061728594",
+          "fs-id1167066880179",
+          "fs-id1167066789711",
+          "fs-id1167063693570",
+          "eip-id1166849868010",
+          "fs-id1167066826602",
+          "fs-id1167066791011",
+          "fs-id1167064947667",
+          "fs-id1167067028392",
+          "fs-id1167067069803"
+        ],
+        "exercise": [
+          "fs-id1167063649608",
+          "fs-id1167067077294",
+          "fs-id1167066808672",
+          "fs-id1167067174874",
+          "fs-id1167063517849",
+          "fs-id1167067075787",
+          "eip-id1166847372043",
+          "fs-id1167066838627",
+          "fs-id1167067076121",
+          "fs-id1167064891974",
+          "fs-id1167063615397",
+          "fs-id1167066880430"
+        ]
+      },
+      "text_sha256": "6d6a6f021a13d427ba7b8cde84b640bcf7017bcca5b7cbe8d4bdd07a61ec2559",
+      "text_bytes": 32597,
+      "word_like_units": 5150,
+      "media": {
+        "media_elements": 9
+      },
+      "policy": {
+        "omitted_notes": 15,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 14,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 12
+      },
+      "extraction": {
+        "math_expressions": 25,
+        "table_span_cells": 2,
+        "image_descriptions": 9
+      },
+      "punctuation_repairs": {
+        "U+0096": 2,
+        "U+0097": 1
+      }
+    },
+    {
+      "module": "m54595",
+      "chapter": "Particle Physics",
+      "title": "Quarks",
+      "raw_sha256": "ed0f8054e13394605d9f2d1fd2a7f3b6705181d9ffea220fee3a835baf434259",
+      "git_blob_sha1": "88999ce7940cb0046cc93ec658185138a4185a0c",
+      "bytes": 79876,
+      "path": "modules/m54595/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "0d12635773660ed6a155ddabe53c4c07bd46c33ee44c1fa1c29abc7c5b0a29bf",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066946949",
+          "fs-id1167067255110",
+          "fs-id1167063675147",
+          "fs-id1167067208837",
+          "fs-id1167067314145",
+          "fs-id1167061611621",
+          "eip-id1166849108635",
+          "fs-id1167067157852",
+          "fs-id1167063862790",
+          "fs-id1167067272643",
+          "fs-id1167063513884",
+          "fs-id1167066999971",
+          "fs-id1167063503987",
+          "fs-id1167067192833",
+          "fs-id1167063449201",
+          "fs-id1167066800588",
+          "fs-id1167067078916"
+        ],
+        "exercise": [
+          "fs-id1167066808777",
+          "fs-id1167067293867",
+          "fs-id1167063888029",
+          "fs-id1167067208672",
+          "fs-id1167066808442",
+          "fs-id1167061705786",
+          "eip-id1166849074599",
+          "fs-id1167061706096",
+          "fs-id1167063712296",
+          "fs-id1167063520115",
+          "fs-id1167066770347",
+          "fs-id1167067215864",
+          "fs-id1167066852492",
+          "fs-id1167067007522",
+          "fs-id1167066833056",
+          "fs-id1167061214671",
+          "fs-id1167066840054"
+        ]
+      },
+      "text_sha256": "0448d0fbc17d096666c89b07e3a7d4203e28a1ffb71b44e8b93782547724a92c",
+      "text_bytes": 41037,
+      "word_like_units": 6468,
+      "media": {
+        "media_elements": 8
+      },
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 10,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 17
+      },
+      "extraction": {
+        "image_descriptions": 8,
+        "math_expressions": 66,
+        "table_span_cells": 10
+      },
+      "punctuation_repairs": {
+        "U+0092": 1,
+        "U+0096": 6,
+        "U+0097": 1
+      }
+    },
+    {
+      "module": "m54588",
+      "chapter": "Particle Physics",
+      "title": "The Unification of Forces",
+      "raw_sha256": "a5e6aae3f925ac4387e2f269c6c0e74d73b0dc1ce2761140b62f26280c460229",
+      "git_blob_sha1": "b935122928873169ed866db78df84f00b738a907",
+      "bytes": 42896,
+      "path": "modules/m54588/index.cnxml",
+      "front_or_back_matter": false,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "7b58d72d229cbca3ab63cf9cd2620d9d3d5856c28758de4ec2663b1dc7689003",
+      "omitted_empty_wrappers": {
+        "problem": [
+          "fs-id1167066859804",
+          "fs-id1167063717312",
+          "fs-id1167063554152",
+          "fs-id1167066836885",
+          "fs-id1167067174881",
+          "eip-id1166849369651",
+          "fs-id1167066864598",
+          "fs-id1167063596786",
+          "eip-id1166851215399",
+          "fs-id1167067209634",
+          "fs-id1167066879808",
+          "fs-id1167066999398",
+          "fs-id1167061220651",
+          "fs-id1167067092711",
+          "fs-id1167067068573",
+          "fs-id1167067231633"
+        ],
+        "exercise": [
+          "fs-id1167067103439",
+          "fs-id1167067031062",
+          "fs-id1167067037644",
+          "fs-id1167067308073",
+          "fs-id1167067049061",
+          "eip-id1166849568624",
+          "fs-id1167067115039",
+          "fs-id1167067075843",
+          "eip-id1166850970113",
+          "fs-id1167067253582",
+          "fs-id1167063411935",
+          "fs-id1167063938110",
+          "fs-id1167063716578",
+          "fs-id1167066849170",
+          "fs-id1167063877564",
+          "fs-id1167067179931"
+        ]
+      },
+      "text_sha256": "2adf7fafd1aefeb902199e27cdfd0f414f1131df28308388be204717a9629cbe",
+      "text_bytes": 22461,
+      "word_like_units": 3527,
+      "media": {
+        "media_elements": 4
+      },
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 6,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 16
+      },
+      "extraction": {
+        "math_expressions": 23,
+        "image_descriptions": 4
+      },
+      "punctuation_repairs": {
+        "U+0096": 1
+      }
+    },
+    {
+      "module": "m54602",
+      "chapter": "Front or back matter",
+      "title": "Reference Tables",
+      "raw_sha256": "c9f8f9877bd7c8ddf5c32afc7ae0a22057ffed08767c85cc2c45893fe628bc4e",
+      "git_blob_sha1": "44706ae16cac9d378b9e4446bf9dad755e8297b5",
+      "bytes": 96045,
+      "path": "modules/m54602/index.cnxml",
+      "front_or_back_matter": true,
+      "review_role": "content_candidate",
+      "edited_elements": [],
+      "amended_source_sha256": "384212651828c6388d9699eeb4aca0a3c4dcae6c347bc9f3cce0e9d99ac1c34f",
+      "omitted_empty_wrappers": {
+        "problem": [],
+        "exercise": []
+      },
+      "text_sha256": "3b292d5d3b60c72b5162f0653d2696d25425db0013a96b2c4dfe0dbbd62192bc",
+      "text_bytes": 26272,
+      "word_like_units": 1994,
+      "media": {
+        "media_elements": 1
+      },
+      "policy": {},
+      "extraction": {
+        "image_descriptions": 1,
+        "math_expressions": 98,
+        "table_span_cells": 5
+      },
+      "punctuation_repairs": {}
+    }
+  ],
+  "inspected_media": [
+    {
+      "cache_file": "raw/physics-media/CNX_HSPhysics_16_01_Curved3.jpg",
+      "upstream_path": "media/CNX_HSPhysics_16_01_Curved3.jpg",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/media/CNX_HSPhysics_16_01_Curved3.jpg",
+      "sha256": "a0e7e896fc9b1b49be3f3e4f9bdca2d655acc99844a0a7bb9de5adb9d67dbbba",
+      "git_blob_sha1": "1ff2a89a8387d2307a16173ae4473897728c5661",
+      "bytes": 32268,
+      "review": "Inspected the pinned raster. The small mirror returns rays through the bulb toward the large mirror; the large mirror sends parallel rays to the left. No focal-point labels are printed.",
+      "reviewer": "assistant direct image inspection",
+      "image_loaded_and_inspected": true
+    },
+    {
+      "cache_file": "raw/physics-media/CNX_HSPhysics_16_02_Scuba_img.jpg",
+      "upstream_path": "media/CNX_HSPhysics_16_02_Scuba_img.jpg",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/media/CNX_HSPhysics_16_02_Scuba_img.jpg",
+      "sha256": "900d6f2d748208c74203ff1f84bc0b5ca18f09a13bcc85667455cf260bc121df",
+      "git_blob_sha1": "8c430a508b8d35ea1fb725d49e13f44ee25f9fa5",
+      "bytes": 88771,
+      "review": "Inspected the pinned raster. The instructor is on the left above water and the diver on the right below water. Rays meet at the surface normal; pale figures and dashed extensions mark apparent positions. The image has two 2.0 m dimensions but no angle label. The question itself supplies the 25 degree underwater angle; use that stated angle, not a pixel measurement.",
+      "reviewer": "assistant direct image inspection",
+      "image_loaded_and_inspected": true
+    }
+  ],
+  "modules_extracted": 99,
+  "edited_elements": 7,
+  "training_admitted": false,
+  "native_commands": 0,
+  "source_files_modified": false,
+  "implementation_sha256": {
+    "scripts/review_physics_edition.py": "e72696ffa0d8866bd80959cc07443d25b22a1185f4a1c7cd3c387f6cd5ce0206",
+    "scripts/corpus/physics_edits.py": "31e62e91028d8dcb5417a35c5b1d46ace9508e1c8a43e608b4011063ffe99919",
+    "scripts/corpus/physics.py": "022cc3ac3cc6d29294cd94592867b4d2fa9b39010bdc7974810d766f44b443ed",
+    "scripts/corpus/openstax.py": "818f628e9bb36be4737c9eb7112758ab99c4dd96b3ad75140cae6e23d719250b",
+    "scripts/review_physics.py": "bc273208a9bc03eef48794788782c03c1e7417b6fc34db34b2703c3186a299c2"
+  },
+  "limits": "This resolves the enumerated source/extraction issues only. Remaining passages and diagram dependencies still need selection review and protected evaluation splits before admission."
+}
