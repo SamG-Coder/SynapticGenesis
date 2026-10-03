@@ -1,0 +1,34 @@
+{
+  "selection": "First complete development group in source order that regressed from all-correct greedy answers at 67000 to incomplete at 130000. Selected after evaluation for illustration, not an independent metric.",
+  "group": "key-hat-box-bed-o0-s0-q0",
+  "examples": [
+    {
+      "id": "key-hat-box-bed-o0-s0-q0-r0-t0",
+      "prompt": "The key is in the box. The hat is in the bed.\nWhere is the key?\nAnswer: ",
+      "expected": "box.",
+      "greedy_67000": "box.",
+      "greedy_130000": "bed."
+    },
+    {
+      "id": "key-hat-box-bed-o0-s0-q0-r0-t1",
+      "prompt": "The key is in the box. The hat is in the bed.\nWhere is the hat?\nAnswer: ",
+      "expected": "bed.",
+      "greedy_67000": "bed.",
+      "greedy_130000": "bed."
+    },
+    {
+      "id": "key-hat-box-bed-o0-s0-q0-r1-t0",
+      "prompt": "The key is in the bed. The hat is in the box.\nWhere is the key?\nAnswer: ",
+      "expected": "bed.",
+      "greedy_67000": "bed.",
+      "greedy_130000": "bed."
+    },
+    {
+      "id": "key-hat-box-bed-o0-s0-q0-r1-t1",
+      "prompt": "The key is in the bed. The hat is in the box.\nWhere is the hat?\nAnswer: ",
+      "expected": "box.",
+      "greedy_67000": "box.",
+      "greedy_130000": "bed."
+    }
+  ]
+}

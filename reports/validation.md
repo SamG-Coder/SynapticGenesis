@@ -10,6 +10,8 @@ Curriculum integration passes 113 native invocations, 30 ordinary restart cases 
 
 The selective population passes the 17-command lifecycle test and the 12-command scarcity test: inherited settings and gate weights, initially function-preserving neuron growth, exact learned checkpoint selection, resource admission, old-age death and rejected learning after death. Two expiring founders release their population credits and remain archived. These tests verify simulation rules; they do not establish general intelligence or an evolutionary learning advantage.
 
+The [paired longer language run](selective-binding.json) records successful training-set fit followed by poor development generalization and earlier-reader forgetting. Selective development groups peak at 25.69% at the measured 67,000-observation point, then fall to 6.25% at 130,000 despite 100% training groups. The [three-seed delayed-cue panel](selective-cue.json) passes all twelve runs; these simple recall results do not resolve the language failure. The [full protocol and limits](../docs/selective-trace.md) preserve the intermediate and final checkpoints rather than selecting only the favorable observation.
+
 ## Earlier input-dependent read gate and optimization controls
 
 At this earlier stage the build passed eleven native suites. The [gated validation report](gated-validation.json) checks identity-gate recovery of the trace cell, a nonzero gate's full gradients, weighted targets, state/graph consistency, all four cells' curriculum restarts, typed checkpoints, inherited gate weights and population lifespan/resource behavior. Maximum weighted gradient error is 6.71e-8; the curriculum CLI's maximum restart discrepancy is 1.50e-8. All eight batch prefix-policy combinations pass.
