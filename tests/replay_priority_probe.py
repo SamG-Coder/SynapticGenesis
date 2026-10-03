@@ -100,7 +100,10 @@ def check(native, probe, out):
         reverse = run('reverse', flags=['--reverse-candidates', '1', '--audit-state', '1'])
         split = run('split', end=39)
         resumed = run('resumed', source=split / 'latest.ckpt')
-        for directory in (disabled, measured, reverse, resumed):
+        graph = run('graph', flags=['--graph-scoring', '1', '--audit-state', '1', '--snapshots', '1'])
+        graph_split = run('graph-split', end=39, flags=['--graph-scoring', '1'])
+        graph_resumed = run('graph-resumed', source=graph_split / 'latest.ckpt', flags=['--graph-scoring', '1'])
+        for directory in (disabled, measured, reverse, resumed, graph, graph_resumed):
             assert sha(directory / 'latest.ckpt') == sha(control / 'latest.ckpt'), directory
         expected_speech = speech_bytes(control / 'transcript.txt')
         assert expected_speech and (measured / 'speech.txt').read_bytes() == expected_speech
@@ -108,6 +111,12 @@ def check(native, probe, out):
         assert (reverse / 'speech.txt').read_bytes() == expected_speech
         assert (split / 'speech.txt').read_bytes() + (resumed / 'speech.txt').read_bytes() == expected_speech
         scores = journal(measured / 'scores.jsonl')
+        assert scores == journal(graph / 'scores.jsonl')
+        assert scores == journal(graph_split / 'scores.jsonl') + journal(graph_resumed / 'scores.jsonl')
+        assert (graph / 'speech.txt').read_bytes() == expected_speech
+        assert (graph_split / 'speech.txt').read_bytes() + (graph_resumed / 'speech.txt').read_bytes() == expected_speech
+        for phase in ('before', 'after'):
+            assert sha(graph / f'score-{phase}.ckpt') == sha(measured / f'score-{phase}.ckpt')
         assert scores == journal(split / 'scores.jsonl') + journal(resumed / 'scores.jsonl')
         reversed_scores = journal(reverse / 'scores.jsonl')
         for row in reversed_scores:
@@ -128,11 +137,13 @@ def check(native, probe, out):
         assert sha(ancestor) == original
         cases.append(dict(learning_tf32=fast, exact_old_executable_checkpoint=True,
                           exact_speech=True, exact_restart=True, exact_reversed_scores=True,
+                          graph_exact_scores_snapshots_speech_checkpoint_restart=True,
                           oracle=oracle, result=read(measured / 'result.json')))
 
     for name, changes in [('old-end', ['--updates', '24']), ('excess-end', ['--updates', '81']),
                           ('bad-prompt', ['--prompt', 'B']), ('bad-cadence', ['--every', '-1']),
                           ('bad-pool', ['--per-group', '65']), ('bad-switch', ['--snapshots', '2']),
+                          ('bad-graph', ['--graph-scoring', '2']),
                           ('nonlive', ['--checkpoint', measured / 'score-before.ckpt'])]:
         options = dict(checkpoint=ancestor, curriculum=schedule, out=out / name, updates=56,
                        every=4, **{'per-group': 4}, prompt='A')

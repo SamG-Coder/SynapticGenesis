@@ -7,7 +7,7 @@
 namespace replay_priority {
 void run(const Args &args) {
     args.allow({"checkpoint", "curriculum", "out", "updates", "every", "per-group", "seed",
-                "prompt", "audit-state", "reverse-candidates", "snapshots"});
+                "prompt", "audit-state", "reverse-candidates", "snapshots", "graph-scoring"});
     fs::path source = args.get("checkpoint"), schedule_path = args.get("curriculum"), out = args.get("out");
     require(!out.empty() && !fs::exists(out), "Replay priority probe needs a fresh output directory");
     State state = read_checkpoint(source).state;
@@ -16,9 +16,10 @@ void run(const Args &args) {
     int updates = args.num("updates", 0), every = args.num("every", 32), per_group = args.num("per-group", 8);
     int seed = args.num("seed", 1337);
     int audit = args.num("audit-state", 0), reverse = args.num("reverse-candidates", 0),
-        snapshots = args.num("snapshots", 0);
+        snapshots = args.num("snapshots", 0), graph = args.num("graph-scoring", 0);
     require((audit == 0 || audit == 1) && (reverse == 0 || reverse == 1) &&
-                (snapshots == 0 || snapshots == 1), "Diagnostic switches require 0 or 1");
+                (snapshots == 0 || snapshots == 1) && (graph == 0 || graph == 1),
+            "Diagnostic switches require 0 or 1");
     require(updates > 0 && uint64_t(updates) > state.meta[24] &&
                 uint64_t(updates) - state.meta[24] <= 4096 &&
                 every >= 0 && every <= 4096 && per_group > 0 && per_group <= 64 && seed > 0,
@@ -44,7 +45,7 @@ void run(const Args &args) {
     const uint64_t begin = state.meta[24], original_updates = state.meta[7], original_pairs = state.meta[22],
                    original_speech = state.meta[30];
     fs::create_directories(out);
-    Observer observer(out, uint64_t(every), uint64_t(per_group), uint64_t(seed), audit, reverse, snapshots);
+    Observer observer(out, uint64_t(every), uint64_t(per_group), uint64_t(seed), audit, reverse, snapshots, graph);
     std::ofstream speech(out / "speech.txt", std::ios::binary);
     require(bool(speech), "Cannot create probe speech log");
     LiveLatency ticks, speaking_ticks, scoring_ticks;
@@ -86,6 +87,7 @@ void run(const Args &args) {
            << ",\"generated_bytes\":" << state.meta[30] - original_speech
            << ",\"observe_every\":" << every << ",\"per_group\":" << per_group << ",\"candidate_seed\":" << seed
            << ",\"measurements\":" << observer.observations << ",\"score_forward_calls\":" << observer.forward_calls
+           << ",\"graph_scoring\":" << (graph ? "true" : "false")
            << ",\"scored_pairs\":" << observer.scored_pairs << ",\"live_seconds\":" << elapsed
            << ",\"scoring_seconds\":" << observer.scoring_seconds << ",\"scorer_setup_seconds\":" << observer.setup_seconds
            << ",\"state_audit_seconds\":" << observer.audit_seconds << ",\"snapshot_seconds\":" << observer.snapshot_seconds

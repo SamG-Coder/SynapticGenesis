@@ -1,5 +1,6 @@
 // Read-only scoring around a real live source update, using production forward.
 #pragma once
+#include "replay_score_graph.cuh"
 namespace replay_priority {
 double seconds(std::chrono::steady_clock::time_point start) {
     return std::chrono::duration<double>(std::chrono::steady_clock::now() - start).count();
@@ -41,11 +42,13 @@ class Observer : public LiveSourceObserver {
     fs::path out_;
     std::ofstream log_;
     uint64_t every_, per_group_, seed_;
-    bool audit_, reverse_, snapshots_, selected_ = false;
+    bool audit_, reverse_, snapshots_, graph_, selected_ = false;
     std::vector<Candidate> pool_;
     // Scoring owns recurrence, activations and strict-FP32 handles. It never
     // changes a learning replay view's cuBLAS mode or live neuron state.
     std::map<int, std::unique_ptr<Model>> scorers_;
+    // Graphs must be released before their model buffers.
+    std::map<int, std::unique_ptr<ScoreGraph>> graphs_;
 
     void snapshot(Model &model, const State &state, const std::string &name) {
         State copy;
@@ -71,6 +74,8 @@ class Observer : public LiveSourceObserver {
                 owned_array_bytes += explicit_model_bytes(*model) -
                     (model->w.n + model->m.n + model->v.n) * sizeof(float);
                 ++view_count;
+                if (graph_)
+                    graphs_.emplace(n, std::make_unique<ScoreGraph>(*model));
                 scorers_.emplace(n, std::move(model));
                 size_t free_after;
                 ck(cudaMemGetInfo(&free_after, &total));
@@ -91,8 +96,13 @@ class Observer : public LiveSourceObserver {
             std::vector<int> x(data.bytes.begin() + at, data.bytes.begin() + at + n);
             std::vector<int> y(data.bytes.begin() + at + 1, data.bytes.begin() + at + n + 1);
             auto &model = *scorers_.at(int(n));
-            model.forward(x, &y); // Same forward, reset-state replay window.
-            auto values = model.losses.host();
+            std::vector<float> values;
+            if (graph_)
+                values = graphs_.at(int(n))->score(x, y);
+            else {
+                model.forward(x, &y); // Same forward, reset-state replay window.
+                values = model.losses.host();
+            }
             auto weights = data.target_weights(size_t(e.document), size_t(e.offset), n);
             Score value;
             double mass = 0;
@@ -139,9 +149,9 @@ class Observer : public LiveSourceObserver {
     uint64_t owned_array_bytes = 0, view_count = 0;
     double setup_seconds = 0, scoring_seconds = 0, audit_seconds = 0, snapshot_seconds = 0;
     Observer(const fs::path &out, uint64_t every, uint64_t per_group, uint64_t seed,
-             bool audit, bool reverse, bool snapshots)
+             bool audit, bool reverse, bool snapshots, bool graph = false)
         : out_(out), log_(out / "scores.jsonl"), every_(every), per_group_(per_group), seed_(seed),
-          audit_(audit), reverse_(reverse), snapshots_(snapshots) {
+          audit_(audit), reverse_(reverse), snapshots_(snapshots), graph_(graph) {
         require(bool(log_), "Cannot create replay score journal");
         log_ << std::setprecision(17);
     }
