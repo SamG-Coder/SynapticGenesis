@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "parent_checkpoint_sha256": "e6983e807ec6346802a870e1879efd993f0fb4d9e1ab8fe4f5ce7079711f0474",
+  "original_final_checkpoint_sha256": "f68c58fde2e073d33fb155530517a8c44f79280d9d54adcf21751b55eabc4501",
+  "expected_exposure": {
+    "95207": {
+      "online_updates": 95207,
+      "global_updates": 119008,
+      "observed_pairs": 12182873,
+      "generated_bytes": 18240,
+      "replay_updates": 23801
+    },
+    "155748": {
+      "online_updates": 155748,
+      "global_updates": 194685,
+      "observed_pairs": 19931542,
+      "generated_bytes": 29856,
+      "replay_updates": 38937
+    },
+    "216289": {
+      "online_updates": 216289,
+      "global_updates": 270361,
+      "observed_pairs": 27680129,
+      "generated_bytes": 41472,
+      "replay_updates": 54072
+    }
+  },
+  "additional_training_books": [
+    43,
+    1257
+  ],
+  "independent_source_traversal": true,
+  "native_session_and_checkpoint_counters_match": true,
+  "resume_only_arguments": true,
+  "rejected": [
+    "unadmitted checkpoint identity",
+    "unadmitted continuation base",
+    "undeclared rate",
+    "changed pinned input",
+    "changed replay_payload_sha256",
+    "changed cursor_and_rng",
+    "changed speech_policy",
+    "changed replay exposure",
+    "wrong requested endpoint",
+    "wrong native rate",
+    "failed native trace compatibility",
+    "incomplete size comparison",
+    "native work before predecessors finish"
+  ],
+  "new_native_commands": 0,
+  "resumed_control_identity_verified": false,
+  "lower_rate_learning_verified": false,
+  "code_sha256": {
+    "scripts/prose_retention_inputs.py": "d279514cffbbd7633e71cb5159de69e59041bddeda4688ca5b5913a695579589",
+    "scripts/prose_retention_lr.py": "59b1586f6554551e0c8855ad655b6a59620c87de1cfa8fe37c6e65e0c3a499bd",
+    "tests/prose_retention_lr.py": "f7a24e0eb1b63da07a98daed24090a9eaee6a8df2293ab1a048a317c2369402c"
+  },
+  "limits": "CPU preflight only. Authenticity, exposure and rejection checks do not establish CUDA restart identity or an improvement in language quality. Those remain required gates in the native execution."
+}

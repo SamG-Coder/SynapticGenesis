@@ -1,0 +1,19 @@
+{
+  "version": "prose-replay-capacity-v1",
+  "purpose": "Test broader ordinary rehearsal after the measured final-stage coverage limitation.",
+  "profiles": ["2m", "105m"],
+  "seed": 1337,
+  "baseline_capacity": 1024,
+  "candidate_capacity": 16384,
+  "source_observations": 216289,
+  "evaluation_spec": "data/prose-evaluation-v1.json",
+  "baseline_comparison": "runs/prose-size-panel/comparison.json",
+  "neuron_panel": "runs/prose-spike-panel/result.json",
+  "learning_rate_comparison": "runs/prose-retention-lr/result.json",
+  "learning_rate": 0.0003,
+  "replay_every": 4,
+  "source_policy": "Fresh random founders on the identical admitted book curriculum. No inherited learned weights, external teacher, newly selected text or change to the native neuron equations.",
+  "comparison": "Compare all four declared endpoints with each size's completed 1024-slot control. Report each validation book, equal-book validation mean, each early-reader training book and all raw prompts. Match source, global-update, replay-update and generated-byte counts; report actual replay target counts and per-stage distribution because the larger pool changes RNG consumption.",
+  "timing": "Record native learning sessions and assessment journals. No controlled size-speed claim: the original 105M continuation saved every 8192 observations, while these fresh founders save every 2048. No extra learned replay-scoring pass is added.",
+  "limits": "Exploratory, one seed and a capacity selected after seeing baseline coverage and regression. An increase in covered text is not itself a quality improvement. The completed lower-rate experiment is a predecessor, not a source of weights or a rule for selecting the candidate rate. No automatic model promotion, reproduction admission or reserved test scoring."
+}
