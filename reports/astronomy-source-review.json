@@ -1,0 +1,216 @@
+{
+  "book": "Astronomy 2e",
+  "source_spec_sha256": "eea159d96a0302eb6636e590303e758ad907fff898799472e11d72bc3a25c521",
+  "upstream_commit": "9d7e69a2e0c9a651ad42254b9a93b701a6b08c10",
+  "license": "CC BY 4.0 as recorded at the pinned commit",
+  "attribution": "Selections adapted from Astronomy 2e by Andrew Fraknoi, David Morrison, Sidney C. Wolff, OpenStax at Rice University, and the contributors credited in the preserved original preface. Source: https://github.com/openstax/osbooks-astronomy/tree/9d7e69a2e0c9a651ad42254b9a93b701a6b08c10 . This pinned 2024 edition declares Creative Commons Attribution 4.0 International: https://creativecommons.org/licenses/by/4.0/ . The original license and preface are retained beside the prepared text. Changes: CNXML converted to text; MathML serialized as LaTeX; local figure/table/equation/example references renumbered; merged table cells expanded; images represented by their source descriptions with captions and credits retained; front/back matter, specified sidebars and one malformed chapter-review module omitted; exact substantial duplicate paragraphs removed. No endorsement by OpenStax or the authors is implied. The repository MIT license applies to code and does not replace the source text license. Two explicit source errata correct Cassini's Jupiter flyby year and the orbital origin of gravity-assist energy, with NASA references retained in the selection.",
+  "review_scope": "One 340-character mid-document sample from the second selected module of each chapter, earlier raw prose previews, selected equations and a merged-row spacecraft table. This is a sampled selection review, not an exhaustive audit.",
+  "admitted_for_preparation": true,
+  "models_trained": false,
+  "reviewed_samples": [
+    {
+      "chapter": "Science and the Universe: A Brief Tour",
+      "module": "m59747",
+      "reviewed_sample": "In considering the history of the universe, we will see again and again that the cosmos evolves; it changes in profound ways over long periods of time. For example, the universe made the carbon, the calcium, and the oxygen necessary to construct something as interesting and complicated as you. Today, many billions of years later, the univ",
+      "extracted_sha256": "2db75e60df04b17c98a7504a6a387c617b5b4f91d55959c993b041c9f5f03b99"
+    },
+    {
+      "chapter": "Observing the Sky: The Birth of Astronomy",
+      "module": "m59770",
+      "reviewed_sample": "As Earth revolves around the Sun, we sit on “platform Earth” and see the Sun moving around the sky. The circle in the sky that the Sun appears to make around us in the course of a year is called the ecliptic. This circle (like all circles in the sky) goes through a set of constellations. The ancients thought these constellations, which th",
+      "extracted_sha256": "f3fa3b039fc18a1e769cbc541319017f671cee748f2107c12ebb959b5e0c9121"
+    },
+    {
+      "chapter": "Orbits and Gravity",
+      "module": "m59775",
+      "reviewed_sample": "Kepler generalized this result in his first law and said that the orbits of all the planets are ellipses. Here was a decisive moment in the history of human thought: it was not necessary to have only circles in order to have an acceptable cosmos. The universe could be a bit more complex than the Greek philosophers had wanted it to be.",
+      "extracted_sha256": "3f7736b2cf4e36bd987bc349026c409a3b204f06e1f6c1843ad265c0356d5236"
+    },
+    {
+      "chapter": "Earth, Moon, and Sky",
+      "module": "m59783",
+      "reviewed_sample": "Positions in the sky are measured in a way that is very similar to the way we measure positions on the surface of Earth. Instead of latitude and longitude, however, astronomers use coordinates called declination and right ascension. To denote positions of objects in the sky, it is often convenient to make use of the fictitious celestial s",
+      "extracted_sha256": "2a75b965fa35b81e716296e7e56f204167f6f0aacbc076df2a73d787f42f2362"
+    },
+    {
+      "chapter": "Radiation and Spectra",
+      "module": "m59792",
+      "reviewed_sample": "Wavelength (λ) and frequency (f) are related because all electromagnetic waves travel at the same speed. To see how this works, imagine a parade in which everyone is forced by prevailing traffic conditions to move at exactly the same speed. You stand on a corner and watch the waves of marchers come by. First you see row after row of minia",
+      "extracted_sha256": "f2d4de4c1e39b31819ec6cd5005158fc4c79ab2e3b1f86699c64f57482a18e89"
+    },
+    {
+      "chapter": "Astronomical Instruments",
+      "module": "m59803",
+      "reviewed_sample": "In the nineteenth century, the use of photography became widespread. In those days, photographs were a chemical record of an image on a specially treated glass plate. Today, the image is generally detected with sensors similar to those in digital cameras, recorded electronically, and stored in computers. This permanent record can then be ",
+      "extracted_sha256": "9074a07d7f38140871bcec99b3f0b99de51cda38be74ea2d8ed6ff5bf3c2054c"
+    },
+    {
+      "chapter": "Other Worlds: An Introduction to the Solar System",
+      "module": "m59816",
+      "reviewed_sample": "Check Your Learning Calculate the average density of our own planet, Earth. Show your work. How does it compare to the density of an ice moon like Mimas? See Table 2 for data.",
+      "extracted_sha256": "d4d3cb37e53b48810f026aaab538b2af334805bb549d1b699d2eef68da01905b"
+    },
+    {
+      "chapter": "Earth as a Planet",
+      "module": "m59825",
+      "reviewed_sample": "Beginning at a depth of 2900 kilometers, we encounter the dense metallic core of Earth. With a diameter of 7000 kilometers, our core is substantially larger than the entire planet Mercury. The outer core is liquid, but the innermost part of the core (about 2400 kilometers in diameter) is probably solid. In addition to iron, the core proba",
+      "extracted_sha256": "b6734285398624f66a7db02662bd9d11876caeb8250b6ace92fc2897deb339e7"
+    },
+    {
+      "chapter": "Cratered Worlds",
+      "module": "m59831",
+      "reviewed_sample": "The giant Apollo rockets built to travel to the Moon were left to rust on the lawns of NASA centers, although recently, some have at least been moved indoors to museums (Figure 4). It has been more than 50 years since astronauts landed on the Moon, but now there is increased interest in both the United States and China in future human lun",
+      "extracted_sha256": "28acf92fbf7a7492de2fccca3f2e40af083588f84d18d55909b68c57db79a06c"
+    },
+    {
+      "chapter": "Earthlike Planets: Venus and Mars",
+      "module": "m59845",
+      "reviewed_sample": "One of the remarkable globes of Mars prepared by Percival Lowell, showing a network of dozens of canals, oases, and triangular water reservoirs that he claimed were visible on the red planet.",
+      "extracted_sha256": "77694166e8e6c46c58bff06aad35ec2bb1718382a24bade23102e3aac85940a3"
+    },
+    {
+      "chapter": "The Giant Planets",
+      "module": "m59853",
+      "reviewed_sample": "The Pioneer and Voyager missions were flybys of the giant planets: they each produced only quick looks before the spacecraft sped onward. For more detailed studies of these worlds, we require spacecraft that can go into orbit around a planet. For Jupiter and Saturn, these orbiters were the Galileo, Cassini, and Juno spacecraft. To date, n",
+      "extracted_sha256": "2df4fa503206d10c24b28b9c823441188c187026f6ae1dc8f3771711f52e0ea9"
+    },
+    {
+      "chapter": "Rings, Moons, and Pluto",
+      "module": "m59861",
+      "reviewed_sample": "Saturn has at least 146 known moons in addition to a magnificent set of rings. The largest of the moons, Titan, is almost as big as Ganymede in Jupiter’s system, and it is the only moon with a substantial atmosphere and lakes or seas of liquid hydrocarbons (such as methane and ethane) on the surface. Saturn has six other large regular moo",
+      "extracted_sha256": "4f16bdfd370b06688e5dcdfb2a19cec6a5a54f41e54a08dad7bd997a50926ab5"
+    },
+    {
+      "chapter": "Comets and Asteroids: Debris of the Solar System",
+      "module": "m59866",
+      "reviewed_sample": "The greatest surprise of the Galileo flyby of Ida was the discovery of a moon (which was then named Dactyl), in orbit about the asteroid (Figure 5). Although only 1.5 kilometers in diameter, smaller than many college campuses, Dactyl provides scientists with something otherwise beyond their reach—a measurement of the mass and density of I",
+      "extracted_sha256": "48ed26e01cfbd5944c16b8d7debdae8cd6ee7345a90885f883d6c76fa622da12"
+    },
+    {
+      "chapter": "Cosmic Samples and the Origin of the Solar System",
+      "module": "m59871",
+      "reviewed_sample": "Table 1 Major Annual Meteor Showers Shower Name | Date of Maximum | Associated Parent Object | Comet’s Period (years) Quadrantid | January 3–4 | 2003EH (asteroid) | — Lyrid | April 22 | Comet Thatcher | 415 Eta Aquarid | May 4–5 | Comet Halley | 76 Delta Aquarid | July 29–30 | Comet Machholz | — Perseid | August 11–12 | Comet Swift-Tuttle",
+      "extracted_sha256": "91d28384e357c716ad1905e17ac54edaf41ca0f4696f816eca20df4ab84403c9"
+    },
+    {
+      "chapter": "The Sun: A Garden-Variety Star",
+      "module": "m59877",
+      "reviewed_sample": "Observations with telescopes show that the photosphere has a mottled appearance, resembling grains of rice spilled on a dark tablecloth or a pot of boiling oatmeal. This structure of the photosphere is called granulation (see Figure 5). Granules, which are typically 700 to 1000 kilometers in diameter (about the width of Texas), appear as ",
+      "extracted_sha256": "4a55eb06f6cf5801292079c86cb192760d2964fcd3086f4684aaa724fa661530"
+    },
+    {
+      "chapter": "The Sun: A Nuclear Powerhouse",
+      "module": "m59895",
+      "reviewed_sample": "Proposing an alternative explanation, British physicist Lord Kelvin and German scientist Hermann von Helmholtz (Figure 1), in about the middle of the nineteenth century, proposed that the Sun might produce energy by the conversion of gravitational energy into heat. They suggested that the outer layers of the Sun might be “falling” inward ",
+      "extracted_sha256": "98157f21a6d537d53c59a836b1fbf8bd834f25903d14eb995ea5f346d8e848f4"
+    },
+    {
+      "chapter": "Analyzing Starlight",
+      "module": "m59890",
+      "reviewed_sample": "Let’s do a real example, just to show how this works. Imagine that an astronomer has discovered something special about a dim star (magnitude 8.5), and she wants to tell her students how much dimmer the star is than Sirius. Star 1 in the equation will be our dim star and star 2 will be Sirius.",
+      "extracted_sha256": "62be64c912084996173b71bcc72c5e2b3f0f6c252f7bc2e8e071b346a5eab0bb"
+    },
+    {
+      "chapter": "The Stars: A Celestial Census",
+      "module": "m59898",
+      "reviewed_sample": "If we confine our census to the local neighborhood, we will miss many of the most interesting kinds of stars. After all, the neighborhood in which you live does not contain all the types of people—distinguished according to age, education, income, race, and so on—that live in the entire country. For example, a few people do live to be ove",
+      "extracted_sha256": "37976dc57290edd453fd529eaca735277617e50da2ae6fe77845206b1c493e84"
+    },
+    {
+      "chapter": "Celestial Distances",
+      "module": "m59904",
+      "reviewed_sample": "Similarly, to establish absolute distances, astronomers had to measure one distance in the solar system directly. Generally, the closer to us the object is, the easier such a measurement would be. Estimates of the distance to Venus were made as Venus crossed the face of the Sun in 1761 and 1769, and an international campaign was organized",
+      "extracted_sha256": "5563f13f1964eb09e96ed45cdf0ae226f875762072a23589fdd01cebefc44efd"
+    },
+    {
+      "chapter": "Between the Stars: Gas and Dust in Space",
+      "module": "m59909",
+      "reviewed_sample": "Suppose that the average density of hydrogen gas in our Galaxy is one atom per cm^(3). Each hydrogen atom has a mass of 1.7 × 10^(−27) kg. If the Galaxy is a cylinder with a diameter of 100,000 light-years and a height of 300 light-years, what is the mass of this gas? How many solar-mass stars (2.0 × 10^(30) kg) could be produced from thi",
+      "extracted_sha256": "c1ebe8261374c78d8c891a04ddf265bc0a19ae1df90f4a04511e6c6be27b98e7"
+    },
+    {
+      "chapter": "The Birth of Stars and the Discovery of Planets outside the Solar System",
+      "module": "m59923",
+      "reviewed_sample": "There are many molecular clouds that form only (or mainly) low-mass stars. Because low-mass stars do not have strong winds and do not die by exploding, triggered star formation cannot occur in these clouds. There are also stars that form in relative isolation in small cores. Therefore, not all star formation is originally triggered by the",
+      "extracted_sha256": "36e6fbaf2aaca13dce7174918d24c4476c8f6b2a14d314dd7a344c3fc5714af0"
+    },
+    {
+      "chapter": "Stars from Adolescence to Old Age",
+      "module": "m59925",
+      "reviewed_sample": "New energy produced by fusion of this hydrogen now pours outward from this shell and begins to heat up layers of the star farther out, causing them to expand. Meanwhile, the helium core continues to contract, producing more heat right around it. This leads to more fusion in the shell of fresh hydrogen outside the core (Figure 1). The addi",
+      "extracted_sha256": "a08d983355137676793653e4bb0f2dfd40342dd71208b856fc55bf6fb29418f7"
+    },
+    {
+      "chapter": "The Death of Stars",
+      "module": "m59932",
+      "reviewed_sample": "When Chandrasekhar made his calculation about white dwarfs, he found something very surprising: the radius of a white dwarf shrinks as the mass in the star increases (the larger the mass, the more tightly packed the electrons can become, resulting in a smaller radius). According to the best theoretical models, a white dwarf with a mass of",
+      "extracted_sha256": "177bb0466bc86edb3c48819ffa4f89f0c323f0f098ff277e08ef9d55aeb5ff54"
+    },
+    {
+      "chapter": "Black Holes and Curved Spacetime",
+      "module": "m59939",
+      "reviewed_sample": "Such a game of catch is very different on the surface of Earth. Everyone who grows up feeling gravity knows that a ball, once thrown, falls to the ground. Thus, in order to play catch with someone, you must aim the ball upward so that it follows an arc—rising and then falling as it moves forward—until it is caught at the other end.",
+      "extracted_sha256": "005cf125687392c43a6232efd80013297bf14b2b961896821373f55598c8de10"
+    },
+    {
+      "chapter": "The Milky Way Galaxy",
+      "module": "m59948",
+      "reviewed_sample": "Our thin disk of young stars, gas, and dust is embedded in a thicker but more diffuse disk of older stars; this thicker disk extends about 1000 light-years above and 1000 light-years below the midplane of the thin disk and contains only about 5% as much mass as the thin disk. The stars thin out with distance from the galactic plane and do",
+      "extracted_sha256": "c47d0cc63898b014c43bee9bed4c91f7e5b9c3b76278361c44d8603c089c9eb0"
+    },
+    {
+      "chapter": "Galaxies",
+      "module": "m59964",
+      "reviewed_sample": "To determine what the nebulae are, astronomers had to find a way of measuring the distances to at least some of them. When the 2.5-meter (100-inch) telescope on Mount Wilson in Southern California went into operation, astronomers finally had the large telescope they needed to settle the controversy.",
+      "extracted_sha256": "d9a48fba9e96fa50f2de878c8437fdc680cb2d4b5f2d700b9bfe4939087d26fe"
+    },
+    {
+      "chapter": "Active Galaxies, Quasars, and Supermassive Black Holes",
+      "module": "m59962",
+      "reviewed_sample": "Therefore, the actual recession speed is only 18% of the speed of light. While this may not initially seem like a big difference from the classical measurement, there is already an 11% deviation between the classical and the relativistic solutions; and at greater recession speeds, the divergence between the classical and relativistic spee",
+      "extracted_sha256": "fd9fb41933854cd03b09fb986be25f8acadf8eca9d22a45ad81ea2a3280ba72d"
+    },
+    {
+      "chapter": "The Evolution and Distribution of Galaxies",
+      "module": "m59970",
+      "reviewed_sample": "Several other observations also establish that star formation in the cosmos began very early. Astronomers have used spectra to determine the composition of some elliptical galaxies that are so far away that the light we see left them when the universe was only half as old as it is now. Yet these ellipticals contain old red stars, which mu",
+      "extracted_sha256": "884946c59cacd71bd2912edd311cc605e8ae36965fd7ceee95c058ec4ee921ee"
+    },
+    {
+      "chapter": "The Big Bang",
+      "module": "m59976",
+      "reviewed_sample": "The result of painstaking, careful study of these supernovae in a range of galaxies, carried out by two groups of researchers, was published in 1998. It was shocking—and so revolutionary that their discovery received the 2011 Nobel Prize in Physics. What the researchers found was that these type Ia supernovae in distant galaxies were fain",
+      "extracted_sha256": "714988a1130062425660742525c0f04184295a73ca67939ac1ff02ceb75ff617"
+    },
+    {
+      "chapter": "Life in the Universe",
+      "module": "m59988",
+      "reviewed_sample": "Our study of astronomy has taught us that we have always been wrong in the past whenever we have claimed that Earth is somehow unique. Galileo, using the newly invented technology of the telescope, showed us that Earth is not the center of the solar system, but merely one of a number of objects orbiting the Sun. Our study of the stars has",
+      "extracted_sha256": "8d52460f25dbfbfc39814a72ddca6366452885106b27c7ddc5c6671aa8770ea4"
+    }
+  ],
+  "deferred": [
+    {
+      "id": "m59901",
+      "reason": "Chapter review contains a table declaring two columns but a heading spanning an undeclared third column. Deferred instead of silently repairing the source."
+    }
+  ],
+  "explicit_source_corrections": {
+    "module": "m59853",
+    "edits": [
+      {
+        "before": "Jupiter | Cassini | December 2002 | Flyby",
+        "after": "Jupiter | Cassini | December 2000 | Flyby",
+        "reason": "Correct the archived table date to the actual December 30, 2000 Jupiter flyby.",
+        "evidence": "https://science.nasa.gov/resource/cassini-trajectory/"
+      },
+      {
+        "before": "giant planet’s rotation",
+        "after": "giant planet’s orbital motion",
+        "reason": "A planetary gravity assist exchanges orbital energy; this is not an energy transfer from the planet spinning about its axis.",
+        "evidence": "https://science.nasa.gov/learn/basics-of-space-flight/primer/"
+      }
+    ],
+    "corrected_sha256": "0429e772ff2a1b8e8749c7441bbbe9f99797301e0be3598c6c8408167ff9dd90"
+  }
+}

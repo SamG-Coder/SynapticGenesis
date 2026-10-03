@@ -22,6 +22,10 @@
     "selected-prose-scale-v1": {
       "sources": "data/sources-prose-scale-v1.json",
       "sha256": "662efb7b6690f97811333838b20de179aa3ae6639acf461678d1e16004683015"
+    },
+    "selected-astronomy-v1": {
+      "sources": "data/sources-astronomy-v1.json",
+      "sha256": "eea159d96a0302eb6636e590303e758ad907fff898799472e11d72bc3a25c521"
     }
   },
   "retired_editions": {
