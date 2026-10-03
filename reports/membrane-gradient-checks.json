@@ -1,0 +1,147 @@
+{
+  "passed": true,
+  "autograd_cases": [
+    {
+      "length": 1,
+      "layers": 1,
+      "objective": "activity",
+      "max_errors": {
+        "input_weight": 0.0,
+        "input_bias": 0.0,
+        "leak": 0.0
+      }
+    },
+    {
+      "length": 1,
+      "layers": 1,
+      "objective": "membrane",
+      "max_errors": {
+        "input_weight": 0.0,
+        "input_bias": 0.0,
+        "leak": 2.7755575615628914e-16
+      }
+    },
+    {
+      "length": 5,
+      "layers": 4,
+      "objective": "activity",
+      "max_errors": {
+        "input_weight": 1.734723475976807e-18,
+        "input_bias": 3.469446951953614e-18,
+        "leak": 1.4094628242311558e-18
+      }
+    },
+    {
+      "length": 5,
+      "layers": 4,
+      "objective": "membrane",
+      "max_errors": {
+        "input_weight": 6.938893903907228e-18,
+        "input_bias": 0.0,
+        "leak": 1.1275702593849246e-17
+      }
+    },
+    {
+      "length": 128,
+      "layers": 8,
+      "objective": "activity",
+      "max_errors": {
+        "input_weight": 1.5178830414797062e-18,
+        "input_bias": 1.474514954580286e-17,
+        "leak": 2.710505431213761e-19
+      }
+    },
+    {
+      "length": 128,
+      "layers": 8,
+      "objective": "membrane",
+      "max_errors": {
+        "input_weight": 2.949029909160572e-17,
+        "input_bias": 3.3306690738754696e-16,
+        "leak": 3.903127820947816e-18
+      }
+    },
+    {
+      "length": 128,
+      "layers": 4,
+      "objective": "activity",
+      "max_errors": {
+        "input_weight": 3.0357660829594124e-18,
+        "input_bias": 1.474514954580286e-17,
+        "leak": 7.318364664277155e-19
+      }
+    },
+    {
+      "length": 128,
+      "layers": 4,
+      "objective": "membrane",
+      "max_errors": {
+        "input_weight": 3.469446951953614e-17,
+        "input_bias": 1.8041124150158794e-16,
+        "leak": 1.5612511283791264e-17
+      }
+    }
+  ],
+  "frozen_reset_finite_differences": [
+    {
+      "parameter": "input_weight",
+      "index": [
+        0,
+        0
+      ],
+      "absolute_error": 3.564239181574891e-12
+    },
+    {
+      "parameter": "input_weight",
+      "index": [
+        4,
+        2
+      ],
+      "absolute_error": 9.246985122057794e-12
+    },
+    {
+      "parameter": "input_bias",
+      "index": [
+        1
+      ],
+      "absolute_error": 0.0
+    },
+    {
+      "parameter": "leak",
+      "index": [
+        0
+      ],
+      "absolute_error": 3.676283236164757e-12
+    },
+    {
+      "parameter": "leak",
+      "index": [
+        4
+      ],
+      "absolute_error": 7.584054911857763e-12
+    }
+  ],
+  "saturation_negative_control": true,
+  "combined_objective_cancellation_control": true,
+  "invalid_inputs_rejected": [
+    "shape",
+    "nan",
+    "spike",
+    "boundary",
+    "leak",
+    "layers",
+    "noninteger-layers",
+    "band",
+    "unknown-objective"
+  ],
+  "real_checkpoint_layout_matches_existing_reference": true,
+  "checkpoint_sha256": "eb684bb77a175f7517fd0a8968ea41cf185ade9b595cb82a2dea3e16ff2b57ba",
+  "cpu_only": true,
+  "native_commands": 0,
+  "new_model_updates": 0,
+  "implementation_sha256": {
+    "D:/SynapticGenesis/tests/membrane_gradient.py": "0b7847d1ae6a2209142349ebe0d07e26982e4b87b890fbab01b60da72300a1e4",
+    "scripts/membrane_gradient.py": "48b8b0935185f53e1cda350bc373da93c4f00eeb975679ae485e00267f332e9c",
+    "scripts/membrane_gradient_audit.py": "782e6828ce45a7266d6de55f9a5dacdb4cd2fc5af1e237c00b10ef2155ba23d5"
+  }
+}

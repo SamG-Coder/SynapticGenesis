@@ -1,0 +1,15 @@
+{
+  "version": "membrane-gradient-audit-v1",
+  "trace_report": "reports/prose-spike-panel.json",
+  "trace_report_sha256": "f4e5699ae003c655226d3a4cd0f99fa8b1200d37d3c2e3f2089ca105e9c4d785",
+  "publication_audit": "reports/prose-spike-panel-audit.json",
+  "publication_audit_sha256": "f31ab56671eaa5be9ad460ac45e37be3656d197f299df119b5b700244b27c812",
+  "trace_root": "runs/prose-spike-panel",
+  "profiles": ["105m", "2m", "27m"],
+  "stages": [0, 1, 4],
+  "chunk": 128,
+  "band": 1.5,
+  "illustrative_strengths": [0.00001, 0.0001, 0.001, 0.01, 0.02, 0.1],
+  "policy": "Use all eight preserved 1024-byte windows and every 128-byte interval. Measure final-block input-weight, input-bias and leak gradients for unit spike-activity and direct membrane costs, normalized over time, neurons and all layers. No source, checkpoint or outcome-based case selection.",
+  "purpose": "Determine whether a seemingly small membrane penalty can already exceed the saved gradient clip in a subset of parameter coordinates. No learning coefficient is chosen by this diagnostic."
+}
