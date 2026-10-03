@@ -1,0 +1,68 @@
+{
+  "review_date": "2026-10-03",
+  "kind": "Primary-source follow-up and explicitly unimplemented engineering hypotheses",
+  "repository_base": "bc76d2d630a88ba69649f0c71937eb4b019e8624",
+  "document": "docs/homeostasis-and-awake-replay.md",
+  "sources": [
+    {
+      "id": "turrigiano-1998",
+      "title": "Activity-dependent scaling of quantal amplitude in neocortical neurons",
+      "url": "https://www.nature.com/articles/36103",
+      "fulltext": "https://pages.ucsd.edu/~msereno/_107B-201_2007/readings/02.11-ActivScalesQuanta.pdf",
+      "evidence": "Experiment in cultured rat cortical neurons",
+      "read_scope": "Article results, distribution analysis and discussion, including figure captions. No raw-data reanalysis.",
+      "access_note": "University-hosted journal pages also contain parts of neighboring articles; only the named study informs this review."
+    },
+    {
+      "id": "zenke-2013",
+      "title": "Synaptic Plasticity in Neural Networks Needs Homeostasis with a Fast Rate Detector",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003330",
+      "evidence": "Computational spiking-network study and mean-field analysis",
+      "read_scope": "Introduction, simulation results, mean-field reasoning, model-design discussion and methods introduction. Equation images were not independently transcribed or reproduced."
+    },
+    {
+      "id": "harnack-2015",
+      "title": "Stability of Neuronal Networks with Homeostatic Regulation",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004357",
+      "evidence": "Computational and control-theoretic study of intrinsic homeostasis",
+      "read_scope": "Homeostatic framework, recurrence and filter-delay findings, parallel-controller section and discussion. Formal proofs and simulations were not independently reproduced."
+    },
+    {
+      "id": "jadhav-2012",
+      "title": "Awake Hippocampal Sharp-Wave Ripples Support Spatial Memory",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22555434/",
+      "fulltext": "https://rnel.rice.edu/pubs/Jadhav%20et%20al_2012_Awake%20Hippocampal%20Sharp-Wave%20Ripples%20Support%20Spatial%20Memory.pdf",
+      "evidence": "Causal intervention during rat spatial alternation learning",
+      "read_scope": "Main experimental design, disruption and delayed-stimulation controls, outbound/inbound results, place-field and rest-reactivation controls, and selected supplementary neural-analysis/disruption text. Not all supplementary figures or statistics reanalyzed.",
+      "access_note": "PMC subsequently returned a browser challenge; detailed reading used the author laboratory PDF, which also includes neighboring journal material."
+    }
+  ],
+  "local_evidence_sha256": {
+    "docs/homeostasis-and-awake-replay.md": "a09927ba954cfc1e8953536716e0892ed733ffdddbae782b50052444ea99a33e",
+    "src/model.cuh": "453c0aea5e331667c60b7ad0053747ac97312a1375e4887d6df121d08c226876",
+    "src/trace_neuron.cuh": "d346931acdff5a4711dea5740b185e6212dc7d0dd906349ffdb8973081ed71b6",
+    "src/adaptive_neuron.cuh": "55d88c666e2417b757cb3e29a968a27e460ae3a5b63d463c45aa66e7f829bcce",
+    "src/live_replay.cuh": "c35030f88b124e200e09ec94e1376b1e603bc3d6ebee6e60c18582a95791a141",
+    "src/synaptic_memory.cuh": "99c07936d379a5f3730fb0186bad11b55e25ab18c06ec2d296a643f04728b775",
+    "reports/native-activity-summary.json": "5c0e5af48d9b99e8aafd9d503b01330c07de3e8e69f79cb0e1e8423eabcbf460",
+    "reports/teacher-retention-summary.json": "f21f1238566dff6c1d35c501965c79de894bb59c05f35c7f129ecd8b295b4e14",
+    "reports/plasticity-experiment-design.json": "69afaf715c34e0f451ffa9f0dd95ec2541bd4f6068f80e048fa9eb62a9ac50fb"
+  },
+  "external_implementations_executed": false,
+  "external_model_weights_used": false,
+  "sources_added_to_model_training": false,
+  "production_learning_policy_changed": false,
+  "adaptation_study_state_when_review_written": "Running with declared conditions unchanged; no partial outcome used for policy selection",
+  "directions": [
+    "Compare replay timing at fixed source-window exposure, update count, objective and memory budget.",
+    "Only test bounded activity feedback after identifying a task-relevant target, with separate sensor/controller timing and complete state contracts."
+  ],
+  "estimated_two_fp32_activity_arrays": {
+    "layers": 4,
+    "neurons_per_layer": 512,
+    "arrays": 2,
+    "bytes_per_value": 4,
+    "total_bytes": 16384,
+    "excludes": "Counters, reduction scratch, serialization overhead and execution cost; not an implemented allocation"
+  }
+}
