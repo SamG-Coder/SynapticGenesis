@@ -302,13 +302,40 @@ struct LiveLatency {
 #include "live_curriculum.cuh"
 
 void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
-    args.allow({"data",          "out",          "checkpoint", "resume",       "chunk",
-                "channels",      "hidden",       "layers",     "seed",         "lr",
-                "activity-cost", "fast",         "updates",    "speak-every",  "tokens",
-                "top-k",         "temperature",  "prompt",     "log-every",    "save-every",
-                "validation",    "eval-batches", "replay",     "replay-every", "replay-capacity",
-                "replay-seed",   "core-scale",   "graph",      "cell",         "consolidation",
-                "si-strength",   "si-damping",   "curriculum"});
+    args.allow({"data",
+                "out",
+                "checkpoint",
+                "resume",
+                "chunk",
+                "channels",
+                "hidden",
+                "layers",
+                "seed",
+                "lr",
+                "activity-cost",
+                "fast",
+                "updates",
+                "speak-every",
+                "tokens",
+                "top-k",
+                "temperature",
+                "prompt",
+                "log-every",
+                "save-every",
+                "validation",
+                "eval-batches",
+                "replay",
+                "replay-every",
+                "replay-capacity",
+                "replay-seed",
+                "core-scale",
+                "graph",
+                "cell",
+                "consolidation",
+                "si-strength",
+                "si-damping",
+                "curriculum",
+                "extend-curriculum"});
     fs::path out = args.get("out", "runs/live");
     // Population-owned sessions publish directly to the canonical member file.
     // There is one checkpoint authority, including at an interrupted save.
@@ -322,7 +349,7 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
     if (fs::exists(out / "STOP"))
         throw std::runtime_error("Remove the live run's STOP file before continuing");
     State s = source.empty() ? State{} : header(source);
-    std::unique_ptr<LiveCurriculum> curriculum;
+    std::unique_ptr<LiveCurriculum> curriculum, previous_curriculum;
     if (!args.get("curriculum").empty()) {
         if (!args.get("data").empty())
             throw std::runtime_error("Curriculum specifies its data; omit --data");
@@ -330,6 +357,14 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
     }
     if (resume && s.meta[17] == 4 && !curriculum)
         throw std::runtime_error("Curriculum checkpoint resume requires --curriculum");
+    if (!args.get("extend-curriculum").empty()) {
+        require(resume && s.meta[17] == 4 && curriculum,
+                "--extend-curriculum requires --resume from a curriculum checkpoint and its original "
+                "--curriculum");
+        previous_curriculum = std::move(curriculum);
+        curriculum = std::make_unique<LiveCurriculum>(args.get("extend-curriculum"));
+        curriculum->validate_extension(*previous_curriculum);
+    }
     Config q = source.empty() ? Config{args.num("channels", 256), args.num("hidden", 512),
                                        args.num("layers", 4), cell_version(args)}
                               : checkpoint_config(s);
@@ -370,6 +405,8 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
         s.meta[10] = s.meta[11] = seed;
         engine.root.w.put(initialize(q, engine.root.a, uint64_t(seed)));
     }
+    if (previous_curriculum)
+        curriculum->extend(s, *previous_curriculum);
     LiveCorpus data = curriculum ? (resume && s.meta[17] == 4 ? curriculum->corpus(s)
                                                               : LiveCorpus(curriculum->stages.front().corpus))
                                  : LiveCorpus(args.get("data", "data/prepared/foundations-v1/train.dat"));
@@ -453,6 +490,18 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
     std::ofstream transcript(out / "transcript.txt", std::ios::app | std::ios::binary);
     if (!metrics || !transcript)
         throw std::runtime_error("Cannot write live logs");
+    if (previous_curriculum)
+        metrics << "{\"event\":\"curriculum_extension\",\"online_update\":" << s.meta[24]
+                << ",\"global_update\":" << s.meta[7] << ",\"previous_curriculum_hash\":\""
+                << previous_curriculum->hash << "\",\"curriculum_hash\":\"" << curriculum->hash
+                << "\",\"previous_stages\":" << previous_curriculum->stages.size()
+                << ",\"stages\":" << curriculum->stages.size()
+                << ",\"previous_end_update\":" << previous_curriculum->stages.back().end_update
+                << ",\"end_update\":" << curriculum->stages.back().end_update
+                << ",\"current_stage\":" << s.extra[15] + 1 << ",\"document\":" << s.meta[19]
+                << ",\"byte_offset\":" << s.meta[20] << ",\"replay_windows_preserved\":" << memory.count()
+                << ",\"replay_updates\":" << memory.updates() << ",\"generated_bytes\":" << s.meta[30]
+                << ",\"consolidation_events\":" << engine.root.synapses->boundaries << "}\n";
     metrics << std::setprecision(10) << "{\"event\":\"session_start\",\"online_update\":" << s.meta[24]
             << ",\"learning_rate\":" << s.hp[0] << ",\"replay_every\":" << memory.every()
             << ",\"si_strength\":" << engine.root.synapses->strength << ",\"curriculum_hash\":\""
@@ -531,6 +580,7 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
     report << std::setprecision(10) << "{\"online_updates\":" << s.meta[24]
            << ",\"curriculum_stage\":" << (curriculum ? s.extra[15] + 1 : 0) << ",\"curriculum_hash\":\""
            << (curriculum ? curriculum->hash : 0) << "\""
+           << ",\"curriculum_extended\":" << (previous_curriculum ? "true" : "false")
            << ",\"curriculum_base_lr\":" << (curriculum ? s.hp[7] : 0) << ",\"global_updates\":" << s.meta[7]
            << ",\"online_first_document\":" << data.first_document
            << ",\"online_document_count\":" << data.docs.size() - data.first_document

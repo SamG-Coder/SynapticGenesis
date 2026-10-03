@@ -16,6 +16,8 @@ void curriculum_test(const Args &args) {
     write("three.dat", third);
     write("curriculum.sg", "SGCURRICULUM1\n3 \"one.dat\" 1\n6 \"two.dat\" 0.5\n9 \"three.dat\" 0.25\n");
     LiveCurriculum curriculum(out / "curriculum.sg");
+    write("earlier.sg", "SGCURRICULUM2\n3 \"one.dat\" 1 all\n6 \"two.dat\" 0.5 all\n");
+    LiveCurriculum earlier(out / "earlier.sg");
     float error = 0;
     size_t cases = 0, transitions = 0;
     auto rejects = [](auto operation) {
@@ -93,6 +95,26 @@ void curriculum_test(const Args &args) {
                 fs::path checkpoint = out / ("resume-" + std::to_string(cell) + "-" + std::to_string(si) +
                                              "-" + std::to_string(split) + ".ckpt");
                 save(checkpoint, uninterrupted.root, s);
+                // Extension changes only the schedule identity, even midway
+                // through a document. Different text versions may encode the
+                // identical earlier policy. Rejections must be transactional.
+                State extending = s;
+                extending.extra[14] = earlier.hash;
+                earlier.validate(extending);
+                curriculum.extend(extending, earlier);
+                require(extending.meta == s.meta && extending.hp == s.hp && extending.extra == s.extra &&
+                            extending.synaptic == s.synaptic,
+                        "Curriculum extension reset live history");
+                State rejected = s;
+                rejected.extra[14] = earlier.hash;
+                State before_rejection = rejected;
+                LiveCurriculum changed = curriculum;
+                changed.stages[1].rate_scale = 1;
+                rejects([&] { changed.extend(rejected, earlier); });
+                require(rejected.meta == before_rejection.meta && rejected.hp == before_rejection.hp &&
+                            rejected.extra == before_rejection.extra &&
+                            rejected.synaptic == before_rejection.synaptic,
+                        "Rejected extension changed live state");
                 require(fs::file_size(checkpoint) == 288 + 12 * uninterrupted.root.a.n + 4 * s.meta[18] +
                                                          8 * s.extra.size() +
                                                          (si ? 12 * uninterrupted.root.a.n : 0),
@@ -167,6 +189,7 @@ void curriculum_test(const Args &args) {
         << ",\"resume_max_error\":" << error
         << ",\"cells\":[1,2,3,4],\"optional_si\":true,\"graph_speech_identical\":true,"
            "\"replay_preserved\":true,\"same_gpu_allocations\":true,\"future_source_identity_checked\":true,"
-           "\"heldout_document_rejected\":true,\"base_rate_override_checked\":true}\n";
+           "\"heldout_document_rejected\":true,\"base_rate_override_checked\":true,"
+           "\"extension_preserves_history\":true,\"extension_rejection_transactional\":true}\n";
     std::cout << "PASS curriculum: " << cases << " resume cases, max error=" << error << "\n";
 }

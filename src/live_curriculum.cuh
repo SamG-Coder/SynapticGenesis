@@ -104,6 +104,31 @@ struct LiveCurriculum {
                     s.meta[19] >= stages[index].first_document,
                 "Curriculum stage, source, learning rate or update counter is inconsistent");
     }
+    void validate_extension(const LiveCurriculum &previous) const {
+        require(stages.size() > previous.stages.size(),
+                "Curriculum extension must append at least one stage");
+        for (size_t i = 0; i < previous.stages.size(); ++i) {
+            const auto &old = previous.stages[i], &next = stages[i];
+            require(
+                old.end_update == next.end_update && old.corpus_hash == next.corpus_hash &&
+                    old.rate_scale == next.rate_scale && old.new_documents_only == next.new_documents_only &&
+                    old.answer_scale == next.answer_scale && old.first_document == next.first_document &&
+                    old.added_document == next.added_document && old.document_count == next.document_count,
+                "Curriculum extension must preserve every existing stage and source edition");
+        }
+    }
+    void extend(State &s, const LiveCurriculum &previous) const {
+        // The old schedule authenticates the saved policy; semantic prefix
+        // equality then permits new future stages, never a rewrite of history.
+        // Work on a candidate so failed validation leaves the caller unchanged.
+        previous.validate(s);
+        validate_extension(previous);
+        State candidate = s;
+        candidate.extra[14] = hash;
+        rate(candidate, s.hp[7]); // Check all newly scheduled rates too.
+        validate(candidate);
+        s = std::move(candidate);
+    }
     LiveCorpus corpus(const State &s) const {
         validate(s);
         LiveCorpus result(stages[size_t(s.extra[15])].corpus);

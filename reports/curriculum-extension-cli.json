@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "native_commands": 127,
+  "extension_cases": 32,
+  "cells": [
+    "lif",
+    "alif",
+    "trace",
+    "gated"
+  ],
+  "optional_si": true,
+  "graph_speech_identical": true,
+  "final_payload_max_error": 4.76837158203125e-07,
+  "repeated_extension_matches_full_schedule": true,
+  "prefix_policy_and_all_source_editions_preserved": true,
+  "invalid_extension_writes_no_run": true,
+  "heldout_new_document_rejected": true,
+  "initial_and_completed_stage_archives_preserved": true,
+  "population_age_and_lineage_preserved": true,
+  "dead_member_extension_rejected": true,
+  "deceased_archive_readable": true,
+  "reserved_language_test_unused": true,
+  "source_sha256": "77dcdbfccbfdbf3ea4d39ea07966eab2bebb6ad35f4d01b75b48b971f5d34a37"
+}

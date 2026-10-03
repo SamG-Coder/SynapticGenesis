@@ -25,7 +25,7 @@ SGCURRICULUM1
 
 Each row contains the cumulative **observed-chunk update count** at the end of a stage, a path relative to the schedule, and a multiplier on the base learning rate. Replay optimizer steps are counted separately and do not advance these thresholds. The generated example uses scale 1 for all three stages; the example above illustrates a lower rate in the last stage. No plasticity schedule has yet been established as optimal.
 
-Every later corpus must begin with exactly the previous corpus bytes, followed by a document separator (`0x1e`) and at least one new valid document. Previous document boundaries and indices must be identical. The program checks every edition before training and binds their content hashes plus the schedule bytes into the checkpoint. Editing even a future source invalidates a resume, as does editing the schedule. Raw schedule line endings therefore matter. The current bounded schedule supports up to 4,096 stages and 100 million observed updates; it is not an open-ended online ingestion service.
+Every later corpus must begin with exactly the previous corpus bytes, followed by a document separator (`0x1e`) and at least one new valid document. Previous document boundaries and indices must be identical. The program checks every edition before training and binds their content hashes plus the schedule bytes into the checkpoint. Editing even a future source invalidates an ordinary resume, as does editing the schedule. Raw schedule line endings therefore matter. The explicit extension operation below admits additional future stages while checking that the previously declared policy remains intact. Each resulting schedule supports up to 4,096 stages and 100 million observed updates.
 
 At a transition the cursor starts at the first newly added document. Once the new material reaches EOF, the normal cursor wraps through the cumulative corpus. Earlier observed windows also remain eligible for reservoir replay. The replay reservoir is bounded, so it does not guarantee a particular quota for every past stage.
 
@@ -69,6 +69,37 @@ For a registered population member, use [`population-live`](evolution.md) with i
 
 Validation is isolated from training and speech state. Exact held-out documents included anywhere in the scheduled cumulative corpus are rejected before a run is written. This check and source-preparation paragraph deduplication do not detect paraphrases or all short overlaps. Test material should remain reserved for final comparisons.
 
+## Add lessons after learning has started
+
+`--extend-curriculum` appends future stages to a saved live curriculum without starting a new learning stream. Supply both the exact previously bound schedule and the proposed extended schedule:
+
+```powershell
+.\build\synapticgenesis.exe live --resume runs/developing-founder/latest.ckpt --curriculum data/prepared/foundations-live-v1/curriculum.sg --extend-curriculum data/prepared/next-lessons/curriculum.sg --out runs/developing-founder --updates 13000 --prompt "The bird " --validation data/prepared/foundations-live-v1/validation.dat
+
+# Subsequent ordinary resumes use the newly bound schedule alone.
+.\build\synapticgenesis.exe live --resume runs/developing-founder/latest.ckpt --curriculum data/prepared/next-lessons/curriculum.sg --out runs/developing-founder --updates 14000 --prompt "The bird "
+```
+
+These paths and update counts illustrate the interface: the old checkpoint must be below 13,000 observations, and the new schedule must reach at least 14,000. Prepare the new cumulative source editions and schedule before running. The requested update count must exceed the saved count and fit the resulting schedule. Omitting it runs through the new final stage.
+
+The old schedule must match the checkpoint, including all old future source editions. The extended schedule must retain **every old stage** with identical ending count, rate scale, repetition scope, answer weight and source bytes, then append at least one new stage. It cannot lengthen or rewrite an existing stage. Equivalent path spelling, line endings or schedule-text versions are permitted in the new file because old rows are compared by their parsed policies and source identities. Ordinary resume still requires an exact schedule hash.
+
+Admission changes only the bound schedule identity. The current stage, document offset, membranes, optimizer moments, speech RNG, replay reservoir and optional SI history remain intact. If the old final stage has already finished, the normal stage transition occurs before the next observation. That transition keeps learned history, consolidates an unfinished SI trajectory when applicable, and resets recurrence at the new document boundary as usual. If an old stage is still in progress, its remaining exposure and all previously declared future stages run first. Extension may be repeated within the format limits.
+
+`metrics.jsonl` records a `curriculum_extension` event with both schedule hashes, old/new limits and preserved counters. `session.json` records whether the invocation extended the curriculum. Initial and completed-stage archives remain unchanged. The next saved checkpoint binds the new schedule; the checkpoint is the authority after an interrupted invocation.
+
+For an existing population member, pass the same `--curriculum old.sg --extend-curriculum next.sg` pair to `population-live`, along with the registered validation corpus and prompt. It resumes the canonical checkpoint automatically. Extension preserves birth time and lineage, consumes no simulation tick and cannot revive a deceased model.
+
+This is admission of selected content at a checkpoint restart. It does not watch a directory, generate its own lessons, make an automatic mastery decision, or change the numerical learning rule. Source checks prove continuity and exact-document separation, not improved retention or language skill.
+
 ## Verified boundaries
 
-The native suite tests LIF and ALIF, with and without SI, with graph generation and replay active. Restarts before, at and after transitions preserve speech, replay RNG, state and optimizer within a declared numerical tolerance. CLI tests repeat these checks across separate native processes, reject changed future sources and exercise read-only inference from v4 checkpoints. These correctness results do not establish better retention, a curriculum advantage or useful conversation.
+The native suite tests LIF, ALIF, trace and gated cells, with and without SI, with graph generation and replay active. Restarts before, at and after transitions preserve speech, replay RNG, state and optimizer within a declared numerical tolerance. CLI tests repeat these checks across separate native processes, reject changed future sources and exercise read-only inference from v4 checkpoints.
+
+The extension CLI compares 32 cases against a full schedule declared at birth: admission before a transition, at a boundary, midway through the previous final stage, and after completing it. It also checks repeated extension, weighted replay, unchanged stage archives, rejected prefix edits, newly introduced held-out documents and population aging/death. Generated bytes match exactly; the recorded maximum complete-state difference is below `3e-5`. [Detailed extension results](../reports/curriculum-extension-cli.json).
+
+```powershell
+python tests/curriculum_extension_cli.py --out runs/curriculum-extension-check
+```
+
+These correctness results do not establish better retention, a curriculum advantage or useful conversation.
