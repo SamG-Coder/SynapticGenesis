@@ -1,0 +1,394 @@
+{
+  "complete": true,
+  "protocol": {
+    "status": "declared_before_execution",
+    "shapes": [
+      [
+        256,
+        512,
+        4
+      ],
+      [
+        384,
+        1024,
+        6
+      ],
+      [
+        512,
+        2048,
+        8
+      ],
+      [
+        1024,
+        4096,
+        8
+      ]
+    ],
+    "cell": "associative",
+    "seed": 1337,
+    "source": "data\\prepared\\selected-foundations-v1\\train.dat",
+    "authenticated_inputs": {
+      "data\\prepared\\selected-foundations-v1\\train.dat": "66116234362cb7fa49d233e671f8c6a388ad2b2181577ea3538a92b95a2be143",
+      "data\\sources.json": "c72ff3705bbc73aa06cc588c1a67ddad3595b87a4e8712b646f8fa0c9796f4a3",
+      "data\\prepared\\selected-foundations-v1\\manifest.json": "1d619215c80b49b069f7a1795a2280e4245f0fdfa1ee9b8cb0a0d37985e5f889",
+      "build\\capacity-probe\\synaptic-capacity-probe.exe": "a16b01ff1e9829f1a5168c9c9b79fc3b9551b49a37e6cde2e0968a4031eb33e5",
+      "experiments\\capacity_probe.cu": "e42917183aef3747ff3eafec61a74f8a56dd695691e77e1a068d826084a024ed",
+      "D:\\SynapticGenesis\\scripts\\capacity_experiment.py": "59f6a2b71d4f2df0a2ac31ba2d6b715dee3dd386b0c86882005c07e29c2feb01",
+      "tests\\capacity_probe.py": "f926469afafad25ce729dcaac5aee28b182d0d318c9b3607d891dc9aa6d7d06e"
+    },
+    "warmup": 128,
+    "updates_per_round": 512,
+    "rounds": 3,
+    "chunk": 128,
+    "replay_every": 4,
+    "replay_capacity": 1024,
+    "speak_every": 128,
+    "speak_bytes": 64,
+    "decode_bytes": 1024,
+    "live_timing": "Production source update, uniform reservoir replay, scheduled graph speech, synchronization and small speech writes. Excludes initialization, first 128 updates and final saving.",
+    "decode_timing": "Same live speaker after learning. Warm capture, fixed weights/state/RNG; includes prompt and CPU sampling. Three timed 1024-byte runs after one untimed run.",
+    "memory": "Explicit live arrays subtract shared weights, moments and recurrence; free VRAM sampled at round boundaries after CUDA context initialization. Neither is whole-process peak memory.",
+    "limitation": "A short capacity/speed test on existing admitted source text; no language-quality scaling result. Other desktop GPU contexts active. Views are lazily cached; more tail lengths can cost more VRAM.",
+    "random_initialization": true,
+    "native_cpp_cuda": true,
+    "generated_text_targets": false,
+    "checkpoints_saved": false,
+    "hardware": "NVIDIA GeForce RTX 5080, 616.64, 16303 MiB"
+  },
+  "rows": [
+    {
+      "complete": true,
+      "parameters": 1951624,
+      "channels": 256,
+      "neurons_per_layer": 512,
+      "layers": 4,
+      "spiking_neurons": 2048,
+      "recurrent_floats": 8192,
+      "chunk": 128,
+      "warmup_updates": 128,
+      "warmup_seconds": 0.5332678,
+      "measured_updates_per_round": 512,
+      "rounds": 3,
+      "explicit_arrays_bytes": 157871812,
+      "baseline_free_bytes": 15712911360,
+      "minimum_round_boundary_free_bytes": 15140388864,
+      "source_hash": "17532723149809119024",
+      "generated_text_targets": false,
+      "decode_repeated_bytes_exact": true,
+      "learning_rounds": [
+        {
+          "round": 0,
+          "seconds": 1.8903718,
+          "source_pairs": 65499,
+          "replay_pairs": 16384,
+          "generated_bytes": 256,
+          "loss": 2.2165836638302387,
+          "tick_p95_ms": 6.194257811218626,
+          "explicit_arrays_bytes": 138589044,
+          "boundary_free_bytes": 15226372096,
+          "tail_views": 2,
+          "replay_views": 1
+        },
+        {
+          "round": 1,
+          "seconds": 1.8938054,
+          "source_pairs": 65444,
+          "replay_pairs": 16384,
+          "generated_bytes": 256,
+          "loss": 2.071966790065855,
+          "tick_p95_ms": 6.061527639427054,
+          "explicit_arrays_bytes": 157871812,
+          "boundary_free_bytes": 15140388864,
+          "tail_views": 3,
+          "replay_views": 1
+        },
+        {
+          "round": 2,
+          "seconds": 1.8407391,
+          "source_pairs": 65536,
+          "replay_pairs": 16384,
+          "generated_bytes": 256,
+          "loss": 2.003945236094296,
+          "tick_p95_ms": 5.9316416015157225,
+          "explicit_arrays_bytes": 157871812,
+          "boundary_free_bytes": 15140388864,
+          "tail_views": 3,
+          "replay_views": 1
+        }
+      ],
+      "decode_rounds": [
+        {
+          "round": 0,
+          "generated_bytes": 1024,
+          "prompt_bytes": 9,
+          "seconds": 0.1620826
+        },
+        {
+          "round": 1,
+          "generated_bytes": 1024,
+          "prompt_bytes": 9,
+          "seconds": 0.161154
+        },
+        {
+          "round": 2,
+          "generated_bytes": 1024,
+          "prompt_bytes": 9,
+          "seconds": 0.161974
+        }
+      ],
+      "median_source_bytes_per_second": 34648.73947019311,
+      "median_generated_bytes_per_second": 6322.002296664897
+    },
+    {
+      "complete": true,
+      "parameters": 7989196,
+      "channels": 384,
+      "neurons_per_layer": 1024,
+      "layers": 6,
+      "spiking_neurons": 6144,
+      "recurrent_floats": 18432,
+      "chunk": 128,
+      "warmup_updates": 128,
+      "warmup_seconds": 0.8689533,
+      "measured_updates_per_round": 512,
+      "rounds": 3,
+      "explicit_arrays_bytes": 578483324,
+      "baseline_free_bytes": 15712911360,
+      "minimum_round_boundary_free_bytes": 14670626816,
+      "source_hash": "17532723149809119024",
+      "generated_text_targets": false,
+      "decode_repeated_bytes_exact": true,
+      "learning_rounds": [
+        {
+          "round": 0,
+          "seconds": 3.2137734,
+          "source_pairs": 65499,
+          "replay_pairs": 16384,
+          "generated_bytes": 256,
+          "loss": 2.220508239100323,
+          "tick_p95_ms": 10.194233725911042,
+          "explicit_arrays_bytes": 505649388,
+          "boundary_free_bytes": 14813233152,
+          "tail_views": 2,
+          "replay_views": 1
+        },
+        {
+          "round": 1,
+          "seconds": 3.1726359,
+          "source_pairs": 65444,
+          "replay_pairs": 16384,
+          "generated_bytes": 256,
+          "loss": 2.0617276551882173,
+          "tick_p95_ms": 9.975792318568745,
+          "explicit_arrays_bytes": 578483324,
+          "boundary_free_bytes": 14670626816,
+          "tail_views": 3,
+          "replay_views": 1
+        },
+        {
+          "round": 2,
+          "seconds": 3.1285188,
+          "source_pairs": 65536,
+          "replay_pairs": 16384,
+          "generated_bytes": 256,
+          "loss": 1.9894316564314067,
+          "tick_p95_ms": 9.762031660140456,
+          "explicit_arrays_bytes": 578483324,
+          "boundary_free_bytes": 14670626816,
+          "tail_views": 3,
+          "replay_views": 1
+        }
+      ],
+      "decode_rounds": [
+        {
+          "round": 0,
+          "generated_bytes": 1024,
+          "prompt_bytes": 9,
+          "seconds": 0.2462043
+        },
+        {
+          "round": 1,
+          "generated_bytes": 1024,
+          "prompt_bytes": 9,
+          "seconds": 0.2566694
+        },
+        {
+          "round": 2,
+          "generated_bytes": 1024,
+          "prompt_bytes": 9,
+          "seconds": 0.2533349
+        }
+      ],
+      "median_source_bytes_per_second": 20627.642774892636,
+      "median_generated_bytes_per_second": 4042.0802660825652
+    },
+    {
+      "complete": true,
+      "parameters": 27260432,
+      "channels": 512,
+      "neurons_per_layer": 2048,
+      "layers": 8,
+      "spiking_neurons": 16384,
+      "recurrent_floats": 40960,
+      "chunk": 128,
+      "warmup_updates": 128,
+      "warmup_seconds": 1.4464753,
+      "measured_updates_per_round": 512,
+      "rounds": 3,
+      "explicit_arrays_bytes": 1866598964,
+      "baseline_free_bytes": 15712911360,
+      "minimum_round_boundary_free_bytes": 13439598592,
+      "source_hash": "17532723149809119024",
+      "generated_text_targets": false,
+      "decode_repeated_bytes_exact": true,
+      "learning_rounds": [
+        {
+          "round": 0,
+          "seconds": 5.3313942,
+          "source_pairs": 65499,
+          "replay_pairs": 16384,
+          "generated_bytes": 256,
+          "loss": 2.260197298539759,
+          "tick_p95_ms": 16.417714857210754,
+          "explicit_arrays_bytes": 1627733604,
+          "boundary_free_bytes": 13735297024,
+          "tail_views": 2,
+          "replay_views": 1
+        },
+        {
+          "round": 1,
+          "seconds": 5.3134677,
+          "source_pairs": 65444,
+          "replay_pairs": 16384,
+          "generated_bytes": 256,
+          "loss": 2.083611779848016,
+          "tick_p95_ms": 16.417714857210754,
+          "explicit_arrays_bytes": 1866598964,
+          "boundary_free_bytes": 13439598592,
+          "tail_views": 3,
+          "replay_views": 1
+        },
+        {
+          "round": 2,
+          "seconds": 5.261543,
+          "source_pairs": 65536,
+          "replay_pairs": 16384,
+          "generated_bytes": 256,
+          "loss": 2.0090597935486585,
+          "tick_p95_ms": 16.417714857210754,
+          "explicit_arrays_bytes": 1866598964,
+          "boundary_free_bytes": 13439598592,
+          "tail_views": 3,
+          "replay_views": 1
+        }
+      ],
+      "decode_rounds": [
+        {
+          "round": 0,
+          "generated_bytes": 1024,
+          "prompt_bytes": 9,
+          "seconds": 0.3751525
+        },
+        {
+          "round": 1,
+          "generated_bytes": 1024,
+          "prompt_bytes": 9,
+          "seconds": 0.374012
+        },
+        {
+          "round": 2,
+          "generated_bytes": 1024,
+          "prompt_bytes": 9,
+          "seconds": 0.3746073
+        }
+      ],
+      "median_source_bytes_per_second": 12316.627049412571,
+      "median_generated_bytes_per_second": 2733.5292184642426
+    },
+    {
+      "complete": true,
+      "parameters": 104851472,
+      "channels": 1024,
+      "neurons_per_layer": 4096,
+      "layers": 8,
+      "spiking_neurons": 32768,
+      "recurrent_floats": 73728,
+      "chunk": 128,
+      "warmup_updates": 128,
+      "warmup_seconds": 2.5532292,
+      "measured_updates_per_round": 512,
+      "rounds": 3,
+      "explicit_arrays_bytes": 6734170676,
+      "baseline_free_bytes": 15712911360,
+      "minimum_round_boundary_free_bytes": 8565817344,
+      "source_hash": "17532723149809119024",
+      "generated_text_targets": false,
+      "decode_repeated_bytes_exact": true,
+      "learning_rounds": [
+        {
+          "round": 0,
+          "seconds": 9.2636737,
+          "source_pairs": 65499,
+          "replay_pairs": 16384,
+          "generated_bytes": 256,
+          "loss": 2.2709153888989926,
+          "tick_p95_ms": 28.215801584674526,
+          "explicit_arrays_bytes": 5855497828,
+          "boundary_free_bytes": 9490661376,
+          "tail_views": 2,
+          "replay_views": 1
+        },
+        {
+          "round": 1,
+          "seconds": 9.2900172,
+          "source_pairs": 65444,
+          "replay_pairs": 16384,
+          "generated_bytes": 256,
+          "loss": 2.0842314333636214,
+          "tick_p95_ms": 28.833647186369205,
+          "explicit_arrays_bytes": 6734170676,
+          "boundary_free_bytes": 8565817344,
+          "tail_views": 3,
+          "replay_views": 1
+        },
+        {
+          "round": 2,
+          "seconds": 9.1836429,
+          "source_pairs": 65536,
+          "replay_pairs": 16384,
+          "generated_bytes": 256,
+          "loss": 1.9864817091729492,
+          "tick_p95_ms": 28.833647186369205,
+          "explicit_arrays_bytes": 6734170676,
+          "boundary_free_bytes": 8565817344,
+          "tail_views": 3,
+          "replay_views": 1
+        }
+      ],
+      "decode_rounds": [
+        {
+          "round": 0,
+          "generated_bytes": 1024,
+          "prompt_bytes": 9,
+          "seconds": 0.7605317
+        },
+        {
+          "round": 1,
+          "generated_bytes": 1024,
+          "prompt_bytes": 9,
+          "seconds": 0.7646157
+        },
+        {
+          "round": 2,
+          "generated_bytes": 1024,
+          "prompt_bytes": 9,
+          "seconds": 0.7633334
+        }
+      ],
+      "median_source_bytes_per_second": 7070.521061207068,
+      "median_generated_bytes_per_second": 1341.484598996978
+    }
+  ],
+  "inputs_unchanged": true,
+  "all_shapes_same_exposure": true
+}

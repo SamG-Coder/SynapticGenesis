@@ -1,0 +1,26 @@
+{
+  "fixture": {
+    "passed": true,
+    "cases": [
+      {
+        "math": "fp32",
+        "complete_checkpoint_exact": true,
+        "parameters": 44580
+      },
+      {
+        "math": "tf32",
+        "complete_checkpoint_exact": true,
+        "parameters": 44580
+      }
+    ],
+    "probe_sha256": "a16b01ff1e9829f1a5168c9c9b79fc3b9551b49a37e6cde2e0968a4031eb33e5",
+    "native_sha256": "5f2fa106fec9f43e0717b3227af060e7f286268a946da5e43b3e30143c23a734"
+  },
+  "memcheck": {
+    "errors": 0,
+    "log": "runs\\capacity-fixture-final\\memcheck.log",
+    "sha256": "adba10db853bd67fe9009b776eefe7b61210d2cbe3eee029ba6fa188978b5832"
+  },
+  "quality_comparison_performed": false,
+  "native_runtime_changed": false
+}
