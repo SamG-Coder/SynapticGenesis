@@ -1,0 +1,35 @@
+{
+  "version": "studio-models-v1",
+  "models": [
+    {
+      "id": "corrected-105m",
+      "name": "105M \u00b7 Corrected",
+      "parameters": 104851472,
+      "checkpoint": "runs/conversation-correction-immediate-v1/practice-256/latest.ckpt",
+      "curriculum": "runs/conversation-correction-v1/material/curriculum/curriculum.sg",
+      "sha256": "586d822610576858be39acc578b9b831198e6ceae8e7eeda594ad60769f8196e",
+      "curriculum_sha256": "b7d60c739ba7bf8fcad51078ba2dee54a580bf90c9081d7abeffbabff58743af",
+      "description": "Practised six corrections. Best starting point for conversation; still experimental."
+    },
+    {
+      "id": "prose-105m",
+      "name": "105M \u00b7 Prose foundation",
+      "parameters": 104851472,
+      "checkpoint": "runs/prose-replay-capacity/founder-105m/stage-4.ckpt",
+      "curriculum": "runs/prose-scale-curriculum/curriculum.sg",
+      "sha256": "c45f5d962112f73fe3ad2688f61f6689f6e9f10aa775ff6dfc38c62c241fe2a5",
+      "curriculum_sha256": "95c67a6ee99e8c57101556cf141ae0031d9de2e4c1da7fc4ab652c7f253ea1e3",
+      "description": "Original prose-trained model. Compare its answers with the corrected model."
+    },
+    {
+      "id": "prose-411m",
+      "name": "411M \u00b7 Prose foundation",
+      "parameters": 411028496,
+      "checkpoint": "runs/prose-411m-v1/founder-411m/stage-4.ckpt",
+      "curriculum": "runs/prose-scale-curriculum/curriculum.sg",
+      "sha256": "7fd7871cf8e49e5a12e0790bc6f0167673a45515168cf30aa749dcf23ba4b441",
+      "curriculum_sha256": "95c67a6ee99e8c57101556cf141ae0031d9de2e4c1da7fc4ab652c7f253ea1e3",
+      "description": "Larger experimental model. Slower and more memory-intensive; not better in prior tests."
+    }
+  ]
+}

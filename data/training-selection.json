@@ -96,5 +96,12 @@
       "published_evidence_sha256": "1425f456053498061e5ee388d006431cc6fdd184b3cc66be4fd7371310adabb0",
       "allowed_use": "Same-curriculum learning-rate diagnostic only; descendants are not admitted for teaching or reproduction."
     }
-  ]
+  ],
+  "interactive_feedback_policy": {
+    "catalog": "data/studio-models.json",
+    "source": "Explicit user-submitted question and corrected answer in the local Studio",
+    "admission": "Only Teach correction authorizes learning; raw target and SHA256 recorded before native updates",
+    "lineage": "Session checkpoints retain parent hash, curriculum manifests, and feedback ledger",
+    "scope": "Local diagnostic learning only; no automatic teacher or reproduction admission"
+  }
 }

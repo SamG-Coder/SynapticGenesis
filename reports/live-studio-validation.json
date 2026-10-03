@@ -1,0 +1,57 @@
+{
+  "version": "live-studio-validation-v1",
+  "passed": true,
+  "native_parameters": 104851472,
+  "browser_verified": [
+    "load corrected model",
+    "ask question",
+    "submit correction",
+    "automatic retest",
+    "save checkpoint",
+    "resume session",
+    "ask after resume",
+    "switch to prose foundation",
+    "resume after server restart"
+  ],
+  "question": "What is three plus four?",
+  "before": "Two plus three is five.\n\nAthos was the country of the convent of the cardinal, who had seen\nthe convent of the country was to learn.\n\nAnd when the country was too late the convent of the count",
+  "after": "Three plus four is seven.\n\nAs she was severen the closed cupboards and seemed to leave him\nsome pluse of his proper.\n\nAnd he was seen the service of his property.\n\nAs she plus he had seen his ",
+  "after_resume": "Three plus four is seven.\n\nAs she was severen the closed cupboards and seemed to leave him\nsome pluse of his proper.\n\nAnd he was seen the service of his property.\n\nAs she plus he had seen his ",
+  "raw_answer_identical_after_resume": true,
+  "correction": {
+    "question": "What is three plus four?",
+    "answer": "Three plus four is seven.",
+    "passes": 16,
+    "source": "explicit-user-feedback",
+    "target_sha256": "2f6345ad2931b0a87f7b5310b9b8bc4287e3e81104efc93c51cf1255b7fc2f3d",
+    "path": "D:\\SynapticGenesis\\runs\\live-studio\\b6c6eb9dc2e94d3db6236ac14c02d207\\correction-e7b1832a3e\\target.txt",
+    "state": "learned",
+    "created_utc": "2026-10-03T22:18:21.331683+00:00",
+    "metrics": {
+      "event": "learned",
+      "source_updates": 16,
+      "source_pairs": 1088,
+      "seconds": 0.6361722,
+      "source_pairs_per_second": 1710.228771,
+      "online_updates": 217841
+    }
+  },
+  "decode_bytes_per_second": [
+    438.45106201068177,
+    441.9249607,
+    451.72219085262566
+  ],
+  "host_tests": 4,
+  "http_rejection_statuses": [
+    403,
+    403,
+    400
+  ],
+  "limits": [
+    "Concurrent GPU workloads; timings are not isolated benchmarks.",
+    "One teaching example validates the interaction, not general language ability.",
+    "411M catalog present and hashed; not loaded in this UI acceptance run.",
+    "Mobile layout included but not browser-tested at a mobile breakpoint.",
+    "New correction admission saves and reloads the resident model."
+  ]
+}

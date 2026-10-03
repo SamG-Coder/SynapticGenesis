@@ -221,3 +221,7 @@ Resource-sensitive breeding and lifespans are implemented. Available GPU memory 
 ## License and sources
 
 Original project code is [MIT licensed](LICENSE). CUDA/cuBLAS and independently downloaded books retain their own terms. Raw source editions, prepared corpora, compiled binaries and checkpoints are excluded from Git. The repository publishes the selected source manifest, preparation tools, curriculum definitions and compact validation evidence. [Research references](docs/references.md) distinguish inspiration from implemented mechanisms.
+
+## Local HTML learning interface
+
+The [Learning Studio](docs/live-studio.md) provides a model picker, live questions, explicit corrections, checkpoint saving and session resume. The HTML entry point is [ui/index.html](ui/index.html). Run `python scripts/live_studio.py --workspace PATH_TO_YOUR_MODEL_WORKSPACE` after building the resident CUDA runtime with `./build.ps1 -ResidentConversation -SkipTests`, then open http://127.0.0.1:8765. The page requires the local native backend and selected checkpoint assets; GitHub does not run CUDA inference.
