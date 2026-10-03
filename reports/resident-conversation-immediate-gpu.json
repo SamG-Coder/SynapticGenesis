@@ -1,0 +1,239 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "ordinary-fp32",
+      "parameters": 44580,
+      "full_checkpoint_exact": true,
+      "questions_preserve_full_checkpoint": true,
+      "raw_generations_exact": true,
+      "final_checkpoint_sha256": "ac8a9d7b107c653bc7c476135670b38c157ce75a76c572844d4014cc9187322b",
+      "interactive": {
+        "pid": 41540,
+        "process_stayed_live_between_turns": true,
+        "bad_command_did_not_discard_model": true
+      },
+      "answer_metrics": [
+        {
+          "event": "answer",
+          "id": "before",
+          "question": "What is water?",
+          "answer": "\n\u00a8\u0086W\u008ct\u0001\u001e\u00cbi\u00f0x\u008a\u00ffL(\u00e6\u00cbQ\u00b6\u009d\u00e3\u0081\u0086\u008aj$\\\u00ce\u00a7s~\u001a\u00d9E\u00e5\u00e6AH\u00cb\u0098\u0007\u0094/h\b\u00fc\u00c5c\u0085\u00a6\u00cb\u000e\u00b9\u00b5P\u0003\u00ae\u009d\u00f6\u00eeO\u000fA",
+          "raw_file": "answer-before.bin",
+          "online_updates": 11,
+          "global_updates": 13,
+          "generated_bytes": 64,
+          "captured_now": true,
+          "capture_seconds": 0.0402288,
+          "prefill_seconds": 0.0035743,
+          "decode_seconds": 0.0065977,
+          "resident_decode_bytes_per_second": 9700.350122012216
+        },
+        {
+          "event": "answer",
+          "id": "middle",
+          "question": "What is water?",
+          "answer": "IZ\u009dF\u00aeG\u00dd\r\u001a\u0001\u0099\u000e\u0001\u0099\fvg?\u0016\u0019\u00b5\u00b1\u00b5\u0018\u00c0\u009d\u0092\u00d1\u00fco\u00db \\ds\b]\f\u00e9b\u00cb\u000bh\u009f\u00e2^\u00f3q\u00ae\u00a5\u0081=\u00da\"\u00b3\u009bG\u009f`3\u00b1=id",
+          "raw_file": "answer-middle.bin",
+          "online_updates": 17,
+          "global_updates": 21,
+          "generated_bytes": 64,
+          "captured_now": false,
+          "capture_seconds": 0,
+          "prefill_seconds": 0.0033755,
+          "decode_seconds": 0.0064307,
+          "resident_decode_bytes_per_second": 9952.260252
+        },
+        {
+          "event": "answer",
+          "id": "after",
+          "question": "What is water?",
+          "answer": "Q\u0081\"\u0098\u00813\u00dc=\u009di?\u000b\u00b1\u00ec\u00b5\u0098\u000e.\u0011\u0086o,hrz\u0092\u00b6\t\r\u00e7\u00e9\u00a9\b2u3\u00a1\u009b\u0081`w\u00bd\u00ec\u0004\u00aa\u0005\u00f0Wl\u0081gh\u0094p\u0004\\\u00b1\u0086\u0017\u0099\u00ce\u00b1\u00f0\u00dd",
+          "raw_file": "answer-after.bin",
+          "online_updates": 29,
+          "global_updates": 36,
+          "generated_bytes": 64,
+          "captured_now": false,
+          "capture_seconds": 0,
+          "prefill_seconds": 0.0033604,
+          "decode_seconds": 0.0065742,
+          "resident_decode_bytes_per_second": 9735.024794
+        }
+      ]
+    },
+    {
+      "case": "ordinary-tf32",
+      "parameters": 44580,
+      "full_checkpoint_exact": true,
+      "questions_preserve_full_checkpoint": true,
+      "raw_generations_exact": true,
+      "final_checkpoint_sha256": "4b4f3f33303b406382dec23309dad811c616e599cbf2e264ac87b6a498856d48",
+      "interactive": null,
+      "answer_metrics": [
+        {
+          "event": "answer",
+          "id": "before",
+          "question": "What is water?",
+          "answer": "\u0097\u00f5r\u00c6^\u00d7\u00ea\u0092r?\u00a8[\u00f2\u00e7\u00e9p\u00a0E\u0082\u0011z\u00f1\nb\u0097\u00e6\u00fc\u00f7\u00dae?BW\t\u00eb\u000f\u00d4\u0003\u00f8\u00d0\u0002-o\u00f2\u00dd\u000e \u00c5c\u00f4T11\u00ebz\u0014!\u00f7~e\u0019\u00e5\u00d0\u00e9",
+          "raw_file": "answer-before.bin",
+          "online_updates": 11,
+          "global_updates": 13,
+          "generated_bytes": 64,
+          "captured_now": true,
+          "capture_seconds": 0.0396088,
+          "prefill_seconds": 0.0035083,
+          "decode_seconds": 0.0065609,
+          "resident_decode_bytes_per_second": 9754.759255589935
+        },
+        {
+          "event": "answer",
+          "id": "middle",
+          "question": "What is water?",
+          "answer": "l\u0086\u0007\u00c6\u00d3\u00b6\u00b1?3]eri=\u009d\ng\u00eba\u00b1\u00f0\u00b0%1\u00ebl\u00c0\u0094p\u009b`\u0098!\u00aes\n\u00b4\u001a\u00abb\u0011\u001f\u001f\u0002\u00d1\u0002\u0016~e\u00a3x\u00ec.$\\\r\u00a0\u00d4>(o.\u0082x",
+          "raw_file": "answer-middle.bin",
+          "online_updates": 17,
+          "global_updates": 21,
+          "generated_bytes": 64,
+          "captured_now": false,
+          "capture_seconds": 0,
+          "prefill_seconds": 0.0036602,
+          "decode_seconds": 0.0073268,
+          "resident_decode_bytes_per_second": 8735.054867
+        },
+        {
+          "event": "answer",
+          "id": "after",
+          "question": "What is water?",
+          "answer": "Q\u00be\u008a\u008b\u009b}Wpo\u009e\u00b5\u00bahz\\\u00e4'd\u00bax3\u0081\u0086^\u00f6W\u0098\u00f0Q\u000e.3\u00f8`\u00d0b\u00daF'\u00da\u008a\u00bcz\r\u00e40|\u00ad}\u0082\u0099!\u0086\u00a5\u00eb\u001f! \u0011?\u00e5?g?",
+          "raw_file": "answer-after.bin",
+          "online_updates": 29,
+          "global_updates": 36,
+          "generated_bytes": 64,
+          "captured_now": false,
+          "capture_seconds": 0,
+          "prefill_seconds": 0.0034529,
+          "decode_seconds": 0.0066571,
+          "resident_decode_bytes_per_second": 9613.795797
+        }
+      ]
+    },
+    {
+      "case": "membrane-fp32",
+      "parameters": 44580,
+      "full_checkpoint_exact": true,
+      "questions_preserve_full_checkpoint": true,
+      "raw_generations_exact": true,
+      "final_checkpoint_sha256": "252e7023fba684c686a33e6a2eb5d52074261f9b1fc921a320a070eae4176dd7",
+      "interactive": null,
+      "answer_metrics": [
+        {
+          "event": "answer",
+          "id": "before",
+          "question": "What is water?",
+          "answer": "g\u0011\u00d9-o\u0012\u00e9\u0011\u00dc\u00b1\u0019\u00db\u0091ig\u0099\u00ce \u00b3\u0086\u0080P\u001a\u0088\u00cbg\u00a0\u0092\u0083<W\u00ad\u0099\u009f\u00f8\u0018-C\u0082\u0013},\u00ea*\u0000\u00d3<\u0081b=\u00ec\u008a\u0010W8\u0099\u00e2\u00ad\u001e\u00b3 a\u00cbe",
+          "raw_file": "answer-before.bin",
+          "online_updates": 11,
+          "global_updates": 13,
+          "generated_bytes": 64,
+          "captured_now": true,
+          "capture_seconds": 0.0396437,
+          "prefill_seconds": 0.003513,
+          "decode_seconds": 0.0067756,
+          "resident_decode_bytes_per_second": 9445.657949111519
+        },
+        {
+          "event": "answer",
+          "id": "middle",
+          "question": "What is water?",
+          "answer": "livQz\u00d4\u00e6to\u0002v\u00cbtr\u0081\u00dck0\u00fe\u0095\u00ec\u0092kz\u00fbJ\u00fa\u0003\u0081?$ae\u00ab\u0004\u00dbh\u0097\u00ec\u0019\u00d9\u0000?\u00e1\u000ehi\u00e7\u00bd\u00ba\u0000\u00d3Q\u0002U;\u0089o.\u00fc\u00d1\n?O",
+          "raw_file": "answer-middle.bin",
+          "online_updates": 17,
+          "global_updates": 21,
+          "generated_bytes": 64,
+          "captured_now": false,
+          "capture_seconds": 0,
+          "prefill_seconds": 0.0042365,
+          "decode_seconds": 0.0066978,
+          "resident_decode_bytes_per_second": 9555.376392
+        },
+        {
+          "event": "answer",
+          "id": "after",
+          "question": "What is water?",
+          "answer": "Q\u0081\u001a\"\u00e3\u0016?p\u00ec\u00f0\u00e0\u00f2\u00e5\u00da \u0019\u00fa3ei=\t\u00ab\u0083\u00c0\u00e9\u00a9\u009d{\u0004\u00d6\u00d8(\u0000\u00d7\u0003\u00be\u00dciv\b\u00cb\u00b5\u00e9\u00b6Gr\u0083'%\u0016kr\u009d\u00f7\u0004\u00f5\u00a3 \u001f\u00dcbpQ",
+          "raw_file": "answer-after.bin",
+          "online_updates": 29,
+          "global_updates": 36,
+          "generated_bytes": 64,
+          "captured_now": false,
+          "capture_seconds": 0,
+          "prefill_seconds": 0.0035166,
+          "decode_seconds": 0.0070636,
+          "resident_decode_bytes_per_second": 9060.535704
+        }
+      ]
+    },
+    {
+      "case": "membrane-tf32",
+      "parameters": 44580,
+      "full_checkpoint_exact": true,
+      "questions_preserve_full_checkpoint": true,
+      "raw_generations_exact": true,
+      "final_checkpoint_sha256": "afa917c4b589d11fc37d82558d66c575beeb30dcc160b2b813e67942bdbc4160",
+      "interactive": null,
+      "answer_metrics": [
+        {
+          "event": "answer",
+          "id": "before",
+          "question": "What is water?",
+          "answer": "\u0097\n\u00abi\nB\u00da\u00e5\u0097lB\u00c8\u0011r\u00dc\u00e5b\u0097\u0015\u00b0`\"o\u00013\u00adF\u00e7\u001d\u00cf\u00bf->\u00aa\u00f7x\u00813\u00f0\u0081`\u0086\nB\u00b1\b\u00d2\u00d11\u00c7o\u00f2h\u00a1\u00fe0\u0091\u008fb\u00a8\u0083\u00eb\u00f7G",
+          "raw_file": "answer-before.bin",
+          "online_updates": 11,
+          "global_updates": 13,
+          "generated_bytes": 64,
+          "captured_now": true,
+          "capture_seconds": 0.0652962,
+          "prefill_seconds": 0.0553044,
+          "decode_seconds": 0.1103297,
+          "resident_decode_bytes_per_second": 580.0795252774185
+        },
+        {
+          "event": "answer",
+          "id": "middle",
+          "question": "What is water?",
+          "answer": "l\u0086\u00a5\u0004\u0081pz\u00ac\u000eii\u00e4g.e\u00eb\u0083B\u00f9\u00fcu3\u00d6\u001b\u00f8p\u00f0\u00eb\u00ec\u00a8[\u001b\u0003\u00c0\u0094\u001f~\u0003\u00a0M\u00fb!P\u00bcd\u00c8\u00e0\t\u0002E\u0085\u00b6\u00c9\u00cc\u0086\u00c8\u00f7\u00c9b\u00e4\u0085\f~\u00d8",
+          "raw_file": "answer-middle.bin",
+          "online_updates": 17,
+          "global_updates": 21,
+          "generated_bytes": 64,
+          "captured_now": false,
+          "capture_seconds": 0,
+          "prefill_seconds": 0.056552,
+          "decode_seconds": 0.1027945,
+          "resident_decode_bytes_per_second": 622.6014038
+        },
+        {
+          "event": "answer",
+          "id": "after",
+          "question": "What is water?",
+          "answer": "Q\u00bea\u00beg\u00b5\u0002se\u0085yr\u009d\u000b\u0081?\u0086Y\u00e6\u0011\u00d0uiosr\u00ff\u0013l\u00ab`=p\u008a\u008d\u00db\u00ab\"\u00efki\u00c3DvNtr\"b\u0001GlxiQ\u00f8bIuGlsW\u00cb",
+          "raw_file": "answer-after.bin",
+          "online_updates": 29,
+          "global_updates": 36,
+          "generated_bytes": 64,
+          "captured_now": false,
+          "capture_seconds": 0,
+          "prefill_seconds": 0.0034171,
+          "decode_seconds": 0.0066641,
+          "resident_decode_bytes_per_second": 9603.697424
+        }
+      ]
+    }
+  ],
+  "legacy_commands": 28,
+  "resident_file_commands": 4,
+  "interactive_commands": 1,
+  "candidate_sha256": "0266034a50601d92d8ff15eb2661cda6f2690163003042070e6764664f34bf79",
+  "baseline_sha256": "bbc94b245887c8a6d473ae8cbe44dda6afa5993e29504f32baabeb02971ec481",
+  "language_quality_tested": false
+}
