@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "smoke_only": false,
+  "native_commands": 180,
+  "models": 9,
+  "checkpoint_rows": 27,
+  "parent_files_unchanged": true,
+  "selected_new_documents": 7,
+  "independent_expected_narrative_pairs": {
+    "160000": 3838692,
+    "190000": 7677365
+  },
+  "exposure_matches": true,
+  "inherited_replay_counters_preserved": true,
+  "declared_replay_quotas_verified": true,
+  "validation_reader_repeat_matches": true,
+  "graph_generation_exact": true,
+  "samples_authenticated": true,
+  "reserved_tests_not_scored": true
+}

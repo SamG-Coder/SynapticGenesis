@@ -35,7 +35,7 @@ A [CUDA layout change](docs/association-runtime.md) reduces the associative live
 
 The [learned-memory intervention](docs/associative-history.md) finds that clearing matrix history drops complete binding accuracy to **0% in all three associative models**. Their normal CPU reference reproduces every answer across 1,728 questions. Strict score agreement fails on 46 questions; tracing one case localizes a floating-point difference near a spike threshold. These failures remain visible alongside the evidence that trained binding relies on memory across bytes.
 
-The [next declared continuation](docs/narrative-learning.md) adds seven selected narrative books to all nine existing models, preserving their learning history. It measures new-story loss, reading/geography retention, binding and fixed generated samples at 160,000 and 190,000 observations. The execution rehearsal passes, including exact interrupted/uninterrupted checkpoints; full learning results are pending.
+The [completed narrative continuation](docs/narrative-learning.md#completed-comparison-book-loss-improves-while-binding-is-lost) teaches all nine existing models from seven selected books. Every model improves all three held-out book losses, but loses earlier binding accuracy. Associative models fall from **99.77% to 53.24% complete binding accuracy** on average, compared with 71.06% → 14.81% and 78.94% → 12.73% for the controls. One associative seed retains less than both controls; the apparent advantage is inconsistent. All fixed samples remain available and show incoherent prose. Execution checks pass; one strict CPU score check fails near a firing threshold and remains reported as a failure. Reliable skill retention and useful general conversation are still unresolved.
 
 ## Build
 
