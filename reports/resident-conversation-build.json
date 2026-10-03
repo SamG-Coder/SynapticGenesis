@@ -1,0 +1,83 @@
+{
+  "compiled": true,
+  "compiler": "CUDA 13.3.73 and MSVC 19.51.36248.0",
+  "architecture": 120,
+  "build_type": "Release",
+  "candidate_sha256": "0266034a50601d92d8ff15eb2661cda6f2690163003042070e6764664f34bf79",
+  "host_executable_sha256": "176149a4960f28240ddb3f99ee60fbbaae73c3bfa6f8af00602c4d86c367cd0c",
+  "host_protocol_checks": {
+    "passed": true,
+    "rejections": 31,
+    "native_model_commands": 0,
+    "cuda_linked": false
+  },
+  "build_selector_checks": {
+    "toolchain_or_cuda_work_requested": false,
+    "passed": true,
+    "conflicting_pairs_rejected": 45,
+    "script_sha256": "188828e27ccb72080706bbf1ee0ece1b28c9d56e8f993310aaef6f4e8e0c2c01",
+    "no_selection_uses_normal_build": true,
+    "selectors": [
+      {
+        "switch": "AdaptationProbe",
+        "name": "adaptation-probe",
+        "option": "SG_BUILD_ADAPTATION_PROBE"
+      },
+      {
+        "switch": "CapacityProbe",
+        "name": "capacity-probe",
+        "option": "SG_BUILD_CAPACITY_PROBE"
+      },
+      {
+        "switch": "EarlyLearningProbe",
+        "name": "early-learning-probe",
+        "option": "SG_BUILD_EARLY_LEARNING_PROBE"
+      },
+      {
+        "switch": "MembraneCheckpointTest",
+        "name": "membrane-checkpoint-test",
+        "option": "SG_BUILD_MEMBRANE_CHECKPOINT_TEST"
+      },
+      {
+        "switch": "MembranePenaltyReference",
+        "name": "membrane-penalty-reference",
+        "option": "SG_BUILD_MEMBRANE_PENALTY_REFERENCE"
+      },
+      {
+        "switch": "ReplayPriorityProbe",
+        "name": "replay-priority-probe",
+        "option": "SG_BUILD_REPLAY_PRIORITY_PROBE"
+      },
+      {
+        "switch": "ReplaySelectionProbe",
+        "name": "replay-selection-probe",
+        "option": "SG_BUILD_REPLAY_SELECTION_PROBE"
+      },
+      {
+        "switch": "ResidentConversation",
+        "name": "resident-conversation",
+        "option": "SG_BUILD_RESIDENT_CONVERSATION"
+      },
+      {
+        "switch": "TraceDiagnostic",
+        "name": "trace-diagnostic",
+        "option": "SG_BUILD_TRACE_DIAGNOSTIC"
+      },
+      {
+        "switch": "ViewAllocationProbe",
+        "name": "view-allocation-probe",
+        "option": "SG_BUILD_VIEW_ALLOCATION_PROBE"
+      }
+    ]
+  },
+  "source_sha256": {
+    "D:\\SynapticGenesis\\runs\\resident-conversation-worktree\\experiments\\conversation_protocol.hpp": "c56c27b2b66365de06d5b21961bfad02a36e37ec93619bfa9ed6e9d02d169086",
+    "D:\\SynapticGenesis\\runs\\resident-conversation-worktree\\experiments\\conversation_session.cuh": "4b4a9246fb45c63399e81a82124fa77a9d65a5cfc961820ad5d583dfec71df94",
+    "D:\\SynapticGenesis\\runs\\resident-conversation-worktree\\experiments\\resident_conversation.cu": "2ad3200969c3ddf1aa184fb37071942f5350bbeb70f562b5d62a5b3ae6fc6bbb",
+    "D:\\SynapticGenesis\\runs\\resident-conversation-worktree\\tests\\conversation_protocol.cpp": "3fd9d5d709615c87fb1c79e8d9de22ca5dacce77d5a5deb80b15bfe9cfe3c5ea",
+    "D:\\SynapticGenesis\\runs\\resident-conversation-worktree\\CMakeLists.txt": "55bbd9f2c4eca629069941c564d4338c57e305bfb61f8aa84b6c9e62e3a4cb1d",
+    "D:\\SynapticGenesis\\runs\\resident-conversation-worktree\\build.ps1": "188828e27ccb72080706bbf1ee0ece1b28c9d56e8f993310aaef6f4e8e0c2c01"
+  },
+  "native_model_commands_launched": 0,
+  "gpu_acceptance_passed": false
+}

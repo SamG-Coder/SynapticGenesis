@@ -23,6 +23,7 @@ $expected=@{
   EarlyLearningProbe=@{Name='early-learning-probe'; Option='SG_BUILD_EARLY_LEARNING_PROBE'}
   MembranePenaltyReference=@{Name='membrane-penalty-reference'; Option='SG_BUILD_MEMBRANE_PENALTY_REFERENCE'}
   MembraneCheckpointTest=@{Name='membrane-checkpoint-test'; Option='SG_BUILD_MEMBRANE_CHECKPOINT_TEST'}
+  ResidentConversation=@{Name='resident-conversation'; Option='SG_BUILD_RESIDENT_CONVERSATION'}
 }
 if(@(& $selector).Count -ne 0){throw 'Default build selected a diagnostic.'}
 $cases=@()

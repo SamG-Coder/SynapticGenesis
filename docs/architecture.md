@@ -1,5 +1,14 @@
 # Native spiking learner
 
+The [resident conversation candidate](resident-conversation.md) separates a
+host-only command protocol (`experiments/conversation_protocol.hpp`) from
+session ownership (`conversation_session.cuh`) and its thin native entry point
+(`resident_conversation.cu`). It reuses the production learner, curriculum and
+graph decoder. Questions share parameters while owning transient recurrence;
+they do not alter the saved live stream's RNG or learning counters. Independent
+checkpoint and raw-answer comparisons are required before claiming equivalent
+execution.
+
 ## Signed LIF cell
 
 The default `signed_lif_v1` model uses a fixed 256-byte vocabulary, byte embedding, four residual blocks and an output projection. Default channel width is 256 and each block has 512 spiking neurons, for 1,186,304 trainable parameters. There are no imported model parameters or pretrained tokenizers.

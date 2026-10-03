@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "rejected_inputs": [
+    "changed-raw-answer",
+    "missing-first-graph-capture",
+    "nonpositive-generation-duration",
+    "missing-question",
+    "failed-predecessor",
+    "reused-predecessor-pid",
+    "incomplete-correction"
+  ],
+  "raw_non_utf8_bytes_preserved": true,
+  "failed_predecessors_start_no_native_work": true,
+  "native_commands_launched": 0,
+  "model_quality_verified": false,
+  "source_sha256": {
+    "D:\\SynapticGenesis\\runs\\resident-conversation-worktree\\tests\\resident_conversation_host.py": "733757fd5de3df95889a96dd2129393e7a946269e995c66db3acb62f1c235273",
+    "D:\\SynapticGenesis\\runs\\resident-conversation-worktree\\scripts\\resident_conversation_acceptance.py": "ba6fe6ebe7b5cca6c0c32ab1252fc3d05194f550c95bf5fa89e7926ca933a3d6",
+    "D:\\SynapticGenesis\\runs\\resident-conversation-worktree\\tests\\resident_conversation.py": "64c6faebf44e16a7e7024e87d96b8e308d3d86890e5534b4bcbdbbcc5922dcfe"
+  }
+}
