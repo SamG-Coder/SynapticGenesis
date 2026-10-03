@@ -1,0 +1,874 @@
+{
+  "protocol": {
+    "kind": "performance_and_output_demonstration_not_learning_quality_experiment",
+    "ancestor": "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\1337-associative-control\\checkpoint-190000.ckpt",
+    "ancestor_sha256": "bda9174ccab435119bb489d7321da85e01fc279777df81347e5b68b4ee3d893f",
+    "ancestor_state": {
+      "checkpoint_sha256": "bda9174ccab435119bb489d7321da85e01fc279777df81347e5b68b4ee3d893f",
+      "parameters": 1951624,
+      "cell": 6,
+      "online_updates": 190000,
+      "global_updates": 237500,
+      "observed_pairs": 17528500,
+      "generated_bytes": 36480,
+      "replay_updates": 47500,
+      "replay_pairs": 4246078,
+      "curriculum_stage": 4,
+      "replay_groups": [
+        {
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 256,
+          "replay_updates": 15847,
+          "replay_pairs": 2028232
+        },
+        {
+          "document_end": 389,
+          "seen_windows": 4000,
+          "stored_windows": 256,
+          "replay_updates": 14166,
+          "replay_pairs": 720598
+        },
+        {
+          "document_end": 52229,
+          "seen_windows": 120000,
+          "stored_windows": 256,
+          "replay_updates": 13713,
+          "replay_pairs": 1014176
+        },
+        {
+          "document_end": 52236,
+          "seen_windows": 60000,
+          "stored_windows": 256,
+          "replay_updates": 3774,
+          "replay_pairs": 483072
+        }
+      ]
+    },
+    "executable_sha256": "64c76be6fb5925757c97e4d4808f6e7c176a4dc17d47d288861caae4a8954b01",
+    "source_commit": "246c2123c69fdfbf56c11518e666dbcbefa7e267",
+    "script_sha256": "146e5a9466e7b06a03f04528c70f33587dec2955c88b423e86c55651620f0f69",
+    "hardware": "NVIDIA GeForce RTX 5080, 616.64, 16303 MiB",
+    "benchmark_bytes": 1024,
+    "benchmark_rounds": 7,
+    "benchmark_warmup_rounds": 1,
+    "benchmark_prompt": "The bird ",
+    "benchmark_math": "strict FP32",
+    "benchmark_scope": "Resident decode includes sampling, transfers and synchronization; excludes load, graph capture, prompt prefill and output I/O.",
+    "sample_prompts": [
+      {
+        "name": "location",
+        "text": "The toy is in the bag. The tag is in the box.\nWhere is the toy?\nAnswer: "
+      },
+      {
+        "name": "location_reversed",
+        "text": "The toy is in the box. The tag is in the bag.\nWhere is the toy?\nAnswer: "
+      },
+      {
+        "name": "arithmetic",
+        "text": "Question: What is 2 + 2?\nAnswer: "
+      },
+      {
+        "name": "everyday_fact",
+        "text": "Question: What color is the sky?\nAnswer: "
+      },
+      {
+        "name": "explanation",
+        "text": "Question: Why does ice melt?\nAnswer: "
+      },
+      {
+        "name": "story",
+        "text": "Once upon a time "
+      }
+    ],
+    "sample_bytes": 192,
+    "sample_seed": 42,
+    "sample_temperature": 0.8,
+    "sample_top_k": 40,
+    "samples_are_continuations_not_instruction_tuned_answers": true,
+    "sample_wall_scope": "Whole native process: launch, CUDA/model load, prompt, generation, output and exit; not disk-cold.",
+    "live_start": 190000,
+    "live_end": 194096,
+    "live_replay_every": 4,
+    "live_chunk": 128,
+    "live_math": "Inherited TF32 training and ordered gradient reductions",
+    "live_scope": "Native loop includes source learning, replay, scheduled speech, logging and final save. Process time also includes startup and source admission.",
+    "live_source": {
+      "version": "selected-early-readers-v1",
+      "source_spec_sha256": "b0c0b6bc2f4ebcfba9fc5455a3e5b4242d473bf5809afba351c0c3951f94da46",
+      "upstream_commit": "be28dab38ac55e8eb2185edb6631b11615d02185",
+      "sources": [
+        {
+          "id": "0008",
+          "title": "What are you doing?",
+          "source_file": "0008_what-are-you-doing.md",
+          "split": "train",
+          "stage": 1,
+          "reading_level": 1,
+          "reason": "Short present-tense actions and a direct question.",
+          "pages": 8,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Nina Orange",
+            "Illustration": "Wiehan de Jager",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "188eeccc3f8f990fee46ba3f160366764b36d9293ef1406b93cc62df1eccbbc1",
+          "body_sha256": "40cf9303a969975c0626f13b1212a3d96b5bc9afd3b6607f716264d87d4ff321",
+          "catalog_sha256": "eb3b7a5a227d813c4c81e3de0fff3ae85290261c4b027a8e4366d995e24446be",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0008_what-are-you-doing.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0008/",
+          "clean_bytes": 139,
+          "approx_words": 25
+        },
+        {
+          "id": "0087",
+          "title": "I like to read!",
+          "source_file": "0087_i-like-to-read.md",
+          "split": "train",
+          "stage": 1,
+          "reading_level": 1,
+          "reason": "A short sequence of everyday family actions and repeated questions.",
+          "pages": 8,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Letta Machoga",
+            "Illustration": "Wiehan de Jager",
+            "Translated By": "Letta Machoga",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "841e2fb5dfce0ea030dd956be498a97a7d757e5aca189c5ff8930f65cf37ecd2",
+          "body_sha256": "c0cc696105ffb240695fc1ff4e4676f07c9cf69e66b98ed155fb0ba2f753bbb0",
+          "catalog_sha256": "531fb34850c6aeef43027687e2a1ac8729537c00de50555f7db63963af74cda3",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0087_i-like-to-read.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0087/",
+          "clean_bytes": 214,
+          "approx_words": 45
+        },
+        {
+          "id": "0156",
+          "title": "The hungry crocodile",
+          "source_file": "0156_the-hungry-crocodile.md",
+          "split": "validation",
+          "stage": 1,
+          "reading_level": 1,
+          "reason": "Hold out a complete short animal story at the same publisher level.",
+          "pages": 5,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Christian G.",
+            "Illustration": "Wiehan de Jager",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "ce72a0b69846985b9f0818bee8b56a8fd792903ad6aa252cda1d8bdc109af0b6",
+          "body_sha256": "f365a183b7dcf785aeee606bccdfe46ca739cd43ee9ead6719dc0d8a47dd6a18",
+          "catalog_sha256": "30972e9bdaab4764bdcc0482eef9d4b893fb576bd10aeaa5042c6f61162bc461",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0156_the-hungry-crocodile.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0156/",
+          "clean_bytes": 207,
+          "approx_words": 36
+        },
+        {
+          "id": "0327",
+          "title": "Counting animals",
+          "source_file": "0327_counting-animals.md",
+          "split": "test",
+          "stage": 1,
+          "reading_level": 1,
+          "reason": "Reserve an unseen counting story; do not score it during development.",
+          "pages": 8,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Zanele Buthelezi, Thembani Dladla, Clare Verbeek",
+            "Illustration": "Rob Owen",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "b0538593457e44adb0c6b33a3e05c5062930f95c146226dadf250a1e97ca88bb",
+          "body_sha256": "e14262b9345485bf07f885a97bf333cecf145a75fded84ac4036bdabd0a8dab3",
+          "catalog_sha256": "072856e29acca38f5976e9e690d8950ad0a0792416ae64c542eb0daf54183865",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0327_counting-animals.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0327/",
+          "clean_bytes": 407,
+          "approx_words": 74
+        },
+        {
+          "id": "0001",
+          "title": "A very tall man",
+          "source_file": "0001_a-very-tall-man.md",
+          "split": "train",
+          "stage": 2,
+          "reading_level": 2,
+          "reason": "Everyday object sizes, problems and corresponding actions.",
+          "pages": 11,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Cornelius Gulere",
+            "Illustration": "Catherine Groenewald",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "4fbf2cccbea358933c9960229d2fc509cdd26c6e483216be80c6b20afb2e869c",
+          "body_sha256": "c0df905de359f03593206437cfac2dfbbf936065c600715744b0cc07b09b1955",
+          "catalog_sha256": "671d59644ec44874e8d070d516d4801b75f784e2c5cab9a17353ec9f204b503c",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0001_a-very-tall-man.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0001/",
+          "clean_bytes": 379,
+          "approx_words": 79
+        },
+        {
+          "id": "0027",
+          "title": "Decision",
+          "source_file": "0027_decision.md",
+          "split": "train",
+          "stage": 2,
+          "reading_level": 2,
+          "reason": "A short connected account with requests and cooperative problem solving.",
+          "pages": 16,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Ursula Nafula",
+            "Illustration": "Vusi Malindi",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "a4d058ab621973c179804bef43ff84a75746d4f62c938a9f6be70d99c140b156",
+          "body_sha256": "5b5b0b2a6df6bde793ef9fcf220471bc3557ae4680bd6dddc878ab260b368983",
+          "catalog_sha256": "669aa3af9f19785bd1b0efb1a9ec3386a14e08a170d1f873457cb0a50af263cf",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0027_decision.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0027/",
+          "clean_bytes": 1039,
+          "approx_words": 185
+        },
+        {
+          "id": "0089",
+          "title": "Khalai talks to plants",
+          "source_file": "0089_khalai-talks-to-plants.md",
+          "split": "train",
+          "stage": 2,
+          "reading_level": 2,
+          "reason": "Daily event order, requests, questions and observations.",
+          "pages": 8,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Ursula Nafula",
+            "Illustration": "Jesse Pietersen",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "e4b6404f0f2c52ab2caaf964aa6f866cf4cdd35d9036d019be5fc4cd776942a6",
+          "body_sha256": "ab557c293dff0eda9f8fb9912bac15955e6cb51f2a8b9fe44f41600d355ae983",
+          "catalog_sha256": "7e9728a74f91ce088831d60130089476d21796983316bc22c4d8314d9fc349ee",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0089_khalai-talks-to-plants.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0089/",
+          "clean_bytes": 904,
+          "approx_words": 163
+        },
+        {
+          "id": "0095",
+          "title": "Zama is great!",
+          "source_file": "0095_zama-is-great.md",
+          "split": "train",
+          "stage": 2,
+          "reading_level": 2,
+          "reason": "Daily routines, first-person statements and short family dialogue.",
+          "pages": 12,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Michael Oguttu",
+            "Illustration": "Vusi Malindi",
+            "Adaptation": "Nina Orange",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "b8258fbe933abf5521341f8c56b95800e889ef70356b5671819e591f4a94b9c6",
+          "body_sha256": "546923a17038b028d78bd524a14ab4b9f27678754dd19c11b9ebddd399b263b5",
+          "catalog_sha256": "87edc241ae07f38f3529530fe9fd6c0a98bc5b598cb2f6632efad400d991d684",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0095_zama-is-great.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0095/",
+          "clean_bytes": 636,
+          "approx_words": 127
+        },
+        {
+          "id": "0296",
+          "title": "Tom the banana seller",
+          "source_file": "0296_tom-the-banana-seller.md",
+          "split": "validation",
+          "stage": 2,
+          "reading_level": 2,
+          "reason": "Hold out an entire market story for development reading assessment.",
+          "pages": 12,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Humphreys Odunga",
+            "Illustration": "Zablon Alex Nguku",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "62e91168e3ec0ecbc2e604baf73c33b1b69ee65848ae5199fc25c6bfcf71efa7",
+          "body_sha256": "500bc2e689d4af749b1e517dbed805721a89dd64e99c30718ed178dd6732e451",
+          "catalog_sha256": "f4ad14cfe918c73feec442d98aef0fdda7967991762f149ec63f9e84f543e581",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0296_tom-the-banana-seller.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0296/",
+          "clean_bytes": 746,
+          "approx_words": 140
+        },
+        {
+          "id": "0004",
+          "title": "Goat, Dog, and Cow",
+          "source_file": "0004_goat-dog-and-cow.md",
+          "split": "test",
+          "stage": 2,
+          "reading_level": 2,
+          "reason": "Reserve an entire animal story; its events never supply training targets.",
+          "pages": 8,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Fabian Wakholi",
+            "Illustration": "Marleen Visser, Ingrid Schechter",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "37a94dc6188d5d1f039e9f0fa0fe4cc3cdcc54c65163cbb92f2c1eeb5dcf3a52",
+          "body_sha256": "b863a68f68b31fc23d273d5a4bfae99fa69119327a9f1c67bdbca246b7531a74",
+          "catalog_sha256": "14bc04c72831722563b383326c6272d6b8453fdeaa2f436773d2997263fe8e98",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0004_goat-dog-and-cow.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0004/",
+          "clean_bytes": 756,
+          "approx_words": 148
+        },
+        {
+          "id": "0110",
+          "title": "A Tiny Seed: The Story of Wangari Maathai",
+          "source_file": "0110_a-tiny-seed-the-story-of-wangari-maathai.md",
+          "split": "train",
+          "stage": 3,
+          "reading_level": 3,
+          "reason": "A longer selected biographical narrative with event order and explanations.",
+          "pages": 12,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Nicola Rijsdijk",
+            "Illustration": "Maya Marshak",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "26380f8e67773cc1f493d0c2d84c8651e41e7281a6288966709d8e80694ba783",
+          "body_sha256": "67d4f0521b4c98d2823974ac07e349fb5e56195206839c8ffca8b907eb3169f9",
+          "catalog_sha256": "610658cbc4ad58fe3a3a6e9a8af221f9afde13196687245a2e0b2d49d358fba3",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0110_a-tiny-seed-the-story-of-wangari-maathai.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0110/",
+          "clean_bytes": 2247,
+          "approx_words": 412
+        },
+        {
+          "id": "0315",
+          "title": "Sakima's song",
+          "source_file": "0315_sakimas-song.md",
+          "split": "train",
+          "stage": 3,
+          "reading_level": 3,
+          "reason": "Connected dialogue, family relationships and changing character goals.",
+          "pages": 18,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Ursula Nafula",
+            "Illustration": "Peris Wachuka",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "19f8c60e2f3ff4399cce4fb617ee0f9ad5c61b13a7c0331a0f9d011ddbca82c7",
+          "body_sha256": "676adc16df692a73304598dd84083006264c3282e7636768be9ff02e64f18217",
+          "catalog_sha256": "27336ecbb6da46ca38c4e843ba3fc16f78d0116a496a0245decd31f68e1bba10",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0315_sakimas-song.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0315/",
+          "clean_bytes": 2506,
+          "approx_words": 457
+        },
+        {
+          "id": "0243",
+          "title": "Holidays with grandmother",
+          "source_file": "0243_holidays-with-grandmother.md",
+          "split": "train",
+          "stage": 3,
+          "reading_level": 4,
+          "reason": "A longer everyday sequence covering travel, chores, food and conversation.",
+          "pages": 20,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Violet Otieno",
+            "Illustration": "Catherine Groenewald",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "4dc22bddd286d4b57e0d1b1e74bfa66633f119c111be3f635425ac4c13087325",
+          "body_sha256": "97f9446e6feae074f98b0521b98b659c13f3d0929954885b9c1dd2c9ac66a0c4",
+          "catalog_sha256": "6cabb6a19ccb845cc02b7ef2367916f026b865bb5535b60408e41f034d238083",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0243_holidays-with-grandmother.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0243/",
+          "clean_bytes": 3264,
+          "approx_words": 564
+        },
+        {
+          "id": "0294",
+          "title": "Grandma's bananas",
+          "source_file": "0294_grandmas-bananas.md",
+          "split": "train",
+          "stage": 3,
+          "reading_level": 4,
+          "reason": "Questions, discoveries and consequences across a connected story.",
+          "pages": 10,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Ursula Nafula",
+            "Illustration": "Catherine Groenewald",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "934f4d98a3112def848096459e3033cbf9a299c2fd53823fc41e39062a991458",
+          "body_sha256": "d81c8b3d0f9666c82873b6a5007c5a64b0e5a16104bef3e84d0a51d4592296b5",
+          "catalog_sha256": "13b31da45f515fd7838fb0a61720b518a8ba4d738d60569580aa8b791236a2e6",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0294_grandmas-bananas.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0294/",
+          "clean_bytes": 2864,
+          "approx_words": 528
+        },
+        {
+          "id": "0324",
+          "title": "The day I left home for the city",
+          "source_file": "0324_the-day-i-left-home-for-the-city.md",
+          "split": "validation",
+          "stage": 3,
+          "reading_level": 3,
+          "reason": "Hold out an entire longer travel narrative for development assessment.",
+          "pages": 16,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Lesley Koyi, Ursula Nafula",
+            "Illustration": "Brian Wambi",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "087cc98065e05f8a09a19afec3423c80206cb621e60f758a8170aeb3f6388982",
+          "body_sha256": "3968b2a2519eac498454bd631e61268dbd7e5e8396b1b10ca1ae260f547a5141",
+          "catalog_sha256": "b4dc0d7f17734dc12e11d38e9959d7508146202ad5602f07261b5ee89b15b401",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0324_the-day-i-left-home-for-the-city.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0324/",
+          "clean_bytes": 2351,
+          "approx_words": 442
+        },
+        {
+          "id": "0291",
+          "title": "What Vusi's sister said",
+          "source_file": "0291_what-vusis-sister-said.md",
+          "split": "test",
+          "stage": 3,
+          "reading_level": 4,
+          "reason": "Reserve a longer event-sequence story with dialogue for later evaluation.",
+          "pages": 13,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Nina Orange",
+            "Illustration": "Wiehan de Jager",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "c8426f9435eac1ba0f857f924805429666da755abfca6184689b3d9efb798d6c",
+          "body_sha256": "c94d982bca9c0fe864826b05c808780a93af6edf95376eb9e6b9c590922d764e",
+          "catalog_sha256": "999e1371a92662302426d10d9b58fc3b0a8fe80cba16ffe7acad2891248bea1a",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0291_what-vusis-sister-said.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0291/",
+          "clean_bytes": 2595,
+          "approx_words": 503
+        }
+      ],
+      "outputs": {
+        "train": {
+          "documents": 10,
+          "bytes": 14201,
+          "sha256": "332244884070ee9b2fa80313f2c47e17c82807eff2294492844b790e4792addb"
+        },
+        "validation": {
+          "documents": 3,
+          "bytes": 3306,
+          "sha256": "eb653f6be87d130259270f42f3be387bd68d845c3ab5ec42fe575754040ec7f3"
+        },
+        "test": {
+          "documents": 3,
+          "bytes": 3760,
+          "sha256": "19da3ed9c3533e2456f106da7a84ac7586fa90e2895596d201d210d15849f843"
+        }
+      },
+      "stages": [
+        {
+          "id": 1,
+          "name": "Short actions and questions",
+          "publisher_levels": [
+            1
+          ],
+          "file": "stage-1.dat",
+          "documents": 2,
+          "sha256": "1250ebd4b12fb52113ebc3aea3133a12747019793a5f8bb43c7ef7f5ebfbd2b2",
+          "cumulative_file": "through-stage-1.dat",
+          "cumulative_sha256": "1250ebd4b12fb52113ebc3aea3133a12747019793a5f8bb43c7ef7f5ebfbd2b2"
+        },
+        {
+          "id": 2,
+          "name": "Daily routines and short narratives",
+          "publisher_levels": [
+            2
+          ],
+          "file": "stage-2.dat",
+          "documents": 4,
+          "sha256": "5233ea6f4a63b80b737f845979230d53f7f290b31506b93f072d8f98f36cea4d",
+          "cumulative_file": "through-stage-2.dat",
+          "cumulative_sha256": "d532bef9067f301c2438278b9441741f03e213efa4307d2e3279cee1562f7530"
+        },
+        {
+          "id": 3,
+          "name": "Connected events and dialogue",
+          "publisher_levels": [
+            3,
+            4
+          ],
+          "file": "stage-3.dat",
+          "documents": 4,
+          "sha256": "82a65d434213ebcc2a7abe47227e893b1f519482d80697ae17abcb5de1bcc08f",
+          "cumulative_file": "through-stage-3.dat",
+          "cumulative_sha256": "332244884070ee9b2fa80313f2c47e17c82807eff2294492844b790e4792addb"
+        }
+      ],
+      "protected_manifest_sha256": "36bea68901316f6a9cd1751bfadd41088c0355cc7d9dcdb4a6f66c86b2d59097",
+      "protected_sources": {
+        "15659.txt": "a574e87875aad9c79c1cd321500091ce56c1e92e9fa16574d23e45419122b373",
+        "902.txt": "f28e9cf6f8508a438e651ef565b6bc243f0fc90ec2584d13b1e55845f7cde5e3",
+        "13853.txt": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f",
+        "12228.txt": "9f76e50d48b67cdefda8750df243f0825d38959a1288b7959490b736a57a3025",
+        "11757.txt": "870e26df365758de353c2e42b074268183a0c5bb8460400c6793da59b3f51cbc"
+      },
+      "model_training_performed": false,
+      "reserved_tests_scored": false,
+      "transform": "Remove Markdown title, page markers and attribution from model text; join unedited page bodies with blank lines. Preserve full attribution separately. Images and audio are not downloaded.",
+      "limitations": "Only 16 short texts; not a sufficient general-language corpus or a demonstrated learning improvement. Publisher reading levels describe text complexity, not human ages or model mastery. Images are absent, some meaning relies on illustrations, and stories are not factual answer keys. Whole-story holdouts share language patterns and some authors with training; exact-overlap checks do not rule out paraphrases."
+    },
+    "admission": {
+      "version": "curriculum-extension-v1",
+      "parent_schedule": "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\curriculum.sg",
+      "parent_schedule_sha256": "fc9c152f1f9f37c4b080ddd02cf1888204fa203db7d080c60589261cc621fe03",
+      "schedule_sha256": "514cdd5a98fdcfe090e5b8051fb7165e71d4523550d1f1225beb4a8f7c6ea2c1",
+      "previous_stages": 4,
+      "selected_source": "D:\\SynapticGenesis\\data\\prepared\\early-readers-v1\\train.dat",
+      "selected_sha256": "332244884070ee9b2fa80313f2c47e17c82807eff2294492844b790e4792addb",
+      "selected_bytes": 14201,
+      "added_documents": 10,
+      "checked_holdouts": [
+        {
+          "source": "D:\\SynapticGenesis\\data\\prepared\\early-readers-v1\\validation.dat",
+          "sha256": "eb653f6be87d130259270f42f3be387bd68d845c3ab5ec42fe575754040ec7f3"
+        },
+        {
+          "source": "D:\\SynapticGenesis\\data\\prepared\\early-readers-v1\\test.dat",
+          "sha256": "19da3ed9c3533e2456f106da7a84ac7586fa90e2895596d201d210d15849f843"
+        }
+      ],
+      "editions": [
+        {
+          "file": "edition-1.dat",
+          "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+          "bytes": 585436,
+          "documents": 5,
+          "end_update": 6000,
+          "rate_scale": 1.0,
+          "scope": "all",
+          "answer_scale": 1.0
+        },
+        {
+          "file": "edition-2.dat",
+          "sha256": "281033ec58dc79bfcdf79e340ea2cfce022755afc321a4859e0223d243d5541b",
+          "bytes": 605788,
+          "documents": 389,
+          "end_update": 10000,
+          "rate_scale": 0.25,
+          "scope": "new",
+          "answer_scale": 64.0
+        },
+        {
+          "file": "edition-3.dat",
+          "sha256": "ff05a8dc3d4de5c01c88a08057db99aeedf45572683556b7259b7a518f5daa42",
+          "bytes": 4545628,
+          "documents": 52229,
+          "end_update": 130000,
+          "rate_scale": 0.25,
+          "scope": "new",
+          "answer_scale": 64.0
+        },
+        {
+          "file": "edition-4.dat",
+          "sha256": "a80ea7496cec30a761bb5ace5a6d76dbe16a14f16e0d555e108a1ce392485d5f",
+          "bytes": 6290068,
+          "documents": 52236,
+          "end_update": 190000,
+          "rate_scale": 0.25,
+          "scope": "new",
+          "answer_scale": 1.0
+        },
+        {
+          "file": "edition-5.dat",
+          "sha256": "f54682bbf28c02b292ecf3fb72ecc2621ae0ddc24795d20fe67011abca556b06",
+          "bytes": 6304270,
+          "documents": 52246,
+          "end_update": 194096,
+          "rate_scale": 0.25,
+          "scope": "new",
+          "answer_scale": 1.0
+        }
+      ],
+      "limits": "Exact document checks only; no semantic overlap or curriculum mastery assessment."
+    },
+    "live_prompt": "The bird ",
+    "other_gpu_contexts_active": true,
+    "reserved_tests_scored": false,
+    "limits": "One learned seed on one desktop GPU. Timing variability is retained. No learning-quality or general-language claim."
+  },
+  "decode": {
+    "parameters": 1951624,
+    "tokens_per_round": 1024,
+    "rounds": 7,
+    "fast_math": false,
+    "graph_setup_ms": 43.1095,
+    "regular_us_per_byte": 498.8290039,
+    "graph_us_per_byte": 154.1352539,
+    "speedup": 3.236307018,
+    "generated_bytes_identical": true,
+    "state_logits_max_error": 0,
+    "regular_rounds_us": [
+      510.4581055,
+      501.953418,
+      498.8290039,
+      496.5299805,
+      498.4220703,
+      506.1734375,
+      497.4290039
+    ],
+    "graph_rounds_us": [
+      154.5864258,
+      154.2586914,
+      154.7544922,
+      153.7606445,
+      153.1762695,
+      153.9932617,
+      154.1352539
+    ],
+    "graph_bytes_per_second": 6487.8084325133095,
+    "regular_bytes_per_second": 2004.6949800065547,
+    "graph_round_bytes_per_second": [
+      6468.873284474374,
+      6482.616901027335,
+      6461.847961787309,
+      6503.614779008031,
+      6528.426389180343,
+      6493.790630580558,
+      6487.8084325133095
+    ]
+  },
+  "samples": [
+    {
+      "name": "location",
+      "prompt": "The toy is in the bag. The tag is in the box.\nWhere is the toy?\nAnswer: ",
+      "generated_bytes": 192,
+      "continuation": "box.\n\nAlice more turn a bark for coming to every nearls set the Fathers\nwas long the go; and she didn: the eyes of gired them, and the Forcone\ncame of the hught she had a was the hat way the m",
+      "raw_sha256": "ccafc92e5343f87143c306e958a14e59e7050942b9eab71e4fbe1b79258effce",
+      "process_seconds": 0.3157535999780521,
+      "process_bytes_per_second": 608.0690766893738
+    },
+    {
+      "name": "location_reversed",
+      "prompt": "The toy is in the box. The tag is in the bag.\nWhere is the toy?\nAnswer: ",
+      "generated_bytes": 192,
+      "continuation": "box.\n\nAlice for through the face Alice cover, and\nAlice are the Lamong made creature to, and the next was to be saying\nof the same there tissed to the other; and the basket of the cat\nwere aga",
+      "raw_sha256": "a8f2c7d1a19b1aca9002bf1ef9ec6803682c144dad04a055e6fe8c15be41d51c",
+      "process_seconds": 0.3135719000129029,
+      "process_bytes_per_second": 612.2997628043187
+    },
+    {
+      "name": "arithmetic",
+      "prompt": "Question: What is 2 + 2?\nAnswer: ",
+      "generated_bytes": 192,
+      "continuation": "box.\n\nAlisted the quire, we childWendown an every\neargain, the sky somewhere was the how should to him a fallar and\nhere, where the prove large the loing sest at the tree, and the such\nbegan t",
+      "raw_sha256": "bf73a8bf73d2efe6c2027299dc98e903330cbadd03d57a83df1c4716aa4e0579",
+      "process_seconds": 0.30958290002308786,
+      "process_bytes_per_second": 620.1892933546432
+    },
+    {
+      "name": "everyday_fact",
+      "prompt": "Question: What color is the sky?\nAnswer: ",
+      "generated_bytes": 192,
+      "continuation": "box, which wone hard for the little this way,\n\u201cjust now the sthing to meat,\u201d said the Cat, \u201cat for a hurre was\nall the xaitters tallen and feet shough her is mouth any course he cust\nof ",
+      "raw_sha256": "4a49c50d330f19e21b75f775b8d4b896344f792af25d2d71f492b598b2f8ab41",
+      "process_seconds": 0.31843370001297444,
+      "process_bytes_per_second": 602.9512579610042
+    },
+    {
+      "name": "explanation",
+      "prompt": "Question: Why does ice melt?\nAnswer: ",
+      "generated_bytes": 192,
+      "continuation": "bow. Alice some asleep in the door stead highs moon any whisper\nrisege course, and the Hatter and flenging flast and about it, with shead\nless it all redge down she sheep her this had blow as ",
+      "raw_sha256": "fa44740ff0cbfd26779b971d44d33840921c52a0da24f762d9f4f484b47d79f8",
+      "process_seconds": 0.30039200000464916,
+      "process_bytes_per_second": 639.1648246192589
+    },
+    {
+      "name": "story",
+      "prompt": "Once upon a time ",
+      "generated_bytes": 192,
+      "continuation": "all\nyear is for those was not a proppearts flue; I shout of the Head\nof course the pint-the of the kead whisper the Winkies talking itstead\nof her would not leave all with the seeme of up this",
+      "raw_sha256": "2089bb3cdda02170c4c2ae9d1561d4d96760f77e3b60db368007e93cba5c1608",
+      "process_seconds": 0.295477400009986,
+      "process_bytes_per_second": 649.795889612915
+    }
+  ],
+  "live_session": {
+    "online_updates": 194096,
+    "gradient_reductions": "ordered_v1",
+    "curriculum_stage": 5,
+    "curriculum_hash": "7543685316296598223",
+    "curriculum_extended": true,
+    "curriculum_base_lr": 0.0003000000142,
+    "global_updates": 242620,
+    "online_first_document": 52236,
+    "online_document_count": 10,
+    "answer_emphasized_documents": 52224,
+    "observed_pairs": 18029071,
+    "generated_bytes": 37248,
+    "elapsed_seconds": 13.9508734,
+    "session_online_updates": 4096,
+    "session_observed_pairs": 500571,
+    "observed_pairs_per_second": 35880.97932,
+    "replay_updates": 48524,
+    "replay_pairs": 4350025,
+    "replay_state_bytes": 24912,
+    "replay_mode": 3,
+    "replay_items": 1024,
+    "core_scale": 1,
+    "learning_rate": 7.500000356e-05,
+    "replay_every": 4,
+    "graph_decode": true,
+    "update_tick_p50_ms": 2.779222677,
+    "update_tick_p95_ms": 5.439339331,
+    "update_and_speech_tick_p50_ms": 21.29114202,
+    "update_and_speech_tick_p95_ms": 29.46502185,
+    "latency_percentile_bin_relative_width": 0.02189714865,
+    "shared_weights": true,
+    "persistent_membranes": true,
+    "trains_on_generated_text": false,
+    "replay_groups": [
+      {
+        "stage": 1,
+        "document_end": 5,
+        "seen_windows": 6000,
+        "stored_windows": 205,
+        "quota": 205,
+        "replay_updates": 16072,
+        "replay_pairs": 2057032
+      },
+      {
+        "stage": 2,
+        "document_end": 389,
+        "seen_windows": 4000,
+        "stored_windows": 205,
+        "quota": 205,
+        "replay_updates": 14363,
+        "replay_pairs": 730655
+      },
+      {
+        "stage": 3,
+        "document_end": 52229,
+        "seen_windows": 120000,
+        "stored_windows": 205,
+        "quota": 205,
+        "replay_updates": 13916,
+        "replay_pairs": 1029176
+      },
+      {
+        "stage": 4,
+        "document_end": 52236,
+        "seen_windows": 60000,
+        "stored_windows": 205,
+        "quota": 205,
+        "replay_updates": 3967,
+        "replay_pairs": 507776
+      },
+      {
+        "stage": 5,
+        "document_end": 52246,
+        "seen_windows": 4096,
+        "stored_windows": 204,
+        "quota": 204,
+        "replay_updates": 206,
+        "replay_pairs": 25386
+      }
+    ],
+    "consolidation": "none"
+  },
+  "live_final_state": {
+    "checkpoint_sha256": "a7f5dcd79718aeda805db7c0599176af048324c7f3c328dbd3945f8b06e2e825",
+    "parameters": 1951624,
+    "cell": 6,
+    "online_updates": 194096,
+    "global_updates": 242620,
+    "observed_pairs": 18029071,
+    "generated_bytes": 37248,
+    "replay_updates": 48524,
+    "replay_pairs": 4350025,
+    "curriculum_stage": 5,
+    "replay_groups": [
+      {
+        "document_end": 5,
+        "seen_windows": 6000,
+        "stored_windows": 205,
+        "replay_updates": 16072,
+        "replay_pairs": 2057032
+      },
+      {
+        "document_end": 389,
+        "seen_windows": 4000,
+        "stored_windows": 205,
+        "replay_updates": 14363,
+        "replay_pairs": 730655
+      },
+      {
+        "document_end": 52229,
+        "seen_windows": 120000,
+        "stored_windows": 205,
+        "replay_updates": 13916,
+        "replay_pairs": 1029176
+      },
+      {
+        "document_end": 52236,
+        "seen_windows": 60000,
+        "stored_windows": 205,
+        "replay_updates": 3967,
+        "replay_pairs": 507776
+      },
+      {
+        "document_end": 52246,
+        "seen_windows": 4096,
+        "stored_windows": 204,
+        "replay_updates": 206,
+        "replay_pairs": 25386
+      }
+    ]
+  },
+  "live_process_seconds": 14.501388199976645,
+  "live_new_source_pairs_per_second": 35880.97932277129,
+  "live_source_and_replay_pairs_per_second": 43331.91067449583,
+  "live_observation_chunks_per_second": 293.6016894827531,
+  "live_optimizer_updates_per_second": 367.00211185344136,
+  "command_count": 8,
+  "ancestor_unchanged": true,
+  "executable_unchanged": true,
+  "live_transcript": "\n[session starts at online update 190000]\n\n[online update 190500; global update 238125]\nThe bird from the windows teast! Not keep the wrongs.\n\nAfter the grans to work sever was very like time t\n\n[online update 191000; global update 238750]\nThe bird slip that her that into visith.\n\nSakima remakimaking throught his madle of the gind fricks.\n\nSak\n\n[online update 191500; global update 239375]\nThe bird moth so counting oute. She with ealid to make songs and because I am too bed.\n\nHe counder me, fo\n\n[online update 192000; global update 240000]\nThe bird was strow that to work help the bushere wore we sere that toy. But I jame asked that because ver\n\n[online update 192500; global update 240625]\nThe bird was little sister from he ripe.\n\nThe rivers on she was very little.\n\nSakima did was a crospittin\n\n[online update 193000; global update 241250]\nThe bird \n\n       Ther             big                            pattch   c    faptthing of             \n\n[online update 193500; global update 241875]\nThe bird with my mother.. \"\nThe following day was, \"Wha can I read to?\n\nmany dong are the mananged to his\n\n[online update 194000; global update 242500]\nThe bird  Sakima worked hidden she dismapy at the she was soW that newere the basket.\n\nThe more she let w\n"
+}
