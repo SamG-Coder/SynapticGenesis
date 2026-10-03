@@ -92,3 +92,9 @@ results. Matching poor answers would establish execution equivalence only.
 driver process and checks its complete result before launching CUDA. Existing
 studies keep their original executables and pinned inputs. The candidate remains
 on the research branch until its GPU acceptance is available.
+
+The [launch snapshot](../reports/resident-conversation-launch.json) confirms that
+the acceptance driver is live and waiting for the correction process, with zero
+native commands started at that check. The protocol SHA-256 is
+`8bbb09eb45663e06769677e7c1761c1eb4fcee18dfd180d1515d177144c19a25`;
+the declared source commit is `752355c`.
