@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-04",
+  "kind": "Research supporting a bounded early-learning experiment",
+  "sources": [
+    {
+      "title": "Activity-dependent scaling of quantal amplitude in neocortical neurons",
+      "authors": "Turrigiano et al.",
+      "year": 1998,
+      "url": "https://www.nature.com/articles/36103",
+      "inspected": "Publisher abstract and figure descriptions; full text was subscription-restricted.",
+      "finding_used": "Activity-dependent regulation of aggregate synaptic strength in cortical cultures motivates investigating activity stability.",
+      "limit": "No biological firing target, time conversion, human ageing law or optimizer schedule is imported into the model."
+    },
+    {
+      "title": "The remarkable robustness of surrogate gradient learning for instilling complex function in spiking neural networks",
+      "authors": "Zenke and Vogels",
+      "paper_year": 2021,
+      "author_summary_year": 2020,
+      "url": "https://zenkelab.org/2020/06/preprint-the-remarkable-robustness-of-surrogate-gradient-learning-for-instilling-complex-function-in-spiking-neural-networks/",
+      "inspected": "Author summary and indexed paper excerpts; direct publisher and bioRxiv full-text opens returned 403.",
+      "finding_used": "The authors report different sensitivity to surrogate shape and scale, including experiments with sparse-activity regularization.",
+      "limit": "The complete paper, numerical method and experiments were not replicated. No new surrogate formula is introduced here."
+    }
+  ],
+  "local_evidence": [
+    "reports/prose-size-comparison.json",
+    "reports/prose-spike-panel.json",
+    "reports/prose-projection-snapshots.json"
+  ],
+  "engineering_decision": "Measure actual early source-update coordinates, clipping and neuron response scale at fixed depth and hidden/channel ratio. Test the existing core-rate multiplier from random initialization before changing the neuron equations.",
+  "gpu_experiment_status": "Declared design and compiled CPU preflight; new observer CUDA neutrality and learning outcomes are pending.",
+  "research_added_to_training": false,
+  "default_policy_changed": false
+}

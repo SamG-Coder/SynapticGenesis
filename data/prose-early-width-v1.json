@@ -1,0 +1,23 @@
+{
+  "version": "prose-early-width-v1",
+  "source_observations": 8176,
+  "observation_points": [1, 32, 128, 512, 2048, 8176],
+  "seeds": [1337, 2027, 4099],
+  "cases": [
+    {"name": "c512-control", "channels": 512, "hidden": 2048, "layers": 8, "core_scale": 1.0, "baseline_profile": "27m"},
+    {"name": "c1024-control", "channels": 1024, "hidden": 4096, "layers": 8, "core_scale": 1.0, "baseline_profile": "105m"},
+    {"name": "c256-control", "channels": 256, "hidden": 1024, "layers": 8, "core_scale": 1.0, "baseline_profile": null},
+    {"name": "c512-core-half", "channels": 512, "hidden": 2048, "layers": 8, "core_scale": 0.5, "baseline_profile": null},
+    {"name": "c1024-core-quarter", "channels": 1024, "hidden": 4096, "layers": 8, "core_scale": 0.25, "baseline_profile": null}
+  ],
+  "assessment_spec": "data/prose-evaluation-v1.json",
+  "baseline_comparison": "runs/prose-size-panel/comparison.json",
+  "neuron_panel": "runs/prose-spike-panel/result.json",
+  "predecessor_result": "runs/prose-replay-capacity/result.json",
+  "predecessor_protocol": "runs/prose-replay-capacity/protocol.json",
+  "learning_rate_result": "runs/prose-retention-lr/result.json",
+  "native_guard_updates": 511,
+  "native_guard_points": [1, 128, 511],
+  "policy": "Fixed depth eight and hidden/channel ratio four. Fresh random models use the original first source stage, replay, speech and AdamW policy. Candidate core rates scale inversely with channel width relative to 256; the output normalization and vocabulary head keep the original rate. This is a simple rate control, not maximal update parametrization or biological homeostasis.",
+  "limits": "Exploratory early-learning screen after seeing the original regression. Sampled parameter coordinates are not complete tensor norms. Live source caches precede that source update; sampled gradients have already been clipped. Instrumented timing is not a production speed benchmark. Early quality and activity are not proof of lifelong retention, useful QA or reproductive fitness. No default is promoted."
+}
