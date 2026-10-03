@@ -101,3 +101,5 @@ python scripts/plot_associative.py
 ## Follow-up performance experiment
 
 The [measured layout experiment](association-runtime.md) retains the original binary as a control. Padding alone regressed; caching backward inputs, padding the reverse matrices and retaining forward matrix cells in registers improved the measured recurrence cost. It reports whole-live-loop timing and complete learned-checkpoint comparisons separately from isolated kernel timings. The equations and checkpoint format are unchanged.
+
+The [next declared learning comparison](associative-long.md) extends exposure from birth to 130,000 observations, with assessments at 34,000 and 67,000 as well. It keeps all three seeds and architectures, sources and learning settings, and reports retention and runtime together with final binding results.
