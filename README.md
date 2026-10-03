@@ -35,6 +35,8 @@ A [CUDA layout change](docs/association-runtime.md) reduces the associative live
 
 The [learned-memory intervention](docs/associative-history.md) finds that clearing matrix history drops complete binding accuracy to **0% in all three associative models**. Their normal CPU reference reproduces every answer across 1,728 questions. Strict score agreement fails on 46 questions; tracing one case localizes a floating-point difference near a spike threshold. These failures remain visible alongside the evidence that trained binding relies on memory across bytes.
 
+The [next declared continuation](docs/narrative-learning.md) adds seven selected narrative books to all nine existing models, preserving their learning history. It measures new-story loss, reading/geography retention, binding and fixed generated samples at 160,000 and 190,000 observations. The execution rehearsal passes, including exact interrupted/uninterrupted checkpoints; full learning results are pending.
+
 ## Build
 
 Requires an NVIDIA CUDA GPU, the CUDA toolkit, CMake and a C++17 compiler. The Windows build script locates Visual Studio C++ tools and Ninja. Local validation uses an RTX 5080, CUDA 13.3 and MSVC 19.51.

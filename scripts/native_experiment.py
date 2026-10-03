@@ -29,6 +29,26 @@ def verified_manifest(path):
     return manifest
 
 
+def verified_book_manifest(path, specification):
+    """Authenticate a selected-book edition without scoring its reserved files."""
+    path, specification = Path(path).resolve(), Path(specification)
+    manifest, selection = read(path / 'manifest.json'), read(specification)
+    assert sha(specification) == manifest['source_spec_sha256']
+    assert (path / 'source-spec.json').read_bytes() == specification.read_bytes()
+    expected = {(r['id'], r['split'], r['stage']) for r in selection['sources']}
+    assert {(r['id'], r['split'], r['stage']) for r in manifest['sources']} == expected
+    assert len(expected) == len(manifest['sources'])
+    for record in manifest['sources']:
+        book = path / f'{int(record["id"])}.txt'
+        assert sha(book) == record['clean_sha256'] and book.stat().st_size == record['clean_bytes']
+    for split, record in manifest['outputs'].items():
+        assert split in ('train', 'validation', 'test')
+        books = [(path / f'{r["id"]}.txt').read_bytes() for r in manifest['sources'] if r['split'] == split]
+        assert b'\x1e'.join(books) == (path / f'{split}.dat').read_bytes()
+        assert sha(path / f'{split}.dat') == record['sha256']
+    return manifest
+
+
 class NativeCommands:
     """Sequential commands with their arguments saved before execution."""
     def __init__(self, exe, out):
@@ -47,9 +67,10 @@ class NativeCommands:
             raise RuntimeError(f'Native command failed; inspect {log}')
 
 
-def binding_scores(native, checkpoint, selected, out, end):
+def binding_scores(native, checkpoint, selected, out, end,
+                   splits=('train', 'development', 'expanded-train-monitor')):
     result = {}
-    for split in ('train', 'development', 'expanded-train-monitor'):
+    for split in splits:
         report = out/f'{split}-{end}.json'
         native('language-probes', '--checkpoint', checkpoint,
                '--probes', selected/f'{split}.sgprobe', '--output', report)
