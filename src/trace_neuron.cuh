@@ -67,7 +67,7 @@ __global__ void trace_bwd(float *dz, float *dl, float *dr, float *dk, const floa
         carry_a = da;
         next_retain = retain;
     }
-    atomicAdd(dl + j, db * beta * (1 - beta));
-    atomicAdd(dr + j, selective ? d_rho : d_rho * rho * (1 - rho));
-    atomicAdd(dk + j, d_gamma * sigmoid(scale[j]));
+    dl[k] = db * beta * (1 - beta);
+    dr[k] = selective ? d_rho : d_rho * rho * (1 - rho);
+    dk[k] = d_gamma * sigmoid(scale[j]);
 }

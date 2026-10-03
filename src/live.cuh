@@ -593,7 +593,8 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
     if (evaluator)
         final_val = evaluate(*evaluator, *validation, eval_batches);
     std::ofstream report(out / "session.json");
-    report << std::setprecision(10) << "{\"online_updates\":" << s.meta[24]
+    report << std::setprecision(10) << "{\"online_updates\":" << s.meta[24] << ",\"gradient_reductions\":\""
+           << gradient_reduction_name << "\""
            << ",\"curriculum_stage\":" << (curriculum ? s.extra[15] + 1 : 0) << ",\"curriculum_hash\":\""
            << (curriculum ? curriculum->hash : 0) << "\""
            << ",\"curriculum_extended\":" << (previous_curriculum ? "true" : "false")
@@ -843,7 +844,7 @@ void replay_test(const Args &args) {
         m->w.put(weights);
     full.forward(x, &y);
     full.backward();
-    // Isolate the update rule from nondeterministic atomic gradient reduction.
+    // Isolate parameter-group updates using exactly the same task gradient.
     auto gradient = full.g.host();
     scaled.g.put(gradient);
     frozen.g.put(gradient);

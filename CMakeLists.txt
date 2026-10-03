@@ -26,3 +26,4 @@ add_test(NAME spiking-trace COMMAND synapticgenesis trace-test --out ${CMAKE_BIN
 add_test(NAME spiking-gated COMMAND synapticgenesis gated-test --out ${CMAKE_BINARY_DIR}/gated-test-results)
 add_test(NAME spiking-selective COMMAND synapticgenesis selective-test --out ${CMAKE_BINARY_DIR}/selective-test-results)
 add_test(NAME spiking-stage-replay COMMAND synapticgenesis stage-replay-test --out ${CMAKE_BINARY_DIR}/stage-replay-test-results)
+add_test(NAME spiking-reductions COMMAND synapticgenesis reduction-test --out ${CMAKE_BINARY_DIR}/reduction-test-results)

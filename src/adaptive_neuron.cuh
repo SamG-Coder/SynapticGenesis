@@ -55,7 +55,7 @@ __global__ void alif_bwd(float *dz, float *dl, float *dr, float *dk, const float
         carry_a = rho * carry_a + gamma * d_theta;
         carry_u = du;
     }
-    atomicAdd(dl + j, db * beta * (1 - beta));
-    atomicAdd(dr + j, d_rho * rho * (1 - rho));
-    atomicAdd(dk + j, d_gamma * sigmoid(scale[j]));
+    dl[k] = db * beta * (1 - beta);
+    dr[k] = d_rho * rho * (1 - rho);
+    dk[k] = d_gamma * sigmoid(scale[j]);
 }

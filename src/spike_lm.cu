@@ -216,11 +216,6 @@ __global__ void embedding(float *y, const float *w, const int *x, int n, int c) 
     if (i < n * c)
         y[i] = w[x[i / c] * c + i % c];
 }
-__global__ void embedding_grad(float *dw, const float *dy, const int *x, int n, int c) {
-    int i = blockIdx.x * blockDim.x + threadIdx.x;
-    if (i < n * c)
-        atomicAdd(dw + x[i / c] * c + i % c, dy[i]);
-}
 __global__ void bias_add(float *x, const float *b, int n, int c) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < n * c)
@@ -256,20 +251,7 @@ __global__ void rms_fwd(float *y, float *r, const float *x, const float *g, int 
     for (int j = t; j < c; j += 256)
         y[row * c + j] = x[row * c + j] * a * g[j];
 }
-__global__ void rms_bwd(float *dx, float *dg, const float *dy, const float *x, const float *g, const float *r,
-                        int c, bool add) {
-    int row = blockIdx.x, t = threadIdx.x;
-    float v = 0;
-    for (int j = t; j < c; j += 256)
-        v += dy[row * c + j] * g[j] * x[row * c + j];
-    float dot = reduce_sum(v) / c, rs = r[row];
-    for (int j = t; j < c; j += 256) {
-        int i = row * c + j;
-        float d = dy[i] * g[j] * rs - x[i] * rs * rs * rs * dot;
-        dx[i] = (add ? dx[i] : 0) + d;
-        atomicAdd(dg + j, dy[i] * x[i] * rs);
-    }
-}
+#include "gradient_reductions.cuh"
 __device__ float sigmoid(float x) {
     return 1 / (1 + expf(-x));
 }
@@ -310,7 +292,7 @@ __global__ void lif_bwd(float *dz, float *dl, const float *ds, const float *u, c
         db += du * prev;
         carry = du;
     }
-    atomicAdd(dl + j, db * beta * (1 - beta));
+    dl[k] = db * beta * (1 - beta);
 }
 #include "adaptive_neuron.cuh"
 #include "trace_neuron.cuh"
@@ -405,7 +387,7 @@ struct Model {
     int B, T, N;
     cublasHandle_t blas{};
     Buf w, g, m, v, decay, finalnorm, finalrs, logits, dlogits, losses, loss_weights, dx, dy, dnorm, ds, dz,
-        dgate;
+        dgate, neuron_partials;
     std::vector<Buf> x;
     std::vector<Cache> cache;
     // The object exists before views are created; later initialization/restoration
@@ -417,11 +399,13 @@ struct Model {
         : q(config), a(q), B(batch), T(time), N(batch * time), w(a.n), g(a.n), m(a.n), v(a.n), decay(a.n),
           finalnorm(size_t(N) * q.c), finalrs(N), logits(size_t(N) * 256), dlogits(size_t(N) * 256),
           losses(N), loss_weights(N), dx(size_t(N) * q.c), dy(size_t(N) * q.c), dnorm(size_t(N) * q.c),
-          ds(size_t(N) * q.h), dz(size_t(N) * q.h), dgate(q.gated() ? size_t(N) * q.h : 0) {
+          ds(size_t(N) * q.h), dz(size_t(N) * q.h), dgate(q.gated() ? size_t(N) * q.h : 0),
+          neuron_partials(B > 1 ? size_t(B) * q.h * (q.secondary() ? 3 : 1) : 0) {
         if (B < 1 || B > 256 || T < 1 || T > 4096)
             throw std::runtime_error("Invalid batch/context");
         cb(cublasCreate(&blas));
         cb(cublasSetMathMode(blas, CUBLAS_PEDANTIC_MATH));
+        cb(cublasSetAtomicsMode(blas, CUBLAS_ATOMICS_NOT_ALLOWED));
         ck(cudaMalloc(&input, size_t(N) * sizeof(int)));
         ck(cudaMalloc(&target, size_t(N) * sizeof(int)));
         for (int i = 0; i <= q.l; ++i)
@@ -601,37 +585,45 @@ struct Model {
     void backward(float activity_cost = 0) {
         g.zero();
         linear_backward(dnorm.p, finalnorm.p, dlogits.p, a.head, a.bias, q.c, 256);
-        rms_bwd<<<N, 256>>>(dx.p, g.p + a.final_gain, dnorm.p, x[q.l].p, w.p + a.final_gain, finalrs.p, q.c,
-                            false);
+        rms_bwd<<<N + (q.c + 31) / 32, 256>>>(dx.p, g.p + a.final_gain, dnorm.p, x[q.l].p, w.p + a.final_gain,
+                                              finalrs.p, N, q.c, false);
         for (int l = q.l - 1; l >= 0; --l) {
             auto p = a.layers[l];
             auto &f = cache[l];
+            float *dl = B == 1 ? g.p + p.leak : neuron_partials.p;
+            float *dr = q.secondary() ? (B == 1 ? g.p + p.adapt_leak : neuron_partials.p + B * q.h) : nullptr;
+            float *dk =
+                q.secondary() ? (B == 1 ? g.p + p.adapt_scale : neuron_partials.p + 2 * B * q.h) : nullptr;
             linear_backward(ds.p, q.traced() ? f.emission.p : f.s.p, dx.p, p.wo, p.bo, q.h, q.c);
             if (activity_cost > 0 && !q.traced())
                 spike_cost_grad<<<(N * q.h + 255) / 256, 256>>>(ds.p, f.s.p, N * q.h,
                                                                 activity_cost / (float(N) * q.h * q.l));
             if (q.traced())
                 trace_bwd<<<(B * q.h + 255) / 256, 256>>>(
-                    dz.p, g.p + p.leak, g.p + p.adapt_leak, g.p + p.adapt_scale, ds.p, f.u.p, f.s.p,
-                    f.adapt.p, f.initial_state.p, f.initial_adapt.p, w.p + p.leak, w.p + p.adapt_leak,
-                    w.p + p.adapt_scale, f.gate.p, dgate.p, B, T, q.h, activity_cost / (float(N) * q.h * q.l),
-                    q.selective());
+                    dz.p, dl, dr, dk, ds.p, f.u.p, f.s.p, f.adapt.p, f.initial_state.p, f.initial_adapt.p,
+                    w.p + p.leak, w.p + p.adapt_leak, w.p + p.adapt_scale, f.gate.p, dgate.p, B, T, q.h,
+                    activity_cost / (float(N) * q.h * q.l), q.selective());
             else if (q.adaptive())
-                alif_bwd<<<(B * q.h + 255) / 256, 256>>>(dz.p, g.p + p.leak, g.p + p.adapt_leak,
-                                                         g.p + p.adapt_scale, ds.p, f.u.p, f.s.p, f.adapt.p,
+                alif_bwd<<<(B * q.h + 255) / 256, 256>>>(dz.p, dl, dr, dk, ds.p, f.u.p, f.s.p, f.adapt.p,
                                                          f.initial_state.p, w.p + p.leak, w.p + p.adapt_leak,
                                                          w.p + p.adapt_scale, B, T, q.h);
             else
-                lif_bwd<<<(B * q.h + 255) / 256, 256>>>(dz.p, g.p + p.leak, ds.p, f.u.p, f.s.p,
-                                                        f.initial_state.p, w.p + p.leak, B, T, q.h);
+                lif_bwd<<<(B * q.h + 255) / 256, 256>>>(dz.p, dl, ds.p, f.u.p, f.s.p, f.initial_state.p,
+                                                        w.p + p.leak, B, T, q.h);
+            if (B > 1)
+                neuron_parameter_grad<<<(q.h + 255) / 256, 256>>>(
+                    g.p + p.leak, q.secondary() ? g.p + p.adapt_leak : nullptr,
+                    q.secondary() ? g.p + p.adapt_scale : nullptr, neuron_partials.p, B, q.h, q.secondary());
             if (q.gated()) {
                 linear_backward(dnorm.p, f.norm.p, dgate.p, p.gate_w, p.gate_b, q.c, q.h);
-                rms_bwd<<<N, 256>>>(dx.p, g.p + p.gain, dnorm.p, x[l].p, w.p + p.gain, f.rs.p, q.c, true);
+                rms_bwd<<<N + (q.c + 31) / 32, 256>>>(dx.p, g.p + p.gain, dnorm.p, x[l].p, w.p + p.gain,
+                                                      f.rs.p, N, q.c, true);
             }
             linear_backward(dnorm.p, f.norm.p, dz.p, p.wi, p.bi, q.c, q.h);
-            rms_bwd<<<N, 256>>>(dx.p, g.p + p.gain, dnorm.p, x[l].p, w.p + p.gain, f.rs.p, q.c, true);
+            rms_bwd<<<N + (q.c + 31) / 32, 256>>>(dx.p, g.p + p.gain, dnorm.p, x[l].p, w.p + p.gain, f.rs.p,
+                                                  N, q.c, true);
         }
-        embedding_grad<<<(N * q.c + 255) / 256, 256>>>(g.p + a.emb, dx.p, input, N, q.c);
+        embedding_grad<<<256, 256>>>(g.p + a.emb, dx.p, input, N, q.c);
         ck(cudaGetLastError());
     }
     float update(int step, float lr, float wd = 0.01f, float clip = 1.f, float core_scale = 1.f) {
@@ -1103,6 +1095,7 @@ void train(const Args &args) {
     std::cout << "step=" << s.meta[7] << " validation_loss=" << initial
               << " bits_per_byte=" << initial / std::log(2.f) << "\n";
     metrics << "{\"event\":\"start\",\"step\":" << s.meta[7] << ",\"validation_loss\":" << initial
+            << ",\"gradient_reductions\":\"" << gradient_reduction_name << "\""
             << ",\"parameters\":" << model.a.n << ",\"train_hash\":\"" << data.hash << "\",\"val_hash\":\""
             << val.hash << "\",\"activity_cost\":" << s.hp[4] << ",\"burn_in\":" << burn_in
             << ",\"burn_policy\":\"" << burn_policy << "\""
@@ -1399,6 +1392,7 @@ void self_test(const Args &args) {
 #include "live.cuh"
 #include "memory_bench.cuh"
 #include "population_live.cuh"
+#include "reduction_tests.cuh"
 #include "retention_bench.cuh"
 #include "stage_replay_tests.cuh"
 #include "synaptic_tests.cuh"
@@ -1474,6 +1468,8 @@ int main(int argc, char **argv) {
             replay_test(args);
         else if (cmd == "stage-replay-test")
             stage_replay_test(args);
+        else if (cmd == "reduction-test")
+            reduction_test(args);
         else if (cmd == "adaptive-test")
             adaptive_test(args);
         else if (cmd == "trace-test")

@@ -4,7 +4,7 @@ Host: Windows, NVIDIA RTX 5080, CUDA 13.3, MSVC 19.51. Model execution, learning
 
 ## Balanced source-stage replay
 
-The current build passes thirteen native suites. The [stage replay validation report](stage-replay-validation.json) covers bounded quotas, uniform shrink, returning earlier sources, 4,000 seeded inclusion trials, equal group selection and ten native restarts across all five neuron cells with optional SI. One-stage behavior matches the ordinary reservoir's descriptors and RNG sequence. The largest native restart error is 4.66e-10.
+At this earlier stage the build passed thirteen native suites. The [stage replay validation report](stage-replay-validation.json) covers bounded quotas, uniform shrink, returning earlier sources, 4,000 seeded inclusion trials, equal group selection and ten native restarts across all five neuron cells with optional SI. One-stage behavior matches the ordinary reservoir's descriptors and RNG sequence. The largest native restart error is 4.66e-10.
 
 The 17-command policy CLI test checks replay-exposure totals, read-only tools, capacity limits, valid-checksum malformed group records and first-stage conversion. Converted and ordinary continuation differ by at most 9.32e-10 in saved numerical state; the old source checkpoint remains unchanged. Conversion after advancing beyond the first stage is rejected. The extension suite passes 153 invocations and 40 comparisons, with maximum full-state error 5.37e-7. The 17-command population suite uses grouped replay for both parents and their grown child, and checks inherited base rates, canonical selection, lifespan, rejected dead-member learning and archived inference.
 

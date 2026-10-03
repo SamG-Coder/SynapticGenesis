@@ -24,6 +24,8 @@ The reset contribution of the previous spike is detached. Independent CPU autogr
 
 Weights, membrane state, normalization and optimizer state are floating-point. cuBLAS handles dense projections. `--fast` enables TF32 math in training; numerical checks and evaluations use strict FP32. The implementation does not establish a hardware efficiency advantage over dense language models.
 
+Training uses [fixed-order gradient reductions](ordered-reductions.md) for embedding, normalization gains and batched neuron parameters. A focused CUDA module owns these reductions. Each destination has one writer, avoiding dependence on block scheduling for floating-point accumulation. Single-sequence live execution adds no persistent scratch; batch execution adds a small reused per-sequence buffer included in population memory accounting. Arithmetic repeatability is tested for the local GPU/toolchain, not promised across platforms or binary versions.
+
 ## Adaptive cell
 
 `--cell alif` creates `signed_alif_v2` with an additional activity-adaptation state per neuron and two learned parameters per neuron:

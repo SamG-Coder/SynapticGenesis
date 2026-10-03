@@ -17,7 +17,8 @@ The native learner, population registry, fitness-gated reproduction and bounded 
 - Native parent selection, whole-block inheritance, inherited learning settings and probabilistic hidden-neuron growth within size limits.
 - GPU-memory-based population credits, stricter selection under scarcity, inherited lifespans and old-age death.
 - Population-owned live sessions update the exact checkpoint used for selection, preserve lifespan/lineage, and reject deceased members.
-- Thirteen native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
+- Fourteen native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
+- Fixed-order CUDA gradient reductions for repeatable learning on the tested GPU/toolchain, with explicit runtime and checkpoint comparisons.
 - Context-reversal language probes and explicit answer emphasis for selected teaching lessons in the same live runtime.
 
 The default model has **1,186,304 parameters**, four residual blocks, width 256 and 512 spiking neurons per block. Training uses dense CUDA/cuBLAS operations, surrogate gradients and AdamW. Spikes do not by themselves establish an energy or speed advantage. See the [architecture](docs/architecture.md) and [development design](docs/general-development.md).

@@ -4,6 +4,22 @@ void evolution_test(const Args &args) {
     fs::path out = args.get("out", "reports/evolution-tests");
     fs::create_directories(out);
     double growth_error = 0, crossover_error = 0, new_weight_change = 0;
+    auto explicit_bytes = [](const Model &model) {
+        uint64_t bytes = 2ull * model.N * sizeof(int);
+        for (const Buf *buffer :
+             {&model.w, &model.g, &model.m, &model.v, &model.decay, &model.finalnorm, &model.finalrs,
+              &model.logits, &model.dlogits, &model.losses, &model.loss_weights, &model.dx, &model.dy,
+              &model.dnorm, &model.ds, &model.dz, &model.dgate, &model.neuron_partials})
+            bytes += buffer->n * 4;
+        for (const auto &buffer : model.x)
+            bytes += buffer.n * 4;
+        for (const auto &cache : model.cache)
+            for (const Buf *buffer :
+                 {&cache.norm, &cache.rs, &cache.z, &cache.u, &cache.s, &cache.state, &cache.initial_state,
+                  &cache.adapt, &cache.adapt_state, &cache.initial_adapt, &cache.emission, &cache.gate})
+                bytes += buffer->n * 4;
+        return bytes;
+    };
     for (int cell : {1, 2, 3, 4, 5}) {
         Config a{8, 16, 2, cell}, b{8, 24, 2, cell}, c{8, 32, 2, cell};
         Layout aa(a), ba(b), ca(c);
@@ -18,21 +34,11 @@ void evolution_test(const Args &args) {
         }
         auto wb = evolution::inherit(b, a, wa, a, wa, {false, false}, 31);
         Model base(a, 1, 8), widened(b, 1, 8);
-        uint64_t actual_buffers = 2ull * base.N * sizeof(int);
-        for (const Buf *buffer :
-             {&base.w, &base.g, &base.m, &base.v, &base.decay, &base.finalnorm, &base.finalrs, &base.logits,
-              &base.dlogits, &base.losses, &base.loss_weights, &base.dx, &base.dy, &base.dnorm, &base.ds,
-              &base.dz, &base.dgate})
-            actual_buffers += buffer->n * 4;
-        for (const auto &buffer : base.x)
-            actual_buffers += buffer.n * 4;
-        for (const auto &cache : base.cache)
-            for (const Buf *buffer :
-                 {&cache.norm, &cache.rs, &cache.z, &cache.u, &cache.s, &cache.state, &cache.initial_state,
-                  &cache.adapt, &cache.adapt_state, &cache.initial_adapt, &cache.emission, &cache.gate})
-                actual_buffers += buffer->n * 4;
-        require(actual_buffers == evolution::working_bytes(a, 1, 8),
+        require(explicit_bytes(base) == evolution::working_bytes(a, 1, 8),
                 "GPU admission estimate differs from actual explicit buffers");
+        Model batched(a, 3, 8);
+        require(explicit_bytes(batched) == evolution::working_bytes(a, 3, 8),
+                "Batched reduction scratch missing from GPU admission estimate");
         base.w.put(wa);
         widened.w.put(wb);
         std::vector<int> x{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'}, y{'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'};

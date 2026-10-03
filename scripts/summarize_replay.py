@@ -18,6 +18,11 @@ def write(name, value):
 
 
 def validation():
+    executable_sha=hashlib.sha256(Path('build/synapticgenesis.exe').read_bytes()).hexdigest()
+    protocol=read('runs/stage-replay-shared-panel/protocol.json')
+    if executable_sha != protocol['executable_sha256']:
+        raise ValueError('Historical replay collection requires its recorded executable and validation artifacts; '
+                         'do not relabel earlier results with a newer build.')
     sources = dict(native_policy='build/stage-replay-test-results/native.json',
                    cli_policy='runs/stage-replay-cli-v3/result.json',
                    curriculum_extension='runs/stage-replay-extension-v2/result.json',
@@ -26,7 +31,7 @@ def validation():
     assert all(value['passed'] for value in report.values())
     assert '100% tests passed out of 13' in Path('build-stage-replay-final.log').read_text(encoding='utf-8-sig')
     report.update(native_suites_passed=13,
-                  executable_sha256=hashlib.sha256(Path('build/synapticgenesis.exe').read_bytes()).hexdigest())
+                  executable_sha256=executable_sha)
     write('stage-replay-validation.json',report)
     old = []
     for cell in ('gated','selective'):
