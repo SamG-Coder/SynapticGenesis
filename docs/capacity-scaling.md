@@ -32,9 +32,10 @@ Explicit array counts subtract shared parameters, moments and recurrent
 state. They exclude CUDA/cuBLAS overhead. Observed drops in free GPU memory
 at round boundaries were 546, 994, 2,168 and 6,816 MiB respectively, relative
 to an initialized CUDA context. These samples do not measure transient peaks.
-The live engine currently caches different window lengths. Additional
+The measured live engine cached different window lengths. Additional
 document-tail lengths can therefore use substantially more memory than this
-short workload; long-run capacity needs bounded views or shared workspace.
+short workload. The subsequent [bounded workspace change](bounded-live-memory.md)
+reduces that cost while preserving measured trajectories.
 
 This test establishes that the larger models execute and learn finite
 updates. It does not establish better language quality. Each saw only about

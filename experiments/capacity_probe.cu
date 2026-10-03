@@ -9,7 +9,7 @@ double seconds(std::chrono::steady_clock::time_point start) {
 }
 uint64_t arrays(const LiveEngine &engine) {
     uint64_t bytes = explicit_model_bytes(engine.root);
-    const uint64_t shared_parameters = 12 * engine.root.a.n;
+    const uint64_t shared_parameters = 20 * engine.root.a.n;
     const uint64_t shared_recurrence = 4 * engine.root.q.recurrent_per_layer() * engine.root.q.l;
     bytes += explicit_model_bytes(engine.speaker) - shared_parameters - shared_recurrence;
     for (const auto &view : engine.tails)

@@ -127,17 +127,18 @@ void validate_live_holdout(const LiveCorpus &training, const LiveCorpus &holdout
 #include "live_replay.cuh"
 #include "teacher_bundle.cuh"
 #include "teacher_replay.cuh"
+#include "live_views.cuh"
 
 struct LiveEngine {
     Model root;
     Model speaker;
-    std::map<int, std::unique_ptr<Model>> tails;
-    std::map<int, std::unique_ptr<Model>> replay_views;
+    LiveViews tails;
+    LiveViews replay_views;
     std::unique_ptr<GraphDecoder> decoder;
     std::unique_ptr<teachers::Replay> teacher_replay;
     bool fast_math;
     LiveEngine(Config q, int chunk, bool fast) : root(q, 1, chunk), speaker(q, 1, 1), fast_math(fast) {
-        speaker.share_runtime(root);
+        LiveViews::share(speaker, root, true);
         root.fast(fast);
         speaker.fast(fast);
     }
@@ -146,22 +147,10 @@ struct LiveEngine {
             return root;
         if (n == 1)
             return speaker;
-        auto &p = tails[n];
-        if (!p) {
-            p = std::make_unique<Model>(root.q, 1, n);
-            p->share_runtime(root);
-            p->fast(fast_math);
-        }
-        return *p;
+        return tails.get(root, n, true, fast_math);
     }
     Model &replay_view(int n) {
-        auto &p = replay_views[n];
-        if (!p) {
-            p = std::make_unique<Model>(root.q, 1, n);
-            p->share_parameters(root); // Separate recurrence; shared mutable synapses.
-            p->fast(fast_math);
-        }
-        return *p;
+        return replay_views.get(root, n, false, fast_math);
     }
     std::string speak(const std::string &prompt, State &s) {
         ReplayMemory memory(s);

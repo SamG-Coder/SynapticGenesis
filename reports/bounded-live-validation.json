@@ -1,0 +1,209 @@
+{
+  "native_ctests": {
+    "passed": 18,
+    "failed": 0
+  },
+  "ragged_fixture": {
+    "passed": true,
+    "cases": [
+      {
+        "cell": "lif",
+        "tf32": false,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "lif",
+        "tf32": true,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "alif",
+        "tf32": false,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "alif",
+        "tf32": true,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "trace",
+        "tf32": false,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "trace",
+        "tf32": true,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "gated",
+        "tf32": false,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "gated",
+        "tf32": true,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "selective",
+        "tf32": false,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "selective",
+        "tf32": true,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "associative",
+        "tf32": false,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      },
+      {
+        "cell": "associative",
+        "tf32": true,
+        "complete_old_checkpoint_exact": true,
+        "old_speech_exact": true,
+        "complete_restart_exact": true
+      }
+    ],
+    "old_sha256": "5f2fa106fec9f43e0717b3227af060e7f286268a946da5e43b3e30143c23a734",
+    "new_sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+    "fixture_sha256": "1587057052bba2d4a2a1bd8ffc89531e1e6c6d3347864fee845cb57f994fe36e",
+    "document_lengths": [
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64
+    ],
+    "native_commands": 48
+  },
+  "learned_continuations": {
+    "passed": true,
+    "rows": [
+      {
+        "seed": 1337,
+        "complete_checkpoint_exact": true,
+        "speech_exact": true
+      },
+      {
+        "seed": 2026,
+        "complete_checkpoint_exact": true,
+        "speech_exact": true
+      },
+      {
+        "seed": 31415,
+        "complete_checkpoint_exact": true,
+        "speech_exact": true
+      }
+    ],
+    "old_sha256": "5f2fa106fec9f43e0717b3227af060e7f286268a946da5e43b3e30143c23a734",
+    "new_sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda"
+  },
+  "capacity_comparison": [
+    {
+      "parameters": 1951624,
+      "speech_exact": true,
+      "losses_exact": true,
+      "old_arrays": 157871812,
+      "new_arrays": 79806852
+    },
+    {
+      "parameters": 7989196,
+      "speech_exact": true,
+      "losses_exact": true,
+      "old_arrays": 578483324,
+      "new_arrays": 258915484
+    },
+    {
+      "parameters": 27260432,
+      "speech_exact": true,
+      "losses_exact": true,
+      "old_arrays": 1866598964,
+      "new_arrays": 776181684
+    },
+    {
+      "parameters": 104851472,
+      "speech_exact": true,
+      "losses_exact": true,
+      "old_arrays": 6734170676,
+      "new_arrays": 2540111796
+    }
+  ],
+  "memcheck": {
+    "errors": 0,
+    "sha256": "adba10db853bd67fe9009b776eefe7b61210d2cbe3eee029ba6fa188978b5832"
+  },
+  "bounded_memcheck_capture": {
+    "complete": true,
+    "parameters": 44580,
+    "channels": 32,
+    "neurons_per_layer": 64,
+    "layers": 2,
+    "spiking_neurons": 128,
+    "recurrent_floats": 2304,
+    "chunk": 16,
+    "warmup_updates": 8,
+    "warmup_seconds": 0.5575741,
+    "measured_updates_per_round": 128,
+    "rounds": 1,
+    "explicit_arrays_bytes": 2316828,
+    "baseline_free_bytes": 15436087296,
+    "minimum_round_boundary_free_bytes": 14752415744,
+    "source_hash": "16948516871047594033",
+    "generated_text_targets": false,
+    "decode_repeated_bytes_exact": true
+  }
+}
