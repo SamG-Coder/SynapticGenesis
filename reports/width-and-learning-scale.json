@@ -1,0 +1,67 @@
+{
+  "review_date": "2026-10-03",
+  "status": "research_and_current_code_inspection_only",
+  "sources": [
+    {
+      "title": "Tensor Programs V: Tuning Large Neural Networks via Zero-Shot Hyperparameter Transfer",
+      "url": "https://arxiv.org/pdf/2203.03466v2",
+      "reviewed": "Introduction, sections 2-4, Table 3 and section 6.1 caveats from the arXiv v2 text.",
+      "not_verified": "Full proofs, implementation reproduction, or applicability to this signed spiking recurrence."
+    },
+    {
+      "title": "microsoft/mup author documentation",
+      "url": "https://github.com/microsoft/mup",
+      "reviewed": "Shape roles, optimizer scaling, checkpoint warning and coordinate-check guidance in the README.",
+      "not_verified": "No package was installed, imported or run."
+    },
+    {
+      "title": "Training Deep Spiking Neural Networks without Normalization",
+      "url": "https://proceedings.mlr.press/v306/shi26ae.html",
+      "author_documentation": "https://github.com/xyshi2000/SpikeInit",
+      "reviewed": "Publisher abstract and authors' README only.",
+      "not_verified": "Publisher PDF failed to load; OpenReview returned browser verification. Detailed theory, experimental tables and implementation were not reviewed."
+    }
+  ],
+  "local_findings": {
+    "initial_input_weight_sd": "1/sqrt(C)",
+    "initial_spike_output_weight_sd": "0.1/sqrt(H*L)",
+    "initial_vocabulary_head_sd": "0.1/sqrt(C)",
+    "optimizer_width_specific_parameter_groups": false,
+    "current_founder_core_scale": 1,
+    "associative_matrix_dimensions": [
+      32,
+      32
+    ],
+    "three_size_panel_is_pure_width_comparison": false,
+    "27m_to_105m_fixed_depth_and_ratio": true
+  },
+  "proposed_fixed_depth_shapes": [
+    [
+      256,
+      1024,
+      8
+    ],
+    [
+      512,
+      2048,
+      8
+    ],
+    [
+      1024,
+      4096,
+      8
+    ]
+  ],
+  "causal_explanation_established": false,
+  "new_policy_implemented": false,
+  "new_experiment_queued": false,
+  "external_code_run": false,
+  "training_sources_changed": false,
+  "native_source_sha256": {
+    "src/spike_lm.cu": "0e6ea9a8073c686f5c142b79964e32233cb377e874a99bc18f8a9e7f1005b14c",
+    "src/model.cuh": "453c0aea5e331667c60b7ad0053747ac97312a1375e4887d6df121d08c226876",
+    "src/trace_neuron.cuh": "d346931acdff5a4711dea5740b185e6212dc7d0dd906349ffdb8973081ed71b6",
+    "src/associative_memory.cuh": "920a788386f0182e436e8f43061503cdf8695468dd7304ebfce49eab82154b3b"
+  },
+  "source_commit": "ec711377faf8bd16208c4cd70e975d6c34a4027a"
+}
