@@ -1,10 +1,11 @@
 # Saved 411M learning on the selected prose curriculum
 
-Status at the [launch snapshot](../reports/prose-411m-launch.json): CPU
-preparation, full-size checkpoint/evaluation preflight and all forty preserved
-baseline assessments pass. The fresh 411M learner is running and has saved its
-first-stage checkpoint; full-curriculum quality results remain pending. This
-extends the successful
+Status: the full learning run and all eighty assessment commands completed.
+The [results](prose-411m-results.md) retain the regression: final validation
+loss is 1.724522 versus 1.668709 for the 105M control, with worse scores on
+all six final monitored books and unsuccessful question completions. The
+[launch snapshot](../reports/prose-411m-launch.json) remains the historical
+preparation record. This study extends the successful
 [411M capacity benchmark](411m-capacity-results.md) to a saved learner and
 matched development assessments. The [specification](../data/prose-411m-v1.json)
 fixes all settings before execution. The earlier runtime and studies remain
@@ -134,5 +135,5 @@ python tests/large_prose_founder.py --out runs/large-founder-main-check-new --pr
 ```
 
 The [integration record](../reports/prose-411m-integration.json) distinguishes
-these CPU compatibility checks from the native preflight and the still-running
-long trial. The earlier runtime remains available for preserved experiments.
+these CPU compatibility checks from the native preflight and the subsequently
+completed long trial. The earlier runtime remains available for preserved experiments.

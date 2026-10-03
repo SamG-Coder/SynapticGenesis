@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "rejected": [
+    "same_output",
+    "pending_study"
+  ],
+  "no_publication_files_created": true,
+  "new_native_commands": 0,
+  "publisher_sha256": "9421c185a70ca79ad5f7013ea523b8444db69f2a66c0b7a10e473d69a913a94b",
+  "limits": "Host checks of pending-study and colliding-output refusal. Completed-result verification has not run yet."
+}
