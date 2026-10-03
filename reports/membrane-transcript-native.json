@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "native_commands": 11,
+  "regularized_checkpoint_exact_on_restart": true,
+  "speech_exact_on_restart": true,
+  "restart_speech": {
+    "speech_records": 9,
+    "generated_bytes": 81,
+    "restart_marker_source_update": 23,
+    "next_speech_source_update": 28,
+    "all_other_transcript_bytes_exact": true,
+    "full_transcript_sha256": "56c4a8fc3362af7c129ad163dacafa8631c36c34713c9e84a67eed19c77e7672",
+    "resumed_transcript_sha256": "12e95962895f2a5c35508ec0e5fd80af0a54724bd58db900db6baffa96fa4f42"
+  },
+  "enabled_cost_changes_learned_weights": true,
+  "two_teachers_active": true,
+  "optional_si_exercised": true,
+  "source_updates": 64,
+  "teacher_updates": 22,
+  "teacher_pairs": 325,
+  "full_checkpoint_sha256": "30407e6dc04de08154f040fcd4bc7e18db6321d214584632230df4eb8cfcd461",
+  "regularized_weights_sha256": "8e2805f5653adb2c646c6de5ffd7cedeef4f0471fef96365dedd048dc7d026ee",
+  "disabled_weights_sha256": "ca512927aa33a591e0c349e8a49b746ba7e8757958d2cec709158ed4c560eb2b",
+  "read_only_commands_preserve_checkpoint": true,
+  "forbidden_resume_override_and_teacher_promotion_rejected": true,
+  "language_quality_established": false,
+  "new_sources_admitted": false
+}

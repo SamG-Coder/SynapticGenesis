@@ -1,0 +1,27 @@
+{
+  "recorded_at_utc": "2026-10-03T20:37:14.792251+00:00",
+  "original_acceptance_failed": true,
+  "passed_commands_before_failure": 19,
+  "original_learning_models_started": 0,
+  "reason": "The resumed transcript contains its required session marker at source update 23; all other bytes and complete checkpoints match.",
+  "runtime_and_native_sources_changed": false,
+  "identical_candidate_binaries": {
+    "build/synapticgenesis.exe": "bbc94b245887c8a6d473ae8cbe44dda6afa5993e29504f32baabeb02971ec481",
+    "build/membrane-checkpoint-test/synaptic-membrane-checkpoint-test.exe": "9d5ee1f4f2108d659cfb93212552ce87056a712b2e1aef29968adbbe7df19755"
+  },
+  "binary_origin": "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree",
+  "fresh_ctest_configuration": "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\CTestTestfile.cmake",
+  "ctest_configuration_sha256": "2cfb36deb2f190c773c516c2002e92250016fb5c6bb5bb9846a0907350ceb2a4",
+  "failed_artifacts_sha256": {
+    "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\runs\\membrane-acceptance-v1\\protocol.json": "827389c071e7869b3f7038cf020b88d52fcd68df1e633f097385e6b29aa45e80",
+    "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\runs\\membrane-acceptance-v1\\failure.json": "d4c57dcb398625621079e3bc48d2ceda0a6b06e83faf17fc41501d122a662387",
+    "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\runs\\membrane-acceptance-v1\\command-020.log": "1d85db0094713e46fdaded2b523e87b6072dccdda67617eab75fcbd7469fe3a2",
+    "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\runs\\membrane-acceptance-v1\\completed-commands.json": "c0d23afc4c512e05da112174d8fec95e5823ea8c62de33f3891573822641dcd9",
+    "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\tests\\membrane_teacher_cli.py": "87191a05eade7ee60fdac2dcdd5a148ee53aaf5a666b9bd3b963ecaef921a7cf",
+    "D:\\SynapticGenesis\\runs\\membrane-learning-v1\\failure.json": "43ff9f6ceac447fe137ecafeaa1f1b7509ef0f487c1844daadc6166ada9952ba"
+  },
+  "host_faults_rejected": 11,
+  "fresh_fixed_cli_native_commands": 11,
+  "full_acceptance_rerun_complete": false,
+  "language_quality_established": false
+}

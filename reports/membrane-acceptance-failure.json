@@ -1,0 +1,101 @@
+{
+  "error": "Acceptance command failed: membrane-teacher-cli; see D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\runs\\membrane-acceptance-v1\\command-020.log",
+  "completed_commands": [
+    {
+      "label": "membrane-native",
+      "returncode": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "membrane-oracle-3-1",
+      "returncode": 0,
+      "log_sha256": "62c6a55ebebd875dea351bceb7c5e5a63a9d816660ec56f8f4f2d36886126b9b"
+    },
+    {
+      "label": "membrane-oracle-3-2",
+      "returncode": 0,
+      "log_sha256": "2badb3e6fff2991b30aa720985b17965257046e3f82b4c0b20ba3bf9218c4684"
+    },
+    {
+      "label": "membrane-oracle-4-1",
+      "returncode": 0,
+      "log_sha256": "4e28d66adc454bf0e6a0c8558cfdbd872da36dd06c9e4d09e7b9f837590131b0"
+    },
+    {
+      "label": "membrane-oracle-4-2",
+      "returncode": 0,
+      "log_sha256": "849523045f01c6268f62ff2a8b9f380d22839bf62597307f35c65414599c27c6"
+    },
+    {
+      "label": "membrane-oracle-5-1",
+      "returncode": 0,
+      "log_sha256": "cbc416ca0df15fd44b57c13ba3f48be5e6c57f008c285efb9020b978babdcba9"
+    },
+    {
+      "label": "membrane-oracle-5-2",
+      "returncode": 0,
+      "log_sha256": "cdb12919f7f2cd5b47f667845742ee1825a90c07c32a218c244d74bca3139a40"
+    },
+    {
+      "label": "membrane-oracle-6-1",
+      "returncode": 0,
+      "log_sha256": "3d4d53cc045f1e3739883a3499daada24c77000dbdde169c8f9decb0bb48482b"
+    },
+    {
+      "label": "membrane-oracle-6-2",
+      "returncode": 0,
+      "log_sha256": "b1bb41759be38fa143c54f0db1c8bf9ba4a28182810342eacb39f9951b038c56"
+    },
+    {
+      "label": "native-suite",
+      "returncode": 0,
+      "log_sha256": "61f43b2d6aa66a5a0c95a4beb16ed040b29ff50deebb87afe2a0ffa7dfe3edd1"
+    },
+    {
+      "label": "legacy-oracle-test",
+      "returncode": 0,
+      "log_sha256": "1c1c4d1d48553d54f65f61fcf6d357c238009f29b986f758a5e811346b3beeed"
+    },
+    {
+      "label": "legacy-oracle-adaptive-test",
+      "returncode": 0,
+      "log_sha256": "93909ea6c29c2d8ed6e6ba56e9abb3f98f50e2f42d4a4384ad3062b8f87db87c"
+    },
+    {
+      "label": "legacy-oracle-trace-test",
+      "returncode": 0,
+      "log_sha256": "c1d452dbf3a0d1a70a6f69a66fb796765f0467e16d0c2977e9bbfe9e6fc35fb1"
+    },
+    {
+      "label": "legacy-oracle-gated-test",
+      "returncode": 0,
+      "log_sha256": "32ed53f9d699267fdcbd01cd71c2502485706f31a8dac1b22c078d9567485bf2"
+    },
+    {
+      "label": "legacy-oracle-selective-test",
+      "returncode": 0,
+      "log_sha256": "0722b6a862ec5fe220d2fd68034155c0766f9172d81ce35238cc9d652849d69a"
+    },
+    {
+      "label": "legacy-oracle-associative-test",
+      "returncode": 0,
+      "log_sha256": "b6c124fb033f8f70154d8292ef391ba221c70401244eac3c992b4482403b6d55"
+    },
+    {
+      "label": "disabled-runtime-parity",
+      "returncode": 0,
+      "log_sha256": "56c8393195480076220989365bb5b29302617f38231a04059e7cb7bc37601163"
+    },
+    {
+      "label": "teacher-cli-old",
+      "returncode": 0,
+      "log_sha256": "2c7fbaf4f44426c4ed15838c6f080e136b6ffbe466b037f8f53686d115ec0d32"
+    },
+    {
+      "label": "teacher-cli-new",
+      "returncode": 0,
+      "log_sha256": "dd17987f2d062454870543faa99a9c709dffd1f8c4d935d6f6fa644c30504a9f"
+    }
+  ],
+  "artifacts_preserved": true
+}
