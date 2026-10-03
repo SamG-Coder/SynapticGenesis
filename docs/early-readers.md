@@ -4,7 +4,7 @@ This separate starter edition contains **16 short English stories**: ten trainin
 
 The [completed live-rehearsal study](live-reading-results.md) also uses this edition with preserved recurrent and replay history. More replay partly reduces forgetting, but prolonged repetition still worsens unseen-story loss after early improvement. This provides evidence for testing content breadth and exposure limits before treating the starter edition as a sufficient general-language curriculum.
 
-A separate [reading expansion](reading-breadth.md) now provides 34 additional training stories and eight evaluation works. It excludes every source in this starter edition and protects all earlier selected books. Preparation is verified; learning on the expansion has not yet been tested.
+A separate [reading expansion](reading-breadth.md) now provides 34 additional training stories and eight evaluation works. It excludes every source in this starter edition and protects all earlier selected books. Preparation is verified, and the [declared native comparison](reading-breadth-experiment.md) has passed its execution smoke run; full learning results remain pending.
 
 The publisher's [reading levels](https://storybookscanada.ca/about/faq/) describe increasing text length and complexity. Our first group uses level 1, the second level 2 and the third levels 3–4. These are content groups, not human ages or measured model mastery. Training groups contain 70, 554 and 1,961 words respectively. They need an explicit exposure budget and independent skill assessment before being used for stage promotion.
 

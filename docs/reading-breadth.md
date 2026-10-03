@@ -4,9 +4,11 @@ This edition adds **34 training stories and 9,827 words**, with four whole works
 for development and four reserved for testing. It follows the
 [live-rehearsal comparison](live-reading-results.md), where additional replay
 reduced some forgetting but prolonged exposure to ten repeated stories still
-overfit. The expansion is prepared and audited; **no model has trained or been
-scored on this edition yet**. Adding material has not established better answers,
-durable retention or a useful developmental schedule.
+overfit. The expansion is prepared and audited. The
+[declared native comparison](reading-breadth-experiment.md) now has a completed
+execution smoke run; its three-seed learning comparison remains pending. Adding
+material has not established better answers, durable retention or a useful
+developmental schedule.
 
 | Role | Whole works | Words | UTF-8 bytes, including document separators | Within-document next-byte targets |
 | --- | ---: | ---: | ---: | ---: |
@@ -117,9 +119,9 @@ retains its original story notes, so its development text includes editorial
 prose. Whole-work holdouts still share vocabulary, constructions and some
 creators with training.
 
-The next comparison should declare a bounded number of passes and compare the
-starter and broader selections with the existing replay controls, shared
-ancestors, earlier-skill measurements and actual generated examples. Equal
-passes, equal new-source targets and equal optimizer updates are different
-comparisons. This preparation makes those comparisons possible; it does not
-establish a stopping rule or justify changing age, growth or reproduction policy.
+The [declared comparison](reading-breadth-experiment.md) fixes one and two broader
+passes and compares the starter and broader selections with the existing replay
+controls, shared ancestors, earlier-skill measurements and actual generated
+examples. Equal passes, equal new-source targets and equal optimizer updates are
+different comparisons. Preparation and smoke verification do not establish a
+stopping rule or justify changing age, growth or reproduction policy.

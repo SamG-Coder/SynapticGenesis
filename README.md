@@ -99,7 +99,7 @@ A separate [selected story corpus](docs/story-corpus.md) provides seven addition
 
 A small [early-reader starter set](docs/early-readers.md) adds ten selected graded training stories and six held-out stories, with pinned editions, individual CC BY licenses and complete attribution. Its 2,585 training words supply simple everyday language. Preparation and exclusion checks pass, and the native reading-adaptation study now trains on this edition with separate development and reserved test stories.
 
-A separately prepared [reading expansion](docs/reading-breadth.md) adds **34 training stories and 9,827 words**, plus eight whole evaluation works. Its audit reproduces 54 files, protects all 28 earlier selected sources and rejects 20 corruption/contamination controls. Full attribution and source-specific review notes are retained. This edition has not yet been used for model learning or assessment; broader text alone has not demonstrated improved language or retention.
+A separately prepared [reading expansion](docs/reading-breadth.md) adds **34 training stories and 9,827 words**, plus eight whole evaluation works. Its audit reproduces 54 files, protects all 28 earlier selected sources and rejects 20 corruption/contamination controls. Full attribution and source-specific review notes are retained. A [declared native breadth comparison](docs/reading-breadth-experiment.md) has passed its execution smoke run; the three-seed learning result remains pending. Broader text alone has not demonstrated improved language or retention.
 
 ## Optional batched founder training
 

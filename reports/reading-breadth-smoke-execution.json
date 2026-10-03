@@ -1,0 +1,205 @@
+{
+  "passed": true,
+  "comparison_sha256": "631f06a4c16e9a63fbd729a6fc5edf23a477321327872ef926fe3abf0c11bbbe",
+  "native_commands": 76,
+  "diagnostic_commands": 13,
+  "branches": 4,
+  "checkpoint_assessments": 13,
+  "exact_history_checks": [
+    {
+      "seed": 1337,
+      "arm": "starter-4",
+      "additional_observations": 16,
+      "checkpoint_sha256": "1689b3c92aee33f11617551392e23677280c9bbcd5e0b7754ca329051b09022e",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 836
+    },
+    {
+      "seed": 1337,
+      "arm": "starter-4",
+      "additional_observations": 116,
+      "checkpoint_sha256": "5772d291537962f5f03ff7fa01ae9572f7221b74fc306205cde6c9f66451c070",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 936
+    },
+    {
+      "seed": 1337,
+      "arm": "starter-4",
+      "additional_observations": 546,
+      "checkpoint_sha256": "4fc436039ef1004fd740862c54b56ece539c523e687a3b5c0f5aff443fa04601",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 1024
+    },
+    {
+      "seed": 1337,
+      "arm": "broader-4",
+      "additional_observations": 16,
+      "checkpoint_sha256": "4ebea7c9e9d7b5f267568c45b20f882acfdf78a9f88e324ac579f249ada1da07",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 836
+    },
+    {
+      "seed": 1337,
+      "arm": "broader-4",
+      "additional_observations": 116,
+      "checkpoint_sha256": "baf0fbffcfaf84ef71ddd715c18effcc22328cae5ce301335a4fcd2b773515ea",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 936
+    },
+    {
+      "seed": 1337,
+      "arm": "broader-4",
+      "additional_observations": 546,
+      "checkpoint_sha256": "f8945a1831d71626b489664ff254e88eaae1773234ebc6f7b7fb78194bb7d085",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 1024
+    },
+    {
+      "seed": 1337,
+      "arm": "starter-1",
+      "additional_observations": 16,
+      "checkpoint_sha256": "5790968d36efd45fc9d80fb4d6e5cbe135a19a3e9bb98d22a6edc34440697574",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 836
+    },
+    {
+      "seed": 1337,
+      "arm": "starter-1",
+      "additional_observations": 116,
+      "checkpoint_sha256": "a285ebcc4134600d6b6658cb7ae05f8ecc04abab8ade5c4843c5f493225153ab",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 936
+    },
+    {
+      "seed": 1337,
+      "arm": "starter-1",
+      "additional_observations": 546,
+      "checkpoint_sha256": "3f8bd1d473ea2ab890786860f7a10272c3fcb81386127f96e222e3f5182e96c9",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 1024
+    },
+    {
+      "seed": 1337,
+      "arm": "broader-1",
+      "additional_observations": 16,
+      "checkpoint_sha256": "fd265fada36342b929cb1d05174bcb054f5c71812cfba40d3415b6455a930156",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 836
+    },
+    {
+      "seed": 1337,
+      "arm": "broader-1",
+      "additional_observations": 116,
+      "checkpoint_sha256": "a11fd5876f0c5b778f23d99be63e35a4ff1782488a7efa06b0d0d274cbbf2dc2",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 936
+    },
+    {
+      "seed": 1337,
+      "arm": "broader-1",
+      "additional_observations": 546,
+      "checkpoint_sha256": "f9f4ba5411ca93aab0e8e49c5fe4fb6f90d342ccb1295e57c8978da626cdd5da",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 1024
+    }
+  ],
+  "common_prefix_checks": [
+    {
+      "seed": 1337,
+      "replay_every": 4,
+      "observations": 116,
+      "learned_payload_identical": true
+    },
+    {
+      "seed": 1337,
+      "replay_every": 1,
+      "observations": 116,
+      "learned_payload_identical": true
+    }
+  ],
+  "previous_baseline_checks": [
+    {
+      "seed": 1337,
+      "previous_starter_assessment_identical": true
+    }
+  ],
+  "native_sources_and_executables_authenticated": true,
+  "ancestors_unchanged": true,
+  "assessment_weights_and_moments_identical": true,
+  "source_splits_authenticated": true,
+  "reserved_tests_not_scored": true,
+  "uninterrupted_controls": [
+    {
+      "arm": "starter-4",
+      "full_checkpoint_identical": true,
+      "speech_identical": true,
+      "crosses_speech_interval": true
+    },
+    {
+      "arm": "broader-4",
+      "full_checkpoint_identical": true,
+      "speech_identical": true,
+      "crosses_speech_interval": true
+    },
+    {
+      "arm": "starter-1",
+      "full_checkpoint_identical": true,
+      "speech_identical": true,
+      "crosses_speech_interval": true
+    },
+    {
+      "arm": "broader-1",
+      "full_checkpoint_identical": true,
+      "speech_identical": true,
+      "crosses_speech_interval": true
+    }
+  ]
+}
