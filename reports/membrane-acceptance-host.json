@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "cuda_executed": false,
+  "native_acceptance_executed": false,
+  "mocked_success_not_device_evidence": true,
+  "command_count": 20,
+  "ctest_cases": 18,
+  "rejections": [
+    "ctest_missing_case",
+    "ctest_duplicate_case",
+    "ctest_skipped_case",
+    "ctest_failed_case",
+    "ctest_disabled_suite",
+    "ctest_skipped_suite",
+    "teacher_checkpoint_changed",
+    "teacher_extra_checkpoint",
+    "predecessor_complete",
+    "predecessor_baseline_assessments_exact",
+    "predecessor_matched_source_replay_and_speech_exposure",
+    "predecessor_matched_replay_payloads",
+    "predecessor_random_initialization",
+    "predecessor_imported_weights",
+    "predecessor_reserved_tests_scored",
+    "predecessor_reproduction_admitted",
+    "predecessor_native_learning_commands",
+    "predecessor_native_assessment_commands",
+    "predecessor_controls",
+    "predecessor_rows",
+    "changed_input",
+    "changed_protocol",
+    "changed_command",
+    "changed_driver",
+    "failed_driver",
+    "incomplete_predecessor",
+    "changed_after_wait",
+    "changed_ctest",
+    "duplicate_execution",
+    "real_nonzero_driver",
+    "real_wrong_executable"
+  ],
+  "real_cpu_process_cases": [
+    {
+      "exit_code": 0,
+      "identity": {
+        "pid": 16676,
+        "executable": "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "creation_filetime": 134355280133686650
+      }
+    },
+    {
+      "exit_code": 7,
+      "identity": {
+        "pid": 39444,
+        "executable": "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+        "creation_filetime": 134355280137002822
+      }
+    }
+  ],
+  "native_fixture_snapshot_comparisons": [
+    {
+      "optional_si": false,
+      "files": {
+        "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\runs\\membrane-checkpoint-host-final\\6-6-0-legacy.ckpt": "78d4ed3d7e97d9f801774b4a2d63b20807880d21aaea39a59ec9a3fac13647a5",
+        "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\runs\\membrane-checkpoint-host-final\\6-6-0-membrane.ckpt": "2a39befc4468997d964f4499f02d77247a039e7e11ffc6a17b59ccb30b9d7e2c"
+      }
+    },
+    {
+      "optional_si": true,
+      "files": {
+        "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\runs\\membrane-checkpoint-host-final\\6-6-1-legacy.ckpt": "d5288d32c200c827015c6c50bc55821fb5456d95c619073e89b6a5b8c7858215",
+        "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\runs\\membrane-checkpoint-host-final\\6-6-1-membrane.ckpt": "7a1d0fa168a9c8361ab5fe532e666eb3f5457e46ffa0b6423813b26d82bd8a8e"
+      }
+    }
+  ],
+  "source_sha256": {
+    "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\tests\\membrane_acceptance.py": "a88cb0a2dedefc6ec7f93b13331afb1b9bdfccd29293360f9b646ff6a16c2968",
+    "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\scripts\\membrane_acceptance.py": "2adeac6be8459631474bc3547d317c8cd1914f288c189ab0a2ffac4348b6a9c9",
+    "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\scripts\\large_founder_verification.py": "00acfdf913df933c2518cba92e0876ad160a5016b1d682df43e3dd0ca7ed2ef7",
+    "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\scripts\\process_gate.py": "9cce7bb72fdb721ea1948f82dd94c43cc1fdc3fae7e9febf88ba94ed28fe2dc7",
+    "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\tests\\membrane_teacher_cli.py": "87191a05eade7ee60fdac2dcdd5a148ee53aaf5a666b9bd3b963ecaef921a7cf"
+  }
+}
