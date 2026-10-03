@@ -1,0 +1,25 @@
+{
+  "version": "prose-retention-lr-v1",
+  "purpose": "Test a lower late-stage learning rate after the observed 105M prose regression.",
+  "profile": "105m",
+  "seed": 1337,
+  "starting_observations": 95207,
+  "checkpoint": "runs/prose-105m-founder/stage-3.ckpt",
+  "checkpoint_sha256": "e6983e807ec6346802a870e1879efd993f0fb4d9e1ab8fe4f5ce7079711f0474",
+  "schedule": "runs/prose-scale-curriculum/curriculum.sg",
+  "evaluation_spec": "data/prose-evaluation-v1.json",
+  "original_result": "reports/prose-105m-complete.json",
+  "endpoints": [155748, 216289],
+  "arms": [
+    {"name": "resumed-control", "learning_rate": 0.0003},
+    {"name": "quarter-rate", "learning_rate": 0.000075}
+  ],
+  "save_every": 8192,
+  "log_every": 2048,
+  "prompt": "The bird ",
+  "additional_books": "First and last training books in the admitted fourth source stage, in declared order.",
+  "required_predecessor": "Completed three-size comparison and matched spike-response panel.",
+  "control_requirement": "The resumed control's completed checkpoint must be byte-identical to the published original stage-four checkpoint before the quarter-rate arm may begin.",
+  "comparison": "Report all four validation losses, their equal-book mean, both early-reader training losses and both new-stage training losses before learning, halfway through the last stage and at completion. Report raw generations, exposure counters, replay-state identity and timing separately. No automatic promotion.",
+  "limits": "One seed and two rates selected after seeing the original development regression. This is an exploratory learning-rate test, not a blinded confirmation or biological ageing model. Reducing the AdamW rate scales both its adaptive gradient step and effective decoupled weight decay. No reserved test scoring, optimizer reset, extra training content, teacher feedback or neuron equation change."
+}
