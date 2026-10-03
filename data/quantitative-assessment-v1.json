@@ -1,0 +1,52 @@
+{
+  "version": "quantitative-prose-baselines-v1",
+  "suite": "data/prepared/quantitative-development-v2",
+  "suite_manifest_sha256": "9879a83d0cf61314424b04ed561bda4d8c5f76314ceeaa41e948886720367e2c",
+  "suite_audit": "reports/quantitative-probes-v2-checks.json",
+  "suite_audit_sha256": "f573844b10b3d1d7bb89fff9da27d6bbf52b1daff19cb6946d12e04365c2cbae",
+  "suite_source": "data/quantitative-probes-v2.json",
+  "suite_source_sha256": "908304a0c7532f9b1f679b7e99a9e7a7c63f8f61ae1cd062b66a03f3d7b8fda7",
+  "baseline_result": "reports/prose-411m-results.json",
+  "baseline_result_sha256": "e88aa9ac0181e89a320e2d5965547de5e4893542de7c3773f4b510422c80b3d1",
+  "baseline_audit": "reports/prose-411m-audit.json",
+  "baseline_audit_sha256": "9244208713d6329a2f0f8202c1eafb94dfde5317ef76da23b718fd43bee6d9cc",
+  "source_edition": "selected-prose-scale-v1",
+  "source_spec": "data/sources-prose-scale-v1.json",
+  "source_spec_sha256": "662efb7b6690f97811333838b20de179aa3ae6639acf461678d1e16004683015",
+  "cases": [
+    {
+      "profile": "105m",
+      "stage": 4,
+      "checkpoint": "runs/prose-replay-capacity/founder-105m/stage-4.ckpt",
+      "checkpoint_sha256": "c45f5d962112f73fe3ad2688f61f6689f6e9f10aa775ff6dfc38c62c241fe2a5"
+    },
+    {
+      "profile": "411m",
+      "stage": 4,
+      "checkpoint": "runs/prose-411m-v1/founder-411m/stage-4.ckpt",
+      "checkpoint_sha256": "7fd7871cf8e49e5a12e0790bc6f0167673a45515168cf30aa749dcf23ba4b441"
+    }
+  ],
+  "runtime": "D:\\SynapticGenesis\\runs\\membrane-acceptance-fix-worktree\\build\\synapticgenesis.exe",
+  "runtime_sha256": "bbc94b245887c8a6d473ae8cbe44dda6afa5993e29504f32baabeb02971ec481",
+  "predecessor": "runs\\membrane-learning-v2",
+  "predecessor_protocol_sha256": "6712a77215645612c1f4b9144dd2685c66670941ada673fa4212ac6b328037bd",
+  "generation": {
+    "bytes": 128,
+    "seed": 42,
+    "temperature": 0.8,
+    "top_k": 40,
+    "selection": "First numerical group, unswapped context, trial A, for each skill in declared source order.",
+    "arithmetic": "Graph sampling with the complete checkpoint math policy; separate from strict-FP32 probe scoring."
+  },
+  "native_commands_per_model": 9,
+  "native_commands_total": 18,
+  "learning_commands": 0,
+  "limits": [
+    "Two existing completed prose checkpoints, one seed; no model updates or lesson continuation.",
+    "These development scores do not establish useful dialogue, broad arithmetic/science skill or reproductive fitness.",
+    "Report raw byte outputs, per-skill likelihood and greedy exact scores, context-erased controls and declared heuristic baselines separately.",
+    "Scoring time includes multiple candidate/context forwards and GPU/CPU transfers; it is not isolated decode throughput.",
+    "No automatic model, parent or teacher selection."
+  ]
+}

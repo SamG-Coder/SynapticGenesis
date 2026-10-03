@@ -104,12 +104,13 @@ as training, a teacher, a parent or a reproduction gate.
 
 ## Next assessment and reproduction
 
-When the GPU study finishes, score the frozen prose checkpoints before
-lesson continuation, then use exactly the same suite after a declared
-continuation. Record checkpoint, executable and suite hashes and retain
-every raw result. No checkpoint has been selected here and no scoring job
-has been launched or queued. Do not infer a model-quality result from the
-host-side checks above.
+The [native baseline handoff](quantitative-assessment.md) selects the
+completed 105M and 411M prose checkpoints for scoring after the GPU study
+finishes. A later declared lesson continuation should use exactly the same
+suite and preserve every raw result. The handoff records checkpoint,
+executable and suite hashes; it does not choose a learner or parent from
+these development scores. Host checks and a waiting process do not establish
+a model-quality result.
 
 Future learning inputs must pass `quantitative_probes.protect` for these
 full contexts and trial statements before launch. The manifest's

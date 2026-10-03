@@ -1,0 +1,162 @@
+{
+  "passed": true,
+  "report_checks": {
+    "synthetic_only": true,
+    "raw_non_utf8_bytes_preserved": true,
+    "rounded_threshold_ambiguity_preserved": true,
+    "known_fnv_vectors": true,
+    "item_group_skill_and_loss_aggregates_checked": true
+  },
+  "handoff_checks": {
+    "synthetic_only": true,
+    "mocked_native_commands": 18,
+    "mocked_complete_models": 2,
+    "failed_or_reused_predecessor_starts_zero_native_commands": true
+  },
+  "real_input_admission": {
+    "cases": [
+      {
+        "profile": "105m",
+        "checkpoint": "runs/prose-replay-capacity/founder-105m/stage-4.ckpt",
+        "checkpoint_sha256": "c45f5d962112f73fe3ad2688f61f6689f6e9f10aa775ff6dfc38c62c241fe2a5"
+      },
+      {
+        "profile": "411m",
+        "checkpoint": "runs/prose-411m-v1/founder-411m/stage-4.ckpt",
+        "checkpoint_sha256": "7fd7871cf8e49e5a12e0790bc6f0167673a45515168cf30aa749dcf23ba4b441"
+      }
+    ],
+    "authenticated_inputs": 409,
+    "host_only": true
+  },
+  "rejected_inputs": [
+    {
+      "case": "contradictory-rounded-decision",
+      "reason": "Native prediction contradicts its likelihoods"
+    },
+    {
+      "case": "suite-identity",
+      "reason": "Native assessment identity differs"
+    },
+    {
+      "case": "checkpoint-identity",
+      "reason": "Native assessment identity differs"
+    },
+    {
+      "case": "nonfinite-score",
+      "reason": "Invalid native candidate likelihoods"
+    },
+    {
+      "case": "negative-score",
+      "reason": "Invalid native candidate likelihoods"
+    },
+    {
+      "case": "wrong-prediction",
+      "reason": "Native prediction contradicts its likelihoods"
+    },
+    {
+      "case": "wrong-label",
+      "reason": "Native item label or identity differs"
+    },
+    {
+      "case": "missing-item",
+      "reason": "Native item order differs"
+    },
+    {
+      "case": "reordered-items",
+      "reason": "Native item order differs"
+    },
+    {
+      "case": "boolean-prediction",
+      "reason": "Invalid native prediction"
+    },
+    {
+      "case": "unicode-not-raw-byte",
+      "reason": "Native generation is not a byte string"
+    },
+    {
+      "case": "wrong-generation-budget",
+      "reason": "Greedy byte budget differs"
+    },
+    {
+      "case": "wrong-item-aggregate",
+      "reason": "Native aggregate differs from its item records"
+    },
+    {
+      "case": "wrong-group-aggregate",
+      "reason": "Native aggregate differs from its item records"
+    },
+    {
+      "case": "wrong-greedy-aggregate",
+      "reason": "Native aggregate differs from its item records"
+    },
+    {
+      "case": "wrong-loss-aggregate",
+      "reason": "Native aggregate differs from its item records"
+    },
+    {
+      "case": "wrong-answer-denominator",
+      "reason": "Native answer-byte denominator differs"
+    },
+    {
+      "case": "wrong-skill-aggregate",
+      "reason": "Native aggregate differs from its item records"
+    },
+    {
+      "case": "state-mutation-flag",
+      "reason": "Native read-only or arithmetic contract differs"
+    },
+    {
+      "case": "wrong-math",
+      "reason": "Native read-only or arithmetic contract differs"
+    },
+    {
+      "case": "invalid-time",
+      "reason": "Invalid native assessment timing"
+    },
+    {
+      "case": "context-erased-drift",
+      "reason": "Identical context-erased inputs produced different results"
+    },
+    {
+      "case": "unfinished-predecessor",
+      "reason": "GPU predecessor has not completed"
+    },
+    {
+      "case": "missing-predecessor-case",
+      "reason": "GPU predecessor command coverage differs"
+    },
+    {
+      "case": "predecessor-command-count",
+      "reason": "GPU predecessor command coverage differs"
+    },
+    {
+      "case": "predecessor-case-order",
+      "reason": "GPU predecessor cases differ"
+    },
+    {
+      "case": "failed-predecessor",
+      "reason": "GPU predecessor failed"
+    },
+    {
+      "case": "failed-process-gate",
+      "reason": "synthetic predecessor exited nonzero"
+    },
+    {
+      "case": "reused-process-identity",
+      "reason": "Study process identity changed"
+    },
+    {
+      "case": "incomplete-study-before-native",
+      "reason": "synthetic incomplete predecessor"
+    }
+  ],
+  "implementation_sha256": {
+    "D:/SynapticGenesis/runs/quantitative-probes-worktree/tests/quantitative_assessment.py": "e07b399da33d384befb18da8e406d6cba50ebeaf5184be13c0b832d091d9640f",
+    "D:/SynapticGenesis/runs/quantitative-probes-worktree/scripts/quantitative_report.py": "c0a5b2abb91af6dd78c660a55284b34f5b48964a8a236a331ff9602b9f34532f",
+    "D:/SynapticGenesis/runs/quantitative-probes-worktree/scripts/quantitative_assessment.py": "8d8bd0c7d266d37a3bd03ef8fed80bed308e213bad4e16885672a0cfc117fbb0",
+    "D:/SynapticGenesis/runs/quantitative-probes-worktree/scripts/quantitative_assessment_inputs.py": "6f0997026414c700bfcfc59df9bc1cf31a087ad415a7e3f064d1d9015135946e"
+  },
+  "native_commands_launched": 0,
+  "model_quality_verified": false
+}
