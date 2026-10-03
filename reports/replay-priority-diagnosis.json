@@ -1,0 +1,64 @@
+{
+  "selection": "All failed first-update CPU candidate score checks; post-hoc trace diagnosis.",
+  "execution_sha256": "8f6723162908319acff05f4174fa87608adc8f14913b5b7be60bb8f6912cd6db",
+  "diagnostic_sha256": "f577fba867666b1f2e282b9cd52d50e6a12e8dcf234e55de66f8f048607026ac",
+  "source_sha256": {
+    "tests/replay_priority_diagnosis.py": "20751f14df1699c128c2faf36c265fbffc2bd217b556558848dd70aff13d4cec",
+    "tests/trace_comparison.py": "1cdc7729a6d7fc0726d782846516e32344c18e4f590033fb9ff9ce9a5a5b6f4d",
+    "tests/probes_cli.py": "1bb5c7ece07850a61c292312c6b15735649a98041f2805899924a565095b1609",
+    "tests/learned_trace_dump.cu": "ecd6ef738c9d314fb0d5ada992b8a7652d7c24f97f524088a440d2fa63b7695e"
+  },
+  "records": [
+    {
+      "seed": 1337,
+      "failure": {
+        "phase": "before",
+        "document": 39564,
+        "offset": 0,
+        "length": 76,
+        "max_abs_error": 0.0012706089386675112,
+        "passed": false
+      },
+      "candidate": {
+        "slot": 706,
+        "group": 3,
+        "document": 39564,
+        "offset": 0,
+        "length": 76,
+        "before": {
+          "mean": 0.13210992319019219,
+          "weighted": 0.026334403802061934,
+          "answer_targets": 5,
+          "answer": 0.0008139610290527344
+        },
+        "after": {
+          "mean": 0.13694544214951365,
+          "weighted": 0.027102046000683094,
+          "answer_targets": 5,
+          "answer": 0.0006001472473144531
+        }
+      },
+      "checkpoint_sha256": "6d2ee0abf93773b08bcaacd73a8141ed3ee21fa838a2d5730113ceb5c98b79ed",
+      "native_scores_reproduced_exactly": true,
+      "answer_targets": 5,
+      "first_spike_divergence": {
+        "layer_zero_based": 0,
+        "byte_zero_based": 52,
+        "neuron_zero_based": 390,
+        "cpu_membrane": 1.0000001192092896,
+        "native_membrane": 0.9999988675117493,
+        "cpu_spike": 1.0,
+        "native_spike": 0.0
+      },
+      "native_nll": 0.004069805145263672,
+      "cpu_nll": 0.005606691942375619,
+      "first_difference_within_1e_minus_5_of_threshold": true,
+      "single_spike_override_nll": 0.004071611536346609,
+      "single_spike_override_nll_error": 1.8063910829368979e-06,
+      "single_spike_override_max_logit_error": 1.1444091796875e-05,
+      "single_spike_override_matches_all_native_spikes": true
+    }
+  ],
+  "original_strict_cpu_check_passed": false,
+  "limits": "Forced CPU spike is a diagnostic intervention, not an independent pass or a production fix."
+}

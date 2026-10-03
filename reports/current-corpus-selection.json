@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "selection_sha256": "8a741de1969977321d8b0fb0ed8b402da6dff832a9a50cf870a8d91073dd99f3",
+  "selection_sha256": "8c87d539d90e54e722192870f985c61c4dc656e05ae9913ea83270602b96b9ae",
   "active_foundation_directory": "data/prepared/selected-foundations-v1",
   "foundation_source_spec_sha256": "c72ff3705bbc73aa06cc588c1a67ddad3595b87a4e8712b646f8fa0c9796f4a3",
   "foundation_manifest_sha256": "1d619215c80b49b069f7a1795a2280e4245f0fdfa1ee9b8cb0a0d37985e5f889",
@@ -79,7 +79,36 @@
       "parameters": 1951624
     }
   ],
+  "diagnostic_bases": [
+    {
+      "seed": 1337,
+      "online_updates": 160000,
+      "checkpoint": "runs/teacher-retention-panel/1337-associative-control/checkpoint-160000.ckpt",
+      "sha256": "4bb143790c46419e81115b55024f90916f7bac95e6de302b6e4f94b2d97a7b67",
+      "recorded_historical_checkpoint_identical": true,
+      "source_observations": 160000,
+      "parameters": 1951624
+    },
+    {
+      "seed": 2026,
+      "online_updates": 160000,
+      "checkpoint": "runs/teacher-retention-panel/2026-associative-control/checkpoint-160000.ckpt",
+      "sha256": "0e993c7783afdaebed388bbb12d27de99469caa28d9fab0925b8b1408039e56c",
+      "recorded_historical_checkpoint_identical": true,
+      "source_observations": 160000,
+      "parameters": 1951624
+    },
+    {
+      "seed": 31415,
+      "online_updates": 160000,
+      "checkpoint": "runs/teacher-retention-panel/31415-associative-control/checkpoint-160000.ckpt",
+      "sha256": "105c7eec484d5d664702611ae36950436edb05b9f725031d8722cf7fe77d7727",
+      "recorded_historical_checkpoint_identical": true,
+      "source_observations": 160000,
+      "parameters": 1951624
+    }
+  ],
   "no_new_training_performed": true,
   "reserved_tests_not_scored": true,
-  "provenance": "The three recorded 190000-observation checkpoints precede admission of both retired story editions. Checks authenticate the published study, source schedule and checkpoint bytes; later descendants are not selected. Earlier experimental artifacts remain historical records."
+  "provenance": "The recorded 160000- and 190000-observation checkpoints precede admission of both retired story editions. Checks authenticate the published study, source schedule and checkpoint bytes; later descendants are not selected. Earlier experimental artifacts remain historical records."
 }

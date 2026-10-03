@@ -4,9 +4,10 @@ The completed [rehearsal comparison](live-reading-results.md) found a partial
 retention benefit from more replay, with higher runtime cost and continued
 forgetting. The [reading-breadth protocol](reading-breadth-experiment.md) tests
 content and repetition separately from a new replay selector. This note proposes
-a later diagnostic: measure which stored experiences a new update damages
-before changing how the live learner selects them. No priority selector is
-implemented or promoted by this research note.
+a diagnostic: measure which stored experiences a new update damages
+before changing how the live learner selects them. The
+[first completed measurement](replay-priority-diagnostic.md) now reports that
+signal and its runtime cost. No priority selector is implemented or promoted.
 
 Schapiro and colleagues studied 24 people learning 15 novel objects. Their
 fMRI analysis associated weaker initial object memory with more hippocampal

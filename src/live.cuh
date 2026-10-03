@@ -199,11 +199,21 @@ struct LiveResult {
     float teacher_penalty = 0;
     size_t teacher_pairs = 0;
 };
-LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const std::string &prompt) {
+// Optional diagnostics observe an actual source update before scheduled replay.
+// Implementations must keep learned parameters, live recurrence and policy intact.
+struct LiveSourceObserver {
+    virtual ~LiveSourceObserver() = default;
+    virtual void before_source(LiveEngine &, const LiveCorpus &, const State &, const Episode &) = 0;
+    virtual void after_source(LiveEngine &, const LiveCorpus &, const State &, const Episode &) = 0;
+};
+LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const std::string &prompt,
+                     LiveSourceObserver *observer = nullptr) {
     std::vector<int> x, y;
     data.next(s, engine.root.T, x, y);
     Episode current{s.meta[19], s.meta[20], x.size()};
     ReplayMemory memory(s);
+    if (observer)
+        observer->before_source(engine, data, s, current);
     if (s.meta[25]) {
         engine.root.reset();
         s.meta[25] = 0;
@@ -214,6 +224,8 @@ LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const
     double activity = model.rate();
     model.backward(s.hp[4]);
     float norm = model.update(int(++s.meta[7]), s.hp[0], s.hp[1], s.hp[2], memory.core_scale());
+    if (observer)
+        observer->after_source(engine, data, s, current);
     ++s.meta[24];
     data.advance(s, x.size());
     float replay_loss = 0;

@@ -28,6 +28,27 @@
   "next_material": "Selected elementary reading, arithmetic, nature and practical science. Review the actual passages, their difficulty, factual quality and reuse terms before admitting another edition.",
   "continuation_schedule": "runs/teacher-retention-panel/edition/curriculum.sg",
   "continuation_schedule_sha256": "fc9c152f1f9f37c4b080ddd02cf1888204fa203db7d080c60589261cc621fe03",
+  "diagnostic_scope": "Earlier checkpoints from the same admitted lineage may continue within the original schedule for disposable learning diagnostics. Diagnostic descendants are not automatically admitted for teaching or reproduction.",
+  "diagnostic_bases": [
+    {
+      "seed": 1337,
+      "online_updates": 160000,
+      "checkpoint": "runs/teacher-retention-panel/1337-associative-control/checkpoint-160000.ckpt",
+      "sha256": "4bb143790c46419e81115b55024f90916f7bac95e6de302b6e4f94b2d97a7b67"
+    },
+    {
+      "seed": 2026,
+      "online_updates": 160000,
+      "checkpoint": "runs/teacher-retention-panel/2026-associative-control/checkpoint-160000.ckpt",
+      "sha256": "0e993c7783afdaebed388bbb12d27de99469caa28d9fab0925b8b1408039e56c"
+    },
+    {
+      "seed": 31415,
+      "online_updates": 160000,
+      "checkpoint": "runs/teacher-retention-panel/31415-associative-control/checkpoint-160000.ckpt",
+      "sha256": "105c7eec484d5d664702611ae36950436edb05b9f725031d8722cf7fe77d7727"
+    }
+  ],
   "continuation_bases": [
     {
       "seed": 1337,

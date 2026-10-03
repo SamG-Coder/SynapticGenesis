@@ -1,0 +1,1073 @@
+{
+  "complete": true,
+  "protocol": {
+    "status": "declared_before_execution",
+    "start": 160000,
+    "end": 160512,
+    "rounds": 2,
+    "observe_every": 32,
+    "candidates_per_group": 8,
+    "candidate_seed": 42,
+    "schedule": "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\curriculum.sg",
+    "bases": [
+      {
+        "seed": 1337,
+        "online_updates": 160000,
+        "checkpoint": "runs/teacher-retention-panel/1337-associative-control/checkpoint-160000.ckpt",
+        "sha256": "4bb143790c46419e81115b55024f90916f7bac95e6de302b6e4f94b2d97a7b67"
+      },
+      {
+        "seed": 2026,
+        "online_updates": 160000,
+        "checkpoint": "runs/teacher-retention-panel/2026-associative-control/checkpoint-160000.ckpt",
+        "sha256": "0e993c7783afdaebed388bbb12d27de99469caa28d9fab0925b8b1408039e56c"
+      },
+      {
+        "seed": 31415,
+        "online_updates": 160000,
+        "checkpoint": "runs/teacher-retention-panel/31415-associative-control/checkpoint-160000.ckpt",
+        "sha256": "105c7eec484d5d664702611ae36950436edb05b9f725031d8722cf7fe77d7727"
+      }
+    ],
+    "authenticated_inputs": {
+      "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\curriculum.sg": "fc9c152f1f9f37c4b080ddd02cf1888204fa203db7d080c60589261cc621fe03",
+      "data/training-selection.json": "8c87d539d90e54e722192870f985c61c4dc656e05ae9913ea83270602b96b9ae",
+      "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\edition-1.dat": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+      "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\edition-2.dat": "281033ec58dc79bfcdf79e340ea2cfce022755afc321a4859e0223d243d5541b",
+      "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\edition-3.dat": "ff05a8dc3d4de5c01c88a08057db99aeedf45572683556b7259b7a518f5daa42",
+      "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\edition-4.dat": "a80ea7496cec30a761bb5ace5a6d76dbe16a14f16e0d555e108a1ce392485d5f",
+      "runs/teacher-retention-panel/1337-associative-control/checkpoint-160000.ckpt": "4bb143790c46419e81115b55024f90916f7bac95e6de302b6e4f94b2d97a7b67",
+      "runs/teacher-retention-panel/2026-associative-control/checkpoint-160000.ckpt": "0e993c7783afdaebed388bbb12d27de99469caa28d9fab0925b8b1408039e56c",
+      "runs/teacher-retention-panel/31415-associative-control/checkpoint-160000.ckpt": "105c7eec484d5d664702611ae36950436edb05b9f725031d8722cf7fe77d7727",
+      "D:\\SynapticGenesis\\build\\synapticgenesis.exe": "34d6a11788bf8d8c6031451868da46bfaaa453c7dfe4ac26aae1b11bbeba48b9",
+      "D:\\SynapticGenesis\\build\\pre-replay-priority\\synapticgenesis.exe": "64c76be6fb5925757c97e4d4808f6e7c176a4dc17d47d288861caae4a8954b01",
+      "D:\\SynapticGenesis\\build\\replay-priority-probe\\synaptic-replay-priority-probe.exe": "3314ab147da34e6fd2bec0b5af2876e704a18a5044e23e0333751243b98fbf5d"
+    },
+    "source_sha256": {
+      "src/live.cuh": "cdb2044ad816a9e167c893a33672b7593d3697b3fb0f74c16ae8c03d0ab5f0ed",
+      "experiments/replay_priority_probe.cu": "5df44dfa5c82e04c45ae4fb3dfc08eaf9c7018ab601e6fe2b2764b65effed7f0",
+      "experiments/replay_priority_scoring.cuh": "f501f3a8b9993ef46669748f2110d8b83f1fd11952852dfad7192994c0a9284a",
+      "scripts/replay_priority_experiment.py": "45db3bd4988b8204ef5bbf59889d17be280d8eecc0ef46094d3dfca8753237b4",
+      "tests/replay_priority_probe.py": "c238ee9a15e9f08886be2eafedd43328058b50dfc51e4d07d64716e2e32eb67c",
+      "tests/replay_priority_experiment.py": "f772754099a43a7eb2d1951c8330f94469a7de562c969ae921f6aa2ef65dff9d",
+      "scripts/summarize_replay_priority.py": "6dda6594005037f9bb9923b7d37a41827d2f0098babdd76edb118b0aa1886c61"
+    },
+    "source_commit": "183c1ce0f5909a843534332b6283ad65bee75b9a",
+    "hardware": "NVIDIA GeForce RTX 5080, 616.64, 16303 MiB",
+    "other_gpu_contexts_active": true,
+    "reserved_tests_scored": false,
+    "generated_text_targets": false,
+    "priority_replay_enabled": false,
+    "learning_math": "Inherited TF32; existing source then uniform stage replay",
+    "scoring_math": "Strict FP32, reset-state windows, before and after the actual source AdamW update",
+    "score_scope": "Previously stored training windows only; score before scheduled replay and reservoir admission",
+    "timing_scope": "Probe live loop includes native learning, replay, scheduled speech and scoring/journal work. Excludes process startup, initial model/source load and final checkpoint save. Each process lazily creates its views; no learned-run snapshots or state-hash audits in timed arms.",
+    "memory_scope": "Owned array bytes exclude shared weights/moments and cuBLAS/driver allocations. Free-memory deltas include library allocation and desktop variability; not absolute peak VRAM.",
+    "limitations": "Two timed runs per seed on one desktop GPU. Immediate native loss changes do not prove durable retention or independent numerical parity. This measures a signal, without changing replay selection."
+  },
+  "runs": [
+    {
+      "seed": 1337,
+      "repeat": 0,
+      "mode": "disabled",
+      "directory": "1337-0-disabled",
+      "result": {
+        "complete": true,
+        "parameters": 1951624,
+        "start_observation": 160000,
+        "end_observation": 160512,
+        "optimizer_updates": 640,
+        "source_pairs": 65432,
+        "generated_bytes": 96,
+        "observe_every": 0,
+        "per_group": 8,
+        "candidate_seed": 42,
+        "measurements": 0,
+        "score_forward_calls": 0,
+        "scored_pairs": 0,
+        "live_seconds": 1.8124716,
+        "scoring_seconds": 0,
+        "scorer_setup_seconds": 0,
+        "state_audit_seconds": 0,
+        "snapshot_seconds": 0,
+        "scorer_views": 0,
+        "scorer_owned_array_bytes": 0,
+        "observed_free_memory_drop_bytes": 0,
+        "max_view_creation_free_memory_drop_bytes": 0,
+        "tick_p50_ms": 2.7792226766757375,
+        "tick_p95_ms": 5.558445353351475,
+        "speech_tick_p95_ms": 28.833647186369205,
+        "scoring_tick_p95_ms": 0,
+        "max_tick_ms": 47.8015,
+        "learning_tf32": true,
+        "score_math": "strict FP32, reset-state source windows",
+        "inputs_unchanged": true,
+        "selects_replay": false,
+        "generated_text_targets": false
+      },
+      "final": {
+        "checkpoint_sha256": "9f4815bee2337d574e26aaae78f2e03ed1a97b7224e7bc4c7b0a1caf0b7b8cd3",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160512,
+        "global_updates": 200640,
+        "observed_pairs": 13755259,
+        "generated_bytes": 30816,
+        "replay_updates": 40128,
+        "replay_pairs": 3539756,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13928,
+            "replay_pairs": 1782600
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12344,
+            "replay_pairs": 627784
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11919,
+            "replay_pairs": 881436
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30512,
+            "stored_windows": 256,
+            "replay_updates": 1937,
+            "replay_pairs": 247936
+          }
+        ]
+      },
+      "scores_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "seed": 1337,
+      "repeat": 0,
+      "mode": "measured",
+      "directory": "1337-0-measured",
+      "result": {
+        "complete": true,
+        "parameters": 1951624,
+        "start_observation": 160000,
+        "end_observation": 160512,
+        "optimizer_updates": 640,
+        "source_pairs": 65432,
+        "generated_bytes": 96,
+        "observe_every": 32,
+        "per_group": 8,
+        "candidate_seed": 42,
+        "measurements": 16,
+        "score_forward_calls": 1024,
+        "scored_pairs": 97424,
+        "live_seconds": 2.8113835,
+        "scoring_seconds": 1.0172051000000002,
+        "scorer_setup_seconds": 0.0145989,
+        "state_audit_seconds": 2.099999999999999e-06,
+        "snapshot_seconds": 0,
+        "scorer_views": 5,
+        "scorer_owned_array_bytes": 116581224,
+        "observed_free_memory_drop_bytes": 459276288,
+        "max_view_creation_free_memory_drop_bytes": 121634816,
+        "tick_p50_ms": 2.7792226766757375,
+        "tick_p95_ms": 5.804538753560428,
+        "speech_tick_p95_ms": 29.465021845049485,
+        "scoring_tick_p95_ms": 125.77326087070988,
+        "max_tick_ms": 124.1888,
+        "learning_tf32": true,
+        "score_math": "strict FP32, reset-state source windows",
+        "inputs_unchanged": true,
+        "selects_replay": false,
+        "generated_text_targets": false
+      },
+      "final": {
+        "checkpoint_sha256": "9f4815bee2337d574e26aaae78f2e03ed1a97b7224e7bc4c7b0a1caf0b7b8cd3",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160512,
+        "global_updates": 200640,
+        "observed_pairs": 13755259,
+        "generated_bytes": 30816,
+        "replay_updates": 40128,
+        "replay_pairs": 3539756,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13928,
+            "replay_pairs": 1782600
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12344,
+            "replay_pairs": 627784
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11919,
+            "replay_pairs": 881436
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30512,
+            "stored_windows": 256,
+            "replay_updates": 1937,
+            "replay_pairs": 247936
+          }
+        ]
+      },
+      "scores_sha256": "761c5bce034a66bae8285868d1ce9eb1486ed32b205c22f40f1c6cacc38d4162"
+    },
+    {
+      "seed": 1337,
+      "repeat": 1,
+      "mode": "measured",
+      "directory": "1337-1-measured",
+      "result": {
+        "complete": true,
+        "parameters": 1951624,
+        "start_observation": 160000,
+        "end_observation": 160512,
+        "optimizer_updates": 640,
+        "source_pairs": 65432,
+        "generated_bytes": 96,
+        "observe_every": 32,
+        "per_group": 8,
+        "candidate_seed": 42,
+        "measurements": 16,
+        "score_forward_calls": 1024,
+        "scored_pairs": 97424,
+        "live_seconds": 2.789815,
+        "scoring_seconds": 1.0065754,
+        "scorer_setup_seconds": 0.013991100000000003,
+        "state_audit_seconds": 1.6999999999999994e-06,
+        "snapshot_seconds": 0,
+        "scorer_views": 5,
+        "scorer_owned_array_bytes": 116581224,
+        "observed_free_memory_drop_bytes": 459276288,
+        "max_view_creation_free_memory_drop_bytes": 121634816,
+        "tick_p50_ms": 2.7792226766757375,
+        "tick_p95_ms": 5.680159457539596,
+        "speech_tick_p95_ms": 28.833647186369205,
+        "scoring_tick_p95_ms": 123.0781992457448,
+        "max_tick_ms": 123.021,
+        "learning_tf32": true,
+        "score_math": "strict FP32, reset-state source windows",
+        "inputs_unchanged": true,
+        "selects_replay": false,
+        "generated_text_targets": false
+      },
+      "final": {
+        "checkpoint_sha256": "9f4815bee2337d574e26aaae78f2e03ed1a97b7224e7bc4c7b0a1caf0b7b8cd3",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160512,
+        "global_updates": 200640,
+        "observed_pairs": 13755259,
+        "generated_bytes": 30816,
+        "replay_updates": 40128,
+        "replay_pairs": 3539756,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13928,
+            "replay_pairs": 1782600
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12344,
+            "replay_pairs": 627784
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11919,
+            "replay_pairs": 881436
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30512,
+            "stored_windows": 256,
+            "replay_updates": 1937,
+            "replay_pairs": 247936
+          }
+        ]
+      },
+      "scores_sha256": "761c5bce034a66bae8285868d1ce9eb1486ed32b205c22f40f1c6cacc38d4162"
+    },
+    {
+      "seed": 1337,
+      "repeat": 1,
+      "mode": "disabled",
+      "directory": "1337-1-disabled",
+      "result": {
+        "complete": true,
+        "parameters": 1951624,
+        "start_observation": 160000,
+        "end_observation": 160512,
+        "optimizer_updates": 640,
+        "source_pairs": 65432,
+        "generated_bytes": 96,
+        "observe_every": 0,
+        "per_group": 8,
+        "candidate_seed": 42,
+        "measurements": 0,
+        "score_forward_calls": 0,
+        "scored_pairs": 0,
+        "live_seconds": 1.8246549,
+        "scoring_seconds": 0,
+        "scorer_setup_seconds": 0,
+        "state_audit_seconds": 0,
+        "snapshot_seconds": 0,
+        "scorer_views": 0,
+        "scorer_owned_array_bytes": 0,
+        "observed_free_memory_drop_bytes": 0,
+        "max_view_creation_free_memory_drop_bytes": 0,
+        "tick_p50_ms": 2.7792226766757375,
+        "tick_p95_ms": 5.558445353351475,
+        "speech_tick_p95_ms": 28.833647186369205,
+        "scoring_tick_p95_ms": 0,
+        "max_tick_ms": 48.5002,
+        "learning_tf32": true,
+        "score_math": "strict FP32, reset-state source windows",
+        "inputs_unchanged": true,
+        "selects_replay": false,
+        "generated_text_targets": false
+      },
+      "final": {
+        "checkpoint_sha256": "9f4815bee2337d574e26aaae78f2e03ed1a97b7224e7bc4c7b0a1caf0b7b8cd3",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160512,
+        "global_updates": 200640,
+        "observed_pairs": 13755259,
+        "generated_bytes": 30816,
+        "replay_updates": 40128,
+        "replay_pairs": 3539756,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13928,
+            "replay_pairs": 1782600
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12344,
+            "replay_pairs": 627784
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11919,
+            "replay_pairs": 881436
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30512,
+            "stored_windows": 256,
+            "replay_updates": 1937,
+            "replay_pairs": 247936
+          }
+        ]
+      },
+      "scores_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "seed": 2026,
+      "repeat": 0,
+      "mode": "measured",
+      "directory": "2026-0-measured",
+      "result": {
+        "complete": true,
+        "parameters": 1951624,
+        "start_observation": 160000,
+        "end_observation": 160512,
+        "optimizer_updates": 640,
+        "source_pairs": 65432,
+        "generated_bytes": 96,
+        "observe_every": 32,
+        "per_group": 8,
+        "candidate_seed": 42,
+        "measurements": 16,
+        "score_forward_calls": 1024,
+        "scored_pairs": 97424,
+        "live_seconds": 2.8030578,
+        "scoring_seconds": 1.0075845999999997,
+        "scorer_setup_seconds": 0.013762399999999996,
+        "state_audit_seconds": 2.099999999999999e-06,
+        "snapshot_seconds": 0,
+        "scorer_views": 5,
+        "scorer_owned_array_bytes": 116581224,
+        "observed_free_memory_drop_bytes": 459276288,
+        "max_view_creation_free_memory_drop_bytes": 121634816,
+        "tick_p50_ms": 2.840079728769798,
+        "tick_p95_ms": 5.804538753560428,
+        "speech_tick_p95_ms": 29.465021845049485,
+        "scoring_tick_p95_ms": 123.0781992457448,
+        "max_tick_ms": 121.82379999999999,
+        "learning_tf32": true,
+        "score_math": "strict FP32, reset-state source windows",
+        "inputs_unchanged": true,
+        "selects_replay": false,
+        "generated_text_targets": false
+      },
+      "final": {
+        "checkpoint_sha256": "b55dd057cca5225d47c12a89a2c40b5d62bacd153c26b3b6345f786fdc468577",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160512,
+        "global_updates": 200640,
+        "observed_pairs": 13755259,
+        "generated_bytes": 30816,
+        "replay_updates": 40128,
+        "replay_pairs": 3539756,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13928,
+            "replay_pairs": 1782600
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12344,
+            "replay_pairs": 627784
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11919,
+            "replay_pairs": 881436
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30512,
+            "stored_windows": 256,
+            "replay_updates": 1937,
+            "replay_pairs": 247936
+          }
+        ]
+      },
+      "scores_sha256": "12c09add30d38fa2ab8a22364dfd4177c74cc3e46f68bad9d975cb1b6e1e9c3b"
+    },
+    {
+      "seed": 2026,
+      "repeat": 0,
+      "mode": "disabled",
+      "directory": "2026-0-disabled",
+      "result": {
+        "complete": true,
+        "parameters": 1951624,
+        "start_observation": 160000,
+        "end_observation": 160512,
+        "optimizer_updates": 640,
+        "source_pairs": 65432,
+        "generated_bytes": 96,
+        "observe_every": 0,
+        "per_group": 8,
+        "candidate_seed": 42,
+        "measurements": 0,
+        "score_forward_calls": 0,
+        "scored_pairs": 0,
+        "live_seconds": 1.8141069,
+        "scoring_seconds": 0,
+        "scorer_setup_seconds": 0,
+        "state_audit_seconds": 0,
+        "snapshot_seconds": 0,
+        "scorer_views": 0,
+        "scorer_owned_array_bytes": 0,
+        "observed_free_memory_drop_bytes": 0,
+        "max_view_creation_free_memory_drop_bytes": 0,
+        "tick_p50_ms": 2.840079728769798,
+        "tick_p95_ms": 5.558445353351475,
+        "speech_tick_p95_ms": 28.833647186369205,
+        "scoring_tick_p95_ms": 0,
+        "max_tick_ms": 47.7799,
+        "learning_tf32": true,
+        "score_math": "strict FP32, reset-state source windows",
+        "inputs_unchanged": true,
+        "selects_replay": false,
+        "generated_text_targets": false
+      },
+      "final": {
+        "checkpoint_sha256": "b55dd057cca5225d47c12a89a2c40b5d62bacd153c26b3b6345f786fdc468577",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160512,
+        "global_updates": 200640,
+        "observed_pairs": 13755259,
+        "generated_bytes": 30816,
+        "replay_updates": 40128,
+        "replay_pairs": 3539756,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13928,
+            "replay_pairs": 1782600
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12344,
+            "replay_pairs": 627784
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11919,
+            "replay_pairs": 881436
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30512,
+            "stored_windows": 256,
+            "replay_updates": 1937,
+            "replay_pairs": 247936
+          }
+        ]
+      },
+      "scores_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "seed": 2026,
+      "repeat": 1,
+      "mode": "disabled",
+      "directory": "2026-1-disabled",
+      "result": {
+        "complete": true,
+        "parameters": 1951624,
+        "start_observation": 160000,
+        "end_observation": 160512,
+        "optimizer_updates": 640,
+        "source_pairs": 65432,
+        "generated_bytes": 96,
+        "observe_every": 0,
+        "per_group": 8,
+        "candidate_seed": 42,
+        "measurements": 0,
+        "score_forward_calls": 0,
+        "scored_pairs": 0,
+        "live_seconds": 1.8237827,
+        "scoring_seconds": 0,
+        "scorer_setup_seconds": 0,
+        "state_audit_seconds": 0,
+        "snapshot_seconds": 0,
+        "scorer_views": 0,
+        "scorer_owned_array_bytes": 0,
+        "observed_free_memory_drop_bytes": 0,
+        "max_view_creation_free_memory_drop_bytes": 0,
+        "tick_p50_ms": 2.7792226766757375,
+        "tick_p95_ms": 5.558445353351475,
+        "speech_tick_p95_ms": 29.465021845049485,
+        "scoring_tick_p95_ms": 0,
+        "max_tick_ms": 48.471599999999995,
+        "learning_tf32": true,
+        "score_math": "strict FP32, reset-state source windows",
+        "inputs_unchanged": true,
+        "selects_replay": false,
+        "generated_text_targets": false
+      },
+      "final": {
+        "checkpoint_sha256": "b55dd057cca5225d47c12a89a2c40b5d62bacd153c26b3b6345f786fdc468577",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160512,
+        "global_updates": 200640,
+        "observed_pairs": 13755259,
+        "generated_bytes": 30816,
+        "replay_updates": 40128,
+        "replay_pairs": 3539756,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13928,
+            "replay_pairs": 1782600
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12344,
+            "replay_pairs": 627784
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11919,
+            "replay_pairs": 881436
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30512,
+            "stored_windows": 256,
+            "replay_updates": 1937,
+            "replay_pairs": 247936
+          }
+        ]
+      },
+      "scores_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "seed": 2026,
+      "repeat": 1,
+      "mode": "measured",
+      "directory": "2026-1-measured",
+      "result": {
+        "complete": true,
+        "parameters": 1951624,
+        "start_observation": 160000,
+        "end_observation": 160512,
+        "optimizer_updates": 640,
+        "source_pairs": 65432,
+        "generated_bytes": 96,
+        "observe_every": 32,
+        "per_group": 8,
+        "candidate_seed": 42,
+        "measurements": 16,
+        "score_forward_calls": 1024,
+        "scored_pairs": 97424,
+        "live_seconds": 2.7927535,
+        "scoring_seconds": 1.0101022000000002,
+        "scorer_setup_seconds": 0.013965499999999997,
+        "state_audit_seconds": 1.7999999999999993e-06,
+        "snapshot_seconds": 0,
+        "scorer_views": 5,
+        "scorer_owned_array_bytes": 116581224,
+        "observed_free_memory_drop_bytes": 459276288,
+        "max_view_creation_free_memory_drop_bytes": 121634816,
+        "tick_p50_ms": 2.7792226766757375,
+        "tick_p95_ms": 5.680159457539596,
+        "speech_tick_p95_ms": 29.465021845049485,
+        "scoring_tick_p95_ms": 123.0781992457448,
+        "max_tick_ms": 121.9575,
+        "learning_tf32": true,
+        "score_math": "strict FP32, reset-state source windows",
+        "inputs_unchanged": true,
+        "selects_replay": false,
+        "generated_text_targets": false
+      },
+      "final": {
+        "checkpoint_sha256": "b55dd057cca5225d47c12a89a2c40b5d62bacd153c26b3b6345f786fdc468577",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160512,
+        "global_updates": 200640,
+        "observed_pairs": 13755259,
+        "generated_bytes": 30816,
+        "replay_updates": 40128,
+        "replay_pairs": 3539756,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13928,
+            "replay_pairs": 1782600
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12344,
+            "replay_pairs": 627784
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11919,
+            "replay_pairs": 881436
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30512,
+            "stored_windows": 256,
+            "replay_updates": 1937,
+            "replay_pairs": 247936
+          }
+        ]
+      },
+      "scores_sha256": "12c09add30d38fa2ab8a22364dfd4177c74cc3e46f68bad9d975cb1b6e1e9c3b"
+    },
+    {
+      "seed": 31415,
+      "repeat": 0,
+      "mode": "disabled",
+      "directory": "31415-0-disabled",
+      "result": {
+        "complete": true,
+        "parameters": 1951624,
+        "start_observation": 160000,
+        "end_observation": 160512,
+        "optimizer_updates": 640,
+        "source_pairs": 65432,
+        "generated_bytes": 96,
+        "observe_every": 0,
+        "per_group": 8,
+        "candidate_seed": 42,
+        "measurements": 0,
+        "score_forward_calls": 0,
+        "scored_pairs": 0,
+        "live_seconds": 1.812057,
+        "scoring_seconds": 0,
+        "scorer_setup_seconds": 0,
+        "state_audit_seconds": 0,
+        "snapshot_seconds": 0,
+        "scorer_views": 0,
+        "scorer_owned_array_bytes": 0,
+        "observed_free_memory_drop_bytes": 0,
+        "max_view_creation_free_memory_drop_bytes": 0,
+        "tick_p50_ms": 2.7792226766757375,
+        "tick_p95_ms": 5.558445353351475,
+        "speech_tick_p95_ms": 28.833647186369205,
+        "scoring_tick_p95_ms": 0,
+        "max_tick_ms": 48.600699999999996,
+        "learning_tf32": true,
+        "score_math": "strict FP32, reset-state source windows",
+        "inputs_unchanged": true,
+        "selects_replay": false,
+        "generated_text_targets": false
+      },
+      "final": {
+        "checkpoint_sha256": "9f3806fe156eabc26a081dcf05cd6994d9816e93d5225e286b5cb9c176a01466",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160512,
+        "global_updates": 200640,
+        "observed_pairs": 13755259,
+        "generated_bytes": 30816,
+        "replay_updates": 40128,
+        "replay_pairs": 3539756,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13928,
+            "replay_pairs": 1782600
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12344,
+            "replay_pairs": 627784
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11919,
+            "replay_pairs": 881436
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30512,
+            "stored_windows": 256,
+            "replay_updates": 1937,
+            "replay_pairs": 247936
+          }
+        ]
+      },
+      "scores_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "seed": 31415,
+      "repeat": 0,
+      "mode": "measured",
+      "directory": "31415-0-measured",
+      "result": {
+        "complete": true,
+        "parameters": 1951624,
+        "start_observation": 160000,
+        "end_observation": 160512,
+        "optimizer_updates": 640,
+        "source_pairs": 65432,
+        "generated_bytes": 96,
+        "observe_every": 32,
+        "per_group": 8,
+        "candidate_seed": 42,
+        "measurements": 16,
+        "score_forward_calls": 1024,
+        "scored_pairs": 97424,
+        "live_seconds": 2.815088,
+        "scoring_seconds": 1.0170056000000003,
+        "scorer_setup_seconds": 0.015400000000000002,
+        "state_audit_seconds": 1.999999999999999e-06,
+        "snapshot_seconds": 0,
+        "scorer_views": 5,
+        "scorer_owned_array_bytes": 116581224,
+        "observed_free_memory_drop_bytes": 459276288,
+        "max_view_creation_free_memory_drop_bytes": 121634816,
+        "tick_p50_ms": 2.840079728769798,
+        "tick_p95_ms": 5.680159457539596,
+        "speech_tick_p95_ms": 29.465021845049485,
+        "scoring_tick_p95_ms": 128.5273366607088,
+        "max_tick_ms": 125.8992,
+        "learning_tf32": true,
+        "score_math": "strict FP32, reset-state source windows",
+        "inputs_unchanged": true,
+        "selects_replay": false,
+        "generated_text_targets": false
+      },
+      "final": {
+        "checkpoint_sha256": "9f3806fe156eabc26a081dcf05cd6994d9816e93d5225e286b5cb9c176a01466",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160512,
+        "global_updates": 200640,
+        "observed_pairs": 13755259,
+        "generated_bytes": 30816,
+        "replay_updates": 40128,
+        "replay_pairs": 3539756,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13928,
+            "replay_pairs": 1782600
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12344,
+            "replay_pairs": 627784
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11919,
+            "replay_pairs": 881436
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30512,
+            "stored_windows": 256,
+            "replay_updates": 1937,
+            "replay_pairs": 247936
+          }
+        ]
+      },
+      "scores_sha256": "2dca25da02318fa6c410e80137d1c80de9d8d6fceb48310a2b28cb33d5afa38e"
+    },
+    {
+      "seed": 31415,
+      "repeat": 1,
+      "mode": "measured",
+      "directory": "31415-1-measured",
+      "result": {
+        "complete": true,
+        "parameters": 1951624,
+        "start_observation": 160000,
+        "end_observation": 160512,
+        "optimizer_updates": 640,
+        "source_pairs": 65432,
+        "generated_bytes": 96,
+        "observe_every": 32,
+        "per_group": 8,
+        "candidate_seed": 42,
+        "measurements": 16,
+        "score_forward_calls": 1024,
+        "scored_pairs": 97424,
+        "live_seconds": 2.8014778,
+        "scoring_seconds": 1.0142338,
+        "scorer_setup_seconds": 0.015245899999999996,
+        "state_audit_seconds": 1.2e-06,
+        "snapshot_seconds": 0,
+        "scorer_views": 5,
+        "scorer_owned_array_bytes": 116581224,
+        "observed_free_memory_drop_bytes": 459276288,
+        "max_view_creation_free_memory_drop_bytes": 121634816,
+        "tick_p50_ms": 2.7792226766757375,
+        "tick_p95_ms": 5.680159457539596,
+        "speech_tick_p95_ms": 28.833647186369205,
+        "scoring_tick_p95_ms": 125.77326087070988,
+        "max_tick_ms": 125.38730000000001,
+        "learning_tf32": true,
+        "score_math": "strict FP32, reset-state source windows",
+        "inputs_unchanged": true,
+        "selects_replay": false,
+        "generated_text_targets": false
+      },
+      "final": {
+        "checkpoint_sha256": "9f3806fe156eabc26a081dcf05cd6994d9816e93d5225e286b5cb9c176a01466",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160512,
+        "global_updates": 200640,
+        "observed_pairs": 13755259,
+        "generated_bytes": 30816,
+        "replay_updates": 40128,
+        "replay_pairs": 3539756,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13928,
+            "replay_pairs": 1782600
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12344,
+            "replay_pairs": 627784
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11919,
+            "replay_pairs": 881436
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30512,
+            "stored_windows": 256,
+            "replay_updates": 1937,
+            "replay_pairs": 247936
+          }
+        ]
+      },
+      "scores_sha256": "2dca25da02318fa6c410e80137d1c80de9d8d6fceb48310a2b28cb33d5afa38e"
+    },
+    {
+      "seed": 31415,
+      "repeat": 1,
+      "mode": "disabled",
+      "directory": "31415-1-disabled",
+      "result": {
+        "complete": true,
+        "parameters": 1951624,
+        "start_observation": 160000,
+        "end_observation": 160512,
+        "optimizer_updates": 640,
+        "source_pairs": 65432,
+        "generated_bytes": 96,
+        "observe_every": 0,
+        "per_group": 8,
+        "candidate_seed": 42,
+        "measurements": 0,
+        "score_forward_calls": 0,
+        "scored_pairs": 0,
+        "live_seconds": 1.8291104,
+        "scoring_seconds": 0,
+        "scorer_setup_seconds": 0,
+        "state_audit_seconds": 0,
+        "snapshot_seconds": 0,
+        "scorer_views": 0,
+        "scorer_owned_array_bytes": 0,
+        "observed_free_memory_drop_bytes": 0,
+        "max_view_creation_free_memory_drop_bytes": 0,
+        "tick_p50_ms": 2.840079728769798,
+        "tick_p95_ms": 5.558445353351475,
+        "speech_tick_p95_ms": 28.833647186369205,
+        "scoring_tick_p95_ms": 0,
+        "max_tick_ms": 48.841,
+        "learning_tf32": true,
+        "score_math": "strict FP32, reset-state source windows",
+        "inputs_unchanged": true,
+        "selects_replay": false,
+        "generated_text_targets": false
+      },
+      "final": {
+        "checkpoint_sha256": "9f3806fe156eabc26a081dcf05cd6994d9816e93d5225e286b5cb9c176a01466",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160512,
+        "global_updates": 200640,
+        "observed_pairs": 13755259,
+        "generated_bytes": 30816,
+        "replay_updates": 40128,
+        "replay_pairs": 3539756,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13928,
+            "replay_pairs": 1782600
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12344,
+            "replay_pairs": 627784
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11919,
+            "replay_pairs": 881436
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30512,
+            "stored_windows": 256,
+            "replay_updates": 1937,
+            "replay_pairs": 247936
+          }
+        ]
+      },
+      "scores_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "inputs_unchanged": true,
+  "commands": {
+    "native": 3,
+    "original": 3,
+    "probe": 15
+  },
+  "exact_original_native_and_probe_checkpoints": true
+}

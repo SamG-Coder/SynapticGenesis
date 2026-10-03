@@ -1,0 +1,55 @@
+{
+  "complete": true,
+  "files": {
+    "reports/replay-priority-comparison.json": {
+      "sha256": "e47d101e2a06d8d4ad03a895e43e4af20698b80b99c080403f7df3d1942b5550",
+      "bytes": 37132,
+      "original_capture_sha256": "0792dbac0c49bbee73ec1f1c83dd7383f507842eb70b493d97766b89391de635"
+    },
+    "reports/replay-priority-execution.json": {
+      "sha256": "8f6723162908319acff05f4174fa87608adc8f14913b5b7be60bb8f6912cd6db",
+      "bytes": 43856,
+      "original_capture_sha256": "a88e4338ec5cc61c49238ed316610646f9521cccbfb70c7e54b7e85d99e1e951"
+    },
+    "reports/replay-priority-summary.json": {
+      "sha256": "e8b7fb09bf6d6b26ed467c2e5a62b809862a024cbfcf93cca26788b919d485fb",
+      "bytes": 12819,
+      "original_capture_sha256": "c2d0b3c208ae844f08ac049a67c636c530ae6ddc786c7bb4885d906e2ff477d2"
+    },
+    "reports/replay-priority-diagnosis.json": {
+      "sha256": "d2906ca1c0b7a3f20331228feef77d8a6031635b5960e207da79826ffe4df372",
+      "bytes": 2478,
+      "original_capture_sha256": "1ef1759628c60742183f7f9362ff9454c3d7610e0406d46b7f7d54d6c9de58ed"
+    },
+    "reports/replay-priority-validation.json": {
+      "sha256": "b37e4034d9ebeb24b591d19aa18fd0abcdd1491401167c779c8d75cc0d79aec8",
+      "bytes": 25751
+    },
+    "reports/replay-priority-scores-1337.jsonl": {
+      "sha256": "31c3f5c60ff2969979be37cd3f420b966d6602f7e5482548afed5b33706d1f4b",
+      "bytes": 146909,
+      "original_capture_sha256": "761c5bce034a66bae8285868d1ce9eb1486ed32b205c22f40f1c6cacc38d4162"
+    },
+    "reports/replay-priority-scores-2026.jsonl": {
+      "sha256": "b492e74495c88212db7a4db9ab7855c5c513ef4ea7c08d9a0ca7b4ebfd42e19b",
+      "bytes": 146612,
+      "original_capture_sha256": "12c09add30d38fa2ab8a22364dfd4177c74cc3e46f68bad9d975cb1b6e1e9c3b"
+    },
+    "reports/replay-priority-scores-31415.jsonl": {
+      "sha256": "da2943fc783440cfe2eb8c01b7864814182e18731a7314148130d5542b539d2e",
+      "bytes": 146843,
+      "original_capture_sha256": "2dca25da02318fa6c410e80137d1c80de9d8d6fceb48310a2b28cb33d5afa38e"
+    },
+    "docs/replay-priority-diagnostic.md": {
+      "sha256": "da4a93e2ea88a100e0a7b4898d88f33f91c9f95cbf541a28ace9ae937227509a",
+      "bytes": 11637
+    }
+  },
+  "serialization": "Published JSON and JSONL use LF. Cross-report hashes refer to the published bytes. Original capture hashes preserve the identities of unmodified local Windows results; measurements, source/executable identities and failed checks are unchanged.",
+  "source_sha256": {
+    "scripts/publish_replay_priority.py": "451d40e4e091af90c0d37a6a94434e0c144acba3f36e9812a3ea87ee001ee91e"
+  },
+  "generated_text_targets": false,
+  "changed_replay_selection": false,
+  "checkpoint_payloads_published": false
+}
