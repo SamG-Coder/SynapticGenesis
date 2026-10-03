@@ -1,0 +1,404 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "native_commands": 0,
+  "new_model_updates": 0,
+  "checkpoint_evidence": {
+    "native_host_fixture_sha256": {
+      "runs\\membrane-regularization-worktree\\runs\\membrane-checkpoint-host-final\\6-5-0-legacy.ckpt": "00b5ba0c668eb1ee59f46ababfa5f43b29d5d9be681b266513fdda030b1acb93",
+      "runs\\membrane-regularization-worktree\\runs\\membrane-checkpoint-host-final\\6-5-0-membrane.ckpt": "b08e169bd55c6a49f806b528d1c10b22550134c29c4050a3bc50ed283e14455b"
+    },
+    "wrapped_and_ordinary_initial_neural_state_exact": true,
+    "altered_arrays_detected": true,
+    "real_105m_states": [
+      {
+        "stage": "1",
+        "checkpoint_sha256": "aff31c35c4c5487abb2589992df3c7d92c89bd9e0b69f52bb8935dc24e0cbe23",
+        "counters": {
+          "online_updates": 8176,
+          "global_updates": 10220,
+          "observed_pairs": 1045096,
+          "generated_bytes": 1536,
+          "replay_updates": 2044,
+          "replay_pairs": 261267,
+          "curriculum_stage": 1
+        }
+      },
+      {
+        "stage": "2",
+        "checkpoint_sha256": "b7a2f3aa974ae965b66bca7a85c00e8a3fa3d57c7ce4b368b55dd2861ad9fbef",
+        "counters": {
+          "online_updates": 26110,
+          "global_updates": 32637,
+          "observed_pairs": 3339920,
+          "generated_bytes": 4992,
+          "replay_updates": 6527,
+          "replay_pairs": 834275,
+          "curriculum_stage": 2
+        }
+      },
+      {
+        "stage": "initial",
+        "checkpoint_sha256": "5a35fc86a63c9e56247aec16dee6a4f5eecd12066c150a1ffa065e3c68b07879",
+        "counters": {
+          "online_updates": 0,
+          "global_updates": 0,
+          "observed_pairs": 0,
+          "generated_bytes": 0,
+          "replay_updates": 0,
+          "replay_pairs": 0,
+          "curriculum_stage": 1
+        }
+      }
+    ],
+    "native_checksum_validation_claimed": false
+  },
+  "metrics": {
+    "fixture": {
+      "passed": true,
+      "metrics_sha256": "a35f121182cd553f381c3d9c5b8df249c1a7de6f78cd790bc5b86eef080eb66a",
+      "source_updates": 4,
+      "stages": [
+        {
+          "stage": 1,
+          "end_update": 2,
+          "source_updates": 2,
+          "source_target_bytes": 135,
+          "mean_language_loss": 2.051851851851852,
+          "mean_spike_rate": 0.512962962962963,
+          "gradient_norm_p50": 0.75,
+          "gradient_norm_p95": 0.975,
+          "gradient_norm_max": 1.0,
+          "reported_above_clip": 0,
+          "reported_equal_to_clip": 1,
+          "clip": 1.0
+        },
+        {
+          "stage": 2,
+          "end_update": 4,
+          "source_updates": 2,
+          "source_target_bytes": 141,
+          "mean_language_loss": 4.092198581560283,
+          "mean_spike_rate": 0.9308510638297872,
+          "gradient_norm_p50": 1.75,
+          "gradient_norm_p95": 1.975,
+          "gradient_norm_max": 2.0,
+          "reported_above_clip": 2,
+          "reported_equal_to_clip": 0,
+          "clip": 1.0
+        }
+      ],
+      "every_source_update_present": true,
+      "replay_gradient_norms_measured": false,
+      "limit": "Norms are the combined source objective before clipping, printed to ten significant digits. Rows equal to the threshold can be ambiguous after rounding. Replay-update norms are not logged."
+    },
+    "rounded_threshold_separate": true,
+    "byte_weighted_means": true,
+    "historical_sparse_log_rejected": true
+  },
+  "protocol": {
+    "learning_cases": 15,
+    "endpoint_assessments": 30,
+    "commands_per_assessment": 12,
+    "expected_source_exposure": {
+      "8176": {
+        "online_updates": 8176,
+        "global_updates": 10220,
+        "observed_pairs": 1045096,
+        "generated_bytes": 1536,
+        "replay_updates": 2044,
+        "curriculum_stage": 1
+      },
+      "26110": {
+        "online_updates": 26110,
+        "global_updates": 32637,
+        "observed_pairs": 3339920,
+        "generated_bytes": 4992,
+        "replay_updates": 6527,
+        "curriculum_stage": 2
+      }
+    },
+    "input_files": 83
+  },
+  "archived_control_comparator": {
+    "passed": true,
+    "three_complete_checkpoints_exact": true,
+    "original_six_book_scores_and_four_samples_exact_at_both_endpoints": true
+  },
+  "synthetic_acceptance": {
+    "synthetic_success_and_artifact_faults_checked": true,
+    "native_result_readers_mocked": true,
+    "proves_actual_cuda_acceptance": false
+  },
+  "dispatch_gates": {
+    "process_identity_and_exit_enforced": true,
+    "verifier_runs_before_native_boundary": true,
+    "failed_gates_dispatch_no_native_commands": true,
+    "process_and_verifier_mocked": true
+  },
+  "actual_pending_acceptance_rejected": true,
+  "rejected_cases": [
+    {
+      "case": "short-header",
+      "reason": "Truncated checkpoint header"
+    },
+    {
+      "case": "short-wrapper",
+      "reason": "Truncated checkpoint header"
+    },
+    {
+      "case": "bad-magic",
+      "reason": "Unexpected associative study checkpoint"
+    },
+    {
+      "case": "bad-layout",
+      "reason": "Model layout differs"
+    },
+    {
+      "case": "nonfinite-policy",
+      "reason": "Nonfinite checkpoint policy"
+    },
+    {
+      "case": "wrapper-base",
+      "reason": "Unexpected membrane policy wrapper"
+    },
+    {
+      "case": "wrapper-high-bits",
+      "reason": "Policy float has high bits set"
+    },
+    {
+      "case": "wrapper-zero-cost",
+      "reason": "Invalid membrane policy values"
+    },
+    {
+      "case": "wrapper-band",
+      "reason": "Invalid membrane policy values"
+    },
+    {
+      "case": "wrapper-reserved",
+      "reason": "Unexpected membrane policy wrapper"
+    },
+    {
+      "case": "extent",
+      "reason": "Unexpected checkpoint extent"
+    },
+    {
+      "case": "unbounded-replay",
+      "reason": "Unbounded replay payload"
+    },
+    {
+      "case": "replay-si",
+      "reason": "Expected ordinary grouped replay without consolidation"
+    },
+    {
+      "case": "replay-records",
+      "reason": "Replay records differ"
+    },
+    {
+      "case": "group-metadata-truncated",
+      "reason": "Truncated replay group metadata"
+    },
+    {
+      "case": "matched-replay_payload_sha256",
+      "reason": "Matched learning differs: replay_payload_sha256"
+    },
+    {
+      "case": "matched-cursor_and_rng",
+      "reason": "Matched learning differs: cursor_and_rng"
+    },
+    {
+      "case": "matched-counters",
+      "reason": "Matched learning differs: counters"
+    },
+    {
+      "case": "matched-speech_policy",
+      "reason": "Matched learning differs: speech_policy"
+    },
+    {
+      "case": "optimizer-0",
+      "reason": "An optimizer setting other than the declared objective changed"
+    },
+    {
+      "case": "optimizer-2",
+      "reason": "An optimizer setting other than the declared objective changed"
+    },
+    {
+      "case": "optimizer-5",
+      "reason": "An optimizer setting other than the declared objective changed"
+    },
+    {
+      "case": "optimizer-6",
+      "reason": "An optimizer setting other than the declared objective changed"
+    },
+    {
+      "case": "temperature-1",
+      "reason": "Objective or optimizer policy differs"
+    },
+    {
+      "case": "temperature-2",
+      "reason": "Objective or optimizer policy differs"
+    },
+    {
+      "case": "temperature-initial",
+      "reason": "Objective or optimizer policy differs"
+    },
+    {
+      "case": "missing-row",
+      "reason": "Missing or duplicated source metric"
+    },
+    {
+      "case": "missing-transition",
+      "reason": "Incomplete metric stream or transitions"
+    },
+    {
+      "case": "duplicate-row",
+      "reason": "Missing or duplicated source metric"
+    },
+    {
+      "case": "misplaced-transition",
+      "reason": "Unknown or misplaced metrics event"
+    },
+    {
+      "case": "incomplete-stream",
+      "reason": "Incomplete metric stream or transitions"
+    },
+    {
+      "case": "duplicate-session",
+      "reason": "Unexpected initial learning session"
+    },
+    {
+      "case": "metric-loss",
+      "reason": "Invalid source metric"
+    },
+    {
+      "case": "metric-spike_rate",
+      "reason": "Invalid source metric"
+    },
+    {
+      "case": "metric-gradient_norm",
+      "reason": "Invalid source metric"
+    },
+    {
+      "case": "metric-observed_pairs",
+      "reason": "Metric exposure counters differ"
+    },
+    {
+      "case": "metric-replay_updates",
+      "reason": "Metric exposure counters differ"
+    },
+    {
+      "case": "metric-curriculum_stage",
+      "reason": "Metric exposure counters differ"
+    },
+    {
+      "case": "metric-membrane_cost",
+      "reason": "Metric membrane policy differs"
+    },
+    {
+      "case": "sparse-historical-log",
+      "reason": "Missing or duplicated source metric"
+    },
+    {
+      "case": "spec-parameters",
+      "reason": "Unexpected objective-comparison model"
+    },
+    {
+      "case": "spec-seeds",
+      "reason": "Unexpected seeds or exposure endpoints"
+    },
+    {
+      "case": "spec-endpoints",
+      "reason": "Unexpected seeds or exposure endpoints"
+    },
+    {
+      "case": "spec-log_every",
+      "reason": "Shared learning policy changed"
+    },
+    {
+      "case": "spec-membrane_band",
+      "reason": "Shared learning policy changed"
+    },
+    {
+      "case": "spec-stage_two_training_monitors",
+      "reason": "Training monitor choice changed"
+    },
+    {
+      "case": "undeclared-seed",
+      "reason": "Undeclared objective case"
+    },
+    {
+      "case": "disk-reservation",
+      "reason": "Insufficient disk for preserved objective-comparison checkpoints"
+    },
+    {
+      "case": "legacy-book",
+      "reason": "Seed-1337 disabled control assessment differs from the preserved baseline"
+    },
+    {
+      "case": "legacy-generation",
+      "reason": "Seed-1337 disabled control assessment differs from the preserved baseline"
+    },
+    {
+      "case": "legacy-mean",
+      "reason": "Seed-1337 disabled control assessment differs from the preserved baseline"
+    },
+    {
+      "case": "gate-incomplete",
+      "reason": "Incomplete candidate acceptance"
+    },
+    {
+      "case": "gate-phase",
+      "reason": "Incomplete candidate acceptance"
+    },
+    {
+      "case": "gate-coverage",
+      "reason": "Acceptance command coverage differs"
+    },
+    {
+      "case": "gate-journal",
+      "reason": "Acceptance command journal differs"
+    },
+    {
+      "case": "gate-aggregate",
+      "reason": "Acceptance artifacts differ from published completion"
+    },
+    {
+      "case": "gate-predecessor",
+      "reason": "Acceptance predecessor verification changed"
+    },
+    {
+      "case": "gate-log",
+      "reason": "Acceptance command result differs"
+    },
+    {
+      "case": "gate-failure-file",
+      "reason": "Candidate acceptance has not completed successfully"
+    },
+    {
+      "case": "dispatch-identity",
+      "reason": "Acceptance driver process identity changed"
+    },
+    {
+      "case": "dispatch-exit",
+      "reason": "TEST predecessor failed"
+    },
+    {
+      "case": "dispatch-verification",
+      "reason": "Candidate acceptance verification failed; no learning started"
+    },
+    {
+      "case": "dispatch-runtime",
+      "reason": "Verified runtime differs"
+    }
+  ],
+  "source_sha256": {
+    "D:\\SynapticGenesis\\runs\\membrane-learning-worktree\\tests\\membrane_learning.py": "713eb9177f4a6acd907769d9bb9bf0dbf0cf2940af5374bff2e530027e6e21fc",
+    "D:\\SynapticGenesis\\runs\\membrane-learning-worktree\\data\\membrane-learning-v1.json": "8db3048526fd0a8e12c7294387d7d0ab2e1c913005904cab0bc8c816209e76fc",
+    "D:\\SynapticGenesis\\runs\\membrane-learning-worktree\\scripts\\membrane_learning.py": "1db09cc19d37b3a57d27b01af09830bfdffa1806eba2f8b4b0b2eafe5d8bc569",
+    "D:\\SynapticGenesis\\runs\\membrane-learning-worktree\\scripts\\membrane_learning_inputs.py": "8afb3fcc29ee7a88c3b452b2d5c65c484d2d0ce8a05dc66a9041cdcb3cf10134",
+    "D:\\SynapticGenesis\\runs\\membrane-learning-worktree\\scripts\\membrane_learning_metrics.py": "a925c67d34ed66100a8bd055fc9ffe33dde78cdd15fd150b7403d4d9033b6a27",
+    "D:\\SynapticGenesis\\runs\\membrane-learning-worktree\\scripts\\membrane_study_state.py": "212b0c97cf515773f25a2ff5fb45c35fb5d97c160c5f768dbd38a207d21cb705",
+    "D:\\SynapticGenesis\\runs\\membrane-learning-worktree\\scripts\\verify_membrane_acceptance.py": "b2e4f881ca1b22aeab0e5fae13ef30c16e901c83e3fca897a01c61c11b7aed17"
+  },
+  "limits": "No GPU checks or actual positive acceptance were performed. Synthetic acceptance and process fixtures test orchestration only. The real queued acceptance and all learning remain pending."
+}

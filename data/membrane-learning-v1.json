@@ -1,0 +1,29 @@
+{
+  "version": "membrane-learning-v1",
+  "profile": "105m",
+  "shape": [1024, 4096, 8],
+  "parameters": 104851472,
+  "seeds": [1337, 2027, 4099],
+  "arms": [
+    {"name": "control", "activity_cost": 0, "membrane_cost": 0},
+    {"name": "activity-0p1", "activity_cost": 0.1, "membrane_cost": 0},
+    {"name": "membrane-0p001", "activity_cost": 0, "membrane_cost": 0.001},
+    {"name": "membrane-0p01", "activity_cost": 0, "membrane_cost": 0.01},
+    {"name": "membrane-0p1", "activity_cost": 0, "membrane_cost": 0.1}
+  ],
+  "membrane_band": 1.5,
+  "endpoints": [8176, 26110],
+  "learning_rate": 0.0003,
+  "replay_capacity": 16384,
+  "replay_every": 4,
+  "log_every": 1,
+  "save_every": 8192,
+  "evaluation_spec": "data/prose-evaluation-v1.json",
+  "stage_two_training_monitors": [572, 420],
+  "legacy_control_result": "reports/prose-replay-capacity-results.json",
+  "gradient_evidence": "reports/membrane-gradient-audit.json",
+  "primary_endpoint": "Paired equal-book validation loss after 26110 source observations, reporting every arm and all three seeds.",
+  "secondary_endpoints": "Each early-reader retention loss change from stage one to stage two; each stage-two training book before and after introduction; source-update loss, firing, logged gradient norms and above-clip counts; all four raw generation prompts at both endpoints.",
+  "scope": "Fresh randomized founders on the unchanged first two prose stages. Same source, replay, speech, optimizer and logging policy; only the declared objective changes. Coefficients are an exploratory logarithmic comparison, not matched-gradient penalties or biological ages.",
+  "limits": "No model promotion, teacher or reproduction admission, reserved test scoring, or coefficient selection by activity alone. Source-update clipping uses rounded logged norms; equality to the clip is recorded separately. Replay-update gradient norms are not logged. Full-curriculum language, 411M transfer and new-science retention remain separate work."
+}
