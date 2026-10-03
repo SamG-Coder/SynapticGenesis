@@ -1,0 +1,589 @@
+{
+  "complete_prose_learning": true,
+  "parameters": 104851472,
+  "spiking_neurons": 32768,
+  "random_initialization": true,
+  "imported_weights": false,
+  "completion": {
+    "checkpoint": "runs\\prose-105m-founder\\stage-4.ckpt",
+    "checkpoint_sha256": "f68c58fde2e073d33fb155530517a8c44f79280d9d54adcf21751b55eabc4501",
+    "counters": {
+      "online_updates": 216289,
+      "global_updates": 270361,
+      "observed_pairs": 27680129,
+      "generated_bytes": 41472,
+      "replay_updates": 54072,
+      "replay_pairs": 6918179,
+      "curriculum_stage": 4,
+      "parameters": 104851472,
+      "channels": 1024,
+      "hidden": 4096,
+      "layers": 8
+    },
+    "session": {
+      "online_updates": 216289,
+      "gradient_reductions": "ordered_v1",
+      "curriculum_stage": 4,
+      "curriculum_hash": "8949573117487022712",
+      "curriculum_extended": false,
+      "curriculum_base_lr": 0.0003000000142,
+      "global_updates": 270361,
+      "online_first_document": 34,
+      "online_document_count": 21,
+      "answer_emphasized_documents": 0,
+      "observed_pairs": 27680129,
+      "generated_bytes": 41472,
+      "elapsed_seconds": 3594.852971,
+      "session_online_updates": 208113,
+      "session_observed_pairs": 26635033,
+      "observed_pairs_per_second": 7409.213455,
+      "replay_updates": 54072,
+      "replay_pairs": 6918179,
+      "replay_state_bytes": 24872,
+      "replay_mode": 3,
+      "replay_items": 1024,
+      "core_scale": 1,
+      "learning_rate": 0.0003000000142,
+      "replay_every": 4,
+      "graph_decode": true,
+      "update_tick_p50_ms": 13.80559757,
+      "update_tick_p95_ms": 28.21580158,
+      "update_and_speech_tick_p50_ms": 105.7622842,
+      "update_and_speech_tick_p95_ms": 108.0781767,
+      "latency_percentile_bin_relative_width": 0.02189714865,
+      "shared_weights": true,
+      "persistent_membranes": true,
+      "trains_on_generated_text": false,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 4,
+          "seen_windows": 8176,
+          "stored_windows": 256,
+          "quota": 256,
+          "replay_updates": 17564,
+          "replay_pairs": 2247161
+        },
+        {
+          "stage": 2,
+          "document_end": 14,
+          "seen_windows": 17934,
+          "stored_windows": 256,
+          "quota": 256,
+          "replay_updates": 15761,
+          "replay_pairs": 2017408
+        },
+        {
+          "stage": 3,
+          "document_end": 34,
+          "seen_windows": 69097,
+          "stored_windows": 256,
+          "quota": 256,
+          "replay_updates": 13227,
+          "replay_pairs": 1691050
+        },
+        {
+          "stage": 4,
+          "document_end": 55,
+          "seen_windows": 121082,
+          "stored_windows": 256,
+          "quota": 256,
+          "replay_updates": 7520,
+          "replay_pairs": 962560
+        }
+      ],
+      "consolidation": "none"
+    }
+  },
+  "assessments": [
+    {
+      "complete": true,
+      "plan_sha256": "c86bd980bc82d3773232b9c08625f2af2fae238257fd706abdc4841d354cf5b6",
+      "founder_protocol_sha256": "55543997e1c6202f512d1830c805bd1bfb1d7650f8e514797e56b7481b044990",
+      "checkpoint": "runs/prose-105m-founder/stage-1.ckpt",
+      "checkpoint_sha256": "b6303acdcee8a3e942f27db4ea930a17690035ab54bae9860a2c719f25580550",
+      "stage": 1,
+      "online_updates": 8176,
+      "profile": "105m",
+      "parameters": 104851472,
+      "spiking_neurons": 32768,
+      "books": [
+        {
+          "book": 13853,
+          "role": "validation",
+          "step": 10220,
+          "loss_nats_per_byte": 2.187037,
+          "bits_per_byte": 3.155227,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        {
+          "book": 12228,
+          "role": "validation",
+          "step": 10220,
+          "loss_nats_per_byte": 1.968174,
+          "bits_per_byte": 2.839475,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        {
+          "book": 11757,
+          "role": "validation",
+          "step": 10220,
+          "loss_nats_per_byte": 1.874399,
+          "bits_per_byte": 2.704187,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        },
+        {
+          "book": 107,
+          "role": "validation",
+          "step": 10220,
+          "loss_nats_per_byte": 2.742024,
+          "bits_per_byte": 3.955905,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7557573880861483693"
+        },
+        {
+          "book": 14642,
+          "role": "training_retention",
+          "step": 10220,
+          "loss_nats_per_byte": 1.592581,
+          "bits_per_byte": 2.297609,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "14277363980589134102"
+        },
+        {
+          "book": 14640,
+          "role": "training_retention",
+          "step": 10220,
+          "loss_nats_per_byte": 1.600554,
+          "bits_per_byte": 2.309112,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "17024585537583080476"
+        }
+      ],
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "output_utf8": "The bird moning in\na now hi live son find every lingir to night it.\n\n2. Sfeee inie made which bing to soors, to be hay, found, this let\nsong a gloing his the loob. In it little sing our mine.\n\nLook the little girl was little bird. When she one our the house, we we ",
+          "output_hex": "5468652062697264206d6f6e696e6720696e0a61206e6f77206869206c69766520736f6e2066696e64206576657279206c696e67697220746f206e696768742069742e0a0a322e20536665656520696e6965206d6164652077686963682062696e6720746f20736f6f72732c20746f206265206861792c20666f756e642c2074686973206c65740a736f6e67206120676c6f696e672068697320746865206c6f6f622e20496e206974206c6974746c652073696e67206f7572206d696e652e0a0a4c6f6f6b20746865206c6974746c65206769726c20776173206c6974746c6520626972642e205768656e20736865206f6e65206f75722074686520686f7573652c20776520776520",
+          "sha256": "1bdd565ba43b195b51fd4867a24227c1fbf35f7bd6c6dffcb3bab927b7fdc244",
+          "generated_bytes": 256
+        },
+        {
+          "prompt": "The boy opened the door and saw ",
+          "output_utf8": "The boy opened the door and saw that, and heart\nofine.\n10. Willie's of the fries erersh, of the villeng\nwing, and the run ast he behight hims fareling to sound, it.\n\n3. She told beerrier ople hand shouldren wisher, and there is may to the\nhis lan song; \"Good this\nand surents to long to s",
+          "output_hex": "54686520626f79206f70656e65642074686520646f6f7220616e642073617720746861742c20616e642068656172740a6f66696e652e0a31302e2057696c6c69652773206f6620746865206672696573206572657273682c206f66207468652076696c6c656e670a77696e672c20616e64207468652072756e2061737420686520626568696768742068696d7320666172656c696e6720746f20736f756e642c2069742e0a0a332e2053686520746f6c64206265657272696572206f706c652068616e642073686f756c6472656e207769736865722c20616e64207468657265206973206d617920746f207468650a686973206c616e20736f6e673b2022476f6f6420746869730a616e6420737572656e747320746f206c6f6e6720746f2073",
+          "sha256": "fa6d7bb0affa8f0e64c3723374384936507dec9ef89053c67b80a1a275c696e2",
+          "generated_bytes": 256
+        },
+        {
+          "prompt": "Question: What is water?\nAnswer:",
+          "output_utf8": "Question: What is water?\nAnswer: I knear birls thart, and white must our out, and\nof the childres.\n\n2. A loow which were boid this nerse, a rise of mountier. \"I heart good\nman the told the\nbird.\n\nLESSON LXXII.\n\nHAGD SLOTHE.\n\n1. A little broook nor and, fine strie;\nAnd  son the roise,\nWil",
+          "output_hex": "5175657374696f6e3a20576861742069732077617465723f0a416e737765723a2049206b6e656172206269726c732074686172742c20616e64207768697465206d757374206f7572206f75742c20616e640a6f6620746865206368696c647265732e0a0a322e2041206c6f6f77207768696368207765726520626f69642074686973206e657273652c20612072697365206f66206d6f756e746965722e20224920686561727420676f6f640a6d616e2074686520746f6c64207468650a626972642e0a0a4c4553534f4e204c585849492e0a0a4841474420534c4f5448452e0a0a312e2041206c6974746c652062726f6f6f6b206e6f7220616e642c2066696e652073747269653b0a416e642020736f6e2074686520726f6973652c0a57696c",
+          "sha256": "f210703d1b706846158c9eef76a843e9c466d62b0240ca70a59fdf31e25f8bec",
+          "generated_bytes": 256
+        },
+        {
+          "prompt": "Question: What is two plus three?\nAnswer:",
+          "output_utf8": "Question: What is two plus three?\nAnswer: Afloing as playing our would no ut\nbrick, it, \"If you do it, any all hand brears are busy of the\nwill shoulder.\n\nLESSON LXXIV.\n\nSITHE BIEW,\nThis made of its beren and make sorrely for good go\non many harry with my to to pears.\n\n4. When be been there heart",
+          "output_hex": "5175657374696f6e3a20576861742069732074776f20706c75732074687265653f0a416e737765723a2041666c6f696e6720617320706c6179696e67206f757220776f756c64206e6f2075740a627269636b2c2069742c2022496620796f7520646f2069742c20616e7920616c6c2068616e6420627265617273206172652062757379206f66207468650a77696c6c2073686f756c6465722e0a0a4c4553534f4e204c585849562e0a0a534954484520424945572c0a54686973206d616465206f662069747320626572656e20616e64206d616b6520736f7272656c7920666f7220676f6f6420676f0a6f6e206d616e792068617272792077697468206d7920746f20746f2070656172732e0a0a342e205768656e206265206265656e207468657265206865617274",
+          "sha256": "76dddfbc752c9d658481c32e1c837fd2a70910329645ba7fb6f59b09a908e830",
+          "generated_bytes": 256
+        }
+      ],
+      "validation_mean_nats_per_byte": 2.1929085,
+      "checkpoint_unchanged": true,
+      "reserved_tests_scored": false,
+      "limitation": "One seed and one common learning rate are an exploratory size comparison, not a tuned architecture ranking. Fixed source observations match data exposure, not wall time or FLOPs. Adjacent material and paraphrases may overlap even with whole-book splits and exact-paragraph protection. Short reset windows do not measure long-context recall. No reserved test books are scored. The first 105M stage already had an exploratory reader check and two samples before this protocol; later checkpoints and matched controls have not been assessed."
+    },
+    {
+      "complete": true,
+      "plan_sha256": "c86bd980bc82d3773232b9c08625f2af2fae238257fd706abdc4841d354cf5b6",
+      "founder_protocol_sha256": "55543997e1c6202f512d1830c805bd1bfb1d7650f8e514797e56b7481b044990",
+      "checkpoint": "runs/prose-105m-founder/stage-2.ckpt",
+      "checkpoint_sha256": "743ff357901418f4eb780e5ee8b5d3849158c7ff1276a0e6a9bff8220c9625c0",
+      "stage": 2,
+      "online_updates": 26110,
+      "profile": "105m",
+      "parameters": 104851472,
+      "spiking_neurons": 32768,
+      "books": [
+        {
+          "book": 13853,
+          "role": "validation",
+          "step": 32637,
+          "loss_nats_per_byte": 2.187138,
+          "bits_per_byte": 3.155373,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        {
+          "book": 12228,
+          "role": "validation",
+          "step": 32637,
+          "loss_nats_per_byte": 1.867459,
+          "bits_per_byte": 2.694174,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        {
+          "book": 11757,
+          "role": "validation",
+          "step": 32637,
+          "loss_nats_per_byte": 1.589348,
+          "bits_per_byte": 2.292944,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        },
+        {
+          "book": 107,
+          "role": "validation",
+          "step": 32637,
+          "loss_nats_per_byte": 1.820801,
+          "bits_per_byte": 2.626861,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7557573880861483693"
+        },
+        {
+          "book": 14642,
+          "role": "training_retention",
+          "step": 32637,
+          "loss_nats_per_byte": 1.76758,
+          "bits_per_byte": 2.550079,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "14277363980589134102"
+        },
+        {
+          "book": 14640,
+          "role": "training_retention",
+          "step": 32637,
+          "loss_nats_per_byte": 1.676234,
+          "bits_per_byte": 2.418295,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "17024585537583080476"
+        }
+      ],
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "output_utf8": "The bird moment to along thought he trainss.\n\n3. She taking him, and when he saw, and if the would be them a charm agen and dremess and\nkitten scatming on the eatiret, and the some to the door were would her may\nand with ener anxial had and dead with a pig.  But th",
+          "output_hex": "5468652062697264206d6f6d656e7420746f20616c6f6e672074686f7567687420686520747261696e73732e0a0a332e205368652074616b696e672068696d2c20616e64207768656e206865207361772c20616e642069662074686520776f756c64206265207468656d206120636861726d206167656e20616e64206472656d65737320616e640a6b697474656e20736361746d696e67206f6e2074686520656174697265742c20616e642074686520736f6d6520746f2074686520646f6f72207765726520776f756c6420686572206d61790a616e64207769746820656e657220616e7869616c2068616420616e64206465616420776974682061207069672e2020427574207468",
+          "sha256": "1cdda7941253ee69893eed36747654414cd3b65a2e276137375585e683a6e947",
+          "generated_bytes": 256
+        },
+        {
+          "prompt": "The boy opened the door and saw ",
+          "output_utf8": "The boy opened the door and saw him\ncannot about trised to arrier, and he adme four an expretty you armbs held and said\u2019s leading,\n\u201cI comment that to long in his eusel\u2014\u2014Are\u2019ll be, which a door is a firstry, now, here to\nthe eaturain a tairs your sting that he way to be it for a",
+          "output_hex": "54686520626f79206f70656e65642074686520646f6f7220616e64207361772068696d0a63616e6e6f742061626f75742074726973656420746f206172726965722c20616e642068652061646d6520666f757220616e20657870726574747920796f752061726d62732068656c6420616e642073616964e2809973206c656164696e672c0ae2809c4920636f6d6d656e74207468617420746f206c6f6e6720696e2068697320657573656ce28094e28094417265e280996c6c2062652c207768696368206120646f6f72206973206120666972737472792c206e6f772c206865726520746f0a74686520656174757261696e206120746169727320796f7572207374696e6720746861742068652077617920746f20626520697420666f722061",
+          "sha256": "d7f18c34604b35d3be96b7390cb1a3cf856d6b570ffee5ba99a1abdac8c9020b",
+          "generated_bytes": 256
+        },
+        {
+          "prompt": "Question: What is water?\nAnswer:",
+          "output_utf8": "Question: What is water?\nAnswer:\n\n\"3Y'm all good ibat, and doing dee would careturial grave to try to fast.\n\nAnd the follow so arms, \"and they had get to keep him, and\nthen a stranger for Ozma real fand every goods that is\nthe day will be made up to aftretting that their father in\na litt",
+          "output_hex": "5175657374696f6e3a20576861742069732077617465723f0a416e737765723a0a0a223359276d20616c6c20676f6f6420696261742c20616e6420646f696e672064656520776f756c64206361726574757269616c20677261766520746f2074727920746f20666173742e0a0a416e642074686520666f6c6c6f7720736f2061726d732c2022616e642074686579206861642067657420746f206b6565702068696d2c20616e640a7468656e206120737472616e67657220666f72204f7a6d61207265616c2066616e6420657665727920676f6f647320746861742069730a746865206461792077696c6c206265206d61646520757020746f2061667472657474696e6720746861742074686569722066617468657220696e0a61206c697474",
+          "sha256": "5b70c87b26a7a071e75b4c28811d9f6c3b25ac8658c2a304d56cf958cd8ea14b",
+          "generated_bytes": 256
+        },
+        {
+          "prompt": "Question: What is two plus three?\nAnswer:",
+          "output_utf8": "Question: What is two plus three?\nAnswer:\n\n\u201cYou my the an! The little bed morning deirls; and\nhe would Mombisst all be and combing some with\nme.  You can can find had any belathing at all how didly to have you to be eat whith\nthey of in the interning becomess. \u201cThat is a money of them, and I ",
+          "output_hex": "5175657374696f6e3a20576861742069732074776f20706c75732074687265653f0a416e737765723a0a0ae2809c596f75206d792074686520616e2120546865206c6974746c6520626564206d6f726e696e6720646569726c733b20616e640a686520776f756c64204d6f6d626973737420616c6c20626520616e6420636f6d62696e6720736f6d6520776974680a6d652e2020596f752063616e2063616e2066696e642068616420616e792062656c617468696e6720617420616c6c20686f77206469646c7920746f206861766520796f7520746f206265206561742077686974680a74686579206f6620696e2074686520696e7465726e696e67206265636f6d6573732e20e2809c546861742069732061206d6f6e6579206f66207468656d2c20616e64204920",
+          "sha256": "14978fc54015b427ba69454185d2c0de1ffa4b1957b2c59f0a7feb36c7f75d04",
+          "generated_bytes": 256
+        }
+      ],
+      "validation_mean_nats_per_byte": 1.8661865,
+      "checkpoint_unchanged": true,
+      "reserved_tests_scored": false,
+      "limitation": "One seed and one common learning rate are an exploratory size comparison, not a tuned architecture ranking. Fixed source observations match data exposure, not wall time or FLOPs. Adjacent material and paraphrases may overlap even with whole-book splits and exact-paragraph protection. Short reset windows do not measure long-context recall. No reserved test books are scored. The first 105M stage already had an exploratory reader check and two samples before this protocol; later checkpoints and matched controls have not been assessed."
+    },
+    {
+      "complete": true,
+      "plan_sha256": "c86bd980bc82d3773232b9c08625f2af2fae238257fd706abdc4841d354cf5b6",
+      "founder_protocol_sha256": "55543997e1c6202f512d1830c805bd1bfb1d7650f8e514797e56b7481b044990",
+      "checkpoint": "runs/prose-105m-founder/stage-3.ckpt",
+      "checkpoint_sha256": "e6983e807ec6346802a870e1879efd993f0fb4d9e1ab8fe4f5ce7079711f0474",
+      "stage": 3,
+      "online_updates": 95207,
+      "profile": "105m",
+      "parameters": 104851472,
+      "spiking_neurons": 32768,
+      "books": [
+        {
+          "book": 13853,
+          "role": "validation",
+          "step": 119008,
+          "loss_nats_per_byte": 2.187096,
+          "bits_per_byte": 3.155312,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        {
+          "book": 12228,
+          "role": "validation",
+          "step": 119008,
+          "loss_nats_per_byte": 1.756551,
+          "bits_per_byte": 2.534167,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        {
+          "book": 11757,
+          "role": "validation",
+          "step": 119008,
+          "loss_nats_per_byte": 1.566591,
+          "bits_per_byte": 2.260113,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        },
+        {
+          "book": 107,
+          "role": "validation",
+          "step": 119008,
+          "loss_nats_per_byte": 1.708879,
+          "bits_per_byte": 2.465391,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7557573880861483693"
+        },
+        {
+          "book": 14642,
+          "role": "training_retention",
+          "step": 119008,
+          "loss_nats_per_byte": 1.729837,
+          "bits_per_byte": 2.495627,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "14277363980589134102"
+        },
+        {
+          "book": 14640,
+          "role": "training_retention",
+          "step": 119008,
+          "loss_nats_per_byte": 1.68196,
+          "bits_per_byte": 2.426556,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "17024585537583080476"
+        }
+      ],
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "output_utf8": "The bird instinct to come oward the reportures into a\ngrowing the realizely and every great spirit of the trop.\n\n\"I life they had been into the quarrels to the sea talk, she was a rencour\nthat is a spee and brother came out, and I do when to the arrows of simular c",
+          "output_hex": "546865206269726420696e7374696e637420746f20636f6d65206f7761726420746865207265706f72747572657320696e746f20610a67726f77696e6720746865207265616c697a656c7920616e6420657665727920677265617420737069726974206f66207468652074726f702e0a0a2249206c696665207468657920686164206265656e20696e746f20746865207175617272656c7320746f20746865207365612074616c6b2c207368652077617320612072656e636f75720a746861742069732061207370656520616e642062726f746865722063616d65206f75742c20616e64204920646f207768656e20746f20746865206172726f7773206f662073696d756c61722063",
+          "sha256": "3a1829fa8eea4d70ce8cb1d8f8eff58cfec696cf52ccbc520bd40437594f1011",
+          "generated_bytes": 256
+        },
+        {
+          "prompt": "The boy opened the door and saw ",
+          "output_utf8": "The boy opened the door and saw their\nrestroodus circle.\n\nThen thornton seciet him, they for there wood-for yours the people and a\nhickly over the good, and I fell with a pay of the pool scrace\non the sleep of the long and to be carried at the down of\nthe woods again as the stream.\n\nThe ",
+          "output_hex": "54686520626f79206f70656e65642074686520646f6f7220616e64207361772074686569720a72657374726f6f64757320636972636c652e0a0a5468656e2074686f726e746f6e207365636965742068696d2c207468657920666f7220746865726520776f6f642d666f7220796f757273207468652070656f706c6520616e6420610a6869636b6c79206f7665722074686520676f6f642c20616e6420492066656c6c2077697468206120706179206f662074686520706f6f6c207363726163650a6f6e2074686520736c656570206f6620746865206c6f6e6720616e6420746f20626520636172726965642061742074686520646f776e206f660a74686520776f6f647320616761696e206173207468652073747265616d2e0a0a54686520",
+          "sha256": "a4a40f21db0b70af1abf0417b51ddbc5cde35c8876b793231a5cf83cd6924417",
+          "generated_bytes": 256
+        },
+        {
+          "prompt": "Question: What is water?\nAnswer:",
+          "output_utf8": "Question: What is water?\nAnswer: or many were the Captain Nows too white Sarily\naway over, the wrecked like wolf to strike on the clubs of vained of the wild be\nfeen iron, and the point of the trees and of the sun they were looking\na new looke upon the elember of strail and strogger to t",
+          "output_hex": "5175657374696f6e3a20576861742069732077617465723f0a416e737765723a206f72206d616e79207765726520746865204361707461696e204e6f777320746f6f20776869746520536172696c790a61776179206f7665722c2074686520777265636b6564206c696b6520776f6c6620746f20737472696b65206f6e2074686520636c756273206f66207661696e6564206f66207468652077696c642062650a6665656e2069726f6e2c20616e642074686520706f696e74206f662074686520747265657320616e64206f66207468652073756e20746865792077657265206c6f6f6b696e670a61206e6577206c6f6f6b652075706f6e2074686520656c656d626572206f662073747261696c20616e64207374726f6767657220746f2074",
+          "sha256": "ff3bc2cfe1c1ae4674ff3348ba0e6ddb5ae3d0a4ff5770e38666f7b345e03331",
+          "generated_bytes": 256
+        },
+        {
+          "prompt": "Question: What is two plus three?\nAnswer:",
+          "output_utf8": "Question: What is two plus three?\nAnswer: it is a warning talle to spee what percees, in\namusember of them and curiously and wite and down, hose and discovered as\nincarces and Buck.\n\nThe morning with the call movement came to other, he space in the\nshore in the all into the back of the commoming ",
+          "output_hex": "5175657374696f6e3a20576861742069732074776f20706c75732074687265653f0a416e737765723a2069742069732061207761726e696e672074616c6c6520746f2073706565207768617420706572636565732c20696e0a616d7573656d626572206f66207468656d20616e6420637572696f75736c7920616e64207769746520616e6420646f776e2c20686f736520616e6420646973636f76657265642061730a696e63617263657320616e64204275636b2e0a0a546865206d6f726e696e672077697468207468652063616c6c206d6f76656d656e742063616d6520746f206f746865722c20686520737061636520696e207468650a73686f726520696e2074686520616c6c20696e746f20746865206261636b206f662074686520636f6d6d6f6d696e6720",
+          "sha256": "a925d547c1c0abffff8f11ec79cde776f7f1dd249674259c9ec6af4586e56e75",
+          "generated_bytes": 256
+        }
+      ],
+      "validation_mean_nats_per_byte": 1.80477925,
+      "checkpoint_unchanged": true,
+      "reserved_tests_scored": false,
+      "limitation": "One seed and one common learning rate are an exploratory size comparison, not a tuned architecture ranking. Fixed source observations match data exposure, not wall time or FLOPs. Adjacent material and paraphrases may overlap even with whole-book splits and exact-paragraph protection. Short reset windows do not measure long-context recall. No reserved test books are scored. The first 105M stage already had an exploratory reader check and two samples before this protocol; later checkpoints and matched controls have not been assessed."
+    },
+    {
+      "complete": true,
+      "plan_sha256": "c86bd980bc82d3773232b9c08625f2af2fae238257fd706abdc4841d354cf5b6",
+      "founder_protocol_sha256": "55543997e1c6202f512d1830c805bd1bfb1d7650f8e514797e56b7481b044990",
+      "checkpoint": "runs/prose-105m-founder/stage-4.ckpt",
+      "checkpoint_sha256": "f68c58fde2e073d33fb155530517a8c44f79280d9d54adcf21751b55eabc4501",
+      "stage": 4,
+      "online_updates": 216289,
+      "profile": "105m",
+      "parameters": 104851472,
+      "spiking_neurons": 32768,
+      "books": [
+        {
+          "book": 13853,
+          "role": "validation",
+          "step": 270361,
+          "loss_nats_per_byte": 2.473894,
+          "bits_per_byte": 3.569075,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        {
+          "book": 12228,
+          "role": "validation",
+          "step": 270361,
+          "loss_nats_per_byte": 1.927355,
+          "bits_per_byte": 2.780585,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        {
+          "book": 11757,
+          "role": "validation",
+          "step": 270361,
+          "loss_nats_per_byte": 1.720305,
+          "bits_per_byte": 2.481875,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        },
+        {
+          "book": 107,
+          "role": "validation",
+          "step": 270361,
+          "loss_nats_per_byte": 1.748244,
+          "bits_per_byte": 2.522183,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7557573880861483693"
+        },
+        {
+          "book": 14642,
+          "role": "training_retention",
+          "step": 270361,
+          "loss_nats_per_byte": 1.932688,
+          "bits_per_byte": 2.788279,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "14277363980589134102"
+        },
+        {
+          "book": 14640,
+          "role": "training_retention",
+          "step": 270361,
+          "loss_nats_per_byte": 1.906738,
+          "bits_per_byte": 2.750841,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "17024585537583080476"
+        }
+      ],
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "output_utf8": "The bird well we shall be aparted and before our fateur. If you\nplay him motionlight it was to sit the door, and we confused\nby the chest friendly round to her.\n\n\u201cNo,\u201d said he, \u201cyou will sit to my better friend.\u201d\n\nThe coast at the terrible among the road wh",
+          "output_hex": "54686520626972642077656c6c207765207368616c6c206265206170617274656420616e64206265666f7265206f7572206661746575722e20496620796f750a706c61792068696d206d6f74696f6e6c696768742069742077617320746f207369742074686520646f6f722c20616e6420776520636f6e66757365640a62792074686520636865737420667269656e646c7920726f756e6420746f206865722e0a0ae2809c4e6f2ce2809d20736169642068652c20e2809c796f752077696c6c2073697420746f206d792062657474657220667269656e642ee2809d0a0a54686520636f61737420617420746865207465727269626c6520616d6f6e672074686520726f6164207768",
+          "sha256": "df7d138dd8d0c480d5f45ec7eacb5abafcc78732883cb88f30349fc21cff67f5",
+          "generated_bytes": 256
+        },
+        {
+          "prompt": "The boy opened the door and saw ",
+          "output_utf8": "The boy opened the door and saw the sight\nof himself the lackey of a cry from hor, and went to talk a short\nof the community and sharp the public any hat from the cardinal and\nhis emotion loud not been arrange that that they were more carriage into\nthis stranger looks for the country of ",
+          "output_hex": "54686520626f79206f70656e65642074686520646f6f7220616e6420736177207468652073696768740a6f662068696d73656c6620746865206c61636b6579206f662061206372792066726f6d20686f722c20616e642077656e7420746f2074616c6b20612073686f72740a6f662074686520636f6d6d756e69747920616e6420736861727020746865207075626c696320616e79206861742066726f6d207468652063617264696e616c20616e640a68697320656d6f74696f6e206c6f7564206e6f74206265656e20617272616e67652074686174207468617420746865792077657265206d6f726520636172726961676520696e746f0a7468697320737472616e676572206c6f6f6b7320666f722074686520636f756e747279206f6620",
+          "sha256": "737ca9b62666434c679c251c7d74d5f97448d21045de43b6519e44c4ca692e66",
+          "generated_bytes": 256
+        },
+        {
+          "prompt": "Question: What is water?\nAnswer:",
+          "output_utf8": "Question: What is water?\nAnswer:  \u201cLet us let us.\u201d\n\nAt that moment he sole for the time the united to chamber and listened in\nthe latter to him of the she four mouls cloak and dog into the \nPorthos and the other so long standing out her hands.\n\nThe queen was made at the same me which",
+          "output_hex": "5175657374696f6e3a20576861742069732077617465723f0a416e737765723a2020e2809c4c6574207573206c65742075732ee2809d0a0a41742074686174206d6f6d656e7420686520736f6c6520666f72207468652074696d652074686520756e6974656420746f206368616d62657220616e64206c697374656e656420696e0a746865206c617474657220746f2068696d206f66207468652073686520666f7572206d6f756c7320636c6f616b20616e6420646f6720696e746f20746865200a506f7274686f7320616e6420746865206f7468657220736f206c6f6e67207374616e64696e67206f7574206865722068616e64732e0a0a54686520717565656e20776173206d616465206174207468652073616d65206d65207768696368",
+          "sha256": "bd2b54ea86eddeda78d606898ac187e483f05a6757f043acbc59103fd019581b",
+          "generated_bytes": 256
+        },
+        {
+          "prompt": "Question: What is two plus three?\nAnswer:",
+          "output_utf8": "Question: What is two plus three?\nAnswer: That is a voice one of thousand I could last you, and I\ndo not not think it will become our party make anyong out having in\ncommand.\n\nafter a paper face to speak of a man who had been granted all his lackeys and\nwell-keephanted by the death of the most fo",
+          "output_hex": "5175657374696f6e3a20576861742069732074776f20706c75732074687265653f0a416e737765723a2054686174206973206120766f696365206f6e65206f662074686f7573616e64204920636f756c64206c61737420796f752c20616e6420490a646f206e6f74206e6f74207468696e6b2069742077696c6c206265636f6d65206f7572207061727479206d616b6520616e796f6e67206f757420686176696e6720696e0a636f6d6d616e642e0a0a61667465722061207061706572206661636520746f20737065616b206f662061206d616e2077686f20686164206265656e206772616e74656420616c6c20686973206c61636b65797320616e640a77656c6c2d6b65657068616e74656420627920746865206465617468206f6620746865206d6f737420666f",
+          "sha256": "5b6d17053349e0d3ddc3b263f97bc0eb528d3f6d7c349f717cf6f8b3d8a08d5c",
+          "generated_bytes": 256
+        }
+      ],
+      "validation_mean_nats_per_byte": 1.9674494999999999,
+      "checkpoint_unchanged": true,
+      "reserved_tests_scored": false,
+      "limitation": "One seed and one common learning rate are an exploratory size comparison, not a tuned architecture ranking. Fixed source observations match data exposure, not wall time or FLOPs. Adjacent material and paraphrases may overlap even with whole-book splits and exact-paragraph protection. Short reset windows do not measure long-context recall. No reserved test books are scored. The first 105M stage already had an exploratory reader check and two samples before this protocol; later checkpoints and matched controls have not been assessed."
+    }
+  ],
+  "changes": [
+    {
+      "book": 13853,
+      "role": "validation",
+      "stage_one": 2.187037,
+      "stage_three": 2.187096,
+      "stage_four": 2.473894,
+      "change_from_stage_one": 0.2868569999999999,
+      "change_from_stage_three": 0.2867980000000001
+    },
+    {
+      "book": 12228,
+      "role": "validation",
+      "stage_one": 1.968174,
+      "stage_three": 1.756551,
+      "stage_four": 1.927355,
+      "change_from_stage_one": -0.04081900000000016,
+      "change_from_stage_three": 0.17080399999999996
+    },
+    {
+      "book": 11757,
+      "role": "validation",
+      "stage_one": 1.874399,
+      "stage_three": 1.566591,
+      "stage_four": 1.720305,
+      "change_from_stage_one": -0.15409399999999995,
+      "change_from_stage_three": 0.1537139999999999
+    },
+    {
+      "book": 107,
+      "role": "validation",
+      "stage_one": 2.742024,
+      "stage_three": 1.708879,
+      "stage_four": 1.748244,
+      "change_from_stage_one": -0.9937799999999999,
+      "change_from_stage_three": 0.03936499999999987
+    },
+    {
+      "book": 14642,
+      "role": "training_retention",
+      "stage_one": 1.592581,
+      "stage_three": 1.729837,
+      "stage_four": 1.932688,
+      "change_from_stage_one": 0.34010699999999994,
+      "change_from_stage_three": 0.2028509999999999
+    },
+    {
+      "book": 14640,
+      "role": "training_retention",
+      "stage_one": 1.600554,
+      "stage_three": 1.68196,
+      "stage_four": 1.906738,
+      "change_from_stage_one": 0.306184,
+      "change_from_stage_three": 0.22477800000000014
+    }
+  ],
+  "assessment_native_commands": 40,
+  "summed_live_session_seconds": 3750.8903252,
+  "summed_session_source_bytes_per_second": 7379.615664588667,
+  "timing_limit": "Sum of the two native live sessions; includes replay, scheduled speech and intermediate/final saves, excludes initialization, initial checkpoint save and the gap between invocations. Save cadence differs from pending smaller controls, so this is not a controlled size-speed comparison.",
+  "evidence_sha256": {
+    "runs/prose-size-panel/founder-completion.json": "45f357e915c0d0362903c6c73be5a418970c17495f57547b4b670b4b88055fc5",
+    "runs/prose-evaluation-declared/protocol.json": "c86bd980bc82d3773232b9c08625f2af2fae238257fd706abdc4841d354cf5b6",
+    "reports/prose-105m-founder.json": "f6d3766fde37d4564f8f6ce33f35c26773f9583ff62bf5fbdbeff113a4810a47",
+    "runs/prose-size-panel/105m-stage-1/result.json": "fb6fc2214474cbe414126928618ec7c524d0f70423aaf48d7062b43ba7ad651c",
+    "runs/prose-size-panel/105m-stage-1/commands.json": "570499057b3039155005ac6b866b38d9b792c8305e1eda3edf6de0e4f850d7a9",
+    "runs/prose-size-panel/105m-stage-2/result.json": "078e3bc011b0027562c14c0052afcbc0aecf9911594f98eb025196fc5258e20e",
+    "runs/prose-size-panel/105m-stage-2/commands.json": "0861bb60ebaad9c1fc928c175083e2e2cb9eafa65e00a100a9c2ccd95fa16f2c",
+    "runs/prose-size-panel/105m-stage-3/result.json": "8f5d9ed089cadaaa61a384f8b6931af28ba48910fce1fd7160f7453e6dbe116b",
+    "runs/prose-size-panel/105m-stage-3/commands.json": "7f530e89e97efdfc9bcdf1e58c6d6297b067722bd5920bb5aa28fc202ab8bece",
+    "runs/prose-size-panel/105m-stage-4/result.json": "55c6b7cabf670943b4ba66cfc42e17d82656584d949638c2dd07828bde077b23",
+    "runs/prose-size-panel/105m-stage-4/commands.json": "4548b5373869384debfceaf56a1f5b8575188ec6a0e7488863c91e63fe75695b"
+  },
+  "fixed_protocol_applied": true,
+  "reserved_tests_scored": false,
+  "qa_accuracy_benchmark": false,
+  "qualitative_observation": "Both fixed question continuations are unrelated story fragments and do not answer the questions. All four validation books and both early-reader training monitors worsen from stage three to stage four.",
+  "matched_size_comparison_complete": false,
+  "neuron_response_panel_complete": false,
+  "reproduction_admitted": false,
+  "limits": "One seed and one common learning rate are an exploratory size comparison, not a tuned architecture ranking. Fixed source observations match data exposure, not wall time or FLOPs. Adjacent material and paraphrases may overlap even with whole-book splits and exact-paragraph protection. Short reset windows do not measure long-context recall. No reserved test books are scored. The first 105M stage already had an exploratory reader check and two samples before this protocol; later checkpoints and matched controls have not been assessed."
+}

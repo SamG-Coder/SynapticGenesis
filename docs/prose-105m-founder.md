@@ -1,5 +1,9 @@
 # First checkpoint of the larger founder
 
+This is the preserved early checkpoint record. The subsequent
+[completed prose run and four-stage assessment](prose-105m-complete.md) reports
+later learning, the measured regressions and raw final outputs.
+
 A new C1024/H4096/L8 associative spiking model was initialized randomly and
 trained through the ordinary curriculum CLI. It has **104,851,472 parameters
 and 32,768 spiking neurons**. It uses no imported weights or pretrained

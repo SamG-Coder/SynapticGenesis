@@ -4,7 +4,9 @@ The [evaluation specification](../data/prose-evaluation-v1.json) fixes the
 development checks for the expanded prose curriculum. It is declared while
 the 105M founder continues learning. Its first stage already had the exploratory
 reader check and two generations reported in [the founder record](prose-105m-founder.md).
-The remaining checkpoints and matching smaller controls have not been assessed.
+At declaration time, the remaining checkpoints and matching smaller controls
+had not been assessed. The [105M assessments](prose-105m-complete.md) have since
+completed at all four stages; the smaller controls remain in progress.
 
 The 2M, 27M and 105M profiles use the same seed, learning rate, source order,
 128-byte learning chunks, stage replay and scheduled speech. Compare their
@@ -47,9 +49,11 @@ python scripts/prose_evaluation.py assess --plan runs/prose-evaluation-declared/
 
 CPU validation authenticated the complete source edition and schedule, checked
 the two existing 105M stage headers against the declaration, and compiled the
-Python driver. Native execution of this new driver is pending the active
-learning run. Existing capacity benchmarks and the earlier founder assessment
-are separate evidence; they do not validate this driver's full execution.
+Python driver. Native execution has since completed all forty commands for the
+105M founder: six book evaluations and four generations at each of four stages,
+with checkpoint identities unchanged. The matching smaller-model portion of
+the overall comparison is still in progress. Capacity benchmarks remain
+separate evidence about speed.
 
 Increasing parameters also increases the amount of learning needed. The
 [Chinchilla study](https://arxiv.org/abs/2203.15556) found that model size and
@@ -87,8 +91,9 @@ python scripts/prose_size_comparison.py --out runs/prose-size-panel
 CPU checks verified waiting for a successful child process, rejection of a
 nonzero exit, rejection of a mismatched executable, and rejection of the
 unfinished founder before assessment. The first three existing stage headers
-matched the declared exposure boundaries. Full native orchestration remains
-pending the live run's completion.
+matched the declared exposure boundaries. The original live run has now exited
+successfully, its final checkpoint and session counters agree, and all four
+105M assessments completed. Full three-size orchestration remains in progress.
 
 The final comparison requires all three models to have identical source,
 replay and scheduled-speech counters at each stage. It reports each validation
