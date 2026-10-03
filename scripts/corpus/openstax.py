@@ -24,11 +24,15 @@ def tex_text(text):
                     '_': r'\_', '^': r'\textasciicircum{}'}.get(c, c) for c in text)
 
 
-def math_text(node):
+def math_text(node, extension=None):
     if not node.tag.startswith(MATH):
         raise ValueError('Non-MathML element inside a formula')
     name = node.tag[len(MATH):]
     children = list(node)
+
+    def render(child):
+        return math_text(child, extension)
+
     if name in ('mi', 'mn', 'mo', 'mtext'):
         if children:
             raise ValueError('Unexpected children in a MathML token')
@@ -39,27 +43,32 @@ def math_text(node):
     if name in ('math', 'mrow', 'mtd'):
         if compact(node.text or '') or any(compact(c.tail or '') for c in children):
             raise ValueError('Unexpected text outside MathML tokens')
-        return ' '.join(math_text(c) for c in children).strip()
+        value = ' '.join(render(c) for c in children).strip()
+        if extension is not None and name == 'math' and not value:
+            raise ValueError('Empty formula in extended source')
+        return value
     arities = {'mfrac': 2, 'msup': 2, 'msub': 2, 'msubsup': 3}
     if name in arities:
         if len(children) != arities[name]:
             raise ValueError(f'Invalid MathML arity for {name}')
-        values = [math_text(c) for c in children]
+        values = [render(c) for c in children]
         if name == 'mfrac':
             return r'\frac{' + values[0] + '}{' + values[1] + '}'
         suffix = {'msup': '^', 'msub': '_', 'msubsup': '_'}[name]
         result = '{' + values[0] + '}' + suffix + '{' + values[1] + '}'
         return result + ('^{' + values[2] + '}' if name == 'msubsup' else '')
     if name == 'msqrt' and children:
-        return r'\sqrt{' + ' '.join(math_text(c) for c in children) + '}'
+        return r'\sqrt{' + ' '.join(render(c) for c in children) + '}'
     if name == 'mtr' and all(c.tag == MATH + 'mtd' for c in children):
-        return ' & '.join(math_text(c) for c in children)
+        return ' & '.join(render(c) for c in children)
     if name == 'mtable' and children and all(c.tag == MATH + 'mtr' for c in children):
-        return r'\begin{matrix} ' + r' \\ '.join(math_text(c) for c in children) + r' \end{matrix}'
+        return r'\begin{matrix} ' + r' \\ '.join(render(c) for c in children) + r' \end{matrix}'
+    if extension is not None:
+        return extension(node, render)
     raise ValueError(f'Unsupported MathML structure: {name}')
 
 
-def extract(raw, module_titles=None):
+def extract(raw, module_titles=None, *, math_extension=None):
     if b'<!DOCTYPE' in raw or b'<!ENTITY' in raw:
         raise ValueError('External/custom XML entities are unsupported')
     root = ET.fromstring(raw)
@@ -133,7 +142,7 @@ def extract(raw, module_titles=None):
     def render(node):
         if node.tag == MATH + 'math':
             stats['math_expressions'] += 1
-            return r'\(' + math_text(node) + r'\)'
+            return r'\(' + math_text(node, math_extension) + r'\)'
         if not node.tag.startswith(CN):
             raise ValueError(f'Unsupported content namespace: {node.tag}')
         tag = node.tag[len(CN):]

@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "source_spec_sha256": "eea159d96a0302eb6636e590303e758ad907fff898799472e11d72bc3a25c521",
+  "manifest_sha256": "d2470c34318172090b7c2a57706e7e09480b71d388ec07bb7be300d1584a4449",
+  "source_review_sha256": "1c2dcf155a98e638205b25b37556b49353fb0716173b91d39c532167fc80fecd",
+  "fixtures": {
+    "mathematical_examples": 4,
+    "invalid_math_rejected": 3,
+    "table_and_reference_fixture": true,
+    "malformed_table_rejected": true,
+    "declared_sidebar_omission": true
+  },
+  "outputs": {
+    "train": {
+      "bytes": 2833157,
+      "documents": 174,
+      "sha256": "d24b576ae66d11115d46845e80069c95eb65175f284e69113c658b0233b65d0a",
+      "word_like_units": 466756
+    },
+    "validation": {
+      "bytes": 77791,
+      "documents": 5,
+      "sha256": "2b392a78e81620c957b37dae85666410891b591f61c5dfdff2cffe2bbc6b6cca",
+      "word_like_units": 12927
+    },
+    "test": {
+      "bytes": 82938,
+      "documents": 5,
+      "sha256": "0afdcfd87b07a752777c0a68de95ad7248001de166cfa165e51cf4c1ba06d9e5",
+      "word_like_units": 13596
+    }
+  },
+  "modules_reextracted": 184,
+  "whole_chapter_splits": true,
+  "protected_paragraph_overlap": 0,
+  "changed_raw_rejected": true,
+  "reviewed_samples_authenticated": 30,
+  "real_merged_rows_checked": true,
+  "malformed_module_excluded": true,
+  "no_native_model_work": true,
+  "explicit_source_corrections_verified": 2,
+  "ambiguous_correction_rejected": true,
+  "limitations": "Sampled review, not an exhaustive scientific or editorial audit. The pinned 2024 text includes dated counts and mission descriptions; it is not a current astronomical database. Entire topics are held out, so validation/test entail topic shift. Exact paragraph removal does not eliminate shorter overlap, paraphrases, shared definitions or cross-references. Some source illustrations are described rather than seen. Thirty-three unresolved cross-references in the initial draft use generic text. No model has learned this edition yet; no native curriculum is created automatically."
+}

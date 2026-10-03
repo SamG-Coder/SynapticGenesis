@@ -1,0 +1,1415 @@
+{
+  "passed": true,
+  "scope": "Notation conversion audit; source admission remains pending",
+  "upstream_repository": "https://github.com/openstax/osbooks-prealgebra-bundle",
+  "upstream_commit": "bba5f5244066884797f730149d918e33f2beefd1",
+  "survey_sha256": "5a13e0928f49a809d405fd89b8f03d1171109ce04b595867cae933b5e498c640",
+  "tree_sha256": "a3e2b586973108d3e415df257a68157323889f38de5be7f677e656dd8623dcd4",
+  "license_sha256": "0ff174546cbe3dd1287da231f9796618ac2f6e6595b2d11f567b2c9790f64868",
+  "collection_sha256": "7a33ff783e9913c0bb4b71e09cd7f95649f725cf98bbcb54547dd6ba4d522221",
+  "fixtures": {
+    "explicit_notation_examples": 12,
+    "rejected_cases": 16,
+    "default_subset_rejections": 12,
+    "phantom_not_flattened": true,
+    "nested_cancellation_preserved": true
+  },
+  "modules_authenticated": 75,
+  "formulas_inspected": 22212,
+  "formulas_converted": 22205,
+  "formula_rejections": {
+    "Empty formula in extended source": 7
+  },
+  "mathml_tag_counts": {
+    "math": 22212,
+    "mrow": 22522,
+    "mn": 37373,
+    "mo": 25625,
+    "mtext": 3791,
+    "mfrac": 6112,
+    "mspace": 4185,
+    "mstyle": 78,
+    "mi": 12192,
+    "mtable": 213,
+    "mtr": 697,
+    "mtd": 1295,
+    "munder": 69,
+    "mover": 133,
+    "msup": 3029,
+    "menclose": 94,
+    "msqrt": 223,
+    "mphantom": 2,
+    "msub": 90,
+    "mroot": 1
+  },
+  "default_modules_extracted": 33,
+  "default_module_rejections": {
+    "Unsupported MathML structure: mstyle": 4,
+    "Unsupported MathML structure: munder": 6,
+    "Invalid or overlapping table span": 10,
+    "Unsupported MathML structure: menclose": 8,
+    "Unsupported MathML structure: mover": 11,
+    "Unsupported MathML structure: mphantom": 1,
+    "Unexpected list child": 1,
+    "Unsupported MathML structure: mroot": 1
+  },
+  "extended_modules_extracted": 57,
+  "remaining_module_rejections": {
+    "Invalid or overlapping table span": 12,
+    "Empty formula in extended source": 5,
+    "Unexpected list child": 1
+  },
+  "mutually_extractable_outputs_identical": true,
+  "source_files_modified": false,
+  "training_admitted": false,
+  "models_trained": false,
+  "records": [
+    {
+      "module": "m81241",
+      "title": "Preface",
+      "chapter": "Front or back matter",
+      "raw_sha256": "e040c8befe39b24ce274cb1fa06b7a0b5fa621cce532d69163b4ed1e37dff1f7",
+      "git_blob_sha1": "4029dccdd007f510de1a5ba57c5f4766876ff8bb",
+      "formula_count": 0,
+      "formula_rejections": [],
+      "formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "7145ffeca2a83e0d6b4e4f2c0e9e5d38e8833c48a6f12dff21279c5cad01ade7",
+      "extracted_bytes": 18581,
+      "extraction": {
+        "image_descriptions": 4
+      }
+    },
+    {
+      "module": "m81242",
+      "title": "Introduction",
+      "chapter": "Whole Numbers",
+      "raw_sha256": "0d76349dc9a5ac95ce000e86c140ddadc0bebd5b30edeb4e2b1163b02c26fa83",
+      "git_blob_sha1": "a88810ad17477870c9e262d44f9480a6daff97b9",
+      "formula_count": 0,
+      "formula_rejections": [],
+      "formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "b2a169c5c9230a190f90ff80741c51f1bd46dab5f1623ed01cf5637bcc07ae09",
+      "extracted_bytes": 698,
+      "extraction": {
+        "image_descriptions": 1
+      }
+    },
+    {
+      "module": "m81243",
+      "title": "Introduction to Whole Numbers",
+      "chapter": "Whole Numbers",
+      "raw_sha256": "fc938beddaba07b11b4010e3b44082e3b282c0ab0e9239d51a7cc08bd2af76fc",
+      "git_blob_sha1": "6d87dc306f060482fd2a786cabffc28003b69469",
+      "formula_count": 249,
+      "formula_rejections": [],
+      "formula_text_sha256": "c414b5a31fe894096e6ca076717ea1440c8d88a7dd4392578c3508f812a8cf10",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "1eab7a0489e0a1d314b00f7d1a7fc2a3834a7cf02924b92bb26d1c2cff856620",
+      "extracted_bytes": 40394,
+      "extraction": {
+        "math_expressions": 249,
+        "omitted_label": 10,
+        "image_descriptions": 47
+      }
+    },
+    {
+      "module": "m81244",
+      "title": "Add Whole Numbers",
+      "chapter": "Whole Numbers",
+      "raw_sha256": "e644cffdaef71fed48c2be650a26aa83b8ab62a0b9c394761a7299908da1b365",
+      "git_blob_sha1": "f7fb19db1cca1a4663b850a593a797258b7a6280",
+      "formula_count": 401,
+      "formula_rejections": [],
+      "formula_text_sha256": "07d540aedd5d1a39826140ae4571cf1c938335fbb10c6e0e4a6ee281e290039d",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "3ae2cba80cdb768800b466ff515f9a763eaaf6d19c22324b74307f53d944e441",
+      "extracted_bytes": 34393,
+      "extraction": {
+        "math_expressions": 401,
+        "image_descriptions": 50,
+        "omitted_label": 10
+      }
+    },
+    {
+      "module": "m81245",
+      "title": "Subtract Whole Numbers",
+      "chapter": "Whole Numbers",
+      "raw_sha256": "04295c7b478ed065c90a6ca46088fa60202c348bc8dc26f40a4cf13fa4759403",
+      "git_blob_sha1": "8a76f8ad2fc385954ed43207629acf25a5586c86",
+      "formula_count": 262,
+      "formula_rejections": [],
+      "formula_text_sha256": "b82f174754016977af290ad743ea90667474efdf644f1105dae874a977b38d2e",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "78dad306f57bdd888be0d2f0b10709c5de2ee9433c63a52b7b5d439007ae71dc",
+      "extracted_bytes": 25009,
+      "extraction": {
+        "math_expressions": 262,
+        "image_descriptions": 55,
+        "omitted_label": 18
+      }
+    },
+    {
+      "module": "m81255",
+      "title": "Multiply Whole Numbers",
+      "chapter": "Whole Numbers",
+      "raw_sha256": "435cf1140f22ec023dc5842c82d8b7e7fdfc12fa2a310a2dc3d1a9c7fc3b7d06",
+      "git_blob_sha1": "f1dbb20d0542b807e7625950d6252d0ffe8d2ca7",
+      "formula_count": 345,
+      "formula_rejections": [],
+      "formula_text_sha256": "a4b76b327a4276573c862aafa3fc30d9f1766108a5407ef361cdcd9e86099ec9",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m81256",
+      "title": "Divide Whole Numbers",
+      "chapter": "Whole Numbers",
+      "raw_sha256": "56c274128047e02e037fe4beab235bb8932c48a1578bada79d418bec384cbc8f",
+      "git_blob_sha1": "61515479b44fcb9d5dafe9c840321855a8692bae",
+      "formula_count": 559,
+      "formula_rejections": [],
+      "formula_text_sha256": "05e4b57010898983c46ec5dad610a390f1b2ad27619f32298525324eb585cc4c",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "dc97dd6ecba5ff3ac3c960ec8c466a0be2605d8bad523d3ff120ee513dfd1baa",
+      "extracted_bytes": 49086,
+      "extraction": {
+        "math_expressions": 559,
+        "image_descriptions": 69,
+        "omitted_label": 25,
+        "table_span_cells": 1
+      }
+    },
+    {
+      "module": "m81266",
+      "title": "Introduction to the Language of Algebra",
+      "chapter": "The Language of Algebra",
+      "raw_sha256": "3ef40958467c1d82ef6fd51c3f6ea8af9c2c3e2ea61a90ddf22873eaf7099333",
+      "git_blob_sha1": "27c022c6c462cb9569c1c084569eff21a3d023ed",
+      "formula_count": 0,
+      "formula_rejections": [],
+      "formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "4426c5b95a068751acfe8b179a1e5402be04a4006106e2c4bcd4c5303054856a",
+      "extracted_bytes": 920,
+      "extraction": {
+        "image_descriptions": 1
+      }
+    },
+    {
+      "module": "m81268",
+      "title": "Use the Language of Algebra",
+      "chapter": "The Language of Algebra",
+      "raw_sha256": "055352be1d6bc9b7dc8efe0806edfee613d6bc49c8794e9d3d560b94ed51f775",
+      "git_blob_sha1": "f8db983de5b1cfcc00ffc8e5728f4aaf6cb450f1",
+      "formula_count": 441,
+      "formula_rejections": [],
+      "formula_text_sha256": "057bd699739eb4b65b1fd23c1b79fca27d9523ece016cd27d37e52ef6e42ee8f",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m81270",
+      "title": "Evaluate, Simplify, and Translate Expressions",
+      "chapter": "The Language of Algebra",
+      "raw_sha256": "c22ce8bc2e253c3243a73c1982e69cc43a13bc75c9f3cc62dfe4361d3a2c47fb",
+      "git_blob_sha1": "d84de00e97a9a018b9540ff69dd06cea17be419d",
+      "formula_count": 393,
+      "formula_rejections": [],
+      "formula_text_sha256": "2f52ad3cfb9a4741d0abfb140aed04c8101958f31d2ac81c39e8eeafdc4442b5",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "292e03de277fcd5a42a7000371e5745d96fac3a966fb73626d231967389df194",
+      "extracted_bytes": 27592,
+      "extraction": {
+        "math_expressions": 393,
+        "omitted_label": 17,
+        "image_descriptions": 49
+      }
+    },
+    {
+      "module": "m81271",
+      "title": "Solving Equations Using the Subtraction and Addition Properties of Equality",
+      "chapter": "The Language of Algebra",
+      "raw_sha256": "08c57674312e66d32914390401356630940af546e5616dee1bd6b9a0f32d68e5",
+      "git_blob_sha1": "48482a124eb266eea3cba9d6665b1e730602237d",
+      "formula_count": 303,
+      "formula_rejections": [],
+      "formula_text_sha256": "8fec81ede2710f4719971d2811365de8bdec6dd2c6de5cb8e3d653961dc8f790",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m81272",
+      "title": "Find Multiples and Factors",
+      "chapter": "The Language of Algebra",
+      "raw_sha256": "af058cf3fac41b3be23ab8b8ee7074feb2eef956886489e0aa394bb596e3e661",
+      "git_blob_sha1": "10b88bcb46e5a3196f1e3b7df4eb59a32b163a4b",
+      "formula_count": 571,
+      "formula_rejections": [],
+      "formula_text_sha256": "9e563eec4d96072889ec96e0be348c44c3d3478230312bccb9b08e600030c972",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "75425e33f5e3a391afbd2cc9b6b7111a92204c9113d3b65f091dabeda963bdb9",
+      "extracted_bytes": 32604,
+      "extraction": {
+        "math_expressions": 571,
+        "omitted_label": 16,
+        "image_descriptions": 9,
+        "table_span_cells": 2
+      }
+    },
+    {
+      "module": "m81273",
+      "title": "Prime Factorization and the Least Common Multiple",
+      "chapter": "The Language of Algebra",
+      "raw_sha256": "329409be8163913139e14758ec246679b82cb97c86c25975ad448c89d2aabc8b",
+      "git_blob_sha1": "06842d8b55431e111f1cdc3f0020b89cf9786a0b",
+      "formula_count": 347,
+      "formula_rejections": [],
+      "formula_text_sha256": "b4112b1af792b7fa98eff9c1f07f490ff5c602c9cd2b58a20ca42ceb710da842",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "a226950e11c97f2d666ba01632c67154537ee9243ab9317b280e8b9f8d381c83",
+      "extracted_bytes": 33955,
+      "extraction": {
+        "math_expressions": 347,
+        "omitted_label": 14,
+        "image_descriptions": 26
+      }
+    },
+    {
+      "module": "m81274",
+      "title": "Introduction to Integers",
+      "chapter": "Integers",
+      "raw_sha256": "098c31928c9718bd11e923247cbb305e02338e1a3772968c7c8524af8faabae4",
+      "git_blob_sha1": "d52272abf68dc25723ecd484cc8a11d75a5f8eb0",
+      "formula_count": 0,
+      "formula_rejections": [],
+      "formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "b7751f76acb9d6d1b284f6b56ba749e53782506b0f32735ecb0aab146ad62a77",
+      "extracted_bytes": 776,
+      "extraction": {
+        "image_descriptions": 1
+      }
+    },
+    {
+      "module": "m81275",
+      "title": "Introduction to Integers",
+      "chapter": "Integers",
+      "raw_sha256": "4f364b81cbb395a268bcb47da56eed32c69835e40bd29ebfc7049a83e3136e10",
+      "git_blob_sha1": "38e378f333f336b8c4394d8c0467ded27d2d0d31",
+      "formula_count": 432,
+      "formula_rejections": [],
+      "formula_text_sha256": "9f37a585e910fcd9a8e0746de210c1d3dabf1e4dbd8a2d8c06fe299bbd5ab698",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "aaceeb46409ff53d44bbaf5df35afb50fc03852189077f9e5134a87dad396a35",
+      "extracted_bytes": 31950,
+      "extraction": {
+        "math_expressions": 432,
+        "image_descriptions": 36,
+        "omitted_label": 30
+      }
+    },
+    {
+      "module": "m81276",
+      "title": "Add Integers",
+      "chapter": "Integers",
+      "raw_sha256": "12cf1f561c0e8828626bdc694888df5ab0200f01204499b8e07cdefb727807f2",
+      "git_blob_sha1": "029a64a3a7388d30048493f2f642237f1bb8ca68",
+      "formula_count": 328,
+      "formula_rejections": [
+        {
+          "zero_based_index": 113,
+          "error": "Empty formula in extended source"
+        }
+      ],
+      "formula_text_sha256": "7385f1822b6f3c21a24c1fc420448a966743aa52e6275025f127ed2fad2e1a4a",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Empty formula in extended source"
+    },
+    {
+      "module": "m81277",
+      "title": "Subtract Integers",
+      "chapter": "Integers",
+      "raw_sha256": "c3f8058198b39702a3a7f8276bd277656ebbb13e1c2c207046eba7a287356377",
+      "git_blob_sha1": "935a69c3bcb5310a9540b7964b6f3ecd45644933",
+      "formula_count": 406,
+      "formula_rejections": [],
+      "formula_text_sha256": "5333f04f975caa310429b8bff5986d25a3d832785c0301a8cab4b3fdbdbd7c74",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "a81fef3bcc3e62e62e99f63aac681bcac49fe73d9e14f0dc8e2871cbe0f094c1",
+      "extracted_bytes": 36876,
+      "extraction": {
+        "math_expressions": 406,
+        "omitted_label": 34,
+        "image_descriptions": 101,
+        "table_span_cells": 4
+      }
+    },
+    {
+      "module": "m81278",
+      "title": "Multiply and Divide Integers",
+      "chapter": "Integers",
+      "raw_sha256": "4572686edb9101916665f863e179cc4f67496e5e6d17bc1b7a94f7e4c9a56a6b",
+      "git_blob_sha1": "c74875d900b2cd8d4c6dc90877dfc6ca84a2bf03",
+      "formula_count": 276,
+      "formula_rejections": [],
+      "formula_text_sha256": "a4b0977217922105f35101227c77ff8c6ab03ac200c10eabdd05ea59b5aae347",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m81281",
+      "title": "Solve Equations Using Integers; The Division Property of Equality",
+      "chapter": "Integers",
+      "raw_sha256": "54f9a8b1875138c064156f6554f3c46ec83971b15689ac7de279503babd149fc",
+      "git_blob_sha1": "aace7b623b8082ac9cb4ec675c417c7973101ec2",
+      "formula_count": 440,
+      "formula_rejections": [],
+      "formula_text_sha256": "cf7435c120076f45af73ff786f6760cfb6a16ededf352f7980fb2f7298c791ed",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "f9a7b67b23ffbff81cc9dc197ffacbc9299bdcd66a24012293fd3c1aa6edd439",
+      "extracted_bytes": 33093,
+      "extraction": {
+        "math_expressions": 440,
+        "omitted_label": 17,
+        "image_descriptions": 54
+      }
+    },
+    {
+      "module": "m81284",
+      "title": "Introduction to Fractions",
+      "chapter": "Fractions",
+      "raw_sha256": "61467075d7fe6213af1710f6f4a6b685fc4e281430612b007e98fcfb1145c500",
+      "git_blob_sha1": "5c618d9b838e950a4977371c29a23998ab0d6bb5",
+      "formula_count": 0,
+      "formula_rejections": [],
+      "formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "1bcff3f2bdc7c02d09010268e0f2dfc5c179e9fac4942a34b435ab3f0d2f207c",
+      "extracted_bytes": 719,
+      "extraction": {
+        "image_descriptions": 1
+      }
+    },
+    {
+      "module": "m81285",
+      "title": "Visualize Fractions",
+      "chapter": "Fractions",
+      "raw_sha256": "022d565558e829f57901c0849ebea563b046a6ecf7a7a04f5c9ea85ad2f16701",
+      "git_blob_sha1": "403240ba0323b584269b8a0ac6e5fc25001bbd65",
+      "formula_count": 510,
+      "formula_rejections": [],
+      "formula_text_sha256": "7684a0b25a70ab133facf76b9edfc76a2b0e8128955f0176bf6537d25ec070bd",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "9823344beb0babf5578cbc2146e4452b04c8bc3e65b9409f4b155589f36014f9",
+      "extracted_bytes": 56910,
+      "extraction": {
+        "math_expressions": 510,
+        "image_descriptions": 96,
+        "omitted_label": 13
+      }
+    },
+    {
+      "module": "m81286",
+      "title": "Multiply and Divide Fractions",
+      "chapter": "Fractions",
+      "raw_sha256": "1ba8caccbb6c96265cb56f23daacee729c9da75f3114a510a3b495e620cd2454",
+      "git_blob_sha1": "637cded89ce8c66398038ba9700e170b5bbadfd0",
+      "formula_count": 495,
+      "formula_rejections": [
+        {
+          "zero_based_index": 116,
+          "error": "Empty formula in extended source"
+        },
+        {
+          "zero_based_index": 475,
+          "error": "Empty formula in extended source"
+        }
+      ],
+      "formula_text_sha256": "0d3ecd7888c3cbe6308d35c9f88b4639b0d3171b3c1d53a4989a38a05735b4a5",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Empty formula in extended source"
+    },
+    {
+      "module": "m81287",
+      "title": "Multiply and Divide Mixed Numbers and Complex Fractions",
+      "chapter": "Fractions",
+      "raw_sha256": "70bb14a0cf7dd4f61688430e06aca38e41433c0b99d2dcebcb2216ddaa90d6b9",
+      "git_blob_sha1": "89246cbf7c8f934ae1572a48d6ebe4edfcd55247",
+      "formula_count": 317,
+      "formula_rejections": [],
+      "formula_text_sha256": "44715038235a910c7907090a13e1a9559958d0c7e2c3d4ec170144c5367606bb",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "114f0ddb8e5e55ce0bb86f0efafe7ab5dd8c026a36ae7f32765ed40eb6c1598a",
+      "extracted_bytes": 21920,
+      "extraction": {
+        "math_expressions": 317,
+        "omitted_label": 17,
+        "image_descriptions": 3
+      }
+    },
+    {
+      "module": "m81288",
+      "title": "Add and Subtract Fractions with Common Denominators",
+      "chapter": "Fractions",
+      "raw_sha256": "a1eb82e3b465191af137c1c01a981161bb49ffd9491be3cc4cc42f1dc80e2bd4",
+      "git_blob_sha1": "0bb541b893ebfe6b360fba1b8a53e18ec9c5f9b1",
+      "formula_count": 245,
+      "formula_rejections": [],
+      "formula_text_sha256": "b3de6ee932060fbcaf02836e5354765a1de781dd21412cfb81baba9819128dec",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "64781e404636e2f5a84dc9c4d90c0f344198fa4ec4e197830dc7bb33a9bd23d3",
+      "extracted_bytes": 17613,
+      "extraction": {
+        "math_expressions": 245,
+        "image_descriptions": 22,
+        "omitted_label": 17
+      }
+    },
+    {
+      "module": "m81289",
+      "title": "Add and Subtract Fractions with Different Denominators",
+      "chapter": "Fractions",
+      "raw_sha256": "78320b9bb503f39d9fa6fcbbfdc52277bdf2cc5b83688b7c81182f307a9e013d",
+      "git_blob_sha1": "701fc11d0129aee36535cf821ca5d64205397e03",
+      "formula_count": 574,
+      "formula_rejections": [],
+      "formula_text_sha256": "436816674aec352b5260845dad80a4b96de117b97fc75bdb0792ce810cebfc87",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "d315c1750ddc68942fc9b852e94c5b0a086a0e10bc88df83934128dfbc8dbc4c",
+      "extracted_bytes": 39628,
+      "extraction": {
+        "math_expressions": 574,
+        "image_descriptions": 50,
+        "omitted_label": 27
+      }
+    },
+    {
+      "module": "m81290",
+      "title": "Add and Subtract Mixed Numbers",
+      "chapter": "Fractions",
+      "raw_sha256": "b249fa75f0a811716cb356716020f4f51ea9896b8dad9dc6e52a38691d68fe68",
+      "git_blob_sha1": "36b33d7f79a16653cad3c19ade56eda4d417ff21",
+      "formula_count": 248,
+      "formula_rejections": [],
+      "formula_text_sha256": "71b9cc8c9c46340b6e5aa6875f07b34b42d736a2437f276d6c4d0edef3cfd04a",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m81291",
+      "title": "Solve Equations with Fractions",
+      "chapter": "Fractions",
+      "raw_sha256": "a0741fbdbdc6f6a5a7192ef7de6f829785ce22e077d3058a4a2c1832b8132ade",
+      "git_blob_sha1": "50c6f01c397fb7f4627240c18c86272cf41ad8ab",
+      "formula_count": 593,
+      "formula_rejections": [
+        {
+          "zero_based_index": 30,
+          "error": "Empty formula in extended source"
+        }
+      ],
+      "formula_text_sha256": "e14037d27cc518632f3bdb422749f85cdf7ed4e3dcdcf4b762c777ef40aae93e",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Empty formula in extended source"
+    },
+    {
+      "module": "m81292",
+      "title": "Introduction to Decimals",
+      "chapter": "Decimals",
+      "raw_sha256": "5239d3f4a78f649dbcfacd51c9b8538619c360972f763a26c22aafe99026f26d",
+      "git_blob_sha1": "699a679f225dca455628f9443c92739d4e5e5ab1",
+      "formula_count": 0,
+      "formula_rejections": [],
+      "formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "c13f362f45400720321bf47602d9acb1ab27d66ec1c8000730db997c69f31f63",
+      "extracted_bytes": 696,
+      "extraction": {
+        "image_descriptions": 1
+      }
+    },
+    {
+      "module": "m81293",
+      "title": "Decimals",
+      "chapter": "Decimals",
+      "raw_sha256": "3c6ecc5ff091512b4f107fd6d3da299140c16738c2e9d4d9f5244a87045d9200",
+      "git_blob_sha1": "5a7aac4d056940e5ab7d7608aaa80e9fe62ccf81",
+      "formula_count": 313,
+      "formula_rejections": [],
+      "formula_text_sha256": "a787574c94efb027647200ae8ec8269e7a8059becb613712f6b0839e8b81bef4",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "7345a8f152274d2eca500b4ff627d53156c3c007c753e9d51e472aabff7ac2fb",
+      "extracted_bytes": 35057,
+      "extraction": {
+        "math_expressions": 313,
+        "image_descriptions": 49,
+        "omitted_label": 26
+      }
+    },
+    {
+      "module": "m81295",
+      "title": "Decimal Operations",
+      "chapter": "Decimals",
+      "raw_sha256": "f294e3f6f2113046bfa662d72bcbb3aca89ee766c2d870f621eeaa932e4563c1",
+      "git_blob_sha1": "dc2ea871957655fcb45ea6a9dc323a3ebc41cba4",
+      "formula_count": 354,
+      "formula_rejections": [],
+      "formula_text_sha256": "0e50ea7085b6f7c1abf5de7506243ffadc358d96d475772f11cc60fe3d09bdce",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "f4cc1464c9297dc793e36d27ca405c52004e4fa4c852e4b263998aebd412cbe3",
+      "extracted_bytes": 35933,
+      "extraction": {
+        "math_expressions": 354,
+        "image_descriptions": 40,
+        "omitted_label": 25
+      }
+    },
+    {
+      "module": "m81298",
+      "title": "Decimals and Fractions",
+      "chapter": "Decimals",
+      "raw_sha256": "1e5de1e3e8af57a2be6b6a055b3d0461c95d84a8985babe6a80ac53496733bb4",
+      "git_blob_sha1": "fae95d31bbfb0feba613ebfdc84b92114efbed3a",
+      "formula_count": 328,
+      "formula_rejections": [],
+      "formula_text_sha256": "9f06eb4050d9a20e9c2c0bf9643a76c15c326a0e3435ce12c6fa05a6872a4ca6",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "045e3e95cd5e1e6c49835723e310d6521d645e6e1c9f2866094a4979207cc88e",
+      "extracted_bytes": 24918,
+      "extraction": {
+        "math_expressions": 328,
+        "omitted_label": 21,
+        "image_descriptions": 10
+      }
+    },
+    {
+      "module": "m81300",
+      "title": "Solve Equations with Decimals",
+      "chapter": "Decimals",
+      "raw_sha256": "d95f71c36f46307e0f1ecd90af439b13ab811714df6cd045cfad7d3c29772e2f",
+      "git_blob_sha1": "b3f798786bb9b65568aaded62a5c6fe341ff3e6c",
+      "formula_count": 251,
+      "formula_rejections": [],
+      "formula_text_sha256": "f0d90d25097842856bce2718f7377b726ade1abe7f10f9715d923528be05452e",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m81302",
+      "title": "Averages and Probability",
+      "chapter": "Decimals",
+      "raw_sha256": "f9d3d8437c58347172928f12eed615fda95ff587b637871ab7cf8b16b9a107ba",
+      "git_blob_sha1": "ca1d042eb047999ccfcb571dcedcab5666411268",
+      "formula_count": 499,
+      "formula_rejections": [
+        {
+          "zero_based_index": 462,
+          "error": "Empty formula in extended source"
+        }
+      ],
+      "formula_text_sha256": "e5d5d11e6e65b532b56d30fa288c292bb17f1ad2b1f89126981ac9f4d652f1a5",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Empty formula in extended source"
+    },
+    {
+      "module": "m81303",
+      "title": "Ratios and Rate",
+      "chapter": "Decimals",
+      "raw_sha256": "52d1c1acbbbfcb939c7173887e4e532aefb706e5263a93c84d8d6000a5438cba",
+      "git_blob_sha1": "dda001341d3078997b04609e4892d63fb074aefb",
+      "formula_count": 462,
+      "formula_rejections": [],
+      "formula_text_sha256": "fa56c8e98cd4abf7bcba813e52b7f71c51c5c9e1b1f7d84645d46a532d426599",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "5f9f30b90b2cfef0ac8477f62d542f442435282346126ea816d8a4900d09c15a",
+      "extracted_bytes": 28161,
+      "extraction": {
+        "math_expressions": 462,
+        "omitted_label": 18,
+        "image_descriptions": 3
+      }
+    },
+    {
+      "module": "m81304",
+      "title": "Simplify and Use Square Roots",
+      "chapter": "Decimals",
+      "raw_sha256": "df569d2cb903f5dd58add0c62ac144c0162a27625dbad493e77ec43dfb18ca03",
+      "git_blob_sha1": "4ad42b86cac76324efc4bab3d1f93b735251604e",
+      "formula_count": 570,
+      "formula_rejections": [],
+      "formula_text_sha256": "6d526daf8bc6ef29e21240d699616e366f4b9c3a6b27a0285e8ed635a593cd3c",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "49a527f3d021391e9c9cc62915d52d65e00252d5d212c351ddf453beea771247",
+      "extracted_bytes": 40591,
+      "extraction": {
+        "math_expressions": 570,
+        "image_descriptions": 9,
+        "omitted_label": 25
+      }
+    },
+    {
+      "module": "m81305",
+      "title": "Introduction to Percents",
+      "chapter": "Percents",
+      "raw_sha256": "0b5c8d1b152cc09be82516038a87dccebbc89847b910ed359ade528c4e05a011",
+      "git_blob_sha1": "00304bd8952a4e4a9e9b03a65c0269743ad54758",
+      "formula_count": 0,
+      "formula_rejections": [],
+      "formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "abda53c81d44938ea19bc2b1404028d6286440f5c1e766dab8b4c85baf766f6d",
+      "extracted_bytes": 842,
+      "extraction": {
+        "image_descriptions": 1
+      }
+    },
+    {
+      "module": "m81306",
+      "title": "Understand Percent",
+      "chapter": "Percents",
+      "raw_sha256": "e9597ca509eb56ecc39e02af89e602c1a57a3b9dd80e6b08a752ab5d1ac3b5df",
+      "git_blob_sha1": "5b5b9f6200c6c754c9449d9b6e50bc8de9958525",
+      "formula_count": 424,
+      "formula_rejections": [],
+      "formula_text_sha256": "86c6ac3e6e9538f7eef2d8abfb8a05df4b5d32218e0bc77f4ae7f2aa9b92b554",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "ea7959a422f5e673dc59d057062ec000dd6bebd5daf2936ae399ac1088aa8c34",
+      "extracted_bytes": 28166,
+      "extraction": {
+        "math_expressions": 424,
+        "image_descriptions": 9,
+        "omitted_label": 28
+      }
+    },
+    {
+      "module": "m81313",
+      "title": "Solve General Applications of Percent",
+      "chapter": "Percents",
+      "raw_sha256": "637783a9746e83475a67fe9fa41783f0cfb4195cb17a20b262357a56ff147c16",
+      "git_blob_sha1": "56a3d0cb346c8be4e0b930c3f416742b3ea7121a",
+      "formula_count": 236,
+      "formula_rejections": [],
+      "formula_text_sha256": "116e9594cfdef3d222defee8fd4f3e1f56e62de38d73643fb7a02e70c8f83e7f",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "1eb75350fb6c427e2f44e7772680739dcf8f5affc05fd5ba4e9606b181805ddd",
+      "extracted_bytes": 22297,
+      "extraction": {
+        "math_expressions": 236,
+        "image_descriptions": 41,
+        "omitted_label": 12
+      }
+    },
+    {
+      "module": "m81307",
+      "title": "Solve Sales Tax, Commission, and Discount Applications",
+      "chapter": "Percents",
+      "raw_sha256": "76665d70a802788021a8b00d36c7d7fc6f80d342cb96c73aaa1149ba73637450",
+      "git_blob_sha1": "a00ac3409d6c483f3c2685e507320aa1f1b443e1",
+      "formula_count": 187,
+      "formula_rejections": [],
+      "formula_text_sha256": "1d4030b52d36b3fca6a7aef1bfb3eb2e9166f84a0701fa70f2ca173e8874d9b4",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "817d3999191f9aa91f44eff9a898aaa1faed8b9e8a46d11d5ba083bcae7c92cb",
+      "extracted_bytes": 28442,
+      "extraction": {
+        "math_expressions": 187,
+        "image_descriptions": 31,
+        "omitted_label": 17
+      }
+    },
+    {
+      "module": "m81308",
+      "title": "Solve Simple Interest Applications",
+      "chapter": "Percents",
+      "raw_sha256": "23c8d7da6bb7fc8e7b5fff46ea02ef90ab52f9b18e1d04e65f49633c8af2c955",
+      "git_blob_sha1": "fa0977f002be584a26125195086f8949917ffb58",
+      "formula_count": 263,
+      "formula_rejections": [],
+      "formula_text_sha256": "bada9147fcc3d8eb31bad795b52a9b93f86ace0601262debb6be384656c945e4",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m81311",
+      "title": "Solve Proportions and their Applications",
+      "chapter": "Percents",
+      "raw_sha256": "a4fd3ec3328cf77f274304b288f0ec5d579f9ad21b482f6f987f043156eb5763",
+      "git_blob_sha1": "4b3bcd825949293fd7289cf00615ce02ec9eae12",
+      "formula_count": 652,
+      "formula_rejections": [],
+      "formula_text_sha256": "db38a098407bf298d90563a23a4793219489e89b0306765245d753ae5af5f520",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m81314",
+      "title": "Introduction to the Properties of Real Numbers",
+      "chapter": "The Properties of Real Numbers",
+      "raw_sha256": "09f46f11f5352223a407baa77476f5613159631faa00bcdafdb34a28ede3556d",
+      "git_blob_sha1": "98cee6f7ca91af8afda0032914ea60f37f8e5f1d",
+      "formula_count": 0,
+      "formula_rejections": [],
+      "formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "7bbd86670881965c118fb8c8e14f73717758cb06efdca65fe19b4c6c5396d2a6",
+      "extracted_bytes": 1026,
+      "extraction": {
+        "image_descriptions": 1
+      }
+    },
+    {
+      "module": "m81315",
+      "title": "Rational and Irrational Numbers",
+      "chapter": "The Properties of Real Numbers",
+      "raw_sha256": "3d46315316cacf8b947de4b79012dba6616a870b9d2ad9c11c98d61260d92bea",
+      "git_blob_sha1": "a3407d1f061f25e8c35b16a497a86531dfc394b8",
+      "formula_count": 185,
+      "formula_rejections": [],
+      "formula_text_sha256": "887c96e8f755171eb9ed258d7d8cd9c6ba041c0aedb77c87f56403c5b03ec63c",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "b0da42df5ca22fca7e882ce41c85af2f75d2c6cbe0cc86035650eda4bcd6eea9",
+      "extracted_bytes": 22658,
+      "extraction": {
+        "math_expressions": 185,
+        "omitted_label": 11,
+        "table_span_cells": 1,
+        "image_descriptions": 7
+      }
+    },
+    {
+      "module": "m81316",
+      "title": "Commutative and Associative Properties",
+      "chapter": "The Properties of Real Numbers",
+      "raw_sha256": "170856298fb4d009e337a921a5da1573b4779e2008285bacdf104ab24ca86867",
+      "git_blob_sha1": "aaf6a7d54eceead12e514a878ac1cf4cce1511fd",
+      "formula_count": 276,
+      "formula_rejections": [],
+      "formula_text_sha256": "a29a2ccebf193454db0f4512243cf8a12b4f92b794d2628898bc7a264781a588",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "587aab1d868a56d3d236892d8f32c07e4fcd0f6749fcede0804a2cfd9a9ef38e",
+      "extracted_bytes": 23509,
+      "extraction": {
+        "math_expressions": 276,
+        "omitted_label": 29,
+        "image_descriptions": 19
+      }
+    },
+    {
+      "module": "m81317",
+      "title": "Distributive Property",
+      "chapter": "The Properties of Real Numbers",
+      "raw_sha256": "927f3cf350ead8e355fbf41d0422d8ffcd920c43e2a35ec05a92ba14e68faf75",
+      "git_blob_sha1": "b81861282b81c8dc60bac603ad117c37320b17ad",
+      "formula_count": 237,
+      "formula_rejections": [],
+      "formula_text_sha256": "79361f3e230b146b7c35cb17c763bbc7b6a454c041320125d82711411fbc526e",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "a957020d9c64f5f8034b560be899163056ab3811c5e99565c57b94cd9867fdbc",
+      "extracted_bytes": 17637,
+      "extraction": {
+        "math_expressions": 237,
+        "image_descriptions": 59,
+        "omitted_label": 26
+      }
+    },
+    {
+      "module": "m81318",
+      "title": "Properties of Identity, Inverses, and Zero",
+      "chapter": "The Properties of Real Numbers",
+      "raw_sha256": "40914519b57c6cce874a5466925365bf82ff82282323c2b5deea296a58a2d910",
+      "git_blob_sha1": "4c77d702cab2d86e2b5679fef2c9a94afcb87c61",
+      "formula_count": 306,
+      "formula_rejections": [
+        {
+          "zero_based_index": 207,
+          "error": "Empty formula in extended source"
+        },
+        {
+          "zero_based_index": 213,
+          "error": "Empty formula in extended source"
+        }
+      ],
+      "formula_text_sha256": "7863673fb2a9ab3d84682e95d7fcc1da2bf2365e6999fe3a3c3bcf1da7500988",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Empty formula in extended source"
+    },
+    {
+      "module": "m81330",
+      "title": "Systems of Measurement",
+      "chapter": "The Properties of Real Numbers",
+      "raw_sha256": "fa2d4b98db6f0135ab1384c8319416930d1e0126cdf5544ca44f7cb547a39456",
+      "git_blob_sha1": "d87ac8dba1f83cf087d13e9a8615f0e832c2c622",
+      "formula_count": 596,
+      "formula_rejections": [],
+      "formula_text_sha256": "675db6094b5229e19bc46232547f782d3905a1f846906e83922476a9f712aa85",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "86872a061f0d87fb08f56202e3dfcd1c7736386a186f1b5ff53f9bcb473c9f24",
+      "extracted_bytes": 48346,
+      "extraction": {
+        "math_expressions": 596,
+        "table_span_cells": 3,
+        "omitted_label": 22,
+        "image_descriptions": 30
+      }
+    },
+    {
+      "module": "m81319",
+      "title": "Introduction to Solving Linear Equations",
+      "chapter": "Solving Linear Equations",
+      "raw_sha256": "d6d42c1643f58e5e001cb23a1db0c0de42fad41db933b82d0190b4f2b0ef158d",
+      "git_blob_sha1": "3b4bac2eaeb1c1e3aaa8b3d012f967b28e99554c",
+      "formula_count": 0,
+      "formula_rejections": [],
+      "formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "ac6e7d22a6a116cb0285b1fc6f504a196b18b98c40605db0e8385227fb00422c",
+      "extracted_bytes": 579,
+      "extraction": {
+        "image_descriptions": 1
+      }
+    },
+    {
+      "module": "m81320",
+      "title": "Solve Equations Using the Subtraction and Addition Properties of Equality",
+      "chapter": "Solving Linear Equations",
+      "raw_sha256": "483024062c656c38a3ff890ceb276968e486e8ea032fc456ab9226260989ef44",
+      "git_blob_sha1": "d2c02e69458b7ba87487ba1669ce64ef92177e30",
+      "formula_count": 218,
+      "formula_rejections": [],
+      "formula_text_sha256": "c5dd8406d23964e117b351ab3df90e02a3cf8a77f57e090d46b344f7185af5e7",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m81321",
+      "title": "Solve Equations Using the Division and Multiplication Properties of Equality",
+      "chapter": "Solving Linear Equations",
+      "raw_sha256": "8c25bba8d7acfc25ba22d605de60045cd191fb74bbe946abf37116e2f1671008",
+      "git_blob_sha1": "acb18640e51ad41b279c5f769a848a86eb149413",
+      "formula_count": 136,
+      "formula_rejections": [],
+      "formula_text_sha256": "c6ea1904fc695eb315ea9475e6860f125bb319ed47a056835056783852c40a29",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "606aa84f29e07c59fe7711f19ba5d241868d20940116d30844d54a16065acd5b",
+      "extracted_bytes": 11405,
+      "extraction": {
+        "math_expressions": 136,
+        "omitted_label": 8,
+        "image_descriptions": 54,
+        "table_span_cells": 4
+      }
+    },
+    {
+      "module": "m81322",
+      "title": "Solve Equations with Variables and Constants on Both Sides",
+      "chapter": "Solving Linear Equations",
+      "raw_sha256": "75a246d2628e704bdf4f46c3f5fe3f634d7c781c0a1ad9f6274c97e8dd7456d7",
+      "git_blob_sha1": "04f51f4c845e41931e57d156196697b6e0028912",
+      "formula_count": 230,
+      "formula_rejections": [],
+      "formula_text_sha256": "aff13d8b8a1a8c99949b4c1891a299aa36e8cc251d80fc3594565676dec1d512",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "271a3adc6d6014c5ba49ad09a47c4d146a4b74bddffda22efc1a8a7319d24452",
+      "extracted_bytes": 27049,
+      "extraction": {
+        "math_expressions": 230,
+        "omitted_label": 18,
+        "table_span_cells": 16,
+        "image_descriptions": 139
+      }
+    },
+    {
+      "module": "m81323",
+      "title": "Solve Equations with Fraction or Decimal Coefficients",
+      "chapter": "Solving Linear Equations",
+      "raw_sha256": "85c75082ac58d97ff677b5fed3279e9a43a4ae90a966f5e61b4d719b2068962f",
+      "git_blob_sha1": "e166d194dce5e56e05b24117541cad971e66f64f",
+      "formula_count": 220,
+      "formula_rejections": [],
+      "formula_text_sha256": "ab1f0f1feca00176bb4a65762a1ebf848e5ac55378739578c95cc94687ff737d",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "2e2e6033aeac4ea8e9b91236371cef2a872f742a64378b4eb60251f838b84c22",
+      "extracted_bytes": 20901,
+      "extraction": {
+        "math_expressions": 220,
+        "omitted_label": 10,
+        "image_descriptions": 83
+      }
+    },
+    {
+      "module": "m81331",
+      "title": "Introduction",
+      "chapter": "Math Models and Geometry",
+      "raw_sha256": "ca74bb59a43f6d400d2cc851d892a5d12a75f5a2ff9c4b04e6e2d21b71cd4995",
+      "git_blob_sha1": "aa00b23fb5d72a851c0f34ba9a8452e6a2faf297",
+      "formula_count": 0,
+      "formula_rejections": [],
+      "formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "ed24aba5bdd7c267ed3248d0aacae3c7440776022c854e7d2e462b4a4ea93f98",
+      "extracted_bytes": 741,
+      "extraction": {
+        "image_descriptions": 1
+      }
+    },
+    {
+      "module": "m81324",
+      "title": "Use a Problem Solving Strategy",
+      "chapter": "Math Models and Geometry",
+      "raw_sha256": "602bdb989a6fdfdbf2c1ef83f829c6ab915df6328739ee511403dbcf58ab618e",
+      "git_blob_sha1": "79e5fe4dcbd6ce8da81bcf801e6612232f93b0de",
+      "formula_count": 115,
+      "formula_rejections": [],
+      "formula_text_sha256": "c348b8ae12f79ced5f8e210d4bdc8fb00cbabd1afa8df0811c1b2c0b6ea2621a",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m81325",
+      "title": "Solve Money Applications",
+      "chapter": "Math Models and Geometry",
+      "raw_sha256": "8892192468375683ab2d6aff6d3a5de3419209d6b22b237dd5135791c79d7dad",
+      "git_blob_sha1": "2ceaf086854794c33d009300739ce8b7c2e4d687",
+      "formula_count": 314,
+      "formula_rejections": [],
+      "formula_text_sha256": "f636796a56be5b10250942a1851a08304f0cd303f52fe99985e11c3d63c33cec",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "2523cfb86146c2dd148e711a9461092fb7cd9c17b9ddd2cf6068769c3b900bfa",
+      "extracted_bytes": 28751,
+      "extraction": {
+        "math_expressions": 314,
+        "image_descriptions": 27,
+        "omitted_label": 23,
+        "table_span_cells": 13
+      }
+    },
+    {
+      "module": "m81326",
+      "title": "Use Properties of Angles, Triangles, and the Pythagorean Theorem",
+      "chapter": "Math Models and Geometry",
+      "raw_sha256": "f9a62b060b0ac2e8cb63ea9d4d8de94a4ea953ccc948bb01f761adf1d59c3367",
+      "git_blob_sha1": "364cc074941a153b4f492db446fcfdcd02ce735f",
+      "formula_count": 171,
+      "formula_rejections": [],
+      "formula_text_sha256": "b722edbe2d7d9ddc10996dc1e8ae364bc0b920eff8a68f2f5a9fd31a1237364d",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "350335c7e460fb576054ce49cfcef89ecd8b4d364fb4df42dadad60cdeb32b27",
+      "extracted_bytes": 37960,
+      "extraction": {
+        "math_expressions": 171,
+        "image_descriptions": 130,
+        "omitted_label": 16,
+        "table_span_cells": 2
+      }
+    },
+    {
+      "module": "m81332",
+      "title": "Use Properties of Rectangles, Triangles, and Trapezoids",
+      "chapter": "Math Models and Geometry",
+      "raw_sha256": "e25ac1d0cd60356235fd1325e30ce98a3b93b3b4cd89f070f853391c65f0ba68",
+      "git_blob_sha1": "8ea2b3504647b45dea628e80155380b5a9a96d27",
+      "formula_count": 347,
+      "formula_rejections": [],
+      "formula_text_sha256": "c8d47628b72acc20f008c6132928ce1474f7e85d10df556917f3ad7b29a90e44",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "cf34ad3267125377dd86084c94c283ad0b0ef2b25a97e31194672a0bc33b2917",
+      "extracted_bytes": 52602,
+      "extraction": {
+        "math_expressions": 347,
+        "image_descriptions": 91,
+        "omitted_label": 24,
+        "table_span_cells": 1
+      }
+    },
+    {
+      "module": "m81327",
+      "title": "Solve Geometry Applications: Circles and Irregular Figures",
+      "chapter": "Math Models and Geometry",
+      "raw_sha256": "911ce8bd09aead543c6836be6cd2e718bc7c8de382dfb61b728fa068e28f2f5c",
+      "git_blob_sha1": "ef837dbc49404c6c6e0bd47c492e1985112804d5",
+      "formula_count": 120,
+      "formula_rejections": [],
+      "formula_text_sha256": "33ba1210f174bd3d3607a39ee5d90990c72a807312f2a40f50ffc8797a673c6d",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "bdd39778edeaaa9640ba7980c4183760b41f7e1f1e06461e275c497dbefb7be0",
+      "extracted_bytes": 26822,
+      "extraction": {
+        "math_expressions": 120,
+        "image_descriptions": 56,
+        "omitted_label": 9
+      }
+    },
+    {
+      "module": "m81328",
+      "title": "Solve Geometry Applications: Volume and Surface Area",
+      "chapter": "Math Models and Geometry",
+      "raw_sha256": "eac6f002144148c9c86524e6560967e5ebb5290a5aa82bf6987aac099d1d8c12",
+      "git_blob_sha1": "e0b8f6d314a77ecf9a816de8d53c8fcf3015284c",
+      "formula_count": 262,
+      "formula_rejections": [],
+      "formula_text_sha256": "3165050127806783bc39ee5ace216edddbe150a948ba99120e3f664a61473914",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Unexpected list child"
+    },
+    {
+      "module": "m81329",
+      "title": "Solve a Formula for a Specific Variable",
+      "chapter": "Math Models and Geometry",
+      "raw_sha256": "a1bdcbdfa68dadcc78af206fc4ec19c292ef74869c462f40d7c3ce6893414f75",
+      "git_blob_sha1": "ef1bbf67b4cb0a7d987d50d2b80f4c1ca81bd2f2",
+      "formula_count": 564,
+      "formula_rejections": [],
+      "formula_text_sha256": "ba92ed40f1a5385d38efa66df2c8eef9c987f1dd23ffd673549ecf849fce7c6c",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "919fbca842bdd2ee53c543ff2e64cac20c475ea6c3d868b0708630ea7f192d6a",
+      "extracted_bytes": 43944,
+      "extraction": {
+        "math_expressions": 564,
+        "omitted_label": 14,
+        "image_descriptions": 72
+      }
+    },
+    {
+      "module": "m81333",
+      "title": "Introduction to Polynomials",
+      "chapter": "Polynomials",
+      "raw_sha256": "fea791e15f73c0d4951c6672a9d192473b46ed1ffc89fb45589233a2f76a8276",
+      "git_blob_sha1": "3369aba0d47d75db630bedc5f82f837a2693b5ac",
+      "formula_count": 0,
+      "formula_rejections": [],
+      "formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "a8653d22c7e51c79b642783ddd73e1ba12a390ec34a6382972faa83354bdf2ad",
+      "extracted_bytes": 501,
+      "extraction": {
+        "image_descriptions": 1
+      }
+    },
+    {
+      "module": "m81334",
+      "title": "Add and Subtract Polynomials",
+      "chapter": "Polynomials",
+      "raw_sha256": "ae6a80969eccedbdb17169aa67f104ec8f91b4fcc09593c41ffd87811261a182",
+      "git_blob_sha1": "548e1772f84362c2bde0ab1094d335f29b6b2a7c",
+      "formula_count": 216,
+      "formula_rejections": [],
+      "formula_text_sha256": "eb8825c40c3d7c1f2069e7fc71a9c7349d41f7fbb33201d6aed2b5c9f9817ca0",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m81335",
+      "title": "Use Multiplication Properties of Exponents",
+      "chapter": "Polynomials",
+      "raw_sha256": "67da223d5ad3e55b3a5dfe90e5e062963dba3aafac85c2d513779f58210dbeb5",
+      "git_blob_sha1": "bae5212a29d00867cc87d481f64e36f9abb28ede",
+      "formula_count": 315,
+      "formula_rejections": [],
+      "formula_text_sha256": "43a50acd8c2e26b275e3e8b47dcc14b763db62a16eb5e3a9e190e8320b415016",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "235adeed5e1cfd6c0d417f042309328e32ad10133a3b9af544794fb71a495679",
+      "extracted_bytes": 21980,
+      "extraction": {
+        "math_expressions": 315,
+        "image_descriptions": 22,
+        "omitted_label": 37
+      }
+    },
+    {
+      "module": "m81336",
+      "title": "Multiply Polynomials",
+      "chapter": "Polynomials",
+      "raw_sha256": "14b22b22dae5914751aeaa8bc5ee57df3beeaa9af851bb82bf03c99b530c49d0",
+      "git_blob_sha1": "29ab3039561449e601d5bafa9b6371de815981e0",
+      "formula_count": 206,
+      "formula_rejections": [],
+      "formula_text_sha256": "ebcdaa0f58902035f2136509c058b955f0800d856ca76e70c223c467a9866d56",
+      "training_admitted": false,
+      "whole_module_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m81337",
+      "title": "Divide Monomials",
+      "chapter": "Polynomials",
+      "raw_sha256": "b439c5137067ba9b5849841af7d14419ffb1bfbb861cf2e23a2aa712a4616483",
+      "git_blob_sha1": "799f9e4d566f43adf5318a662ca51f0f8b352ad5",
+      "formula_count": 417,
+      "formula_rejections": [],
+      "formula_text_sha256": "cadeccfd078c8564b531f6b0f032b9a3b07491a21e90b0edcee3f8211414a94d",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "07bc1632e846c7511ea96d6be93abb41e93b7e8f514f54ab17ef88204aafb8af",
+      "extracted_bytes": 30245,
+      "extraction": {
+        "math_expressions": 417,
+        "omitted_label": 41,
+        "image_descriptions": 16
+      }
+    },
+    {
+      "module": "m81342",
+      "title": "Integer Exponents and Scientific Notation",
+      "chapter": "Polynomials",
+      "raw_sha256": "5d7791afe0039db4bb8a7a099fba8d61f796278086185a2820ac2a059c58fc6c",
+      "git_blob_sha1": "48314aee096e2a033d6c775420d26ccda0802e84",
+      "formula_count": 467,
+      "formula_rejections": [],
+      "formula_text_sha256": "3b8b556256b37b2d48265053de8588a7fb1b74e0c32e7c15ccc31459b49895db",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "c8e3261ad70f469b2c73ccbbc6ecab3b5c469b05631a11165d2bab558d111583",
+      "extracted_bytes": 32371,
+      "extraction": {
+        "math_expressions": 467,
+        "omitted_label": 34,
+        "image_descriptions": 12
+      }
+    },
+    {
+      "module": "m81347",
+      "title": "Introduction to Factoring Polynomials",
+      "chapter": "Polynomials",
+      "raw_sha256": "707a3f3bb247f8f3f2f463dd4fa26800380c15499d43f286eafe22148a65e4ca",
+      "git_blob_sha1": "0c5080f4c367dabeab194d842853190613bac763",
+      "formula_count": 365,
+      "formula_rejections": [],
+      "formula_text_sha256": "0bb10858775768fb3ac58bee74177505402aa9ce649f587eb7c47473bca45454",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "85d27d06ca4476913cf7c703d798c86b22cc594d41129b43c1e8632274fa0165",
+      "extracted_bytes": 30936,
+      "extraction": {
+        "math_expressions": 365,
+        "image_descriptions": 44,
+        "omitted_label": 19,
+        "table_span_cells": 4
+      }
+    },
+    {
+      "module": "m81338",
+      "title": "Graphs",
+      "chapter": "Graphs",
+      "raw_sha256": "b775950d353ac1f1e62b46b814c40e94cfd48b1e304fa970d111c1c9cd059cc6",
+      "git_blob_sha1": "43a4ee4fbc3a98cee9fa377a0f34f41b54188059",
+      "formula_count": 0,
+      "formula_rejections": [],
+      "formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "bc96c914f99020347ed9810558136684e7a27bcb40039bbc23f198770349200a",
+      "extracted_bytes": 588,
+      "extraction": {
+        "image_descriptions": 1
+      }
+    },
+    {
+      "module": "m81340",
+      "title": "Use the Rectangular Coordinate System",
+      "chapter": "Graphs",
+      "raw_sha256": "0c71a4f2469d6f9f9a534ab4d4b85dacddbf03b7810a62a88b4dd1ec3637d849",
+      "git_blob_sha1": "ab5dcd2dcef4d77060c96bb963c237c5e6746e95",
+      "formula_count": 718,
+      "formula_rejections": [],
+      "formula_text_sha256": "92e7d5480c9295645c62198799954e7943a77fa12f8e02a4f6650e044048ac48",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "3c646075ceab9d4ae66ea7784b9dd7f8fe6f4674d567be6cc2a31b22add2de54",
+      "extracted_bytes": 46096,
+      "extraction": {
+        "math_expressions": 718,
+        "image_descriptions": 91,
+        "omitted_label": 42,
+        "table_span_cells": 16
+      }
+    },
+    {
+      "module": "m81345",
+      "title": "Graphing Linear Equations",
+      "chapter": "Graphs",
+      "raw_sha256": "cc2cfefb2157744783571067fa26a208632c47d416dc38a390e0f8bcd2fcf8e4",
+      "git_blob_sha1": "b1e7598e52a14b9d14a6861ab06d876770500781",
+      "formula_count": 435,
+      "formula_rejections": [],
+      "formula_text_sha256": "e6aa4408b8d95a634bf68fcc708b047e2c19711ad12e8a853ea6841c31787425",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "dcc063fdfde4da0dfb73dd73ba1d24d96cf18a84f9b4fb1156c981a67722d24e",
+      "extracted_bytes": 38408,
+      "extraction": {
+        "math_expressions": 435,
+        "image_descriptions": 83,
+        "table_span_cells": 10,
+        "omitted_label": 12
+      }
+    },
+    {
+      "module": "m81350",
+      "title": "Graphing with Intercepts",
+      "chapter": "Graphs",
+      "raw_sha256": "1538a020d051d30a0f536eaf21965b0926145607878516795a2ae04019ec9ef6",
+      "git_blob_sha1": "32cd2230c9a879d34151bc8a15d11e748e4e18ea",
+      "formula_count": 304,
+      "formula_rejections": [],
+      "formula_text_sha256": "a3b21865594007fff626da8a70dba4500adccd42605ae3d82218d233d1e18fda",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "e359147ad918b8e5cbee2a20b9338cc91dde5262c603ca1739cc1b9d3615ab0d",
+      "extracted_bytes": 28957,
+      "extraction": {
+        "math_expressions": 304,
+        "image_descriptions": 55,
+        "omitted_label": 15,
+        "table_span_cells": 4
+      }
+    },
+    {
+      "module": "m81354",
+      "title": "Understand Slope of a Line",
+      "chapter": "Graphs",
+      "raw_sha256": "e7f4da155a33754417920af537d9613134be9fa63af74c0928af43190a3e7249",
+      "git_blob_sha1": "ba8eb049464face43dd3d6651ce90822414b03af",
+      "formula_count": 515,
+      "formula_rejections": [],
+      "formula_text_sha256": "e0f9300b2a6fd1f169ef1f50f30aa694643f38f86fe3108a610081072957a0ed",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "486b1446b4e3c4e2e3e512d708b3793557a7e907bab4be86a3994bc10fbed4b9",
+      "extracted_bytes": 67773,
+      "extraction": {
+        "math_expressions": 515,
+        "image_descriptions": 123,
+        "omitted_label": 38
+      }
+    },
+    {
+      "module": "m56252",
+      "title": "Cumulative Review",
+      "chapter": "Front or back matter",
+      "raw_sha256": "430ce04388d597e5e2e48e636fb5df1dbb727249638a365280879286e8b1b44d",
+      "git_blob_sha1": "34ef96686053df2c341aba3041fe58007be0d7d6",
+      "formula_count": 166,
+      "formula_rejections": [],
+      "formula_text_sha256": "5450eadea4c1ea48be5172c5b0ac56608b5836eaa27dcd7eb31bd1d5fdbf1536",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "751c192d0cf56225b93c48b6ea861fd3b98788416f295fde2e3c5ff76c495860",
+      "extracted_bytes": 7392,
+      "extraction": {
+        "math_expressions": 166,
+        "image_descriptions": 2
+      }
+    },
+    {
+      "module": "m56244",
+      "title": "Powers and Roots Tables",
+      "chapter": "Front or back matter",
+      "raw_sha256": "6b3feca177dc524fc8df505f05508026b6fe8c48d46281c5aaaf5e160d91387e",
+      "git_blob_sha1": "93808d5112131935236887ccd5fa07630bfc6bc3",
+      "formula_count": 505,
+      "formula_rejections": [],
+      "formula_text_sha256": "e625fa2ee24f2c7d5b5b28d41c342613dc7f4812716685e306f4e33d26ca7da7",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "e8ec6eb2fe5402dc2fbcf96fd486f95653bf613583fbe7dada756fdde499c9fa",
+      "extracted_bytes": 6132,
+      "extraction": {
+        "math_expressions": 505
+      }
+    },
+    {
+      "module": "m56248",
+      "title": "Geometric Formulas",
+      "chapter": "Front or back matter",
+      "raw_sha256": "daab075f449543410605e20e7f6d623084cedc14993cf8a4d7487e928e123b6a",
+      "git_blob_sha1": "2a87e2f12d48257ad706d4d71024805f7d744fbc",
+      "formula_count": 12,
+      "formula_rejections": [],
+      "formula_text_sha256": "68f29857bac7df5130019ebb6170d1209dd152bfe1357d834cae3a4b4c6cf72f",
+      "training_admitted": false,
+      "whole_module_extracted": true,
+      "extracted_sha256": "2d778714585ba229cc277a754d69f23c7fa7b400f794537fb45fb3473f214e8e",
+      "extracted_bytes": 2048,
+      "extraction": {
+        "image_descriptions": 12,
+        "math_expressions": 12
+      }
+    }
+  ],
+  "implementation_sha256": {
+    "D:\\SynapticGenesis\\tests\\prealgebra_math.py": "b542aaa257229fc188d418d0d73584979a040c636f0518537439669eda2b9291",
+    "scripts\\corpus\\openstax.py": "818f628e9bb36be4737c9eb7112758ab99c4dd96b3ad75140cae6e23d719250b",
+    "scripts\\corpus\\prealgebra_math.py": "136105f09d484e263ab6cda11aae57b264c6f5c5ebf02607b7291f0d3050951f"
+  },
+  "limits": [
+    "Formula conversion is not a proof that each source calculation is correct.",
+    "Malformed source tables and unsupported CNXML remain rejected.",
+    "Image-only calculations, passage review, attribution and held-out splits need review before admission.",
+    "Spacing and visual layout are normalized. Enclosures use non-standard MathJax TeX syntax."
+  ]
+}
