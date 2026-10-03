@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "fixed_development_group": "key-hat-box-bag-o0-s0-q0",
+  "all_final_models_checked": true,
+  "parameters": null,
+  "full_and_context_erased_scores_checked": true,
+  "checkpoint_files_unchanged": true,
+  "reserved_test_not_evaluated": true,
+  "records": [
+    {
+      "seed": 1337,
+      "arm": "selective",
+      "items": 4,
+      "oracle_max_score_error": 2.2285785137299285e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "51c097e4fb035bd2934e280c29f9bc62ad774402dbbc99b7fa48e218348a42e1"
+    },
+    {
+      "seed": 1337,
+      "arm": "wide-selective",
+      "items": 4,
+      "oracle_max_score_error": 2.229678848664207e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "f0527c7556aa2633376db797b3038fb73deeb141d7667105b06c4ab4f083c25f"
+    },
+    {
+      "seed": 1337,
+      "arm": "associative",
+      "items": 4,
+      "oracle_max_score_error": 2.1758920494274747e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "8d5331b7363c521720267d6c8f0d3b70e211955985705c9c7d887b6979be1d7b"
+    },
+    {
+      "seed": 2026,
+      "arm": "selective",
+      "items": 4,
+      "oracle_max_score_error": 2.4585195785853386e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "42e0ae8fc85cab413641c651aeaf10b111e2f567f0c043a003ee2067c9774e8a"
+    },
+    {
+      "seed": 2026,
+      "arm": "wide-selective",
+      "items": 4,
+      "oracle_max_score_error": 1.7574984596535614e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "1a4b041cac827d770d399b41a14d32089e90afa7d3bac04945789dd1752a32c4"
+    },
+    {
+      "seed": 2026,
+      "arm": "associative",
+      "items": 4,
+      "oracle_max_score_error": 1.0353469484525313e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "facf5f183474f4be073cc77e5975c7816be8a1da69a8eec380cc21b7d52e6e10"
+    },
+    {
+      "seed": 31415,
+      "arm": "selective",
+      "items": 4,
+      "oracle_max_score_error": 3.614012937802613e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "48243e2b447a6b3cc6aa571f5ad0f0ff9d3eab14a6a301bd12a867fa7d0dd018"
+    },
+    {
+      "seed": 31415,
+      "arm": "wide-selective",
+      "items": 4,
+      "oracle_max_score_error": 2.9961505303433e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "df16c85e7314d91b4bb833d50d6a8c409414f41aa647bfccba186afe2cbea128"
+    },
+    {
+      "seed": 31415,
+      "arm": "associative",
+      "items": 4,
+      "oracle_max_score_error": 2.119322058735662e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "94c73dacad2dc850535f896ae5f933b7a9c5403f7adf3fdde0da72e8946153f4"
+    }
+  ],
+  "interpretation": "Numerical sanity check of one fixed group per model, not an independent quality benchmark.",
+  "parameter_counts": [
+    1716736,
+    1951624,
+    1951728
+  ]
+}
