@@ -22,8 +22,13 @@ def parse(raw, selected):
     sections = re.split(r'^##[ \t]*$', text, flags=re.M)
     if len(sections) < 3 or sections[0].strip() != '# '+selected['title']:
         raise ValueError('Missing title or page boundaries')
+    attribution = sections[-1].strip()
+    if 'source_footer' in selected:
+        attribution, separator, footer = attribution.partition('\n\n')
+        if not separator or not selected['source_footer'] or footer != selected['source_footer']:
+            raise ValueError('Selected editorial footer changed')
     metadata = {}
-    for line in sections[-1].strip().splitlines():
+    for line in attribution.splitlines():
         match = re.fullmatch(r'\* ([A-Za-z ]+): (.+)', line)
         if not match or match[1] in metadata:
             raise ValueError('Invalid or duplicated attribution field')

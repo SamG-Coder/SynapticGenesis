@@ -1,0 +1,1347 @@
+{
+  "version": "selected-reading-breadth-v1",
+  "purpose": "A separately prepared expansion for a future comparison of reading breadth and bounded exposure, following failed durable-retention gates.",
+  "policy": "Only the explicitly listed English Markdown editions may enter this collection. They retain the CC BY 3.0 or 4.0 terms stated in the pinned source index, with agreeing source labels and preserved attribution. MIT covers original project code, not these texts. No imported model weights or generated stories are supplied. Whole evaluation works never supply learning or replay targets.",
+  "upstream_repository": "https://github.com/global-asp/asp-source",
+  "upstream_commit": "b5c3d5b2266ad936e5f20fa878e839b32b02b4ba",
+  "upstream_index_sha256": "bfa6e066d491d0af8c7f7e9890c5d8ba27a6302b271158d0c17fdb177cadadd9",
+  "stage_note": "These are editorial content groups, not human ages, publisher levels or validated mastery milestones. Assignment was made before any model was trained or scored on this edition.",
+  "stages": [
+    {
+      "id": 1,
+      "name": "Short routines and descriptions",
+      "focus": "Everyday actions, questions and short event sequences."
+    },
+    {
+      "id": 2,
+      "name": "Connected stories",
+      "focus": "Dialogue, changing situations, plans and consequences."
+    },
+    {
+      "id": 3,
+      "name": "Extended narratives",
+      "focus": "Longer event sequences, multiple speakers and recurring characters."
+    }
+  ],
+  "protected_editions": {
+    "early-readers": {
+      "version": "selected-early-readers-v1",
+      "manifest_sha256": "e97f7f359973c078822204ab7b93a18c46423b8053c118df1ef4f3ce3f6280fe",
+      "roles": [
+        "train",
+        "validation",
+        "test"
+      ]
+    },
+    "stories": {
+      "version": "selected-stories-v1",
+      "manifest_sha256": "36bea68901316f6a9cd1751bfadd41088c0355cc7d9dcdb4a6f66c86b2d59097",
+      "roles": [
+        "train",
+        "validation",
+        "test"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "0005",
+      "title": "Anansi and Turtle",
+      "source_file": "0005_anansi-and-turtle.md",
+      "split": "train",
+      "stage": 2,
+      "reason": "A complete trickster story with invitations, dialogue and consequences.",
+      "review_note": "Folktale; not evidence about animal behaviour. Both Anansi stories remain in training.",
+      "pages": 10,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ghanaian folktale",
+        "Illustration": "Wiehan de Jager",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Anansi and Turtle",
+        "publisher_url": "http://africanstorybook.org/stories/anansi-and-turtle",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "bcc9c28c00fefe728d7315fa0ced8811e877c5e8471a7a873e9b9be5dc651705",
+      "body_sha256": "abef47f79ef0b4dcec002fc5de3f438e9a628ac4b43f0d26f217689997ef1164"
+    },
+    {
+      "id": "0006",
+      "title": "Anansi and Wisdom",
+      "source_file": "0006_anansi-and-wisdom.md",
+      "split": "train",
+      "stage": 2,
+      "reason": "A connected climbing problem, a suggestion and its consequences.",
+      "review_note": "Folktale explaining the spread of wisdom; its origin claims are not factual ground truth.",
+      "pages": 6,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ghanaian folktale",
+        "Illustration": "Wiehan de Jager",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Anansi and Wisdom",
+        "publisher_url": "http://africanstorybook.org/stories/anansi-and-wisdom",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "10443df452ac05b0efeeb038168d848e0496129efcf81bb3b173d847c05ba321",
+      "body_sha256": "ebd2de85e9d21bf48a8b335f4abb45244ec4b949693f183253db43148b1783f8"
+    },
+    {
+      "id": "0011",
+      "title": "Father and son",
+      "source_file": "0011_father-and-son.md",
+      "split": "validation",
+      "stage": 1,
+      "reason": "Reserve a short father-and-son event sequence for development.",
+      "review_note": "Whole work held out; suitcase discovery and snake escape are understandable without pictures.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Frista Nattabira",
+        "Illustration": "Wiehan de Jager, João Carlos Brito",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Father and son",
+        "publisher_url": "http://africanstorybook.org/stories/father-and-son",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "02036a6082802e7d1598dfc8dd2a0cfe2225fb481a7fcfb20b70f3cd05f4e79c",
+      "body_sha256": "72c47fdb22e050fcba264ba31634e8ea660d048356c231d1d1961723f07f127a"
+    },
+    {
+      "id": "0013",
+      "title": "Letter to mum",
+      "source_file": "0013_letter-to-mum.md",
+      "split": "train",
+      "stage": 2,
+      "reason": "Family conversation and a letter with a continuing situation.",
+      "review_note": "The child narrator has incomplete knowledge; the narrative is not a childbirth lesson.",
+      "pages": 18,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ursula Nafula",
+        "Illustration": "Catherine Groenewald",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Letter to mum",
+        "publisher_url": "http://africanstorybook.org/stories/letter-mum",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "20fb713a6dc608a4fb65f39f015ee3b9a38001cf71e3678746c6f1f745d969ef",
+      "body_sha256": "1384a418b3112ca3b77e272fc5dc76110a048ffd66d3135e1dfb9e6f4720797b"
+    },
+    {
+      "id": "0014",
+      "title": "Girl called Norah",
+      "source_file": "0014_girl-called-norah.md",
+      "split": "test",
+      "stage": 1,
+      "reason": "Reserve a short lost-doll story with a complete resolution.",
+      "review_note": "Whole work reserved for testing, including all pages and character names.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Annet Ssebaggala",
+        "Illustration": "Melany Pietersen",
+        "Translated By": "Annet Ssebaggala",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Girl called Norah",
+        "publisher_url": "http://africanstorybook.org/stories/girl-called-norah-0",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "76d7f3997359bb0643062f02fcc3dd6cda42a2acf6ef14b8a5b57a13f683f237",
+      "body_sha256": "20be8c670b606f215334fe47480ddb5a77808573299824d313a4e16f26413c6e"
+    },
+    {
+      "id": "0015",
+      "title": "Together We're Strong",
+      "source_file": "0015_together-were-strong.md",
+      "split": "train",
+      "stage": 3,
+      "reason": "A longer authored biographical narrative with dialogue, family changes and schooling.",
+      "review_note": "Historical account of Albertina Sisulu; dates and biographical claims are not independently fact-checked here. Original spelling and punctuation are retained.",
+      "pages": 12,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Liesl Jobson",
+        "Illustration": "Alice Toich",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Together We're Strong",
+        "publisher_url": "http://africanstorybook.org/stories/together-were-strong",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "81be2bdf58a573740ea016a1a368f1a378e6e364af024ebc1d1aadff57f87308",
+      "body_sha256": "730adb8e73673cf384d702fa92133a813125957a1860186ec7df5adfd1848615"
+    },
+    {
+      "id": "0016",
+      "title": "My friend Coco",
+      "source_file": "0016_my-friend-coco.md",
+      "split": "train",
+      "stage": 2,
+      "reason": "A puppy story with questions, changing responsibilities and reunion.",
+      "review_note": "Narrative reading; not animal-care guidance.",
+      "pages": 11,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ursula Nafula",
+        "Illustration": "Ursula Nafula",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "My friend Coco",
+        "publisher_url": "http://africanstorybook.org/stories/my-friend-coco",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "807f64b9c86e2777cd35b0505782bbe19adc7405b6459be745c8398970f3767b",
+      "body_sha256": "73f3b99907941b15b191bbba8b0a56da266affb90529e03dc7f19b051cf08655"
+    },
+    {
+      "id": "0018",
+      "title": "Why is Yayeri great?",
+      "source_file": "0018_why-is-yayeri-great.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "Daily actions and a repeated question in a short connected routine.",
+      "review_note": "The refrain is deliberately repeated within the source; further repetition must be bounded by the experiment.",
+      "pages": 12,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Michael Oguttu",
+        "Illustration": "Vusi Malindi",
+        "Translated By": "Cornelius Gulere",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Why is Yayeri great?",
+        "publisher_url": "http://africanstorybook.org/stories/why-yayeri-great",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "9a504e360608c84661100d5d6e23e3763017e1cc2dc62b6cf82d8203d4bdfb2a",
+      "body_sha256": "75e4a00a35c8d25a6d45678ab7f0fba1f5a1e384c7e8f18d5624328afffedd94"
+    },
+    {
+      "id": "0019",
+      "title": "My first day at the market",
+      "source_file": "0019_my-first-day-at-the-market.md",
+      "split": "train",
+      "stage": 3,
+      "reason": "An extended first-person market visit with questions, separation and reunion.",
+      "review_note": "Related compressed candidate 0057 is excluded; names and setting remain as authored.",
+      "pages": 14,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Timothy Kabare, Ursula Nafula",
+        "Illustration": "Catherine Groenewald",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "My first day at the market",
+        "publisher_url": "http://africanstorybook.org/stories/my-first-day-market",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "cdb5da23d5c0812bf76c0a36185e7cdabae69e50347ce314c25a1627a1feaaf3",
+      "body_sha256": "f5524c071ef9aea18094fb9aa5effeee26099892cc3021c512bd172b909756bc"
+    },
+    {
+      "id": "0021",
+      "title": "Dembe the shopkeeper",
+      "source_file": "0021_dembe-the-shopkeeper.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "Everyday shop vocabulary and a linked family routine.",
+      "review_note": "A particular fictional household, not a general claim about traders or wealth.",
+      "pages": 9,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Annet Ssebaggala",
+        "Illustration": "Zablon Alex Nguku",
+        "Translated By": "Annet Ssebaggala",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Dembe the shopkeeper",
+        "publisher_url": "http://africanstorybook.org/stories/dembe-shopkeeper",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "7c64f3185af73568d300c1ee05ee19982d08e76e921c97c9f9a7585324d3349e",
+      "body_sha256": "4323de5b734af47ecdb4a16f68bfd53a7c19ddcf110d1e0f9240d8e9dccd3558"
+    },
+    {
+      "id": "0023",
+      "title": "Lion that wanted friendship",
+      "source_file": "0023_lion-that-wanted-friendship.md",
+      "split": "train",
+      "stage": 2,
+      "reason": "Contrasting perspectives and dialogue in a complete friendship folktale.",
+      "review_note": "The categorical claims about humans and lions belong to the folktale, not zoological instruction.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Joachim Muhindo",
+        "Illustration": "Marleen Visser",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Lion that wanted friendship",
+        "publisher_url": "http://africanstorybook.org/stories/lion-wanted-friendship",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "27fae85b84c5ddd3efe4eb044418213112094251456c94cf898ec0ef6ab3661a",
+      "body_sha256": "bd5cac59062f33f8115613e715749b32ad358d30d00122cb40695ef869d2a938"
+    },
+    {
+      "id": "0028",
+      "title": "The Race",
+      "source_file": "0028_the-race.md",
+      "split": "validation",
+      "stage": 2,
+      "reason": "Reserve a complete animal contest with a plan and resolution.",
+      "review_note": "Whole folktale held out for development; the source acute-accent apostrophe is retained.",
+      "pages": 10,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Mozambican folktale",
+        "Illustration": "Amir Bachir António Necas",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "The Race",
+        "publisher_url": "http://africanstorybook.org/stories/race",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "7c458046eca7d878ff51656b37711e28e79c0c3d48d983745999a326ab87eb92",
+      "body_sha256": "4cefbe98fa58847afc3ac6492fa130ce2c63977e90e8c258b34a111deffbc56d"
+    },
+    {
+      "id": "0029",
+      "title": "Sniffles the crocodile and Punch the butterfly",
+      "source_file": "0029_sniffles-the-crocodile-and-punch-the-butterfly.md",
+      "split": "train",
+      "stage": 2,
+      "reason": "A longer friendship story with reciprocal help and dialogue.",
+      "review_note": "Talking-animal fiction includes threats from hunters; retained as narrative, not factual animal behaviour.",
+      "pages": 7,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Herminder Ohri",
+        "Illustration": "Herminder Ohri",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Sniffles the crocodile and Punch the butterfly",
+        "publisher_url": "http://africanstorybook.org/stories/sniffles-crocodile-and-punch-butterfly",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "215534eb28a585feb4bb6e0b7239f3d789fabc426a351c048f629cd4f565b42a",
+      "body_sha256": "e513129c88277bf5486dc63e3dd7db93e8acf3378643c3e5cc02fae8be8bad2d"
+    },
+    {
+      "id": "0033",
+      "title": "The Big Juicy Mango",
+      "source_file": "0033_the-big-juicy-mango.md",
+      "split": "test",
+      "stage": 1,
+      "reason": "Reserve a short rhythmic growth-and-fruit sequence.",
+      "review_note": "Whole work reserved for testing; original grammar and line breaks remain.",
+      "pages": 9,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Katelyn Mostert",
+        "Illustration": "Catherine Groenewald, Wiehan de Jager",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "The Big Juicy Mango",
+        "publisher_url": "http://africanstorybook.org/stories/big-juicy-mango-1",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "591bea69369164950fd2d9f3cb3d58fcc2a8c34e4396b1bf7a90799d5ef5cb6d",
+      "body_sha256": "720ed3b193046e7c5acb3e0e6a09b8abf585aa4cdb391f1c2abcda8bebf7513d"
+    },
+    {
+      "id": "0035",
+      "title": "Wind",
+      "source_file": "0035_wind.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "Short action sentences in a continuous kite-and-wind story.",
+      "review_note": "An imaginative tornado episode, not weather or safety instruction.",
+      "pages": 11,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ursula Nafula",
+        "Illustration": "Marion Drew",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Wind",
+        "publisher_url": "http://africanstorybook.org/stories/wind",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "b3e1a2f25c9af71c41755815acda3d278f1f28ba42296f89ec05f0cc0ec48f2c",
+      "body_sha256": "31b1d7f77e28e21b77486d692600a75e2045ca6437fc0ce49e331b905e2281dd"
+    },
+    {
+      "id": "0056",
+      "title": "Clever cat",
+      "source_file": "0056_clever-cat.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A linked set of household actions with a humorous ending.",
+      "review_note": "The cat reading a newspaper marks this as fiction.",
+      "pages": 12,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ursula Nafula",
+        "Illustration": "Catherine Groenewald",
+        "Translated By": "Ursula Nafula",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Clever cat",
+        "publisher_url": "http://africanstorybook.org/stories/clever-cat",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "f049130ad5fb9e58509d29c2cf3e7832f6d5c1e1a72fa7d35dd731df35c78b2e",
+      "body_sha256": "23c4c82afba77331393e32d9c09b47969fb23f1637548351fa83628f4ab213e3"
+    },
+    {
+      "id": "0058",
+      "title": "Soccer game",
+      "source_file": "0058_soccer-game.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A short sports lesson followed by a surprise the next day.",
+      "review_note": "Complete event sequence; original tense changes are retained.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Letta Machoga",
+        "Illustration": "Vusi Malindi",
+        "Translated By": "Lorato Trok",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Soccer game",
+        "publisher_url": "http://africanstorybook.org/stories/soccer-game",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "e1bdc56191c5330b635dfbe1d297afd373d8d548f1d0093b8227a8272ef82726",
+      "body_sha256": "490efb57f7d3db4498418901e82033a62a1791f0ab6921f96701566ea01f78a2"
+    },
+    {
+      "id": "0059",
+      "title": "Akai's special mat",
+      "source_file": "0059_akais-special-mat.md",
+      "split": "train",
+      "stage": 2,
+      "reason": "A lost-child narrative with descriptions, a dream and reunion.",
+      "review_note": "The special mat and guiding bird are story elements, not protective or navigation advice.",
+      "pages": 15,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ursula Nafula",
+        "Illustration": "Catherine Groenewald",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Akai's special mat",
+        "publisher_url": "http://africanstorybook.org/stories/akais-special-mat",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "47b67f887b6a686adb8f461a8e333c4a5a44bf1deabe91b58a3efbae842a8c50",
+      "body_sha256": "9091c204a04f0c0641dc5c2077c98cc5691c98b2fd8dbb0609230acb6cde56a6"
+    },
+    {
+      "id": "0060",
+      "title": "Nakitto at school",
+      "source_file": "0060_nakitto-at-school.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "Short school activities followed by reading at home.",
+      "review_note": "Original spacing and tense variation are retained, including Monday,Nakitto.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Annet Ssebaggala",
+        "Illustration": "Genevieve Terblanche, Wiehan de Jager, Vusi Malindi, Karlien de Villiers",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Nakitto at school",
+        "publisher_url": "http://africanstorybook.org/stories/nakitto-school",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "be6922f1e700b964cb0269ac2f0c0d9807cf3cc6204ca3f632c4a8c030cd2105",
+      "body_sha256": "e8b5bb53313a3580be8b381be888af7c1a94e484ec13560fedecf595c440394f"
+    },
+    {
+      "id": "0062",
+      "title": "Nangila's courage",
+      "source_file": "0062_nangilas-courage.md",
+      "split": "train",
+      "stage": 2,
+      "reason": "A complete quest with dialogue, a song, help and consequences.",
+      "review_note": "Folktale involving spirits and a healing herb, not medical evidence or advice.",
+      "pages": 12,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Violet Otieno",
+        "Illustration": "Vusi Malindi",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Nangila's courage",
+        "publisher_url": "http://africanstorybook.org/stories/nangila%E2%80%99s-courage",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "b18f3f55972fc2817e22fdb01e274f36d78174f33a5136001cc2bb15252a0015",
+      "body_sha256": "60a21803e846c814f081705f78e6ce89f70ac34282b8e556b2ce22e345996d55"
+    },
+    {
+      "id": "0064",
+      "title": "Joy goes to school",
+      "source_file": "0064_joy-goes-to-school.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A chronological home-to-school routine.",
+      "review_note": "Short sentences with original phrasing retained. The short editorial footer following the attribution is pinned and retained in credits, outside model text.",
+      "pages": 11,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Augustine Napagi",
+        "Illustration": "Vusi Malindi",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Joy goes to school",
+        "publisher_url": "http://africanstorybook.org/stories/joy-goes-school",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "15f2e071ee4246500e5cbafd330af68f3a12c746da4069c364939779ca78edae",
+      "body_sha256": "2a7311fac1d91cc9ce9a9175b397099fd43f75d3b013dbcd75fef167aed99ba8",
+      "source_footer": "The story is about Joy getting\nsupport to go to school from her\nmother."
+    },
+    {
+      "id": "0071",
+      "title": "Our river, our life",
+      "source_file": "0071_our-river-our-life.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A connected environmental story about actions and recovery.",
+      "review_note": "Simplified narrative causality and a leadership change are retained as authored.",
+      "pages": 7,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Rebecca Njuguna",
+        "Illustration": "Catherine Groenewald",
+        "Adaptation": "Ursula Nafula",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Our river, our life",
+        "publisher_url": "http://africanstorybook.org/stories/river-temu",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "84408086eb7829fae97048b6b0224cca1e8256b9662a4d3c301c4987ddd14e8a",
+      "body_sha256": "217619e19329394d8816b25cc131671e1c08ae7806ca421d6714a7c0a6adf7b9"
+    },
+    {
+      "id": "0099",
+      "title": "Azizi the doll",
+      "source_file": "0099_azizi-the-doll.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A child-and-doll routine with questions and everyday actions.",
+      "review_note": "The source translator credit is literally l; it is retained without inventing a missing name.",
+      "pages": 12,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Lawrence A. Konjuro",
+        "Illustration": "Natalie Propa",
+        "Translated By": "l",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Azizi the doll",
+        "publisher_url": "http://africanstorybook.org/stories/azizi-doll",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "bd6e12e0c0725a83d0aae3d0e0c67d1974f8e08ec2674695660eded7f90dfc1f",
+      "body_sha256": "b00291470d7e8f8a409b157d033e6218c51e91b33d4c1f8604f1356ccaacc50d"
+    },
+    {
+      "id": "0100",
+      "title": "Jaaka the fisherman",
+      "source_file": "0100_jaaka-the-fisherman.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A working-day account with a setback and an explanation.",
+      "review_note": "Fishing location and conditions are narrative setting; source phrasing is retained.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Tom Sabwa, Children's Development Center at Masese",
+        "Illustration": "Zablon Alex Nguku",
+        "Translated By": "Cornelius Gulere",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Jaaka the fisherman",
+        "publisher_url": "http://africanstorybook.org/stories/jaaka-fisherman",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "f4b6d8b13b13cc45ac3135273e3dedaa1fa0af9bb568de465c59529d3cdb0ac4",
+      "body_sha256": "a0d110229c5daa1d340509f4e06b513fe3bf0ebedd3a6d853a9ec2a559a1eb86"
+    },
+    {
+      "id": "0105",
+      "title": "Ms Phone",
+      "source_file": "0105_ms-phone.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "Explicit colour-to-purpose relations in a short character description.",
+      "review_note": "Five phones are a story device; no labels or question-answer targets are added.",
+      "pages": 12,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ursula Nafula",
+        "Illustration": "Marion Drew",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Ms Phone",
+        "publisher_url": "http://africanstorybook.org/stories/ms-phone",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "756ef46c54a93f901d51857f3ff9f8ffe7b458a84e1d8905240ed85bfef01718",
+      "body_sha256": "83482024e56cea0cc462d01657c44700722e27bd9ef1e38cb219ec28891e1dac"
+    },
+    {
+      "id": "0106",
+      "title": "Namukuru's bicycle",
+      "source_file": "0106_namukurus-bicycle.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A complete bicycle loss, chase and recovery.",
+      "review_note": "The cycling monkey is an imaginative story element.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Munanga ASP teachers",
+        "Illustration": "Wiehan de Jager",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Namukuru's bicycle",
+        "publisher_url": "http://africanstorybook.org/stories/namu%E2%80%99s-bicycle",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "1202cccb03b9cec251bacd5a5a4f6d12a18b768084707a4689a59fefe20b74ca",
+      "body_sha256": "e03c486bf4ad51ec66e611e6d66c8ac31f2a814b7eaffb668ddd6071de1e2192"
+    },
+    {
+      "id": "0108",
+      "title": "Dima and Owl",
+      "source_file": "0108_dima-and-owl.md",
+      "split": "validation",
+      "stage": 3,
+      "reason": "Reserve an extended traditional story with multiple episodes.",
+      "review_note": "Whole work held out for development; its original Story notes are retained and make this a mixed narrative/editorial assessment.",
+      "pages": 16,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Traditional San story",
+        "Illustration": "Manyeka Arts Trust",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Dima and Owl",
+        "publisher_url": "http://africanstorybook.org/stories/dima-and-owl",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "c8d7f71df0fea1726e87624a4d438a9618db3c22dc2e3d6e26ad898c29953617",
+      "body_sha256": "514e93efd9dd3e09bc93935232fb7c9b08a12ec293e92d73363c42a7b837f880"
+    },
+    {
+      "id": "0109",
+      "title": "Lekishon and the cows",
+      "source_file": "0109_lekishon-and-the-cows.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A short animal-herding story with a resolved loss.",
+      "review_note": "Complete narrative without relying on illustration captions.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Paul Maseri",
+        "Illustration": "Wiehan de Jager",
+        "Translated By": "Paul Maseri",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Lekishon and the cows",
+        "publisher_url": "http://africanstorybook.org/stories/lekishon-and-cows",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "b1ebee3997022ee94f0eaca106791d9f42ddd81c9c95449f838a6b75db5f7c5b",
+      "body_sha256": "2106e5f2652064e529a59186445754c4fc239b7b354f328b8ff0fbed6f38b11e"
+    },
+    {
+      "id": "0136",
+      "title": "Hamisi's lucky day",
+      "source_file": "0136_hamisis-lucky-day.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A market purchase with requests, a constraint and a resolution.",
+      "review_note": "The final choice is open; the text does not require an invented answer.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Adelheid Marie Bwire",
+        "Illustration": "Rob Owen",
+        "Translated By": "Adelheid Marie Bwire",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Hamisi's lucky day",
+        "publisher_url": "http://africanstorybook.org/stories/hamisis-lucky-day",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "1669f98f9553c70012c13680b46b44921dc93a46fa7e0f5007ad57383fd79cc4",
+      "body_sha256": "13504334d68a57cf6e50f36e010d7b8d1ff1da28dbb6f61b93361e60a3bf9f74"
+    },
+    {
+      "id": "0144",
+      "title": "A Trip to Zanzibar",
+      "source_file": "0144_a-trip-to-zanzibar.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A rhythmic travel description with repeated questions.",
+      "review_note": "Local food and fish names and original verse line breaks are retained. The short editorial footer following the attribution is pinned and retained in credits, outside model text.",
+      "pages": 6,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Barke Ramadhan",
+        "Illustration": "Wiehan de Jager, Laura Libertore, Catherine Groenewald, Rijuta Ghate",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "A Trip to Zanzibar",
+        "publisher_url": "http://africanstorybook.org/stories/trip-zanzibar",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "7dfa0471ea81cd905a4b09f685008afa1ce162e2e7f4b6de5a586be560169a78",
+      "body_sha256": "d2fa36b6bc06bf8d8d57b3e8f844bed5f503bb50fe5b9475b879e0c168272882",
+      "source_footer": "An opportunity for children to understand their environment"
+    },
+    {
+      "id": "0146",
+      "title": "My first Trip to kampala",
+      "source_file": "0146_my-first-trip-to-kampala.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A contrasting travel description using local places and languages.",
+      "review_note": "An adaptation of a repeated travel-question form; paired with 0144 in training, never split across evaluation. The short editorial footer following the attribution is pinned and retained in credits, outside model text.",
+      "pages": 6,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Barke Ramadhan",
+        "Illustration": "Wiehan de Jager, Laura Libertore, Catherine Groenewald, Rijuta Ghate, Jemma Kahn",
+        "Adaptation": "Herbert Haumba, ROSE ALUNGHO",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "My first Trip to kampala",
+        "publisher_url": "http://africanstorybook.org/stories/my-first-trip-kampala",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "dcd4aa6724dad43eb4dc2fe1d06e2889769104be79df3ed449dd38cfaeca7f85",
+      "body_sha256": "c22df4a817e8713272069caa51e6c27a83498416b84e8a1d16f2360a703d6d21",
+      "source_footer": "An opportunity for children to understand their environment"
+    },
+    {
+      "id": "0149",
+      "title": "The Moon and the Cap",
+      "source_file": "0149_the-moon-and-the-cap.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A lost cap, an imagined explanation and a family response.",
+      "review_note": "The moon wearing a cap is explicitly imaginative narrative.",
+      "pages": 11,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Noni",
+        "Illustration": "Angie & Upesh",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "The Moon and the Cap",
+        "publisher_url": "http://africanstorybook.org/stories/moon-and-cap",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "cdf07ff7d15aac3dea903cea70b5586896c857aeb7195b4846b2920d5c4567d1",
+      "body_sha256": "2f5dbdd3107a863366c6e177e8504ac284d23e1961e6f51575dc97ac5d88f357"
+    },
+    {
+      "id": "0161",
+      "title": "Keke's swing",
+      "source_file": "0161_kekes-swing.md",
+      "split": "train",
+      "stage": 2,
+      "reason": "An action sequence with dialogue, fear and help.",
+      "review_note": "A head injury is simplified by the story; this is not medical or playground-safety instruction.",
+      "pages": 12,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Marion Drew, Khothatso Ranoosi",
+        "Illustration": "Marion Drew",
+        "Translated By": "Khothatso Ranoosi, Marion Drew",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Keke's swing",
+        "publisher_url": "http://africanstorybook.org/stories/kekes-swing",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "d4eaf3bbb7cd14404255769e923a3ddbd819d00ef6358ab50fea9a808786b21f",
+      "body_sha256": "e9ed8394365b7b2d65843be9cf18cbd628b49c789a973ba5482ba6e9c195e6bf"
+    },
+    {
+      "id": "0181",
+      "title": "Sunday at the park",
+      "source_file": "0181_sunday-at-the-park.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A family outing described in connected paragraphs.",
+      "review_note": "A referenced sign is not transcribed; surrounding actions are readable without it.",
+      "pages": 10,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Neo",
+        "Illustration": "Neo",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Sunday at the park",
+        "publisher_url": "http://africanstorybook.org/stories/sunday-park",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "50872cb939e4cb57f963c537729d14776b3359821b162e928fb40926aa3920b4",
+      "body_sha256": "7cf467cd16669e4c2ef8e6b218a912568ab99a24ef995a5c45b5b0742e5990b7"
+    },
+    {
+      "id": "0200",
+      "title": "Amazing Daisy",
+      "source_file": "0200_amazing-daisy.md",
+      "split": "test",
+      "stage": 2,
+      "reason": "Reserve a full animal story about repeated attempts and a result.",
+      "review_note": "Whole work reserved for testing; talking-animal fiction is not factual aviation instruction.",
+      "pages": 20,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Nozizwe Herero",
+        "Illustration": "Siya Masuku",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Amazing Daisy",
+        "publisher_url": "http://africanstorybook.org/stories/amazing-daisy",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "5197adc01a3c3315335ac85b54477cfb7dfbe8875835e8f852c3695f4318e3c5",
+      "body_sha256": "f25f7be1c5f17d9f773126e8afc76c43a0d370c77695d0dc8ad48445cb9e94d7"
+    },
+    {
+      "id": "0202",
+      "title": "Refiloe and the washed chickens",
+      "source_file": "0202_refiloe-and-the-washed-chickens.md",
+      "split": "train",
+      "stage": 3,
+      "reason": "A longer humorous narrative with changing object locations and several speakers.",
+      "review_note": "The chickens fainting and recovering are a fictional comic plot, not animal-care instructions.",
+      "pages": 18,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Marion Drew",
+        "Illustration": "Wiehan de Jager",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Refiloe and the washed chickens",
+        "publisher_url": "http://africanstorybook.org/stories/refiloe-and-washed-chickens",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "5ffc388cbc79e769b45cc4dea900f876c057f1273252f11570206eff017afb56",
+      "body_sha256": "d2ea91976a827bf81bd1b398c5e85593ce7ec1e1e6355a1e8c4dc410f5fafa14"
+    },
+    {
+      "id": "0240",
+      "title": "Pendo our cow",
+      "source_file": "0240_pendo-our-cow.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "Short connected statements about a child, a cow and a daily routine.",
+      "review_note": "Simple reading text; food production is portrayed as a particular household routine.",
+      "pages": 12,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ruth Odondi",
+        "Illustration": "Rob Owen",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Pendo our cow",
+        "publisher_url": "http://africanstorybook.org/stories/pendo-our-cow",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "b5c99f399ebc2b7e4de76f89e5e2cae5f6bc65c9b7c35c18866c385dc3bf9d65",
+      "body_sha256": "f3c7e8df8712fb2416ab31c5b42e0712859d7969fd8e6f3334bf167beea685fa"
+    },
+    {
+      "id": "0252",
+      "title": "The tree that saved the village of Ombalantu",
+      "source_file": "0252_the-tree-that-saved-the-village-of-ombalantu.md",
+      "split": "test",
+      "stage": 3,
+      "reason": "Reserve a longer frame story with dialogue and a shared problem.",
+      "review_note": "Whole work reserved for testing; the enormous hollow tree and fire episode are folktale elements.",
+      "pages": 9,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Karen von Wiese, Beryl Salt, Muhdni Grimwood, Barbara Meyerowitz",
+        "Illustration": "Julia te Water Naude",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "The tree that saved the village of Ombalantu",
+        "publisher_url": "http://africanstorybook.org/stories/tree-saved-village-ombalantu",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "4880bf624cffbeca32b317c4d5de5e620aa23b701bf9e400993731f84be9c05a",
+      "body_sha256": "45c7d9b8e9341d6c64c6bb3ec636474f39baf2a0991cc8fcdbef70fd5e4b93cc"
+    },
+    {
+      "id": "0256",
+      "title": "My first pair of shoes",
+      "source_file": "0256_my-first-pair-of-shoes.md",
+      "split": "train",
+      "stage": 2,
+      "reason": "A first-person purchase story with questions, repeated attempts to sleep and a final reveal.",
+      "review_note": "Some source lines break inside a phrase; layout breaks are retained, not silently rewritten.",
+      "pages": 12,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ursula Nafula",
+        "Illustration": "Rob Owen",
+        "Translated By": "Ursula Nafula",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "My first pair of shoes",
+        "publisher_url": "http://africanstorybook.org/stories/my-first-pair-shoes-0",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "2c6d6a8c2fa8ddcaed061bee6cd303b5dae133aa2c54520bf0921e53aab74e0a",
+      "body_sha256": "c7a253fb02276c2ea7fcaa4ecaf54aaad0fa53d3f7ea2a9429a2181adf9ba5bd"
+    },
+    {
+      "id": "0266",
+      "title": "Bunty and Bubbly",
+      "source_file": "0266_bunty-and-bubbly.md",
+      "split": "train",
+      "stage": 1,
+      "reason": "A short daily-life story using a dream to explain washing.",
+      "review_note": "The soap king is a personification; the text is not an independently verified health lesson.",
+      "pages": 11,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Sorit Gupto",
+        "Illustration": "Sorit Gupto",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Bunty and Bubbly",
+        "publisher_url": "http://africanstorybook.org/stories/bunty-and-bubbly",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "0476ce9b13bc40aff8fb5039fc05d9576185499889973dea38499c7bfba4b498",
+      "body_sha256": "0fb55e066324431c4dcc8807bfd9ee2eb6bb83d9dcc512ea190b20525df3e320"
+    },
+    {
+      "id": "0273",
+      "title": "Sizwe's Smile",
+      "source_file": "0273_sizwes-smile.md",
+      "split": "train",
+      "stage": 3,
+      "reason": "A sustained chain of characters and interactions ending in reunion.",
+      "review_note": "The travelling smile is a figurative device; original punctuation and line breaks are retained.",
+      "pages": 13,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Vianne Venter",
+        "Illustration": "Genevieve Terblanche",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Sizwe's Smile",
+        "publisher_url": "http://africanstorybook.org/stories/sizwe%E2%80%99s-smile",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "raw_sha256": "5d3d11d8146da37cb3890423814fcad8dba7999c3691a895111a972b5e4a066a",
+      "body_sha256": "e4f8f01cc16a34e5817d7725ab103982b89d18c98367ebe2beb55247cb21bfc3"
+    },
+    {
+      "id": "0276",
+      "title": "Big blue bus",
+      "source_file": "0276_big-blue-bus.md",
+      "split": "validation",
+      "stage": 2,
+      "reason": "Reserve a travel story involving expectations, delay and a changed bus.",
+      "review_note": "Whole work held out for development; distinct from earlier reserved town-departure stories.",
+      "pages": 16,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Mecelin Kakoro",
+        "Illustration": "Mango Tree",
+        "Language": "en"
+      },
+      "index_entry": {
+        "title": "Big blue bus",
+        "publisher_url": "http://africanstorybook.org/stories/big-blue-bus",
+        "license": "CC-BY",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "raw_sha256": "7fd63696c9dec129b57d3f8c35fb81ccb3eb1d3193fa2912b787a30f6edbde36",
+      "body_sha256": "04c8ffe492b442d622c0b203229945b6a0ad04732fab04a8c1187d7a709cb3c0"
+    }
+  ],
+  "selection_review": {
+    "candidate_count": 60,
+    "selected_count": 42,
+    "selected_bodies_read_in_full": true,
+    "selection_used_model_scores": false,
+    "excluded": [
+      {
+        "id": "0007",
+        "title": "Looking for water",
+        "source_file": "0007_looking-for-water.md",
+        "reason": "A 21-word fragment with incomplete question punctuation; not selected as standalone prose.",
+        "source_downloaded": true,
+        "raw_sha256": "75777ef2fa41325fbe3704afe3cf5eecadc056abda268b4bb6bfca9dcf637ddd",
+        "index_entry": {
+          "title": "Looking for water",
+          "publisher_url": "http://africanstorybook.org/stories/looking-water",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/"
+        }
+      },
+      {
+        "id": "0026",
+        "title": "Imagine",
+        "source_file": "0026_imagine.md",
+        "reason": "Disconnected imagined scenes with inconsistent tense and punctuation; omit from this connected-reading selection.",
+        "source_downloaded": true,
+        "raw_sha256": "9abef4bce75eea8918765c27136ab4bc1f6f44a9d0edd8610f2759efff6b13d3",
+        "index_entry": {
+          "title": "Imagine",
+          "publisher_url": "http://africanstorybook.org/stories/imagine",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      },
+      {
+        "id": "0047",
+        "title": "My new shirt",
+        "source_file": "0047_my-new-shirt.md",
+        "reason": "The index says CC BY 4.0 but the source metadata says CC-BY-NC; reject the conflicting edition.",
+        "source_downloaded": true,
+        "raw_sha256": "509fd9a7d959e704ff7d0e615616d78c733b3bff7c8d8257ab829c4d3710da67",
+        "index_entry": {
+          "title": "My new shirt",
+          "publisher_url": "http://africanstorybook.org/stories/sambas-new-shirt",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      },
+      {
+        "id": "0049",
+        "title": "The Rainbow",
+        "source_file": "0049_the-rainbow.md",
+        "reason": "Colour labels depend on the title and pictures for their referent; omit from text-only learning.",
+        "source_downloaded": true,
+        "raw_sha256": "fbc862d739b0a8fe5772101ae852793e0b6b823e8560f08f28c13f664e79ea70",
+        "index_entry": {
+          "title": "The Rainbow",
+          "publisher_url": "http://africanstorybook.org/stories/rainbow",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/"
+        }
+      },
+      {
+        "id": "0057",
+        "title": "Sane in the market",
+        "source_file": "0057_sane-in-the-market.md",
+        "reason": "Compressed market-and-lost-child plot closely parallels selected 0019, with fragments and a repeated word; exclude the related rendition.",
+        "source_downloaded": true,
+        "raw_sha256": "0db7c1082ad717b0fe501d2d5faf8d06a4a8928f271c2f3e7f29adee84f002a8",
+        "index_entry": {
+          "title": "Sane in the market",
+          "publisher_url": "http://africanstorybook.org/stories/sane-market",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/"
+        }
+      },
+      {
+        "id": "0069",
+        "title": "My new friends",
+        "source_file": "0069_my-new-friends.md",
+        "reason": "Predominantly unpunctuated caption fragments; not selected for this prose expansion.",
+        "source_downloaded": true,
+        "raw_sha256": "f127512c26d0aa5ce8352bd13294ffd8ddb71fd2da3514c4cb5a7ac4d9a181af",
+        "index_entry": {
+          "title": "My new friends",
+          "publisher_url": "http://africanstorybook.org/stories/my-new-friends",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/"
+        }
+      },
+      {
+        "id": "0098",
+        "title": "A cow is my friend",
+        "source_file": "0098_a-cow-is-my-friend.md",
+        "reason": "The relationship between milk, meat, a bag and shoes is mostly conveyed by pictures; omit this fragmentary edition.",
+        "source_downloaded": true,
+        "raw_sha256": "c0c887953b07af34d7c1f043ef6848f445f75ea5782d8cf27d8c585cbfce9bcc",
+        "index_entry": {
+          "title": "A cow is my friend",
+          "publisher_url": "http://africanstorybook.org/stories/cow-my-friend",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/"
+        }
+      },
+      {
+        "id": "0101",
+        "title": "The Cooking Game",
+        "source_file": "0101_the-cooking-game.md",
+        "reason": "The cooking-each-other folktale and inconsistent dialogue punctuation do not fit this selected family, school and reading expansion.",
+        "source_downloaded": true,
+        "raw_sha256": "736da0e1eb666b7071da24b13ed6f1189013ad89ef1190798f8ebe26c30d38e0",
+        "index_entry": {
+          "title": "The Cooking Game",
+          "publisher_url": "http://africanstorybook.org/stories/cooking-game",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/"
+        }
+      },
+      {
+        "id": "0155",
+        "title": "The Jungle School",
+        "source_file": "0155_the-jungle-school.md",
+        "reason": "The teacher identity and the final joke require the illustration; omitted from a text-only edition.",
+        "source_downloaded": true,
+        "raw_sha256": "9a8d2b28353673b88ecf000142b5b8ca08d23b0ee560f2d159b9f6a2b2ed0fba",
+        "index_entry": {
+          "title": "The Jungle School",
+          "publisher_url": "http://africanstorybook.org/stories/jungle-school",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/"
+        }
+      },
+      {
+        "id": "0180",
+        "title": "Vayu, the wind",
+        "source_file": "0180_vayu-the-wind.md",
+        "reason": "Poetic personification blurs wind, cooling and sound transmission; not selected as an everyday explanation source.",
+        "source_downloaded": true,
+        "raw_sha256": "42bfdd431e55e3c4a692b52ca34e026218ebdc7c8d8d3ffeb0b59a30bd4d259e",
+        "index_entry": {
+          "title": "Vayu, the wind",
+          "publisher_url": "http://africanstorybook.org/stories/vayu-wind",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/"
+        }
+      },
+      {
+        "id": "0190",
+        "title": "Esther takes Mummy's sweets",
+        "source_file": "0190_esther-takes-mummys-sweets.md",
+        "reason": "The source says CC-BY-NC while the index says CC BY, and the title also differs; reject the conflicting edition.",
+        "source_downloaded": true,
+        "raw_sha256": "f29f8c97110f2abf62ce42f671a2c4f2a9f668858e36dff45a3ad4619b96f728",
+        "index_entry": {
+          "title": "Esther takes mummy's sweets",
+          "publisher_url": "http://africanstorybook.org/stories/esther-takes-mummys-sweets",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/"
+        }
+      },
+      {
+        "id": "0229",
+        "title": "The busy big mango tree",
+        "source_file": "0229_the-busy-big-mango-tree.md",
+        "reason": "Missing grammatical words and repeated caption-style references; omit from this connected-prose selection.",
+        "source_downloaded": true,
+        "raw_sha256": "3039385c8b764850b9b7f1ea9d3bdfc1421663d4796d2a8b6c9886468e557fb3",
+        "index_entry": {
+          "title": "The busy big mango tree",
+          "publisher_url": "http://africanstorybook.org/stories/busy-big-mango-tree",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      },
+      {
+        "id": "0290",
+        "title": "The hours and minutes in Ismail's day",
+        "source_file": "0290_the-hours-and-minutes-in-ismails-day.md",
+        "reason": "The worked duration from 10:45 to 13:00 is stated as two hours forty-five minutes, but is two hours fifteen minutes; reject the uncorrected edition.",
+        "source_downloaded": true,
+        "raw_sha256": "5ee88e4ee7209cc1f5e2c2660c546e2a6bd28441e0b0f0b2a38ace7a920b6bd1",
+        "index_entry": {
+          "title": "The hours and minutes in Ismail's day",
+          "publisher_url": "http://africanstorybook.org/stories/hours-and-minutes-%0B-ismail%E2%80%99s-day-1",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/"
+        }
+      },
+      {
+        "id": "0305",
+        "title": "Selemeng's cats",
+        "source_file": "0305_selemengs-cats.md",
+        "reason": "Index declares CC BY-NC; no source body downloaded or admitted.",
+        "source_downloaded": false,
+        "raw_sha256": null,
+        "index_entry": {
+          "title": "Selemeng's cats",
+          "publisher_url": "http://africanstorybook.org/stories/selemengs-cats",
+          "license": "CC-BY-NC",
+          "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+        }
+      },
+      {
+        "id": "0310",
+        "title": "Silkworm",
+        "source_file": "0310_silkworm.md",
+        "reason": "Index declares CC BY-NC; no source body downloaded or admitted.",
+        "source_downloaded": false,
+        "raw_sha256": null,
+        "index_entry": {
+          "title": "Silkworm",
+          "publisher_url": "http://africanstorybook.org/stories/silkworm",
+          "license": "CC-BY-NC",
+          "license_url": "https://creativecommons.org/licenses/by-nc/3.0/"
+        }
+      },
+      {
+        "id": "0319",
+        "title": "Teacher Mulongo",
+        "source_file": "0319_teacher-mulongo.md",
+        "reason": "Index declares CC BY-NC; no source body downloaded or admitted.",
+        "source_downloaded": false,
+        "raw_sha256": null,
+        "index_entry": {
+          "title": "Teacher Mulongo",
+          "publisher_url": "http://africanstorybook.org/stories/teacher-mulongo",
+          "license": "CC-BY-NC",
+          "license_url": "https://creativecommons.org/licenses/by-nc/3.0/"
+        }
+      },
+      {
+        "id": "0323",
+        "title": "The sprouting bean",
+        "source_file": "0323_the-sprouting-bean.md",
+        "reason": "Index declares CC BY-NC; no source body downloaded or admitted.",
+        "source_downloaded": false,
+        "raw_sha256": null,
+        "index_entry": {
+          "title": "The sprouting bean",
+          "publisher_url": "http://africanstorybook.org/stories/sprouting-bean",
+          "license": "CC-BY-NC",
+          "license_url": "https://creativecommons.org/licenses/by-nc/3.0/"
+        }
+      },
+      {
+        "id": "0336",
+        "title": "Child as a peacemaker",
+        "source_file": "0336_child-as-a-peacemaker.md",
+        "reason": "The retained editorial tail includes repeated words and inline Markdown; not selected in this text-only expansion.",
+        "source_downloaded": true,
+        "raw_sha256": "184d5275bb7afbca36fe94a560bf83ce54f8745e8cfdfcca7fbaf096172d5ac6",
+        "index_entry": {
+          "title": "Child as a peacemaker",
+          "publisher_url": "http://africanstorybook.org/stories/child-peacemaker",
+          "license": "CC-BY",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      }
+    ],
+    "additional_conflict": {
+      "id": "0044",
+      "title": "Why the library was built?",
+      "raw_sha256": "7f9c6c522ae0149e3b1a7208020edf9e1cc11cdc1cb1905d6f33aa4592eb2b70",
+      "reason": "Earlier source review found CC BY in the index but CC-BY-NC in the source, plus fragmentary page text. Not a member of the sixty candidates."
+    }
+  },
+  "limitations": [
+    "A modest reading expansion, not broad world knowledge or instruction tuning. More text alone has not been shown to repair the model.",
+    "Internal line breaks, occasional grammatical defects, original spellings, verse and notes remain. No silent rewriting or invented credits.",
+    "Some works contain folklore, figurative language, simplified causes or historical claims. They are reading material, not independently verified factual instruction.",
+    "Both text files and the English index come from one repository; their agreement is not independent verification against current publisher PDFs.",
+    "Exact whole-text, normalized paragraphs of at least 120 characters and normalized 20-word overlap checks miss paraphrases and shorter shared phrases. Related 0057 was separately excluded, and 0144/0146 and 0005/0006 are each kept within training.",
+    "Tests are reserved for future final evaluation. Reading source files for exclusion checks is not model scoring.",
+    "No training schedule, early stopping rule, age promotion or population reproduction policy is changed by preparation."
+  ]
+}

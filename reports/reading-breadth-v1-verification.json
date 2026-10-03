@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "source_spec_sha256": "69e9060df477ec8908c3cb6085dbc783905a545a5e74ba1d10dec3332cd0e335",
+  "source_manifest_sha256": "3fd183332eed43c50114c0bcbfcaaf2b4325e1d7dc9d0d0563e851343aa5e348",
+  "reproduced_files": 54,
+  "source_count": 42,
+  "outputs": {
+    "train": {
+      "documents": 34,
+      "bytes": 53073,
+      "sha256": "2c37d4f4eb9875f92218e93f0ac9ccde605c57ee307f061041d55addf711f808",
+      "words": 9827,
+      "within_document_next_byte_pairs": 53006
+    },
+    "validation": {
+      "documents": 4,
+      "bytes": 8994,
+      "sha256": "fa37cfc9c31507c6e7625c121ab90d2c5676ee51091b4e4c560d865cd7b19f1e",
+      "words": 1720,
+      "within_document_next_byte_pairs": 8987
+    },
+    "test": {
+      "documents": 4,
+      "bytes": 8941,
+      "sha256": "ce4327f4a86e728272a0904c245978f99496a6dbfc32aa445ad01a77f150de10",
+      "words": 1658,
+      "within_document_next_byte_pairs": 8934
+    }
+  },
+  "protected_existing_sources": 28,
+  "protected_existing_evaluation_sources": 11,
+  "old_or_selected_whole_text_overlap": 0,
+  "normalized_20_word_overlap": 0,
+  "normalized_substantial_paragraph_overlap": 0,
+  "heldout_binding_contexts_checked": 288,
+  "pinned_source_pages_reproduced": true,
+  "source_and_index_licenses_agree": true,
+  "publisher_pages_verified": false,
+  "utf8_credits_verified": true,
+  "editorial_footers_excluded_from_model_text_and_preserved_in_credits": 3,
+  "split_and_stage_bytes_verified": true,
+  "rejected_negative_controls": [
+    "source-byte-change",
+    "index-byte-change",
+    "duplicate-index-identity",
+    "conflicting-source-license",
+    "unsupported-license-version",
+    "noncommercial-index",
+    "wrong-source-title",
+    "changed-body-boundary",
+    "unpinned-revision",
+    "source-path-escape",
+    "resigned-editorial-footer",
+    "existing-output",
+    "old-heldout-in-training",
+    "new-test-in-training",
+    "new-training-duplicate",
+    "normalized-protected-sequence",
+    "previously-selected-story-id",
+    "duplicate-selected-id",
+    "changed-protected-manifest",
+    "changed-protected-body"
+  ],
+  "model_training_performed": false,
+  "reserved_tests_scored": false,
+  "code_sha256": {
+    "scripts/corpus/storybooks.py": "cc5d671efe211c720efbad6da7b7533c160437906a1f756b81d6957a1cf01b67",
+    "scripts/corpus/african_storybook.py": "bc9d9827a0069063dc50995461e59341fd528c49fbc2383ed51bd8858b756694",
+    "scripts/corpus/overlap.py": "dc2c0ffdff0d8df6ebec060a8de26da0588a74cb3992f0aacd41e2c6c2ec90b3",
+    "scripts/prepare_reading_breadth.py": "f8d3d52bb26eb598e6737d1f49938dbaa7535824431963788bfd2be72fb65600",
+    "tests/reading_breadth_corpus.py": "7b047166d116aec905438fe9d4c8327a7cf4745b4d6406214dc1c7982e72fe95"
+  },
+  "limits": [
+    "A modest reading expansion, not broad world knowledge or instruction tuning. More text alone has not been shown to repair the model.",
+    "Internal line breaks, occasional grammatical defects, original spellings, verse and notes remain. No silent rewriting or invented credits.",
+    "Some works contain folklore, figurative language, simplified causes or historical claims. They are reading material, not independently verified factual instruction.",
+    "Both text files and the English index come from one repository; their agreement is not independent verification against current publisher PDFs.",
+    "Exact whole-text, normalized paragraphs of at least 120 characters and normalized 20-word overlap checks miss paraphrases and shorter shared phrases. Related 0057 was separately excluded, and 0144/0146 and 0005/0006 are each kept within training.",
+    "Tests are reserved for future final evaluation. Reading source files for exclusion checks is not model scoring.",
+    "No training schedule, early stopping rule, age promotion or population reproduction policy is changed by preparation."
+  ]
+}
