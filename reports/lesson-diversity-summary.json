@@ -1,0 +1,543 @@
+{
+  "protocol": {
+    "status": "declared_before_training",
+    "seeds": [
+      1337,
+      2026,
+      31415
+    ],
+    "arms": [
+      "control",
+      "diversity"
+    ],
+    "cell": "selective",
+    "channels": 256,
+    "hidden": 512,
+    "layers": 4,
+    "chunk": 128,
+    "learning_rate": 0.0003,
+    "later_stage_multiplier": 0.25,
+    "answer_emphasis": 64,
+    "tf32": true,
+    "replay_policy": "stage",
+    "replay_slots": 1024,
+    "replay_every": 4,
+    "reading_end": 6000,
+    "prerequisite_end": 10000,
+    "online_endpoints": [
+      34000,
+      67000,
+      130000
+    ],
+    "generated_bytes_per_speech": 96,
+    "speak_every": 500,
+    "graph_speech": true,
+    "save_every": 5000,
+    "log_every": 6000,
+    "executable_sha256": "b0e75baf28ed19d79808613775d48514e3f7ac40ca0bad02e17d66c78046b5bb",
+    "source_records": {
+      "control": [
+        {
+          "source": "D:/SynapticGenesis/data/prepared/binding-v2/reading.dat",
+          "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+          "bytes": 585436,
+          "documents": 5
+        },
+        {
+          "source": "D:/SynapticGenesis/data/prepared/binding-v2/through-prerequisites.dat",
+          "sha256": "9ece97576da7760024133eb25223918c026c00724b60681acb86f1b2bb42bd11",
+          "bytes": 590524,
+          "documents": 101
+        },
+        {
+          "source": "D:/SynapticGenesis/data/prepared/binding-v2/through-binding.dat",
+          "sha256": "7e0fbb3d5b947e0ee2e63cf6b54c7ef6017575ff952128cccf5646ddfce56d51",
+          "bytes": 721852,
+          "documents": 1829
+        }
+      ],
+      "diversity": [
+        {
+          "source": "D:/SynapticGenesis/data/prepared/binding-v2/reading.dat",
+          "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+          "bytes": 585436,
+          "documents": 5
+        },
+        {
+          "source": "D:/SynapticGenesis/data/prepared/binding-diversity-v1/through-prerequisites.dat",
+          "sha256": "281033ec58dc79bfcdf79e340ea2cfce022755afc321a4859e0223d243d5541b",
+          "bytes": 605788,
+          "documents": 389
+        },
+        {
+          "source": "D:/SynapticGenesis/data/prepared/binding-diversity-v1/through-binding.dat",
+          "sha256": "ff05a8dc3d4de5c01c88a08057db99aeedf45572683556b7259b7a518f5daa42",
+          "bytes": 4545628,
+          "documents": 52229
+        }
+      ]
+    },
+    "source_commit": "14ec2cbb79cf1731e90408630206fec1bbcb9dd9",
+    "driver_sha256": "a146be7944d649132cb899bb29d8fabba9339e1e26905529cb04913faeeaed01",
+    "selected_spec_sha256": {
+      "control": "7ecb1719ff45a3c02c151aa3dab786fb27dac7fbf24865798b28148753c7473c",
+      "diversity": "510c6a6b4c575a8bdbe5b23ec02c2be3e566a2db2a11105786ab5c0ccfc4b8de"
+    },
+    "schedule_sha256": {
+      "control": "159134126dc2af12a2184600773e0c8f6988beb0cbef6c4de9913138bc7d8755",
+      "diversity": "1d7c2aa12c15ecb80c905abc2c6421dc7a02ef7de6f07a1d8b89288f49deec69"
+    },
+    "ancestor_schedule_sha256": "2c28275c6b9544b8d54a8a3232f5ec413ca2f0ff7f56700dfc4fcf08c2e17f89",
+    "validation_reader_sha256": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f",
+    "probe_sha256": {
+      "train.sgprobe": "ec14ab04fdd0c3d1b217176e9f63e7cb7986d603bc37804f37bcd0fd30b47a49",
+      "development.sgprobe": "48f9c8cff84b39875da8349b74cfddf0a8c45e67a9e0e90c54688ff2547ca964",
+      "test.sgprobe": "8e22637b133f3548ae654589a00d453bf462c1cfcd4bb685e8d162a1ecc0ae73",
+      "expanded-train-monitor.sgprobe": "6c28b3739cf650e3865f43557a8fb1927c55b52f0a78f6465780ddb93bd60aa5"
+    },
+    "primary_endpoint": "Original development joint accuracy at 130000 observations; each group requires both query targets under both fact assignments.",
+    "secondary_endpoints": "Original training fit, expanded-training monitor, unconstrained exact answer generation, earlier-reader loss, exposure and live runtime.",
+    "reserved_test_evaluated": false,
+    "comparisons": "Both arms resume the same exact learned reading checkpoint per seed. Learning updates, replay slots/updates and speech counts match. Source volume, vocabulary, repetition and target-byte exposure can differ. No checkpoint selection.",
+    "monitor": "Preselected 432-group sample of expanded training; never full expanded-training accuracy.",
+    "timing": "Sum of live continuation segments after the common ancestor; includes replay, speech, logging and checkpoint I/O. Excludes setup and held-out evaluation."
+  },
+  "final_rows": [
+    {
+      "seed": 1337,
+      "arm": "control",
+      "parameters": 1716736,
+      "ancestor_reader_loss": 2.242002726,
+      "final_reader_loss": 2.688276768,
+      "reader_loss_change": 0.4462740420000002,
+      "train_joint": 1,
+      "development_joint": 0.347222222222,
+      "development_greedy_joint": 0.347222222222,
+      "expanded_monitor_joint": 0.194444444444,
+      "expanded_monitor_greedy_joint": 0.164351851852,
+      "live_segment_seconds": 172.6355173,
+      "observed_pairs": 9851391,
+      "replay_pairs": 2810217,
+      "replay_updates": 32500,
+      "global_updates": 162500,
+      "generated_bytes": 24960,
+      "replay_state_bytes": 24832,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 342,
+          "quota": 342,
+          "replay_updates": 11987,
+          "replay_pairs": 1534152
+        },
+        {
+          "stage": 2,
+          "document_end": 101,
+          "seen_windows": 4000,
+          "stored_windows": 341,
+          "quota": 341,
+          "replay_updates": 10477,
+          "replay_pairs": 534561
+        },
+        {
+          "stage": 3,
+          "document_end": 1829,
+          "seen_windows": 120000,
+          "stored_windows": 341,
+          "quota": 341,
+          "replay_updates": 10036,
+          "replay_pairs": 741504
+        }
+      ],
+      "final_tick_p95_ms": 2.237955626,
+      "final_speech_tick_p95_ms": 14.73251092,
+      "checkpoint_sha256": "3db477687b6dc069d694b1a50d07895c0e761132a1fdb3299fce846f0d9fcee9"
+    },
+    {
+      "seed": 1337,
+      "arm": "diversity",
+      "parameters": 1716736,
+      "ancestor_reader_loss": 2.242002726,
+      "final_reader_loss": 2.60746026,
+      "reader_loss_change": 0.3654575339999999,
+      "train_joint": 0.516203703704,
+      "development_joint": 0.493055555556,
+      "development_greedy_joint": 0.493055555556,
+      "expanded_monitor_joint": 0.518518518519,
+      "expanded_monitor_greedy_joint": 0.518518518519,
+      "live_segment_seconds": 173.8668975,
+      "observed_pairs": 9851135,
+      "replay_pairs": 2808933,
+      "replay_updates": 32500,
+      "global_updates": 162500,
+      "generated_bytes": 24960,
+      "replay_state_bytes": 24832,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 342,
+          "quota": 342,
+          "replay_updates": 11987,
+          "replay_pairs": 1534152
+        },
+        {
+          "stage": 2,
+          "document_end": 389,
+          "seen_windows": 4000,
+          "stored_windows": 341,
+          "quota": 341,
+          "replay_updates": 10477,
+          "replay_pairs": 532685
+        },
+        {
+          "stage": 3,
+          "document_end": 52229,
+          "seen_windows": 120000,
+          "stored_windows": 341,
+          "quota": 341,
+          "replay_updates": 10036,
+          "replay_pairs": 742096
+        }
+      ],
+      "final_tick_p95_ms": 2.286960473,
+      "final_speech_tick_p95_ms": 14.41682359,
+      "checkpoint_sha256": "8918c4d20499b42b53a5faf5de204cdf4d8df11108b4a2a70e0a69e1b0c0d9a5"
+    },
+    {
+      "seed": 2026,
+      "arm": "control",
+      "parameters": 1716736,
+      "ancestor_reader_loss": 2.268481731,
+      "final_reader_loss": 2.744632483,
+      "reader_loss_change": 0.4761507520000001,
+      "train_joint": 0.993055555556,
+      "development_joint": 0.236111111111,
+      "development_greedy_joint": 0.236111111111,
+      "expanded_monitor_joint": 0.349537037037,
+      "expanded_monitor_greedy_joint": 0.305555555556,
+      "live_segment_seconds": 172.1532599,
+      "observed_pairs": 9851391,
+      "replay_pairs": 2810217,
+      "replay_updates": 32500,
+      "global_updates": 162500,
+      "generated_bytes": 24960,
+      "replay_state_bytes": 24832,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 342,
+          "quota": 342,
+          "replay_updates": 11987,
+          "replay_pairs": 1534152
+        },
+        {
+          "stage": 2,
+          "document_end": 101,
+          "seen_windows": 4000,
+          "stored_windows": 341,
+          "quota": 341,
+          "replay_updates": 10477,
+          "replay_pairs": 534561
+        },
+        {
+          "stage": 3,
+          "document_end": 1829,
+          "seen_windows": 120000,
+          "stored_windows": 341,
+          "quota": 341,
+          "replay_updates": 10036,
+          "replay_pairs": 741504
+        }
+      ],
+      "final_tick_p95_ms": 2.237955626,
+      "final_speech_tick_p95_ms": 14.41682359,
+      "checkpoint_sha256": "11f01927b6cca600e5d402e3d5deecd629f74946bfdbd4169b02d593cf65b8a5"
+    },
+    {
+      "seed": 2026,
+      "arm": "diversity",
+      "parameters": 1716736,
+      "ancestor_reader_loss": 2.268481731,
+      "final_reader_loss": 2.613865137,
+      "reader_loss_change": 0.34538340599999984,
+      "train_joint": 0.842592592593,
+      "development_joint": 0.979166666667,
+      "development_greedy_joint": 0.979166666667,
+      "expanded_monitor_joint": 0.793981481481,
+      "expanded_monitor_greedy_joint": 0.793981481481,
+      "live_segment_seconds": 173.77916580000002,
+      "observed_pairs": 9851135,
+      "replay_pairs": 2808933,
+      "replay_updates": 32500,
+      "global_updates": 162500,
+      "generated_bytes": 24960,
+      "replay_state_bytes": 24832,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 342,
+          "quota": 342,
+          "replay_updates": 11987,
+          "replay_pairs": 1534152
+        },
+        {
+          "stage": 2,
+          "document_end": 389,
+          "seen_windows": 4000,
+          "stored_windows": 341,
+          "quota": 341,
+          "replay_updates": 10477,
+          "replay_pairs": 532685
+        },
+        {
+          "stage": 3,
+          "document_end": 52229,
+          "seen_windows": 120000,
+          "stored_windows": 341,
+          "quota": 341,
+          "replay_updates": 10036,
+          "replay_pairs": 742096
+        }
+      ],
+      "final_tick_p95_ms": 2.237955626,
+      "final_speech_tick_p95_ms": 14.41682359,
+      "checkpoint_sha256": "1b46364a7ca5aac4ca171fc887ceb2255b3028078bac2684d16c69dbcf89ac64"
+    },
+    {
+      "seed": 31415,
+      "arm": "control",
+      "parameters": 1716736,
+      "ancestor_reader_loss": 2.267357588,
+      "final_reader_loss": 2.736602306,
+      "reader_loss_change": 0.4692447180000001,
+      "train_joint": 1,
+      "development_joint": 0.0138888888889,
+      "development_greedy_joint": 0.0138888888889,
+      "expanded_monitor_joint": 0.25462962963,
+      "expanded_monitor_greedy_joint": 0.233796296296,
+      "live_segment_seconds": 172.6551843,
+      "observed_pairs": 9851391,
+      "replay_pairs": 2810217,
+      "replay_updates": 32500,
+      "global_updates": 162500,
+      "generated_bytes": 24960,
+      "replay_state_bytes": 24832,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 342,
+          "quota": 342,
+          "replay_updates": 11987,
+          "replay_pairs": 1534152
+        },
+        {
+          "stage": 2,
+          "document_end": 101,
+          "seen_windows": 4000,
+          "stored_windows": 341,
+          "quota": 341,
+          "replay_updates": 10477,
+          "replay_pairs": 534561
+        },
+        {
+          "stage": 3,
+          "document_end": 1829,
+          "seen_windows": 120000,
+          "stored_windows": 341,
+          "quota": 341,
+          "replay_updates": 10036,
+          "replay_pairs": 741504
+        }
+      ],
+      "final_tick_p95_ms": 2.237955626,
+      "final_speech_tick_p95_ms": 14.41682359,
+      "checkpoint_sha256": "74eea1189b0f1f3de2ae78ae55e29b041dec459e3d6e76d7cf6ee70eea011a73"
+    },
+    {
+      "seed": 31415,
+      "arm": "diversity",
+      "parameters": 1716736,
+      "ancestor_reader_loss": 2.267357588,
+      "final_reader_loss": 2.611248016,
+      "reader_loss_change": 0.3438904279999999,
+      "train_joint": 0.699074074074,
+      "development_joint": 0.659722222222,
+      "development_greedy_joint": 0.652777777778,
+      "expanded_monitor_joint": 0.675925925926,
+      "expanded_monitor_greedy_joint": 0.671296296296,
+      "live_segment_seconds": 173.3681041,
+      "observed_pairs": 9851135,
+      "replay_pairs": 2808933,
+      "replay_updates": 32500,
+      "global_updates": 162500,
+      "generated_bytes": 24960,
+      "replay_state_bytes": 24832,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 342,
+          "quota": 342,
+          "replay_updates": 11987,
+          "replay_pairs": 1534152
+        },
+        {
+          "stage": 2,
+          "document_end": 389,
+          "seen_windows": 4000,
+          "stored_windows": 341,
+          "quota": 341,
+          "replay_updates": 10477,
+          "replay_pairs": 532685
+        },
+        {
+          "stage": 3,
+          "document_end": 52229,
+          "seen_windows": 120000,
+          "stored_windows": 341,
+          "quota": 341,
+          "replay_updates": 10036,
+          "replay_pairs": 742096
+        }
+      ],
+      "final_tick_p95_ms": 2.237955626,
+      "final_speech_tick_p95_ms": 14.41682359,
+      "checkpoint_sha256": "fa8d1bc5980cea4cce8cedb12f8e1f88ad497643c192d801f841c77a0f5946c0"
+    }
+  ],
+  "means": [
+    {
+      "arm": "control",
+      "final_reader_loss": 2.723170519,
+      "reader_loss_change": 0.4638898373333335,
+      "train_joint": 0.9976851851853333,
+      "development_joint": 0.19907407407396666,
+      "development_greedy_joint": 0.19907407407396666,
+      "expanded_monitor_joint": 0.2662037037036667,
+      "expanded_monitor_greedy_joint": 0.23456790123466667,
+      "live_segment_seconds": 172.4813205,
+      "observed_pairs": 9851391,
+      "replay_pairs": 2810217
+    },
+    {
+      "arm": "diversity",
+      "final_reader_loss": 2.610857804333333,
+      "reader_loss_change": 0.3515771226666666,
+      "train_joint": 0.6859567901236667,
+      "development_joint": 0.7106481481483333,
+      "development_greedy_joint": 0.7083333333336667,
+      "expanded_monitor_joint": 0.6628086419753333,
+      "expanded_monitor_greedy_joint": 0.6612654320986666,
+      "live_segment_seconds": 173.67138913333335,
+      "observed_pairs": 9851135,
+      "replay_pairs": 2808933
+    }
+  ],
+  "paired_difference_diversity_minus_control": [
+    {
+      "seed": 1337,
+      "final_reader_loss": -0.08081650800000029,
+      "reader_loss_change": -0.08081650800000029,
+      "train_joint": -0.48379629629599996,
+      "development_joint": 0.145833333334,
+      "development_greedy_joint": 0.145833333334,
+      "expanded_monitor_joint": 0.324074074075,
+      "expanded_monitor_greedy_joint": 0.35416666666700003,
+      "live_segment_seconds": 1.2313801999999896,
+      "observed_pairs": -256,
+      "replay_pairs": -1284
+    },
+    {
+      "seed": 2026,
+      "final_reader_loss": -0.13076734600000028,
+      "reader_loss_change": -0.13076734600000028,
+      "train_joint": -0.150462962963,
+      "development_joint": 0.743055555556,
+      "development_greedy_joint": 0.743055555556,
+      "expanded_monitor_joint": 0.444444444444,
+      "expanded_monitor_greedy_joint": 0.488425925925,
+      "live_segment_seconds": 1.6259059000000207,
+      "observed_pairs": -256,
+      "replay_pairs": -1284
+    },
+    {
+      "seed": 31415,
+      "final_reader_loss": -0.1253542900000002,
+      "reader_loss_change": -0.1253542900000002,
+      "train_joint": -0.300925925926,
+      "development_joint": 0.6458333333331,
+      "development_greedy_joint": 0.6388888888890999,
+      "expanded_monitor_joint": 0.42129629629599996,
+      "expanded_monitor_greedy_joint": 0.4375,
+      "live_segment_seconds": 0.7129198000000088,
+      "observed_pairs": -256,
+      "replay_pairs": -1284
+    }
+  ],
+  "online_lesson_exposure": [
+    {
+      "arm": "control",
+      "stages": [
+        {
+          "stage": "prerequisites",
+          "documents": 96,
+          "online_observations": 4000,
+          "complete_online_passes": 41,
+          "next_pass_documents": 64,
+          "expected_observed_pairs": 204000
+        },
+        {
+          "stage": "binding",
+          "documents": 1728,
+          "online_observations": 120000,
+          "complete_online_passes": 69,
+          "next_pass_documents": 768,
+          "expected_observed_pairs": 8880060
+        }
+      ],
+      "replay_excluded_from_pass_counts": true
+    },
+    {
+      "arm": "diversity",
+      "stages": [
+        {
+          "stage": "prerequisites",
+          "documents": 384,
+          "online_observations": 4000,
+          "complete_online_passes": 10,
+          "next_pass_documents": 160,
+          "expected_observed_pairs": 203988
+        },
+        {
+          "stage": "binding",
+          "documents": 51840,
+          "online_observations": 120000,
+          "complete_online_passes": 2,
+          "next_pass_documents": 16320,
+          "expected_observed_pairs": 8879816
+        }
+      ],
+      "replay_excluded_from_pass_counts": true
+    }
+  ],
+  "executed_probe_commands": {
+    "train.sgprobe": 18,
+    "development.sgprobe": 18,
+    "expanded-train-monitor.sgprobe": 18
+  },
+  "learned_model_cpu_oracle_max_error": 5.125931689775598e-06,
+  "cost_boundary": "Sum of live continuation segments after the common ancestor; includes replay, speech, logging and checkpoint I/O. Excludes setup and held-out evaluation.",
+  "monitor_is_sample_not_full_training_accuracy": true,
+  "no_general_language_or_biological_equivalence_claim": true
+}

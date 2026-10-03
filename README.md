@@ -25,7 +25,7 @@ The default model has **1,186,304 parameters**, four residual blocks, width 256 
 
 The [ordered-reduction comparison](docs/ordered-reductions.md#completed-comparison) verifies repeatable learning on the local GPU: three identical-seed runs produce the same checkpoint, and uninterrupted/resumed live learning matches byte for byte at 130,000 observations. Measured training cost is about 0.4% higher in the live loop and 2–5% higher in the tested batch shapes. This provides a stronger experimental control; general-language ability and consistent generalization remain unproven.
 
-The [selected lesson-diversity experiment](docs/lesson-diversity.md) expands the object vocabulary and training combinations while preserving the original development/test questions. Preparation, labels and native extension/resume checks pass; the declared three-seed comparison measures whether the extra variety improves generalization at the same learning-update budget.
+The [selected lesson-diversity comparison](docs/lesson-diversity.md#completed-paired-comparison) expands the object vocabulary from 6 to 24 while preserving the original development/test questions. Across three shared-ancestor pairs, final development group accuracy improves from **19.9% to 71.1% on average**, with less earlier-reading forgetting and about **0.7% more measured live-loop time**. The benefit appears late; results still vary substantially across seeds, the larger teaching set is not mastered, and the reserved tests remain unused.
 
 ## Build
 

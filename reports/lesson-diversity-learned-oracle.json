@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "fixed_development_group": "key-hat-box-bag-o0-s0-q0",
+  "all_final_models_checked": true,
+  "parameters": 1716736,
+  "full_and_context_erased_scores_checked": true,
+  "checkpoint_files_unchanged": true,
+  "reserved_test_not_evaluated": true,
+  "records": [
+    {
+      "seed": 1337,
+      "arm": "control",
+      "items": 4,
+      "oracle_max_score_error": 3.213797693746301e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "3db477687b6dc069d694b1a50d07895c0e761132a1fdb3299fce846f0d9fcee9"
+    },
+    {
+      "seed": 1337,
+      "arm": "diversity",
+      "items": 4,
+      "oracle_max_score_error": 3.335553859784568e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "8918c4d20499b42b53a5faf5de204cdf4d8df11108b4a2a70e0a69e1b0c0d9a5"
+    },
+    {
+      "seed": 2026,
+      "arm": "control",
+      "items": 4,
+      "oracle_max_score_error": 4.013729220986306e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "11f01927b6cca600e5d402e3d5deecd629f74946bfdbd4169b02d593cf65b8a5"
+    },
+    {
+      "seed": 2026,
+      "arm": "diversity",
+      "items": 4,
+      "oracle_max_score_error": 4.0358877342328014e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "1b46364a7ca5aac4ca171fc887ceb2255b3028078bac2684d16c69dbcf89ac64"
+    },
+    {
+      "seed": 31415,
+      "arm": "control",
+      "items": 4,
+      "oracle_max_score_error": 3.4571774012448486e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "74eea1189b0f1f3de2ae78ae55e29b041dec459e3d6e76d7cf6ee70eea011a73"
+    },
+    {
+      "seed": 31415,
+      "arm": "diversity",
+      "items": 4,
+      "oracle_max_score_error": 5.125931689775598e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "fa8d1bc5980cea4cce8cedb12f8e1f88ad497643c192d801f841c77a0f5946c0"
+    }
+  ],
+  "interpretation": "Numerical sanity check of one fixed group per model, not an independent quality benchmark."
+}
