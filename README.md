@@ -71,6 +71,8 @@ Each `stage-N.dat` contains only that stage's training sources. `train.dat` pool
 
 This is an initial, small historical reading curriculum. Its stages describe increasing text complexity, not validated human ages. Shared tales, paraphrases, shorter overlap and historical assumptions remain possible. Broader modern subject coverage remains future work; the separate selected lesson probes now assess one narrow context-dependent skill. See [data details](docs/data.md).
 
+A separate [selected story corpus](docs/story-corpus.md) now provides seven additional authored books, approximately 322,000 training words, with independent evaluation sources and reproducible text-boundary checks. It is prepared for a later general-language study and has not changed the frozen binding experiments.
+
 ## Optional batched founder training
 
 Use fresh output directories. These commands start stage 1 from random weights and continue the same model through later material. `--steps` is the cumulative optimizer-update target; `--allow-new-corpus` explicitly permits the next stage's training data.

@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "model_training_performed": false,
+  "reserved_test_scored": false,
+  "source_count": 12,
+  "new_training_books": 7,
+  "new_evaluation_books": 2,
+  "retained_evaluation_books": 3,
+  "reproduced_files": {
+    "stories": 22,
+    "legacy": 20
+  },
+  "outputs": {
+    "train": {
+      "bytes": 1744439,
+      "documents": 7,
+      "sha256": "450b681fe6b8011b902efab3021f4fec1b909542a68a4783a1b6efb73c2cce60"
+    },
+    "validation": {
+      "bytes": 137355,
+      "documents": 3,
+      "sha256": "ba7af24e2867906fe4dbbd2d37a817a3c95a53456b4dc4b77b3ad951869354e7"
+    },
+    "test": {
+      "bytes": 201497,
+      "documents": 2,
+      "sha256": "8da322e936c1391b58629a6c679116d90d7dbf26940f1a5f7f26e958b782c3a1"
+    }
+  },
+  "training_words": 321847,
+  "retained_evaluation_bytes_identical": true,
+  "heldout_paragraph_overlap": 0,
+  "heldout_binding_contexts_checked": 288,
+  "heldout_binding_contexts_in_training": 0,
+  "contamination_control_detected": true,
+  "rejected_invalid_editions": [
+    "missing-wrapper",
+    "wrong-body-boundary",
+    "truncated-body"
+  ],
+  "cumulative_prefixes_verified": true,
+  "source_spec_sha256": "9129384e702e8aec784414ac81185065a6f2806313599fd687c5f913445e2e0e",
+  "preparation_script_sha256": "4d4b7939b3c1be1b2d22676dd20ed6c5a98d01378b4050b0d2956a4f2fc1523d",
+  "verification_script_sha256": "1eff4928ae04cb9e5cd78af7e5e214fd110a4a70483280d52bc70827c3a9bf06",
+  "limitation": "Exact normalized paragraphs of at least 120 characters and literal binding contexts only; paraphrases, shared tales and shorter overlaps can remain."
+}

@@ -53,7 +53,7 @@ def clean(raw, source):
             raise ValueError(f"Selected body end not found for {source['id']}")
         body = body[:end.start()]
     body = re.sub(r'\[(?:Pg|Page)\s+[^\]]+\]', '', body, flags=re.I)
-    body = re.sub(r'\[Illustration[^\]]*\]', '', body, flags=re.I)
+    body = re.sub(r'\[(?:Illustration|Picture:)[^\]]*\]', '', body, flags=re.I)
     # Accessible phonetic editions sometimes spell out combining marks as
     # editorial tags. Preserve the underlying letters, not the tag vocabulary.
     body = re.sub(r'\{~COMBINING [A-Z ]+~\}', '', body)
@@ -142,7 +142,7 @@ def main():
                         'clean_bytes': len(encoded), 'approx_words': len(encoded.decode().split()),
                         'removed_duplicate_paragraphs': duplicates,
                         'catalog_rights': 'Public domain in the USA',
-                        'edition_note': 'Historic reading textbook. Original notices are retained in the cached raw edition. The repository code license does not relicense source books.'})
+                        'edition_note': spec.get('edition_note', 'Historic reading textbook. Original notices are retained in the cached raw edition. The repository code license does not relicense source books.')})
         print(f"{source['split']:10s} {book_id:6d} {len(encoded):9d} bytes  {catalog_title}", flush=True)
     if args.download_only:
         return
