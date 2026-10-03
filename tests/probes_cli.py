@@ -19,10 +19,13 @@ torch.set_num_threads(1)
 
 
 class Reference:
-    def __init__(self, checkpoint):
+    def __init__(self, checkpoint, association_mode='normal'):
         data = checkpoint.read_bytes()
         meta = struct.unpack_from('<32Q', data)
         self.cell, self.c, self.h, self.l = meta[1:5]
+        if association_mode not in ('normal', 'discard_history', 'zero_read') or (self.cell != 6 and association_mode != 'normal'):
+            raise ValueError('Invalid fast-memory intervention for this architecture')
+        self.association_mode = association_mode
         w = torch.tensor(np.frombuffer(data, dtype='<f4', count=meta[14], offset=288).copy())
         offset = 0
 
@@ -89,7 +92,7 @@ class Reference:
                                    spikes=torch.stack(decisions), emission=emission))
             x += F.linear(emission, wo, bo)
             if self.cell == 6:
-                output, _ = associative_forward(emission.unsqueeze(0), *block[10:14])
+                output, _ = associative_forward(emission.unsqueeze(0), *block[10:14], mode=self.association_mode)
                 x += output.squeeze(0)
         return F.linear(norm(x, self.gain), self.head, self.bias)
 

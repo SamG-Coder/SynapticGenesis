@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "literal_controls": {
+    "passed": true,
+    "literal_modes": [
+      "normal",
+      "discard_history",
+      "zero_read"
+    ],
+    "output_bias_preserved": true,
+    "default_mode_unchanged": true,
+    "invalid_mode_rejected": true
+  },
+  "native_runtime_changed": false,
+  "learned_interventions_completed": false,
+  "source_sha256": {
+    "tests/associative_history.py": "016348b4351ae977c33a57b6deab07ccecfdd58b03c5c4d4280a7b6f489f3529",
+    "tests/associative_reference.py": "695da51d9560d01821b5da3cab63d3c27005543b51acf709231f89b40f3a61f2",
+    "tests/probes_cli.py": "1bb5c7ece07850a61c292312c6b15735649a98041f2805899924a565095b1609"
+  },
+  "normal_cpu_oracles": {
+    "unweighted": {
+      "passed": true,
+      "logits_max_abs_error": 8.940696716308594e-08,
+      "gradients_max_abs_error": 3.725290298461914e-08,
+      "adam_update_max_abs_error": 1.909211277961731e-06,
+      "regularized_gradient_max_abs_error": 3.725290298461914e-08
+    },
+    "weighted": {
+      "passed": true,
+      "logits_max_abs_error": 1.043081283569336e-07,
+      "gradients_max_abs_error": 1.1920928955078125e-07,
+      "adam_update_max_abs_error": 1.3224780559539795e-06,
+      "regularized_gradient_max_abs_error": 1.4901161193847656e-07
+    }
+  }
+}

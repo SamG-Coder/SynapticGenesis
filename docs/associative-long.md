@@ -41,3 +41,24 @@ python scripts/plot_associative.py --source reports/associative-long-summary.jso
 The full driver records 144 native commands: nine models, one prerequisite segment and three subsequent learn/assess/decode segments each. The shortened rehearsal records 48 commands for three models. Its tiny update counts validate orchestration only and do not supply learning-quality evidence. The full run writes its protocol before the first model starts, journals commands before execution, and saves partial results after each endpoint.
 
 The [completed rehearsal](../reports/associative-long-execution-smoke.json) passes all 48 commands, initial-common-weight checks, exposure/replay matching and exact graph decoding at nine model/endpoint combinations. The generalized reporting code also reproduces every previously reported early-screen numerical value. This verifies the execution path; full learning results are pending.
+
+## Follow-up: does the trained model use matrix history?
+
+After observing the first seed's binding improvement and reading regression, a separate read-only diagnostic is planned for all three final associative models. It does not alter the running training protocol or select an intermediate checkpoint. The independent CPU reference will evaluate every original development question under three interventions:
+
+| Mode | Intervention |
+| --- | --- |
+| Normal | Original equations; compare scores and greedy bytes with all native development results. |
+| Discard history | Clear only the fast matrix before each byte, preserving the current byte's write/read, projection weights, output bias, membranes and spike traces. |
+| Zero read | Zero the matrix read vector before its output projection, preserving the output bias and other model equations. |
+
+The history intervention tests the contribution of associations across bytes beyond the branch's instantaneous transformation. The zero-read intervention tests reliance on the memory readout as a whole. Both change downstream activation distributions, so they measure reliance within a trained model, not the learning potential of a retrained smaller architecture. Every checkpoint remains unchanged. All 576 development questions and all three seeds are included; reserved tests remain unused.
+
+`tests/associative_history.py` records the protocol and source hashes before intervention, saves all scores and generated answers, and reports strict CPU/native numerical failures without loosening the `3e-5` tolerance. Literal overwrite/decay controls check the interventions and preserve the output bias. The runtime implementation is unchanged.
+
+The [control validation](../reports/associative-history-validation.json) passes all three literal modes and both default CPU autograd fixtures. Learned-model intervention results remain pending.
+
+```powershell
+python tests/associative_history.py --fixtures-only
+python tests/associative_history.py --root runs/associative-long-panel --out runs/associative-history-panel
+```
