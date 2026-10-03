@@ -1,0 +1,71 @@
+{
+  "version": "reading-breadth-publication-v1",
+  "normalization": "JSON is emitted with LF newlines. Runtime hashes inside results refer to retained original files; this manifest maps them to published bytes.",
+  "files": [
+    {
+      "file": "reports/reading-breadth-comparison.json",
+      "runtime_file": "runs/reading-breadth-panel/comparison.json",
+      "runtime_sha256": "5e13a92a609980a999323585fe6f4c971259ff556839a046b2ca40834c1b2972",
+      "published_sha256": "d053159e7991a4330669bffe773e5da9b46914ad1b484682c735c425afa5f6f2",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/reading-breadth-summary.json",
+      "runtime_file": "runs/reading-breadth-panel/summary.json",
+      "runtime_sha256": "a707cb3177ee53499977802479637f0447c032268e37e0ea000a9391f8125220",
+      "published_sha256": "70e80a06092e17f1d3fed005ef968598ac1e5de5660c13b19b0170e4b7d72bdd",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/reading-breadth-execution.json",
+      "runtime_file": "runs/reading-breadth-panel/execution-check.json",
+      "runtime_sha256": "b0d581eb210eeec2abf84ad73aab6b0a180a754bb0085585bb963c1db8bfd154",
+      "published_sha256": "34169c7b629de63b588f42a3aa51d98677388f0b36ee6570ba0aadd158fbbd62",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/reading-breadth-learned-oracle.json",
+      "runtime_file": "runs/reading-breadth-panel/learned-oracle.json",
+      "runtime_sha256": "3d8901fd43b25582c28f223993da440b5b47bd378b6daf766f6f13a54cf80407",
+      "published_sha256": "47ffe03d971febd8071f1c506cebf5e5de2977dac4e6f7b31a5b5a6c74ecd2db",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/reading-breadth-score-diagnosis.json",
+      "runtime_file": "runs/reading-breadth-score-diagnosis/result.json",
+      "runtime_sha256": "17206bcaa41215e46a7fecb43014d69a77d1c694943fcb91b0ea1deabb66d1a9",
+      "published_sha256": "9c469488b01431b72241275751a906915746bb322d871e1665fe2d1d28fd34e8",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/reading-breadth-questions.json",
+      "runtime_file": "runs/reading-breadth-panel/questions.json",
+      "runtime_sha256": "44ec8ae48ecce2a49bb9f1c4b252a419d3938a5dde5d3acc02c50d87e7bd61cc",
+      "published_sha256": "bb0fb187042e69798850b1b26c0e26ff7f91a0426af685e3bdd793dcce470d16",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/reading-breadth-sample-review.json",
+      "runtime_file": "runs/reading-breadth-panel/sample-review.json",
+      "runtime_sha256": "534a7e08f5aaf1d68d64ef4348b5291873d72548bfd1de057a5c0791ba0f41ac",
+      "published_sha256": "534a7e08f5aaf1d68d64ef4348b5291873d72548bfd1de057a5c0791ba0f41ac",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/reading-breadth-performance.json",
+      "runtime_file": "runs/reading-breadth-panel/performance.json",
+      "runtime_sha256": "e66d2bd549a755d0f3a0d24b391b949b6cd1ecca44f012b0608e6d83cbcfcb46",
+      "published_sha256": "e66d2bd549a755d0f3a0d24b391b949b6cd1ecca44f012b0608e6d83cbcfcb46",
+      "parsed_json_identical": true
+    }
+  ],
+  "declared_gate_by_replay_cadence": {
+    "4": false,
+    "1": false
+  },
+  "strict_cpu_oracle_passed": false,
+  "execution_audit_passed": true,
+  "all_raw_outputs_preserved": true,
+  "outputs_reviewed": 96,
+  "native_learning_sources_unchanged": true
+}

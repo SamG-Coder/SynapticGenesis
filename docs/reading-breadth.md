@@ -5,10 +5,11 @@ for development and four reserved for testing. It follows the
 [live-rehearsal comparison](live-reading-results.md), where additional replay
 reduced some forgetting but prolonged exposure to ten repeated stories still
 overfit. The expansion is prepared and audited. The
-[declared native comparison](reading-breadth-experiment.md) now has a completed
-execution smoke run; its three-seed learning comparison remains pending. Adding
-material has not established better answers, durable retention or a useful
-developmental schedule.
+[completed three-seed comparison](reading-breadth-results.md) improves
+unseen-story prediction and earlier-reading retention over the repeated starter
+set, but fails the declared binding-retention gate. Generated answers remain
+incoherent; broader reading has not established useful conversation or durable
+skill retention.
 
 | Role | Whole works | Words | UTF-8 bytes, including document separators | Within-document next-byte targets |
 | --- | ---: | ---: | ---: | ---: |
@@ -109,7 +110,7 @@ learner. The edition supplies individual stories, three split files, three
 training groups, cumulative group files, a source specification, attribution
 and manifest. It supplies no automatic learning schedule.
 
-## Limits and next comparison
+## Limits and completed comparison
 
 The sources mix fiction, figurative language, simplified explanations and a
 historical account. Source-specific notes flag these boundaries. They are not
@@ -123,5 +124,7 @@ The [declared comparison](reading-breadth-experiment.md) fixes one and two broad
 passes and compares the starter and broader selections with the existing replay
 controls, shared ancestors, earlier-skill measurements and actual generated
 examples. Equal passes, equal new-source targets and equal optimizer updates are
-different comparisons. Preparation and smoke verification do not establish a
-stopping rule or justify changing age, growth or reproduction policy.
+different comparisons. The [completed result](reading-breadth-results.md) keeps
+the reading improvements and failed skill-retention requirements together.
+Neither the data audit nor the learning result establishes a stopping rule or
+justifies changing age, growth or reproduction policy.
