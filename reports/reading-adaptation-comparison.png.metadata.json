@@ -1,0 +1,13 @@
+{
+  "comparison_sha256": "a94bd4c0a53c44be0a3e9604a90fd41825a57eb4f077de612ca80deebbdb052b",
+  "execution_check_sha256": "ae81e6524eb7b58dc068c8ee744a37eb7108f695989712c1410641978f000f8c",
+  "plot_source_sha256": "8ffd6aaa2a26451ac6c275f18b461b9ea6f44c0f03ed9d9b65e967dcf9356a03",
+  "image_sha256": "0dc9d567589accc15545c7bb2daa5ed5ed27da3671af720b66938163ef667e65",
+  "status": "declared_before_training",
+  "seeds": [
+    1337,
+    2026,
+    31415
+  ],
+  "limits": "Seed min-max ranges are descriptive, not confidence intervals. No policy selected from this figure."
+}

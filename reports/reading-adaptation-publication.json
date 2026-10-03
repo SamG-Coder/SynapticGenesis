@@ -1,0 +1,44 @@
+{
+  "status": "Published matching audited artifacts",
+  "study_status": "declared_before_training",
+  "trajectories": 42,
+  "publisher_source_sha256": "6a676c1c1d905cd1dfd17f0041193d82bd96198bb2ef29050fb6d03f3e44dd64",
+  "artifacts": [
+    {
+      "runtime_path": "D:/SynapticGenesis/runs/reading-adaptation-panel/comparison.json",
+      "runtime_sha256": "a94bd4c0a53c44be0a3e9604a90fd41825a57eb4f077de612ca80deebbdb052b",
+      "published_path": "reports/reading-adaptation.json",
+      "published_sha256": "67a7a71a990a7073ceac273ead569e0a219de2d058f0dfd8e31f03527b877943",
+      "newline_bytes_changed": true
+    },
+    {
+      "runtime_path": "D:/SynapticGenesis/runs/reading-adaptation-panel/execution-check.json",
+      "runtime_sha256": "ae81e6524eb7b58dc068c8ee744a37eb7108f695989712c1410641978f000f8c",
+      "published_path": "reports/reading-adaptation-execution.json",
+      "published_sha256": "79e3f0e438678285fb141332a0ecb8bb3c478a495a694903ee712a55ed8c36ce",
+      "newline_bytes_changed": true
+    },
+    {
+      "runtime_path": "D:/SynapticGenesis/runs/reading-adaptation-panel/summary.json",
+      "runtime_sha256": "7d05ed9cae8caa2363a1261951d93aa759e9aef1bd1355ee0c8e8383fdf1ee4d",
+      "published_path": "reports/reading-adaptation-summary.json",
+      "published_sha256": "a699ce91e647cceb8a1a28f77513557bff25f740c9d36ef5991f833141f0beab",
+      "newline_bytes_changed": true
+    },
+    {
+      "runtime_path": "D:/SynapticGenesis/runs/reading-adaptation-panel/reading-adaptation.png",
+      "runtime_sha256": "0dc9d567589accc15545c7bb2daa5ed5ed27da3671af720b66938163ef667e65",
+      "published_path": "reports/reading-adaptation-comparison.png",
+      "published_sha256": "0dc9d567589accc15545c7bb2daa5ed5ed27da3671af720b66938163ef667e65",
+      "newline_bytes_changed": false
+    },
+    {
+      "runtime_path": "D:/SynapticGenesis/runs/reading-adaptation-panel/reading-adaptation.png.metadata.json",
+      "runtime_sha256": "da38d7df77ff4893108e222c50b81d0975a0f89933c208ba00d8313d22e744b7",
+      "published_path": "reports/reading-adaptation-comparison.png.metadata.json",
+      "published_sha256": "17bf8065988f6b7754191f2357d1cf1550bc16447d01c3f5be067d003f934b73",
+      "newline_bytes_changed": true
+    }
+  ],
+  "note": "Published JSON uses LF to match repository attributes. Internal identities refer to the untouched original runtime bytes. Both identities are recorded here; JSON data is identical, and the PNG is copied byte for byte."
+}

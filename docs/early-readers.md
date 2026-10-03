@@ -1,6 +1,6 @@
 # Selected early readers
 
-This separate starter edition contains **16 short English stories**: ten training texts, three development texts and three reserved test texts. Training totals **14,201 UTF-8 bytes and 2,585 whitespace-delimited words**. It supplies simple actions, questions, daily routines and connected dialogue for a future developmental curriculum experiment. Its size is small; preparing it does not establish better language learning or useful conversation.
+This separate starter edition contains **16 short English stories**: ten training texts, three development texts and three reserved test texts. Training totals **14,201 UTF-8 bytes and 2,585 whitespace-delimited words**. It supplies simple actions, questions, daily routines and connected dialogue. The [native reading-adaptation study](reading-adaptation.md) now uses its training stories with separate development assessment. Its size is small; preparing or fitting it does not establish useful conversation.
 
 The publisher's [reading levels](https://storybookscanada.ca/about/faq/) describe increasing text length and complexity. Our first group uses level 1, the second level 2 and the third levels 3–4. These are content groups, not human ages or measured model mastery. Training groups contain 70, 554 and 1,961 words respectively. They need an explicit exposure budget and independent skill assessment before being used for stage promotion.
 

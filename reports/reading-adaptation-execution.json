@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "status": "declared_before_training",
+  "trajectories": 42,
+  "training_commands": 42,
+  "assessment_commands": 336,
+  "presented_pairs_per_trajectory": 524288,
+  "checkpoints": 210,
+  "original_checkpoints_unchanged": true,
+  "exact_window_exposure_verified": true,
+  "exact_initial_parameter_state_verified": true,
+  "all_evaluation_aggregates_verified": true,
+  "reserved_tests_scored": false,
+  "comparison_sha256": "a94bd4c0a53c44be0a3e9604a90fd41825a57eb4f077de612ca80deebbdb052b",
+  "audit_source_sha256": "4d20aed97af46b705fc4cd036e6bbb3b9a2a105f132b26dea9d6de767dda5779",
+  "scope": "Execution/state audit; no independent CPU model-parity or general-language claim."
+}
