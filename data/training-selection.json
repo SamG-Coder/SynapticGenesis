@@ -30,6 +30,10 @@
     "selected-prealgebra-worked-v1": {
       "sources": "data/sources-prealgebra-v1.json",
       "sha256": "b2967735cd35331d02e8afa76dab52c8164f1f96bec392e33094655369e03c22"
+    },
+    "selected-physics-v1": {
+      "sources": "data/sources-physics-v1.json",
+      "sha256": "580f6fb69672c6829478e0da7ec3fcb6f68408db95cc7f4d1920cc06d419ce63"
     }
   },
   "retired_editions": {

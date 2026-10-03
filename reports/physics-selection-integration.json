@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "recorded_at_utc": "2026-10-03T18:19:50.189336+00:00",
+  "base_commit": "2e9a8081d7e7100d96798f32e8760036f41af81c",
+  "preserved_studies": [
+    {
+      "protocol": "runs/prose-retention-lr/protocol.json",
+      "sha256": "9c50dc898d73ac1b123d07f1aca7a83e92a5b6ccb1402c838fc3c8cfceaaa9b3",
+      "authenticated_references": 90
+    },
+    {
+      "protocol": "runs/prose-replay-capacity/protocol.json",
+      "sha256": "20096651488db77581529f4a08a681af646ca5fefd7245efe51c9f2a05c27e19",
+      "authenticated_references": 89
+    },
+    {
+      "protocol": "runs/prose-early-width/protocol.json",
+      "sha256": "76d3ab3fefe4d8afd1d0904c260f59a0e14d8d02cf2ca40f8444ad2f078911db",
+      "authenticated_references": 136
+    },
+    {
+      "protocol": "runs/prose-early-width-v2/protocol.json",
+      "sha256": "c870c8419f7b62768fb697aab40c4e49c388770f919a10acd96bba13ef943773",
+      "authenticated_references": 137
+    },
+    {
+      "protocol": "runs/prose-411m-v1/protocol.json",
+      "sha256": "daba74f6fecd44f8fd9334c07d07120bd5b9ac4466f46e9e2fa741f38c851244",
+      "authenticated_references": 137
+    }
+  ],
+  "total_authenticated_references": 589,
+  "distinct_study_input_files": 299,
+  "all_pins_match": true,
+  "production_source_files_unchanged": 42,
+  "unchanged_converters": {
+    "scripts/review_physics.py": "bc273208a9bc03eef48794788782c03c1e7417b6fc34db34b2703c3186a299c2",
+    "scripts/corpus/physics.py": "022cc3ac3cc6d29294cd94592867b4d2fa9b39010bdc7974810d766f44b443ed",
+    "scripts/corpus/openstax.py": "818f628e9bb36be4737c9eb7112758ab99c4dd96b3ad75140cae6e23d719250b",
+    "scripts/corpus/prealgebra_math.py": "136105f09d484e263ab6cda11aae57b264c6f5c5ebf02607b7291f0d3050951f",
+    "scripts/prepare_prealgebra.py": "82534f31462f839a524aaa92720bf15800e76834b20e7a9dd7d2cc6157d9e63a",
+    "scripts/review_physics_edition.py": "e72696ffa0d8866bd80959cc07443d25b22a1185f4a1c7cd3c387f6cd5ce0206",
+    "scripts/corpus/physics_edits.py": "31e62e91028d8dcb5417a35c5b1d46ace9508e1c8a43e608b4011063ffe99919"
+  },
+  "runtime_binaries": {
+    "build/synapticgenesis.exe": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+    "build/preserved-runtime-f73d30d8/synapticgenesis.exe": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+    "build/validated-shared-views/synapticgenesis.exe": "4e65f54c44fb52603da839aa3cba41dff1f0788371cc3ffcc9cefd9e63613d62"
+  },
+  "admitted_entry": {
+    "sources": "data/sources-physics-v1.json",
+    "sha256": "580f6fb69672c6829478e0da7ec3fcb6f68408db95cc7f4d1920cc06d419ce63"
+  },
+  "only_registry_change_is_new_physics_edition": true,
+  "training_selection_sha256": "fbc72636fb60a4ac9b7052daedf302b777ce7070471c42aa9d839b7de4b18328",
+  "native_calls": 0,
+  "running_study_uses_unchanged_frozen_inputs": true,
+  "limits": "Source preparation and compatibility only. No model has consumed the new Physics edition; the existing 411M process remains independent."
+}

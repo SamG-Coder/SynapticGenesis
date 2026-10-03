@@ -1,4 +1,4 @@
-"""Keep reviewed question/solution pairs intact while reserving held-out text."""
+"""Keep reviewed documents and worked pairs intact while reserving held-out text."""
 import re
 import shlex
 
@@ -48,11 +48,11 @@ class PairReservations:
             if len(value) >= 120:
                 self.paragraphs.setdefault(value, owner)
 
-    def conflict(self, text):
-        prompt, full = question(text), normalized(text)
-        for kind, value, index in (('whole_lesson', full, self.whole),
+    def conflict(self, text, *, paired=True):
+        prompt, full = question(text) if paired else None, normalized(text)
+        for kind, value, index in (('whole_lesson' if paired else 'whole_document', full, self.whole),
                                    ('question', prompt, self.questions)):
-            if value in index:
+            if value is not None and value in index:
                 return dict(kind=kind, reserved_by=index[value])
         for part in re.split(r'\n\s*\n', text):
             value = normalized(part)
@@ -64,8 +64,14 @@ class PairReservations:
         return None
 
 
-def select_pairs(rows, protected):
-    """Reserve old heldouts, then test, validation and training in source order."""
+def select_documents(rows, protected, *, paired=False, reserve_rejected_holdouts=True):
+    """Keep documents intact and reserve evaluation content before training."""
+    if not paired:
+        if len({r['id'] for r in rows}) != len(rows):
+            raise ValueError('Duplicate document identity')
+        for row in rows:
+            if not row['text'].strip() or '\x1e' in row['text'] or row['split'] not in ('train', 'validation', 'test'):
+                raise ValueError('Expected one complete document and a known split')
     reservations = PairReservations()
     for owner, raw, kind in protected:
         if kind == 'probe':
@@ -82,10 +88,16 @@ def select_pairs(rows, protected):
     priority = {'test': 0, 'validation': 1, 'train': 2}
     for row in sorted(rows, key=lambda r: priority[r['split']]):
         text = row['text']
-        conflict = reservations.conflict(text)
+        conflict = reservations.conflict(text, paired=paired)
         if conflict:
             omitted.append(dict(id=row['id'], split=row['split'], **conflict))
         else:
-            reservations.add(text, row['id'], paired=True)
             kept.append(row)
+        if not conflict or (reserve_rejected_holdouts and row['split'] != 'train'):
+            reservations.add(text, row['id'], paired=paired)
     return kept, omitted
+
+
+def select_pairs(rows, protected):
+    """Preserve the existing worked-lesson selection policy and output order."""
+    return select_documents(rows, protected, paired=True, reserve_rejected_holdouts=False)

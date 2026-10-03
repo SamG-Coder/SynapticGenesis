@@ -1,0 +1,212 @@
+{
+  "passed": true,
+  "reviewed_candidates": 261,
+  "excluded_by_passage_review": 40,
+  "retained_complete_lessons": 221,
+  "outputs": {
+    "train": {
+      "bytes": 93269,
+      "documents": 168,
+      "sha256": "90f4042050909395a7321a026ce642d7d876b199af260925d45fc7646eec446e",
+      "word_like_units": 11065
+    },
+    "validation": {
+      "bytes": 13574,
+      "documents": 29,
+      "sha256": "731f5d17373c0febecef14eda51b9b2f38f1da1b6465630cf80e4e540239ef26",
+      "word_like_units": 1498
+    },
+    "test": {
+      "bytes": 10652,
+      "documents": 24,
+      "sha256": "f594b78c56e5af2d7d5a335c3971f1429cb96358439cd29f1d5439c1624c2ad8",
+      "word_like_units": 1075
+    }
+  },
+  "protected_files": 16,
+  "fixtures": {
+    "whole_pair_omission": true,
+    "duplicate_question_with_changed_answer_rejected": true,
+    "reserved_answer_and_old_paragraph_protected": true,
+    "signs_decimals_and_variable_case_preserved": true,
+    "probe_quote_backslash_newline_roundtrip": true,
+    "authored_context_protected": true,
+    "malformed_inputs_rejected": 8
+  },
+  "altered_reviews_rejected": [
+    "missing_decision",
+    "unknown_decision",
+    "changed_text_hash",
+    "changed_identity",
+    "changed_source_pin",
+    "changed_protected_source"
+  ],
+  "all_prepared_pairs_match_reviewed_source_bytes": true,
+  "all_source_modules_authenticated": 75,
+  "complete_chapters_reserved": true,
+  "examples": [
+    {
+      "index": 24,
+      "module": "m81255",
+      "exercise": "fs-id1619802",
+      "source_url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/bba5f5244066884797f730149d918e33f2beefd1/modules/m81255/index.cnxml",
+      "text": "Multiply Whole Numbers\n\nQuestion: When Rena cooks rice, she uses twice as much water as rice. How much water does she need to cook \\(4\\) cups of rice?\n\nAnswer: Solution\n\nWe are asked to find how much water Rena needs.\n\nTable 1\nWrite as a phrase. | twice as much as 4 cups |\nTranslate to math notation. | \\(2 ⋅ 4\\) |\nMultiply to simplify. | 8 |\nWrite a sentence to answer the question. | Rena needs 8 cups of water for 4 cups of rice. |\n",
+      "text_sha256": "20d4bb658102b978992235d1f4bce63ddce0221d782fca9be0601a0030e95a54",
+      "review": {
+        "index": 24,
+        "module": "m81255",
+        "exercise": "fs-id1619802",
+        "text_sha256": "20d4bb658102b978992235d1f4bce63ddce0221d782fca9be0601a0030e95a54",
+        "decision": "retain",
+        "reason": "Twice four cups is eight cups."
+      }
+    },
+    {
+      "index": 126,
+      "module": "m81295",
+      "exercise": "fs-id1462742",
+      "source_url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/bba5f5244066884797f730149d918e33f2beefd1/modules/m81295/index.cnxml",
+      "text": "Decimal Operations\n\nQuestion: Paul received \\(\\text{\\$50}\\) for his birthday. He spent \\(\\text{\\$31.64}\\) on a video game. How much of Paul’s birthday money was left?\n\nAnswer: Solution\n\nTable 1\nWhat are you asked to find? | How much did Paul have left?\nWrite a phrase. | $50 less $31.64\nTranslate. | \\(50 − 31.64\\)\nSimplify. | 18.36\nWrite a sentence. | Paul has $18.36 left.\n",
+      "text_sha256": "d4bd14c94d459b08335adf739e09fd67e2a2177593f55df26caa559f3b0df84c",
+      "review": {
+        "index": 126,
+        "module": "m81295",
+        "exercise": "fs-id1462742",
+        "text_sha256": "d4bd14c94d459b08335adf739e09fd67e2a2177593f55df26caa559f3b0df84c",
+        "decision": "retain",
+        "reason": "50-31.64=18.36 under stated prices."
+      }
+    },
+    {
+      "index": 130,
+      "module": "m81298",
+      "exercise": "fs-id2266411",
+      "source_url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/bba5f5244066884797f730149d918e33f2beefd1/modules/m81298/index.cnxml",
+      "text": "Decimals and Fractions\n\nQuestion: Order \\(\\frac{3}{8} \\_\\_ 0.4\\) using \\(<\\) or \\(\\text{>.}\\)\n\nAnswer: Solution\n\nTable 1\n| \\(\\frac{3}{8} \\_\\_ 0.4\\)\nConvert \\(\\frac{3}{8}\\) to a decimal. | \\(0.375 \\_\\_ 0.4\\)\nCompare \\(0.375\\) to \\(0.4\\) | \\(0.375 < 0.4\\)\nRewrite with the original fraction. | \\(\\frac{3}{8} < 0.4\\)\n",
+      "text_sha256": "9a361017d393402fec4758a0f825fe5d9ea8bc9182ccc3a8602f2df26941cbf0",
+      "review": {
+        "index": 130,
+        "module": "m81298",
+        "exercise": "fs-id2266411",
+        "text_sha256": "9a361017d393402fec4758a0f825fe5d9ea8bc9182ccc3a8602f2df26941cbf0",
+        "decision": "retain",
+        "reason": "3/8=.375<.4."
+      }
+    },
+    {
+      "index": 142,
+      "module": "m81302",
+      "exercise": "fs-id2210672",
+      "source_url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/bba5f5244066884797f730149d918e33f2beefd1/modules/m81302/index.cnxml",
+      "text": "Averages and Probability\n\nQuestion: Three women and five men interviewed for a job. One of the candidates will be offered the job.\n\nⓐ Find the probability the job is offered to a woman.\n\nⓑ Convert the fraction to a decimal.\n\nAnswer: Solution\n\nTable 1\nⓐ |\nWhat are you asked to find? | The probability the job is offered to a woman.\nWhat is the number of favorable outcomes? | 3, because there are three women.\nWhat are the total number of outcomes? | 8, because 8 people interviewed.\nUse the definition of probability. | \\(\\text{Probability of an event} = \\frac{\\text{number of favorable outcomes}}{\\text{total number of outcomes}}\\)\nSubstitute into the numerator and denominator. | \\(\\text{Probability} = \\frac{3}{8}\\)\n\nTable 2\nⓑ |\nConvert the fraction to a decimal. |\nWrite the probability as a fraction. | \\(\\text{Probability} = \\frac{3}{8}\\)\nConvert the fraction to a decimal. | \\(\\text{Probability} = 0.375\\)\n",
+      "text_sha256": "0282a33394c00e9aa01beab7d574cd31fabe905e54b1eb3b359f5df3a4ba73a1",
+      "review": {
+        "index": 142,
+        "module": "m81302",
+        "exercise": "fs-id2210672",
+        "text_sha256": "0282a33394c00e9aa01beab7d574cd31fabe905e54b1eb3b359f5df3a4ba73a1",
+        "decision": "exclude",
+        "reason": "Job offers are not specified to be uniformly random. Candidate counts alone do not establish probability 3/8."
+      }
+    },
+    {
+      "index": 159,
+      "module": "m81304",
+      "exercise": "fs-id1376671",
+      "source_url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/bba5f5244066884797f730149d918e33f2beefd1/modules/m81304/index.cnxml",
+      "text": "Simplify and Use Square Roots\n\nQuestion: Simplify: \\(\\sqrt{{x}^{2}} .\\)\n\nAnswer: Solution\n\nThink about what we would have to square to get \\({x}^{2}\\). Algebraically, \\({( ? )}^{2} = {x}^{2}\\)\n\nTable 1\n| \\(\\sqrt{{x}^{2}}\\)\nSince \\({( x )}^{2} = {x}^{2}\\) | \\(x\\)\n",
+      "text_sha256": "91f79c652de4825d9eb8f21ca0c38cc9d1d9b373f1c78d117e5bab0ae3c05cf6",
+      "review": {
+        "index": 159,
+        "module": "m81304",
+        "exercise": "fs-id1376671",
+        "text_sha256": "91f79c652de4825d9eb8f21ca0c38cc9d1d9b373f1c78d117e5bab0ae3c05cf6",
+        "decision": "exclude",
+        "reason": "The standalone example states sqrt(x^2)=x without a nonnegative-x assumption; real-valued answer is |x|."
+      }
+    },
+    {
+      "index": 185,
+      "module": "m81315",
+      "exercise": "fs-id1435792",
+      "source_url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/bba5f5244066884797f730149d918e33f2beefd1/modules/m81315/index.cnxml",
+      "text": "Rational and Irrational Numbers\n\nQuestion: Identify each of the following as rational or irrational:\n\n1. ⓐ \\(0.58 \\overline{3}\\)\n2. ⓑ \\(0.475\\)\n3. ⓒ \\(\\text{3.605551275…}\\)\n\nAnswer: Solution\n\nⓐ \\(0.58 \\overline{3}\\) The bar above the \\(3\\) indicates that it repeats. Therefore, \\(0.58 \\overline{3}\\) is a repeating decimal, and is therefore a rational number.\n\nⓑ \\(0.475\\) This decimal stops after the \\(5\\), so it is a rational number.\n\nⓒ \\(\\text{3.605551275…}\\) The ellipsis \\(\\text{(…)}\\) means that this number does not stop. There is no repeating pattern of digits. Since the number doesn't stop and doesn't repeat, it is irrational.\n",
+      "text_sha256": "95302da10282f2ba5d6c2909ab0447cd82c534eb5e9c843605f40b6aea182d2c",
+      "review": {
+        "index": 185,
+        "module": "m81315",
+        "exercise": "fs-id1435792",
+        "text_sha256": "95302da10282f2ba5d6c2909ab0447cd82c534eb5e9c843605f40b6aea182d2c",
+        "decision": "exclude",
+        "reason": "A displayed finite decimal prefix followed by ellipsis does not establish a nonrepeating infinite expansion; the irrational classification is underdetermined."
+      }
+    },
+    {
+      "index": 203,
+      "module": "m81318",
+      "exercise": "fs-id1166497463423",
+      "source_url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/bba5f5244066884797f730149d918e33f2beefd1/modules/m81318/index.cnxml",
+      "text": "Properties of Identity, Inverses, and Zero\n\nQuestion: Simplify: ⓐ \\(0 ÷ 5\\) ⓑ \\(\\frac{0}{−2}\\) ⓒ \\(0 ÷ \\frac{7}{8}\\).\n\nAnswer: Solution\n\nTable 1\nⓐ |\n| \\(0 ÷ 5\\)\nZero divided by any real number, except 0, is zero. | \\(0\\)\n\nTable 2\nⓑ |\n| \\(\\frac{0}{−2}\\)\nZero divided by any real number, except 0, is zero. | \\(0\\)\n\nTable 3\nⓒ |\n| \\(0 ÷ \\frac{7}{8}\\)\nZero divided by any real number, except 0, is zero. | \\(0\\)\n",
+      "text_sha256": "c2a2ffb0b17a734ce24e29cbfb1c18897c7e6c6bc7cd383d04dd236a91b4cec8",
+      "review": {
+        "index": 203,
+        "module": "m81318",
+        "exercise": "fs-id1166497463423",
+        "text_sha256": "c2a2ffb0b17a734ce24e29cbfb1c18897c7e6c6bc7cd383d04dd236a91b4cec8",
+        "decision": "retain",
+        "reason": "All three quotients zero; nonzero-divisor exception explicitly included."
+      }
+    },
+    {
+      "index": 258,
+      "module": "m81350",
+      "exercise": "fs-id1367048",
+      "source_url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/bba5f5244066884797f730149d918e33f2beefd1/modules/m81350/index.cnxml",
+      "text": "Graphing with Intercepts\n\nQuestion: Find the intercepts of \\(4 x −3 y = 12 .\\)\n\nAnswer: Solution\n\nTo find the \\(x \\text{-intercept,}\\) let \\(y = 0 .\\)\n\nTable 1\n| \\(4 x − 3 y = 12\\)\nSubstitute 0 for \\(y .\\) | \\(4 x − 3 · 0 = 12\\)\nMultiply. | \\(4 x − 0 = 12\\)\nSubtract. | \\(4 x = 12\\)\nDivide by 4. | \\(x = 3\\)\n\nThe \\(x \\text{-intercept}\\) is \\(( 3 , 0 ) .\\)\n\nTo find the \\(y \\text{-intercept} ,\\) let \\(x = 0 .\\)\n\nTable 2\n| \\(4 x − 3 y = 12\\)\nSubstitute 0 for \\(x .\\) | \\(4 · 0 − 3 y = 12\\)\nMultiply. | \\(0 − 3 y = 12\\)\nSimplify. | \\(−3 y = 12\\)\nDivide by −3. | \\(y = −4\\)\n\nThe \\(y \\text{-intercept}\\) is \\(( 0 , −4 ).\\)\n\nThe intercepts are the points \\(( −3 , 0 )\\) and \\(( 0 , −4 ) .\\)\n\nTable 3\n\\(4 x −3 y = 12\\)\nx | y\n\\(3\\) | \\(0\\)\n\\(0\\) | \\(−4\\)\n",
+      "text_sha256": "a87752458ff058f372669b8e8775e37f7c6d6bb670b974f87bfcbe8248e15277",
+      "review": {
+        "index": 258,
+        "module": "m81350",
+        "exercise": "fs-id1367048",
+        "text_sha256": "a87752458ff058f372669b8e8775e37f7c6d6bb670b974f87bfcbe8248e15277",
+        "decision": "exclude",
+        "reason": "Final prose says x-intercept(-3,0), contradicting the correct derivation/table(3,0)."
+      }
+    },
+    {
+      "index": 260,
+      "module": "m81354",
+      "exercise": "fs-id1707391",
+      "source_url": "https://github.com/openstax/osbooks-prealgebra-bundle/blob/bba5f5244066884797f730149d918e33f2beefd1/modules/m81354/index.cnxml",
+      "text": "Understand Slope of a Line\n\nQuestion: Find the slope of each line: 1. ⓐ \\(x = 8\\) 2. ⓑ \\(y = −5\\)\n\nAnswer: Solution\n\nⓐ \\(x = 8\\)\n\nThis is a vertical line, so its slope is undefined.\n\nⓑ \\(y = −5\\)\n\nThis is a horizontal line, so its slope is \\(0 .\\)\n",
+      "text_sha256": "2391b656159ecc091df20023d7f3c88013242ebf43b476a4ff69b9f79630d651",
+      "review": {
+        "index": 260,
+        "module": "m81354",
+        "exercise": "fs-id1707391",
+        "text_sha256": "2391b656159ecc091df20023d7f3c88013242ebf43b476a4ff69b9f79630d651",
+        "decision": "retain",
+        "reason": "x=8 vertical slope undefined; y=-5 horizontal slope0."
+      }
+    }
+  ],
+  "attribution": "Selected worked examples adapted from Prealgebra 2e by Lynn Marecek, MaryAnne Anthony-Smith, Andrea Honeycutt Mathis, OpenStax at Rice University, and the contributors credited in the source preface. Source: https://github.com/openstax/osbooks-prealgebra-bundle/tree/bba5f5244066884797f730149d918e33f2beefd1 . This pinned edition declares Creative Commons Attribution 4.0 International: https://creativecommons.org/licenses/by/4.0/ . Changes: selected image-free worked examples extracted from CNXML; MathML serialized to text notation; whitespace and local table labels normalized. No endorsement is implied. The repository MIT license applies to code, not these source passages. Selection changes: individually reviewed complete pairs retained unchanged or omitted in full; whole chapters reserved for evaluation; any overlapping lesson would be omitted in full; none were found by the declared exact checks. The full book is not admitted.",
+  "source_spec_sha256": "b2967735cd35331d02e8afa76dab52c8164f1f96bec392e33094655369e03c22",
+  "prepared_manifest_sha256": "863a6265485ad727dffd1524f3ae6d222131688346190f041b19f480fedbdb8a",
+  "passage_review_sha256": "f4616e7a26a3d945571f83772fa7fb2338b1a32bb43cc3f01f7c99df142811c4",
+  "implementation_sha256": {
+    "D:\\SynapticGenesis\\tests\\prealgebra_selection.py": "f7fb275c792931b2962dd69910153454141c635a855b5da27fb58c8acdbdf08e",
+    "scripts\\prepare_prealgebra.py": "82534f31462f839a524aaa92720bf15800e76834b20e7a9dd7d2cc6157d9e63a",
+    "scripts\\corpus\\paired_selection.py": "e0b42be625bcae81be7a7ca189476e9248a09810c74e8a8559d4a738d812373d"
+  },
+  "native_calls": 0,
+  "models_trained": false,
+  "limitations": [
+    "Every extracted candidate was reviewed by the assistant; no independent expert certification.",
+    "This is a small supplement with formula markup, not millions of new examples or proof of QA ability.",
+    "Entire chapters are held out, so evaluation measures topic transfer as well as prediction; no claim of an IID split.",
+    "Exact overlap checks preserve symbols but do not detect paraphrases, near-duplicates, changed-number templates, or all shared mathematical concepts.",
+    "The 2024 source license and original preface are retained; repository MIT terms apply to code.",
+    "No native model has learned this edition, and preparation creates no curriculum schedule or teacher/reproduction admission."
+  ]
+}

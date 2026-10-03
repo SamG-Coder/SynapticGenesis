@@ -12,6 +12,11 @@ The [result](../reports/physics-edited-review.json) and
 [verification](../reports/physics-edited-verification.json) preserve the actual
 outputs' identities and the limits of the review.
 
+The subsequent [selected Physics edition](physics-corpus.md) adds representative
+passage review, five further text corrections, complete-chapter evaluation
+splits and admission. The counts and checks below describe this earlier
+extraction stage, whose reports remain unchanged.
+
 ## Explicit corrections
 
 [Seven element-level decisions](../data/physics-edits-v1.json) are tied to the

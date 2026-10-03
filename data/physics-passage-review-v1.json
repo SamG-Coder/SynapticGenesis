@@ -1,0 +1,385 @@
+{
+  "version": "physics-passage-review-v1",
+  "complete": true,
+  "reviewer": "assistant direct extracted-text and source-image inspection",
+  "source_review": "reports/physics-edited-review.json",
+  "source_review_sha256": "38c1ca1fc8ad4a73208503480350b3cbbbec7a143cc0544b717d287e372e69a3",
+  "reviewed_samples": [
+    {
+      "module": "m54057",
+      "chapter": "What is Physics?",
+      "title": "Physics: Definitions and Applications",
+      "text_sha256": "93b1571d1367258a548f25bec59ada6076465eb7301cad03732a59972ae30cb4",
+      "sample": "Think about all of the technological devices that you use on a regular basis. Computers, wireless internet, smart phones, tablets, global positioning system (GPS), MP3 players, and satellite radio might come to mind. Next, think about the most exciting modern technologies that you have heard about in the news, such as trains that levitate above their tracks, invisibility cloaks that bend light around them, and microscopic robots that fight diseased cells in our bodies. All of these groundbreaking advancements rely on the principles of physics.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54108",
+      "chapter": "Motion in One Dimension",
+      "title": "Relative Motion, Distance, and Displacement",
+      "text_sha256": "8569e9c27c0aaa927e5b50dafe00ed53c33eca34613b66b86317bf5794707b25",
+      "sample": "Our study of physics opens with kinematics—the study of motion without considering its causes. Objects are in motion everywhere you look. Everything from a tennis game to a space-probe flyby of the planet Neptune involves motion. When you are resting, your heart moves blood through your veins. Even in inanimate objects, atoms are always moving.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54123",
+      "chapter": "Acceleration",
+      "title": "Acceleration",
+      "text_sha256": "b10b9b24863ab8ee48e757225c124986147f1d18c719d1ae665ef2435513202f",
+      "sample": "Average acceleration is distinguished from instantaneous acceleration, which is acceleration at a specific instant in time. The magnitude of acceleration is often not constant over time. For example, runners in a race accelerate at a greater rate in the first second of a race than during the following seconds. You do not need to know all the instantaneous accelerations at all times to calculate average acceleration. All you need to know is the change in velocity (i.e., the final velocity minus the initial velocity) and the change in time (i.e., the final time minus the initial time), as shown in the formula. A component of the average acceleration can be positive, negative, or zero. A negative acceleration component is simply an acceleration in the negative direction along that axis. When the motion is in one dimension, we often simply refer to this as negative acceleration, and acceleration in the positive direction as positive acceleration.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54135",
+      "chapter": "Forces and Newton’s Laws of Motion",
+      "title": "Force",
+      "text_sha256": "c17363fc16ff9b7d10aa50601774d0b849eb1158e488612792db1464a18f5e52",
+      "sample": "Force is the cause of motion, and motion draws our attention. Motion itself can be beautiful, such as a dolphin jumping out of the water, the flight of a bird, or the orbit of a satellite. The study of motion is called kinematics, but kinematics describes only the way objects move—their velocity and their acceleration. Dynamics considers the forces that affect the motion of moving objects and systems. Newton’s laws of motion are the foundation of dynamics. These laws describe the way objects speed up, slow down, stay in motion, and interact with other objects. They are also universal laws: they apply everywhere on Earth as well as in space.",
+      "decision": "retain_with_explicit_correction",
+      "correction_ids": [
+        "net_force_changes_velocity"
+      ],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54165",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Vector Addition and Subtraction: Graphical Methods",
+      "text_sha256": "e496edd97eeb9db9f869f7b632bb963478ff47911ea22a4452082bfceeacf1d0",
+      "sample": "Recall that a vector is a quantity that has magnitude and direction. For example, displacement, velocity, acceleration, and force are all vectors. In one-dimensional or straight-line motion, the direction of a vector can be given simply by a plus or minus sign. Motion that is forward, to the right, or upward is usually considered to be positive (+); and motion that is backward, to the left, or downward is usually considered to be negative (−).",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54176",
+      "chapter": "Circular and Rotational Motion",
+      "title": "Angle of Rotation and Angular Velocity",
+      "text_sha256": "e0925d0a14b3d6531dca388320b221b2453268f50987bc2583584e66708c8a49",
+      "sample": "What exactly do we mean by circular motion or rotation? Rotational motion is the circular motion of an object about an axis of rotation. We will discuss specifically circular motion and spin. Circular motion is when an object moves in a circular path. Examples of circular motion include a race car speeding around a circular curve, a toy attached to a string swinging in a circle around your head, or the circular loop-the-loop on a roller coaster. Spin is rotation about an axis that goes through the center of mass of the object, such as Earth rotating on its axis, a wheel turning on its axle, the spin of a tornado on its path of destruction, or a figure skater spinning during a performance at the Olympics. Sometimes, objects will be spinning while in circular motion, like the Earth spinning on its axis while revolving around the Sun, but we will focus on these two motions separately.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54192",
+      "chapter": "Newton's Law of Gravitation",
+      "title": "Kepler's Laws of Planetary Motion",
+      "text_sha256": "3fb2a9a5fbf151b118bea9603b5be17ca04a8f251b25320d78d68ddc11defe60",
+      "sample": "Examples of orbits abound. Hundreds of artificial satellites orbit Earth together with thousands of pieces of debris. The moon’s orbit around Earth has intrigued humans from time immemorial. The orbits of planets, asteroids, meteors, and comets around the sun are no less interesting. If we look farther, we see almost unimaginable numbers of stars, galaxies, and other celestial objects orbiting one another and interacting through gravity.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54215",
+      "chapter": "Momentum",
+      "title": "Linear Momentum, Force, and Impulse",
+      "text_sha256": "226cfa132bb70fc390e7b754dd5d1b372b7cf6581f3c764e71f2c0dd056f913a",
+      "sample": "Momentum is a vector and has the same direction as velocity v. Since mass is a scalar, when velocity is in a negative direction (i.e., opposite the direction of motion), the momentum will also be in a negative direction; and when velocity is in a positive direction, momentum will likewise be in a positive direction. The SI unit for momentum is kg m/s.",
+      "decision": "retain_with_explicit_correction",
+      "correction_ids": [
+        "negative_axis_not_opposite_motion"
+      ],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54271",
+      "chapter": "Work, Energy, and Simple Machines",
+      "title": "Work, Power, and the Work–Energy Theorem",
+      "text_sha256": "c23f474391b1777450183255c518d096e1381e098966ed113b2d9f517a9fbec7",
+      "sample": "The first two examples are fairly simple. Homework is not work because objects are not being moved over a distance. Lifting a rock up off the ground is work because the rock is moving in the direction that force is applied. The last example is less obvious. Recall from the laws of motion that force is not required to move an object at constant velocity. Therefore, while some force may be applied to keep the rock up off the ground, no net force is applied to keep the rock moving forward at constant velocity.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54280",
+      "chapter": "Special Relativity",
+      "title": "Postulates of Special Relativity",
+      "text_sha256": "f56d45f4f0cba7e4256a250cfad5c79e654b7c051dd8e56c62c8304be611c74f",
+      "sample": "Relativity is not new. Way back around the year 1600, Galileo explained that motion is relative. Wherever you happen to be, it seems like you are at a fixed point and that everything moves with respect to you. Everyone else feels the same way. Motion is always measured with respect to a fixed point. This is called establishing a frame of reference. But the choice of the point is arbitrary, and all frames of reference are equally valid. A passenger in a moving car is not moving with respect to the driver, but they are both moving from the point of view of a person on the sidewalk waiting for a bus. They are moving even faster as seen by a person in a car coming toward them. It is all relative.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54287",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "title": "Temperature and Thermal Energy",
+      "text_sha256": "a676ec5cce75a8b161e74caa05a0a25bb4bee7a7056e3f425ec4994c9d9d76cc",
+      "sample": "What is temperature? It’s one of those concepts so ingrained in our everyday lives that, although we know what it means intuitively, it can be hard to define. It is tempting to say that temperature measures heat, but this is not strictly true. Heat is the transfer of energy due to a temperature difference. Temperature is defined in terms of the instrument we use to tell us how hot or cold an object is, based on a mechanism and scale invented by people. Temperature is literally defined as what we measure on a thermometer.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54302",
+      "chapter": "Thermodynamics",
+      "title": "Zeroth Law of Thermodynamics: Thermal Equilibrium",
+      "text_sha256": "4e56b9409bed7c0e2a10b37ba114bc03f46a65676b5f2bec9cb2dda98fd1b357",
+      "sample": "We learned in the previous chapter that when two objects (or systems) are in contact with one another, heat will transfer thermal energy from the object at higher temperature to the one at lower temperature until they both reach the same temperature. The objects are then in thermal equilibrium, and no further temperature changes will occur if they are isolated from other systems. The systems interact and change because their temperatures are different, and the changes stop once their temperatures are the same. Thermal equilibrium is established when two bodies are in thermal contact with each other—meaning heat transfer (i.e., the transfer of energy by heat) can occur between them. If two systems cannot freely exchange energy, they will not reach thermal equilibrium. (It is fortunate that empty space stands between Earth and the sun, because a state of thermal equilibrium with the sun would be too toasty for life on this planet!)",
+      "decision": "retain_with_explicit_correction",
+      "correction_ids": [
+        "radiation_crosses_empty_space"
+      ],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54314",
+      "chapter": "Waves and Their Properties",
+      "title": "Types of Waves",
+      "text_sha256": "436503199192a5a9bc09e70099c94c4434499182cccfeb0e2e62315eecacf71b",
+      "sample": "What do we mean when we say something is a wave? A wave is a disturbance that travels or propagates from the place where it was created. Waves transfer energy from one place to another, but they do not necessarily transfer any mass. Light, sound, and waves in the ocean are common examples of waves. Sound and water waves are mechanical waves; meaning, they require a medium to travel through. The medium may be a solid, a liquid, or a gas, and the speed of the wave depends on the material properties of the medium through which it is traveling. However, light is not a mechanical wave; it can travel through a vacuum such as the empty parts of outer space.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54331",
+      "chapter": "Sound",
+      "title": "Speed of Sound, Frequency, and Wavelength",
+      "text_sha256": "9a0956d9d9ac43b8d6f2c5304d38b5696a7c5d90b650d36d3552c9906d644633",
+      "sample": "Sound is a wave. More specifically, sound is defined to be a disturbance of matter that is transmitted from its source outward. A disturbance is anything that is moved from its state of equilibrium. Some sound waves can be characterized as periodic waves, which means that the atoms that make up the matter experience simple harmonic motion.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54342",
+      "chapter": "Light",
+      "title": "The Electromagnetic Spectrum",
+      "text_sha256": "7eb88cc36f31cee846ad1f7bd1e21089a504e2f631fd6438144c40a2654c9031",
+      "sample": "We generally take light for granted, but it is a truly amazing and mysterious form of energy. Think about it: Light travels to Earth across millions of kilometers of empty space. When it reaches us, it interacts with matter in various ways to generate almost all the energy needed to support life, provide heat, and cause weather patterns. Light is a form of electromagnetic radiation (EMR). The term light usually refers to visible light, but this is not the only form of EMR. As we will see, visible light occupies a narrow band in a broad range of types of electromagnetic radiation.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54357",
+      "chapter": "Mirrors and Lenses",
+      "title": "Reflection",
+      "text_sha256": "4d7735c7b81f1386dfc63589b79b16177339a0a92509183e0cf6cc8aebb09f43",
+      "sample": "There are three ways, as shown in Figure 1, in which light can travel from a source to another location. It can come directly from the source through empty space, such as from the Sun to Earth. Light can travel to an object through various media, such as air and glass. Light can also arrive at an object after being reflected, such as by a mirror. In all these cases, light is modeled as traveling in a straight line, called a ray. Light may change direction when it encounters the surface of a different material (such as a mirror) or when it passes from one material to another (such as when passing from air into glass). It then continues in a straight line—that is, as a ray. The word ray comes from mathematics. Here it means a straight line that originates from some point. It is acceptable to visualize light rays as laser rays (or even science fiction depictions of ray guns).",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54369",
+      "chapter": "Diffraction and Interference",
+      "title": "Understanding Diffraction and Interference",
+      "text_sha256": "9e92cc5ef2dac4e324922c41172c54e6ba1197620639afc6b194352c08e33ca4",
+      "sample": "where \\(c = 3.00 × {10}^{8}\\) m/s is the speed of light in vacuum, f is the frequency of the electromagnetic wave in Hz (or s^(–1)), and \\(λ\\) is its wavelength in m. The range of visible wavelengths is approximately 380 to 750 nm. As is true for all waves, light travels in straight lines and acts like a ray when it interacts with objects several times as large as its wavelength. However, when it interacts with smaller objects, it displays its wave characteristics prominently. Interference is the identifying behavior of a wave.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54410",
+      "chapter": "Static Electricity",
+      "title": "Electrical Charges, Conservation of Charge, and Transfer of Charge",
+      "text_sha256": "44e43d1828b09ec33f5ca4812a03b413c5c5b6f510c3b3bceb21f7134241eea9",
+      "sample": "You may know someone who has an electric personality, which usually means that other people are attracted to this person. This saying is based on electric charge, which is a property of matter that causes objects to attract or repel each other. Electric charge comes in two varieties, which we call positive and negative. Like charges repel each other, and unlike charges attract each other. Thus, two positive charges repel each other, as do two negative charges. A positive charge and a negative charge attract each other.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54437",
+      "chapter": "Electrical Circuits",
+      "title": "Ohm's law",
+      "text_sha256": "240b4896adc2abb07b1a190716d75a7503055f8032f286d4959629d5a8aaeb53",
+      "sample": "Just as water flows from high to low elevation, electrons that are free to move will travel from a place with low potential to a place with high potential. A battery has two terminals that are at different potentials. If the terminals are connected by a conducting wire, an electric current (charges) will flow, as shown in Figure 1. Electrons will then move from the low-potential terminal of the battery (the negative end) through the wire and enter the high-potential terminal of the battery (the positive end).",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54465",
+      "chapter": "Magnetism",
+      "title": "Magnetic Fields, Field Lines, and Force",
+      "text_sha256": "a48f08c1bdda9c0cd7397287ad67acf4ede7741078ff1dad7b1ae1423d91e41a",
+      "sample": "People have been aware of magnets and magnetism for thousands of years. The earliest records date back to ancient times, particularly in the region of Asia Minor called Magnesia—the name of this region is the source of words like magnet. Magnetic rocks found in Magnesia, which is now part of western Turkey, stimulated interest during ancient times. When humans first discovered magnetic rocks, they likely found that certain parts of these rocks attracted bits of iron or other magnetic rocks more strongly than other parts. These areas are called the poles of a magnet. A magnetic pole is the part of a magnet that exerts the strongest force on other magnets or magnetic material, such as iron. For example, the poles of the bar magnet shown in Figure 1 are where the paper clips are concentrated.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54566",
+      "chapter": "The Quantum Nature of Light",
+      "title": "Planck and Quantum Nature of Light",
+      "text_sha256": "64e29004dbd5756ad4cadae489d09df10bc37f3fb98ecdcc7dd1cdf0b85df51f",
+      "sample": "Our first story of curious significance begins with a T-shirt. You are likely aware that wearing a tight black T-shirt outside on a hot day provides a significantly less comfortable experience than wearing a white shirt. Black shirts, as well as all other black objects, will absorb and re-emit a significantly greater amount of radiation from the sun. This shirt is a good approximation of what is called a blackbody.",
+      "decision": "retain_with_explicit_correction",
+      "correction_ids": [
+        "blackbody_is_idealization"
+      ],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54582",
+      "chapter": "The Atom",
+      "title": "The Structure of the Atom",
+      "text_sha256": "ccc9204e2a928d6743ff52979d59a6160fac61a2343fc4258df502ecd58a7b47",
+      "sample": "How do we know that atoms are really there if we cannot see them with our own eyes? While often taken for granted, our knowledge of the existence and structure of atoms is the result of centuries of contemplation and experimentation. The earliest known speculation on the atom dates back to the fifth century B.C., when Greek philosophers Leucippus and Democritus contemplated whether a substance could be divided without limit into ever smaller pieces. Since then, scientists such as John Dalton (1766–1844), Amadeo Avogadro (1776–1856), and Dmitri Mendeleev (1834–1907) helped to discover the properties of that fundamental structure of matter. While much could be written about any number of important scientific philosophers, this section will focus on the role played by Ernest Rutherford (1871–1937). Though his understanding of our most elemental matter is rooted in the success of countless prior investigations, his surprising discovery about the interior of the atom is most fundamental in explaining so many well-known phenomena.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54593",
+      "chapter": "Particle Physics",
+      "title": "The Four Fundamental Forces",
+      "text_sha256": "6d6a6f021a13d427ba7b8cde84b640bcf7017bcca5b7cbe8d4bdd07a61ec2559",
+      "sample": "Despite the apparent complexity within the universe, there remain just four basic forces. These forces are responsible for all interactions known to science: from the very small to the very large to those that we experience in our day-to-day lives. These forces describe the movement of galaxies, the chemical reactions in our laboratories, the structure within atomic nuclei, and the cause of radioactive decay. They describe the true cause behind familiar terms like friction and the normal force. These four basic forces are known as fundamental because they alone are responsible for all observations of forces in nature. The four fundamental forces are gravity, electromagnetism, weak nuclear force, and strong nuclear force.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54599",
+      "chapter": "What is Physics?",
+      "title": "The Language of Physics: Physical Quantities and Units",
+      "text_sha256": "04984455d5a7d288d80d3a09fe83700debd3a294a3fa22798d9d73e143be7518",
+      "sample": "The measurements of physical quantities are expressed in terms of units, which are standardized values. For example, the length of a race, which is a physical quantity, can be expressed in meters (for sprinters) or kilometers (for long distance runners). Without standardized units, it would be extremely difficult for scientists to express and compare measured values in a meaningful way (Figure 1).",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54142",
+      "chapter": "Forces and Newton’s Laws of Motion",
+      "title": "Newton's Second Law of Motion",
+      "text_sha256": "ec832c0d2f9eb6f47a3c3b7df65a118dd144b12d95672bb9f2b06ab6c75f8a64",
+      "sample": "Newton’s first law considered bodies at rest or bodies in motion at a constant velocity. The other state of motion to consider is when an object is moving with a changing velocity, which means a change in the speed and/or the direction of motion. This type of motion is addressed by Newton’s second law of motion, which states how force causes changes in motion. Newton’s second law of motion is used to calculate what happens in situations involving forces and motion, and it shows the mathematical relationship between force, mass, and acceleration. Mathematically, the second law is most often written as",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54273",
+      "chapter": "Work, Energy, and Simple Machines",
+      "title": "Mechanical Energy and Conservation of Energy",
+      "text_sha256": "63be23491b4061de3df87ef29e5a085684b15b7ef7dbf23103c75f459fc4a541",
+      "sample": "Quite a bit of potential energy is gained by a roller coaster car and its passengers when they are raised to the top of the first hill. Remember that the potential part of the term means that energy has been stored and can be used at another time. You will see that this stored energy can either be used to do work or can be transformed into kinetic energy. For example, when an object that has gravitational potential energy falls, its energy is converted to kinetic energy. Remember that both work and energy are expressed in joules.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54365",
+      "chapter": "Mirrors and Lenses",
+      "title": "Refraction",
+      "text_sha256": "e21c5dfeee5de1a7856246d6d33020851c5fa0f8f220d7d942f1b7ef99472e8b",
+      "sample": "You may have noticed some odd optical phenomena when looking into a fish tank. For example, you may see the same fish appear to be in two different places (Figure 1). This is because light coming to you from the fish changes direction when it leaves the tank and, in this case, light rays traveling along two different paths both reach our eyes. The changing of a light ray’s direction (loosely called bending) when it passes a boundary between materials of different composition, or between layers in single material where there are changes in temperature and density, is called refraction. Refraction is responsible for a tremendous range of optical phenomena, from the action of lenses to voice transmission through optical fibers.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54442",
+      "chapter": "Electrical Circuits",
+      "title": "Parallel Circuits",
+      "text_sha256": "ff0c9fe7b7f1602f6d77a35ce9393cc40d4132fa82c3f5bbe8962e2bb84ceb63",
+      "sample": "In the previous section, we learned that resistors in series are resistors that are connected one after the other. If we instead combine resistors by connecting them next to each other, as shown in Figure 1, then the resistors are said to be connected in parallel. Resistors are in parallel when both ends of each resistor are connected directly together.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54580",
+      "chapter": "The Atom",
+      "title": "Nuclear Forces and Radioactivity",
+      "text_sha256": "b5ea2c54ffe05e9dfadf2066849720e9d2b34992c6712e1913cd8db2922c4b25",
+      "sample": "There is an ongoing quest to find the substructures of matter. At one time, it was thought that atoms would be the ultimate substructure. However, just when the first direct evidence of atoms was obtained, it became clear that they have a substructure and a tiny nucleus. The nucleus itself has spectacular characteristics. For example, certain nuclei are unstable, and their decay emits radiations with energies millions of times greater than atomic energies. Some of the mysteries of nature, such as why the core of Earth remains molten and how the Sun produces its energy, are explained by nuclear phenomena. The exploration of radioactivity and the nucleus has revealed new fundamental particles, forces, and conservation laws. That exploration has evolved into a search for further underlying structures, such as quarks. In this section, we will explore the fundamentals of the nucleus and nuclear radioactivity.",
+      "decision": "retain_at_introductory_textbook_level",
+      "correction_ids": [],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    },
+    {
+      "module": "m54602",
+      "chapter": "Front or back matter",
+      "title": "Reference Tables",
+      "text_sha256": "3b292d5d3b60c72b5162f0653d2696d25425db0013a96b2c4dfe0dbbd62192bc",
+      "sample": "Figure 1\nImage description: On this depiction of the periodic table, the metals are indicated with a yellow color and dominate the left two thirds of the periodic table. The nonmetals are colored peach and are largely confined to the upper right area of the table, with the exception of hydrogen, H, which is located in the extreme upper left of the table. The metalloids are colored purple and form a diagonal border between the metal and nonmetal areas of the table. Group 13 contains both metals and metalloids. Group 17 contains both nonmetals and metalloids. Groups 14 through 16 contain at least one representative of a metal, a metalloid, and a nonmetal. A key shows that, at room temperature, metals are solids, metalloids are liquids, and nonmetals are gases",
+      "decision": "retain_with_explicit_correction",
+      "correction_ids": [
+        "periodic_table_independent_color_codes"
+      ],
+      "review_scope": "The displayed paragraph and module identity were inspected; this does not certify every statement or diagram in the module."
+    }
+  ],
+  "text_corrections": [
+    {
+      "id": "net_force_changes_velocity",
+      "module": "m54135",
+      "before": "Force is the cause of motion, and motion draws our attention.",
+      "after": "A net force changes an object’s velocity, and motion draws our attention.",
+      "reason": "Avoid implying that maintaining constant velocity requires a net force; retain the surrounding introduction to dynamics.",
+      "references": [
+        "https://openstax.org/books/physics/pages/4-2-newtons-first-law-of-motion-inertia"
+      ]
+    },
+    {
+      "id": "negative_axis_not_opposite_motion",
+      "module": "m54215",
+      "before": "(i.e., opposite the direction of motion)",
+      "after": "(i.e., along the negative direction of the chosen axis)",
+      "reason": "Momentum and velocity point in the same direction. A negative component describes the chosen coordinate axis, not a direction opposite the motion.",
+      "references": [
+        "https://openstax.org/books/university-physics-volume-1/pages/9-1-linear-momentum"
+      ]
+    },
+    {
+      "id": "radiation_crosses_empty_space",
+      "module": "m54302",
+      "before": "(It is fortunate that empty space stands between Earth and the sun, because a state of thermal equilibrium with the sun would be too toasty for life on this planet!)",
+      "after": "Heat can also be transferred by radiation across empty space.",
+      "reason": "Remove the implication that empty space prevents radiative exchange; the surrounding thermal-contact discussion remains.",
+      "references": [
+        "https://openstax.org/books/college-physics/pages/14-7-radiation"
+      ]
+    },
+    {
+      "id": "blackbody_is_idealization",
+      "module": "m54566",
+      "before": "Black shirts, as well as all other black objects, will absorb and re-emit a significantly greater amount of radiation from the sun. This shirt is a good approximation of what is called a blackbody.",
+      "after": "Under otherwise comparable conditions, a black shirt often absorbs more visible sunlight than a white shirt. An ideal blackbody absorbs all incident radiation at every wavelength. A real shirt is only an approximation, and its infrared absorption and emission depend on its material rather than visible color alone.",
+      "reason": "Separate the ideal blackbody from a real visibly black material and avoid claiming that visible color fixes infrared emission.",
+      "references": [
+        "https://openstax.org/books/college-physics-2e/pages/14-7-radiation",
+        "https://openstax.org/books/university-physics-volume-3/pages/6-1-blackbody-radiation"
+      ]
+    },
+    {
+      "id": "periodic_table_independent_color_codes",
+      "module": "m54602",
+      "before": "A key shows that, at room temperature, metals are solids, metalloids are liquids, and nonmetals are gases",
+      "after": "The background colors classify elements as metals, metalloids, or nonmetals. A separate symbol-text color code gives their states at room temperature: black for solid, blue for liquid, and red for gas. The two codes describe different properties; the diagram shows the metal mercury and the nonmetal bromine as liquids.",
+      "reason": "The inspected figure has separate background and symbol-text legends. The original description wrongly maps element classes directly to physical states.",
+      "references": [
+        "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/media/CNX_APPhysics_AA_PeriodicPU_img.jpg"
+      ]
+    }
+  ],
+  "additional_inspected_media": [
+    {
+      "path": "runs/science-source-review/raw/physics-media/CNX_APPhysics_AA_PeriodicPU_img.jpg",
+      "raw_sha256": "6c91d1db9abc2f85f54b6edc29c7914a1d609f7644954b3faa1547071957c5aa",
+      "git_blob_sha1": "fb1033da1508219b8b03fe96ff00324a3f984c6e",
+      "bytes": 432566,
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/media/CNX_APPhysics_AA_PeriodicPU_img.jpg",
+      "directly_inspected": true,
+      "observation": "Legend backgrounds identify metal, metalloid and nonmetal. The separate black, blue and red element-symbol colors identify solid, liquid and gas. Hg and Br have blue symbols on different class backgrounds. The image includes historical temporary names for some heavy elements; those names are not transcribed into the text."
+    }
+  ],
+  "training_admitted": false,
+  "limits": "Thirty representative paragraphs across all 23 teaching chapters plus selected notation/diagram modules and the appendix. Five explicit corrections address observed misconceptions. This is not exhaustive factual verification, full diagram transcription, or a claim of a clean held-out evaluation split."
+}

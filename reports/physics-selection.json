@@ -1,0 +1,123 @@
+{
+  "passed": true,
+  "source_spec_sha256": "580f6fb69672c6829478e0da7ec3fcb6f68408db95cc7f4d1920cc06d419ce63",
+  "complete_modules": 99,
+  "split_modules": {
+    "train": 90,
+    "validation": 4,
+    "test": 5
+  },
+  "protected_files": 18,
+  "representative_passages": 30,
+  "reviewed_chapters": 23,
+  "all_module_bytes_match_declared_edits": true,
+  "text_adaptations": 5,
+  "earlier_extraction_preserved_in_other_modules": 94,
+  "complete_chapters_reserved": true,
+  "fixtures": {
+    "whole_document_omission": true,
+    "normalized_whole_text_protected": true,
+    "rejected_holdout_other_paragraph_still_reserved": true,
+    "test_precedes_validation": true,
+    "question_and_answer_remain_intact": true,
+    "authored_probe_context_protected": true,
+    "mathematical_signs_decimals_and_case_distinct": true,
+    "malformed_documents_rejected": 6
+  },
+  "altered_inputs_rejected": [
+    "missing_sample",
+    "duplicate_sample",
+    "empty_sample",
+    "changed_sample",
+    "changed_sample_hash",
+    "changed_identity",
+    "unknown_decision",
+    "missing_correction_decision",
+    "different_extraction",
+    "missing_correction",
+    "ambiguous_correction",
+    "empty_correction",
+    "absent_correction_target",
+    "different_image",
+    "changed_image_blob",
+    "untrusted_image_url",
+    "changed_review_pin",
+    "changed_upstream",
+    "heldout_chapter_in_train",
+    "incorrect_topic_stage",
+    "duplicate_stage",
+    "missing_module",
+    "changed_module_hash",
+    "changed_module_identity",
+    "changed_overlap_decision",
+    "changed_protected_text_pin",
+    "altered_edition_rejected_before_output"
+  ],
+  "prepared_manifest_sha256": "e758b32429a69de4b3a1fd7421f5b8bf63a1200af7461e06df8be0193fad8441",
+  "outputs": {
+    "train": {
+      "bytes": 1690796,
+      "documents": 90,
+      "sha256": "e49017ca9aec4eff90df5046638f39e993c45d4a5d0a585655c37d65ae94aba1",
+      "word_like_units": 273773
+    },
+    "validation": {
+      "bytes": 63407,
+      "documents": 4,
+      "sha256": "de902acc271a854b5564406ee12c9dd51ccd5df82cf2e17b59236a891f5df069",
+      "word_like_units": 9951
+    },
+    "test": {
+      "bytes": 101233,
+      "documents": 5,
+      "sha256": "4b06c65840fa0ba3136aadda88e42230e102892853fd3853f42e2f2866283f8b",
+      "word_like_units": 16075
+    }
+  },
+  "stages": [
+    {
+      "id": 1,
+      "name": "Units, motion and forces",
+      "file": "stage-1.dat",
+      "bytes": 432177,
+      "sha256": "efed6acd81edf41f45785102daf89e8020af415922ee2ab854bc7cb8c696be9b"
+    },
+    {
+      "id": 2,
+      "name": "Mechanics, heat and thermodynamics",
+      "file": "stage-2.dat",
+      "bytes": 344863,
+      "sha256": "eb4cf17352b7f21c01f6e404203aa4cf9b7df045e513697ac1bfa72d23906458"
+    },
+    {
+      "id": 3,
+      "name": "Waves, optics, electricity and magnetism",
+      "file": "stage-3.dat",
+      "bytes": 572267,
+      "sha256": "851ac4a579a6146bf55af8439544a8fa06866fe8751074522a4b474812bd00aa"
+    },
+    {
+      "id": 4,
+      "name": "Quantum, atomic and particle physics with reference tables",
+      "file": "stage-4.dat",
+      "bytes": 341486,
+      "sha256": "6ae728c6dcf561ce8a72d8cbe2ec40b7904d41b4ae875a7607bdfe7a10a331fc"
+    }
+  ],
+  "implementation_sha256": {
+    "D:\\SynapticGenesis\\tests\\physics_selection.py": "27ba02905ea07eb9d3021dd11a82fb4d0f547342c053517b56de7de10c27ce4b",
+    "scripts\\prepare_physics.py": "56a075f3ca32b9817ed61ff618a05ad7b394a37b2b7b59711200683dd463d3dd",
+    "scripts\\corpus\\paired_selection.py": "e0b42be625bcae81be7a7ca189476e9248a09810c74e8a8559d4a738d812373d"
+  },
+  "native_calls": 0,
+  "models_trained": false,
+  "limitations": [
+    "Representative review is not exhaustive factual or diagram verification.",
+    "This is an introductory textbook with historical examples and approximations, not a current scientific reference for every field.",
+    "Only three source diagrams have been directly inspected; remaining source descriptions may omit information.",
+    "Questions without worked answers and their multiple-choice alternatives remain in complete book context.",
+    "Whole-module overlap rejection checks exact normalized full texts, paragraphs of at least 120 characters, and authored probe contexts; it does not prove absence of shorter overlap or paraphrases.",
+    "Topic stages are engineering curriculum groups, not biological ages.",
+    "Material is prepared but no native learner has consumed it, and no QA or retention improvement is established."
+  ]
+}
