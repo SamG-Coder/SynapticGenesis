@@ -100,7 +100,7 @@ struct LiveCurriculum {
         validate_curriculum_state(s);
         require(has_curriculum(s) && s.extra[14] == hash && s.extra[15] < stages.size(),
                 "Resume requires the identical curriculum schedule and all source editions");
-        if (s.meta[17] == 5) {
+        if (has_grouped_replay(s)) {
             StageReplayView(s).validate();
             require(stages.size() <= s.extra[3], "Stage replay capacity must cover every scheduled stage");
             for (size_t g = 0; g <= s.extra[15]; ++g)
@@ -179,7 +179,7 @@ struct LiveCurriculum {
         s.meta[25] = 1; // Usual document boundary reset on the next tick.
         s.meta[12] = next.hash;
         ++s.extra[15];
-        if (s.meta[17] == 5)
+        if (has_grouped_replay(s))
             StageReplay(s).add_group(next.docs.size());
         rate(s, s.hp[7]);
         data = std::move(next);

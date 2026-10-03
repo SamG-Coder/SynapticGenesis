@@ -2,7 +2,7 @@
 
 The [narrative continuation](narrative-learning.md) learns new book statistics while losing an earlier binding skill. The next candidate is to rehearse selected source examples with both their actual targets and an earlier model's predictions. That could support retention and later teaching by two parents, but it needs a controlled learning comparison.
 
-This stage implements the **C++/CUDA objective and its numerical tests**. It does not yet attach teachers to the live replay loop or population registry. No language model has been trained with this objective, and no retention, speed or generational improvement is claimed.
+This document records the **C++/CUDA objective and its numerical foundation**. The subsequent [live-teacher integration](live-teachers.md) attaches it to selected replay windows with durable policy, memory limits and registered teacher lifespans. Tests exercise that runtime, but no retention, speed or generational improvement is yet claimed.
 
 ## Research basis and specific choice
 
@@ -34,7 +34,7 @@ The caller runs an observed-target forward, prepares teacher targets for the sam
 
 The target object owns `4 * N * (256 + 1)` GPU bytes for `N` positions: probabilities and per-position validation/loss scratch. At 128 positions this is **131,584 bytes (128.5 KiB)**, excluding teachers, learner, CUDA overhead and host copies. Preparation checks finite teacher logits; invalid settings or unprepared targets reject before modifying learner gradients. Numerical failure during objective execution aborts the update.
 
-Ordinary live learning does not construct the optional object. Its model buffers, checkpoint format, recurrence sharing and population accounting remain unchanged. Future integration must account for complete teacher working sets and target buffers within the resource budget, record identities and source eligibility, enforce population lifespan rules, and preserve the same teacher policy on restart. A standalone loss function does not provide those guarantees.
+Ordinary live learning does not construct the optional object. Its model buffers, checkpoint format and recurrence sharing remain unchanged. The subsequent integration uses live format 6 for teacher-assisted learners and budgets complete teacher working sets plus target buffers. It records identities and source eligibility, enforces registered teacher lifespans and preserves teacher policy on restart. Those guarantees are checked separately from the numerical fixtures described below.
 
 ## Verification and retained failure
 
@@ -63,8 +63,8 @@ python tests/distillation_oracle.py
 
 The second command intentionally returns failure for the recorded first-step tolerance case. Lowering a tolerance or silently dropping that fixture would hide the limitation. All fixtures are synthetic verification models; none supplies weights or data to a population member.
 
-## Integration still required
+## Integrated runtime and remaining comparison
 
-The next implementation needs an authenticated teacher policy for selected replay windows, durable restart metadata and teacher resource/lifespan handling. It must define whether a teacher snapshot is a past self or a parent and keep that distinction in the individual record. Teacher parameters stay frozen, while the learner's weights and live state remain shared between learning and generation.
+The [live implementation](live-teachers.md) records a fixed bundle, its selected source prefix, frozen model identities, optional registered member origins and assistance counters. Teacher parameters stay frozen, while the learner's weights and live state remain shared between learning and generation. Bundle replacement and automatic teacher selection remain outside the implemented policy.
 
 A subsequent declared experiment should branch every eligible parent into actual-target-only and teacher-assisted replay with matched source exposure and replay descriptors. It should report new-book loss, retained binding, actual samples, complete live cost and teacher memory use. The policy, coefficients and endpoints must be fixed before that comparison, and its results must include regressions. Automatic developmental promotion and reproduction based on these skills require their own acceptance rules.

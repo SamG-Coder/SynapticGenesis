@@ -37,7 +37,7 @@ The [learned-memory intervention](docs/associative-history.md) finds that cleari
 
 The [completed narrative continuation](docs/narrative-learning.md#completed-comparison-book-loss-improves-while-binding-is-lost) teaches all nine existing models from seven selected books. Every model improves all three held-out book losses, but loses earlier binding accuracy. Associative models fall from **99.77% to 53.24% complete binding accuracy** on average, compared with 71.06% → 14.81% and 78.94% → 12.73% for the controls. One associative seed retains less than both controls; the apparent advantage is inconsistent. All fixed samples remain available and show incoherent prose. Execution checks pass; one strict CPU score check fails near a firing threshold and remains reported as a failure. Reliable skill retention and useful general conversation are still unresolved.
 
-The [teacher-objective foundation](docs/teacher-objective.md) adds a native loss that combines selected source targets with one or two frozen models' prediction distributions. It reuses the existing forward/backward path and passes independent gradient checks for all six cells. A strict first-Adam-step comparison fails near a tiny gradient and remains recorded; a separate nonzero-history case passes. Ordinary continuation checkpoints and prior numeric fixtures remain identical. Live teacher policy, parent provenance and a measured retention benefit are still pending.
+The [live-teacher integration](docs/live-teachers.md) combines selected source replay with one or two frozen models' prediction distributions in the existing live learner. Immutable bundles, checkpointed policy/counters, additional GPU memory limits and registered teacher lifespans are implemented. Disabled controls and complete restart checks preserve the tested learning state exactly. The [objective](docs/teacher-objective.md) passes independent gradient checks for all six cells, while a strict first-Adam-step comparison remains a recorded failure. A measured retention or generational benefit is still pending.
 
 ## Build
 
@@ -127,7 +127,7 @@ Optional `--consolidation si --si-strength 0.001` enables a synaptic-importance 
 
 ## Validate
 
-`build.ps1` runs the sixteen native suites. For independent gradient checks, install CPU PyTorch and NumPy in your own test environment and run:
+`build.ps1` runs the eighteen native suites. For independent gradient checks, install CPU PyTorch and NumPy in your own test environment and run:
 
 ```powershell
 python tests/oracle.py build/test-results
@@ -160,9 +160,13 @@ python tests/population_cli.py --cell selective --out runs/selective-scarcity-te
 python tests/stage_replay_cli.py --out runs/stage-replay-check
 python tests/curriculum_extension_cli.py --replay stage --out runs/stage-replay-extension-check
 python tests/population_live_cli.py --cell selective --replay stage --out runs/stage-replay-population-check
+python tests/teacher_replay_cli.py --out runs/teacher-replay-check
+python tests/population_teachers_cli.py --out runs/population-teachers-check
+python tests/teacher_compatibility.py --out runs/teacher-compatibility-check
+python tests/distillation_oracle.py
 ```
 
-The consolidation oracle and CLI integration test use only Python's standard library. Numerical tests use disposable synthetic models, isolated from founders. [Validation evidence](reports/validation.md) records what was checked for this repository.
+The consolidation oracle and CLI integration tests use only Python's standard library. Numerical tests use disposable synthetic models, isolated from founders. The distillation oracle retains a known strict cold first-Adam-step failure and returns an unsuccessful exit; its gradient checks and separate nonzero-history case pass. [Validation evidence](reports/validation.md) and the [live-teacher report](reports/live-teachers-validation.json) record the checked boundaries.
 
 The [retention protocol](docs/retention.md) compares old-memory replay, extra current-chunk updates, consolidation and slower learning from the exact same starting model. Its [selected development sources](data/sources-development-v2.json) add a science training book and a different held-out geography book. They are an optional versioned extension; the original foundation source selection stays reproducible.
 
@@ -184,7 +188,7 @@ The [paired language probes and selected teaching lessons](docs/language-probes.
 
 The [development design](docs/general-development.md) specifies separate developmental stage and generation records, inheritance from two parents, teaching from selected source material, and selection against matched controls. The [native evolution commands](docs/evolution.md) register founders, evaluate eligibility, create children and inherit settings. Whole-block crossover can disrupt learned channel roles and every child must train and requalify; no improvement is assumed merely from birth.
 
-Resource-sensitive breeding and lifespans are implemented. Available GPU memory sets the population budget; scarce resources narrow parent selection and raise the required improvement. Models die at their configured simulation lifespan, release population credits and remain archived on disk. `population-live` connects a member to the live curriculum, preserving its age and lineage while publishing learning checkpoints directly for the next selection round. Dead members cannot start another population learning session. Stage-specific mastery probes, teacher feedback, channel alignment, structural pruning and a town simulation remain future work.
+Resource-sensitive breeding and lifespans are implemented. Available GPU memory sets the population budget; scarce resources narrow parent selection and raise the required improvement. Models die at their configured simulation lifespan, release population credits and remain archived on disk. `population-live` connects a member to the live curriculum, preserving its age and lineage while publishing learning checkpoints directly for the next selection round. Registered alive models can provide frozen teaching distributions on selected observed replay; dead teachers cannot continue active teaching, and dead learners cannot start another population learning session. Automatic mastery promotion, a measured teaching benefit, channel alignment, structural pruning and a town simulation remain future work.
 
 ## License and sources
 

@@ -23,6 +23,7 @@ add_test(NAME spiking-evolution COMMAND synapticgenesis evolution-test --out ${C
 add_test(NAME spiking-curriculum COMMAND synapticgenesis curriculum-test --out ${CMAKE_BINARY_DIR}/curriculum-test-results)
 add_test(NAME spiking-feedback COMMAND synapticgenesis feedback-test --out ${CMAKE_BINARY_DIR}/feedback-test-results)
 add_test(NAME spiking-distillation COMMAND synapticgenesis distillation-test --out ${CMAKE_BINARY_DIR}/distillation-test-results)
+add_test(NAME spiking-teacher-replay COMMAND synapticgenesis teacher-replay-test --out ${CMAKE_BINARY_DIR}/teacher-replay-test-results)
 add_test(NAME spiking-trace COMMAND synapticgenesis trace-test --out ${CMAKE_BINARY_DIR}/trace-test-results)
 add_test(NAME spiking-gated COMMAND synapticgenesis gated-test --out ${CMAKE_BINARY_DIR}/gated-test-results)
 add_test(NAME spiking-selective COMMAND synapticgenesis selective-test --out ${CMAKE_BINARY_DIR}/selective-test-results)

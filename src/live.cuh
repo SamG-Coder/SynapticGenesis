@@ -68,10 +68,10 @@ struct LiveCorpus {
             feedback[i] = {at + marker.size(), scale};
         }
     }
-    float emphasize(Model &model, size_t document, size_t offset, size_t n, float ordinary_loss) const {
+    std::vector<float> target_weights(size_t document, size_t offset, size_t n) const {
         auto it = feedback.find(document);
         if (it == feedback.end())
-            return ordinary_loss;
+            return {};
         std::vector<float> weights(n, 1.f);
         bool changed = false;
         for (size_t i = 0; i < n; ++i)
@@ -79,7 +79,11 @@ struct LiveCorpus {
                 weights[i] = it->second.scale;
                 changed = true;
             }
-        return changed ? model.reweight_targets(weights) : ordinary_loss;
+        return changed ? weights : std::vector<float>{};
+    }
+    float emphasize(Model &model, size_t document, size_t offset, size_t n, float ordinary_loss) const {
+        auto weights = target_weights(document, offset, n);
+        return weights.empty() ? ordinary_loss : model.reweight_targets(weights);
     }
     void next(const State &s, int chunk, std::vector<int> &x, std::vector<int> &y) const {
         validate(s);
@@ -121,6 +125,8 @@ void validate_live_holdout(const LiveCorpus &training, const LiveCorpus &holdout
 }
 
 #include "live_replay.cuh"
+#include "teacher_bundle.cuh"
+#include "teacher_replay.cuh"
 
 struct LiveEngine {
     Model root;
@@ -128,6 +134,7 @@ struct LiveEngine {
     std::map<int, std::unique_ptr<Model>> tails;
     std::map<int, std::unique_ptr<Model>> replay_views;
     std::unique_ptr<GraphDecoder> decoder;
+    std::unique_ptr<teachers::Replay> teacher_replay;
     bool fast_math;
     LiveEngine(Config q, int chunk, bool fast) : root(q, 1, chunk), speaker(q, 1, 1), fast_math(fast) {
         speaker.share_runtime(root);
@@ -189,6 +196,8 @@ struct LiveResult {
     std::string speech;
     float replay_loss = 0;
     size_t replayed = 0;
+    float teacher_penalty = 0;
+    size_t teacher_pairs = 0;
 };
 LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const std::string &prompt) {
     std::vector<int> x, y;
@@ -209,6 +218,8 @@ LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const
     data.advance(s, x.size());
     float replay_loss = 0;
     size_t replayed = 0;
+    float teacher_penalty = 0;
+    size_t teacher_pairs = 0;
     if (memory.due()) {
         auto episode = memory.choose(current);
         ReplayMemory::validate_episode(episode, data, engine.root.T);
@@ -218,8 +229,15 @@ LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const
         std::vector<int> ry(data.bytes.begin() + at + 1, data.bytes.begin() + at + replayed + 1);
         auto &replay = engine.replay_view(int(replayed));
         replay_loss = replay.forward(rx, &ry); // Reset-state window; no live membrane mutation.
-        replay_loss =
-            data.emphasize(replay, size_t(episode.document), size_t(episode.offset), replayed, replay_loss);
+        if (engine.teacher_replay && episode.document < s.teaching.words[6]) {
+            auto objective = engine.teacher_replay->apply(
+                replay, rx, data.target_weights(size_t(episode.document), size_t(episode.offset), replayed), s);
+            replay_loss = objective.observed_loss;
+            teacher_penalty = objective.teacher_penalty;
+            teacher_pairs = replayed;
+        } else
+            replay_loss =
+                data.emphasize(replay, size_t(episode.document), size_t(episode.offset), replayed, replay_loss);
         replay.backward(s.hp[4]);
         replay.update(int(++s.meta[7]), s.hp[0], s.hp[1], s.hp[2], memory.core_scale());
         memory.completed(episode);
@@ -236,11 +254,12 @@ LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const
     std::string speech;
     if (s.meta[26] && s.meta[24] % s.meta[26] == 0)
         speech = engine.speak(prompt, s);
-    return {loss, norm, activity, x.size(), speech, replay_loss, replayed};
+    return {loss, norm, activity, x.size(), speech, replay_loss, replayed, teacher_penalty, teacher_pairs};
 }
 
 void configure_live(State &s, const Args &args, const LiveCorpus &data, const std::string &prompt) {
     s.synaptic.clear();
+    s.teaching = TeachingState{};
     for (int i = 17; i < 32; ++i)
         s.meta[i] = 0;
     s.meta[17] = 1;
@@ -301,7 +320,8 @@ struct LiveLatency {
 
 #include "live_curriculum.cuh"
 
-void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
+void live_command(const Args &args, const fs::path &member_checkpoint = {},
+                  const teachers::Authority *teacher_authority = nullptr) {
     args.allow({"data",
                 "out",
                 "checkpoint",
@@ -335,7 +355,10 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
                 "si-strength",
                 "si-damping",
                 "curriculum",
-                "extend-curriculum"});
+                "extend-curriculum",
+                "teacher-bundle",
+                "teacher-memory-mib",
+                "teaching"});
     fs::path out = args.get("out", "runs/live");
     // Population-owned sessions publish directly to the canonical member file.
     // There is one checkpoint authority, including at an interrupted save.
@@ -376,7 +399,7 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
             if (!args.get(k).empty())
                 throw std::runtime_error(std::string("Checkpoint preserves ") + k);
     if (resume) {
-        if ((s.meta[17] < 1 || s.meta[17] > 5) || s.meta[5] != 1)
+        if ((s.meta[17] < 1 || s.meta[17] > 6) || s.meta[5] != 1)
             throw std::runtime_error(
                 "--resume needs a live checkpoint; use --checkpoint to begin a new stream");
         if (!args.get("replay").empty() && !adopt_stage_replay)
@@ -495,6 +518,38 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
         initial_val = evaluate(*evaluator, *validation, eval_batches);
         std::cout << "initial_validation_loss=" << initial_val << "\n";
     }
+    std::unique_ptr<teachers::Bundle> teacher_bundle;
+    bool teacher_admission = false, teacher_mode_changed = false;
+    int teacher_mib = args.num("teacher-memory-mib", 512);
+    require(teacher_mib >= 0 && teacher_mib <= 1048576, "Invalid teacher memory limit");
+    if (!args.get("teacher-bundle").empty()) {
+        require(curriculum && has_grouped_replay(s), "Teacher replay requires a curriculum with stage replay");
+        teacher_bundle = std::make_unique<teachers::Bundle>(args.get("teacher-bundle"));
+        LiveCorpus selected(curriculum->stages.back().corpus);
+        teacher_bundle->selected_prefix(selected);
+        teacher_admission = s.meta[17] != 6;
+        // New live streams can start from a batch checkpoint; record the actual
+        // learner shape before validating the new durable teaching policy.
+        s.meta[5] = engine.root.B;
+        s.meta[6] = engine.root.T;
+        teacher_bundle->bind(s);
+        bool was_active = s.teaching.active();
+        auto mode = args.get("teaching", was_active ? "on" : "off");
+        require(mode == "on" || mode == "off", "--teaching must be on or off");
+        s.teaching.words[2] = mode == "on";
+        teacher_mode_changed = was_active != s.teaching.active();
+        if (teacher_authority)
+            teacher_authority->validate(*teacher_bundle, teacher_admission, s.teaching.active());
+        else
+            require(!s.teaching.words[14], "Population teacher bundle requires population-live");
+        validate_teaching_state(s);
+        if (s.teaching.active() && s.teaching.strength() > 0)
+            engine.teacher_replay = teachers::Replay::create(*teacher_bundle, chunk, uint64_t(teacher_mib) * 1024 * 1024);
+    } else {
+        require(s.meta[17] != 6, "Teacher checkpoint resume requires --teacher-bundle");
+        require(args.get("teaching").empty() && args.get("teacher-memory-mib").empty(),
+                "Teacher settings require --teacher-bundle");
+    }
     fs::create_directories(out);
     if (!resume)
         save(out / "initial.ckpt", engine.root, s);
@@ -502,6 +557,12 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
     std::ofstream transcript(out / "transcript.txt", std::ios::app | std::ios::binary);
     if (!metrics || !transcript)
         throw std::runtime_error("Cannot write live logs");
+    if (teacher_admission || teacher_mode_changed) {
+        metrics << std::setprecision(10) << "{\"event\":\"teacher_policy\",\"admitted\":"
+                << (teacher_admission ? "true" : "false") << ",\"online_update\":" << s.meta[24];
+        teachers::report(metrics, s, engine.teacher_replay.get(), uint64_t(teacher_mib) * 1024 * 1024);
+        metrics << "}\n";
+    }
     if (adopt_stage_replay)
         metrics << "{\"event\":\"replay_policy_conversion\",\"from\":1,\"to\":3,\"online_update\":"
                 << s.meta[24] << ",\"replay_windows_preserved\":" << memory.count()
@@ -525,18 +586,22 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
             << "\",\"curriculum_stage\":" << (curriculum ? s.extra[15] + 1 : 0)
             << ",\"curriculum_base_lr\":" << (curriculum ? s.hp[7] : 0) << ",\"corpus_hash\":\"" << data.hash
             << "\",\"online_first_document\":" << data.first_document
-            << ",\"resume\":" << (resume ? "true" : "false") << "}\n";
+            << ",\"resume\":" << (resume ? "true" : "false");
+    teachers::report(metrics, s, engine.teacher_replay.get(), uint64_t(teacher_mib) * 1024 * 1024);
+    metrics << "}\n";
     std::cout << "live parameters=" << engine.root.a.n
-              << " shared_weights=yes persistent_membranes=yes learning=observed_bytes_only"
+              << " shared_weights=yes persistent_membranes=yes learning="
+              << (engine.teacher_replay ? "observed_bytes_with_teacher_feedback" : "observed_bytes_only")
               << " online_update=" << s.meta[24] << " global_update=" << s.meta[7] << "\n";
     if (engine.root.synapses->active())
         std::cout << "consolidation=si boundary=document_or_curriculum strength="
                   << engine.root.synapses->strength << " damping=" << engine.root.synapses->damping << "\n";
     transcript << "\n[session starts at online update " << s.meta[24] << "]\n";
     std::signal(SIGINT, interrupt_handler);
-    double loss_sum = 0, activity_sum = 0, replay_loss_sum = 0;
-    size_t observed = 0, replayed = 0;
+    double loss_sum = 0, activity_sum = 0, replay_loss_sum = 0, teacher_penalty_sum = 0;
+    size_t observed = 0, replayed = 0, taught_pairs = 0;
     uint64_t start_observed = s.meta[22], start_updates = s.meta[24];
+    uint64_t start_teacher_updates = s.teaching.words[9], start_teacher_pairs = s.teaching.words[10];
     LiveLatency tick_ms, speak_ms;
     auto started = std::chrono::steady_clock::now();
     for (; s.meta[24] < uint64_t(updates);) {
@@ -556,6 +621,8 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
         observed += result.observed;
         replay_loss_sum += result.replay_loss * result.replayed;
         replayed += result.replayed;
+        teacher_penalty_sum += result.teacher_penalty * result.teacher_pairs;
+        taught_pairs += result.teacher_pairs;
         if (!result.speech.empty()) {
             transcript << "\n[online update " << s.meta[24] << "; global update " << s.meta[7] << "]\n"
                        << result.speech << "\n";
@@ -573,7 +640,12 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
                     << ",\"spike_rate\":" << activity << ",\"gradient_norm\":" << result.gradient_norm
                     << ",\"replay_updates\":" << memory.updates() << ",\"replay_pairs\":" << memory.pairs()
                     << ",\"replay_loss\":" << (replayed ? std::to_string(replay_loss_sum / replayed) : "null")
-                    << ",\"consolidation_events\":" << engine.root.synapses->boundaries << "}\n";
+                    << ",\"consolidation_events\":" << engine.root.synapses->boundaries;
+            if (s.meta[17] == 6)
+                metrics << ",\"teacher_updates\":" << s.teaching.words[9]
+                        << ",\"teacher_pairs\":" << s.teaching.words[10]
+                        << ",\"teacher_penalty\":" << (taught_pairs ? std::to_string(teacher_penalty_sum / taught_pairs) : "null");
+            metrics << "}\n";
             metrics.flush();
             std::cout << "online_update=" << s.meta[24] << " loss=" << loss << " spike_rate=" << activity
                       << " observed_pairs=" << s.meta[22] << "\n";
@@ -581,6 +653,8 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
             observed = 0;
             replayed = 0;
             replay_loss_sum = 0;
+            teacher_penalty_sum = 0;
+            taught_pairs = 0;
         }
         if (s.meta[24] % uint64_t(save_every) == 0 || stop || last)
             save(latest, engine.root, s);
@@ -618,8 +692,12 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {}) {
            << ",\"update_and_speech_tick_p95_ms\":" << speak_ms.percentile(.95)
            << ",\"latency_percentile_bin_relative_width\":" << std::exp2(1.0 / 32) - 1
            << ",\"shared_weights\":true,\"persistent_membranes\":true,\"trains_on_generated_text\":false";
-    if (s.meta[17] == 5)
+    if (has_grouped_replay(s))
         StageReplay(s).report(report);
+    teachers::report(report, s, engine.teacher_replay.get(), uint64_t(teacher_mib) * 1024 * 1024);
+    if (s.meta[17] == 6)
+        report << ",\"session_teacher_updates\":" << s.teaching.words[9] - start_teacher_updates
+               << ",\"session_teacher_pairs\":" << s.teaching.words[10] - start_teacher_pairs;
     if (engine.root.synapses->active()) {
         auto importance = engine.root.synapses->importance.host();
         double sum = std::accumulate(importance.begin(), importance.end(), 0.0);

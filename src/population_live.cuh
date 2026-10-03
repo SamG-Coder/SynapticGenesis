@@ -1,6 +1,7 @@
 #pragma once
 #include "evolution.cuh"
 #include "live.cuh"
+#include "population_teachers.cuh"
 
 namespace evolution {
 void live(const Args &args) {
@@ -40,7 +41,8 @@ void live(const Args &args) {
     std::cout << "population_member=" << id << " generation=" << member.generation
               << " simulation_age=" << rules.tick - member.born_tick << '/' << member.lifespan
               << " resume=" << (before.meta[17] ? "yes" : "no") << '\n';
-    live_command(options, checkpoint);
+    TeacherAuthority teacher_authority(root, rules.tick);
+    live_command(options, checkpoint, &teacher_authority);
     State after = header(checkpoint);
     // Population identity and lifespan remain in member.sg. Learning does not
     // reset the individual's age, create a new generation, or self-award fitness.

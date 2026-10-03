@@ -187,6 +187,6 @@ void distillation_test(const Args &args) {
                "\"frozen_teachers_unchanged\":true,\"unequal_teacher_dimensions\":true,"
                "\"extreme_logits_and_zero_probabilities\":true,\"mixture_endpoints\":true,"
                "\"self_teacher\":true,\"invalid_inputs_rejected\":true,"
-               "\"live_policy_implemented\":false,\"learning_quality_claim\":false}";
+               "\"live_policy_exercised\":false,\"learning_quality_claim\":false}";
     std::cout << "PASS distillation: six gradient fixtures, teacher isolation and objective controls\n";
 }

@@ -8,7 +8,7 @@ struct ReplayMemory {
     static constexpr size_t header_words = 16;
     explicit ReplayMemory(State &state) : s(state) {}
     bool extended() const {
-        return s.meta[17] >= 2 && s.meta[17] <= 5;
+        return s.meta[17] >= 2 && s.meta[17] <= 6;
     }
     uint64_t mode() const {
         return extended() ? s.extra[1] : 0;
@@ -17,7 +17,7 @@ struct ReplayMemory {
         return extended() ? s.extra[2] : 0;
     }
     uint64_t count() const {
-        return s.meta[17] == 5 ? StageReplay(s).count()
+        return has_grouped_replay(s) ? StageReplay(s).count()
                                : (extended() ? (s.extra.size() - header_words) / 3 : 0);
     }
     uint64_t updates() const {
@@ -56,7 +56,7 @@ struct ReplayMemory {
             throw std::runtime_error("--core-scale must be in [0,1]");
     }
     Episode at(uint64_t index) const {
-        if (s.meta[17] == 5)
+        if (has_grouped_replay(s))
             return StageReplay(s).at(index);
         size_t start = header_words + size_t(index) * 3;
         return {s.extra.at(start), s.extra.at(start + 1), s.extra.at(start + 2)};
@@ -76,15 +76,15 @@ struct ReplayMemory {
                 throw std::runtime_error("Unsupported live policy version");
             return;
         }
-        if (s.meta[17] == 5) {
+        if (has_grouped_replay(s)) {
             StageReplay(s).validate();
             if (StageReplay(s).value(size_t(s.extra[15]), 0) != data.docs.size())
                 throw std::runtime_error("Stage replay document ranges differ from corpus");
         }
-        if (s.extra.size() < header_words || (s.meta[17] != 5 && (s.extra.size() - header_words) % 3) ||
+        if (s.extra.size() < header_words || (!has_grouped_replay(s) && (s.extra.size() - header_words) % 3) ||
             s.extra[0] != magic)
             throw std::runtime_error("Invalid live replay layout");
-        if (mode() > 3 || (mode() == 3) != (s.meta[17] == 5) || s.extra[3] > 65536 || !s.extra[4] ||
+        if (mode() > 3 || (mode() == 3) != (has_grouped_replay(s)) || s.extra[3] > 65536 || !s.extra[4] ||
             count() > s.extra[3] || count() > s.extra[5] || s.extra[5] != s.meta[24] || s.extra[8] > 1 ||
             updates() > s.meta[24] || updates() > s.meta[7] ||
             (mode() == 0 ? every() != 0 : (every() < 1 || every() > 1000000000ull)) ||

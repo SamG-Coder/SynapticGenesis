@@ -63,7 +63,7 @@ struct Result {
 };
 
 class Targets {
-    int rows_;
+    int rows_, capacity_;
     float temperature_;
     Buf probability_, losses_;
     bool ready_ = false;
@@ -80,26 +80,37 @@ class Targets {
 
   public:
     Targets(int rows, float temperature)
-        : rows_(valid_rows(rows)), temperature_(valid_temperature(temperature)),
+        : rows_(valid_rows(rows)), capacity_(rows_), temperature_(valid_temperature(temperature)),
           probability_(size_t(rows_) * 256), losses_(rows_) {}
+    void set_rows(int rows) {
+        if (rows < 1 || rows > capacity_)
+            throw std::runtime_error("Teacher target prefix exceeds its allocation");
+        rows_ = rows;
+        ready_ = false;
+    }
     size_t gpu_bytes() const {
         return (probability_.n + losses_.n) * sizeof(float);
     }
     std::vector<float> probabilities() const {
         if (!ready_)
             throw std::runtime_error("Teacher targets are not prepared");
-        return probability_.host();
+        auto result = probability_.host();
+        result.resize(size_t(rows_) * 256);
+        return result;
     }
-    void from_logits(const Buf &a, const Buf *b = nullptr, float mixture = .5f) {
+    void from_logits(const Buf &a, const Buf *b = nullptr, float mixture = .5f, bool prefix = false) {
         ready_ = false;
-        if (a.n != probability_.n || (b && b->n != a.n) || !std::isfinite(mixture) || mixture < 0 ||
-            mixture > 1)
+        size_t needed = size_t(rows_) * 256;
+        if ((prefix ? (a.n < needed || a.n % 256) : a.n != needed) ||
+            (b && (prefix ? (b->n < needed || b->n % 256) : b->n != needed)) ||
+            !std::isfinite(mixture) || mixture < 0 || mixture > 1)
             throw std::runtime_error("Invalid teacher logits or mixture");
         prepare<<<rows_, 256>>>(probability_.p, losses_.p, a.p, b ? b->p : nullptr,
                                 temperature_, mixture);
         ck(cudaGetLastError());
-        for (float value : losses_.host())
-            if (value != 0)
+        auto invalid = losses_.host();
+        for (int i = 0; i < rows_; ++i)
+            if (invalid[i] != 0)
                 throw std::runtime_error("Nonfinite teacher logits");
         ready_ = true;
     }

@@ -16,8 +16,18 @@ def checkpoint(path):
 
 def distribution(path, boundaries):
     meta, extra, _, _ = checkpoint(path)
-    start = 17 + 5*extra[16] if meta[17] == 5 else 16
+    start = 17 + 5*extra[16] if meta[17] in (5, 6) else 16
     counts = [0]*len(boundaries)
     for doc in extra[start::3]:
         counts[next(i for i, end in enumerate(boundaries) if doc < end)] += 1
     return counts
+
+
+def teaching(path):
+    """Diagnostic policy view; native loading remains the validation authority."""
+    raw = path.read_bytes()
+    meta = struct.unpack_from('<32Q', raw)
+    if meta[17] != 6:
+        return None
+    offset = 288 + 12*meta[14] + 4*meta[18] + 8*meta[31]
+    return struct.unpack_from('<32Q', raw, offset)

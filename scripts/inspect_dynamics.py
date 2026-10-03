@@ -45,16 +45,18 @@ def inspect(path):
         expected = 256*c + layers*(c + 2*c*h + 2*h + c + (2*h if secondary else 0) + (h*c+h if gated else 0)) + c + 256*c + 256
         if associative:
             expected += layers * (98*h + 98 + 32*c + c)
-        if meta[17] > 5 or (meta[17] < 2 and meta[31]) or meta[31] > (17 + 5*4096 if meta[17] == 5 else 16) + 3*65536:
+        if meta[17] > 6 or (meta[17] < 2 and meta[31]) or meta[31] > (17 + 5*4096 if meta[17] in (5, 6) else 16) + 3*65536:
             raise ValueError('Unsupported live state extension')
         extra = ()
         if meta[17] >= 2:
             f.seek(288 + 12*expected + 4*meta[18])
             extra = struct.unpack(f'<{meta[31]}Q', f.read(8*meta[31]))
-        if meta[17] in (4, 5) and (len(extra) < 16 or extra[9] not in (0, 1) or not extra[14]):
+        if meta[17] in (4, 5, 6) and (len(extra) < 16 or extra[9] not in (0, 1) or not extra[14]):
             raise ValueError('Invalid curriculum state')
-        synaptic_bytes = 12*expected if meta[17] == 3 or (meta[17] in (4, 5) and extra[9]) else 0
-        if meta[14] != expected or path.stat().st_size != 288 + 12*expected + 4*meta[18] + 8*meta[31] + synaptic_bytes:
+        teaching = struct.unpack('<32Q', f.read(256)) if meta[17] == 6 else ()
+        teacher_bytes = 256 if teaching else 0
+        synaptic_bytes = 12*expected if meta[17] == 3 or (meta[17] in (4, 5, 6) and extra[9]) else 0
+        if meta[14] != expected or path.stat().st_size != 288 + 12*expected + 4*meta[18] + 8*meta[31] + teacher_bytes + synaptic_bytes:
             raise ValueError('Checkpoint layout/length mismatch')
         weights = array('f')
         f.seek(288)
@@ -121,11 +123,15 @@ def inspect(path):
                 membranes = states
             result['saved_reset_membrane_absolute_value'] = summary([abs(v) for v in membranes])
             result['saved_reset_membrane_abs_above_one_fraction'] = sum(abs(v) > 1 for v in membranes)/len(membranes)
-        if meta[17] in (4, 5):
+        if meta[17] in (4, 5, 6):
             result['curriculum'] = {'stage': extra[15] + 1, 'policy_hash': str(extra[14]),
                                     'base_learning_rate': hp[7], 'current_learning_rate': hp[0]}
+        if teaching:
+            result['teaching'] = dict(active=bool(teaching[2]), count=teaching[3],
+                                      bundle_hash=str(teaching[4]), eligible_documents=teaching[6],
+                                      updates=teaching[9], pairs=teaching[10])
         if synaptic_bytes:
-            f.seek(288 + 12*expected + 4*meta[18] + 8*meta[31])
+            f.seek(288 + 12*expected + 4*meta[18] + 8*meta[31] + teacher_bytes)
             synapses = array('f')
             synapses.fromfile(f, 3*expected)
             if sys.byteorder != 'little':

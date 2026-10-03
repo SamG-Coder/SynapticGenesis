@@ -707,220 +707,10 @@ struct Model {
         }
     }
 };
+#include "model_memory.cuh"
 #include "distillation.cuh"
 
-struct State {
-    std::array<uint64_t, 32> meta{};
-    std::array<float, 8> hp{};
-    // Version-2 live policy and bounded replay descriptors. meta[31] stores
-    // the number of uint64 words; the payload is appended after membranes.
-    std::vector<uint64_t> extra;
-    // Live extension v3 appends importance, trajectory estimate, reference values.
-    std::vector<float> synaptic;
-    State() {
-        meta[0] = 0x314d4c53434e5042ull;
-        meta[1] = 1;
-        hp[0] = .001f;
-        hp[1] = .01f;
-        hp[2] = 1.f;
-        hp[3] = std::numeric_limits<float>::max();
-    }
-};
-#include "stage_replay.cuh"
-bool has_curriculum(const State &s) {
-    return s.meta[17] == 4 || s.meta[17] == 5;
-}
-bool has_synaptic_history(const State &s) {
-    return s.meta[17] == 3 || (has_curriculum(s) && s.extra.size() >= 16 && s.extra[9] == 1);
-}
-void validate_curriculum_state(const State &s) {
-    if (!has_curriculum(s))
-        return;
-    if (s.extra.size() < 16 || s.extra[9] > 1 || !s.extra[14] || s.extra[15] >= 4096 ||
-        !std::isfinite(s.hp[7]) || s.hp[7] <= 0 || s.hp[7] > .1f)
-        throw std::runtime_error("Invalid curriculum checkpoint policy");
-    if (!s.extra[9])
-        for (int i = 10; i <= 13; ++i)
-            if (s.extra[i])
-                throw std::runtime_error("Disabled curriculum consolidation has nonempty history");
-}
-// meta:
-// magic/version/C/H/L/B/T/step/target_steps/warmup/RNG/seed/train_hash/val_hash/num_params/payload_hash/fast_math.
-template <class T> void write_raw(std::ofstream &f, const T *p, size_t n) {
-    f.write(reinterpret_cast<const char *>(p), std::streamsize(n * sizeof(T)));
-    if (!f)
-        throw std::runtime_error("File write failed");
-}
-template <class T> void read_raw(std::ifstream &f, T *p, size_t n) {
-    f.read(reinterpret_cast<char *>(p), std::streamsize(n * sizeof(T)));
-    if (!f)
-        throw std::runtime_error("Truncated or unreadable file");
-}
-// Live checkpoints append the recurrent state and also protect the cursor,
-// hyperparameters and RNG metadata. Ordinary v1 checkpoints stay compatible.
-uint64_t live_hash(const State &s, const std::vector<float> &membranes, uint64_t hash) {
-    if (!s.meta[17])
-        return hash;
-    hash = hash_bytes(membranes.data(), membranes.size() * 4, hash);
-    auto meta = s.meta;
-    meta[15] = 0;
-    hash = hash_bytes(meta.data(), meta.size() * 8, hash);
-    hash = hash_bytes(s.hp.data(), s.hp.size() * 4, hash);
-    hash = hash_bytes(s.extra.data(), s.extra.size() * 8, hash);
-    return hash_bytes(s.synaptic.data(), s.synaptic.size() * 4, hash);
-}
-void save(const fs::path &path, Model &m, State &s) {
-    auto w = m.w.host(), mo = m.m.host(), vo = m.v.host();
-    auto membranes = s.meta[17] ? m.membranes() : std::vector<float>{};
-    s.meta[1] = m.q.cell;
-    s.meta[2] = m.q.c;
-    s.meta[3] = m.q.h;
-    s.meta[4] = m.q.l;
-    s.meta[5] = m.B;
-    s.meta[6] = m.T;
-    s.meta[14] = m.a.n;
-    s.meta[18] = membranes.size();
-    if (s.meta[17] >= 2)
-        s.meta[31] = s.extra.size();
-    else if (!s.extra.empty())
-        throw std::runtime_error("Extended state requires live checkpoint version 2 through 5");
-    validate_curriculum_state(s);
-    if (s.meta[17] == 5)
-        StageReplay(s).validate();
-    if (has_synaptic_history(s)) {
-        if (!m.synapses->active() || s.extra.size() < 16)
-            throw std::runtime_error("Missing synaptic state for enabled live consolidation");
-        s.extra[9] = 1; // SI policy version.
-        s.extra[10] = float_word(m.synapses->strength);
-        s.extra[11] = float_word(m.synapses->damping);
-        s.extra[12] = m.synapses->boundaries;
-        s.extra[13] = m.synapses->updates;
-        s.synaptic = m.synapses->host();
-    } else if (m.synapses->active() || !s.synaptic.empty())
-        throw std::runtime_error("Synaptic state requires an enabled consolidation policy");
-    uint64_t hash = hash_bytes(w.data(), w.size() * 4);
-    hash = hash_bytes(mo.data(), mo.size() * 4, hash);
-    hash = hash_bytes(vo.data(), vo.size() * 4, hash);
-    s.meta[15] = live_hash(s, membranes, hash);
-    if (!path.parent_path().empty())
-        fs::create_directories(path.parent_path());
-    auto temp = path;
-    temp += ".tmp";
-    std::ofstream f(temp, std::ios::binary | std::ios::trunc);
-    write_raw(f, s.meta.data(), 32);
-    write_raw(f, s.hp.data(), 8);
-    write_raw(f, w.data(), w.size());
-    write_raw(f, mo.data(), mo.size());
-    write_raw(f, vo.data(), vo.size());
-    if (!membranes.empty())
-        write_raw(f, membranes.data(), membranes.size());
-    if (!s.extra.empty())
-        write_raw(f, s.extra.data(), s.extra.size());
-    if (!s.synaptic.empty())
-        write_raw(f, s.synaptic.data(), s.synaptic.size());
-    f.close();
-    if (!f)
-        throw std::runtime_error("Checkpoint flush failed");
-    // Keep the previous checkpoint if replacing an existing file fails.
-    if (fs::exists(path)) {
-        auto prev = path;
-        prev += ".previous";
-        if (fs::exists(prev))
-            fs::remove(prev);
-        fs::rename(path, prev);
-        try {
-            fs::rename(temp, path);
-        } catch (...) {
-            fs::rename(prev, path);
-            throw;
-        }
-        fs::remove(prev);
-    } else
-        fs::rename(temp, path);
-}
-State header(const fs::path &path) {
-    std::ifstream f(path, std::ios::binary);
-    State s;
-    read_raw(f, s.meta.data(), 32);
-    read_raw(f, s.hp.data(), 8);
-    if (s.meta[0] != 0x314d4c53434e5042ull || s.meta[1] < 1 || s.meta[1] > 6)
-        throw std::runtime_error("Unsupported checkpoint architecture/version");
-    for (int i = 2; i <= 9; ++i)
-        if (s.meta[i] > 1000000000ull)
-            throw std::runtime_error("Invalid checkpoint metadata");
-    return s;
-}
-void load(const fs::path &path, Model &m, State &s, bool restore_runtime = false) {
-    s = header(path);
-    if (s.meta[1] != uint64_t(m.q.cell) || s.meta[2] != uint64_t(m.q.c) || s.meta[3] != uint64_t(m.q.h) ||
-        s.meta[4] != uint64_t(m.q.l) || s.meta[14] != m.a.n)
-        throw std::runtime_error("Checkpoint model dimensions differ");
-    if (s.meta[17] > 5 || (!s.meta[17] && s.meta[18]) ||
-        (s.meta[17] &&
-         (s.meta[5] < 1 || s.meta[5] > 256 || s.meta[18] != m.q.recurrent_per_layer(int(s.meta[5])) * m.q.l)))
-        throw std::runtime_error("Invalid live checkpoint dimensions/version");
-    if ((s.meta[17] < 2 && s.meta[31]) || s.meta[31] > (s.meta[17] == 5 ? 17 + 5 * 4096 : 16) + 3 * 65536)
-        throw std::runtime_error("Invalid extended checkpoint length");
-    if (restore_runtime && (!s.meta[17] || s.meta[5] != uint64_t(m.B)))
-        throw std::runtime_error("No compatible live state in checkpoint");
-    // Read the bounded policy before deciding whether a v4 file has SI arrays.
-    std::ifstream f(path, std::ios::binary);
-    f.seekg(std::streamoff(288 + 12 * m.a.n + 4 * s.meta[18]));
-    s.extra.resize(size_t(s.meta[31]));
-    if (!s.extra.empty())
-        read_raw(f, s.extra.data(), s.extra.size());
-    validate_curriculum_state(s);
-    if (s.meta[17] == 5)
-        StageReplay(s).validate();
-    size_t synaptic_count = has_synaptic_history(s) ? 3 * m.a.n : 0;
-    if (fs::file_size(path) != 288 + 12 * m.a.n + 4 * s.meta[18] + 8 * s.meta[31] + 4 * synaptic_count)
-        throw std::runtime_error("Checkpoint length mismatch");
-    f.seekg(288);
-    std::vector<float> w(m.a.n), mo(m.a.n), vo(m.a.n), membranes(size_t(s.meta[18]));
-    read_raw(f, w.data(), w.size());
-    read_raw(f, mo.data(), mo.size());
-    read_raw(f, vo.data(), vo.size());
-    if (!membranes.empty())
-        read_raw(f, membranes.data(), membranes.size());
-    f.seekg(std::streamoff(288 + 12 * m.a.n + 4 * s.meta[18] + 8 * s.meta[31]));
-    s.synaptic.resize(synaptic_count);
-    if (synaptic_count)
-        read_raw(f, s.synaptic.data(), s.synaptic.size());
-    uint64_t h = hash_bytes(w.data(), w.size() * 4);
-    h = hash_bytes(mo.data(), mo.size() * 4, h);
-    h = hash_bytes(vo.data(), vo.size() * 4, h);
-    h = live_hash(s, membranes, h);
-    if (h != s.meta[15])
-        throw std::runtime_error("Checkpoint checksum mismatch");
-    for (auto *v : {&w, &mo, &vo, &membranes, &s.synaptic})
-        for (float x : *v)
-            if (!std::isfinite(x))
-                throw std::runtime_error("Nonfinite checkpoint parameter");
-    if (synaptic_count) {
-        if (s.extra.size() < 16 || s.extra[9] != 1 || (s.meta[17] == 3 && (s.extra[14] || s.extra[15])) ||
-            s.extra[12] > s.meta[24] || s.extra[13] != s.meta[24] + s.extra[6])
-            throw std::runtime_error("Invalid synaptic checkpoint policy/counters");
-        float strength = word_float(s.extra[10]), damping = word_float(s.extra[11]);
-        if (!std::isfinite(strength) || strength < 0 || strength > 1000000 || !std::isfinite(damping) ||
-            damping <= 0 || damping > 1 ||
-            std::any_of(s.synaptic.begin(), s.synaptic.begin() + m.a.n, [](float x) { return x < 0; }))
-            throw std::runtime_error("Invalid synaptic checkpoint values");
-    }
-    // Loading into an existing shared runtime must not keep stale importance.
-    *m.synapses = SynapticMemory{};
-    m.w.put(w);
-    m.m.put(mo);
-    m.v.put(vo);
-    if (restore_runtime) {
-        m.membranes(membranes);
-        if (synaptic_count) {
-            m.synapses->initialize(m.w, word_float(s.extra[10]), word_float(s.extra[11]));
-            m.synapses->put(s.synaptic);
-            m.synapses->boundaries = s.extra[12];
-            m.synapses->updates = s.extra[13];
-        }
-    }
-}
+#include "checkpoint.cuh"
 struct Data {
     std::vector<unsigned char> bytes;
     std::vector<size_t> start, ends;
@@ -1445,6 +1235,7 @@ void self_test(const Args &args) {
 #include "synaptic_tests.cuh"
 #include "test_fixtures.cuh"
 #include "distillation_tests.cuh"
+#include "teacher_replay_tests.cuh"
 int main(int argc, char **argv) {
     try {
         std::cout.setf(std::ios::unitbuf);
@@ -1491,7 +1282,11 @@ int main(int argc, char **argv) {
                 << "synapticgenesis evolve --population runs/population --data validation.dat "
                    "--round generation-1 --children 2 --seed 1337\n"
                 << "synapticgenesis population-live --population runs/population --id generation-1-child-0 "
-                   "--curriculum curriculum.sg --validation validation.dat\n";
+                   "--curriculum curriculum.sg --validation validation.dat\n"
+                << "synapticgenesis teacher-pack --teacher-a parent-a.ckpt [--teacher-b parent-b.ckpt] "
+                   "--data selected-prefix.dat --out runs/teachers [--temperature 2 --strength .5 --mixture .5]\n"
+                << "synapticgenesis live --curriculum curriculum.sg --replay stage --teacher-bundle "
+                   "runs/teachers --out runs/taught [--teacher-memory-mib 512 --teaching on]\n";
             return 0;
         }
         Args args(argc, argv);
@@ -1544,6 +1339,8 @@ int main(int argc, char **argv) {
             feedback_test(args);
         else if (cmd == "distillation-test")
             distillation_test(args);
+        else if (cmd == "teacher-replay-test")
+            teacher_replay_test(args);
         else if (cmd == "retention-bench")
             retention_bench(args);
         else if (cmd == "synaptic-test")
@@ -1552,6 +1349,8 @@ int main(int argc, char **argv) {
             evolution::add(args);
         else if (cmd == "population-live")
             evolution::live(args);
+        else if (cmd == "teacher-pack")
+            teacher_pack_command(args);
         else if (cmd == "evolve")
             evolution::run(args);
         else if (cmd == "evolution-test")

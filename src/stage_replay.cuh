@@ -45,7 +45,7 @@ struct StageReplayView {
         return {s.extra.at(at), s.extra.at(at + 1), s.extra.at(at + 2)};
     }
     void validate() const {
-        if (s.meta[17] != 5 || s.extra.size() < prefix_words || s.extra[1] != 3 || groups() < 1 ||
+        if (!has_grouped_replay(s) || s.extra.size() < prefix_words || s.extra[1] != 3 || groups() < 1 ||
             groups() > 4096 || groups() > s.extra[3] || s.extra[3] > 65536 || s.extra.size() < begin() ||
             (s.extra.size() - begin()) % 3)
             throw std::runtime_error("Invalid stage replay layout");
