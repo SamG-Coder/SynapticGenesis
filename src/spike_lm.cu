@@ -587,8 +587,7 @@ void train(const Args &args) {
     s.meta[20] = burn_policy == "reset";
     std::unique_ptr<Model> history;
     if (burn_in) {
-        history = std::make_unique<Model>(q, B, burn_in);
-        history->share_runtime(model);
+        history = std::make_unique<Model>(model, burn_in, ModelViewState::shared);
         history->fast(s.meta[16] != 0);
     }
     s.meta[12] = data.hash;

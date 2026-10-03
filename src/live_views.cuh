@@ -1,5 +1,5 @@
-// Sequential live execution reuses one gradient/optimizer workspace. Cached
-// shapes own only their activation scratch and, for replay, reset-state memory.
+// Sequential live execution and scoring reuse one gradient/optimizer workspace.
+// Cached shapes own activation scratch and, when requested, independent state.
 #pragma once
 class LiveViews {
     std::map<int, std::unique_ptr<Model>> views_;

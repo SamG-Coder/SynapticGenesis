@@ -149,6 +149,37 @@ void aliases(const Model &owner, const Model &view, bool shared) {
                     "Execution view associative state ownership differs");
     }
 }
+int scorer_allocation_test() {
+    int cases = 0;
+    for (int cell = 1; cell <= 6; ++cell) {
+        require(!ledger.live, "Float buffers survived prior scorer allocation case");
+        probes::Scorer scorer(Config{32,64,2,cell});
+        seed(scorer.root);
+        Snapshot before(scorer.root);
+        const uint64_t baseline = ledger.live;
+        ledger.begin(scorer.root.a.n * 4);
+        for (int length : {11,19,31,47,59,67,11,19,31}) {
+            auto &view = scorer.view(length);
+            aliases(scorer.root, view, true);
+            before.same(scorer.root);
+            require(scorer.views.size() <= LiveViews::capacity && !ledger.watched_calls,
+                    "Scorer retained too many shapes or allocated a parameter array");
+            uint64_t expected = baseline;
+            for (const auto &entry : scorer.views) {
+                const auto &cached = *entry.second;
+                // explicit_model_bytes includes the shared arrays and raw
+                // integer token buffers; the observer counts float ownership.
+                expected += explicit_model_bytes(cached) - uint64_t(cached.N) * 2 * sizeof(int) -
+                            20 * cached.a.n - 4 * cached.q.recurrent_per_layer(cached.B) * cached.q.l;
+            }
+            require(expected == ledger.live, "Scorer retained unexpected float buffers after eviction");
+        }
+        require(scorer.views.size() == LiveViews::capacity, "Scorer fixture did not fill its cache");
+        ++cases;
+    }
+    require(!ledger.live && !ledger.underflow, "Scorer float allocations were not released");
+    return cases;
+}
 void self_test(const fs::path &out) {
     std::ostringstream allocation_rows;
     int allocation_cases = 0, numerical_cases = 0, owner_rejections = 0;
@@ -248,14 +279,18 @@ void self_test(const fs::path &out) {
         }
     }
     require(!ledger.live && !ledger.underflow, "Diagnostic float allocations were not released");
+    int scorer_cases = scorer_allocation_test();
     std::ostringstream report;
     report << "{\"passed\":true,\"allocation_cases\":[" << allocation_rows.str()
            << "],\"numerical_cases\":" << numerical_cases << ",\"owner_rejections\":" << owner_rejections
+           << ",\"scorer_cache_cases\":" << scorer_cases
+           << ",\"scorer_shape_accesses\":" << scorer_cases * 9
            << ",\"forward_backward_optimizer_state_exact\":true,\"owner_lifetime_checked\":true,"
               "\"float_buffers_released\":true,\"whole_process_peak_measured\":false}";
     write(out, "self-test.json", report.str());
     std::cout << "PASS CUDA: " << allocation_cases << " allocation cases, " << numerical_cases
-              << " exact numerical/lifetime cases, " << owner_rejections << " owner guards\n";
+              << " exact numerical/lifetime cases, " << owner_rejections << " owner guards, "
+              << scorer_cases << " bounded scorer cases\n";
 }
 void measure(const Args &args, const fs::path &out) {
     Config q{args.num("channels",1024), args.num("hidden",4096), args.num("layers",8), 6};

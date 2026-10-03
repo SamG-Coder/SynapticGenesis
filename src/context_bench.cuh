@@ -11,9 +11,8 @@ void context_bench(const Args &args) {
                 batches <= 10000,
             "Invalid context benchmark limits");
     Data data(args.get("data"), prefix + T);
-    Model history(q, B, prefix), target(q, B, T);
+    Model history(q, B, prefix), target(history, T, ModelViewState::shared);
     load(args.get("checkpoint"), history, s);
-    target.share_runtime(history);
     std::vector<int> full_x, full_y, px, x, y;
     uint64_t rng = 712367;
     double warm_loss = 0, reset_loss = 0, no_adaptation_loss = 0, adaptation_sum = 0;

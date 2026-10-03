@@ -3,7 +3,9 @@
 Status: **research branch; native builds and CPU preflight passed; CUDA checks
 pending**. This candidate is not yet merged into the training runtime. The
 [host verification record](../reports/live-view-construction-host.json) identifies
-the tested sources, executables and completed checks. The existing replay and
+the first candidate's tested sources, executables and completed checks. The
+[evaluation extension](shared-evaluation-views.md) records the subsequent
+candidate and additional pending caller/cache checks. The existing replay and
 early-width studies keep their pinned binaries and inputs.
 
 The [411M capacity calculation](next-capacity.md) identified temporary duplication
