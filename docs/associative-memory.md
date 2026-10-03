@@ -49,3 +49,19 @@ python tests/population_cli.py --cell associative --out runs/associative-scarcit
 Numerical and lifecycle correctness do not establish better language learning. This cell remains optional, with LIF still the default. A controlled learning comparison must report reading retention, held-out binding answers, live cost and any regressions together.
 
 The [recorded validation](../reports/associative-validation.json) passes 15 native suites and 13 independent CPU gradient fixtures. The unweighted associative fixture's maximum logit/gradient errors are `8.94e-8` / `3.73e-8`; weighted errors are `1.04e-7` / `1.19e-7`. Its chunk/step maximum state-or-logit difference is `1.29e-6`, graph/step difference zero, and saved live learning resumes exactly on this GPU. Existing selective-cell float fixtures remain byte-identical to the archived pre-change binary. Broader learned-model threshold sensitivity remains subject to the [previous numerical finding](curriculum-order.md#numerical-finding-and-independent-audit).
+
+## Declared learning screen
+
+The first comparison uses seeds 1337, 2026 and 31415 with three arms: selective H512 (1,716,736 parameters), associative H512 (1,951,624), and selective H588 (1,951,728). The wider selective arm has 104 more parameters than the associative arm, providing an approximate parameter-count control. Every model starts from random weights; same-sized arms share their initial common parameters, not a trained ancestor.
+
+All receive the same selected diversity material: 6,000 reading observations, 4,000 one-object prerequisites and 24,000 two-object binding observations. The source order, 128-byte chunks, learning rates (`0.0003` then one quarter), answer emphasis (64), stage replay (1,024 slots, every fourth observation) and graph speech (96 bytes every 500 observations) match. Arms rotate execution order across seeds. Models can generate different content, which enters their continuing recurrent streams.
+
+The primary endpoint is complete-group accuracy on the original development binding assay after 34,000 observations. Secondary measures are unconstrained four-byte answers, original and expanded training monitors, earlier-reader loss change since 10,000 observations, live-loop time and strict-FP32 graph decoding. The reader and binding test partitions remain reserved. This is an early screen with fewer binding observations than distinct selected binding documents; it cannot establish convergence, optimal hyperparameters or general conversation.
+
+```powershell
+python scripts/associative_experiment.py --smoke --out runs/associative-screen-smoke
+python scripts/associative_experiment.py --out runs/associative-screen-panel
+python tests/binding_learned_oracle.py --root runs/associative-screen-panel
+```
+
+The driver writes protocol and source/executable identities before training, journals each command, preserves the prerequisite and final checkpoints, checks matched exposure/replay counts and authenticates its inputs again at completion. The smoke run verifies orchestration only.

@@ -35,6 +35,7 @@ def check(root):
     fixture = development_rows(data['protocol'])[:4]
     assert len({row['pair'] for row in fixture}) == 1
     final_update = data['protocol']['online_endpoints'][-1]
+    parameter_counts = sorted({row['parameters'] for row in data['runs'] if row['online_updates'] == final_update})
     records, failures = [], []
     for seed in data['protocol']['seeds']:
         for arm in data['protocol']['arms']:
@@ -60,10 +61,12 @@ def check(root):
                                 greedy_answers_identical=True, checkpoint_sha256=identity))
             print(f'{seed} {arm}: CPU score error {error:.8g}, greedy answers identical', flush=True)
     result = dict(passed=not failures, fixed_development_group=fixture[0]['pair'],
-                  all_final_models_checked=True, parameters=declared['parameters'],
+                  all_final_models_checked=True, parameters=parameter_counts[0] if len(parameter_counts) == 1 else None,
                   full_and_context_erased_scores_checked=True, checkpoint_files_unchanged=True,
                   reserved_test_not_evaluated=True, records=records,
                   interpretation='Numerical sanity check of one fixed group per model, not an independent quality benchmark.')
+    if len(parameter_counts) > 1:
+        result['parameter_counts'] = parameter_counts
     if failures:
         result['failed_score_tolerance'] = failures
     (root/'learned-oracle.json').write_text(json.dumps(result, indent=2)+'\n')

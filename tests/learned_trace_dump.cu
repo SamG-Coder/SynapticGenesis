@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
         require(text.size() >= 2 && text.size() <= 4097, "Invalid diagnostic input size");
         State state = header(checkpoint);
         probes::Scorer scorer(checkpoint_config(state));
-        require(scorer.root.q.selective(), "This diagnostic requires the selective cell");
+        require(scorer.root.q.cell == 5, "This diagnostic requires the selective cell");
         load(checkpoint, scorer.root, state);
         std::vector<int> x, y;
         for (size_t i = 0; i + 1 < text.size(); ++i) {

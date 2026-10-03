@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "execution": {
+    "passed": true,
+    "seeds": [
+      1337
+    ],
+    "native_commands": 18,
+    "model_count": 3,
+    "shared_initial_parameters_exact": true,
+    "exposure_and_replay_counts_match": true,
+    "graph_generation_exact": true,
+    "smoke_only": true,
+    "learning_quality_claim": false
+  },
+  "cpu_oracle": {
+    "passed": true,
+    "fixed_development_group": "key-hat-box-bag-o0-s0-q0",
+    "all_final_models_checked": true,
+    "parameters": null,
+    "full_and_context_erased_scores_checked": true,
+    "checkpoint_files_unchanged": true,
+    "reserved_test_not_evaluated": true,
+    "records": [
+      {
+        "seed": 1337,
+        "arm": "selective",
+        "items": 4,
+        "oracle_max_score_error": 9.53697876227011e-07,
+        "greedy_answers_identical": true,
+        "checkpoint_sha256": "8faff27eea53818bb1d8f2c72d5b8480eef9a5a896b3a88429466ac8c4d7902d"
+      },
+      {
+        "seed": 1337,
+        "arm": "wide-selective",
+        "items": 4,
+        "oracle_max_score_error": 9.53679515802719e-07,
+        "greedy_answers_identical": true,
+        "checkpoint_sha256": "fe11e29e91d0e990fdb25cc80d0d4a51aeb76c3869807978b8bb79f2c97590bf"
+      },
+      {
+        "seed": 1337,
+        "arm": "associative",
+        "items": 4,
+        "oracle_max_score_error": 1.5497448604406827e-06,
+        "greedy_answers_identical": true,
+        "checkpoint_sha256": "8bbcc3e2d4b5463d33de1963fd1ce7513a6a5d033a02816c618b66180b0743d8"
+      }
+    ],
+    "interpretation": "Numerical sanity check of one fixed group per model, not an independent quality benchmark.",
+    "parameter_counts": [
+      1716736,
+      1951624,
+      1951728
+    ]
+  },
+  "comparison_sha256": "a679e68282b7c18eaaf60e0d03bdaae78f972503cb678b2ead1ba1fa8e23354a",
+  "executable_sha256": "41a43f3ca3a69ba0770c2dd3a81dade9771ba35830730c07422693164c1dac88"
+}
