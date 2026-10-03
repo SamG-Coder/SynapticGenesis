@@ -125,9 +125,11 @@ To reproduce the localized case after the full study, build the diagnostic separ
 
 ```powershell
 .\build.ps1 -TraceDiagnostic
-python tests/learned_threshold.py --prepare --root runs/curriculum-order-threshold-check
+python tests/learned_threshold.py --prepare --root runs/curriculum-order-threshold-check --exe runs/legacy-b0/synapticgenesis.exe
 python tests/probes_cli.py --exe build/synapticgenesis.exe --out runs/curriculum-order-reference-hooks-check
 python scripts/summarize_order.py
 ```
 
 The optional executable is `build/trace-diagnostic/synaptic-trace-diagnostic.exe`. `learned_threshold.py` prepares the exact fixed questions, journals the native repeat and four trace dumps, then performs the single-spike intervention. It targets this published seed/arm discrepancy; it is not a general replacement for the strict CPU oracle. Training, saved checkpoints and the study's executable remain unchanged.
+
+After later runtime updates, `--exe` must identify the preserved study executable whose hash matches this protocol. The path above is the local archive used for this comparison. The shared trace-comparison helper also serves the [associative diagnostic](associative-long.md); extracting it reproduces all four cases and 104 native float files exactly.

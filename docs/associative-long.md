@@ -21,7 +21,7 @@ The remaining settings match the early screen: 128-byte chunks, base learning ra
 - Independent numerics: the existing CPU reference checks one fixed four-question development group per final model. Its strict score tolerance remains `3e-5`. This is not a full CPU audit; hard spike thresholds can amplify small arithmetic differences, which must be reported if observed.
 - Early-history control: compare learned weights, Adam arrays and recurrent payloads at observations 10,000 and 34,000 with the archived early-screen files. The new models are trained from scratch; those files supply comparison evidence only. Complete checkpoint files differ because they declare different future schedules.
 
-The binding test partition and the reserved reader remain unused. This assay concerns two object locations and `box.`/`bag.` responses; success would not establish general conversation, human developmental ages or open-ended reasoning. Three seeds do not support a broad reliability claim, and this is not a hyperparameter search. Higher reading loss after binding remains a retention regression even if binding improves.
+The binding test partition and the reserved reader remain unused. This assay concerns two object locations, with two answer candidates drawn from `box.`, `bag.`, `bed.` and `car.`; success would not establish general conversation, human developmental ages or open-ended reasoning. Three seeds do not support a broad reliability claim, and this is not a hyperparameter search. Higher reading loss after binding remains a retention regression even if binding improves.
 
 ## Reproduce
 
@@ -64,7 +64,9 @@ The associative mean is 28.70 percentage points above the smaller control and 20
 
 ![Every seed, reading retention and runtime](../reports/associative-long-comparison.png)
 
-The final associative original/expanded training-monitor means are 98.23%/98.69%; the original development assay contains 144 four-question groups, or 576 questions. Its candidate ranking and unconstrained four-byte answers agree on complete groups. Individual context-erased answer accuracy remains exactly 50% for every model. The assay tests changed object locations with `box.`/`bag.` answers; it does not measure general conversation.
+The final associative original/expanded training-monitor means are 98.23%/98.69%; the original development assay contains 144 four-question groups, or 576 questions. Its candidate ranking and unconstrained four-byte answers agree on complete groups. Individual context-erased answer accuracy remains exactly 50% for every model. The assay tests changed object locations within four location words; it does not measure general conversation.
+
+The archived early/long protocol text incorrectly names only box/bag. The unchanged [source specification](../data/lessons-binding-v2.json) and all executed assessments include box, bag, bed and car. The prose and plot captions are corrected; archived protocol identities and measured results remain unchanged.
 
 The associative models have greater earlier-reader loss increases than both controls in **every seed**. Mean absolute final reader losses are 2.6109, 2.6278 and 2.7478 for smaller, wider and associative models. Saved samples from `The bird ` still repeat location/answer formats and contain malformed prose. Strong binding therefore does not justify promoting this cell as a better general learner. The [separately selected narrative books](story-corpus.md) are not part of this experiment.
 
@@ -94,7 +96,7 @@ The history intervention tests the contribution of associations across bytes bey
 
 `tests/associative_history.py` records the protocol and source hashes before intervention, saves all scores and generated answers, and reports strict CPU/native numerical failures without loosening the `3e-5` tolerance. Literal overwrite/decay controls check the interventions and preserve the output bias. The runtime implementation is unchanged.
 
-The [control validation](../reports/associative-history-validation.json) passes all three literal modes and both default CPU autograd fixtures. Learned-model intervention results remain pending.
+The [control validation](../reports/associative-history-validation.json) passes all three literal modes and both default CPU autograd fixtures. The [completed learned-model intervention](associative-history.md) reduces mean complete-group accuracy from 99.77% to 0% when matrix history is cleared, and to 0.23% with zero reads. All 1,728 normal-path CPU answer choices and generated answers match CUDA, but 46 questions exceed the strict score tolerance. The report retains those failures and a localized single-spike explanation for one case.
 
 ```powershell
 python tests/associative_history.py --fixtures-only

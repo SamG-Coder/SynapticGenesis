@@ -59,7 +59,7 @@ def run(exe, out, prepared, smoke=False, longitudinal=False):
         reserved_test_evaluated=False,
         limits=f'Three-seed comparison at {final_end-common_end} binding observations. '
                'No hyperparameter search or selection by intermediate results. The assay uses two candidate '
-               'answers and four-byte box/bag generation, not general language. '
+               'answers and four-byte location generation, not general language. '
                'The entire final stage is declared from birth; no replay stage is appended to extend exposure.')
     write(out/'protocol.json', protocol)
     native = NativeCommands(exe, out)

@@ -1,0 +1,554 @@
+{
+  "protocol": {
+    "status": "declared_before_intervention",
+    "architecture": "associative",
+    "seeds": [
+      1337,
+      2026,
+      31415
+    ],
+    "online_endpoint": 130000,
+    "questions": 576,
+    "groups": 144,
+    "modes": [
+      "normal",
+      "discard_history",
+      "zero_read"
+    ],
+    "full_development": true,
+    "reference_source_sha256": {
+      "tests/associative_reference.py": "695da51d9560d01821b5da3cab63d3c27005543b51acf709231f89b40f3a61f2",
+      "tests/probes_cli.py": "1bb5c7ece07850a61c292312c6b15735649a98041f2805899924a565095b1609",
+      "tests/associative_history.py": "016348b4351ae977c33a57b6deab07ccecfdd58b03c5c4d4280a7b6f489f3529"
+    },
+    "probe_sha256": "48f9c8cff84b39875da8349b74cfddf0a8c45e67a9e0e90c54688ff2547ca964",
+    "learning_comparison_sha256": "c8db863c378303ce7781f054816b4e0a6b3729577f4251c122535c27398276b6",
+    "numerical_tolerance": 3e-05,
+    "reserved_test_evaluated": false,
+    "model_parameters_changed": false,
+    "motivation": "Exploratory follow-up planned after observing seed 1337 binding improvement and forgetting. Tests reliance on fast matrix history in the trained model, not superiority during learning.",
+    "modes_definition": {
+      "normal": "Unmodified CPU equations, also compared with all native development results.",
+      "discard_history": "Clear only matrix history before every byte; keep current-byte write/read, projection weights and bias.",
+      "zero_read": "Zero the matrix read vector before output projection; retain its bias and all other model equations."
+    },
+    "limits": "Interventions change downstream activation distributions. No retraining, hyperparameter selection or biological-memory claim. CPU threshold disagreements must be reported."
+  },
+  "controls": {
+    "passed": true,
+    "literal_modes": [
+      "normal",
+      "discard_history",
+      "zero_read"
+    ],
+    "output_bias_preserved": true,
+    "default_mode_unchanged": true,
+    "invalid_mode_rejected": true
+  },
+  "rows": [
+    {
+      "seed": 1337,
+      "mode": "normal",
+      "checkpoint_sha256": "b518dac1dfc7c28fe4d7e3bb80be314f5fbd49527cf15c39468b023a57581894",
+      "items": 576,
+      "groups": 144,
+      "accuracy": 1.0,
+      "context_erased_accuracy": 0.5,
+      "joint_accuracy": 1.0,
+      "greedy_joint_accuracy": 1.0,
+      "native_joint_accuracy": 1,
+      "native_greedy_joint_accuracy": 1
+    },
+    {
+      "seed": 1337,
+      "mode": "discard_history",
+      "checkpoint_sha256": "b518dac1dfc7c28fe4d7e3bb80be314f5fbd49527cf15c39468b023a57581894",
+      "items": 576,
+      "groups": 144,
+      "accuracy": 0.5121527777777778,
+      "context_erased_accuracy": 0.5,
+      "joint_accuracy": 0.0,
+      "greedy_joint_accuracy": 0.0,
+      "native_joint_accuracy": 1,
+      "native_greedy_joint_accuracy": 1
+    },
+    {
+      "seed": 1337,
+      "mode": "zero_read",
+      "checkpoint_sha256": "b518dac1dfc7c28fe4d7e3bb80be314f5fbd49527cf15c39468b023a57581894",
+      "items": 576,
+      "groups": 144,
+      "accuracy": 0.4965277777777778,
+      "context_erased_accuracy": 0.5,
+      "joint_accuracy": 0.0,
+      "greedy_joint_accuracy": 0.0,
+      "native_joint_accuracy": 1,
+      "native_greedy_joint_accuracy": 1
+    },
+    {
+      "seed": 2026,
+      "mode": "normal",
+      "checkpoint_sha256": "eadbc6f0e2a9b53e3741669c527a0a4179b635beaeda4577077e559c84524f13",
+      "items": 576,
+      "groups": 144,
+      "accuracy": 1.0,
+      "context_erased_accuracy": 0.5,
+      "joint_accuracy": 1.0,
+      "greedy_joint_accuracy": 1.0,
+      "native_joint_accuracy": 1,
+      "native_greedy_joint_accuracy": 1
+    },
+    {
+      "seed": 2026,
+      "mode": "discard_history",
+      "checkpoint_sha256": "eadbc6f0e2a9b53e3741669c527a0a4179b635beaeda4577077e559c84524f13",
+      "items": 576,
+      "groups": 144,
+      "accuracy": 0.4965277777777778,
+      "context_erased_accuracy": 0.5,
+      "joint_accuracy": 0.0,
+      "greedy_joint_accuracy": 0.0,
+      "native_joint_accuracy": 1,
+      "native_greedy_joint_accuracy": 1
+    },
+    {
+      "seed": 2026,
+      "mode": "zero_read",
+      "checkpoint_sha256": "eadbc6f0e2a9b53e3741669c527a0a4179b635beaeda4577077e559c84524f13",
+      "items": 576,
+      "groups": 144,
+      "accuracy": 0.5017361111111112,
+      "context_erased_accuracy": 0.5,
+      "joint_accuracy": 0.006944444444444444,
+      "greedy_joint_accuracy": 0.006944444444444444,
+      "native_joint_accuracy": 1,
+      "native_greedy_joint_accuracy": 1
+    },
+    {
+      "seed": 31415,
+      "mode": "normal",
+      "checkpoint_sha256": "ccf310f157472280c1916fa3c5eebd63fe902c17c6750fbddaa6f30305403ba5",
+      "items": 576,
+      "groups": 144,
+      "accuracy": 0.9982638888888888,
+      "context_erased_accuracy": 0.5,
+      "joint_accuracy": 0.9930555555555556,
+      "greedy_joint_accuracy": 0.9930555555555556,
+      "native_joint_accuracy": 0.993055555556,
+      "native_greedy_joint_accuracy": 0.993055555556
+    },
+    {
+      "seed": 31415,
+      "mode": "discard_history",
+      "checkpoint_sha256": "ccf310f157472280c1916fa3c5eebd63fe902c17c6750fbddaa6f30305403ba5",
+      "items": 576,
+      "groups": 144,
+      "accuracy": 0.5034722222222222,
+      "context_erased_accuracy": 0.5,
+      "joint_accuracy": 0.0,
+      "greedy_joint_accuracy": 0.0,
+      "native_joint_accuracy": 0.993055555556,
+      "native_greedy_joint_accuracy": 0.993055555556
+    },
+    {
+      "seed": 31415,
+      "mode": "zero_read",
+      "checkpoint_sha256": "ccf310f157472280c1916fa3c5eebd63fe902c17c6750fbddaa6f30305403ba5",
+      "items": 576,
+      "groups": 144,
+      "accuracy": 0.5,
+      "context_erased_accuracy": 0.5,
+      "joint_accuracy": 0.0,
+      "greedy_joint_accuracy": 0.0,
+      "native_joint_accuracy": 0.993055555556,
+      "native_greedy_joint_accuracy": 0.993055555556
+    }
+  ],
+  "means": [
+    {
+      "mode": "normal",
+      "joint_accuracy": 0.9976851851851852,
+      "greedy_joint_accuracy": 0.9976851851851852,
+      "accuracy": 0.9994212962962963,
+      "context_erased_accuracy": 0.5
+    },
+    {
+      "mode": "discard_history",
+      "joint_accuracy": 0.0,
+      "greedy_joint_accuracy": 0.0,
+      "accuracy": 0.5040509259259259,
+      "context_erased_accuracy": 0.5
+    },
+    {
+      "mode": "zero_read",
+      "joint_accuracy": 0.0023148148148148147,
+      "greedy_joint_accuracy": 0.0023148148148148147,
+      "accuracy": 0.49942129629629634,
+      "context_erased_accuracy": 0.5
+    }
+  ],
+  "paired": [
+    {
+      "seed": 1337,
+      "mode": "discard_history",
+      "joint_drop": 1.0,
+      "greedy_joint_drop": 1.0
+    },
+    {
+      "seed": 1337,
+      "mode": "zero_read",
+      "joint_drop": 1.0,
+      "greedy_joint_drop": 1.0
+    },
+    {
+      "seed": 2026,
+      "mode": "discard_history",
+      "joint_drop": 1.0,
+      "greedy_joint_drop": 1.0
+    },
+    {
+      "seed": 2026,
+      "mode": "zero_read",
+      "joint_drop": 0.9930555555555556,
+      "greedy_joint_drop": 0.9930555555555556
+    },
+    {
+      "seed": 31415,
+      "mode": "discard_history",
+      "joint_drop": 0.9930555555555556,
+      "greedy_joint_drop": 0.9930555555555556
+    },
+    {
+      "seed": 31415,
+      "mode": "zero_read",
+      "joint_drop": 0.9930555555555556,
+      "greedy_joint_drop": 0.9930555555555556
+    }
+  ],
+  "numerical": [
+    {
+      "seed": 1337,
+      "items": 576,
+      "maximum_score_error": 0.23221466327838058,
+      "candidate_choice_disagreements": 0,
+      "greedy_disagreements": 0,
+      "strict_tolerance_passed": false,
+      "failures": [
+        {
+          "id": "key-hat-box-car-o1-s0-q0-r0-t0",
+          "max_score_error": 0.10607067891690392,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-box-car-o1-s0-q0-r0-t1",
+          "max_score_error": 0.11676387300102675,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bag-bed-o1-s1-q1-r1-t1",
+          "max_score_error": 0.23221466327838058,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bed-car-o0-s1-q0-r0-t0",
+          "max_score_error": 0.002649554062886139,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bed-car-o0-s1-q0-r0-t1",
+          "max_score_error": 0.0018370262679336946,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "cup-pen-box-bag-o1-s0-q0-r0-t0",
+          "max_score_error": 0.10846722148960097,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "cup-pen-box-car-o1-s1-q1-r0-t1",
+          "max_score_error": 0.05774664503394611,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "cup-pen-bed-car-o1-s1-q0-r1-t0",
+          "max_score_error": 0.0729216638358352,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        }
+      ]
+    },
+    {
+      "seed": 2026,
+      "items": 576,
+      "maximum_score_error": 0.7713105971620529,
+      "candidate_choice_disagreements": 0,
+      "greedy_disagreements": 0,
+      "strict_tolerance_passed": false,
+      "failures": [
+        {
+          "id": "key-hat-bag-bed-o0-s1-q1-r1-t0",
+          "max_score_error": 0.30890809501089933,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bag-bed-o0-s1-q1-r1-t1",
+          "max_score_error": 0.3922341184945175,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "cup-pen-box-bag-o0-s0-q1-r0-t0",
+          "max_score_error": 0.7713105971620529,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "cup-pen-box-bag-o0-s0-q1-r0-t1",
+          "max_score_error": 0.0443022764277714,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "cup-pen-bag-bed-o0-s0-q1-r1-t0",
+          "max_score_error": 0.03510790783222184,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "cup-pen-bag-bed-o0-s0-q1-r1-t1",
+          "max_score_error": 0.020962933336724277,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-bag-o0-s1-q0-r0-t0",
+          "max_score_error": 0.013330578386549163,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-bag-o0-s1-q0-r0-t1",
+          "max_score_error": 0.06551425626875051,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-bag-o0-s1-q1-r0-t0",
+          "max_score_error": 0.08654486274248185,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-bag-o0-s1-q1-r0-t1",
+          "max_score_error": 0.14210118433590324,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-bed-o0-s1-q0-r0-t0",
+          "max_score_error": 0.010855498710240497,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-bed-o0-s1-q0-r0-t1",
+          "max_score_error": 0.18002867697571467,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-bed-o0-s1-q1-r0-t0",
+          "max_score_error": 0.09655525214821914,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-bed-o0-s1-q1-r0-t1",
+          "max_score_error": 0.1890351772701493,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-car-o0-s1-q0-r0-t0",
+          "max_score_error": 0.5136960199136666,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-car-o0-s1-q0-r0-t1",
+          "max_score_error": 0.05487977795325705,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-car-o0-s1-q1-r0-t0",
+          "max_score_error": 0.36802483526966867,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-car-o0-s1-q1-r0-t1",
+          "max_score_error": 0.08914112682550623,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-bag-bed-o1-s0-q0-r0-t0",
+          "max_score_error": 0.08206482319510044,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-bag-bed-o1-s1-q1-r0-t0",
+          "max_score_error": 0.035800026635030235,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-bag-car-o1-s1-q0-r1-t1",
+          "max_score_error": 0.1527828579434427,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-bed-car-o0-s1-q0-r0-t1",
+          "max_score_error": 0.13778367438586692,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        }
+      ]
+    },
+    {
+      "seed": 31415,
+      "items": 576,
+      "maximum_score_error": 0.19837760971123863,
+      "candidate_choice_disagreements": 0,
+      "greedy_disagreements": 0,
+      "strict_tolerance_passed": false,
+      "failures": [
+        {
+          "id": "key-hat-box-bed-o1-s0-q0-r0-t0",
+          "max_score_error": 0.0020320414483503413,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-box-bed-o1-s0-q0-r0-t1",
+          "max_score_error": 0.0043604376156167746,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-box-bed-o1-s0-q1-r0-t0",
+          "max_score_error": 0.0011218786192834784,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-box-bed-o1-s0-q1-r0-t1",
+          "max_score_error": 0.0028929719325834213,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bag-bed-o0-s0-q0-r0-t0",
+          "max_score_error": 0.04945889021852423,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bag-bed-o1-s0-q0-r0-t0",
+          "max_score_error": 0.004993269700765524,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bag-bed-o1-s0-q0-r0-t1",
+          "max_score_error": 0.0010063656831551526,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bag-bed-o1-s0-q1-r0-t0",
+          "max_score_error": 0.0046116852548721,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bag-bed-o1-s0-q1-r0-t1",
+          "max_score_error": 0.0014034613716535915,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bed-car-o1-s0-q0-r1-t0",
+          "max_score_error": 0.020684935404277738,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bed-car-o1-s0-q0-r1-t1",
+          "max_score_error": 0.00464117530020669,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bed-car-o1-s0-q1-r1-t0",
+          "max_score_error": 0.021382540479702783,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "key-hat-bed-car-o1-s0-q1-r1-t1",
+          "max_score_error": 0.003601431893743623,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "cup-pen-box-bag-o1-s0-q1-r0-t0",
+          "max_score_error": 0.19837760971123863,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-box-bag-o1-s0-q1-r1-t1",
+          "max_score_error": 4.329150621273925e-05,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        },
+        {
+          "id": "mug-toy-bag-car-o0-s0-q1-r1-t1",
+          "max_score_error": 0.09744822976081302,
+          "choice_disagreement": false,
+          "greedy_disagreement": false
+        }
+      ]
+    }
+  ],
+  "all_normal_scores_within_tolerance": false,
+  "normal_maximum_score_error": 0.7713105971620529,
+  "normal_questions": 1728,
+  "normal_score_failure_questions": 46,
+  "normal_candidate_disagreements": 0,
+  "normal_greedy_disagreements": 0,
+  "intervention_results_sha256": {
+    "1337-normal.json": "08ca12e351de40845f7e8af762da336738f3816dbda5d4f4088ca09e3df1ce40",
+    "1337-discard_history.json": "b5fec6f3f09c265259f0896babfd8fcd64cb69256265e9ffa5daa1a151fb7ece",
+    "1337-zero_read.json": "629a118e0bd6b82bda52937cb4fb3fafe5a2331ccdc848ca36053c178a5ee2dd",
+    "2026-normal.json": "1d16b515db645707e8d5412090e83573e7f91f022b431ea5e1ecf66414f36fb2",
+    "2026-discard_history.json": "46d3e91e4ed443afa9684b490faab1ad76d4a6c4f236a1ffc337ba502f0d634c",
+    "2026-zero_read.json": "01ab6d979d0e7144bd65dbc9b4bae8241a8c9d07ce9fa150b8f9c093015e48da",
+    "31415-normal.json": "4953539d26c5d41f7254dbc8b4d51cc0f4e0b7b640c5f0f8fb444743822e816f",
+    "31415-discard_history.json": "7a6a423429244668800970324c8c42e2292651b7ce0e7dc463b0ff0b1cd489ff",
+    "31415-zero_read.json": "61c4a4970c9fe8ed48c0097da7b9ed3618c4610211f9bf251d819a8ad9eff79e"
+  },
+  "interpretation": "Read-only intervention in all three final associative models. Removing history or reads changes activation distributions, so this measures reliance in trained models, not the performance of a retrained architecture. Native/CPU score or answer disagreements are retained without relaxing the strict tolerance. No general-language or biological-memory claim."
+}

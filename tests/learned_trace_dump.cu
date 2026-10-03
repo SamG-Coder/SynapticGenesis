@@ -16,7 +16,8 @@ int main(int argc, char **argv) {
         require(text.size() >= 2 && text.size() <= 4097, "Invalid diagnostic input size");
         State state = header(checkpoint);
         probes::Scorer scorer(checkpoint_config(state));
-        require(scorer.root.q.cell == 5, "This diagnostic requires the selective cell");
+        require(scorer.root.q.cell == 5 || scorer.root.q.cell == 6,
+                "This diagnostic requires the selective or associative cell");
         load(checkpoint, scorer.root, state);
         std::vector<int> x, y;
         for (size_t i = 0; i + 1 < text.size(); ++i) {
@@ -38,7 +39,7 @@ int main(int argc, char **argv) {
             dump(out / (prefix + "spikes.f32"), cache.s.host());
             dump(out / (prefix + "emission.f32"), cache.emission.host());
         }
-        std::cout << "Read-only selective traces: " << model.T << " bytes, " << model.q.l << " layers\n";
+        std::cout << "Read-only neuron traces: " << model.T << " bytes, " << model.q.l << " layers\n";
         return 0;
     } catch (const std::exception &error) {
         std::cerr << "ERROR: " << error.what() << '\n';

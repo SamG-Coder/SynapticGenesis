@@ -1,0 +1,75 @@
+{
+  "protocol": {
+    "selection": "Largest absolute native/CPU score difference among all first-seed normal development scores, selected after observing the failed strict audit.",
+    "seed": 1337,
+    "id": "key-hat-bag-bed-o1-s1-q1-r1-t1",
+    "field": "candidate_nll",
+    "largest_error_choice": 1,
+    "largest_error": 0.23221466327838058,
+    "checkpoint_sha256": "b518dac1dfc7c28fe4d7e3bb80be314f5fbd49527cf15c39468b023a57581894",
+    "source_sha256": {
+      "tests/associative_threshold.py": "0760e23f2442be1b03f0f722ed4cf1e1c7dfd61005fec04a477b7ce97e33cde3",
+      "tests/trace_comparison.py": "1cdc7729a6d7fc0726d782846516e32344c18e4f590033fb9ff9ce9a5a5b6f4d",
+      "tests/learned_trace_dump.cu": "ecd6ef738c9d314fb0d5ada992b8a7652d7c24f97f524088a440d2fa63b7695e",
+      "tests/probes_cli.py": "1bb5c7ece07850a61c292312c6b15735649a98041f2805899924a565095b1609",
+      "tests/associative_reference.py": "695da51d9560d01821b5da3cab63d3c27005543b51acf709231f89b40f3a61f2"
+    },
+    "study_executable_sha256": "46de182c3454eceeeb27d3c7120bb969e86da9c2304c67f1614a87ca095df86e",
+    "diagnostic_executable_sha256": "ac4ab8d93163995b2814ef9be4906ea65b7fd293dd9c95b2a2c8cb47bbc9f276",
+    "normal_result_sha256": "08ca12e351de40845f7e8af762da336738f3816dbda5d4f4088ca09e3df1ce40",
+    "limits": "Post-hoc local diagnosis. Original strict failures remain failures; forcing a spike is not an independent passing oracle."
+  },
+  "records": [
+    {
+      "choice": 0,
+      "first_spike_divergence": {
+        "layer_zero_based": 1,
+        "byte_zero_based": 62,
+        "neuron_zero_based": 441,
+        "cpu_membrane": 0.9999973177909851,
+        "native_membrane": 1.0000003576278687,
+        "cpu_spike": 0.0,
+        "native_spike": 1.0
+      },
+      "native_nll": 4.57763671875e-05,
+      "cpu_nll": 4.8279222937708255e-05,
+      "first_difference_within_1e_minus_5_of_threshold": true,
+      "single_spike_override_nll": 4.44646011601435e-05,
+      "single_spike_override_nll_error": 1.311766027356498e-06,
+      "single_spike_override_max_logit_error": 1.33514404296875e-05,
+      "single_spike_override_matches_all_native_spikes": true
+    },
+    {
+      "choice": 1,
+      "first_spike_divergence": {
+        "layer_zero_based": 1,
+        "byte_zero_based": 62,
+        "neuron_zero_based": 441,
+        "cpu_membrane": 0.9999973177909851,
+        "native_membrane": 1.0000003576278687,
+        "cpu_spike": 0.0,
+        "native_spike": 1.0
+      },
+      "native_nll": 13.370816230773926,
+      "cpu_nll": 13.138601567521619,
+      "first_difference_within_1e_minus_5_of_threshold": true,
+      "single_spike_override_nll": 13.370819458910773,
+      "single_spike_override_nll_error": 3.2281368476105854e-06,
+      "single_spike_override_max_logit_error": 1.33514404296875e-05,
+      "single_spike_override_matches_all_native_spikes": true
+    }
+  ],
+  "native_repeat_results_identical": true,
+  "checkpoint_file_unchanged": true,
+  "study_executable_unchanged": true,
+  "single_near_threshold_spike_localizes_both_scores": true,
+  "original_strict_cpu_score_check_passed": false,
+  "shared_helper_regression": {
+    "passed": true,
+    "earlier_selective_cases": 4,
+    "native_trace_files_identical": 104,
+    "all_existing_localization_values_exact": true,
+    "archived_study_executable_sha256": "b0e75baf28ed19d79808613775d48514e3f7ac40ca0bad02e17d66c78046b5bb",
+    "diagnostic_executable_sha256": "ac4ab8d93163995b2814ef9be4906ea65b7fd293dd9c95b2a2c8cb47bbc9f276"
+  }
+}

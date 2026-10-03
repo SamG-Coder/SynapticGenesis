@@ -44,7 +44,7 @@ def plot(source, output):
     fig.legend([Line2D([0],[0],marker=m,color='#555555',linestyle='None',markersize=7) for m in markers],
                [str(seed) for seed in seeds],loc='lower center',bbox_to_anchor=(.5,.047),ncol=3,
                title='Individual seeds; bars show means',frameon=False)
-    fig.text(.5,.015,'Binding assay uses box/bag answers. Reading change is relative to each model at 10,000 observations. '
+    fig.text(.5,.015,'Binding uses four location words. Reading change is relative to each model at 10,000 observations. '
              'Reserved tests unused.',ha='center',fontsize=9,color='#555555')
     fig.savefig(output,dpi=160)
     plt.close(fig)
@@ -101,7 +101,7 @@ def plot_long(data, output):
     fig.legend([Line2D([0], [0], marker=m, color='#555555', linestyle='None', markersize=7) for m in markers],
                [str(seed) for seed in seeds], loc='lower center', bbox_to_anchor=(.5, .058), ncol=3,
                title='Markers and thin lines: individual seeds. Thick lines and bars: means.', frameon=False)
-    fig.text(.5, .021, 'Binding uses box/bag answers; it does not assess general conversation. '
+    fig.text(.5, .021, 'Binding uses four location words; it does not assess general conversation. '
              'Reserved tests unused. No checkpoint selected by intermediate results.',
              ha='center', fontsize=9, color='#555555')
     fig.savefig(output, dpi=160)
