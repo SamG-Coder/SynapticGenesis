@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "comparison_sha256": "8df65c97471d67da2734d70a3e174b4170006390ec8aa913d20f83e1cc5d73ca",
+  "branches": 2,
+  "checkpoint_assessments": 8,
+  "native_commands": 45,
+  "diagnostic_commands": 8,
+  "native_sources_and_executables_authenticated": true,
+  "ancestors_unchanged": true,
+  "complete_replay_descriptors_independently_reproduced": true,
+  "assessment_weights_and_moments_identical_to_live_checkpoint": true,
+  "reserved_tests_not_scored": true,
+  "checked": [
+    {
+      "seed": 1337,
+      "arm": "every-4",
+      "additional_observations": 16,
+      "checkpoint_sha256": "66bcb0ee96d1dffd5d9debde14b58b25305f688eae493a116f05d8cf130a48aa",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 836
+    },
+    {
+      "seed": 1337,
+      "arm": "every-4",
+      "additional_observations": 64,
+      "checkpoint_sha256": "d0e8b67131beae63747815d7ad181b0bd2c4aa50b77722f66e85db40cfce1e2e",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 884
+    },
+    {
+      "seed": 1337,
+      "arm": "every-4",
+      "additional_observations": 512,
+      "checkpoint_sha256": "e260243c9164b4e6ea9ec06c785d8d2a4d4440e02e30cf16b761e1d6117cdaa1",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 1024
+    },
+    {
+      "seed": 1337,
+      "arm": "every-1",
+      "additional_observations": 16,
+      "checkpoint_sha256": "2c5a7f549931c9661c77201bdcb508b0238855520e24651d94345565601b2f00",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 836
+    },
+    {
+      "seed": 1337,
+      "arm": "every-1",
+      "additional_observations": 64,
+      "checkpoint_sha256": "53fd03b8844eddb777ac7204060d10397be399f05e1981d90f4a1139f0468df6",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 884
+    },
+    {
+      "seed": 1337,
+      "arm": "every-1",
+      "additional_observations": 320,
+      "checkpoint_sha256": "e158f0cd1cceff549bcd7022975fed4d2eae41dbf0a7d2024870921dfe29f9d9",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 1024
+    },
+    {
+      "seed": 1337,
+      "arm": "every-1",
+      "additional_observations": 512,
+      "checkpoint_sha256": "deeb6998abd89080b5ee07d257a9048cf8827fa2b97686ffbb7f02d3698bb3eb",
+      "source_cursor_exact": true,
+      "source_pairs_exact": true,
+      "replay_rng_exact": true,
+      "replay_descriptors_exact": true,
+      "speech_rng_and_count_exact": true,
+      "replay_slots": 1024
+    }
+  ],
+  "uninterrupted_controls": [
+    {
+      "arm": "every-4",
+      "full_checkpoint_identical": true,
+      "speech_identical": true,
+      "crosses_speech_interval": true,
+      "checkpoint_sha256": "e260243c9164b4e6ea9ec06c785d8d2a4d4440e02e30cf16b761e1d6117cdaa1"
+    },
+    {
+      "arm": "every-1",
+      "full_checkpoint_identical": true,
+      "speech_identical": true,
+      "crosses_speech_interval": true,
+      "checkpoint_sha256": "deeb6998abd89080b5ee07d257a9048cf8827fa2b97686ffbb7f02d3698bb3eb"
+    }
+  ]
+}
