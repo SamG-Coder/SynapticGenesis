@@ -94,3 +94,10 @@ commands and do not establish whether the model learns these corrections.
 Actual before/after replies and retention results will be published after the
 serialized GPU experiment completes. No diagnostic descendant is admitted as
 a teacher or parent.
+
+The driver has been launched and is waiting for the earlier baseline assessment.
+The [launch snapshot](../reports/conversation-correction-launch.json) verifies
+the live host process and zero native commands at that time. Its fixed protocol
+SHA-256 is `0e159d226c62ad46fc9ba206c3b29131ec4118b787c7f3717aa909f9babf1c46`.
+The source code used to declare it is commit
+`d9e62c2842f17db00eaadd46bf56fba4f91d4191`.
