@@ -1,0 +1,174 @@
+{
+  "review_date": "2026-10-03",
+  "project": "SynapticGenesis",
+  "kind": "primary-source design review; not an experimental replication",
+  "repository_base": "d437063bf515a4d4d5ded6fd76ce85efd231d902",
+  "document": "docs/research-live-plasticity-2026-10.md",
+  "selection": "Targeted review of development, plasticity, online credit assignment, small spiking language models and neuron-indexed execution; not a systematic literature review.",
+  "training_sources_changed": false,
+  "external_model_weights_used": false,
+  "new_learning_mechanisms_implemented_by_this_stage": false,
+  "local_evidence": [
+    "reports/narrative-summary.json",
+    "reports/narrative-language.json",
+    "reports/narrative-learned-oracle.json",
+    "reports/associative-long-summary.json",
+    "reports/selective-dynamics.json",
+    "src/trace_neuron.cuh",
+    "scripts/inspect_dynamics.py",
+    "docs/teacher-retention.md",
+    "docs/general-development.md"
+  ],
+  "concurrent_studies_at_review": {
+    "teacher_retention": "Full execution and numerical audit pending; partial results excluded from research recommendations.",
+    "frozen_teacher_buffers": "Candidate compiled; runtime compatibility and memory validation pending."
+  },
+  "sources": [
+    {
+      "id": "yang-2009",
+      "title": "Stably maintained dendritic spines are associated with lifelong memories",
+      "year": 2009,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4724802/",
+      "evidence_type": "peer-reviewed biological experiment",
+      "read_scope": "Full-text results and experimental scope",
+      "system": "Mouse cortex",
+      "application": "Selective stability and turnover; local-history hypothesis"
+    },
+    {
+      "id": "flores-2025",
+      "title": "A synapse-specific refractory period for plasticity at individual dendritic spines",
+      "year": 2025,
+      "url": "https://www.pnas.org/doi/10.1073/pnas.2410433122",
+      "evidence_type": "peer-reviewed biological experiment",
+      "read_scope": "Full-text results and methods",
+      "system": "Organotypic mouse hippocampal slices",
+      "application": "Temporary local plasticity hypothesis; no biological-time conversion"
+    },
+    {
+      "id": "benna-fusi-2016",
+      "title": "Computational principles of synaptic memory consolidation",
+      "year": 2016,
+      "url": "https://www.nature.com/articles/nn.4401",
+      "evidence_type": "peer-reviewed theoretical model",
+      "read_scope": "Publisher abstract and figure headings; no full-paper reproduction or detailed methods audit",
+      "additional_access": "https://www.gatsby.ucl.ac.uk/~pel/tnlectures/papers/benna_fusi.pdf",
+      "additional_access_scope": "Institution-hosted PDF located and opened; not used for claims beyond the abstract",
+      "application": "Coupled memory timescales"
+    },
+    {
+      "id": "dohare-2024",
+      "title": "Loss of plasticity in deep continual learning",
+      "year": 2024,
+      "url": "https://www.nature.com/articles/s41586-024-07711-7",
+      "evidence_type": "peer-reviewed machine-learning experiment",
+      "read_scope": "Results and continual-backpropagation methods",
+      "system": "Vision and reinforcement learning",
+      "application": "Separate diagnosis, then controlled renewal"
+    },
+    {
+      "id": "bellec-2020",
+      "title": "A solution to the learning dilemma for recurrent networks of spiking neurons",
+      "year": 2020,
+      "url": "https://www.nature.com/articles/s41467-020-17236-y",
+      "evidence_type": "peer-reviewed algorithm and experiments",
+      "read_scope": "Main results, eligibility decomposition and online approximation methods",
+      "application": "Bounded eligibility-based learning experiment"
+    },
+    {
+      "id": "sun-2025",
+      "title": "Learning to (Learn at Test Time): RNNs with Expressive Hidden States",
+      "year": 2025,
+      "url": "https://proceedings.mlr.press/v267/sun25h.html",
+      "evidence_type": "peer-reviewed conference paper",
+      "read_scope": "Published abstract and bibliographic record; no implementation or full-method audit",
+      "application": "Distinguish adaptive context state from permanent skill retention"
+    },
+    {
+      "id": "urchin-2026-v1",
+      "title": "URCHIN: A Horizontal Spiking Language Model for Data-Constrained Pretraining",
+      "year": 2026,
+      "version": "arXiv v1",
+      "url": "https://arxiv.org/html/2609.13899v1",
+      "evidence_type": "preprint",
+      "read_scope": "Architecture, parameter table, data, results, timing scope and Appendix B",
+      "code_and_weights_inspected": false,
+      "access_limit": "Linked public model repository could not be retrieved through the web tool",
+      "application": "Matched recurrent-structure comparison"
+    },
+    {
+      "id": "spikingbrain-2025-v1",
+      "title": "SpikingBrain Technical Report: Spiking Brain-inspired Large Models",
+      "year": 2025,
+      "version": "arXiv v1",
+      "url": "https://arxiv.org/html/2509.05276v1",
+      "evidence_type": "technical report preprint",
+      "read_scope": "Architecture, conversion, continued pretraining and hardware scope",
+      "application": "Large-model reference; different training provenance"
+    },
+    {
+      "id": "one-spike-2026-v1",
+      "title": "Large Language Models with At Most One Spike per Neuron",
+      "year": 2026,
+      "version": "arXiv v1",
+      "url": "https://arxiv.org/html/2609.05151v1",
+      "evidence_type": "preprint",
+      "read_scope": "Coding, language results, energy assumptions and limitations",
+      "application": "Alternative coding; measured hardware costs required"
+    },
+    {
+      "id": "wta-2026-v1",
+      "title": "Winner-Take-All Spiking Transformer for Language Modeling",
+      "year": 2026,
+      "version": "arXiv v1",
+      "url": "https://arxiv.org/html/2604.11321v1",
+      "evidence_type": "preprint",
+      "read_scope": "Architecture, language training scope, energy assumptions and limitations",
+      "application": "Competition as a separate bounded hypothesis"
+    },
+    {
+      "id": "powerinfer-2023-v1",
+      "title": "PowerInfer: Fast Large Language Model Serving with a Consumer-grade GPU",
+      "year": 2023,
+      "version": "arXiv v1",
+      "url": "https://arxiv.org/html/2312.12456v1",
+      "evidence_type": "preprint version reviewed",
+      "read_scope": "Placement, hybrid execution, predictor design and accuracy section 8.4",
+      "application": "Memory-pressure benchmark with explicit approximation accounting"
+    }
+  ],
+  "next_experiment_priority": [
+    "Diagnose new-task adaptation separately from old-skill retention",
+    "Compare no renewal, random renewal and utility-based renewal if diagnosis warrants it",
+    "Test eligibility-based credit assignment in one bounded component",
+    "Separate recurrent-architecture and consolidation comparisons",
+    "Use independently measured adaptation, retention and cost in population selection"
+  ],
+  "limits": [
+    "No cited external implementation was executed or reproduced in this research stage.",
+    "Animal and slice experiments do not validate human age labels or CUDA schedules.",
+    "Paper-reported performance is not measured SynapticGenesis performance.",
+    "Known strict native-versus-CPU numerical failures remain recorded in their experiment reports.",
+    "Coherent general language, reliable lifelong retention and demonstrated generational improvement remain unresolved."
+  ],
+  "local_evidence_sha256": {
+    "reports/narrative-summary.json": "814a61a18f0dd78752e4fe6cf152b163b99d49086a3082df967e547e9017ca57",
+    "reports/narrative-language.json": "227f75c0aa62de88975e7ec17b052d730c9af9a5805af105d17b82b207667404",
+    "reports/narrative-learned-oracle.json": "a20e907b4b0b06a6e680fa06273fd84a933ba1b6e6519d1d9d00303bf7141f64",
+    "reports/associative-long-summary.json": "c39ef8ad32282bff87717149b3936d21af01e12240dcad1dd058ccf2d5bacfd9",
+    "reports/selective-dynamics.json": "a2a70549f2d297391126cfb567f745a96b2e93765d9c34a3067d150daee792b6",
+    "src/trace_neuron.cuh": "d346931acdff5a4711dea5740b185e6212dc7d0dd906349ffdb8973081ed71b6",
+    "scripts/inspect_dynamics.py": "51d5be40cb8b811ae6307dda1c627f3b273b98577ca7c696965a39a60bb36a25",
+    "docs/teacher-retention.md": "38d5d58a3d5febbfa664c40aac9ea4d4db7af486722ef4ffffc4c6c5e3e61036",
+    "docs/general-development.md": "c58b13948442968979c2b531dac3a7d22adc2da18430e66c49b7a2d2d47ceb87"
+  },
+  "document_checks": {
+    "source_ids_and_urls_unique": true,
+    "source_count": 11,
+    "all_ledger_sources_linked_from_document": true,
+    "relative_links_and_local_evidence_resolve": true,
+    "quoted_local_binding_means_match_saved_report": true,
+    "all_nine_models_improve_three_book_losses_in_saved_report": true,
+    "known_cpu_oracle_failure_not_reclassified": true,
+    "paper_implementations_reproduced": false
+  }
+}
