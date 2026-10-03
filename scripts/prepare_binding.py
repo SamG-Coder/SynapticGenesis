@@ -7,6 +7,7 @@ from pathlib import Path
 import random
 
 from prepare_lessons import write_probes
+from binding_lessons import render
 
 
 def examples(spec):
@@ -20,36 +21,7 @@ def examples(spec):
     if any(len(p) != 3 or not p <= universe for p in partitions.values()) or partitions['development'] & partitions['test']:
         raise ValueError('Invalid unordered object split')
     partitions['train'] = universe - partitions['development'] - partitions['test']
-    prerequisites, training = set(), set()
-    rows = {name: [] for name in partitions}
-    for obj, loc, fact, query in itertools.product(objects, locations, spec['facts'], spec['queries']):
-        prerequisites.add(fact.format(object=obj, location=loc) + '\n' + query.format(object=obj) +
-                          spec['answer'].format(location=loc) + '\n')
-    for a, b in itertools.combinations(objects, 2):
-        partition = next(name for name, pairs in partitions.items() if frozenset((a, b)) in pairs)
-        for l0, l1 in itertools.combinations(locations, 2):
-            for order, style, query_form in itertools.product(range(2), range(len(spec['facts'])), range(len(spec['queries']))):
-                group = f'{a}-{b}-{l0}-{l1}-o{order}-s{style}-q{query_form}'
-                for reverse, target in itertools.product(range(2), range(2)):
-                    mapping = {a: (l0, l1)[reverse], b: (l0, l1)[1-reverse]}
-                    named = (a, b) if order == 0 else (b, a)
-                    context = ' '.join(spec['facts'][style].format(object=obj, location=mapping[obj])
-                                       for obj in named) + '\n'
-                    queried = (a, b)[target]
-                    query = spec['queries'][query_form].format(object=queried)
-                    gold = int(mapping[queried] == l1)
-                    answer = spec['answer'].format(location=mapping[queried])
-                    row = dict(id=f'{group}-r{reverse}-t{target}', pair=group, skill=f'binding-style-{style}',
-                               context=context, query=query, correct=gold,
-                               choice0=spec['answer'].format(location=l0), choice1=spec['answer'].format(location=l1))
-                    rows[partition].append(row)
-                    if partition == 'train':
-                        training.add(context + query + answer + '\n')
-    for name in ('development', 'test'):
-        for row in rows[name]:
-            if any(row['context'] in doc for doc in training | prerequisites):
-                raise ValueError('Held-out binding context overlaps training')
-    return prerequisites, training, rows, partitions
+    return render(objects, locations, spec['facts'], spec['queries'], spec['answer'], partitions)
 
 
 def prepare(spec_path, out, reading=None):

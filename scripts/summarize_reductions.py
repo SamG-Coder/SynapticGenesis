@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import statistics
 
-from replay_experiment import checkpoint
+from experiment_checkpoint import checkpoint
 
 
 def read(path):

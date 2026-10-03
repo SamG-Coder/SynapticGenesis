@@ -1,0 +1,15 @@
+{
+  "version": "binding-diversity-v1",
+  "license": "MIT",
+  "provenance": "Original selected concrete nouns combined with the unchanged binding-v2 literal templates and source-derived answers. No imported model weights, teacher predictions or downloaded synthetic dataset.",
+  "base_spec": "lessons-binding-v2.json",
+  "base_spec_sha256": "7ecb1719ff45a3c02c151aa3dab786fb27dac7fbf24865798b28148753c7473c",
+  "added_objects": ["map", "cap", "pin", "jar", "tin", "egg", "nut", "bun", "tag", "can", "lid", "pan", "pot", "peg", "rod", "bow", "gem", "die"],
+  "shuffle_seed": 381970,
+  "monitor_seed": 917203,
+  "monitor_groups": 432,
+  "selection_reason": "Increase reusable entity identities and varied pairings while retaining short familiar syntax, equal word lengths, four locations and unchanged original development/test pairs.",
+  "split_policy": "All unordered pairs from the 24 selected objects are training except the original six held-out binding-v2 pairs. Both orders, query targets, styles and every location assignment of each held-out pair stay excluded. Original development and test probes are copied byte for byte.",
+  "assessment": "Primary development score uses the unchanged 144 four-answer binding-v2 groups. Original training groups and a preselected sample of 432 expanded-training groups are reported separately. The latter is a monitor, not full expanded-training accuracy.",
+  "limits": "This changes vocabulary diversity, corpus size and repetition rate together at a fixed update budget. It is not a pure vocabulary-size ablation, broad dialogue corpus or validated biological age curriculum. Reserved tests are not used for tuning."
+}

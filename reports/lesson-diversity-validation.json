@@ -1,0 +1,163 @@
+{
+  "data": {
+    "passed": true,
+    "executable_sha256": "b0e75baf28ed19d79808613775d48514e3f7ac40ca0bad02e17d66c78046b5bb",
+    "spec_sha256": "510c6a6b4c575a8bdbe5b23ec02c2be3e566a2db2a11105786ab5c0ccfc4b8de",
+    "independent_fact_query_items": 52992,
+    "complete_groups": 13248,
+    "training_documents": 51840,
+    "prerequisites": 384,
+    "expanded_monitor_items": 1728,
+    "expanded_monitor_groups": 432,
+    "monitor_full_grid_and_training_membership": true,
+    "original_prepared_files_byte_identical": true,
+    "expanded_preparation_reproduces": true,
+    "original_probes_byte_identical": true,
+    "invalid_inputs_rejected": [
+      "duplicate-object",
+      "location-as-object",
+      "changed-base-hash",
+      "changed-monitor-size",
+      "heldout-context-in-template",
+      "heldout-context-in-reading"
+    ],
+    "native_commands": 1,
+    "disposable_checkpoint_unchanged": true,
+    "cpu_reference_items": 8,
+    "oracle_max_score_error": 1.4304807613996218e-06,
+    "reserved_test_labels_checked_but_no_model_evaluated_on_test": true,
+    "prepared_manifest": {
+      "version": "binding-diversity-v1",
+      "spec_sha256": "510c6a6b4c575a8bdbe5b23ec02c2be3e566a2db2a11105786ab5c0ccfc4b8de",
+      "base_spec_sha256": "7ecb1719ff45a3c02c151aa3dab786fb27dac7fbf24865798b28148753c7473c",
+      "objects": [
+        "key",
+        "hat",
+        "cup",
+        "pen",
+        "mug",
+        "toy",
+        "map",
+        "cap",
+        "pin",
+        "jar",
+        "tin",
+        "egg",
+        "nut",
+        "bun",
+        "tag",
+        "can",
+        "lid",
+        "pan",
+        "pot",
+        "peg",
+        "rod",
+        "bow",
+        "gem",
+        "die"
+      ],
+      "documents": {
+        "prerequisites": 384,
+        "binding": 51840
+      },
+      "training_object_pairs": 270,
+      "training_groups": 12960,
+      "original_train_groups": 432,
+      "expanded_monitor_groups": 432,
+      "frozen_development_groups": 144,
+      "frozen_test_groups": 144,
+      "heldout_pairs_excluded": true,
+      "old_probes_byte_identical": true,
+      "files": {
+        "base-spec.json": {
+          "bytes": 1342,
+          "sha256": "7ecb1719ff45a3c02c151aa3dab786fb27dac7fbf24865798b28148753c7473c"
+        },
+        "binding.dat": {
+          "bytes": 3939839,
+          "sha256": "7c05339c59d7bd3ef4a48e99db6b2762a7622734d2ffc7f4c888b2f186eeee8d"
+        },
+        "curriculum.sg": {
+          "bytes": 128,
+          "sha256": "3f7bb5f88e1088aff48dba241beb26e6b50e119db77b04a5edc296ef02a4b983"
+        },
+        "development.sgprobe": {
+          "bytes": 97933,
+          "sha256": "48f9c8cff84b39875da8349b74cfddf0a8c45e67a9e0e90c54688ff2547ca964"
+        },
+        "expanded-train-monitor.sgprobe": {
+          "bytes": 293486,
+          "sha256": "6c28b3739cf650e3865f43557a8fb1927c55b52f0a78f6465780ddb93bd60aa5"
+        },
+        "prerequisites.dat": {
+          "bytes": 20351,
+          "sha256": "f20871e89e07edccb645f53fcfe7f43a87bd71abece8cb446565a6b662855476"
+        },
+        "reading.dat": {
+          "bytes": 585436,
+          "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda"
+        },
+        "source-spec.json": {
+          "bytes": 1664,
+          "sha256": "510c6a6b4c575a8bdbe5b23ec02c2be3e566a2db2a11105786ab5c0ccfc4b8de"
+        },
+        "test.sgprobe": {
+          "bytes": 97933,
+          "sha256": "8e22637b133f3548ae654589a00d453bf462c1cfcd4bb685e8d162a1ecc0ae73"
+        },
+        "through-binding.dat": {
+          "bytes": 4545628,
+          "sha256": "ff05a8dc3d4de5c01c88a08057db99aeedf45572683556b7259b7a518f5daa42"
+        },
+        "through-prerequisites.dat": {
+          "bytes": 605788,
+          "sha256": "281033ec58dc79bfcdf79e340ea2cfce022755afc321a4859e0223d243d5541b"
+        },
+        "train.sgprobe": {
+          "bytes": 293774,
+          "sha256": "ec14ab04fdd0c3d1b217176e9f63e7cb7986d603bc37804f37bcd0fd30b47a49"
+        }
+      },
+      "limits": "This changes vocabulary diversity, corpus size and repetition rate together at a fixed update budget. It is not a pure vocabulary-size ablation, broad dialogue corpus or validated biological age curriculum. Reserved tests are not used for tuning."
+    }
+  },
+  "original_binding": {
+    "passed": true,
+    "native_commands": 10,
+    "oracle_max_score_error": 1.430552345027536e-06,
+    "independent_fact_query_labels_checked": true,
+    "copy_first_or_last_joint_accuracy": 0,
+    "full_grid_required": true,
+    "group_metric_verified": true,
+    "prepared_bytes_reproduce": true,
+    "test_labels_validated_but_no_model_evaluated_on_test": true
+  },
+  "extracted_checkpoint_view": {
+    "passed": true,
+    "historical_checkpoint_views_match_published_report": 18,
+    "policies": [
+      "reservoir",
+      "stage"
+    ]
+  },
+  "native_driver_smoke": {
+    "passed": true,
+    "native_commands": 25,
+    "endpoints": [
+      64,
+      96,
+      128
+    ],
+    "arms": 2,
+    "shared_ancestor_checkpoint_sha256": "f11e3a79da31027a49f2a072e5e2edfa34b503022dda9ddffeb153f7e1d9481e",
+    "extension_and_resume": true,
+    "paired_update_speech_memory_counters_match": true,
+    "checkpoint_unchanged_by_scoring": true,
+    "context_erased_joint_accuracy": 0,
+    "full_comparison_sha256": "bc2cd63911b451c54c7ae34b223490f2e81e81b648ab92f013b88433a9a3f07a",
+    "learning_quality_claim": false
+  },
+  "executable_sha256": "b0e75baf28ed19d79808613775d48514e3f7ac40ca0bad02e17d66c78046b5bb",
+  "native_implementation_unchanged_from": "19c55fc",
+  "native_14_suite_and_cpu_gradient_evidence": "ordered-reductions-validation.json"
+}

@@ -14,7 +14,7 @@ import subprocess
 
 from extend_curriculum import read_schedule
 from prepare_lessons import quoted
-from replay_experiment import checkpoint
+from experiment_checkpoint import checkpoint
 
 
 def sha(path):
