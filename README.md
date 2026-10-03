@@ -37,6 +37,8 @@ The [learned-memory intervention](docs/associative-history.md) finds that cleari
 
 The [completed narrative continuation](docs/narrative-learning.md#completed-comparison-book-loss-improves-while-binding-is-lost) teaches all nine existing models from seven selected books. Every model improves all three held-out book losses, but loses earlier binding accuracy. Associative models fall from **99.77% to 53.24% complete binding accuracy** on average, compared with 71.06% → 14.81% and 78.94% → 12.73% for the controls. One associative seed retains less than both controls; the apparent advantage is inconsistent. All fixed samples remain available and show incoherent prose. Execution checks pass; one strict CPU score check fails near a firing threshold and remains reported as a failure. Reliable skill retention and useful general conversation are still unresolved.
 
+The [teacher-objective foundation](docs/teacher-objective.md) adds a native loss that combines selected source targets with one or two frozen models' prediction distributions. It reuses the existing forward/backward path and passes independent gradient checks for all six cells. A strict first-Adam-step comparison fails near a tiny gradient and remains recorded; a separate nonzero-history case passes. Ordinary continuation checkpoints and prior numeric fixtures remain identical. Live teacher policy, parent provenance and a measured retention benefit are still pending.
+
 ## Build
 
 Requires an NVIDIA CUDA GPU, the CUDA toolkit, CMake and a C++17 compiler. The Windows build script locates Visual Studio C++ tools and Ninja. Local validation uses an RTX 5080, CUDA 13.3 and MSVC 19.51.

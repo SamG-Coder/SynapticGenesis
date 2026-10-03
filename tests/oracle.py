@@ -145,10 +145,39 @@ def check(directory):
         loss = (token_loss * target_weights).sum() / target_weights.sum()
     else:
         loss = F.cross_entropy(logits.reshape(-1, 256), targets)
+    distillation = cfg.get('distillation')
+    soft_errors = None
+    if distillation:
+        temperature, strength, mixture = (distillation[k] for k in ('temperature', 'strength', 'mixture'))
+        teachers = [torch.from_numpy(np.fromfile(directory / f'teacher-{name}-logits.f32', '<f4').copy())
+                    .reshape(-1, 256) for name in ('a', 'b')]
+        probability = mixture * (teachers[0] / temperature).softmax(-1) + (
+            1 - mixture) * (teachers[1] / temperature).softmax(-1)
+        native_probability = np.fromfile(directory / 'teacher-probabilities.f32', '<f4').reshape(-1, 256)
+        probability_error = float(np.max(np.abs(probability.numpy() - native_probability)))
+        assert probability_error < 2e-7, probability_error
+        # This is an independent KL expression with frozen teacher distributions.
+        # xlogy defines 0*log(0)=0 for underflowed/zero target probabilities.
+        student_logp = (logits.reshape(-1, 256) / temperature).log_softmax(-1)
+        token_penalty = (torch.xlogy(probability, probability) - probability * student_logp).sum(-1)
+        token_penalty = token_penalty * strength * temperature ** 2
+        penalty = ((token_penalty * target_weights).sum() / target_weights.sum()
+                   if target_weights_path.exists() else token_penalty.mean())
+        assert abs(loss.item() - distillation['observed_loss']) < 2e-6
+        assert abs(penalty.item() - distillation['penalty']) < 2e-6
+        loss = loss + penalty
+        logits.retain_grad()
+        soft_errors = dict(probability_max_abs_error=probability_error,
+                           penalty_abs_error=abs(penalty.item() - distillation['penalty']))
     if initial_path.exists():
         native_state = np.fromfile(directory / 'final_state.f32', '<f4')
         assert np.allclose(native_state, torch.cat(final_states).numpy(), atol=2e-5, rtol=1e-5)
     loss.backward(retain_graph=True)
+    if distillation:
+        actual_dlogits = np.fromfile(directory / 'dlogits.f32', '<f4')
+        error = float(np.max(np.abs(actual_dlogits - logits.grad.detach().numpy().reshape(-1))))
+        assert error < 3e-7, error
+        soft_errors['logit_gradient_max_abs_error'] = error
     actual_logits = np.fromfile(directory / 'logits.f32', '<f4')
     expected_logits = logits.detach().numpy().reshape(-1)
     assert np.max(np.abs(actual_logits - expected_logits)) < 2e-5
@@ -164,26 +193,53 @@ def check(directory):
         if '.adapt_' in name or '.trace_' in name or '_gate.' in name or '.association.' in name:
             assert float(np.linalg.norm(b)) > 1e-9, (name, 'fixture must exercise adaptation gradients')
         tensor_results.append({'tensor': name, 'max_abs_gradient_error': err})
-    # The native test performs its first unclipped, zero-decay Adam update.
+    # First-step fixtures retain their original closed form. An explicitly
+    # declared history fixture also checks a nonzero optimizer state.
     g = weights.grad.detach()
-    expected_update = weights.detach() - 0.001 * g / (g.abs() + 1e-8)
+    def adam_update(gradient):
+        if cfg.get('adam_step', 1) == 1:
+            return weights.detach() - 0.001 * gradient / (gradient.abs() + 1e-8)
+        step = cfg['adam_step']
+        m = torch.from_numpy(np.fromfile(directory / 'initial_m.f32', '<f4').copy())
+        v = torch.from_numpy(np.fromfile(directory / 'initial_v.f32', '<f4').copy())
+        assert m.shape == v.shape == gradient.shape and step > 1
+        m, v = .9 * m + .1 * gradient, .95 * v + .05 * gradient.square()
+        return weights.detach() - .001 * (m / (1 - .9 ** step)) / ((v / (1 - .95 ** step)).sqrt() + 1e-8)
+    expected_update = adam_update(g)
     actual_update = np.fromfile(directory / 'updated.f32', '<f4')
     update_error = float(np.max(np.abs(actual_update - expected_update.numpy())))
-    assert update_error < 5e-6, update_error
+    if update_error >= 5e-6:
+        index = int(np.argmax(np.abs(actual_update - expected_update.numpy())))
+        native_g = torch.from_numpy(actual_grad.copy())
+        native_gradient_update = adam_update(native_g)
+        failure = dict(failed='adam_update', tolerance=5e-6, max_abs_error=update_error,
+                       parameter_index=index, cpu_gradient=float(g[index]),
+                       native_gradient=float(actual_grad[index]),
+                       gradient_difference=float(abs(g[index] - actual_grad[index])),
+                       native_gradient_adam_max_abs_error=float(np.max(np.abs(
+                           actual_update - native_gradient_update.numpy()))))
+        (directory / 'oracle-failure.json').write_text(json.dumps(failure, indent=2) + '\n')
     weights.grad = None
     (loss + torch.stack(activities).mean()).backward()
     regularized = np.fromfile(directory / 'gradients_regularized.f32', '<f4')
     regularized_error = float(np.max(np.abs(regularized - weights.grad.numpy())))
     assert np.allclose(regularized, weights.grad.numpy(), atol=3e-6, rtol=5e-4), regularized_error
-    result = {'passed': True, 'reference': 'independent CPU PyTorch autograd',
+    result = {'passed': update_error < 5e-6, 'reference': 'independent CPU PyTorch autograd',
               'nonzero_boundary_state': initial_path.exists(), 'weighted_targets': target_weights_path.exists(),
               'cell': cfg.get('cell', 1),
               'loss': loss.item(), 'logits_max_abs_error': float(np.max(np.abs(actual_logits - expected_logits))),
               'gradients_max_abs_error': float(np.max(np.abs(actual_grad - expected_grad))),
               'adam_update_max_abs_error': update_error, 'regularized_gradient_max_abs_error': regularized_error,
               'tensors': tensor_results}
+    if distillation:
+        result['distillation'] = soft_errors
+        result['adam_step'] = cfg.get('adam_step', 1)
+    if update_error >= 5e-6:
+        result['failed_adam_tolerance'] = failure
     (directory / 'oracle.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps({k: v for k, v in result.items() if k != 'tensors'}, indent=2))
+    assert result['passed'], result
+    return result
 
 
 if __name__ == '__main__':
