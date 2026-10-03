@@ -31,11 +31,12 @@ def inspect(path):
     with path.open('rb') as f:
         meta = struct.unpack('<32Q', f.read(256))
         hp = struct.unpack('<8f', f.read(32))
-        if meta[0] != 0x314D4C53434E5042 or meta[1] not in (1, 2, 3, 4):
+        if meta[0] != 0x314D4C53434E5042 or meta[1] not in (1, 2, 3, 4, 5):
             raise ValueError('Unsupported checkpoint format')
         adaptive = meta[1] == 2
-        secondary = meta[1] in (2, 3, 4)
-        gated = meta[1] == 4
+        secondary = meta[1] in (2, 3, 4, 5)
+        gated = meta[1] in (4, 5)
+        selective = meta[1] == 5
         label = 'adaptation' if adaptive else 'trace'
         c, h, layers, batch = meta[2:6]
         if not (8 <= c <= 2048 and 8 <= h <= 8192 and 1 <= layers <= 32 and 1 <= batch <= 256):
@@ -75,11 +76,12 @@ def inspect(path):
                 scales = weights[offset+h:offset+2*h]
                 offset += 2*h
                 adapt_log_decay = [max(-v, 0) + math.log1p(math.exp(-abs(v))) for v in adapt_leaks]
-                blocks[-1][label + '_e_folding_steps'] = summary([1/v for v in adapt_log_decay])
+                blocks[-1][label + ('_base_e_folding_steps' if selective else '_e_folding_steps')] = summary([1/v for v in adapt_log_decay])
                 blocks[-1][label + ('_threshold_strength' if adaptive else '_output_strength')] = summary([max(v, 0)+math.log1p(math.exp(-abs(v))) for v in scales])
             if gated:
-                blocks[-1]['read_gate_weight_absolute_value'] = summary([abs(v) for v in weights[offset:offset+h*c]])
-                blocks[-1]['read_gate_bias'] = summary(weights[offset+h*c:offset+h*c+h])
+                gate_name = 'retention_gate' if selective else 'read_gate'
+                blocks[-1][gate_name + '_weight_absolute_value'] = summary([abs(v) for v in weights[offset:offset+h*c]])
+                blocks[-1][gate_name + '_bias'] = summary(weights[offset+h*c:offset+h*c+h])
                 offset += h*c+h
         result = {'checkpoint': path.as_posix(), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
                   'cell_version': meta[1], 'step': meta[7], 'parameters': expected, 'blocks': blocks,
@@ -129,6 +131,7 @@ if __name__ == '__main__':
     parser.add_argument('--output', required=True)
     args = parser.parse_args()
     result = {'scope': 'Read-only parameter diagnostics; passive decay ignores input, spikes, reset and layer interactions. '
+                       'Selective trace base decay also excludes the input-dependent gate. '
                        'One step is one byte, not a biological millisecond. A single saved state is not a firing-rate sample.',
               'checkpoints': [inspect(path) for path in args.checkpoints]}
     Path(args.output).write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')

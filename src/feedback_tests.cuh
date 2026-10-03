@@ -3,8 +3,10 @@
 void feedback_test(const Args &args) {
     args.allow({"out"});
     fs::path base = args.get("out", "reports/feedback-tests");
-    for (int cell : {1, 2, 3, 4}) {
-        fs::path out = base / (cell == 1 ? "lif" : (cell == 2 ? "alif" : (cell == 3 ? "trace" : "gated")));
+    for (int cell : {1, 2, 3, 4, 5}) {
+        fs::path out = base / (cell == 5   ? "selective"
+                               : cell == 1 ? "lif"
+                                           : (cell == 2 ? "alif" : (cell == 3 ? "trace" : "gated")));
         fs::create_directories(out);
         Config q{32, 64, 2, cell};
         Model model(q, 2, 16);
@@ -74,5 +76,5 @@ void feedback_test(const Args &args) {
             require(std::abs(scaled[i] - raw[i] * (i < 256 ? 2.f / 65 : 128.f / 65)) < 1e-7,
                     "First answer target was off by one");
     }
-    std::cout << "PASS feedback: LIF/ALIF/trace oracle fixtures, target boundaries and invalid weights\n";
+    std::cout << "PASS feedback: all cell oracle fixtures, target boundaries and invalid weights\n";
 }

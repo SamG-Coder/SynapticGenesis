@@ -72,7 +72,7 @@ def check(exe, out, cell='lif'):
         assert ckpt.is_file(), 'Old-age death must preserve the archived checkpoint'
         meta = struct.unpack_from('<32Q', ckpt.read_bytes())
         if member['alive']:
-            expected_food += 20 * meta[14] + 4 * meta[4] * meta[3] * (2 if meta[1] in (2, 3, 4) else 1)
+            expected_food += 20 * meta[14] + 4 * meta[4] * meta[3] * (2 if meta[1] in (2, 3, 4, 5) else 1)
     assert deaths['food_used_before_bytes'] == expected_food
     old = (population / 'population.sg').read_bytes()
     run('evolve', '--population', population, '--data', train, '--round', 'invalid',
@@ -106,6 +106,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--exe', type=Path, default=Path('build/synapticgenesis.exe'))
     parser.add_argument('--out', type=Path, required=True)
-    parser.add_argument('--cell', choices=['lif', 'alif', 'trace', 'gated'], default='lif')
+    parser.add_argument('--cell', choices=['lif', 'alif', 'trace', 'gated', 'selective'], default='lif')
     args = parser.parse_args()
     check(args.exe, args.out, args.cell)

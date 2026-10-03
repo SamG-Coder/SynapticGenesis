@@ -1,0 +1,680 @@
+{
+  "native_suites_passed": 12,
+  "executable_sha256": "9263c5b1543b1091e1b3af88016e2d9a3d32d83e4ab49adbad5f93720b8b2e2b",
+  "native_cell": {
+    "passed": true,
+    "cell": 5,
+    "chunk_max_error": 9.53674e-07,
+    "graph_max_error": 0,
+    "disabled_adaptation_lif_max_error": 0,
+    "identity_gate_trace_max_error": 0.0,
+    "nonzero_gate_first_trace_difference": 0.0380309,
+    "resume_max_error": 1.86265e-09,
+    "wrong_cell_rejected": true,
+    "equal_size_wrong_cell_rejected": true,
+    "resumed_speech_identical": true,
+    "replay_state_isolated": true,
+    "common_initial_weights_identical": true
+  },
+  "native_evolution": {
+    "passed": true,
+    "cells": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "width_growth_max_error": 0,
+    "block_inheritance_max_error": 0,
+    "new_neuron_output_weight_change": 0.0009999999311,
+    "mutation_caps_and_seed_checked": true,
+    "newborn_gate_checked": true,
+    "improvement_gate_checked": true,
+    "elite_ranking_checked": true,
+    "parent_setting_inheritance_checked": true,
+    "lineage_roundtrip_checked": true,
+    "base_rate_inherited_without_developmental_slowdown": true,
+    "old_age_and_dead_parent_gate_checked": true,
+    "scarcity_and_admission_checked": true,
+    "gpu_buffer_estimate_checked": true
+  },
+  "native_curriculum": {
+    "passed": true,
+    "resume_cases": 30,
+    "stage_transitions_checked": 110,
+    "resume_max_error": 7.45058e-09,
+    "cells": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "optional_si": true,
+    "graph_speech_identical": true,
+    "replay_preserved": true,
+    "same_gpu_allocations": true,
+    "future_source_identity_checked": true,
+    "heldout_document_rejected": true,
+    "base_rate_override_checked": true,
+    "extension_preserves_history": true,
+    "extension_rejection_transactional": true
+  },
+  "cpu_gradients": {
+    "passed": true,
+    "reference": "independent CPU PyTorch autograd",
+    "nonzero_boundary_state": true,
+    "weighted_targets": false,
+    "cell": 5,
+    "loss": 5.503247261047363,
+    "logits_max_abs_error": 8.940696716308594e-08,
+    "gradients_max_abs_error": 3.166496753692627e-08,
+    "adam_update_max_abs_error": 1.02166086435318e-06,
+    "regularized_gradient_max_abs_error": 4.563480615615845e-08,
+    "tensors": [
+      {
+        "tensor": "embedding",
+        "max_abs_gradient_error": 7.450580596923828e-09
+      },
+      {
+        "tensor": "0.gain",
+        "max_abs_gradient_error": 7.8580342233181e-10
+      },
+      {
+        "tensor": "0.input.weight",
+        "max_abs_gradient_error": 1.6298145055770874e-09
+      },
+      {
+        "tensor": "0.input.bias",
+        "max_abs_gradient_error": 1.57160684466362e-09
+      },
+      {
+        "tensor": "0.output.weight",
+        "max_abs_gradient_error": 2.60770320892334e-08
+      },
+      {
+        "tensor": "0.output.bias",
+        "max_abs_gradient_error": 3.026798367500305e-08
+      },
+      {
+        "tensor": "0.leak",
+        "max_abs_gradient_error": 8.003553375601768e-11
+      },
+      {
+        "tensor": "0.trace_leak",
+        "max_abs_gradient_error": 7.275957614183426e-11
+      },
+      {
+        "tensor": "0.trace_scale",
+        "max_abs_gradient_error": 2.3283064365386963e-10
+      },
+      {
+        "tensor": "0.retention_gate.weight",
+        "max_abs_gradient_error": 2.0372681319713593e-10
+      },
+      {
+        "tensor": "0.retention_gate.bias",
+        "max_abs_gradient_error": 8.731149137020111e-11
+      },
+      {
+        "tensor": "1.gain",
+        "max_abs_gradient_error": 1.3969838619232178e-09
+      },
+      {
+        "tensor": "1.input.weight",
+        "max_abs_gradient_error": 1.1641532182693481e-09
+      },
+      {
+        "tensor": "1.input.bias",
+        "max_abs_gradient_error": 1.862645149230957e-09
+      },
+      {
+        "tensor": "1.output.weight",
+        "max_abs_gradient_error": 3.166496753692627e-08
+      },
+      {
+        "tensor": "1.output.bias",
+        "max_abs_gradient_error": 2.0721927285194397e-08
+      },
+      {
+        "tensor": "1.leak",
+        "max_abs_gradient_error": 9.458744898438454e-11
+      },
+      {
+        "tensor": "1.trace_leak",
+        "max_abs_gradient_error": 1.4551915228366852e-10
+      },
+      {
+        "tensor": "1.trace_scale",
+        "max_abs_gradient_error": 1.6007106751203537e-10
+      },
+      {
+        "tensor": "1.retention_gate.weight",
+        "max_abs_gradient_error": 2.6193447411060333e-10
+      },
+      {
+        "tensor": "1.retention_gate.bias",
+        "max_abs_gradient_error": 1.382431946694851e-10
+      },
+      {
+        "tensor": "final.gain",
+        "max_abs_gradient_error": 3.026798367500305e-09
+      },
+      {
+        "tensor": "head.weight",
+        "max_abs_gradient_error": 2.9802322387695312e-08
+      },
+      {
+        "tensor": "head.bias",
+        "max_abs_gradient_error": 5.587935447692871e-09
+      }
+    ]
+  },
+  "cpu_weighted_gradients": {
+    "passed": true,
+    "reference": "independent CPU PyTorch autograd",
+    "nonzero_boundary_state": true,
+    "weighted_targets": true,
+    "cell": 5,
+    "loss": 5.515639781951904,
+    "logits_max_abs_error": 8.940696716308594e-08,
+    "gradients_max_abs_error": 6.705522537231445e-08,
+    "adam_update_max_abs_error": 8.344650268554688e-07,
+    "regularized_gradient_max_abs_error": 5.960464477539063e-08,
+    "tensors": [
+      {
+        "tensor": "embedding",
+        "max_abs_gradient_error": 1.862645149230957e-08
+      },
+      {
+        "tensor": "0.gain",
+        "max_abs_gradient_error": 1.3387762010097504e-09
+      },
+      {
+        "tensor": "0.input.weight",
+        "max_abs_gradient_error": 3.725290298461914e-09
+      },
+      {
+        "tensor": "0.input.bias",
+        "max_abs_gradient_error": 9.313225746154785e-09
+      },
+      {
+        "tensor": "0.output.weight",
+        "max_abs_gradient_error": 6.705522537231445e-08
+      },
+      {
+        "tensor": "0.output.bias",
+        "max_abs_gradient_error": 6.51925802230835e-08
+      },
+      {
+        "tensor": "0.leak",
+        "max_abs_gradient_error": 1.7826096154749393e-10
+      },
+      {
+        "tensor": "0.trace_leak",
+        "max_abs_gradient_error": 3.310560714453459e-10
+      },
+      {
+        "tensor": "0.trace_scale",
+        "max_abs_gradient_error": 9.313225746154785e-10
+      },
+      {
+        "tensor": "0.retention_gate.weight",
+        "max_abs_gradient_error": 6.984919309616089e-10
+      },
+      {
+        "tensor": "0.retention_gate.bias",
+        "max_abs_gradient_error": 3.7834979593753815e-10
+      },
+      {
+        "tensor": "1.gain",
+        "max_abs_gradient_error": 1.6298145055770874e-09
+      },
+      {
+        "tensor": "1.input.weight",
+        "max_abs_gradient_error": 5.122274160385132e-09
+      },
+      {
+        "tensor": "1.input.bias",
+        "max_abs_gradient_error": 8.381903171539307e-09
+      },
+      {
+        "tensor": "1.output.weight",
+        "max_abs_gradient_error": 5.21540641784668e-08
+      },
+      {
+        "tensor": "1.output.bias",
+        "max_abs_gradient_error": 2.9802322387695312e-08
+      },
+      {
+        "tensor": "1.leak",
+        "max_abs_gradient_error": 2.6193447411060333e-10
+      },
+      {
+        "tensor": "1.trace_leak",
+        "max_abs_gradient_error": 2.3283064365386963e-10
+      },
+      {
+        "tensor": "1.trace_scale",
+        "max_abs_gradient_error": 3.710738383233547e-10
+      },
+      {
+        "tensor": "1.retention_gate.weight",
+        "max_abs_gradient_error": 5.238689482212067e-10
+      },
+      {
+        "tensor": "1.retention_gate.bias",
+        "max_abs_gradient_error": 1.7462298274040222e-10
+      },
+      {
+        "tensor": "final.gain",
+        "max_abs_gradient_error": 4.190951585769653e-09
+      },
+      {
+        "tensor": "head.weight",
+        "max_abs_gradient_error": 5.960464477539063e-08
+      },
+      {
+        "tensor": "head.bias",
+        "max_abs_gradient_error": 1.4901161193847656e-08
+      }
+    ]
+  },
+  "prior_trace_cpu": {
+    "passed": true,
+    "reference": "independent CPU PyTorch autograd",
+    "nonzero_boundary_state": true,
+    "weighted_targets": false,
+    "cell": 3,
+    "loss": 5.501357078552246,
+    "logits_max_abs_error": 7.450580596923828e-08,
+    "gradients_max_abs_error": 5.21540641784668e-08,
+    "adam_update_max_abs_error": 3.0919909477233887e-07,
+    "regularized_gradient_max_abs_error": 5.21540641784668e-08,
+    "tensors": [
+      {
+        "tensor": "embedding",
+        "max_abs_gradient_error": 8.381903171539307e-09
+      },
+      {
+        "tensor": "0.gain",
+        "max_abs_gradient_error": 5.820766091346741e-10
+      },
+      {
+        "tensor": "0.input.weight",
+        "max_abs_gradient_error": 1.1641532182693481e-09
+      },
+      {
+        "tensor": "0.input.bias",
+        "max_abs_gradient_error": 1.6298145055770874e-09
+      },
+      {
+        "tensor": "0.output.weight",
+        "max_abs_gradient_error": 2.60770320892334e-08
+      },
+      {
+        "tensor": "0.output.bias",
+        "max_abs_gradient_error": 2.0489096641540527e-08
+      },
+      {
+        "tensor": "0.leak",
+        "max_abs_gradient_error": 8.026290743146092e-11
+      },
+      {
+        "tensor": "0.trace_leak",
+        "max_abs_gradient_error": 2.6193447411060333e-10
+      },
+      {
+        "tensor": "0.trace_scale",
+        "max_abs_gradient_error": 2.9103830456733704e-10
+      },
+      {
+        "tensor": "1.gain",
+        "max_abs_gradient_error": 8.294591680169106e-10
+      },
+      {
+        "tensor": "1.input.weight",
+        "max_abs_gradient_error": 1.6298145055770874e-09
+      },
+      {
+        "tensor": "1.input.bias",
+        "max_abs_gradient_error": 2.0954757928848267e-09
+      },
+      {
+        "tensor": "1.output.weight",
+        "max_abs_gradient_error": 2.60770320892334e-08
+      },
+      {
+        "tensor": "1.output.bias",
+        "max_abs_gradient_error": 1.862645149230957e-08
+      },
+      {
+        "tensor": "1.leak",
+        "max_abs_gradient_error": 1.0550138540565968e-10
+      },
+      {
+        "tensor": "1.trace_leak",
+        "max_abs_gradient_error": 7.275957614183426e-11
+      },
+      {
+        "tensor": "1.trace_scale",
+        "max_abs_gradient_error": 2.0372681319713593e-10
+      },
+      {
+        "tensor": "final.gain",
+        "max_abs_gradient_error": 2.3283064365386963e-09
+      },
+      {
+        "tensor": "head.weight",
+        "max_abs_gradient_error": 5.21540641784668e-08
+      },
+      {
+        "tensor": "head.bias",
+        "max_abs_gradient_error": 3.725290298461914e-09
+      }
+    ]
+  },
+  "prior_read_gate_cpu": {
+    "passed": true,
+    "reference": "independent CPU PyTorch autograd",
+    "nonzero_boundary_state": true,
+    "weighted_targets": false,
+    "cell": 4,
+    "loss": 5.500522613525391,
+    "logits_max_abs_error": 7.450580596923828e-08,
+    "gradients_max_abs_error": 2.9802322387695312e-08,
+    "adam_update_max_abs_error": 1.261010766029358e-06,
+    "regularized_gradient_max_abs_error": 2.9802322387695312e-08,
+    "tensors": [
+      {
+        "tensor": "embedding",
+        "max_abs_gradient_error": 8.381903171539307e-09
+      },
+      {
+        "tensor": "0.gain",
+        "max_abs_gradient_error": 4.802132025361061e-10
+      },
+      {
+        "tensor": "0.input.weight",
+        "max_abs_gradient_error": 1.1641532182693481e-09
+      },
+      {
+        "tensor": "0.input.bias",
+        "max_abs_gradient_error": 1.6298145055770874e-09
+      },
+      {
+        "tensor": "0.output.weight",
+        "max_abs_gradient_error": 2.2351741790771484e-08
+      },
+      {
+        "tensor": "0.output.bias",
+        "max_abs_gradient_error": 2.2351741790771484e-08
+      },
+      {
+        "tensor": "0.leak",
+        "max_abs_gradient_error": 8.36735125631094e-11
+      },
+      {
+        "tensor": "0.trace_leak",
+        "max_abs_gradient_error": 7.275957614183426e-11
+      },
+      {
+        "tensor": "0.trace_scale",
+        "max_abs_gradient_error": 1.8189894035458565e-10
+      },
+      {
+        "tensor": "0.read_gate.weight",
+        "max_abs_gradient_error": 2.9103830456733704e-10
+      },
+      {
+        "tensor": "0.read_gate.bias",
+        "max_abs_gradient_error": 1.7462298274040222e-10
+      },
+      {
+        "tensor": "1.gain",
+        "max_abs_gradient_error": 1.0622898116707802e-09
+      },
+      {
+        "tensor": "1.input.weight",
+        "max_abs_gradient_error": 1.6298145055770874e-09
+      },
+      {
+        "tensor": "1.input.bias",
+        "max_abs_gradient_error": 1.3969838619232178e-09
+      },
+      {
+        "tensor": "1.output.weight",
+        "max_abs_gradient_error": 2.2351741790771484e-08
+      },
+      {
+        "tensor": "1.output.bias",
+        "max_abs_gradient_error": 1.4901161193847656e-08
+      },
+      {
+        "tensor": "1.leak",
+        "max_abs_gradient_error": 7.821654435247183e-11
+      },
+      {
+        "tensor": "1.trace_leak",
+        "max_abs_gradient_error": 1.0186340659856796e-10
+      },
+      {
+        "tensor": "1.trace_scale",
+        "max_abs_gradient_error": 1.7462298274040222e-10
+      },
+      {
+        "tensor": "1.read_gate.weight",
+        "max_abs_gradient_error": 2.3283064365386963e-10
+      },
+      {
+        "tensor": "1.read_gate.bias",
+        "max_abs_gradient_error": 1.1641532182693481e-10
+      },
+      {
+        "tensor": "final.gain",
+        "max_abs_gradient_error": 2.0954757928848267e-09
+      },
+      {
+        "tensor": "head.weight",
+        "max_abs_gradient_error": 2.9802322387695312e-08
+      },
+      {
+        "tensor": "head.bias",
+        "max_abs_gradient_error": 3.725290298461914e-09
+      }
+    ]
+  },
+  "curriculum_cli": {
+    "passed": true,
+    "native_commands": 113,
+    "resume_cases": 30,
+    "resume_max_error": 3.725290298461914e-09,
+    "identical_generated_bytes": true,
+    "cells": [
+      "lif",
+      "alif",
+      "trace",
+      "gated",
+      "selective"
+    ],
+    "optional_si": true,
+    "v2_binding_retains_history": true,
+    "rate_override_retains_stage_scale": true,
+    "future_data_mutation_rejected": true,
+    "changed_prefix_rejected": true,
+    "future_heldout_document_rejected": true,
+    "invalid_input_writes_no_run": true,
+    "v4_read_only_commands_checked": true,
+    "new_scope_wraps_without_old_online_documents": true,
+    "scoped_restart_preserves_old_replay": true,
+    "feedback_resume_cases": 10,
+    "feedback_resume_max_error": 1.4901161193847656e-08,
+    "feedback_annotation_persists_across_later_stages": true,
+    "feedback_policy_change_and_missing_answers_rejected": true,
+    "checkpoint_sha256": "55fb69d429c637ae9c2e05892fc9982da5b0a100c3fbc69a6c7dfa68ecc44593"
+  },
+  "extension_cli": {
+    "passed": true,
+    "native_commands": 153,
+    "extension_cases": 40,
+    "cells": [
+      "lif",
+      "alif",
+      "trace",
+      "gated",
+      "selective"
+    ],
+    "optional_si": true,
+    "graph_speech_identical": true,
+    "final_payload_max_error": 9.5367431640625e-07,
+    "repeated_extension_matches_full_schedule": true,
+    "prefix_policy_and_all_source_editions_preserved": true,
+    "invalid_extension_writes_no_run": true,
+    "heldout_new_document_rejected": true,
+    "initial_and_completed_stage_archives_preserved": true,
+    "population_age_and_lineage_preserved": true,
+    "dead_member_extension_rejected": true,
+    "deceased_archive_readable": true,
+    "reserved_language_test_unused": true,
+    "source_sha256": "b63f1e62941af1e1340e2c645bbc4e30114610732af625a580c5a229ef661dbf"
+  },
+  "scoring_cli": {
+    "passed": true,
+    "native_commands": 59,
+    "cells": [
+      "lif",
+      "alif",
+      "trace",
+      "gated",
+      "selective"
+    ],
+    "independent_cpu_forward_max_score_error": 1.9073976069705623e-06,
+    "independent_cpu_greedy_matches": true,
+    "answer_only_scoring_verified": true,
+    "pair_order_independent": true,
+    "checkpoint_files_unchanged": true,
+    "malformed_pairs_rejected": true,
+    "prepared_bytes_reproducible": true,
+    "reading_bytes_preserved": true,
+    "heldout_reading_lf_and_crlf_rejected": true,
+    "heldout_contexts_absent_from_lessons": true,
+    "synthetic_fixture_only": true,
+    "incompatible_trace_spike_additions_and_paging_rejected": true
+  },
+  "binding_cli": {
+    "passed": true,
+    "native_commands": 10,
+    "oracle_max_score_error": 1.430552345027536e-06,
+    "independent_fact_query_labels_checked": true,
+    "copy_first_or_last_joint_accuracy": 0,
+    "full_grid_required": true,
+    "group_metric_verified": true,
+    "prepared_bytes_reproduce": true,
+    "test_labels_validated_but_no_model_evaluated_on_test": true
+  },
+  "population_live": {
+    "passed": true,
+    "cell": "selective",
+    "native_commands": 17,
+    "canonical_checkpoint_updated": true,
+    "evolution_reads_exact_learned_payload": true,
+    "inherited_rate_preserved_exactly": true,
+    "mature_parent_base_rates_inherited": true,
+    "live_curriculum_and_si_resume": true,
+    "learning_does_not_reset_age": true,
+    "selected_answer_feedback_in_population_stream": true,
+    "lineage_and_birth_checkpoint_preserved": true,
+    "wrong_evaluation_corpus_rejected": true,
+    "writer_lock_blocks_learning_and_aging": true,
+    "dead_member_cannot_resume_learning": true,
+    "dead_archive_remains_readable": true,
+    "learned_checkpoint_sha256": "64ad04f9e5d5af935feba97edfb48046c3a164f099a336a3f32a388eabc28904"
+  },
+  "population_scarcity": {
+    "passed": true,
+    "native_commands": 12,
+    "ticks": 4,
+    "growth_at_birth_checked": true,
+    "newborn_parent_rejection_checked": true,
+    "budget_limited_births": 5,
+    "zero_budget_births": 0,
+    "scarcity_tightens_selection": true,
+    "old_age_deaths": 2,
+    "dead_checkpoints_preserved": true,
+    "dead_population_food_released": true,
+    "clock_persisted_across_processes": true,
+    "changed_evaluation_corpus_rejected": true,
+    "duplicate_round_rejected": true,
+    "path_traversal_id_rejected": true,
+    "inherited_child_training_origin_recorded": true,
+    "final_population_config_sha256": "254ecd87ad377bbea1c34bd707e90bd59d39ab93279d3bc132c492e6fb26ef27"
+  },
+  "burn_policy": {
+    "passed": true,
+    "scope": "CLI policy persistence and explicit overrides on tiny synthetic models",
+    "pairs": [
+      {
+        "cell": "lif",
+        "policy": "warm",
+        "resume_max_abs_error": 2.3283064365386963e-10,
+        "switched_policy_weight_max_abs_difference": 0.0008292905986309052
+      },
+      {
+        "cell": "lif",
+        "policy": "reset",
+        "resume_max_abs_error": 9.313225746154785e-10,
+        "switched_policy_weight_max_abs_difference": 0.0007719993591308594
+      },
+      {
+        "cell": "alif",
+        "policy": "warm",
+        "resume_max_abs_error": 2.3283064365386963e-10,
+        "switched_policy_weight_max_abs_difference": 0.0009068669751286507
+      },
+      {
+        "cell": "alif",
+        "policy": "reset",
+        "resume_max_abs_error": 3.725290298461914e-09,
+        "switched_policy_weight_max_abs_difference": 0.0008706394582986832
+      },
+      {
+        "cell": "trace",
+        "policy": "warm",
+        "resume_max_abs_error": 4.656612873077393e-10,
+        "switched_policy_weight_max_abs_difference": 0.000828881748020649
+      },
+      {
+        "cell": "trace",
+        "policy": "reset",
+        "resume_max_abs_error": 4.656612873077393e-10,
+        "switched_policy_weight_max_abs_difference": 0.0008170160581357777
+      },
+      {
+        "cell": "gated",
+        "policy": "warm",
+        "resume_max_abs_error": 4.656612873077393e-10,
+        "switched_policy_weight_max_abs_difference": 0.0008767470135353506
+      },
+      {
+        "cell": "gated",
+        "policy": "reset",
+        "resume_max_abs_error": 4.656612873077393e-10,
+        "switched_policy_weight_max_abs_difference": 0.0008885773131623864
+      },
+      {
+        "cell": "selective",
+        "policy": "warm",
+        "resume_max_abs_error": 2.3283064365386963e-10,
+        "switched_policy_weight_max_abs_difference": 0.0010470208944752812
+      },
+      {
+        "cell": "selective",
+        "policy": "reset",
+        "resume_max_abs_error": 2.3283064365386963e-10,
+        "switched_policy_weight_max_abs_difference": 0.0008095442317426205
+      }
+    ],
+    "continuous_schedule_equivalence_tested": false
+  }
+}

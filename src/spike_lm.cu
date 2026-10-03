@@ -81,21 +81,25 @@ struct Buf {
 #include "synaptic_memory.cuh"
 struct Config {
     int c = 256, h = 512, l = 4;
-    int cell = 1; // 1: LIF, 2: ALIF, 3: filtered spikes, 4: input-gated trace readout.
+    int cell = 1; // 1: LIF, 2: ALIF, 3: trace, 4: trace read gate, 5: selective trace retention.
     bool adaptive() const {
         return cell == 2;
     }
     bool traced() const {
-        return cell == 3 || cell == 4;
+        return cell == 3 || cell == 4 || cell == 5;
     }
     bool gated() const {
-        return cell == 4;
+        return cell == 4 || cell == 5;
+    }
+    bool selective() const {
+        return cell == 5;
     }
     bool secondary() const {
         return adaptive() || traced();
     }
     const char *name() const {
-        return gated()
+        return selective() ? "signed_selective_trace_lif_v5"
+               : gated()
                    ? "signed_gated_trace_lif_v4"
                    : (traced() ? "signed_trace_lif_v3" : (adaptive() ? "signed_alif_v2" : "signed_lif_v1"));
     }
@@ -116,7 +120,7 @@ struct Layout {
     }
     explicit Layout(Config q) {
         if (q.c < 8 || q.c > 2048 || q.h < 8 || q.h > 8192 || q.l < 1 || q.l > 32 ||
-            (q.cell < 1 || q.cell > 4))
+            (q.cell < 1 || q.cell > 5))
             throw std::runtime_error("Unsupported model dimensions");
         emb = add(256ull * q.c, true);
         for (int i = 0; i < q.l; ++i) {
@@ -531,7 +535,7 @@ struct Model {
                 trace_fwd<<<(B * q.h + 255) / 256, 256, 0, stream>>>(
                     f.s.p, f.u.p, f.adapt.p, f.emission.p, f.state.p, f.adapt_state.p, f.initial_state.p,
                     f.initial_adapt.p, f.z.p, w.p + p.leak, w.p + p.adapt_leak, w.p + p.adapt_scale, f.gate.p,
-                    B, T, q.h, streaming);
+                    B, T, q.h, streaming, q.selective());
             else if (q.adaptive())
                 alif_fwd<<<(B * q.h + 255) / 256, 256, 0, stream>>>(
                     f.s.p, f.u.p, f.adapt.p, f.state.p, f.adapt_state.p, f.initial_state.p, f.initial_adapt.p,
@@ -610,8 +614,8 @@ struct Model {
                 trace_bwd<<<(B * q.h + 255) / 256, 256>>>(
                     dz.p, g.p + p.leak, g.p + p.adapt_leak, g.p + p.adapt_scale, ds.p, f.u.p, f.s.p,
                     f.adapt.p, f.initial_state.p, f.initial_adapt.p, w.p + p.leak, w.p + p.adapt_leak,
-                    w.p + p.adapt_scale, f.gate.p, dgate.p, B, T, q.h,
-                    activity_cost / (float(N) * q.h * q.l));
+                    w.p + p.adapt_scale, f.gate.p, dgate.p, B, T, q.h, activity_cost / (float(N) * q.h * q.l),
+                    q.selective());
             else if (q.adaptive())
                 alif_bwd<<<(B * q.h + 255) / 256, 256>>>(dz.p, g.p + p.leak, g.p + p.adapt_leak,
                                                          g.p + p.adapt_scale, ds.p, f.u.p, f.s.p, f.adapt.p,
@@ -798,7 +802,7 @@ State header(const fs::path &path) {
     State s;
     read_raw(f, s.meta.data(), 32);
     read_raw(f, s.hp.data(), 8);
-    if (s.meta[0] != 0x314d4c53434e5042ull || s.meta[1] < 1 || s.meta[1] > 4)
+    if (s.meta[0] != 0x314d4c53434e5042ull || s.meta[1] < 1 || s.meta[1] > 5)
         throw std::runtime_error("Unsupported checkpoint architecture/version");
     for (int i = 2; i <= 9; ++i)
         if (s.meta[i] > 1000000000ull)
@@ -975,7 +979,9 @@ int cell_version(const Args &args) {
         return 3;
     if (cell == "gated")
         return 4;
-    throw std::runtime_error("--cell must be lif, alif, trace or gated");
+    if (cell == "selective")
+        return 5;
+    throw std::runtime_error("--cell must be lif, alif, trace, gated or selective");
 }
 Config checkpoint_config(const State &s) {
     return {int(s.meta[2]), int(s.meta[3]), int(s.meta[4]), int(s.meta[1])};
@@ -1394,7 +1400,7 @@ int main(int argc, char **argv) {
             std::cout
                 << "synapticgenesis train --data train.dat --validation validation.dat --out runs/pilot "
                    "[--steps "
-                   "2000] [--cell lif|alif|trace|gated] [--burn-in 512 --burn-policy warm|reset]\n"
+                   "2000] [--cell lif|alif|trace|gated|selective] [--burn-in 512 --burn-policy warm|reset]\n"
                 << "synapticgenesis sample --checkpoint runs/pilot/best.ckpt --prompt \"The bird \" "
                    "[--graph] "
                    "[--spike-add]\n"
@@ -1422,6 +1428,7 @@ int main(int argc, char **argv) {
                 << "synapticgenesis adaptive-test --out reports/adaptive-tests\n"
                 << "synapticgenesis trace-test --out reports/trace-tests\n"
                 << "synapticgenesis gated-test --out reports/gated-tests\n"
+                << "synapticgenesis selective-test --out reports/selective-tests\n"
                 << "synapticgenesis synaptic-test --out reports/synaptic-tests\n"
                 << "synapticgenesis self-test --out reports/native-tests\n"
                 << "synapticgenesis population-add --population runs/population --id founder-a "
@@ -1462,6 +1469,8 @@ int main(int argc, char **argv) {
             adaptive_test(args, 3);
         else if (cmd == "gated-test")
             adaptive_test(args, 4);
+        else if (cmd == "selective-test")
+            adaptive_test(args, 5);
         else if (cmd == "memory-bench")
             memory_bench(args);
         else if (cmd == "context-bench")

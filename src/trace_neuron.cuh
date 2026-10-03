@@ -5,7 +5,7 @@
 __global__ void trace_fwd(float *spikes, float *u, float *trace, float *emission, float *state,
                           float *trace_state, const float *initial, const float *initial_trace,
                           const float *z, const float *leak, const float *trace_leak, const float *scale,
-                          const float *gate, int B, int T, int H, bool streaming) {
+                          const float *gate, int B, int T, int H, bool streaming, bool selective) {
     int k = blockIdx.x * blockDim.x + threadIdx.x;
     if (k >= B * H)
         return;
@@ -16,11 +16,12 @@ __global__ void trace_fwd(float *spikes, float *u, float *trace, float *emission
         int i = (b * T + t) * H + j;
         float v = beta * reset + z[i];
         float s = float(v >= 1) - float(v <= -1);
-        a = rho * a + (1 - rho) * s;
+        float retain = selective ? sigmoid(trace_leak[j] + gate[i]) : rho;
+        a = retain * a + (1 - retain) * s;
         spikes[i] = s;
         u[i] = v;
         trace[i] = a;
-        float read = gate ? 2 * sigmoid(gate[i]) : 1;
+        float read = gate && !selective ? 2 * sigmoid(gate[i]) : 1;
         emission[i] = s + gamma * read * a;
         reset = v - s;
     }
@@ -33,31 +34,40 @@ __global__ void trace_bwd(float *dz, float *dl, float *dr, float *dk, const floa
                           const float *spikes, const float *trace, const float *initial,
                           const float *initial_trace, const float *leak, const float *trace_leak,
                           const float *scale, const float *gate, float *dgate, int B, int T, int H,
-                          float activity_scale) {
+                          float activity_scale, bool selective) {
     int k = blockIdx.x * blockDim.x + threadIdx.x;
     if (k >= B * H)
         return;
     int b = k / H, j = k % H;
     float beta = sigmoid(leak[j]), rho = sigmoid(trace_leak[j]), gamma = softplus(scale[j]);
-    float carry_u = 0, carry_a = 0, db = 0, d_rho = 0, d_gamma = 0;
+    float carry_u = 0, carry_a = 0, db = 0, d_rho = 0, d_gamma = 0, next_retain = 0;
     for (int t = T - 1; t >= 0; --t) {
         int i = (b * T + t) * H + j;
-        float read = gate ? 2 * sigmoid(gate[i]) : 1;
-        float da = gamma * read * dout[i] + rho * carry_a;
-        if (gate)
+        float retain = selective ? sigmoid(trace_leak[j] + gate[i]) : rho;
+        float read = gate && !selective ? 2 * sigmoid(gate[i]) : 1;
+        // The future trace contributes its own retention coefficient, not
+        // this timestep's gate. The chunk's incoming trace is detached.
+        float da = gamma * read * dout[i] + (selective ? next_retain : rho) * carry_a;
+        if (gate && !selective)
             dgate[i] = gamma * trace[i] * dout[i] * read * (1 - .5f * read);
-        float ds = dout[i] + (1 - rho) * da + activity_scale * spikes[i];
+        float ds = dout[i] + (1 - retain) * da + activity_scale * spikes[i];
         float du = ds * surrogate(u[i]) + beta * carry_u;
         float previous_u = t ? u[i - H] - spikes[i - H] : initial[k];
         float previous_a = t ? trace[i - H] : initial_trace[k];
         dz[i] = du;
         db += du * previous_u;
-        d_rho += da * (previous_a - spikes[i]);
+        float drho = da * (previous_a - spikes[i]);
+        if (selective) {
+            drho *= retain * (1 - retain);
+            dgate[i] = drho;
+        }
+        d_rho += drho;
         d_gamma += read * dout[i] * trace[i];
         carry_u = du;
         carry_a = da;
+        next_retain = retain;
     }
     atomicAdd(dl + j, db * beta * (1 - beta));
-    atomicAdd(dr + j, d_rho * rho * (1 - rho));
+    atomicAdd(dr + j, selective ? d_rho : d_rho * rho * (1 - rho));
     atomicAdd(dk + j, d_gamma * sigmoid(scale[j]));
 }

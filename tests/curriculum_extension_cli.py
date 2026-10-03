@@ -60,7 +60,7 @@ def check(exe, out):
               '--replay', 'reservoir', '--replay-capacity', 32, '--replay-every', 2,
               '--lr', .0008, '--graph', '--seed', 1337, '--speak-every', 2, '--tokens', 7,
               '--prompt', 'A', '--log-every', 1, '--save-every', 100]
-    for cell in ('lif', 'alif', 'trace', 'gated'):
+    for cell in ('lif', 'alif', 'trace', 'gated', 'selective'):
         for si in (False, True):
             policy = ['--cell', cell] + (['--consolidation', 'si', '--si-strength', .02] if si else [])
             full = out / f'{cell}-{int(si)}-full'
@@ -173,7 +173,7 @@ def check(exe, out):
     assert (member / 'latest.ckpt').read_bytes() == learned
     run('sample', '--checkpoint', member / 'latest.ckpt', '--tokens', 8, '--prompt', 'A')
     result = dict(passed=True, native_commands=calls, extension_cases=cases,
-                  cells=['lif', 'alif', 'trace', 'gated'], optional_si=True, graph_speech_identical=True,
+                  cells=['lif', 'alif', 'trace', 'gated', 'selective'], optional_si=True, graph_speech_identical=True,
                   final_payload_max_error=max_error, repeated_extension_matches_full_schedule=True,
                   prefix_policy_and_all_source_editions_preserved=True,
                   invalid_extension_writes_no_run=True, heldout_new_document_rejected=True,

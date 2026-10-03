@@ -1,7 +1,8 @@
 """Matched native delayed-cue experiments; no Python model computation.
 
 All models are disposable synthetic controls, never language-model ancestors.
-The fixed protocol compares three cells over three seeds and three delays.
+The default protocol compares three cells over three seeds and three delays.
+Explicit cell/width/delay overrides support matched architecture controls.
 """
 import argparse
 import hashlib
@@ -11,21 +12,21 @@ import statistics
 import subprocess
 
 
-def run(exe, out):
+def run(exe, out, cell_options=('lif', 'alif', 'trace'), hidden=128, delays=(64, 128, 256)):
     exe = exe.resolve()
     out.mkdir(parents=True, exist_ok=False)
     rows = []
     for seed in (1337, 2026, 31415):
-        for delay in (64, 128, 256):
+        for delay in delays:
             # Rotate the first architecture to limit systematic ordering bias.
-            cells = ['lif', 'alif', 'trace']
-            shift = (1337, 2026, 31415).index(seed)
+            cells = list(cell_options)
+            shift = (1337, 2026, 31415).index(seed) % len(cells)
             cells = cells[shift:] + cells[:shift]
             for cell in cells:
                 dest = out / f'{cell}-{seed}-{delay}'
                 command = [str(exe), 'memory-bench', '--cell', cell, '--delay', str(delay),
                            '--steps', '2000', '--seed', str(seed), '--batch', '32',
-                           '--channels', '64', '--hidden', '128', '--layers', '2',
+                           '--channels', '64', '--hidden', str(hidden), '--layers', '2',
                            '--lr', '.001', '--fast', '--out', str(dest)]
                 p = subprocess.run(command, capture_output=True)
                 (out / f'{dest.name}.log').write_bytes(p.stdout + p.stderr)
@@ -39,8 +40,8 @@ def run(exe, out):
                 rows.append(row)
                 print(f'{cell} seed={seed} delay={delay}: accuracy={row["accuracy"]:.4f}', flush=True)
     means = []
-    for delay in (64, 128, 256):
-        for cell in ('lif', 'alif', 'trace'):
+    for delay in delays:
+        for cell in cell_options:
             selected = [r for r in rows if r['delay'] == delay and r['cell_option'] == cell]
             means.append(dict(cell=cell, delay=delay,
                               mean_accuracy=statistics.mean(r['accuracy'] for r in selected),
@@ -48,8 +49,8 @@ def run(exe, out):
                               max_accuracy=max(r['accuracy'] for r in selected),
                               mean_training_seconds=statistics.mean(r['training_seconds'] for r in selected)))
     report = dict(protocol='Matched native delayed A/B cue recall; fresh random initialization per run.',
-                  seeds=[1337, 2026, 31415], delays=[64, 128, 256], steps=2000,
-                  channels=64, hidden=128, layers=2, batch=32, learning_rate=.001,
+                  seeds=[1337, 2026, 31415], delays=list(delays), cells=list(cell_options), steps=2000,
+                  channels=64, hidden=hidden, layers=2, batch=32, learning_rate=.001,
                   fast_math=True, evaluation_sequences_per_run=2048,
                   exact_common_initial_weights_verified_by_native_cell_tests=True,
                   ordered_sequentially_with_rotating_cell_order=True,
@@ -67,5 +68,11 @@ if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--exe', type=Path, default=Path('build/synapticgenesis.exe'))
     p.add_argument('--out', type=Path, required=True)
+    p.add_argument('--cells', nargs='+', choices=['lif', 'alif', 'trace', 'gated', 'selective'],
+                   default=['lif', 'alif', 'trace'])
+    p.add_argument('--hidden', type=int, default=128)
+    p.add_argument('--delays', nargs='+', type=int, default=[64, 128, 256])
     a = p.parse_args()
-    run(a.exe, a.out)
+    if len(set(a.cells)) != len(a.cells) or len(set(a.delays)) != len(a.delays):
+        p.error('Each selected cell and delay must be unique')
+    run(a.exe, a.out, a.cells, a.hidden, a.delays)

@@ -60,7 +60,7 @@ def check(exe, out):
     spec.loader.exec_module(dynamics)
     max_error = 0
     cases = 0
-    for cell in ('lif', 'alif', 'trace', 'gated'):
+    for cell in ('lif', 'alif', 'trace', 'gated', 'selective'):
         for si in (False, True):
             name = f'{cell}-{int(si)}'
             policy = ['--cell', cell] + (['--consolidation', 'si', '--si-strength', .02] if si else [])
@@ -123,8 +123,8 @@ def check(exe, out):
     (out / 'feedback-c.dat').write_bytes(lesson_a + b'\x1e' + lesson_b + b'\x1e' + docs[0])
     feedback_schedule = out / 'feedback.sg'
     feedback_schedule.write_bytes(b'SGCURRICULUM3\n6 "feedback-a.dat" 1 all 4\n12 "feedback-b.dat" 0.5 new 64\n18 "feedback-c.dat" 0.25 all 1\n')
-    feedback_error = 0
-    for cell in ('lif', 'alif', 'trace', 'gated'):
+    feedback_error, feedback_cases = 0, 0
+    for cell in ('lif', 'alif', 'trace', 'gated', 'selective'):
         for si in (False, True):
             full, part = out / f'feedback-{cell}-{si}-full', out / f'feedback-{cell}-{si}-split'
             policy = ['--cell', cell] + (['--consolidation', 'si', '--si-strength', .02] if si else [])
@@ -137,6 +137,7 @@ def check(exe, out):
             assert difference < 3e-5 and expected[1:3] == actual[1:3]
             assert json.loads((full / 'session.json').read_text())['answer_emphasized_documents'] == 2
             assert speech(full) == speech(part)
+            feedback_cases += 1
     # Mutating supervision is as material as mutating any future source edition.
     feedback_schedule.write_bytes(feedback_schedule.read_bytes().replace(b'new 64', b'new 32'))
     run('live', '--curriculum', feedback_schedule, '--resume', part / 'latest.ckpt',
@@ -174,12 +175,12 @@ def check(exe, out):
     run('evaluate', '--checkpoint', selected, '--data', out / '0.dat', '--context', 8, '--batch', 2, '--batches', 2)
     result = {'passed': True, 'native_commands': calls, 'resume_cases': cases,
               'resume_max_error': max_error, 'identical_generated_bytes': True,
-              'cells': ['lif', 'alif', 'trace', 'gated'], 'optional_si': True, 'v2_binding_retains_history': True,
+              'cells': ['lif', 'alif', 'trace', 'gated', 'selective'], 'optional_si': True, 'v2_binding_retains_history': True,
               'rate_override_retains_stage_scale': True, 'future_data_mutation_rejected': True,
               'changed_prefix_rejected': True, 'future_heldout_document_rejected': True,
               'invalid_input_writes_no_run': True, 'v4_read_only_commands_checked': True,
               'new_scope_wraps_without_old_online_documents': True, 'scoped_restart_preserves_old_replay': True,
-              'feedback_resume_cases': 8, 'feedback_resume_max_error': feedback_error,
+              'feedback_resume_cases': feedback_cases, 'feedback_resume_max_error': feedback_error,
               'feedback_annotation_persists_across_later_stages': True,
               'feedback_policy_change_and_missing_answers_rejected': True,
               'checkpoint_sha256': hashlib.sha256(selected.read_bytes()).hexdigest()}

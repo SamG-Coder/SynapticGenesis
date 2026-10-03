@@ -44,8 +44,9 @@ def check(directory):
     c, h, layers = cfg['channels'], cfg['hidden'], cfg['layers']
     batch, time = cfg['batch'], cfg['context']
     adaptive = cfg.get('cell', 1) == 2
-    traced = cfg.get('cell', 1) in (3, 4)
-    gated = cfg.get('cell', 1) == 4
+    traced = cfg.get('cell', 1) in (3, 4, 5)
+    gated = cfg.get('cell', 1) in (4, 5)
+    selective = cfg.get('cell', 1) == 5
     secondary = adaptive or traced
     raw = np.fromfile(directory / 'weights.f32', dtype='<f4').copy()
     weights = torch.tensor(raw, requires_grad=True)
@@ -70,7 +71,8 @@ def check(directory):
             label = 'trace' if traced else 'adapt'
             block += (take(f'{i}.{label}_leak', h), take(f'{i}.{label}_scale', h))
         if gated:
-            block += (take(f'{i}.read_gate.weight', h, c), take(f'{i}.read_gate.bias', h))
+            label = 'retention_gate' if selective else 'read_gate'
+            block += (take(f'{i}.{label}.weight', h, c), take(f'{i}.{label}.bias', h))
         blocks.append(block)
     final_gain = take('final.gain', c)
     head = take('head.weight', 256, c)
@@ -93,7 +95,7 @@ def check(directory):
         gain, wi, bi, wo, bo, leak = block[:6]
         normalized = norm(x, gain)
         z = F.linear(normalized, wi, bi)
-        gate = 2 * torch.sigmoid(F.linear(normalized, block[8], block[9])) if gated else None
+        gate_logits = F.linear(normalized, block[8], block[9]) if gated else None
         beta = torch.sigmoid(leak)
         # A saved boundary state is a constant for truncated BPTT. Its effect on
         # the first timestep's leak derivative must still be included.
@@ -114,8 +116,9 @@ def check(directory):
             if adaptive:
                 adaptation = rho * adaptation + (1 - rho) * spike.abs()
             if traced:
-                adaptation = rho * adaptation + (1 - rho) * spike
-                read = gate[:, t, :] if gated else 1
+                retention = torch.sigmoid(block[6] + gate_logits[:, t, :]) if selective else rho
+                adaptation = retention * adaptation + (1 - retention) * spike
+                read = 2 * torch.sigmoid(gate_logits[:, t, :]) if gated and not selective else 1
                 emissions.append(spike + gamma * read * adaptation)
         final_states.append(torch.stack([reset.detach(), adaptation.detach()]) if secondary else reset.detach().unsqueeze(0))
         all_spikes = torch.stack(spikes, dim=1)
@@ -143,9 +146,9 @@ def check(directory):
     for name, start, end in names:
         a, b = actual_grad[start:end], expected_grad[start:end]
         err = float(np.max(np.abs(a - b)))
-        tolerance = 1e-8 if ('.adapt_' in name or '.trace_' in name or '.read_gate.' in name) else 2e-6
+        tolerance = 1e-8 if ('.adapt_' in name or '.trace_' in name or '_gate.' in name) else 2e-6
         assert np.allclose(a, b, atol=tolerance, rtol=5e-4), (name, err)
-        if '.adapt_' in name or '.trace_' in name or '.read_gate.' in name:
+        if '.adapt_' in name or '.trace_' in name or '_gate.' in name:
             assert float(np.linalg.norm(b)) > 1e-9, (name, 'fixture must exercise adaptation gradients')
         tensor_results.append({'tensor': name, 'max_abs_gradient_error': err})
     # The native test performs its first unclipped, zero-decay Adam update.

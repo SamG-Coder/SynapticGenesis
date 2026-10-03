@@ -3,8 +3,9 @@
 void adaptive_test(const Args &args, int cell = 2) {
     args.allow({"out"});
     fs::path out =
-        args.get("out", cell == 4 ? "reports/gated-tests"
-                                  : (cell == 3 ? "reports/trace-tests" : "reports/adaptive-tests"));
+        args.get("out", cell == 5   ? "reports/selective-tests"
+                        : cell == 4 ? "reports/gated-tests"
+                                    : (cell == 3 ? "reports/trace-tests" : "reports/adaptive-tests"));
     fs::create_directories(out);
     Config q{32, 64, 2, cell};
     Model gradient(q, 2, 16);
@@ -80,7 +81,7 @@ void adaptive_test(const Args &args, int cell = 2) {
     }
     require(chunk_error < 3e-5 && graph_error < 3e-5, "Adaptive streaming/capture disagrees");
 
-    float identity_error = 0;
+    float identity_error = 0, first_trace_difference = 0;
     if (q.gated()) {
         Model identity(q, 1, 4), plain(Config{q.c, q.h, q.l, 3}, 1, 4);
         identity.w.put(initialize(q, identity.a, 123));
@@ -102,6 +103,10 @@ void adaptive_test(const Args &args, int cell = 2) {
         identity.forward(bytes, nullptr, true);
         plain.forward(bytes, nullptr, true);
         require(maxdiff(identity.logits.host(), plain.logits.host()) > 1e-5, "Nonzero gate has no effect");
+        first_trace_difference =
+            maxdiff(identity.cache[0].adapt_state.host(), plain.cache[0].adapt_state.host());
+        require(q.selective() ? first_trace_difference > 1e-6 : first_trace_difference == 0,
+                "Retention and read gates must have distinct first-layer state effects");
     }
 
     // Matched initialization, and a secondary-path-disabled negative control.
@@ -179,14 +184,15 @@ void adaptive_test(const Args &args, int cell = 2) {
     }
     require(rejected, "Adaptive checkpoint silently loaded as LIF");
     // These architectures have equal-sized layouts but different state semantics.
-    Model other_secondary(Config{q.c, q.h, q.l, cell == 3 ? 2 : 3}, 1, 8);
+    Model other_secondary(Config{q.c, q.h, q.l, q.gated() ? (cell == 4 ? 5 : 4) : (cell == 3 ? 2 : 3)}, 1, 8);
+    require(other_secondary.a.n == first.root.a.n, "Wrong-version fixture must have equal-sized layouts");
     rejected = false;
     try {
         load(out / "resume.ckpt", other_secondary, restored, true);
     } catch (const std::exception &) {
         rejected = true;
     }
-    require(rejected, "ALIF and trace checkpoint semantics were silently mixed");
+    require(rejected, "Equal-sized checkpoints with different state semantics were silently mixed");
     if (q.traced()) {
         rejected = false;
         try {
@@ -201,13 +207,13 @@ void adaptive_test(const Args &args, int cell = 2) {
            << ",\"graph_max_error\":" << graph_error
            << ",\"disabled_adaptation_lif_max_error\":" << disabled_error
            << ",\"identity_gate_trace_max_error\":" << (q.gated() ? std::to_string(identity_error) : "null")
+           << ",\"nonzero_gate_first_trace_difference\":" << first_trace_difference
            << ",\"resume_max_error\":" << resume_error
-           << ",\"wrong_cell_rejected\":true,\"equal_size_wrong_cell_rejected\":"
-           << (q.gated() ? "null" : "true")
+           << ",\"wrong_cell_rejected\":true,\"equal_size_wrong_cell_rejected\":true"
            << ",\"resumed_speech_identical\":true,\"replay_state_"
               "isolated\":true,\"common_initial_weights_"
               "identical\":true}\n";
-    std::cout << "PASS " << (q.gated() ? "gated" : (q.traced() ? "trace" : "adaptive"))
+    std::cout << "PASS " << q.name()
               << ": oracle fixtures, stream/graph parity, LIF negative control, full "
                  "state/replay/speech resume. Max resume error "
               << resume_error << "\n";

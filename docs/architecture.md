@@ -71,6 +71,25 @@ At width 256, four blocks and 512 neurons per block this gives 1,716,736 paramet
 
 Input-dependent selection is motivated by [selective state-space research](https://arxiv.org/abs/2312.00752). This is a much smaller output-gating experiment over spiking state, not a Mamba implementation or a verified biological mechanism. The gate does not itself establish correct content retrieval. It remains optional; the default is LIF.
 
+## Input-dependent trace retention
+
+`--cell selective` creates `signed_selective_trace_lif_v5`. It keeps the signed LIF membrane and surrogate, and lets the normalized block input change each neuron's trace retention:
+
+```text
+gate[t]      = W_gate * RMSNorm(x[t]) + b_gate
+retain[t]    = sigmoid(learned_trace_logit + gate[t])
+trace[t]     = retain[t] * trace[t-1] + (1-retain[t]) * spike[t]
+emission[t]  = spike[t] + softplus(learned_trace_gain) * trace[t]
+```
+
+The effective retention offset is the sum of the learned trace logit and gate bias. The gate's matrix and bias start at zero, recovering the ungated trace recurrence and its initial 8–1,024-byte base time constants. All initial parameter arrays match the read-gated cell at the same dimensions and seed. Their later dynamics differ: the selective coefficient changes the stored state, whereas the read gate scales the state only when emitting it.
+
+This follows the distinction between temporal selection and output multiplication in [Gu and Dao, section 3.5](https://arxiv.org/html/2312.00752v2#S3.SS5). The implementation is a small input-dependent filter over signed spikes. It retains dense projections, floating-point state and surrogate-gradient training; it does not implement the complete Mamba architecture or a biological learning rule.
+
+Its parameter, cache, recurrent-state and population-memory sizes equal the read-gated cell: 1,716,736 parameters at C256/H512/L4, with two persistent floats per neuron. Checkpoint architecture IDs remain distinct even though payload shapes match. Inheritance copies the retention-gate rows and biases with their neurons, and zero outgoing weights on added neurons preserve the newborn's function before learning.
+
+Backpropagation uses the **next timestep's** retention factor to carry gradients from the future trace. Both the base trace logit and projected input gate receive the derivative of the current retention coefficient. CPU autograd checks nonzero gate matrices, signed incoming trace state, weighted answers, regularization and Adam updates. The [selective-trace protocol](selective-trace.md) records the measured language behavior; the default remains LIF.
+
 ## Shared learning and inference
 
 The live engine has execution views with different chunk sizes over the same weights, Adam moments and neuron state. Observed chunks update parameters; generation then sees those updates directly. CUDA graph decoding captures generation without changing the initial neuron state, and reads the current shared parameter allocation without recapture.
@@ -83,7 +102,7 @@ Replay stores document/offset/length descriptors for previously observed source 
 
 `--core-scale` scales the learning rate for embeddings and spiking blocks; the output head keeps the full rate. It does not eliminate backpropagation or optimizer bookkeeping.
 
-An explicit version-3 curriculum may emphasize answer targets in selected lesson documents. Both live observations and replay use the same per-window normalized weighted loss, while inference and held-out evaluation stay unchanged. The policy is bound by the curriculum identity and restored with its document annotations. See [answer-emphasis semantics](live-curriculum.md). Independent CPU autograd checks the weighted gradients for all four cell types, including incoming recurrent state and activity regularization.
+An explicit version-3 curriculum may emphasize answer targets in selected lesson documents. Both live observations and replay use the same per-window normalized weighted loss, while inference and held-out evaluation stay unchanged. The policy is bound by the curriculum identity and restored with its document annotations. See [answer-emphasis semantics](live-curriculum.md). Independent CPU autograd checks the weighted gradients for all five cell types, including incoming recurrent state and activity regularization.
 
 ## Selective consolidation
 
@@ -103,7 +122,7 @@ Reference, importance and path use three extra float arrays (12 bytes per parame
 
 ## Checkpoints and storage
 
-Checkpoints include a checked architecture version, metadata, parameters, Adam moments and a payload checksum. Architecture versions 1, 2, 3 and 4 represent LIF, ALIF, filtered-spike LIF and gated trace readout. ALIF and the ungated trace use equal-sized parameter/state layouts with different semantics; a checked version prevents mixing them. The architecture version and live-extension version occupy separate header fields. Live extensions add recurrence/cursor/RNG state, then replay, then consolidation history. Corrupt lengths, mismatched dimensions, unsupported policies and invalid history are rejected. The diagnostic reader is not a replacement for the native loader's complete validation.
+Checkpoints include a checked architecture version, metadata, parameters, Adam moments and a payload checksum. Architecture versions 1–5 represent LIF, ALIF, filtered-spike LIF, gated trace readout and selective trace retention. ALIF/trace and read-gate/retention-gate pairs use equal-sized layouts with different semantics; checked versions prevent mixing them. The architecture version and live-extension version occupy separate header fields. Live extensions add recurrence/cursor/RNG state, then replay, then consolidation history. Corrupt lengths, mismatched dimensions, unsupported policies and invalid history are rejected. The diagnostic reader is not a replacement for the native loader's complete validation.
 
 `live --resume` restores the complete saved stream and requires the same source corpus and prompt. With `--curriculum`, live extension v4 permits declared append-only source transitions and binds all scheduled editions to the checkpoint. It preserves replay descriptors, RNGs and optional SI history. Its policy header uses words 14 and 15 for the combined schedule/source hash and zero-based stage index; hyperparameter slot 7 stores the base learning rate. Optional SI arrays follow the replay payload only when policy word 9 equals 1. The checksum covers all policy fields, state and arrays. Earlier checkpoint versions remain readable.
 

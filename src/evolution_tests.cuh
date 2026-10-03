@@ -4,7 +4,7 @@ void evolution_test(const Args &args) {
     fs::path out = args.get("out", "reports/evolution-tests");
     fs::create_directories(out);
     double growth_error = 0, crossover_error = 0, new_weight_change = 0;
-    for (int cell : {1, 2, 3, 4}) {
+    for (int cell : {1, 2, 3, 4, 5}) {
         Config a{8, 16, 2, cell}, b{8, 24, 2, cell}, c{8, 32, 2, cell};
         Layout aa(a), ba(b), ca(c);
         auto wa = initialize(a, aa, 19);
@@ -193,7 +193,7 @@ void evolution_test(const Args &args) {
     require(!scarce.fits(1) && scarce.pressure() == 1, "Empty food budget permitted birth");
     std::ofstream f(out / "native.json");
     f << std::setprecision(10)
-      << "{\"passed\":true,\"cells\":[1,2,3,4],\"width_growth_max_error\":" << growth_error
+      << "{\"passed\":true,\"cells\":[1,2,3,4,5],\"width_growth_max_error\":" << growth_error
       << ",\"block_inheritance_max_error\":" << crossover_error
       << ",\"new_neuron_output_weight_change\":" << new_weight_change
       << ",\"mutation_caps_and_seed_checked\":true,\"newborn_gate_checked\":true,"
