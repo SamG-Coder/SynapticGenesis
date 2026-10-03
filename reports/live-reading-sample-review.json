@@ -1,0 +1,176 @@
+{
+  "comparison_sha256": "99c19c715ae1549f5900cd340109e01df395f8f11b2b66b21e24f4b10805ceec",
+  "questions_sha256": "f6cca27d9e628d970c4c53932a0af33ae81757d41092905bfaae690cddffebdb",
+  "method": "Manual review of all 12 predeclared story samples and all 36 fixed follow-up prompt samples. Qualitative, unblinded, no scoring model or retries.",
+  "limits": "Illustrative outputs, not a comprehensive question-answering benchmark. A correct initial location word does not make the rest of a continuation coherent. No model is promoted.",
+  "models": [
+    {
+      "seed": 1337,
+      "arm": "every-4",
+      "checkpoint_sha256": "a7f5dcd79718aeda805db7c0599176af048324c7f3c328dbd3945f8b06e2e825",
+      "fixed_story_samples_reviewed": 2,
+      "question_and_story_samples_reviewed": 6,
+      "fixed_story_samples_coherent": false,
+      "arithmetic_answer_correct": false,
+      "sky_question_answered": false,
+      "melting_question_explained": false,
+      "illustrative_location_beginnings": [
+        "bag.",
+        "box."
+      ],
+      "illustrative_location_reversal_both_correct": true,
+      "fixed_sample_sha256": [
+        "705095317672bd26013f983cd4356c78ff93a366d535378fcd8f16b32f268495",
+        "878a4e77f5c5c72c7b362baed340ee25d68e621530d0fcbebd070cefe002f5ce"
+      ],
+      "question_sample_sha256": [
+        "c93690ca1db25bd777d32cc0055803032dc0e7dd1477dcc260869cb81ef11196",
+        "0fc2bf1afeea5301c37c3d74eeac9664d9d79bd9c4d610785a432dd7be9b3ecb",
+        "e3eb7784e07298d336d3570fbbd5432eeb94cafc7f29b45f3cbfa0dbac1d438d",
+        "eea98ae08e050b38cd35870c683f6447737333ffafa693b7cf4883c927175f8d",
+        "da1a50c6470ac2fbce201d62e9a2b2b95861573857c606aa5f56f10426651a81",
+        "c2faba58775f8a4e523733045d3e1d84c6d9b44da6c92855eb246d23977b41db"
+      ]
+    },
+    {
+      "seed": 1337,
+      "arm": "every-1",
+      "checkpoint_sha256": "d45d59b076c12e1693ad1ad5f2939db8b7a1d62545939307fc5870e1b42ff844",
+      "fixed_story_samples_reviewed": 2,
+      "question_and_story_samples_reviewed": 6,
+      "fixed_story_samples_coherent": false,
+      "arithmetic_answer_correct": false,
+      "sky_question_answered": false,
+      "melting_question_explained": false,
+      "illustrative_location_beginnings": [
+        "bag.",
+        "box."
+      ],
+      "illustrative_location_reversal_both_correct": true,
+      "fixed_sample_sha256": [
+        "6bab4d962f23a2043876e339a62d7497afc597590ee3ef7bd2a2f1d8de6e53b5",
+        "8ed8829090ae3dc111212b9fd039044a5f883b5d162e5c996498d6f7a8d78168"
+      ],
+      "question_sample_sha256": [
+        "fd719d0a5edef9ba039a27fbbb432a8f6fc856f83936fe8698ed3cf0506151f0",
+        "2e5ab078451587044ff588d85ecb76334054a2c614f2557064d3a68759793131",
+        "a44b961c325ba0797406a77cc91e6d1061701bb4050d1203a7d4c441c0b39c40",
+        "f5745f1efdf5e5d1938292abfbd858db31ff98e296b49fc9cb3f1307ce28c714",
+        "8832982eb94c327f29923704729b7c05e16187c4e6fa95cc587eba9d51567bc8",
+        "1e1755e05ed08b2134109c4692cefba6ee31d71ba2da0a844c1d6d41b8b38bb1"
+      ]
+    },
+    {
+      "seed": 2026,
+      "arm": "every-4",
+      "checkpoint_sha256": "16f998607fe95622b59672a3ac8e6a4ebba201fe7830dc0c43f5f540da77e299",
+      "fixed_story_samples_reviewed": 2,
+      "question_and_story_samples_reviewed": 6,
+      "fixed_story_samples_coherent": false,
+      "arithmetic_answer_correct": false,
+      "sky_question_answered": false,
+      "melting_question_explained": false,
+      "illustrative_location_beginnings": [
+        "box.",
+        "box."
+      ],
+      "illustrative_location_reversal_both_correct": false,
+      "fixed_sample_sha256": [
+        "1787bf64ce370d77240acfa993f701a3048ca83a808104affb2da8b338d07af1",
+        "96fe9a3d8494db31f81e4206c94c32bf0e022fcde21ac40fe7ef445a493e53d4"
+      ],
+      "question_sample_sha256": [
+        "37d2b88f0e16babf6cc12430a6f0d2890aff5d9be52b715ccc5455a58099bd29",
+        "85255f30203fc48e172c4d60e85bb8a412ab201294345f438bb126c7d69de5f8",
+        "20d53b0887aaf854c53e40ef9b9ce921e0f53488f8917df9b66ef98a2d6de135",
+        "13c0a74c2ef9deaab2cedb55a84f580263edd14440e7d1c707757e4d6b66e962",
+        "45aa8afbfa0b7c78197932a13f5f7e1d75985a9a012438814a8e0273e0d2abb9",
+        "dd9167c12342697fe8d175974f0c69a61e9cf14af5d9d7db2ff9a861be2af2e2"
+      ]
+    },
+    {
+      "seed": 2026,
+      "arm": "every-1",
+      "checkpoint_sha256": "67f7396192dd53d92371e0f02c1cdd52a354a9ffce7b25d85cf2f2563fc4d4e8",
+      "fixed_story_samples_reviewed": 2,
+      "question_and_story_samples_reviewed": 6,
+      "fixed_story_samples_coherent": false,
+      "arithmetic_answer_correct": false,
+      "sky_question_answered": false,
+      "melting_question_explained": false,
+      "illustrative_location_beginnings": [
+        "bag.",
+        "bag."
+      ],
+      "illustrative_location_reversal_both_correct": false,
+      "fixed_sample_sha256": [
+        "a1682daab1a3de9f3a86773a42e0c610d48f126fef6e102cac6c913d9e94e1ac",
+        "e78fe3ceff90d0c37c5a384ad65bec01c3c50c3013fe32ea131c5280aa5d8e56"
+      ],
+      "question_sample_sha256": [
+        "a4a3612d4a474711e4b1db38d5cb89c03b4bc2be67b2457c6cf737244d0035dc",
+        "f0e8ea6b7c943db28727f83a0c76e71a111a829870087d5dd6344bd95450e7de",
+        "612c1eee03c74d806077fdd3c6aa94943808e0be567d368f857282c91a40d13d",
+        "b7506c3d49cd1e5e38715c234d937b007703a969705f32f00466f9ae20007853",
+        "79396acf700daf47ac723d91a65c6e2828939b7c74c6e62770a9d8f8f845c2d3",
+        "72e1599ae1494b75dd177ddd29d4933478ea6af39a1105a37b56df3aa4129d53"
+      ]
+    },
+    {
+      "seed": 31415,
+      "arm": "every-4",
+      "checkpoint_sha256": "f0a5271e5b9b61223088847e5be0a72a7da4853aa2b6940f792f8574042a3664",
+      "fixed_story_samples_reviewed": 2,
+      "question_and_story_samples_reviewed": 6,
+      "fixed_story_samples_coherent": false,
+      "arithmetic_answer_correct": false,
+      "sky_question_answered": false,
+      "melting_question_explained": false,
+      "illustrative_location_beginnings": [
+        "box.",
+        "box."
+      ],
+      "illustrative_location_reversal_both_correct": false,
+      "fixed_sample_sha256": [
+        "7f408d4a9c147c266864fac40671f9986d844551dfd095eb685971d9ca7e1540",
+        "323a8487accd46bbac8a5c45e644981032c2fcd9f81a5e9bedbd39c3ae041427"
+      ],
+      "question_sample_sha256": [
+        "f222f40ee3e7e3520fe34cbfe1e8909621b72c48493d1dcc0980f4ae47568478",
+        "b086fa00cd26c09575d0edd77cc09c6bd0b5675c9848333e77d9aa087991f7ab",
+        "c492db24762e9512a0efb6fddfca7b7297e91ae0464e0aea700bd9c920d772e9",
+        "71f9db136e536f2d4a1565414e91e0813b72f9cf646515498dd31e3ca546aae5",
+        "63714bc4a932038eba4747f2e6a86e8bef67cb8c81cd888bbbd152c265cb9b4b",
+        "8b2a18bb5cc2412e1cf4def7d98cd1bdc82b38e200d1e6bdc3a331df9db16c41"
+      ]
+    },
+    {
+      "seed": 31415,
+      "arm": "every-1",
+      "checkpoint_sha256": "766399a95cd978b9e174c19d52b3aa22cf4cbd8e7638a9c2e5c1f3585c87f9da",
+      "fixed_story_samples_reviewed": 2,
+      "question_and_story_samples_reviewed": 6,
+      "fixed_story_samples_coherent": false,
+      "arithmetic_answer_correct": false,
+      "sky_question_answered": false,
+      "melting_question_explained": false,
+      "illustrative_location_beginnings": [
+        "bag.",
+        "bag."
+      ],
+      "illustrative_location_reversal_both_correct": false,
+      "fixed_sample_sha256": [
+        "994a77fe8f7f5e47bd3b99b439d056ec7a234abfdf1c856934ca387dd144f032",
+        "bb5b52d5cdb3a69fe898d4362088290d93475e0c09b5277ae60f5dca86c88fdf"
+      ],
+      "question_sample_sha256": [
+        "c183bed752b638640ccde8ae5fe798fdb83f18a34323067e0f91ca50db565307",
+        "72485c83c05126f1e768119c5dc8f847f803a8f7bb6be72500bc18fab7a3d1d7",
+        "66c83f7700c12cd548221557e62298ec10fd51be4ec4bd51deb9ef61de0938ba",
+        "09734b79b02bb4e4574b6478bd26f1742d901a3adf8537eb0b310d49e6125de6",
+        "b961f8f2b994d85120be97e0659fdd46b8139ad1d9c614cf81b804bf146a397a",
+        "23939680744eca917df5485e8d3511109ee5313d158b82b81869a06f64340aa7"
+      ]
+    }
+  ]
+}

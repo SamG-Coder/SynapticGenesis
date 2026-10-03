@@ -1,0 +1,312 @@
+{
+  "protocol": {
+    "comparison_sha256": "99c19c715ae1549f5900cd340109e01df395f8f11b2b66b21e24f4b10805ceec",
+    "script_sha256": "c6372cbdf0e114d1fa796f754cc6c78f13539db3298c132724c6e5ad6bf2113f",
+    "prompt_script_sha256": "146e5a9466e7b06a03f04528c70f33587dec2955c88b423e86c55651620f0f69",
+    "prompts": [
+      {
+        "name": "location",
+        "text": "The toy is in the bag. The tag is in the box.\nWhere is the toy?\nAnswer: "
+      },
+      {
+        "name": "location_reversed",
+        "text": "The toy is in the box. The tag is in the bag.\nWhere is the toy?\nAnswer: "
+      },
+      {
+        "name": "arithmetic",
+        "text": "Question: What is 2 + 2?\nAnswer: "
+      },
+      {
+        "name": "everyday_fact",
+        "text": "Question: What color is the sky?\nAnswer: "
+      },
+      {
+        "name": "explanation",
+        "text": "Question: Why does ice melt?\nAnswer: "
+      },
+      {
+        "name": "story",
+        "text": "Once upon a time "
+      }
+    ],
+    "seeds": [
+      1337,
+      2026,
+      31415
+    ],
+    "arms": [
+      "every-4",
+      "every-1"
+    ],
+    "end": 194096,
+    "generated_bytes": 192,
+    "temperature": 0.8,
+    "top_k": 40,
+    "seed": 42,
+    "sampling_math": "strict FP32; CUDA graph decode; fresh context",
+    "limits": "Post-training illustrative continuations using all six prior prompts on all final conditions. No training, retries, sample filtering, instruction-tuning claim or additional scored gate."
+  },
+  "complete": true,
+  "commands": 36,
+  "models_unchanged": true,
+  "models": [
+    {
+      "seed": 1337,
+      "arm": "every-4",
+      "checkpoint_sha256": "a7f5dcd79718aeda805db7c0599176af048324c7f3c328dbd3945f8b06e2e825",
+      "samples": [
+        {
+          "name": "location",
+          "prompt": "The toy is in the bag. The tag is in the box.\nWhere is the toy?\nAnswer: ",
+          "file_sha256": "c93690ca1db25bd777d32cc0055803032dc0e7dd1477dcc260869cb81ef11196",
+          "continuation": "bag.\n\nAsfrighty a worked to the hollidy one late hime, in the both walke langry.\n\nblathing villages able to got wascle.\n\nWangari leaves. The night ble was took his fave only a ltetranger, fell"
+        },
+        {
+          "name": "location_reversed",
+          "prompt": "The toy is in the box. The tag is in the bag.\nWhere is the toy?\nAnswer: ",
+          "file_sha256": "0fc2bf1afeea5301c37c3d74eeac9664d9d79bd9c4d610785a432dd7be9b3ecb",
+          "continuation": "box.\n\nAfter voilis-yearly.\n\nBe moing the village allage stoble, busket up you sine you in ripe only a big wonderfull.\n\nLauxt Grandma wonalking a very windongo.\n\nLushoot was one a cows did not "
+        },
+        {
+          "name": "arithmetic",
+          "prompt": "Question: What is 2 + 2?\nAnswer: ",
+          "file_sha256": "e3eb7784e07298d336d3570fbbd5432eeb94cafc7f29b45f3cbfa0dbac1d438d",
+          "continuation": "bother they togetier. It was Mar, in the village able ong the big windks. When it was gents.\nWhen anow day, put because to visit the bine broughs the big now road.\n\nWhat a very long for, And G"
+        },
+        {
+          "name": "everyday_fact",
+          "prompt": "Question: What color is the sky?\nAnswer: ",
+          "file_sha256": "eea98ae08e050b38cd35870c683f6447737333ffafa693b7cf4883c927175f8d",
+          "continuation": "bedgarther examilither wonders. But the bicket basket for meell, were it fater!\n\nupon the one wild breather was to mys. But her counter! It was closed, but water to school, not visit the miste"
+        },
+        {
+          "name": "explanation",
+          "prompt": "Question: Why does ice melt?\nAnswer: ",
+          "file_sha256": "da1a50c6470ac2fbce201d62e9a2b2b95861573857c606aa5f56f10426651a81",
+          "continuation": "boure the banas, asket when her with little excited of the coulyl grandma cowarited over the world start.\n\nI am houst wook his chind, \"Neverathal, will neet before the big banks.\"\n\nWhen Khalai"
+        },
+        {
+          "name": "story",
+          "prompt": "Once upon a time ",
+          "file_sha256": "c2faba58775f8a4e523733045d3e1d84c6d9b44da6c92855eb246d23977b41db",
+          "continuation": "to her with holarge these.\n\nAnd cerant mans how come, not from one the parents and play!\n\nThen is  I did    And     us're\n\n            .\n\nereadAither      Im    an dow!\n\nAfter and grandle, I'm"
+        }
+      ]
+    },
+    {
+      "seed": 1337,
+      "arm": "every-1",
+      "checkpoint_sha256": "d45d59b076c12e1693ad1ad5f2939db8b7a1d62545939307fc5870e1b42ff844",
+      "samples": [
+        {
+          "name": "location",
+          "prompt": "The toy is in the bag. The tag is in the box.\nWhere is the toy?\nAnswer: ",
+          "file_sha256": "fd719d0a5edef9ba039a27fbbb432a8f6fc856f83936fe8698ed3cf0506151f0",
+          "continuation": "bag.\n\nAfrish is think.\n\nWe invastrigh baskems day, he said pickaily little sister banast on the lay.\n\nWho can clear that do work to leater.\n\nThe more lays after it, and the manalks how grow se"
+        },
+        {
+          "name": "location_reversed",
+          "prompt": "The toy is in the box. The tag is in the bag.\nWhere is the toy?\nAnswer: ",
+          "file_sha256": "2e5ab078451587044ff588d85ecb76334054a2c614f2557064d3a68759793131",
+          "continuation": "box.\n\nAfter she lidembron.\n\nWhen she liked that the school should never abug the will life in an big a tree.\n\nMy father listed up into reatinst on a time.\n\nLESSOSON XXIV.\n\n.\nFind       I    wi"
+        },
+        {
+          "name": "arithmetic",
+          "prompt": "Question: What is 2 + 2?\nAnswer: ",
+          "file_sha256": "a44b961c325ba0797406a77cc91e6d1061701bb4050d1203a7d4c441c0b39c40",
+          "continuation": "box in the rod.\n\nWite do not me! xick clear, cleamps the priced parting\ninto the with holisheds they untitenig wateticles, and the snikle of the bananas.\n\nBut the children were oraldy to help "
+        },
+        {
+          "name": "everyday_fact",
+          "prompt": "Question: What color is the sky?\nAnswer: ",
+          "file_sha256": "f5745f1efdf5e5d1938292abfbd858db31ff98e296b49fc9cb3f1307ce28c714",
+          "continuation": "box, the night as Fa the night asset.\n\nThen xighty and splaied to leatned to the house for cannoly high die to seek and to sleep.\n\nHer very hanger and grandhed out and said, \"I am had get forg"
+        },
+        {
+          "name": "explanation",
+          "prompt": "Question: Why does ice melt?\nAnswer: ",
+          "file_sha256": "8832982eb94c327f29923704729b7c05e16187c4e6fa95cc587eba9d51567bc8",
+          "continuation": "boother talks to have the early if secondited to elgeting again. In them a first she was people's food. They were the bananas' huge not land the more.\n\nBut I harden more and her father walking"
+        },
+        {
+          "name": "story",
+          "prompt": "Once upon a time ",
+          "file_sha256": "1e1755e05ed08b2134109c4692cefba6ee31d71ba2da0a844c1d6d41b8b38bb1",
+          "continuation": "till paids after severing again.\n\nNo-year-yadf olden, my chair lagdeed. They grandmother and grandfather a brought the grow. Find the sweest forgether, and the city was dessing and\ndish the ri"
+        }
+      ]
+    },
+    {
+      "seed": 2026,
+      "arm": "every-4",
+      "checkpoint_sha256": "16f998607fe95622b59672a3ac8e6a4ebba201fe7830dc0c43f5f540da77e299",
+      "samples": [
+        {
+          "name": "location",
+          "prompt": "The toy is in the bag. The tag is in the box.\nWhere is the toy?\nAnswer: ",
+          "file_sha256": "37d2b88f0e16babf6cc12430a6f0d2890aff5d9be52b715ccc5455a58099bd29",
+          "continuation": "box.\nFrown come.\n\nFron ye dark she would shouted by hagad home.\n\nWhen I can conso in the ban can rich man's great.\n\n\nThe moster shaps MMy food Sakima big branches sin and got a very hour.\n\nHis"
+        },
+        {
+          "name": "location_reversed",
+          "prompt": "The toy is in the box. The tag is in the bag.\nWhere is the toy?\nAnswer: ",
+          "file_sha256": "85255f30203fc48e172c4d60e85bb8a412ab201294345f438bb126c7d69de5f8",
+          "continuation": "box.\n\nWhere can blas.\n\nAltower car. The other broad and the brokle told \n              colst         storked for mathers.\n\n'He more that day was mother, her village.\n\nHe men sall the strong sm"
+        },
+        {
+          "name": "arithmetic",
+          "prompt": "Question: What is 2 + 2?\nAnswer: ",
+          "file_sha256": "20d53b0887aaf854c53e40ef9b9ce921e0f53488f8917df9b66ef98a2d6de135",
+          "continuation": "bag, butter names disapp and the rich man's got.\n\nFor xan my showested about the somethinget.\n\nMy realin on had not was good. Here that new stret basket nobbour and lonely\nsain outsed betcher."
+        },
+        {
+          "name": "everyday_fact",
+          "prompt": "Question: What color is the sky?\nAnswer: ",
+          "file_sha256": "13c0a74c2ef9deaab2cedb55a84f580263edd14440e7d1c707757e4d6b66e962",
+          "continuation": "box.\n\nWhole schoolSe asks of staver came to so mare to the rich man's house.\n\nHe stood up and out hosise.\n\nEill as beatures outside with ma one returner.\n\n\"Ever houses, I'me'r mages to please,"
+        },
+        {
+          "name": "explanation",
+          "prompt": "Question: Why does ice melt?\nAnswer: ",
+          "file_sha256": "45aa8afbfa0b7c78197932a13f5f7e1d75985a9a012438814a8e0273e0d2abb9",
+          "continuation": "bed.\n\nWhen I can cill asch mang shoon bed for the tree its of stick.\n\nMa onice retters mets of friend housed, \"I am tip.\n\nAt the good from one again, yer things hope you to world are big stron"
+        },
+        {
+          "name": "story",
+          "prompt": "Once upon a time ",
+          "file_sha256": "dd9167c12342697fe8d175974f0c69a61e9cf14af5d9d7db2ff9a861be2af2e2",
+          "continuation": "to home.\n\nShe singused butters of her stick, sigh ater the day her a fall and story.\n\nHe dires had to song for house and listened a bloss.\n\n\n\"Yes, I returned, play, me!\"\n\nAnother dressed in he"
+        }
+      ]
+    },
+    {
+      "seed": 2026,
+      "arm": "every-1",
+      "checkpoint_sha256": "67f7396192dd53d92371e0f02c1cdd52a354a9ffce7b25d85cf2f2563fc4d4e8",
+      "samples": [
+        {
+          "name": "location",
+          "prompt": "The toy is in the bag. The tag is in the box.\nWhere is the toy?\nAnswer: ",
+          "file_sha256": "a4a3612d4a474711e4b1db38d5cb89c03b4bc2be67b2457c6cf737244d0035dc",
+          "continuation": "bag.\nFarm.\nAnarimagain .\nWhat are always had.\n\nvery haves and caussy heard the man stretchered around her slapped.\n\n\"Thes were such as did not see, whatter and while, and when she was answer.\""
+        },
+        {
+          "name": "location_reversed",
+          "prompt": "The toy is in the box. The tag is in the bag.\nWhere is the toy?\nAnswer: ",
+          "file_sha256": "f0e8ea6b7c943db28727f83a0c76e71a111a829870087d5dd6344bd95450e7de",
+          "continuation": "bag.\nFind that.\nAnhowere edge aron and was she tallks to her grass.\n\nWhen life doing?\n\n\"I am it was so myself,\" says, \"I am one while little I lister of thes. I little I sist sters.\n\nThat is t"
+        },
+        {
+          "name": "arithmetic",
+          "prompt": "Question: What is 2 + 2?\nAnswer: ",
+          "file_sha256": "612c1eee03c74d806077fdd3c6aa94943808e0be567d368f857282c91a40d13d",
+          "continuation": "care.\n\nWe looke took so mathe ricked ropes as soo the agreens.\n\nxidlents that she waits to sleep the roble on orange tree.\n\nFrom the warderes and plass they are strets.\n\n\"\ngo tom, give room in"
+        },
+        {
+          "name": "everyday_fact",
+          "prompt": "Question: What color is the sky?\nAnswer: ",
+          "file_sha256": "b7506c3d49cd1e5e38715c234d937b007703a969705f32f00466f9ae20007853",
+          "continuation": "box are tols.\n\n\"\nI've who as you sell, everya, not hers tipposs grow begen trees of Kens.\"\n\nIthing wairs, \"Do you por tome of teap with me cows of my persh don.\"\n\n\"You're splead, but you mushe"
+        },
+        {
+          "name": "explanation",
+          "prompt": "Question: Why does ice melt?\nAnswer: ",
+          "file_sha256": "79396acf700daf47ac723d91a65c6e2828939b7c74c6e62770a9d8f8f845c2d3",
+          "continuation": "boxt.\n\nWhen it was a said, but ittenced mother in the orange tree. \"Arefur to go to sent the strong\nister old him.\"\n\n\"My is all ripe on.\"\n\nquiel looked our eating his crops, it eversiong a sti"
+        },
+        {
+          "name": "story",
+          "prompt": "Once upon a time ",
+          "file_sha256": "72e1599ae1494b75dd177ddd29d4933478ea6af39a1105a37b56df3aa4129d53",
+          "continuation": "to come to him.\n\nHow Mary hard gone thempa of the spricar of sun\naswer carts, and soothd itmers asked the oldes in the dier.\n2. The oner with them to look is the rich ofe eat of the earAl song"
+        }
+      ]
+    },
+    {
+      "seed": 31415,
+      "arm": "every-4",
+      "checkpoint_sha256": "f0a5271e5b9b61223088847e5be0a72a7da4853aa2b6940f792f8574042a3664",
+      "samples": [
+        {
+          "name": "location",
+          "prompt": "The toy is in the bag. The tag is in the box.\nWhere is the toy?\nAnswer: ",
+          "file_sha256": "f222f40ee3e7e3520fe34cbfe1e8909621b72c48493d1dcc0980f4ae47568478",
+          "continuation": "box.\n\nWhat can to Sakima?\n\n:                   Ind bottanch                                                             up a bonen up  kin\n\nbeaten up                                    up kice"
+        },
+        {
+          "name": "location_reversed",
+          "prompt": "The toy is in the box. The tag is in the bag.\nWhere is the toy?\nAnswer: ",
+          "file_sha256": "b086fa00cd26c09575d0edd77cc09c6bd0b5675c9848333e77d9aa087991f7ab",
+          "continuation": "box.\n\n\"What markes. I can bought.\"\n\nbenothers we head.\n\nThe four poor staying.\n\nWho cas\ntalks to school her paic locked orn consoling otair. pirly procketched in the cows too.\n\nFith master tha"
+        },
+        {
+          "name": "arithmetic",
+          "prompt": "Question: What is 2 + 2?\nAnswer: ",
+          "file_sha256": "c492db24762e9512a0efb6fddfca7b7297e91ae0464e0aea700bd9c920d772e9",
+          "continuation": "bed.\n\nThere was liced our laves again.\n\nOne diss impres to my mother and from she plantached.\n\nWhen to don't was very rest. The followays places, the new got returned to know for the my.\n\nWho "
+        },
+        {
+          "name": "everyday_fact",
+          "prompt": "Question: What color is the sky?\nAnswer: ",
+          "file_sha256": "71f9db136e536f2d4a1565414e91e0813b72f9cf646515498dd31e3ca546aae5",
+          "continuation": "bedrow.\n\nThey orked out out of thie workeands of doward. People packed with colders them and couldn't starl. \"It was to go to school, mothers.\n\nWhen the went out ourney. I do we was the banana"
+        },
+        {
+          "name": "explanation",
+          "prompt": "Question: Why does ice melt?\nAnswer: ",
+          "file_sha256": "63714bc4a932038eba4747f2e6a86e8bef67cb8c81cd888bbbd152c265cb9b4b",
+          "continuation": "bed.\n\nWhen I read on the door, I lets the was not very long fork, the meny life.\n\nWe msoded his little sister stead up and said, \"Please I walke because schoot me to be happe there.\"\n\nAs I cou"
+        },
+        {
+          "name": "story",
+          "prompt": "Once upon a time ",
+          "file_sha256": "8b2a18bb5cc2412e1cf4def7d98cd1bdc82b38e200d1e6bdc3a331df9db16c41",
+          "continuation": "to place with her roomme.\n\nShe sadow, who carels my oranges to problems's.\n\nPeople day, the new can busy.\n\n\"You are odders poor, children's father, \"Wangain day?                               "
+        }
+      ]
+    },
+    {
+      "seed": 31415,
+      "arm": "every-1",
+      "checkpoint_sha256": "766399a95cd978b9e174c19d52b3aa22cf4cbd8e7638a9c2e5c1f3585c87f9da",
+      "samples": [
+        {
+          "name": "location",
+          "prompt": "The toy is in the bag. The tag is in the box.\nWhere is the toy?\nAnswer: ",
+          "file_sha256": "c183bed752b638640ccde8ae5fe798fdb83f18a34323067e0f91ca50db565307",
+          "continuation": "bag.\n\nThen is an basker.\n\nThey light about a fore the morning of, and at the village about\nand parents of the village allong vegeter, gain. Oro parents, and the polly and listened in a\nhis put"
+        },
+        {
+          "name": "location_reversed",
+          "prompt": "The toy is in the box. The tag is in the bag.\nWhere is the toy?\nAnswer: ",
+          "file_sha256": "72485c83c05126f1e768119c5dc8f847f803a8f7bb6be72500bc18fab7a3d1d7",
+          "continuation": "bag.\n\nThook of thike a big banswer a table at the live.\n\nBut conding answer loding outs, and cenrough.\n\nThen Odongo and him to the houshed what to work to the house from the city.\n\n\"What is th"
+        },
+        {
+          "name": "arithmetic",
+          "prompt": "Question: What is 2 + 2?\nAnswer: ",
+          "file_sha256": "66c83f7700c12cd548221557e62298ec10fd51be4ec4bd51deb9ef61de0938ba",
+          "continuation": "bedid me alway, that the oran trehat\n\nAfrich is to rus and soll,\n    were inting one dair, plaing trees and excited best\nwas in the baters, and when the watched what forents, and felt hungry t"
+        },
+        {
+          "name": "everyday_fact",
+          "prompt": "Question: What color is the sky?\nAnswer: ",
+          "file_sha256": "09734b79b02bb4e4574b6478bd26f1742d901a3adf8537eb0b310d49e6125de6",
+          "continuation": "bed.\n\nThe one day, the children on the village water a fall went\nbet of the sunshe of the poticl, duresed himg of hard at the componing\nto peoce to eat his not day. She may she had never to go"
+        },
+        {
+          "name": "explanation",
+          "prompt": "Question: Why does ice melt?\nAnswer: ",
+          "file_sha256": "b961f8f2b994d85120be97e0659fdd46b8139ad1d9c614cf81b804bf146a397a",
+          "continuation": "bed, or and many time to help to go to school.\n\nHis so water too.\n\nHis care too told the rich man's house sit too school.\n\nHis seelst his callents to old blew managing his favairishes meen gro"
+        },
+        {
+          "name": "story",
+          "prompt": "Once upon a time ",
+          "file_sha256": "23939680744eca917df5485e8d3511109ee5313d158b82b81869a06f64340aa7",
+          "continuation": "to and the words ight at lay still hold brother lose hide.\n\nWhen ? I let he come to man, \"I heard the good you toment, I heav?\" I asked Grandma, \"I do you s. The women what it was too ldier my"
+        }
+      ]
+    }
+  ]
+}

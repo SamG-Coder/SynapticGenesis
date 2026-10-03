@@ -2,6 +2,8 @@
 
 This separate starter edition contains **16 short English stories**: ten training texts, three development texts and three reserved test texts. Training totals **14,201 UTF-8 bytes and 2,585 whitespace-delimited words**. It supplies simple actions, questions, daily routines and connected dialogue. The [native reading-adaptation study](reading-adaptation.md) now uses its training stories with separate development assessment. Its size is small; preparing or fitting it does not establish useful conversation.
 
+The [completed live-rehearsal study](live-reading-results.md) also uses this edition with preserved recurrent and replay history. More replay partly reduces forgetting, but prolonged repetition still worsens unseen-story loss after early improvement. This provides evidence for testing content breadth and exposure limits before treating the starter edition as a sufficient general-language curriculum.
+
 The publisher's [reading levels](https://storybookscanada.ca/about/faq/) describe increasing text length and complexity. Our first group uses level 1, the second level 2 and the third levels 3–4. These are content groups, not human ages or measured model mastery. Training groups contain 70, 554 and 1,961 words respectively. They need an explicit exposure budget and independent skill assessment before being used for stage promotion.
 
 ## Selection and provenance

@@ -1,0 +1,65 @@
+{
+  "version": "live-reading-publication-v1",
+  "normalization": "JSON is emitted with LF newlines. Runtime hashes inside results refer to the retained original files; this manifest maps them to the published bytes.",
+  "files": [
+    {
+      "file": "reports/live-reading-replay.json",
+      "runtime_file": "runs/live-reading-panel/comparison.json",
+      "runtime_sha256": "99c19c715ae1549f5900cd340109e01df395f8f11b2b66b21e24f4b10805ceec",
+      "published_sha256": "7bfc03e0ba08a7930831bab59adb41cca936ab80cfd9b30660076f25c9f5babe",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/live-reading-summary.json",
+      "runtime_file": "runs/live-reading-panel/summary.json",
+      "runtime_sha256": "e43f8c647e11282f7927d135179f101a0f94ef31d5d872a9d51d42c6e7fd790f",
+      "published_sha256": "71153ac17a614c849d6d7f169eb849155240c7c6600a4986a28f02774051d3dd",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/live-reading-execution.json",
+      "runtime_file": "runs/live-reading-panel/execution-check.json",
+      "runtime_sha256": "75206dd91a9e1f48f5d24ecb36db983dced641b4a30ce48dd0eda387a766b28e",
+      "published_sha256": "f33352ce8dfcf01688a2e076af18389f142b50d0a757e5bb58ce390bb37bc28a",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/live-reading-learned-oracle.json",
+      "runtime_file": "runs/live-reading-panel/learned-oracle.json",
+      "runtime_sha256": "13954d3da0b71b45e3283f25e7957c85310ef6824ff02d493f7343d9d71d1c2d",
+      "published_sha256": "23b6595306e49507a479da3c403e3fe80a331ead6d244001e3bdb0b1ed5dac4d",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/live-reading-score-diagnosis.json",
+      "runtime_file": "runs/live-reading-score-diagnosis/result.json",
+      "runtime_sha256": "eb760a53dd8c3e3b63db0f4fbe96d2fcde4d844326f86056490004ccd4eb1830",
+      "published_sha256": "e7468bdf7c5f56c9aceee70fba5c46fe9320401aee687e55ff75b0aaf4ecfa87",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/live-reading-questions.json",
+      "runtime_file": "runs/live-reading-panel/questions.json",
+      "runtime_sha256": "f6cca27d9e628d970c4c53932a0af33ae81757d41092905bfaae690cddffebdb",
+      "published_sha256": "cbfe6f5e0a3482faac5c3f754ca538b97d07cf7b9b3c4c5c72b9c34fe3b1a28a",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/live-reading-sample-review.json",
+      "runtime_file": "runs/live-reading-panel/sample-review.json",
+      "runtime_sha256": "ee760eb652cbc34f222a1ad10c1428c1a674003db9c0ade74c444296cc39461d",
+      "published_sha256": "ee760eb652cbc34f222a1ad10c1428c1a674003db9c0ade74c444296cc39461d",
+      "parsed_json_identical": true
+    },
+    {
+      "file": "reports/live-reading-consistency.json",
+      "runtime_file": "runs/live-reading-panel/consistency.json",
+      "runtime_sha256": "e44877827a82f5ce731850523c8be72965a16a08f41ae0416f668a7bfb84e2e2",
+      "published_sha256": "e44877827a82f5ce731850523c8be72965a16a08f41ae0416f668a7bfb84e2e2",
+      "parsed_json_identical": true
+    }
+  ],
+  "declared_gate_passed": false,
+  "strict_cpu_oracle_passed": false,
+  "execution_audit_passed": true
+}

@@ -1,0 +1,29 @@
+{
+  "comparison_sha256": "99c19c715ae1549f5900cd340109e01df395f8f11b2b66b21e24f4b10805ceec",
+  "baseline_scores": [
+    {
+      "seed": 1337,
+      "initial_reading_scores_exactly_reproduce_prior_diagnostic": true,
+      "prior_report_sha256": "86167326259cb918db61ad35fa614cd4214c907f226e5cbfc6825577765c0b80"
+    },
+    {
+      "seed": 2026,
+      "initial_reading_scores_exactly_reproduce_prior_diagnostic": true,
+      "prior_report_sha256": "420ed891a52c75c68d7b83b194543a8548f8d9ffeb887f561dc0ade0df44c3e0"
+    },
+    {
+      "seed": 31415,
+      "initial_reading_scores_exactly_reproduce_prior_diagnostic": true,
+      "prior_report_sha256": "37aeaa9ef1aded91f31032b415a5f73d850bdb2f6630a1a97a95c89540aba393"
+    }
+  ],
+  "one_shot_control": {
+    "seed": 1337,
+    "arm": "every-4",
+    "observations": 4096,
+    "complete_checkpoint_identical": true,
+    "checkpoint_sha256": "a7f5dcd79718aeda805db7c0599176af048324c7f3c328dbd3945f8b06e2e825",
+    "prior_demo_report_sha256": "ab0f3338f246a10cf454f3be551cde30f310db219f5d9540bc6e30f0c35023ae"
+  },
+  "posthoc_question_samples_verified": 36
+}

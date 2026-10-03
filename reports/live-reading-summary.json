@@ -1,0 +1,2477 @@
+{
+  "comparison_sha256": "99c19c715ae1549f5900cd340109e01df395f8f11b2b66b21e24f4b10805ceec",
+  "execution_check_sha256": "75206dd91a9e1f48f5d24ecb36db983dced641b4a30ce48dd0eda387a766b28e",
+  "protocol": {
+    "status": "declared_before_training",
+    "seeds": [
+      1337,
+      2026,
+      31415
+    ],
+    "arms": [
+      "every-4",
+      "every-1"
+    ],
+    "baseline_online_updates": 190000,
+    "additional_endpoints": {
+      "every-4": [
+        64,
+        256,
+        1024,
+        4096
+      ],
+      "every-1": [
+        64,
+        256,
+        1024,
+        2560,
+        4096
+      ]
+    },
+    "online_endpoints": [
+      190064,
+      190256,
+      191024,
+      194096
+    ],
+    "common_exposure_endpoints": [
+      64,
+      256,
+      1024,
+      4096
+    ],
+    "matched_optimizer_count_pair": {
+      "every-4": 4096,
+      "every-1": 2560
+    },
+    "matched_additional_optimizer_updates": 5120,
+    "ancestors": {
+      "1337": {
+        "path": "D:/SynapticGenesis/runs/teacher-retention-panel/1337-associative-control/checkpoint-190000.ckpt",
+        "sha256": "bda9174ccab435119bb489d7321da85e01fc279777df81347e5b68b4ee3d893f",
+        "state": {
+          "checkpoint_sha256": "bda9174ccab435119bb489d7321da85e01fc279777df81347e5b68b4ee3d893f",
+          "parameters": 1951624,
+          "cell": 6,
+          "online_updates": 190000,
+          "global_updates": 237500,
+          "observed_pairs": 17528500,
+          "generated_bytes": 36480,
+          "replay_updates": 47500,
+          "replay_pairs": 4246078,
+          "curriculum_stage": 4,
+          "replay_groups": [
+            {
+              "document_end": 5,
+              "seen_windows": 6000,
+              "stored_windows": 256,
+              "replay_updates": 15847,
+              "replay_pairs": 2028232
+            },
+            {
+              "document_end": 389,
+              "seen_windows": 4000,
+              "stored_windows": 256,
+              "replay_updates": 14166,
+              "replay_pairs": 720598
+            },
+            {
+              "document_end": 52229,
+              "seen_windows": 120000,
+              "stored_windows": 256,
+              "replay_updates": 13713,
+              "replay_pairs": 1014176
+            },
+            {
+              "document_end": 52236,
+              "seen_windows": 60000,
+              "stored_windows": 256,
+              "replay_updates": 3774,
+              "replay_pairs": 483072
+            }
+          ]
+        }
+      },
+      "2026": {
+        "path": "D:/SynapticGenesis/runs/teacher-retention-panel/2026-associative-control/checkpoint-190000.ckpt",
+        "sha256": "dfc71bee48963ecddbf68d8797c87fd96bb388a87f903d4418cd2097c9ab0cef",
+        "state": {
+          "checkpoint_sha256": "dfc71bee48963ecddbf68d8797c87fd96bb388a87f903d4418cd2097c9ab0cef",
+          "parameters": 1951624,
+          "cell": 6,
+          "online_updates": 190000,
+          "global_updates": 237500,
+          "observed_pairs": 17528500,
+          "generated_bytes": 36480,
+          "replay_updates": 47500,
+          "replay_pairs": 4246078,
+          "curriculum_stage": 4,
+          "replay_groups": [
+            {
+              "document_end": 5,
+              "seen_windows": 6000,
+              "stored_windows": 256,
+              "replay_updates": 15847,
+              "replay_pairs": 2028232
+            },
+            {
+              "document_end": 389,
+              "seen_windows": 4000,
+              "stored_windows": 256,
+              "replay_updates": 14166,
+              "replay_pairs": 720598
+            },
+            {
+              "document_end": 52229,
+              "seen_windows": 120000,
+              "stored_windows": 256,
+              "replay_updates": 13713,
+              "replay_pairs": 1014176
+            },
+            {
+              "document_end": 52236,
+              "seen_windows": 60000,
+              "stored_windows": 256,
+              "replay_updates": 3774,
+              "replay_pairs": 483072
+            }
+          ]
+        }
+      },
+      "31415": {
+        "path": "D:/SynapticGenesis/runs/teacher-retention-panel/31415-associative-control/checkpoint-190000.ckpt",
+        "sha256": "46856b6298d96409fedc0f10fbfe3ba550d2c30e3c7f64f39ff7b0d17f815d40",
+        "state": {
+          "checkpoint_sha256": "46856b6298d96409fedc0f10fbfe3ba550d2c30e3c7f64f39ff7b0d17f815d40",
+          "parameters": 1951624,
+          "cell": 6,
+          "online_updates": 190000,
+          "global_updates": 237500,
+          "observed_pairs": 17528500,
+          "generated_bytes": 36480,
+          "replay_updates": 47500,
+          "replay_pairs": 4246078,
+          "curriculum_stage": 4,
+          "replay_groups": [
+            {
+              "document_end": 5,
+              "seen_windows": 6000,
+              "stored_windows": 256,
+              "replay_updates": 15847,
+              "replay_pairs": 2028232
+            },
+            {
+              "document_end": 389,
+              "seen_windows": 4000,
+              "stored_windows": 256,
+              "replay_updates": 14166,
+              "replay_pairs": 720598
+            },
+            {
+              "document_end": 52229,
+              "seen_windows": 120000,
+              "stored_windows": 256,
+              "replay_updates": 13713,
+              "replay_pairs": 1014176
+            },
+            {
+              "document_end": 52236,
+              "seen_windows": 60000,
+              "stored_windows": 256,
+              "replay_updates": 3774,
+              "replay_pairs": 483072
+            }
+          ]
+        }
+      }
+    },
+    "parent_comparison_sha256": "e9f4f33e267d2cf14e7eb4ebe1d9a39567807db7062515e665e85d3250c1c9d6",
+    "parent_schedule": "D:/SynapticGenesis/runs/teacher-retention-panel/edition/curriculum.sg",
+    "parent_schedule_sha256": "fc9c152f1f9f37c4b080ddd02cf1888204fa203db7d080c60589261cc621fe03",
+    "source_commit": "cd2bcf0029d160865f95e712f0d9b1fd0baf2d6b",
+    "source_sha256": {
+      "src/spike_lm.cu": "0e6ea9a8073c686f5c142b79964e32233cb377e874a99bc18f8a9e7f1005b14c",
+      "src/adaptive_neuron.cuh": "55d88c666e2417b757cb3e29a968a27e460ae3a5b63d463c45aa66e7f829bcce",
+      "src/adaptive_tests.cuh": "b93c5e762cab1df346fd382c51c36bf65cc67db1b6197dec17ee88a70aa8b7c9",
+      "src/associative_bench.cuh": "a7cfd18ada923d7e393fadae84b837f8eee80fb23a915a6f1c8f61fb9b7a55fd",
+      "src/associative_memory.cuh": "920a788386f0182e436e8f43061503cdf8695468dd7304ebfce49eab82154b3b",
+      "src/associative_tests.cuh": "48f2e65d5ba71a60246b0bfb1fcff1e75a407835bbfcf6ef3c9d954af234d2cc",
+      "src/checkpoint.cuh": "ac967392c2ff80deb2dfa3403a0f501a15402230d335426b67b170eb2fa7d096",
+      "src/context_bench.cuh": "5f89d33d414b35900fd9dc4b51c8b1cca629e92e5a0e336d9437b9ee33285e27",
+      "src/curriculum_tests.cuh": "76b1f4e8672cb3280e8bea143416d226d728e46dac309e2ae62f9ae1d76f7909",
+      "src/decode_tests.cuh": "9cefd53ab09738f6f11e81e18cbdd91aef9d332d2ffd1f0c2879dfaf6bf40fb0",
+      "src/distillation.cuh": "ecc1c2b1aa1f8fbcf848a5f7bac50ceac106a38559b09220c12d04af7113a18e",
+      "src/distillation_tests.cuh": "cf68dc009b9352406681dce922c2e77a1efb4d0434338f18f6e2812f43e14b3a",
+      "src/evolution.cuh": "a444a42b22e9690e0296cecb700764763b66d539f45774275f10e869cb940267",
+      "src/evolution_tests.cuh": "b4fd746ed03d7e81c5098996288914564892066e6d20ddf2e59cc1afdd1f3656",
+      "src/feedback_tests.cuh": "d7361dc9661b0f9921359f2caa431ff0682b7c92967f7a9a2f667cea09575acb",
+      "src/frozen_model_tests.cuh": "5e40f7cb32967f8a2dec7e3ebef4a374aa42241181d1d61221e74cd2c1fa58f5",
+      "src/gradient_reductions.cuh": "d39b7f958b5fc4cd89aab9ed741133d8139b1adbb0aa9ddfc4720e1aea83c2cd",
+      "src/graph_decoder.cuh": "93073bf0b78488c388916926c8a0ce20a9bd015846f0f1e4bebf2ce3829902c8",
+      "src/indexed_storage.cuh": "139ea0fa2d9ad9e962700a9e49b32174be53e067d07a6c1cd68825ad119cc147",
+      "src/language_objective.cuh": "8b72e29e1a835a7add36af0f9f22e037067406b39ce9023cf1bc46636781e186",
+      "src/language_probes.cuh": "1443c13904fae32c85c6749bed821edff2112aed5489c1398fb50e82f310b76b",
+      "src/live.cuh": "844ccb8da99d6ba83272fd40726a73a62bea94a49a8bd7d99cdd3244f6366f44",
+      "src/live_curriculum.cuh": "52c44af8f507c82fdfe5fcdac0d086a25f1d2fa944e7951cecd5cf2a81103da4",
+      "src/live_replay.cuh": "c35030f88b124e200e09ec94e1376b1e603bc3d6ebee6e60c18582a95791a141",
+      "src/memory_bench.cuh": "99159f61fc1670b524add842d2d3ad1f8ad487018852fb96e530db0484c2e2a5",
+      "src/model.cuh": "453c0aea5e331667c60b7ad0053747ac97312a1375e4887d6df121d08c226876",
+      "src/model_memory.cuh": "2a16c13e629965af69cb189fd6bede63a030a52ca27c7daec4fc571ac15c7a4e",
+      "src/population_live.cuh": "6650fa83dd3da299a938e5e1012a11b911a9d8006440cce0cf89c0f012118018",
+      "src/population_teachers.cuh": "6fceb6d94ba53c51b18b2291b91e3b9cc1cf6bf475045dcb31c1728ea8471c78",
+      "src/reduction_tests.cuh": "c324c8f508db375d64c21a8153873facbe2f1a0bc334eaa2aa45cc5d56a5bfbc",
+      "src/retention_bench.cuh": "d5f451677eb90c97dc9b11da213e2a2fceca2035b6d291d0ff1e2221ac9e54ea",
+      "src/stage_replay.cuh": "4d7e5ec7c9e0dc6a312241821e4282b361fb71f1ea314bd9ce6c3c5b924f7ebd",
+      "src/stage_replay_tests.cuh": "accc2c662dd7ba53580b5130f9d07964b7b972bdbf9f8b732338026bcbacdd4b",
+      "src/synaptic_memory.cuh": "99c07936d379a5f3730fb0186bad11b55e25ab18c06ec2d296a643f04728b775",
+      "src/synaptic_tests.cuh": "3423956f1f0b36a407daf55aa08e968c6d945302b4e1001cdc77c31e0e899e18",
+      "src/teacher_bundle.cuh": "15807e0858ce03406238babad5e0daf032c0bf798edb18001a5d84b4532270cb",
+      "src/teacher_replay.cuh": "fb6a55698f4f61026dcf0730aa9841ea1df167d7b8f41011d04ae1d881be2966",
+      "src/teacher_replay_tests.cuh": "453bc9fb15c4da7861ff261b7fad1d115366f46a49336eb1851cd7afc4c1c2a6",
+      "src/teaching_state.cuh": "b7b903e1209511186ebe74601d8475504174dae26348434d3a2d55c00b66fc79",
+      "src/test_fixtures.cuh": "c37fc4c8b05f9e63158910892e29cebcd86797f9966f3dcdd2b31d74a6b37edd",
+      "src/trace_neuron.cuh": "d346931acdff5a4711dea5740b185e6212dc7d0dd906349ffdb8973081ed71b6",
+      "scripts/live_reading_experiment.py": "12231107021cdb90f841edaa126724b57dc67b1bde173ddaeeae20c4b493735c",
+      "scripts/experiment_checkpoint.py": "9fa4ddf880f57290ffd587941efc5328b09f6241fd1d434de1cec2ab4fcdeb6c",
+      "scripts/native_experiment.py": "1c7e798d865a627014f20ecb33a0c2a9187edd6b2f90b16ae063b78ee319db63",
+      "scripts/adaptation_sources.py": "250a67061960bd7bdb09443fcb483ed0742484634e4e54e506414980a8d5b298",
+      "scripts/extend_curriculum.py": "94c405269b4fe20159a7cdfa116a6d7df41de80ce004fdd87a91d6cff1f93c12",
+      "scripts/narrative_experiment.py": "d07f6d52271cb419cc79469b7f832b87803768efd9fc6d6eda362a1e99d20522",
+      "tests/live_reading_experiment.py": "ca9a17b0d1a2bd819039e6f0aed76a7886bab27edf6f7e508c0a8deed0f1bbcd",
+      "tests/stage_replay_reference.py": "a6e6e08cd8ff7bb7b3f766b1b7c140b02458d04867bfb111f4fcdd9bba0fd2c2",
+      "scripts/summarize_live_reading.py": "c65abbf72b37d82c03729cd49fea8ddb5a61efc7922bc8770f6e496319ac3cd5",
+      "docs/live-reading-replay.md": "75dcc012c880b7181cfb0c4002b088a65ecc7598de4f2c9d67061a5d4ef23b78",
+      "experiments/adaptation_probe.cu": "08ccb5585ea9041e563cf3716df1001fff91a1534477ce010636e703bc4e17d9",
+      "experiments/adaptation_io.cuh": "c8e18bc3cb032f197f59fb9b1f811511a4f84e9db48a61bcb9349cc8673e357e"
+    },
+    "executable_sha256": "64c76be6fb5925757c97e4d4808f6e7c176a4dc17d47d288861caae4a8954b01",
+    "diagnostic_executable_sha256": "ba7a0cba4ceb610d5cbdf4b2d1444bce9f59f596454e84959974ee876b62296d",
+    "source_edition": {
+      "version": "selected-early-readers-v1",
+      "source_spec_sha256": "b0c0b6bc2f4ebcfba9fc5455a3e5b4242d473bf5809afba351c0c3951f94da46",
+      "upstream_commit": "be28dab38ac55e8eb2185edb6631b11615d02185",
+      "sources": [
+        {
+          "id": "0008",
+          "title": "What are you doing?",
+          "source_file": "0008_what-are-you-doing.md",
+          "split": "train",
+          "stage": 1,
+          "reading_level": 1,
+          "reason": "Short present-tense actions and a direct question.",
+          "pages": 8,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Nina Orange",
+            "Illustration": "Wiehan de Jager",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "188eeccc3f8f990fee46ba3f160366764b36d9293ef1406b93cc62df1eccbbc1",
+          "body_sha256": "40cf9303a969975c0626f13b1212a3d96b5bc9afd3b6607f716264d87d4ff321",
+          "catalog_sha256": "eb3b7a5a227d813c4c81e3de0fff3ae85290261c4b027a8e4366d995e24446be",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0008_what-are-you-doing.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0008/",
+          "clean_bytes": 139,
+          "approx_words": 25
+        },
+        {
+          "id": "0087",
+          "title": "I like to read!",
+          "source_file": "0087_i-like-to-read.md",
+          "split": "train",
+          "stage": 1,
+          "reading_level": 1,
+          "reason": "A short sequence of everyday family actions and repeated questions.",
+          "pages": 8,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Letta Machoga",
+            "Illustration": "Wiehan de Jager",
+            "Translated By": "Letta Machoga",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "841e2fb5dfce0ea030dd956be498a97a7d757e5aca189c5ff8930f65cf37ecd2",
+          "body_sha256": "c0cc696105ffb240695fc1ff4e4676f07c9cf69e66b98ed155fb0ba2f753bbb0",
+          "catalog_sha256": "531fb34850c6aeef43027687e2a1ac8729537c00de50555f7db63963af74cda3",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0087_i-like-to-read.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0087/",
+          "clean_bytes": 214,
+          "approx_words": 45
+        },
+        {
+          "id": "0156",
+          "title": "The hungry crocodile",
+          "source_file": "0156_the-hungry-crocodile.md",
+          "split": "validation",
+          "stage": 1,
+          "reading_level": 1,
+          "reason": "Hold out a complete short animal story at the same publisher level.",
+          "pages": 5,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Christian G.",
+            "Illustration": "Wiehan de Jager",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "ce72a0b69846985b9f0818bee8b56a8fd792903ad6aa252cda1d8bdc109af0b6",
+          "body_sha256": "f365a183b7dcf785aeee606bccdfe46ca739cd43ee9ead6719dc0d8a47dd6a18",
+          "catalog_sha256": "30972e9bdaab4764bdcc0482eef9d4b893fb576bd10aeaa5042c6f61162bc461",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0156_the-hungry-crocodile.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0156/",
+          "clean_bytes": 207,
+          "approx_words": 36
+        },
+        {
+          "id": "0327",
+          "title": "Counting animals",
+          "source_file": "0327_counting-animals.md",
+          "split": "test",
+          "stage": 1,
+          "reading_level": 1,
+          "reason": "Reserve an unseen counting story; do not score it during development.",
+          "pages": 8,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Zanele Buthelezi, Thembani Dladla, Clare Verbeek",
+            "Illustration": "Rob Owen",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "b0538593457e44adb0c6b33a3e05c5062930f95c146226dadf250a1e97ca88bb",
+          "body_sha256": "e14262b9345485bf07f885a97bf333cecf145a75fded84ac4036bdabd0a8dab3",
+          "catalog_sha256": "072856e29acca38f5976e9e690d8950ad0a0792416ae64c542eb0daf54183865",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0327_counting-animals.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0327/",
+          "clean_bytes": 407,
+          "approx_words": 74
+        },
+        {
+          "id": "0001",
+          "title": "A very tall man",
+          "source_file": "0001_a-very-tall-man.md",
+          "split": "train",
+          "stage": 2,
+          "reading_level": 2,
+          "reason": "Everyday object sizes, problems and corresponding actions.",
+          "pages": 11,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Cornelius Gulere",
+            "Illustration": "Catherine Groenewald",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "4fbf2cccbea358933c9960229d2fc509cdd26c6e483216be80c6b20afb2e869c",
+          "body_sha256": "c0df905de359f03593206437cfac2dfbbf936065c600715744b0cc07b09b1955",
+          "catalog_sha256": "671d59644ec44874e8d070d516d4801b75f784e2c5cab9a17353ec9f204b503c",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0001_a-very-tall-man.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0001/",
+          "clean_bytes": 379,
+          "approx_words": 79
+        },
+        {
+          "id": "0027",
+          "title": "Decision",
+          "source_file": "0027_decision.md",
+          "split": "train",
+          "stage": 2,
+          "reading_level": 2,
+          "reason": "A short connected account with requests and cooperative problem solving.",
+          "pages": 16,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Ursula Nafula",
+            "Illustration": "Vusi Malindi",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "a4d058ab621973c179804bef43ff84a75746d4f62c938a9f6be70d99c140b156",
+          "body_sha256": "5b5b0b2a6df6bde793ef9fcf220471bc3557ae4680bd6dddc878ab260b368983",
+          "catalog_sha256": "669aa3af9f19785bd1b0efb1a9ec3386a14e08a170d1f873457cb0a50af263cf",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0027_decision.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0027/",
+          "clean_bytes": 1039,
+          "approx_words": 185
+        },
+        {
+          "id": "0089",
+          "title": "Khalai talks to plants",
+          "source_file": "0089_khalai-talks-to-plants.md",
+          "split": "train",
+          "stage": 2,
+          "reading_level": 2,
+          "reason": "Daily event order, requests, questions and observations.",
+          "pages": 8,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Ursula Nafula",
+            "Illustration": "Jesse Pietersen",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "e4b6404f0f2c52ab2caaf964aa6f866cf4cdd35d9036d019be5fc4cd776942a6",
+          "body_sha256": "ab557c293dff0eda9f8fb9912bac15955e6cb51f2a8b9fe44f41600d355ae983",
+          "catalog_sha256": "7e9728a74f91ce088831d60130089476d21796983316bc22c4d8314d9fc349ee",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0089_khalai-talks-to-plants.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0089/",
+          "clean_bytes": 904,
+          "approx_words": 163
+        },
+        {
+          "id": "0095",
+          "title": "Zama is great!",
+          "source_file": "0095_zama-is-great.md",
+          "split": "train",
+          "stage": 2,
+          "reading_level": 2,
+          "reason": "Daily routines, first-person statements and short family dialogue.",
+          "pages": 12,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Michael Oguttu",
+            "Illustration": "Vusi Malindi",
+            "Adaptation": "Nina Orange",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "b8258fbe933abf5521341f8c56b95800e889ef70356b5671819e591f4a94b9c6",
+          "body_sha256": "546923a17038b028d78bd524a14ab4b9f27678754dd19c11b9ebddd399b263b5",
+          "catalog_sha256": "87edc241ae07f38f3529530fe9fd6c0a98bc5b598cb2f6632efad400d991d684",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0095_zama-is-great.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0095/",
+          "clean_bytes": 636,
+          "approx_words": 127
+        },
+        {
+          "id": "0296",
+          "title": "Tom the banana seller",
+          "source_file": "0296_tom-the-banana-seller.md",
+          "split": "validation",
+          "stage": 2,
+          "reading_level": 2,
+          "reason": "Hold out an entire market story for development reading assessment.",
+          "pages": 12,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Humphreys Odunga",
+            "Illustration": "Zablon Alex Nguku",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "62e91168e3ec0ecbc2e604baf73c33b1b69ee65848ae5199fc25c6bfcf71efa7",
+          "body_sha256": "500bc2e689d4af749b1e517dbed805721a89dd64e99c30718ed178dd6732e451",
+          "catalog_sha256": "f4ad14cfe918c73feec442d98aef0fdda7967991762f149ec63f9e84f543e581",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0296_tom-the-banana-seller.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0296/",
+          "clean_bytes": 746,
+          "approx_words": 140
+        },
+        {
+          "id": "0004",
+          "title": "Goat, Dog, and Cow",
+          "source_file": "0004_goat-dog-and-cow.md",
+          "split": "test",
+          "stage": 2,
+          "reading_level": 2,
+          "reason": "Reserve an entire animal story; its events never supply training targets.",
+          "pages": 8,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Fabian Wakholi",
+            "Illustration": "Marleen Visser, Ingrid Schechter",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "37a94dc6188d5d1f039e9f0fa0fe4cc3cdcc54c65163cbb92f2c1eeb5dcf3a52",
+          "body_sha256": "b863a68f68b31fc23d273d5a4bfae99fa69119327a9f1c67bdbca246b7531a74",
+          "catalog_sha256": "14bc04c72831722563b383326c6272d6b8453fdeaa2f436773d2997263fe8e98",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0004_goat-dog-and-cow.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0004/",
+          "clean_bytes": 756,
+          "approx_words": 148
+        },
+        {
+          "id": "0110",
+          "title": "A Tiny Seed: The Story of Wangari Maathai",
+          "source_file": "0110_a-tiny-seed-the-story-of-wangari-maathai.md",
+          "split": "train",
+          "stage": 3,
+          "reading_level": 3,
+          "reason": "A longer selected biographical narrative with event order and explanations.",
+          "pages": 12,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Nicola Rijsdijk",
+            "Illustration": "Maya Marshak",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "26380f8e67773cc1f493d0c2d84c8651e41e7281a6288966709d8e80694ba783",
+          "body_sha256": "67d4f0521b4c98d2823974ac07e349fb5e56195206839c8ffca8b907eb3169f9",
+          "catalog_sha256": "610658cbc4ad58fe3a3a6e9a8af221f9afde13196687245a2e0b2d49d358fba3",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0110_a-tiny-seed-the-story-of-wangari-maathai.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0110/",
+          "clean_bytes": 2247,
+          "approx_words": 412
+        },
+        {
+          "id": "0315",
+          "title": "Sakima's song",
+          "source_file": "0315_sakimas-song.md",
+          "split": "train",
+          "stage": 3,
+          "reading_level": 3,
+          "reason": "Connected dialogue, family relationships and changing character goals.",
+          "pages": 18,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Ursula Nafula",
+            "Illustration": "Peris Wachuka",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "19f8c60e2f3ff4399cce4fb617ee0f9ad5c61b13a7c0331a0f9d011ddbca82c7",
+          "body_sha256": "676adc16df692a73304598dd84083006264c3282e7636768be9ff02e64f18217",
+          "catalog_sha256": "27336ecbb6da46ca38c4e843ba3fc16f78d0116a496a0245decd31f68e1bba10",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0315_sakimas-song.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0315/",
+          "clean_bytes": 2506,
+          "approx_words": 457
+        },
+        {
+          "id": "0243",
+          "title": "Holidays with grandmother",
+          "source_file": "0243_holidays-with-grandmother.md",
+          "split": "train",
+          "stage": 3,
+          "reading_level": 4,
+          "reason": "A longer everyday sequence covering travel, chores, food and conversation.",
+          "pages": 20,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Violet Otieno",
+            "Illustration": "Catherine Groenewald",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "4dc22bddd286d4b57e0d1b1e74bfa66633f119c111be3f635425ac4c13087325",
+          "body_sha256": "97f9446e6feae074f98b0521b98b659c13f3d0929954885b9c1dd2c9ac66a0c4",
+          "catalog_sha256": "6cabb6a19ccb845cc02b7ef2367916f026b865bb5535b60408e41f034d238083",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0243_holidays-with-grandmother.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0243/",
+          "clean_bytes": 3264,
+          "approx_words": 564
+        },
+        {
+          "id": "0294",
+          "title": "Grandma's bananas",
+          "source_file": "0294_grandmas-bananas.md",
+          "split": "train",
+          "stage": 3,
+          "reading_level": 4,
+          "reason": "Questions, discoveries and consequences across a connected story.",
+          "pages": 10,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Ursula Nafula",
+            "Illustration": "Catherine Groenewald",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "934f4d98a3112def848096459e3033cbf9a299c2fd53823fc41e39062a991458",
+          "body_sha256": "d81c8b3d0f9666c82873b6a5007c5a64b0e5a16104bef3e84d0a51d4592296b5",
+          "catalog_sha256": "13b31da45f515fd7838fb0a61720b518a8ba4d738d60569580aa8b791236a2e6",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0294_grandmas-bananas.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0294/",
+          "clean_bytes": 2864,
+          "approx_words": 528
+        },
+        {
+          "id": "0324",
+          "title": "The day I left home for the city",
+          "source_file": "0324_the-day-i-left-home-for-the-city.md",
+          "split": "validation",
+          "stage": 3,
+          "reading_level": 3,
+          "reason": "Hold out an entire longer travel narrative for development assessment.",
+          "pages": 16,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Lesley Koyi, Ursula Nafula",
+            "Illustration": "Brian Wambi",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "raw_sha256": "087cc98065e05f8a09a19afec3423c80206cb621e60f758a8170aeb3f6388982",
+          "body_sha256": "3968b2a2519eac498454bd631e61268dbd7e5e8396b1b10ca1ae260f547a5141",
+          "catalog_sha256": "b4dc0d7f17734dc12e11d38e9959d7508146202ad5602f07261b5ee89b15b401",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0324_the-day-i-left-home-for-the-city.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0324/",
+          "clean_bytes": 2351,
+          "approx_words": 442
+        },
+        {
+          "id": "0291",
+          "title": "What Vusi's sister said",
+          "source_file": "0291_what-vusis-sister-said.md",
+          "split": "test",
+          "stage": 3,
+          "reading_level": 4,
+          "reason": "Reserve a longer event-sequence story with dialogue for later evaluation.",
+          "pages": 13,
+          "attribution": {
+            "License": "[CC-BY]",
+            "Text": "Nina Orange",
+            "Illustration": "Wiehan de Jager",
+            "Language": "en"
+          },
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "raw_sha256": "c8426f9435eac1ba0f857f924805429666da755abfca6184689b3d9efb798d6c",
+          "body_sha256": "c94d982bca9c0fe864826b05c808780a93af6edf95376eb9e6b9c590922d764e",
+          "catalog_sha256": "999e1371a92662302426d10d9b58fc3b0a8fe80cba16ffe7acad2891248bea1a",
+          "source_url": "https://raw.githubusercontent.com/global-asp/sbc-source/be28dab38ac55e8eb2185edb6631b11615d02185/en/0291_what-vusis-sister-said.md",
+          "catalog_url": "https://storybookscanada.ca/stories/en/0291/",
+          "clean_bytes": 2595,
+          "approx_words": 503
+        }
+      ],
+      "outputs": {
+        "train": {
+          "documents": 10,
+          "bytes": 14201,
+          "sha256": "332244884070ee9b2fa80313f2c47e17c82807eff2294492844b790e4792addb"
+        },
+        "validation": {
+          "documents": 3,
+          "bytes": 3306,
+          "sha256": "eb653f6be87d130259270f42f3be387bd68d845c3ab5ec42fe575754040ec7f3"
+        },
+        "test": {
+          "documents": 3,
+          "bytes": 3760,
+          "sha256": "19da3ed9c3533e2456f106da7a84ac7586fa90e2895596d201d210d15849f843"
+        }
+      },
+      "stages": [
+        {
+          "id": 1,
+          "name": "Short actions and questions",
+          "publisher_levels": [
+            1
+          ],
+          "file": "stage-1.dat",
+          "documents": 2,
+          "sha256": "1250ebd4b12fb52113ebc3aea3133a12747019793a5f8bb43c7ef7f5ebfbd2b2",
+          "cumulative_file": "through-stage-1.dat",
+          "cumulative_sha256": "1250ebd4b12fb52113ebc3aea3133a12747019793a5f8bb43c7ef7f5ebfbd2b2"
+        },
+        {
+          "id": 2,
+          "name": "Daily routines and short narratives",
+          "publisher_levels": [
+            2
+          ],
+          "file": "stage-2.dat",
+          "documents": 4,
+          "sha256": "5233ea6f4a63b80b737f845979230d53f7f290b31506b93f072d8f98f36cea4d",
+          "cumulative_file": "through-stage-2.dat",
+          "cumulative_sha256": "d532bef9067f301c2438278b9441741f03e213efa4307d2e3279cee1562f7530"
+        },
+        {
+          "id": 3,
+          "name": "Connected events and dialogue",
+          "publisher_levels": [
+            3,
+            4
+          ],
+          "file": "stage-3.dat",
+          "documents": 4,
+          "sha256": "82a65d434213ebcc2a7abe47227e893b1f519482d80697ae17abcb5de1bcc08f",
+          "cumulative_file": "through-stage-3.dat",
+          "cumulative_sha256": "332244884070ee9b2fa80313f2c47e17c82807eff2294492844b790e4792addb"
+        }
+      ],
+      "protected_manifest_sha256": "36bea68901316f6a9cd1751bfadd41088c0355cc7d9dcdb4a6f66c86b2d59097",
+      "protected_sources": {
+        "15659.txt": "a574e87875aad9c79c1cd321500091ce56c1e92e9fa16574d23e45419122b373",
+        "902.txt": "f28e9cf6f8508a438e651ef565b6bc243f0fc90ec2584d13b1e55845f7cde5e3",
+        "13853.txt": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f",
+        "12228.txt": "9f76e50d48b67cdefda8750df243f0825d38959a1288b7959490b736a57a3025",
+        "11757.txt": "870e26df365758de353c2e42b074268183a0c5bb8460400c6793da59b3f51cbc"
+      },
+      "model_training_performed": false,
+      "reserved_tests_scored": false,
+      "transform": "Remove Markdown title, page markers and attribution from model text; join unedited page bodies with blank lines. Preserve full attribution separately. Images and audio are not downloaded.",
+      "limitations": "Only 16 short texts; not a sufficient general-language corpus or a demonstrated learning improvement. Publisher reading levels describe text complexity, not human ages or model mastery. Images are absent, some meaning relies on illustrations, and stories are not factual answer keys. Whole-story holdouts share language patterns and some authors with training; exact-overlap checks do not rule out paraphrases."
+    },
+    "source_admission": {
+      "version": "curriculum-extension-v1",
+      "parent_schedule": "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\curriculum.sg",
+      "parent_schedule_sha256": "fc9c152f1f9f37c4b080ddd02cf1888204fa203db7d080c60589261cc621fe03",
+      "schedule_sha256": "514cdd5a98fdcfe090e5b8051fb7165e71d4523550d1f1225beb4a8f7c6ea2c1",
+      "previous_stages": 4,
+      "selected_source": "D:\\SynapticGenesis\\runs\\live-reading-panel\\reading-edition\\train.dat",
+      "selected_sha256": "332244884070ee9b2fa80313f2c47e17c82807eff2294492844b790e4792addb",
+      "selected_bytes": 14201,
+      "added_documents": 10,
+      "checked_holdouts": [
+        {
+          "source": "D:\\SynapticGenesis\\data\\prepared\\early-readers-v1\\validation.dat",
+          "sha256": "eb653f6be87d130259270f42f3be387bd68d845c3ab5ec42fe575754040ec7f3"
+        },
+        {
+          "source": "D:\\SynapticGenesis\\data\\prepared\\early-readers-v1\\test.dat",
+          "sha256": "19da3ed9c3533e2456f106da7a84ac7586fa90e2895596d201d210d15849f843"
+        },
+        {
+          "source": "D:\\SynapticGenesis\\data\\prepared\\stories-v1\\13853.txt",
+          "sha256": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f"
+        },
+        {
+          "source": "D:\\SynapticGenesis\\data\\prepared\\stories-v1\\12228.txt",
+          "sha256": "9f76e50d48b67cdefda8750df243f0825d38959a1288b7959490b736a57a3025"
+        },
+        {
+          "source": "D:\\SynapticGenesis\\data\\prepared\\stories-v1\\11757.txt",
+          "sha256": "870e26df365758de353c2e42b074268183a0c5bb8460400c6793da59b3f51cbc"
+        }
+      ],
+      "editions": [
+        {
+          "file": "edition-1.dat",
+          "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+          "bytes": 585436,
+          "documents": 5,
+          "end_update": 6000,
+          "rate_scale": 1.0,
+          "scope": "all",
+          "answer_scale": 1.0
+        },
+        {
+          "file": "edition-2.dat",
+          "sha256": "281033ec58dc79bfcdf79e340ea2cfce022755afc321a4859e0223d243d5541b",
+          "bytes": 605788,
+          "documents": 389,
+          "end_update": 10000,
+          "rate_scale": 0.25,
+          "scope": "new",
+          "answer_scale": 64.0
+        },
+        {
+          "file": "edition-3.dat",
+          "sha256": "ff05a8dc3d4de5c01c88a08057db99aeedf45572683556b7259b7a518f5daa42",
+          "bytes": 4545628,
+          "documents": 52229,
+          "end_update": 130000,
+          "rate_scale": 0.25,
+          "scope": "new",
+          "answer_scale": 64.0
+        },
+        {
+          "file": "edition-4.dat",
+          "sha256": "a80ea7496cec30a761bb5ace5a6d76dbe16a14f16e0d555e108a1ce392485d5f",
+          "bytes": 6290068,
+          "documents": 52236,
+          "end_update": 190000,
+          "rate_scale": 0.25,
+          "scope": "new",
+          "answer_scale": 1.0
+        },
+        {
+          "file": "edition-5.dat",
+          "sha256": "f54682bbf28c02b292ecf3fb72ecc2621ae0ddc24795d20fe67011abca556b06",
+          "bytes": 6304270,
+          "documents": 52246,
+          "end_update": 194096,
+          "rate_scale": 0.25,
+          "scope": "new",
+          "answer_scale": 1.0
+        }
+      ],
+      "limits": "Exact document checks only; no semantic overlap or curriculum mastery assessment."
+    },
+    "source_boundaries": [
+      5,
+      389,
+      52229,
+      52236,
+      52246
+    ],
+    "evaluation_schedule_sha256": "e6207c8418f7b8ce70c79544d58250b9f66248754868ba7565ea0a11f1e2b8ec",
+    "reading_train_sha256": "332244884070ee9b2fa80313f2c47e17c82807eff2294492844b790e4792addb",
+    "reading_validation_sha256": "eb653f6be87d130259270f42f3be387bd68d845c3ab5ec42fe575754040ec7f3",
+    "book_directory": "D:/SynapticGenesis/data/prepared/stories-v1",
+    "book_validation": {
+      "reader": {
+        "id": 13853,
+        "sha256": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f"
+      },
+      "geography": {
+        "id": 12228,
+        "sha256": "9f76e50d48b67cdefda8750df243f0825d38959a1288b7959490b736a57a3025"
+      },
+      "narrative": {
+        "id": 11757,
+        "sha256": "870e26df365758de353c2e42b074268183a0c5bb8460400c6793da59b3f51cbc"
+      }
+    },
+    "binding_directory": "D:/SynapticGenesis/data/prepared/binding-diversity-v1",
+    "binding_manifest_sha256": "da77ab18f034d993059e2b71849791502bea15afa1a2b5a732a6d76d487d6215",
+    "probe_sha256": {
+      "train.sgprobe": "ec14ab04fdd0c3d1b217176e9f63e7cb7986d603bc37804f37bcd0fd30b47a49",
+      "development.sgprobe": "48f9c8cff84b39875da8349b74cfddf0a8c45e67a9e0e90c54688ff2547ca964",
+      "test.sgprobe": "8e22637b133f3548ae654589a00d453bf462c1cfcd4bb685e8d162a1ecc0ae73",
+      "expanded-train-monitor.sgprobe": "6c28b3739cf650e3865f43557a8fb1927c55b52f0a78f6465780ddb93bd60aa5"
+    },
+    "evaluation_batches": 32,
+    "chunk": 128,
+    "inherited_base_lr": 0.0003,
+    "new_stage_multiplier": 0.25,
+    "replay_slots": 1024,
+    "replay_every": {
+      "every-4": 4,
+      "every-1": 1
+    },
+    "replay_policy": "stage",
+    "graph_speech": true,
+    "speak_every": 500,
+    "speech_bytes": 96,
+    "prompt": "The bird ",
+    "sample_prompts": [
+      "The bird ",
+      "Once upon a time "
+    ],
+    "sample_bytes": 384,
+    "log_every": 256,
+    "save_every": 100000000,
+    "learning_math": "inherited TF32; ordered gradient reductions",
+    "assessment_math": "strict FP32; reading diagnostic resets each 128-target window and exact shorter tail",
+    "learning_source_order": "Complete documents in selected edition order, including final short chunks; repeats sequentially.",
+    "state_policy": "Native --resume and append-only admission preserve complete history; both arms change only explicit replay cadence.",
+    "order": "Alternate arm order by seed. GPU commands are sequential. Original checkpoints remain immutable.",
+    "primary_comparison": "Final binding retention and new-story development loss at equal 4096 additional observations.",
+    "budget_comparison": "Every-4 at 4096 versus every-1 at 2560: equal 5120 optimizer updates, not equal target bytes, speech or wall time.",
+    "candidate_gate": "At equal final new-source exposure, every-1 must improve binding by at least 5 percentage points in all three seeds, keep new development loss within +0.03 nats/byte and each earlier book within +0.02 of every-4, and improve new development loss from its own ancestor in each seed. Also report the complete matched-update comparison. Passing is a candidate result, not automatic promotion.",
+    "timing": "Native live segments include observation, replay, speech, logging and saves; exclude process setup and held-out assessments. More segment boundaries in every-1 add setup/save overhead. Other desktop GPU contexts are active.",
+    "limits": "One small new edition and three related learned ancestors. Repeated development probes; no global plasticity or general-language claim. Cadence changes replay selections and quantity; this is not a pure timing experiment with identical rehearsed windows.",
+    "teacher_feedback": false,
+    "reserved_tests_scored": false,
+    "generated_text_targets": false
+  },
+  "rows": [
+    {
+      "seed": 1337,
+      "arm": "every-4",
+      "additional_observations": 64,
+      "new_train_loss": 1.6292185935841543,
+      "new_development_loss": 1.7853118468011664,
+      "new_development_change": -0.2306213671557653,
+      "binding_joint": 0.826388888889,
+      "binding_change_pp": 11.8055555556,
+      "cumulative_live_seconds": 0.3150615,
+      "source_pairs": 7727,
+      "replay_pairs": 1468,
+      "optimizer_updates": 80,
+      "generated_bytes": 0,
+      "reader_loss": 2.214823,
+      "reader_change": -0.014880999999999922,
+      "geography_loss": 1.843922,
+      "geography_change": 0.003106999999999971,
+      "narrative_loss": 1.620393,
+      "narrative_change": 0.04440200000000005
+    },
+    {
+      "seed": 1337,
+      "arm": "every-4",
+      "additional_observations": 256,
+      "new_train_loss": 1.3750006545315616,
+      "new_development_loss": 1.6961817514649018,
+      "new_development_change": -0.3197514624920299,
+      "binding_joint": 0.618055555556,
+      "binding_change_pp": -9.027777777699997,
+      "cumulative_live_seconds": 1.0466454,
+      "source_pairs": 31034,
+      "replay_pairs": 6348,
+      "optimizer_updates": 320,
+      "generated_bytes": 0,
+      "reader_loss": 2.236006,
+      "reader_change": 0.006302000000000252,
+      "geography_loss": 1.860783,
+      "geography_change": 0.019967999999999986,
+      "narrative_loss": 1.647437,
+      "narrative_change": 0.07144600000000012
+    },
+    {
+      "seed": 1337,
+      "arm": "every-4",
+      "additional_observations": 1024,
+      "new_train_loss": 0.9935283193005134,
+      "new_development_loss": 1.826978489432695,
+      "new_development_change": -0.18895472452423667,
+      "binding_joint": 0.597222222222,
+      "binding_change_pp": -11.11111111109999,
+      "cumulative_live_seconds": 3.7401672,
+      "source_pairs": 125159,
+      "replay_pairs": 26639,
+      "optimizer_updates": 1280,
+      "generated_bytes": 192,
+      "reader_loss": 2.448598,
+      "reader_change": 0.21889400000000014,
+      "geography_loss": 2.056657,
+      "geography_change": 0.21584199999999987,
+      "narrative_loss": 1.797615,
+      "narrative_change": 0.22162400000000004
+    },
+    {
+      "seed": 1337,
+      "arm": "every-4",
+      "additional_observations": 4096,
+      "new_train_loss": 0.4733309565996429,
+      "new_development_loss": 2.648438494391818,
+      "new_development_change": 0.6325052804348865,
+      "binding_joint": 0.618055555556,
+      "binding_change_pp": -9.027777777699997,
+      "cumulative_live_seconds": 14.161226000000001,
+      "source_pairs": 500571,
+      "replay_pairs": 103947,
+      "optimizer_updates": 5120,
+      "generated_bytes": 768,
+      "reader_loss": 3.34512,
+      "reader_change": 1.1154160000000002,
+      "geography_loss": 2.869829,
+      "geography_change": 1.029014,
+      "narrative_loss": 2.557733,
+      "narrative_change": 0.9817419999999999,
+      "graph_bytes_per_second": 6693.186674172415
+    },
+    {
+      "seed": 1337,
+      "arm": "every-1",
+      "additional_observations": 64,
+      "new_train_loss": 1.603486851743023,
+      "new_development_loss": 1.781417884589397,
+      "new_development_change": -0.2345153293675346,
+      "binding_joint": 0.701388888889,
+      "binding_change_pp": -0.6944444443999997,
+      "cumulative_live_seconds": 0.4345448,
+      "source_pairs": 7727,
+      "replay_pairs": 6063,
+      "optimizer_updates": 128,
+      "generated_bytes": 0,
+      "reader_loss": 2.207478,
+      "reader_change": -0.022225999999999857,
+      "geography_loss": 1.832287,
+      "geography_change": -0.008528000000000091,
+      "narrative_loss": 1.592831,
+      "narrative_change": 0.016840000000000188
+    },
+    {
+      "seed": 1337,
+      "arm": "every-1",
+      "additional_observations": 256,
+      "new_train_loss": 1.326018736489299,
+      "new_development_loss": 1.7076663118813913,
+      "new_development_change": -0.3082669020755404,
+      "binding_joint": 0.805555555556,
+      "binding_change_pp": 9.722222222300003,
+      "cumulative_live_seconds": 1.5097563,
+      "source_pairs": 31034,
+      "replay_pairs": 25194,
+      "optimizer_updates": 512,
+      "generated_bytes": 0,
+      "reader_loss": 2.213254,
+      "reader_change": -0.016449999999999854,
+      "geography_loss": 1.852528,
+      "geography_change": 0.011712999999999862,
+      "narrative_loss": 1.6312,
+      "narrative_change": 0.055209000000000064
+    },
+    {
+      "seed": 1337,
+      "arm": "every-1",
+      "additional_observations": 1024,
+      "new_train_loss": 0.9573778289886006,
+      "new_development_loss": 1.8123895462226576,
+      "new_development_change": -0.20354366773427413,
+      "binding_joint": 0.756944444444,
+      "binding_change_pp": 4.861111111100003,
+      "cumulative_live_seconds": 5.6032150000000005,
+      "source_pairs": 125159,
+      "replay_pairs": 103404,
+      "optimizer_updates": 2048,
+      "generated_bytes": 192,
+      "reader_loss": 2.398782,
+      "reader_change": 0.16907800000000028,
+      "geography_loss": 1.995341,
+      "geography_change": 0.15452599999999994,
+      "narrative_loss": 1.729852,
+      "narrative_change": 0.15386100000000003
+    },
+    {
+      "seed": 1337,
+      "arm": "every-1",
+      "additional_observations": 2560,
+      "new_train_loss": 0.5844261650641703,
+      "new_development_loss": 2.147147615378967,
+      "new_development_change": 0.1312144014220351,
+      "binding_joint": 0.763888888889,
+      "binding_change_pp": 5.5555555556,
+      "cumulative_live_seconds": 13.566832300000002,
+      "source_pairs": 312861,
+      "replay_pairs": 258552,
+      "optimizer_updates": 5120,
+      "generated_bytes": 480,
+      "reader_loss": 2.732916,
+      "reader_change": 0.503212,
+      "geography_loss": 2.26474,
+      "geography_change": 0.4239250000000001,
+      "narrative_loss": 1.978485,
+      "narrative_change": 0.40249400000000013
+    },
+    {
+      "seed": 1337,
+      "arm": "every-1",
+      "additional_observations": 4096,
+      "new_train_loss": 0.38430658993503636,
+      "new_development_loss": 2.4064825456978807,
+      "new_development_change": 0.39054933174094897,
+      "binding_joint": 0.666666666667,
+      "binding_change_pp": -4.166666666599994,
+      "cumulative_live_seconds": 21.581769,
+      "source_pairs": 500571,
+      "replay_pairs": 413311,
+      "optimizer_updates": 8192,
+      "generated_bytes": 768,
+      "reader_loss": 2.856895,
+      "reader_change": 0.6271910000000003,
+      "geography_loss": 2.337044,
+      "geography_change": 0.49622900000000003,
+      "narrative_loss": 2.04636,
+      "narrative_change": 0.47036900000000004,
+      "graph_bytes_per_second": 6615.602484985683
+    },
+    {
+      "seed": 2026,
+      "arm": "every-1",
+      "additional_observations": 64,
+      "new_train_loss": 1.619729013318421,
+      "new_development_loss": 1.7551289831858914,
+      "new_development_change": -0.15968072209230755,
+      "binding_joint": 0.208333333333,
+      "binding_change_pp": 3.4722222222,
+      "cumulative_live_seconds": 0.4347838,
+      "source_pairs": 7727,
+      "replay_pairs": 6063,
+      "optimizer_updates": 128,
+      "generated_bytes": 0,
+      "reader_loss": 2.216904,
+      "reader_change": -0.01933499999999988,
+      "geography_loss": 1.811905,
+      "geography_change": -0.02303199999999994,
+      "narrative_loss": 1.594079,
+      "narrative_change": 0.010350999999999999
+    },
+    {
+      "seed": 2026,
+      "arm": "every-1",
+      "additional_observations": 256,
+      "new_train_loss": 1.3463481142862155,
+      "new_development_loss": 1.6816153072500113,
+      "new_development_change": -0.23319439802818764,
+      "binding_joint": 0.1875,
+      "binding_change_pp": 1.3888888889,
+      "cumulative_live_seconds": 1.5064026,
+      "source_pairs": 31034,
+      "replay_pairs": 25194,
+      "optimizer_updates": 512,
+      "generated_bytes": 0,
+      "reader_loss": 2.217123,
+      "reader_change": -0.01911599999999991,
+      "geography_loss": 1.848568,
+      "geography_change": 0.013630999999999949,
+      "narrative_loss": 1.625608,
+      "narrative_change": 0.04187999999999992
+    },
+    {
+      "seed": 2026,
+      "arm": "every-1",
+      "additional_observations": 1024,
+      "new_train_loss": 0.9797755872481125,
+      "new_development_loss": 1.8082422534693952,
+      "new_development_change": -0.10656745180880378,
+      "binding_joint": 0.0833333333333,
+      "binding_change_pp": -9.02777777777,
+      "cumulative_live_seconds": 5.595174,
+      "source_pairs": 125159,
+      "replay_pairs": 103404,
+      "optimizer_updates": 2048,
+      "generated_bytes": 192,
+      "reader_loss": 2.355368,
+      "reader_change": 0.11912900000000004,
+      "geography_loss": 1.984073,
+      "geography_change": 0.14913599999999994,
+      "narrative_loss": 1.729922,
+      "narrative_change": 0.14619399999999994
+    },
+    {
+      "seed": 2026,
+      "arm": "every-1",
+      "additional_observations": 2560,
+      "new_train_loss": 0.6221150819799545,
+      "new_development_loss": 2.0709619012313407,
+      "new_development_change": 0.15615219595314178,
+      "binding_joint": 0.0972222222222,
+      "binding_change_pp": -7.6388888888799995,
+      "cumulative_live_seconds": 13.5741432,
+      "source_pairs": 312861,
+      "replay_pairs": 258552,
+      "optimizer_updates": 5120,
+      "generated_bytes": 480,
+      "reader_loss": 2.651802,
+      "reader_change": 0.4155630000000001,
+      "geography_loss": 2.215158,
+      "geography_change": 0.38022100000000014,
+      "narrative_loss": 1.952296,
+      "narrative_change": 0.368568
+    },
+    {
+      "seed": 2026,
+      "arm": "every-1",
+      "additional_observations": 4096,
+      "new_train_loss": 0.4038038075073609,
+      "new_development_loss": 2.3123481023477734,
+      "new_development_change": 0.3975383970695745,
+      "binding_joint": 0.138888888889,
+      "binding_change_pp": -3.4722222222,
+      "cumulative_live_seconds": 21.5808574,
+      "source_pairs": 500571,
+      "replay_pairs": 413311,
+      "optimizer_updates": 8192,
+      "generated_bytes": 768,
+      "reader_loss": 2.752334,
+      "reader_change": 0.516095,
+      "geography_loss": 2.306074,
+      "geography_change": 0.47113700000000014,
+      "narrative_loss": 2.038021,
+      "narrative_change": 0.45429300000000006,
+      "graph_bytes_per_second": 6653.083288286415
+    },
+    {
+      "seed": 2026,
+      "arm": "every-4",
+      "additional_observations": 64,
+      "new_train_loss": 1.6427745344601923,
+      "new_development_loss": 1.7721957132802593,
+      "new_development_change": -0.14261399199793967,
+      "binding_joint": 0.131944444444,
+      "binding_change_pp": -4.1666666667,
+      "cumulative_live_seconds": 0.313169,
+      "source_pairs": 7727,
+      "replay_pairs": 1468,
+      "optimizer_updates": 80,
+      "generated_bytes": 0,
+      "reader_loss": 2.250676,
+      "reader_change": 0.014437000000000033,
+      "geography_loss": 1.827884,
+      "geography_change": -0.007052999999999976,
+      "narrative_loss": 1.623625,
+      "narrative_change": 0.03989700000000007
+    },
+    {
+      "seed": 2026,
+      "arm": "every-4",
+      "additional_observations": 256,
+      "new_train_loss": 1.3822383507371723,
+      "new_development_loss": 1.6813223415416358,
+      "new_development_change": -0.2334873637365631,
+      "binding_joint": 0.104166666667,
+      "binding_change_pp": -6.9444444444,
+      "cumulative_live_seconds": 1.0460933,
+      "source_pairs": 31034,
+      "replay_pairs": 6348,
+      "optimizer_updates": 320,
+      "generated_bytes": 0,
+      "reader_loss": 2.241172,
+      "reader_change": 0.004933000000000298,
+      "geography_loss": 1.858376,
+      "geography_change": 0.023438999999999988,
+      "narrative_loss": 1.648551,
+      "narrative_change": 0.06482300000000008
+    },
+    {
+      "seed": 2026,
+      "arm": "every-4",
+      "additional_observations": 1024,
+      "new_train_loss": 1.014802827087272,
+      "new_development_loss": 1.8029294805124434,
+      "new_development_change": -0.11188022476575554,
+      "binding_joint": 0.104166666667,
+      "binding_change_pp": -6.9444444444,
+      "cumulative_live_seconds": 3.7491423999999998,
+      "source_pairs": 125159,
+      "replay_pairs": 26639,
+      "optimizer_updates": 1280,
+      "generated_bytes": 192,
+      "reader_loss": 2.399072,
+      "reader_change": 0.162833,
+      "geography_loss": 2.052659,
+      "geography_change": 0.21772199999999975,
+      "narrative_loss": 1.790467,
+      "narrative_change": 0.206739
+    },
+    {
+      "seed": 2026,
+      "arm": "every-4",
+      "additional_observations": 4096,
+      "new_train_loss": 0.5082864958270591,
+      "new_development_loss": 2.54715375097565,
+      "new_development_change": 0.632344045697451,
+      "binding_joint": 0.0625,
+      "binding_change_pp": -11.1111111111,
+      "cumulative_live_seconds": 14.1593948,
+      "source_pairs": 500571,
+      "replay_pairs": 103947,
+      "optimizer_updates": 5120,
+      "generated_bytes": 768,
+      "reader_loss": 3.205291,
+      "reader_change": 0.969052,
+      "geography_loss": 2.713267,
+      "geography_change": 0.87833,
+      "narrative_loss": 2.397818,
+      "narrative_change": 0.81409,
+      "graph_bytes_per_second": 6669.323974326133
+    },
+    {
+      "seed": 31415,
+      "arm": "every-4",
+      "additional_observations": 64,
+      "new_train_loss": 1.6269745571175522,
+      "new_development_loss": 1.7683024306219297,
+      "new_development_change": -0.16192828046574959,
+      "binding_joint": 0.569444444444,
+      "binding_change_pp": -14.583333333399995,
+      "cumulative_live_seconds": 0.3104964,
+      "source_pairs": 7727,
+      "replay_pairs": 1468,
+      "optimizer_updates": 80,
+      "generated_bytes": 0,
+      "reader_loss": 2.216391,
+      "reader_change": 0.0023159999999999847,
+      "geography_loss": 1.846687,
+      "geography_change": 0.012613999999999903,
+      "narrative_loss": 1.634635,
+      "narrative_change": 0.05682000000000009
+    },
+    {
+      "seed": 31415,
+      "arm": "every-4",
+      "additional_observations": 256,
+      "new_train_loss": 1.3621484361015792,
+      "new_development_loss": 1.6567937634260104,
+      "new_development_change": -0.2734369476616689,
+      "binding_joint": 0.597222222222,
+      "binding_change_pp": -11.80555555559999,
+      "cumulative_live_seconds": 1.042872,
+      "source_pairs": 31034,
+      "replay_pairs": 6348,
+      "optimizer_updates": 320,
+      "generated_bytes": 0,
+      "reader_loss": 2.221296,
+      "reader_change": 0.007221000000000366,
+      "geography_loss": 1.858569,
+      "geography_change": 0.02449599999999985,
+      "narrative_loss": 1.645698,
+      "narrative_change": 0.06788300000000014
+    },
+    {
+      "seed": 31415,
+      "arm": "every-4",
+      "additional_observations": 1024,
+      "new_train_loss": 1.020712848922952,
+      "new_development_loss": 1.819660020421686,
+      "new_development_change": -0.11057069066599334,
+      "binding_joint": 0.569444444444,
+      "binding_change_pp": -14.583333333399995,
+      "cumulative_live_seconds": 3.7470961,
+      "source_pairs": 125159,
+      "replay_pairs": 26639,
+      "optimizer_updates": 1280,
+      "generated_bytes": 192,
+      "reader_loss": 2.410688,
+      "reader_change": 0.19661300000000015,
+      "geography_loss": 2.05716,
+      "geography_change": 0.22308700000000004,
+      "narrative_loss": 1.795197,
+      "narrative_change": 0.21738199999999996
+    },
+    {
+      "seed": 31415,
+      "arm": "every-4",
+      "additional_observations": 4096,
+      "new_train_loss": 0.5116954802859487,
+      "new_development_loss": 2.5872518988503934,
+      "new_development_change": 0.6570211877627141,
+      "binding_joint": 0.423611111111,
+      "binding_change_pp": -29.166666666699992,
+      "cumulative_live_seconds": 14.1451426,
+      "source_pairs": 500571,
+      "replay_pairs": 103947,
+      "optimizer_updates": 5120,
+      "generated_bytes": 768,
+      "reader_loss": 3.301944,
+      "reader_change": 1.0878690000000004,
+      "geography_loss": 2.856039,
+      "geography_change": 1.021966,
+      "narrative_loss": 2.548733,
+      "narrative_change": 0.970918,
+      "graph_bytes_per_second": 6652.996838334235
+    },
+    {
+      "seed": 31415,
+      "arm": "every-1",
+      "additional_observations": 64,
+      "new_train_loss": 1.610541000850357,
+      "new_development_loss": 1.7611039044847274,
+      "new_development_change": -0.16912680660295187,
+      "binding_joint": 0.715277777778,
+      "binding_change_pp": 0.0,
+      "cumulative_live_seconds": 0.4357506,
+      "source_pairs": 7727,
+      "replay_pairs": 6063,
+      "optimizer_updates": 128,
+      "generated_bytes": 0,
+      "reader_loss": 2.190636,
+      "reader_change": -0.023438999999999766,
+      "geography_loss": 1.825645,
+      "geography_change": -0.008428000000000102,
+      "narrative_loss": 1.594051,
+      "narrative_change": 0.01623600000000014
+    },
+    {
+      "seed": 31415,
+      "arm": "every-1",
+      "additional_observations": 256,
+      "new_train_loss": 1.3226195663547855,
+      "new_development_loss": 1.683166739356785,
+      "new_development_change": -0.24706397173089423,
+      "binding_joint": 0.659722222222,
+      "binding_change_pp": -5.555555555599989,
+      "cumulative_live_seconds": 1.5109982,
+      "source_pairs": 31034,
+      "replay_pairs": 25194,
+      "optimizer_updates": 512,
+      "generated_bytes": 0,
+      "reader_loss": 2.211151,
+      "reader_change": -0.0029239999999997046,
+      "geography_loss": 1.851808,
+      "geography_change": 0.017734999999999834,
+      "narrative_loss": 1.626475,
+      "narrative_change": 0.048659999999999926
+    },
+    {
+      "seed": 31415,
+      "arm": "every-1",
+      "additional_observations": 1024,
+      "new_train_loss": 0.9730763742254981,
+      "new_development_loss": 1.7899039264963599,
+      "new_development_change": -0.14032678459131942,
+      "binding_joint": 0.652777777778,
+      "binding_change_pp": -6.25,
+      "cumulative_live_seconds": 5.6123861999999995,
+      "source_pairs": 125159,
+      "replay_pairs": 103404,
+      "optimizer_updates": 2048,
+      "generated_bytes": 192,
+      "reader_loss": 2.369152,
+      "reader_change": 0.15507700000000035,
+      "geography_loss": 2.005495,
+      "geography_change": 0.17142199999999974,
+      "narrative_loss": 1.729334,
+      "narrative_change": 0.15151899999999996
+    },
+    {
+      "seed": 31415,
+      "arm": "every-1",
+      "additional_observations": 2560,
+      "new_train_loss": 0.6215673026562729,
+      "new_development_loss": 2.1120285389708484,
+      "new_development_change": 0.18179782788316912,
+      "binding_joint": 0.631944444444,
+      "binding_change_pp": -8.333333333399995,
+      "cumulative_live_seconds": 13.6116689,
+      "source_pairs": 312861,
+      "replay_pairs": 258552,
+      "optimizer_updates": 5120,
+      "generated_bytes": 480,
+      "reader_loss": 2.688629,
+      "reader_change": 0.47455400000000036,
+      "geography_loss": 2.278152,
+      "geography_change": 0.4440789999999999,
+      "narrative_loss": 1.985999,
+      "narrative_change": 0.4081840000000001
+    },
+    {
+      "seed": 31415,
+      "arm": "every-1",
+      "additional_observations": 4096,
+      "new_train_loss": 0.394716816223415,
+      "new_development_loss": 2.368756436831714,
+      "new_development_change": 0.4385257257440349,
+      "binding_joint": 0.486111111111,
+      "binding_change_pp": -22.916666666699992,
+      "cumulative_live_seconds": 21.6540645,
+      "source_pairs": 500571,
+      "replay_pairs": 413311,
+      "optimizer_updates": 8192,
+      "generated_bytes": 768,
+      "reader_loss": 2.860854,
+      "reader_change": 0.646779,
+      "geography_loss": 2.369928,
+      "geography_change": 0.5358549999999997,
+      "narrative_loss": 2.082204,
+      "narrative_change": 0.504389,
+      "graph_bytes_per_second": 6643.0009756907675
+    }
+  ],
+  "means": [
+    {
+      "arm": "every-4",
+      "additional_observations": 64,
+      "new_train_loss": 1.6329892283872995,
+      "new_development_loss": 1.7752699969011185,
+      "new_development_change": -0.17838787987315152,
+      "binding_joint": 0.509259259259,
+      "binding_change_pp": -2.314814814833332,
+      "cumulative_live_seconds": 0.3129089666666667,
+      "source_pairs": 7727,
+      "replay_pairs": 1468,
+      "optimizer_updates": 80,
+      "generated_bytes": 0,
+      "reader_loss": 2.2272966666666667,
+      "reader_change": 0.000624000000000032,
+      "geography_loss": 1.8394976666666667,
+      "geography_change": 0.0028893333333332993,
+      "narrative_loss": 1.6262176666666668,
+      "narrative_change": 0.047039666666666737
+    },
+    {
+      "arm": "every-4",
+      "additional_observations": 256,
+      "new_train_loss": 1.3731291471234377,
+      "new_development_loss": 1.678099285477516,
+      "new_development_change": -0.275558591296754,
+      "binding_joint": 0.439814814815,
+      "binding_change_pp": -9.259259259233328,
+      "cumulative_live_seconds": 1.0452035666666666,
+      "source_pairs": 31034,
+      "replay_pairs": 6348,
+      "optimizer_updates": 320,
+      "generated_bytes": 0,
+      "reader_loss": 2.2328246666666667,
+      "reader_change": 0.006152000000000306,
+      "geography_loss": 1.8592426666666666,
+      "geography_change": 0.022634333333333274,
+      "narrative_loss": 1.6472286666666667,
+      "narrative_change": 0.06805066666666677
+    },
+    {
+      "arm": "every-4",
+      "additional_observations": 1024,
+      "new_train_loss": 1.0096813317702458,
+      "new_development_loss": 1.8165226634556082,
+      "new_development_change": -0.13713521331866185,
+      "binding_joint": 0.423611111111,
+      "binding_change_pp": -10.879629629633328,
+      "cumulative_live_seconds": 3.7454685666666667,
+      "source_pairs": 125159,
+      "replay_pairs": 26639,
+      "optimizer_updates": 1280,
+      "generated_bytes": 192,
+      "reader_loss": 2.4194526666666665,
+      "reader_change": 0.1927800000000001,
+      "geography_loss": 2.055492,
+      "geography_change": 0.21888366666666656,
+      "narrative_loss": 1.7944263333333332,
+      "narrative_change": 0.21524833333333335
+    },
+    {
+      "arm": "every-4",
+      "additional_observations": 4096,
+      "new_train_loss": 0.49777097757088357,
+      "new_development_loss": 2.594281381405954,
+      "new_development_change": 0.6406235046316838,
+      "binding_joint": 0.36805555555566666,
+      "binding_change_pp": -16.435185185166663,
+      "cumulative_live_seconds": 14.155254466666667,
+      "source_pairs": 500571,
+      "replay_pairs": 103947,
+      "optimizer_updates": 5120,
+      "generated_bytes": 768,
+      "reader_loss": 3.2841183333333333,
+      "reader_change": 1.057445666666667,
+      "geography_loss": 2.8130450000000002,
+      "geography_change": 0.9764366666666667,
+      "narrative_loss": 2.5014279999999998,
+      "narrative_change": 0.9222499999999999,
+      "graph_bytes_per_second": 6671.835828944261
+    },
+    {
+      "arm": "every-1",
+      "additional_observations": 64,
+      "new_train_loss": 1.6112522886372669,
+      "new_development_loss": 1.7658835907533386,
+      "new_development_change": -0.18777428602093135,
+      "binding_joint": 0.5416666666666666,
+      "binding_change_pp": 0.9259259259333334,
+      "cumulative_live_seconds": 0.4350264,
+      "source_pairs": 7727,
+      "replay_pairs": 6063,
+      "optimizer_updates": 128,
+      "generated_bytes": 0,
+      "reader_loss": 2.205006,
+      "reader_change": -0.0216666666666665,
+      "geography_loss": 1.823279,
+      "geography_change": -0.013329333333333379,
+      "narrative_loss": 1.5936536666666667,
+      "narrative_change": 0.014475666666666775
+    },
+    {
+      "arm": "every-1",
+      "additional_observations": 256,
+      "new_train_loss": 1.3316621390434333,
+      "new_development_loss": 1.6908161194960625,
+      "new_development_change": -0.2628417572782074,
+      "binding_joint": 0.550925925926,
+      "binding_change_pp": 1.8518518518666711,
+      "cumulative_live_seconds": 1.5090523666666666,
+      "source_pairs": 31034,
+      "replay_pairs": 25194,
+      "optimizer_updates": 512,
+      "generated_bytes": 0,
+      "reader_loss": 2.213842666666667,
+      "reader_change": -0.012829999999999822,
+      "geography_loss": 1.850968,
+      "geography_change": 0.014359666666666548,
+      "narrative_loss": 1.627761,
+      "narrative_change": 0.048582999999999966
+    },
+    {
+      "arm": "every-1",
+      "additional_observations": 1024,
+      "new_train_loss": 0.9700765968207371,
+      "new_development_loss": 1.8035119087294709,
+      "new_development_change": -0.1501459680447991,
+      "binding_joint": 0.49768518518509997,
+      "binding_change_pp": -3.472222222223332,
+      "cumulative_live_seconds": 5.603591733333333,
+      "source_pairs": 125159,
+      "replay_pairs": 103404,
+      "optimizer_updates": 2048,
+      "generated_bytes": 192,
+      "reader_loss": 2.374434,
+      "reader_change": 0.14776133333333355,
+      "geography_loss": 1.9949696666666665,
+      "geography_change": 0.15836133333333322,
+      "narrative_loss": 1.7297026666666666,
+      "narrative_change": 0.15052466666666664
+    },
+    {
+      "arm": "every-1",
+      "additional_observations": 2560,
+      "new_train_loss": 0.6093695165667993,
+      "new_development_loss": 2.110046018527052,
+      "new_development_change": 0.156388141752782,
+      "binding_joint": 0.49768518518506666,
+      "binding_change_pp": -3.472222222226665,
+      "cumulative_live_seconds": 13.5842148,
+      "source_pairs": 312861,
+      "replay_pairs": 258552,
+      "optimizer_updates": 5120,
+      "generated_bytes": 480,
+      "reader_loss": 2.6911156666666667,
+      "reader_change": 0.46444300000000016,
+      "geography_loss": 2.2526833333333336,
+      "geography_change": 0.41607500000000003,
+      "narrative_loss": 1.9722600000000001,
+      "narrative_change": 0.3930820000000001
+    },
+    {
+      "arm": "every-1",
+      "additional_observations": 4096,
+      "new_train_loss": 0.3942757378886041,
+      "new_development_loss": 2.3625290282924563,
+      "new_development_change": 0.40887115151818615,
+      "binding_joint": 0.4305555555556667,
+      "binding_change_pp": -10.185185185166663,
+      "cumulative_live_seconds": 21.605563633333333,
+      "source_pairs": 500571,
+      "replay_pairs": 413311,
+      "optimizer_updates": 8192,
+      "generated_bytes": 768,
+      "reader_loss": 2.823361,
+      "reader_change": 0.5966883333333334,
+      "geography_loss": 2.337682,
+      "geography_change": 0.5010736666666666,
+      "narrative_loss": 2.055528333333333,
+      "narrative_change": 0.4763503333333334,
+      "graph_bytes_per_second": 6637.228916320955
+    }
+  ],
+  "comparisons": [
+    {
+      "seed": 1337,
+      "comparison": "equal_exposure",
+      "every_4_observations": 64,
+      "every_1_observations": 64,
+      "binding_improvement_pp": -12.5,
+      "new_development_loss_difference": -0.0038939622117692974,
+      "earlier_book_loss_differences": {
+        "reader": -0.007344999999999935,
+        "geography": -0.011635000000000062,
+        "narrative": -0.027561999999999864
+      },
+      "observed_live_cost_ratio": 1.3792380217830487
+    },
+    {
+      "seed": 1337,
+      "comparison": "equal_exposure",
+      "every_4_observations": 256,
+      "every_1_observations": 256,
+      "binding_improvement_pp": 18.75,
+      "new_development_loss_difference": 0.011484560416489487,
+      "earlier_book_loss_differences": {
+        "reader": -0.022752000000000105,
+        "geography": -0.008255000000000123,
+        "narrative": -0.016237000000000057
+      },
+      "observed_live_cost_ratio": 1.442471633659308
+    },
+    {
+      "seed": 1337,
+      "comparison": "equal_exposure",
+      "every_4_observations": 1024,
+      "every_1_observations": 1024,
+      "binding_improvement_pp": 15.972222222199994,
+      "new_development_loss_difference": -0.014588943210037453,
+      "earlier_book_loss_differences": {
+        "reader": -0.04981599999999986,
+        "geography": -0.061315999999999926,
+        "narrative": -0.06776300000000002
+      },
+      "observed_live_cost_ratio": 1.498118854151761
+    },
+    {
+      "seed": 1337,
+      "comparison": "equal_exposure",
+      "every_4_observations": 4096,
+      "every_1_observations": 4096,
+      "binding_improvement_pp": 4.861111111100003,
+      "new_development_loss_difference": -0.24195594869393755,
+      "earlier_book_loss_differences": {
+        "reader": -0.4882249999999999,
+        "geography": -0.5327850000000001,
+        "narrative": -0.5113729999999999
+      },
+      "observed_live_cost_ratio": 1.5240042775957392,
+      "gate": {
+        "binding_improves_at_least_five_pp": false,
+        "new_development_within_margin": true,
+        "old_books_within_margin": true,
+        "new_development_improves_from_ancestor": false
+      },
+      "passes_gate": false
+    },
+    {
+      "seed": 1337,
+      "comparison": "equal_optimizer_updates",
+      "every_4_observations": 4096,
+      "every_1_observations": 2560,
+      "binding_improvement_pp": 14.583333333299997,
+      "new_development_loss_difference": -0.5012908790128514,
+      "earlier_book_loss_differences": {
+        "reader": -0.6122040000000002,
+        "geography": -0.605089,
+        "narrative": -0.5792479999999998
+      },
+      "observed_live_cost_ratio": 0.9580266779161635
+    },
+    {
+      "seed": 2026,
+      "comparison": "equal_exposure",
+      "every_4_observations": 64,
+      "every_1_observations": 64,
+      "binding_improvement_pp": 7.6388888889,
+      "new_development_loss_difference": -0.017066730094367877,
+      "earlier_book_loss_differences": {
+        "reader": -0.03377199999999991,
+        "geography": -0.015978999999999965,
+        "narrative": -0.029546000000000072
+      },
+      "observed_live_cost_ratio": 1.3883360102692157
+    },
+    {
+      "seed": 2026,
+      "comparison": "equal_exposure",
+      "every_4_observations": 256,
+      "every_1_observations": 256,
+      "binding_improvement_pp": 8.3333333333,
+      "new_development_loss_difference": 0.0002929657083754478,
+      "earlier_book_loss_differences": {
+        "reader": -0.02404900000000021,
+        "geography": -0.009808000000000039,
+        "narrative": -0.022943000000000158
+      },
+      "observed_live_cost_ratio": 1.4400270033275235
+    },
+    {
+      "seed": 2026,
+      "comparison": "equal_exposure",
+      "every_4_observations": 1024,
+      "every_1_observations": 1024,
+      "binding_improvement_pp": -2.0833333333700006,
+      "new_development_loss_difference": 0.005312772956951761,
+      "earlier_book_loss_differences": {
+        "reader": -0.043703999999999965,
+        "geography": -0.06858599999999981,
+        "narrative": -0.06054500000000007
+      },
+      "observed_live_cost_ratio": 1.4923876991175369
+    },
+    {
+      "seed": 2026,
+      "comparison": "equal_exposure",
+      "every_4_observations": 4096,
+      "every_1_observations": 4096,
+      "binding_improvement_pp": 7.6388888889,
+      "new_development_loss_difference": -0.23480564862787645,
+      "earlier_book_loss_differences": {
+        "reader": -0.45295700000000005,
+        "geography": -0.4071929999999999,
+        "narrative": -0.3597969999999999
+      },
+      "observed_live_cost_ratio": 1.5241369920697458,
+      "gate": {
+        "binding_improves_at_least_five_pp": true,
+        "new_development_within_margin": true,
+        "old_books_within_margin": true,
+        "new_development_improves_from_ancestor": false
+      },
+      "passes_gate": false
+    },
+    {
+      "seed": 2026,
+      "comparison": "equal_optimizer_updates",
+      "every_4_observations": 4096,
+      "every_1_observations": 2560,
+      "binding_improvement_pp": 3.4722222222200005,
+      "new_development_loss_difference": -0.47619184974430917,
+      "earlier_book_loss_differences": {
+        "reader": -0.5534889999999999,
+        "geography": -0.4981089999999999,
+        "narrative": -0.445522
+      },
+      "observed_live_cost_ratio": 0.9586669057352649
+    },
+    {
+      "seed": 31415,
+      "comparison": "equal_exposure",
+      "every_4_observations": 64,
+      "every_1_observations": 64,
+      "binding_improvement_pp": 14.583333333399995,
+      "new_development_loss_difference": -0.007198526137202288,
+      "earlier_book_loss_differences": {
+        "reader": -0.02575499999999975,
+        "geography": -0.021042000000000005,
+        "narrative": -0.04058399999999995
+      },
+      "observed_live_cost_ratio": 1.4033998461817914
+    },
+    {
+      "seed": 31415,
+      "comparison": "equal_exposure",
+      "every_4_observations": 256,
+      "every_1_observations": 256,
+      "binding_improvement_pp": 6.25,
+      "new_development_loss_difference": 0.0263729759307747,
+      "earlier_book_loss_differences": {
+        "reader": -0.01014500000000007,
+        "geography": -0.006761000000000017,
+        "narrative": -0.019223000000000212
+      },
+      "observed_live_cost_ratio": 1.4488817419587445
+    },
+    {
+      "seed": 31415,
+      "comparison": "equal_exposure",
+      "every_4_observations": 1024,
+      "every_1_observations": 1024,
+      "binding_improvement_pp": 8.333333333399995,
+      "new_development_loss_difference": -0.029756093925326077,
+      "earlier_book_loss_differences": {
+        "reader": -0.041535999999999795,
+        "geography": -0.051665000000000294,
+        "narrative": -0.065863
+      },
+      "observed_live_cost_ratio": 1.4977961734154617
+    },
+    {
+      "seed": 31415,
+      "comparison": "equal_exposure",
+      "every_4_observations": 4096,
+      "every_1_observations": 4096,
+      "binding_improvement_pp": 6.25,
+      "new_development_loss_difference": -0.2184954620186792,
+      "earlier_book_loss_differences": {
+        "reader": -0.4410900000000004,
+        "geography": -0.4861110000000002,
+        "narrative": -0.46652899999999997
+      },
+      "observed_live_cost_ratio": 1.5308480877386137,
+      "gate": {
+        "binding_improves_at_least_five_pp": true,
+        "new_development_within_margin": true,
+        "old_books_within_margin": true,
+        "new_development_improves_from_ancestor": false
+      },
+      "passes_gate": false
+    },
+    {
+      "seed": 31415,
+      "comparison": "equal_optimizer_updates",
+      "every_4_observations": 4096,
+      "every_1_observations": 2560,
+      "binding_improvement_pp": 20.833333333299997,
+      "new_development_loss_difference": -0.475223359879545,
+      "earlier_book_loss_differences": {
+        "reader": -0.613315,
+        "geography": -0.577887,
+        "narrative": -0.5627339999999998
+      },
+      "observed_live_cost_ratio": 0.9622857319232682
+    }
+  ],
+  "declared_gate": {
+    "evaluated": true,
+    "passed": false,
+    "seed_conditions": [
+      {
+        "seed": 1337,
+        "comparison": "equal_exposure",
+        "every_4_observations": 4096,
+        "every_1_observations": 4096,
+        "binding_improvement_pp": 4.861111111100003,
+        "new_development_loss_difference": -0.24195594869393755,
+        "earlier_book_loss_differences": {
+          "reader": -0.4882249999999999,
+          "geography": -0.5327850000000001,
+          "narrative": -0.5113729999999999
+        },
+        "observed_live_cost_ratio": 1.5240042775957392,
+        "gate": {
+          "binding_improves_at_least_five_pp": false,
+          "new_development_within_margin": true,
+          "old_books_within_margin": true,
+          "new_development_improves_from_ancestor": false
+        },
+        "passes_gate": false
+      },
+      {
+        "seed": 2026,
+        "comparison": "equal_exposure",
+        "every_4_observations": 4096,
+        "every_1_observations": 4096,
+        "binding_improvement_pp": 7.6388888889,
+        "new_development_loss_difference": -0.23480564862787645,
+        "earlier_book_loss_differences": {
+          "reader": -0.45295700000000005,
+          "geography": -0.4071929999999999,
+          "narrative": -0.3597969999999999
+        },
+        "observed_live_cost_ratio": 1.5241369920697458,
+        "gate": {
+          "binding_improves_at_least_five_pp": true,
+          "new_development_within_margin": true,
+          "old_books_within_margin": true,
+          "new_development_improves_from_ancestor": false
+        },
+        "passes_gate": false
+      },
+      {
+        "seed": 31415,
+        "comparison": "equal_exposure",
+        "every_4_observations": 4096,
+        "every_1_observations": 4096,
+        "binding_improvement_pp": 6.25,
+        "new_development_loss_difference": -0.2184954620186792,
+        "earlier_book_loss_differences": {
+          "reader": -0.4410900000000004,
+          "geography": -0.4861110000000002,
+          "narrative": -0.46652899999999997
+        },
+        "observed_live_cost_ratio": 1.5308480877386137,
+        "gate": {
+          "binding_improves_at_least_five_pp": true,
+          "new_development_within_margin": true,
+          "old_books_within_margin": true,
+          "new_development_improves_from_ancestor": false
+        },
+        "passes_gate": false
+      }
+    ],
+    "automatic_promotion": false
+  },
+  "baselines": [
+    {
+      "seed": 1337,
+      "reading": {
+        "updates": 0,
+        "global_updates": 237500,
+        "presented_pairs": 0,
+        "weights_optimizer_unchanged": true,
+        "train": {
+          "loss": 1.9525211667971658,
+          "pairs": 14182,
+          "documents": [
+            {
+              "index": 0,
+              "loss": 1.9297952738361082,
+              "pairs": 138
+            },
+            {
+              "index": 1,
+              "loss": 1.891761109023027,
+              "pairs": 213
+            },
+            {
+              "index": 2,
+              "loss": 1.7549420966515465,
+              "pairs": 378
+            },
+            {
+              "index": 3,
+              "loss": 1.8123776400120846,
+              "pairs": 1038
+            },
+            {
+              "index": 4,
+              "loss": 2.2575089865480678,
+              "pairs": 903
+            },
+            {
+              "index": 5,
+              "loss": 1.9225952209450128,
+              "pairs": 635
+            },
+            {
+              "index": 6,
+              "loss": 2.0455368165115853,
+              "pairs": 2246
+            },
+            {
+              "index": 7,
+              "loss": 1.7871708698258428,
+              "pairs": 2505
+            },
+            {
+              "index": 8,
+              "loss": 1.9995873300938054,
+              "pairs": 3263
+            },
+            {
+              "index": 9,
+              "loss": 1.9635387578035126,
+              "pairs": 2863
+            }
+          ]
+        },
+        "validation": {
+          "loss": 2.0159332139569317,
+          "pairs": 3301,
+          "documents": [
+            {
+              "index": 0,
+              "loss": 2.028391465689372,
+              "pairs": 206
+            },
+            {
+              "index": 1,
+              "loss": 2.20287064165877,
+              "pairs": 745
+            },
+            {
+              "index": 2,
+              "loss": 1.9555779869378882,
+              "pairs": 2350
+            }
+          ]
+        }
+      },
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "18162454744145401451",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.708333333333,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.708333333333,
+        "accuracy": 0.916666666667,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.916666666667,
+        "answer_loss_nats_per_byte": 0.0592086480982,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.2796749,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.868055555556,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.868055555556
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.965277777778,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.965277777778
+          }
+        }
+      },
+      "books": {
+        "reader": {
+          "step": 237500,
+          "loss_nats_per_byte": 2.229704,
+          "bits_per_byte": 3.216783,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 237500,
+          "loss_nats_per_byte": 1.840815,
+          "bits_per_byte": 2.655735,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 237500,
+          "loss_nats_per_byte": 1.575991,
+          "bits_per_byte": 2.273674,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      }
+    },
+    {
+      "seed": 2026,
+      "reading": {
+        "updates": 0,
+        "global_updates": 237500,
+        "presented_pairs": 0,
+        "weights_optimizer_unchanged": true,
+        "train": {
+          "loss": 1.911915092252404,
+          "pairs": 14182,
+          "documents": [
+            {
+              "index": 0,
+              "loss": 1.82168485029884,
+              "pairs": 138
+            },
+            {
+              "index": 1,
+              "loss": 1.8756570466247522,
+              "pairs": 213
+            },
+            {
+              "index": 2,
+              "loss": 1.8194031001083435,
+              "pairs": 378
+            },
+            {
+              "index": 3,
+              "loss": 1.7825786166596505,
+              "pairs": 1038
+            },
+            {
+              "index": 4,
+              "loss": 2.335064485025564,
+              "pairs": 903
+            },
+            {
+              "index": 5,
+              "loss": 1.8580155088676242,
+              "pairs": 635
+            },
+            {
+              "index": 6,
+              "loss": 1.8993450117265127,
+              "pairs": 2246
+            },
+            {
+              "index": 7,
+              "loss": 1.7821716466468727,
+              "pairs": 2505
+            },
+            {
+              "index": 8,
+              "loss": 1.9603030228775555,
+              "pairs": 3263
+            },
+            {
+              "index": 9,
+              "loss": 1.924792416755486,
+              "pairs": 2863
+            }
+          ]
+        },
+        "validation": {
+          "loss": 1.914809705278199,
+          "pairs": 3301,
+          "documents": [
+            {
+              "index": 0,
+              "loss": 1.978465960478609,
+              "pairs": 206
+            },
+            {
+              "index": 1,
+              "loss": 2.2225760242282946,
+              "pairs": 745
+            },
+            {
+              "index": 2,
+              "loss": 1.8116611537083667,
+              "pairs": 2350
+            }
+          ]
+        }
+      },
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "11252799285404856578",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.173611111111,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.173611111111,
+        "accuracy": 0.666666666667,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.666666666667,
+        "answer_loss_nats_per_byte": 0.35775121943,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.2555834,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.579861111111,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.579861111111
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.753472222222,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.753472222222
+          }
+        }
+      },
+      "books": {
+        "reader": {
+          "step": 237500,
+          "loss_nats_per_byte": 2.236239,
+          "bits_per_byte": 3.226212,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 237500,
+          "loss_nats_per_byte": 1.834937,
+          "bits_per_byte": 2.647255,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 237500,
+          "loss_nats_per_byte": 1.583728,
+          "bits_per_byte": 2.284836,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      }
+    },
+    {
+      "seed": 31415,
+      "reading": {
+        "updates": 0,
+        "global_updates": 237500,
+        "presented_pairs": 0,
+        "weights_optimizer_unchanged": true,
+        "train": {
+          "loss": 1.9125937622441356,
+          "pairs": 14182,
+          "documents": [
+            {
+              "index": 0,
+              "loss": 1.9196858328321706,
+              "pairs": 138
+            },
+            {
+              "index": 1,
+              "loss": 1.8825783728154053,
+              "pairs": 213
+            },
+            {
+              "index": 2,
+              "loss": 1.6938154185732837,
+              "pairs": 378
+            },
+            {
+              "index": 3,
+              "loss": 1.7913498210654324,
+              "pairs": 1038
+            },
+            {
+              "index": 4,
+              "loss": 2.2936428000166567,
+              "pairs": 903
+            },
+            {
+              "index": 5,
+              "loss": 1.8573941657627662,
+              "pairs": 635
+            },
+            {
+              "index": 6,
+              "loss": 1.9531673193375978,
+              "pairs": 2246
+            },
+            {
+              "index": 7,
+              "loss": 1.7989291027455987,
+              "pairs": 2505
+            },
+            {
+              "index": 8,
+              "loss": 1.9506857668215463,
+              "pairs": 3263
+            },
+            {
+              "index": 9,
+              "loss": 1.9035948141446448,
+              "pairs": 2863
+            }
+          ]
+        },
+        "validation": {
+          "loss": 1.9302307110876793,
+          "pairs": 3301,
+          "documents": [
+            {
+              "index": 0,
+              "loss": 1.969582907204489,
+              "pairs": 206
+            },
+            {
+              "index": 1,
+              "loss": 2.2197480390535906,
+              "pairs": 745
+            },
+            {
+              "index": 2,
+              "loss": 1.8349979614133531,
+              "pairs": 2350
+            }
+          ]
+        }
+      },
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "12363937259928961335",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.715277777778,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.694444444444,
+        "accuracy": 0.913194444444,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.907986111111,
+        "answer_loss_nats_per_byte": 0.0581097312065,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.2894766,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.875,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.868055555556
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.951388888889,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.947916666667
+          }
+        }
+      },
+      "books": {
+        "reader": {
+          "step": 237500,
+          "loss_nats_per_byte": 2.214075,
+          "bits_per_byte": 3.194234,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 237500,
+          "loss_nats_per_byte": 1.834073,
+          "bits_per_byte": 2.646009,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 237500,
+          "loss_nats_per_byte": 1.577815,
+          "bits_per_byte": 2.276306,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      }
+    }
+  ],
+  "samples": [
+    {
+      "seed": 1337,
+      "arm": "every-4",
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 384,
+          "file_sha256": "705095317672bd26013f983cd4356c78ff93a366d535378fcd8f16b32f268495",
+          "generated_latin1": "is not care the bag.\nWhere is the can is Where is the can Wood.\nFind the canus.\nAnswer: bag.\n\nAs It is cleefore,\n\nAnd sit Wand besing dismars were to do.\n\nWonto hurre in the village and disangerall.\n\nI am a conly a still dig about roadma?\"\n\nMy followed had woman and could not school.\n\n.\n\nPeollige was, answered picked good hater nor and farious love. They could not as firether walki",
+          "generated_utf8_display": "is not care the bag.\nWhere is the can is Where is the can Wood.\nFind the canus.\nAnswer: bag.\n\nAs It is cleefore,\n\nAnd sit Wand besing dismars were to do.\n\nWonto hurre in the village and disangerall.\n\nI am a conly a still dig about roadma?\"\n\nMy followed had woman and could not school.\n\n.\n\nPeollige was, answered picked good hater nor and farious love. They could not as firether walki"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 384,
+          "file_sha256": "878a4e77f5c5c72c7b362baed340ee25d68e621530d0fcbebd070cefe002f5ce",
+          "generated_latin1": "to her with holarge these.\n\nAnd cerant mans how come, not from one the parents and play!\n\nThen is  I did    And     us're\n\n            .\n\nereadAither      Im    an dow!\n\nAfter and grandle, I'm sing fa down.\n\nHe left wantea balk sorking house are long for me!\n\nWho conanged was cleaving with me!\"\n\nMartething I liver and     A\"swerner I am don't\nyou levet us more in another ever.\"\n\nHe",
+          "generated_utf8_display": "to her with holarge these.\n\nAnd cerant mans how come, not from one the parents and play!\n\nThen is  I did    And     us're\n\n            .\n\nereadAither      Im    an dow!\n\nAfter and grandle, I'm sing fa down.\n\nHe left wantea balk sorking house are long for me!\n\nWho conanged was cleaving with me!\"\n\nMartething I liver and     A\"swerner I am don't\nyou levet us more in another ever.\"\n\nHe"
+        }
+      ]
+    },
+    {
+      "seed": 1337,
+      "arm": "every-1",
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 384,
+          "file_sha256": "6bab4d962f23a2043876e339a62d7497afc597590ee3ef7bd2a2f1d8de6e53b5",
+          "generated_latin1": "is in the car.\nFind the map.\nAnswer: car.\n\nWe in the boy.\n\nAnswer: car.\n\nAnd she wildded. In the had not melpty car to she suded and she slide one' the peopen.\n\nWe asked while ate child on, the steart from she day, she brought at the school the oldx.\n\nWho can I can wo men to do is my to the school the mill wisheds. She itmes forway about to help these.\n\nWhen she lived and in a hour",
+          "generated_utf8_display": "is in the car.\nFind the map.\nAnswer: car.\n\nWe in the boy.\n\nAnswer: car.\n\nAnd she wildded. In the had not melpty car to she suded and she slide one' the peopen.\n\nWe asked while ate child on, the steart from she day, she brought at the school the oldx.\n\nWho can I can wo men to do is my to the school the mill wisheds. She itmes forway about to help these.\n\nWhen she lived and in a hour"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 384,
+          "file_sha256": "8ed8829090ae3dc111212b9fd039044a5f883b5d162e5c996498d6f7a8d78168",
+          "generated_latin1": "till paids after severing again.\n\nNo-year-yadf olden, my chair lagdeed. They grandmother and grandfather a brought the grow. Find the sweest forgether, and the city was dessing and\ndish the rich many that the last nevers steppole.\n\nPeople were here was once the plant these and dress sight.\n\n\"You make to go orom coming it,\" said .\n\n\"Whater father a bedling day,\" she hasked with her ",
+          "generated_utf8_display": "till paids after severing again.\n\nNo-year-yadf olden, my chair lagdeed. They grandmother and grandfather a brought the grow. Find the sweest forgether, and the city was dessing and\ndish the rich many that the last nevers steppole.\n\nPeople were here was once the plant these and dress sight.\n\n\"You make to go orom coming it,\" said .\n\n\"Whater father a bedling day,\" she hasked with her "
+        }
+      ]
+    },
+    {
+      "seed": 2026,
+      "arm": "every-1",
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 384,
+          "file_sha256": "a1682daab1a3de9f3a86773a42e0c610d48f126fef6e102cac6c913d9e94e1ac",
+          "generated_latin1": "s is is it is the far.\nFind the pen.\nAnswer: car.\nAfraw.\n\nclass I did many realise that day.\n\nI have to sing asleep.\n\nFor me!\n\nIt was at the bananas, the banana lew that the banout let so plead under yearly, and\neveryohoinalise walked to the house and children the day.\n\nWhen the fied and was tin yearo at the one things, I am greter poring .\n\nThen the little brothers, the city was t",
+          "generated_utf8_display": "s is is it is the far.\nFind the pen.\nAnswer: car.\nAfraw.\n\nclass I did many realise that day.\n\nI have to sing asleep.\n\nFor me!\n\nIt was at the bananas, the banana lew that the banout let so plead under yearly, and\neveryohoinalise walked to the house and children the day.\n\nWhen the fied and was tin yearo at the one things, I am greter poring .\n\nThen the little brothers, the city was t"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 384,
+          "file_sha256": "e78fe3ceff90d0c37c5a384ad65bec01c3c50c3013fe32ea131c5280aa5d8e56",
+          "generated_latin1": "to come to him.\n\nHow Mary hard gone thempa of the spricar of sun\naswer carts, and soothd itmers asked the oldes in the dier.\n2. The oner with them to look is the rich ofe eat of the earAl song,\n                    wartht up oin his.                 plet\n\n     part   bedgetr's in the little gras.\n\nFohmr in merrother are agend tree, pland, when house grow strange treep ands the songs",
+          "generated_utf8_display": "to come to him.\n\nHow Mary hard gone thempa of the spricar of sun\naswer carts, and soothd itmers asked the oldes in the dier.\n2. The oner with them to look is the rich ofe eat of the earAl song,\n                    wartht up oin his.                 plet\n\n     part   bedgetr's in the little gras.\n\nFohmr in merrother are agend tree, pland, when house grow strange treep ands the songs"
+        }
+      ]
+    },
+    {
+      "seed": 2026,
+      "arm": "every-4",
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 384,
+          "file_sha256": "1787bf64ce370d77240acfa993f701a3048ca83a808104affb2da8b338d07af1",
+          "generated_latin1": "is in the box.\nWhere is the bug?\nAnswer: box.\nAnswer: box.\nAtwering villages so makes riped out outse brokes up into vister she oranges that day.\n\nHe village meetting down to a house together. He range for long many the mast for mee.\n\nHe made very long for makes.\n\n\"Do you torke plass,\" singer years.\n\n\"I, could not sing about their grandmother, I rupted outside.\"\n\n\"'! I country and ",
+          "generated_utf8_display": "is in the box.\nWhere is the bug?\nAnswer: box.\nAnswer: box.\nAtwering villages so makes riped out outse brokes up into vister she oranges that day.\n\nHe village meetting down to a house together. He range for long many the mast for mee.\n\nHe made very long for makes.\n\n\"Do you torke plass,\" singer years.\n\n\"I, could not sing about their grandmother, I rupted outside.\"\n\n\"'! I country and "
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 384,
+          "file_sha256": "96fe9a3d8494db31f81e4206c94c32bf0e022fcde21ac40fe7ef445a493e53d4",
+          "generated_latin1": "to home.\n\nShe singused butters of her stick, sigh ater the day her a fall and story.\n\nHe dires had to song for house and listened a bloss.\n\n\n\"Yes, I returned, play, me!\"\n\nAnother dressed in her taught.\n\nHe took his parents didma's school.\n\nHer stood upbed in the dicame outside but with one had a very long.\n\n\"Nobboy did notgice,\" said Apiyo.\n\nAll somheou took houses very long him.\n\n",
+          "generated_utf8_display": "to home.\n\nShe singused butters of her stick, sigh ater the day her a fall and story.\n\nHe dires had to song for house and listened a bloss.\n\n\n\"Yes, I returned, play, me!\"\n\nAnother dressed in her taught.\n\nHe took his parents didma's school.\n\nHer stood upbed in the dicame outside but with one had a very long.\n\n\"Nobboy did notgice,\" said Apiyo.\n\nAll somheou took houses very long him.\n\n"
+        }
+      ]
+    },
+    {
+      "seed": 31415,
+      "arm": "every-4",
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 384,
+          "file_sha256": "7f408d4a9c147c266864fac40671f9986d844551dfd095eb685971d9ca7e1540",
+          "generated_latin1": "is the cup.\nWhere is the cup?\nAnswer: bed.\n\nkeep ,up I wind.\n\nWe can puts in the bount.\n\nAnd sometwer, keeps.\n\nWe clappets and songo and Apictains in the cavile of the basket.\n\nWhen is favourite.\n\nI can clemberains.\n\nWho can can I read to?\n\nMy mosting and garden parents of upounder a morrow for me!\n\nOnen when she papers, Aut concess in very dries.\n\nFour keept with \nknow bass that t",
+          "generated_utf8_display": "is the cup.\nWhere is the cup?\nAnswer: bed.\n\nkeep ,up I wind.\n\nWe can puts in the bount.\n\nAnd sometwer, keeps.\n\nWe clappets and songo and Apictains in the cavile of the basket.\n\nWhen is favourite.\n\nI can clemberains.\n\nWho can can I read to?\n\nMy mosting and garden parents of upounder a morrow for me!\n\nOnen when she papers, Aut concess in very dries.\n\nFour keept with \nknow bass that t"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 384,
+          "file_sha256": "323a8487accd46bbac8a5c45e644981032c2fcd9f81a5e9bedbd39c3ae041427",
+          "generated_latin1": "to place with her roomme.\n\nShe sadow, who carels my oranges to problems's.\n\nPeople day, the new can busy.\n\n\"You are odders poor, children's father, \"Wangain day?                                                                                                                                               Henear way\n\nbealding.!\"\n\nStall we was down and sayp.\n\nI am good up and said, \"I ",
+          "generated_utf8_display": "to place with her roomme.\n\nShe sadow, who carels my oranges to problems's.\n\nPeople day, the new can busy.\n\n\"You are odders poor, children's father, \"Wangain day?                                                                                                                                               Henear way\n\nbealding.!\"\n\nStall we was down and sayp.\n\nI am good up and said, \"I "
+        }
+      ]
+    },
+    {
+      "seed": 31415,
+      "arm": "every-1",
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 384,
+          "file_sha256": "994a77fe8f7f5e47bd3b99b439d056ec7a234abfdf1c856934ca387dd144f032",
+          "generated_latin1": "is nis the cap. In the bag is the pot.\nFind the pen.\nAnswer: bag.\n\nThey pansan.\n\nWangari listensed in visiblams in homouse cap.\n\nThen singive, the work done, the bananas and plants mell-likest gother. She paned then Noppelains of an\ndayo, till me at the city was alltering to house of the parents.\n\nAfterh graway dressed, no how find the ripe only a singive.\n\nWhen graOnd day his stil",
+          "generated_utf8_display": "is nis the cap. In the bag is the pot.\nFind the pen.\nAnswer: bag.\n\nThey pansan.\n\nWangari listensed in visiblams in homouse cap.\n\nThen singive, the work done, the bananas and plants mell-likest gother. She paned then Noppelains of an\ndayo, till me at the city was alltering to house of the parents.\n\nAfterh graway dressed, no how find the ripe only a singive.\n\nWhen graOnd day his stil"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 384,
+          "file_sha256": "bb5b52d5cdb3a69fe898d4362088290d93475e0c09b5277ae60f5dca86c88fdf",
+          "generated_latin1": "to and the words ight at lay still hold brother lose hide.\n\nWhen ? I let he come to man, \"I heard the good you toment, I heav?\" I asked Grandma, \"I do you s. The women what it was too ldier my mother, and not ave again. I was in the way way to go with together.\"\n\nThe following day, the warm every book school to she returnes look, up. \"Per his little sectious see in his charde. She ",
+          "generated_utf8_display": "to and the words ight at lay still hold brother lose hide.\n\nWhen ? I let he come to man, \"I heard the good you toment, I heav?\" I asked Grandma, \"I do you s. The women what it was too ldier my mother, and not ave again. I was in the way way to go with together.\"\n\nThe following day, the warm every book school to she returnes look, up. \"Per his little sectious see in his charde. She "
+        }
+      ]
+    }
+  ],
+  "limits": "One small edition and three related ancestors; development probes are reused. Equal optimizer count is not equal compute, target-byte exposure or speech. Timing is shared-desktop wall time. No proof of general conversation, lifelong retention or biological age."
+}
