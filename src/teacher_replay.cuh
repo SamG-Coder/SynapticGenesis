@@ -11,7 +11,7 @@ class Replay {
     static uint64_t required_bytes(const Bundle &bundle, int chunk) {
         uint64_t bytes = uint64_t(chunk) * 257 * sizeof(float);
         for (size_t i = 0; i < bundle.identity.count(); ++i)
-            bytes += model_working_bytes(bundle.identity.config(i), 1, chunk);
+            bytes += model_working_bytes(bundle.identity.config(i), 1, chunk, ModelBuffers::frozen_forward);
         return bytes;
     }
     static void check_budget(const Bundle &bundle, int chunk, uint64_t budget, uint64_t &free_bytes) {
@@ -32,7 +32,7 @@ class Replay {
         : chunk_(chunk), targets_(chunk, bundle.identity.temperature()),
           gpu_bytes(required_bytes(bundle, chunk)), budget_bytes(budget), free_before_bytes(available) {
         for (size_t i = 0; i < bundle.identity.count(); ++i) {
-            auto model = std::make_unique<Model>(bundle.identity.config(i), 1, chunk);
+            auto model = std::make_unique<Model>(bundle.identity.config(i), 1, chunk, ModelBuffers::frozen_forward);
             model->w.put(bundle.weights[i]);
             model->reset();
             // Frozen teacher targets use strict FP32, independent of learner TF32.

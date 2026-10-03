@@ -101,6 +101,7 @@ uint64_t live_hash(const State &s, const std::vector<float> &membranes, uint64_t
     return hash_bytes(s.synaptic.data(), s.synaptic.size() * 4, hash);
 }
 void save(const fs::path &path, Model &m, State &s) {
+    m.require_learning("Full checkpoint save");
     auto w = m.w.host(), mo = m.m.host(), vo = m.v.host();
     auto membranes = s.meta[17] ? m.membranes() : std::vector<float>{};
     s.meta[1] = m.q.cell;
@@ -252,6 +253,7 @@ StoredCheckpoint read_checkpoint(const fs::path &path) {
     return {std::move(s), std::move(w), std::move(mo), std::move(vo), std::move(membranes)};
 }
 void load(const fs::path &path, Model &m, State &s, bool restore_runtime = false) {
+    m.require_learning("Full checkpoint load");
     auto stored = read_checkpoint(path);
     s = std::move(stored.state);
     if (s.meta[1] != uint64_t(m.q.cell) || s.meta[2] != uint64_t(m.q.c) || s.meta[3] != uint64_t(m.q.h) ||

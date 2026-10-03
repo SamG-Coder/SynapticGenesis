@@ -1,9 +1,11 @@
 // Mechanism checks, not language-quality evidence.
 #pragma once
+#include "frozen_model_tests.cuh"
 void teacher_replay_test(const Args &args) {
     args.allow({"out"});
     fs::path out = args.get("out", "reports/teacher-replay-tests");
     fs::create_directories(out);
+    frozen_model_test(out);
     auto rejects = [](auto action) {
         bool failed = false;
         try { action(); } catch (const std::exception &) { failed = true; }

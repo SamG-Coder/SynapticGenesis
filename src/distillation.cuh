@@ -115,6 +115,7 @@ class Targets {
         ready_ = true;
     }
     Result apply(Model &student, float strength, const std::vector<float> &target_weights = {}) {
+        student.require_learning("Teacher objective");
         if (student.N != rows_ || !std::isfinite(strength) || strength < 0 || strength > 100 ||
             (strength > 0 && !ready_))
             throw std::runtime_error("Invalid teacher objective settings or unprepared targets");

@@ -1,0 +1,48 @@
+{
+  "protocol": {
+    "selection": "Largest absolute score error within the four fixed development questions, separately for each model that failed the existing score tolerance. Post-hoc diagnosis.",
+    "source_sha256": {
+      "tests/score_diagnosis.py": "2c8d0d6b22c62ab4f3ec8ba48bd4555da36d98042fb89322a0896c0245aeb482",
+      "tests/trace_comparison.py": "1cdc7729a6d7fc0726d782846516e32344c18e4f590033fb9ff9ce9a5a5b6f4d",
+      "tests/learned_trace_dump.cu": "ecd6ef738c9d314fb0d5ada992b8a7652d7c24f97f524088a440d2fa63b7695e",
+      "tests/probes_cli.py": "1bb5c7ece07850a61c292312c6b15735649a98041f2805899924a565095b1609",
+      "tests/associative_reference.py": "695da51d9560d01821b5da3cab63d3c27005543b51acf709231f89b40f3a61f2"
+    },
+    "study_executable_sha256": "5227a3ab67171433f744042def9efdf78bd2959da2021cbea18d01e24a18862a",
+    "diagnostic_executable_sha256": "9f639d904e15e70a40fe44b837e8c3c68e5bf9b29ba9b9239c6d31011d55a97d",
+    "study_comparison_sha256": "e9f4f33e267d2cf14e7eb4ebe1d9a39567807db7062515e665e85d3250c1c9d6",
+    "failed_oracle_sha256": "3109dafb12627281494f34ac8dfc4e1bdeca491792055bd673964f2adf3b5765",
+    "limits": "Only selected failing scores are traced. No full development CPU audit. A single-spike override is a diagnostic, not an independent oracle pass."
+  },
+  "records": [
+    {
+      "seed": 1337,
+      "arm": "wide-selective-control",
+      "id": "key-hat-box-bag-o0-s0-q0-r1-t0",
+      "field": "candidate_nll",
+      "choice": 1,
+      "original_score_error": 0.006204959881059402,
+      "checkpoint_sha256": "22de8b4d51942455fe3041ddd9522e41a245ba5781cdde2a9c3b50e4ca7a5038",
+      "first_spike_divergence": {
+        "layer_zero_based": 2,
+        "byte_zero_based": 42,
+        "neuron_zero_based": 354,
+        "cpu_membrane": 0.9999998807907104,
+        "native_membrane": 1.0000005960464478,
+        "cpu_spike": 0.0,
+        "native_spike": 1.0
+      },
+      "native_nll": 3.864036798477173,
+      "cpu_nll": 3.8578318385989405,
+      "first_difference_within_1e_minus_5_of_threshold": true,
+      "single_spike_override_nll": 3.864036920160288,
+      "single_spike_override_nll_error": 1.2168311513960361e-07,
+      "single_spike_override_max_logit_error": 9.5367431640625e-06,
+      "single_spike_override_matches_all_native_spikes": true
+    }
+  ],
+  "native_commands": 2,
+  "native_repeat_results_identical": true,
+  "checkpoint_files_unchanged": true,
+  "original_strict_cpu_score_check_passed": false
+}

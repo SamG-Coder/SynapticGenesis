@@ -186,14 +186,16 @@ __global__ void backward(const float *features, const float *inverse, const floa
 
 struct Cache {
     Buf raw, features, inverse, reads, previous, state, initial, dread, draw, demission;
-    Cache(int B, int T, int H)
+    Cache(int B, int T, int H, bool learning = true)
         : raw(size_t(B) * T * packed), features(raw.n), inverse(size_t(B) * T * 2),
           reads(size_t(B) * T * width), previous(size_t(B) * T * matrix), state(size_t(B) * matrix),
-          initial(state.n), dread(reads.n), draw(raw.n), demission(size_t(B) * T * H) {
+          initial(state.n), dread(learning ? reads.n : 0), draw(learning ? raw.n : 0),
+          demission(learning ? size_t(B) * T * H : 0) {
         state.zero();
     }
-    static uint64_t floats(int B, int T, int H) {
-        return uint64_t(B) * T * (3 * packed + 2 + 2 * width + matrix + H) + 2ull * B * matrix;
+    static uint64_t floats(int B, int T, int H, bool learning = true) {
+        return uint64_t(B) * T * (2 * packed + 2 + width + matrix +
+                                  (learning ? packed + width + H : 0)) + 2ull * B * matrix;
     }
 };
 } // namespace association
