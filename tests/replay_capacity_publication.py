@@ -5,7 +5,8 @@ from pathlib import Path
 import sys
 from unittest.mock import patch
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
 import checkpoint_assessment as assessment
 from checkpoint_assessment import verify_saved
 from native_experiment import read
@@ -65,7 +66,7 @@ def check(out):
     write(out, dict(passed=True, actual_saved_assessment_commands_verified=10, paired_comparisons_recomputed=8,
         rejected_evidence_cases=rejected, raw_outputs_unchanged=True, new_native_commands=0,
         implementation_sha256={p.as_posix(): file_hash(p) for p in (Path(__file__),
-            Path('scripts/checkpoint_assessment.py'), Path('scripts/publish_replay_capacity.py'))},
+            ROOT / 'scripts/checkpoint_assessment.py', ROOT / 'scripts/publish_replay_capacity.py')},
         limits='CPU evidence-rejection checks. The companion publication audits all completed candidate and baseline assessments.'))
     print('Passed actual assessment and eight comparisons; rejected', len(rejected), 'altered evidence cases.')
 

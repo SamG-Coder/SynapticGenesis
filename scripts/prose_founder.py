@@ -10,7 +10,8 @@ from corpus.selection import require_training_spec
 from native_experiment import NativeCommands, read, sha, verified_book_manifest
 
 
-SHAPES = {'2m': (256, 512, 4), '27m': (512, 2048, 8), '105m': (1024, 4096, 8)}
+SHAPES = {'2m': (256, 512, 4), '27m': (512, 2048, 8), '105m': (1024, 4096, 8),
+          '411m': (2048, 8192, 8)}
 
 
 def file_hash(path):
@@ -25,18 +26,22 @@ def write(path, value):
     path.write_bytes((json.dumps(value, indent=2) + '\n').encode())
 
 
-def live_arguments(out, schedule, updates, profile, replay_capacity=1024):
+def live_arguments(out, schedule, updates, profile, replay_capacity=1024, *, save_every=2048):
     if not 4 <= replay_capacity <= 65536:
         raise ValueError('Prose replay capacity must cover four stages and not exceed 65536')
+    if not 1 <= save_every <= 1000000000:
+        raise ValueError('Invalid checkpoint save interval')
     channels, hidden, layers = SHAPES[profile]
     return ('live', '--out', out, '--curriculum', schedule, '--cell', 'associative', '--channels', channels,
             '--hidden', hidden, '--layers', layers, '--seed', 1337, '--chunk', 128, '--lr', .0003,
             '--updates', updates, '--replay', 'stage', '--replay-every', 4, '--replay-capacity', replay_capacity,
             '--graph', '--fast', '--speak-every', 500, '--tokens', 96, '--prompt', 'The bird ',
-            '--log-every', 512, '--save-every', 2048)
+            '--log-every', 512, '--save-every', save_every)
 
 
-def run(out, updates, profile, replay_capacity=1024):
+def run(out, updates, profile, replay_capacity=1024, *, executable=Path('build/synapticgenesis.exe'),
+        save_every=2048):
+    executable = Path(executable)
     spec = Path('data/sources-prose-scale-v1.json')
     prepared = Path('data/prepared/prose-scale-v1-pinned')
     schedule = Path('runs/prose-scale-curriculum/curriculum.sg')
@@ -46,16 +51,17 @@ def run(out, updates, profile, replay_capacity=1024):
     assert sha(schedule) == plan['schedule_sha256']
     assert sha(prepared / 'manifest.json') == plan['prepared_manifest_sha256']
     assert 0 < updates <= plan['online_updates']
-    arguments = live_arguments(out, schedule, updates, profile, replay_capacity)
+    arguments = live_arguments(out, schedule, updates, profile, replay_capacity, save_every=save_every)
     channels, hidden, layers = SHAPES[profile]
     inputs = {str(p): sha(p) for p in (spec, prepared / 'manifest.json', schedule,
-              Path('build/synapticgenesis.exe'), *(Path(r['cumulative_source']) for r in plan['stages']))}
+              executable, *(Path(r['cumulative_source']) for r in plan['stages']))}
     out.mkdir(parents=True, exist_ok=False)
     protocol = dict(status='declared_before_learning', source_commit=subprocess.check_output(
         ['git', '-C', str(Path(__file__).resolve().parents[1]), 'rev-parse', 'HEAD'], text=True).strip(), profile=profile, channels=channels,
         neurons_per_layer=hidden, layers=layers, cell='associative', seed=1337,
         random_initialization=True, imported_weights=False, updates=updates, full_schedule_updates=plan['online_updates'],
         source_schedule=plan, authenticated_inputs=inputs, learning_rate=.0003,
+        native_executable=executable.as_posix(), checkpoint_save_every=save_every,
         replay=f'ordinary stage-balanced, every four source observations, {replay_capacity} stored descriptors',
         replay_capacity=replay_capacity,
         graph_speech_every=500, generated_bytes_per_speech=96, generated_text_targets=False,
@@ -64,7 +70,7 @@ def run(out, updates, profile, replay_capacity=1024):
     write(out / 'protocol.json', protocol)
     commands = out / 'commands'
     commands.mkdir()
-    native = NativeCommands('build/synapticgenesis.exe', commands)
+    native = NativeCommands(executable, commands)
     native(*arguments)
     assert all(sha(p) == digest for p, digest in inputs.items())
     completed_stage = next((r['stage'] for r in plan['stages'] if r['end_update'] == updates), None)
@@ -87,7 +93,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--updates', type=int, default=8176)
-    parser.add_argument('--profile', choices=('2m', '27m', '105m'), default='105m')
+    parser.add_argument('--profile', choices=tuple(SHAPES), default='105m')
     parser.add_argument('--replay-capacity', type=int, default=1024)
+    parser.add_argument('--executable', type=Path, default=Path('build/synapticgenesis.exe'))
+    parser.add_argument('--save-every', type=int, default=2048)
     args = parser.parse_args()
-    run(args.out, args.updates, args.profile, args.replay_capacity)
+    run(args.out, args.updates, args.profile, args.replay_capacity,
+        executable=args.executable, save_every=args.save_every)

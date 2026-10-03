@@ -1,0 +1,167 @@
+{
+  "status": "411m_orchestration_integrated_long_run_active",
+  "recorded_at_utc": "2026-10-03T17:54:24.216541+00:00",
+  "source_branch_commit": "f3dcdc3d63f7d2a46bcdd816bc013de5099248d9",
+  "integrated_code_identical_to_preflight_source": true,
+  "source_sha256": {
+    "scripts/prose_founder.py": "06cd69e294a27f405d9e24a3e174c68c5669194f14bd4d24df0bcc0f4464aa00",
+    "scripts/checkpoint_assessment.py": "9bbb58e2f42e9283fa784e063f1af5c9246fa1ec7a9bb819f73df2204c0adf96",
+    "scripts/large_founder_inputs.py": "221f45236325974c9bf82d61c2f407a19ae919b19c9f52308213784158648a1a",
+    "scripts/prose_large_founder.py": "14580740d28e316792f8972bfeccaf7294b547ee8f61526a57e0f36df9ace22c",
+    "tests/large_prose_founder.py": "56bc875134ce0cb9b6613d1e2ef13c8c474b08870854ff83302f794ca98d43d4",
+    "tests/replay_capacity_publication.py": "14028d54b28a8eda7b1d44b11f9ad9be2ac5ffcc49d785a581c3542885b8be16",
+    "data/prose-411m-v1.json": "2686e33b53e1b9f04e57a0df5e033e3ac898e794246bd9d3f4d56bf86bfeff21"
+  },
+  "cpu_compatibility": {
+    "passed": true,
+    "cuda_work_executed": false,
+    "preserved_helper": "runs\\early-width-speech-worktree\\scripts\\prose_founder.py",
+    "preserved_helper_sha256": "eefac3a9e002e8017874bf68ed55bb63dd9fad1e1272b96f10a77fc364ec7fdd",
+    "legacy_argument_controls": [
+      {
+        "profile": "2m",
+        "replay_capacity": 1024,
+        "native_arguments_unchanged": true
+      },
+      {
+        "profile": "2m",
+        "replay_capacity": 16384,
+        "native_arguments_unchanged": true
+      },
+      {
+        "profile": "27m",
+        "replay_capacity": 1024,
+        "native_arguments_unchanged": true
+      },
+      {
+        "profile": "27m",
+        "replay_capacity": 16384,
+        "native_arguments_unchanged": true
+      },
+      {
+        "profile": "105m",
+        "replay_capacity": 1024,
+        "native_arguments_unchanged": true
+      },
+      {
+        "profile": "105m",
+        "replay_capacity": 16384,
+        "native_arguments_unchanged": true
+      }
+    ],
+    "actual_baseline_endpoints": [
+      {
+        "stage": 1,
+        "replay_payload_sha256": "abfaec349ca7826d97770e442629b11295aae544764a169bf0d998566661e667",
+        "different_shapes_same_source_replay_speech": true
+      },
+      {
+        "stage": 2,
+        "replay_payload_sha256": "ac47ca8107df65e4a0932e816daf28d3da5f58b091e987f02bdab5cbf4f08493",
+        "different_shapes_same_source_replay_speech": true
+      },
+      {
+        "stage": 3,
+        "replay_payload_sha256": "b1d0c9cf87c0878c06c6e76e27ccceb1372e20491bc5f7584f7873517dd7a5de",
+        "different_shapes_same_source_replay_speech": true
+      },
+      {
+        "stage": 4,
+        "replay_payload_sha256": "ae6359a3b685e9b5d1ed7b95d8a9df74c0ea5d7a6ea3c65ffa15ec58d32aa35d",
+        "different_shapes_same_source_replay_speech": true
+      }
+    ],
+    "source_tail_pair_counts": {
+      "113": 14464,
+      "114": 14481,
+      "128": 16273,
+      "129": 16401
+    },
+    "malformed_policy_cases_rejected": 32,
+    "admitted_input_count": 131,
+    "source_sha256": {
+      "D:/SynapticGenesis/data/prose-411m-v1.json": "2686e33b53e1b9f04e57a0df5e033e3ac898e794246bd9d3f4d56bf86bfeff21",
+      "D:/SynapticGenesis/scripts/prose_founder.py": "06cd69e294a27f405d9e24a3e174c68c5669194f14bd4d24df0bcc0f4464aa00",
+      "D:/SynapticGenesis/scripts/large_founder_inputs.py": "221f45236325974c9bf82d61c2f407a19ae919b19c9f52308213784158648a1a",
+      "D:/SynapticGenesis/scripts/prose_large_founder.py": "14580740d28e316792f8972bfeccaf7294b547ee8f61526a57e0f36df9ace22c",
+      "D:/SynapticGenesis/tests/large_prose_founder.py": "56bc875134ce0cb9b6613d1e2ef13c8c474b08870854ff83302f794ca98d43d4"
+    }
+  },
+  "assessment_compatibility": {
+    "passed": true,
+    "actual_saved_assessment_commands_verified": 10,
+    "paired_comparisons_recomputed": 8,
+    "rejected_evidence_cases": [
+      "book_loss",
+      "book_role",
+      "missing_sample",
+      "extra_sample",
+      "sample_hex",
+      "displayed_sample",
+      "sample_length",
+      "validation_mean",
+      "checkpoint_path",
+      "checkpoint_update",
+      "native_command_argument",
+      "comparison_delta",
+      "replay_pair_delta",
+      "replay_update_budget"
+    ],
+    "raw_outputs_unchanged": true,
+    "new_native_commands": 0,
+    "implementation_sha256": {
+      "D:/SynapticGenesis/tests/replay_capacity_publication.py": "14028d54b28a8eda7b1d44b11f9ad9be2ac5ffcc49d785a581c3542885b8be16",
+      "D:/SynapticGenesis/scripts/checkpoint_assessment.py": "9bbb58e2f42e9283fa784e063f1af5c9246fa1ec7a9bb819f73df2204c0adf96",
+      "D:/SynapticGenesis/scripts/publish_replay_capacity.py": "d38b6a5c91f4a3d63bff1a562f7ba1608103a9084bc3334ec201d70c3fdcff70"
+    },
+    "limits": "CPU evidence-rejection checks. The companion publication audits all completed candidate and baseline assessments."
+  },
+  "native_preflight_report_sha256": "c72455b4f358ac84ee4faf2f85a78b4560fa36f1cb704a6fc578486d0923ad7c",
+  "launch_snapshot_sha256": "2701560dfea471cf5230798f889c6e383c08ccfabcd2d8c1ba8aeb4a27e86580",
+  "preserved_studies": [
+    {
+      "protocol": "runs/prose-retention-lr/protocol.json",
+      "sha256": "9c50dc898d73ac1b123d07f1aca7a83e92a5b6ccb1402c838fc3c8cfceaaa9b3",
+      "authenticated_references": 90
+    },
+    {
+      "protocol": "runs/prose-replay-capacity/protocol.json",
+      "sha256": "20096651488db77581529f4a08a681af646ca5fefd7245efe51c9f2a05c27e19",
+      "authenticated_references": 89
+    },
+    {
+      "protocol": "runs/prose-early-width/protocol.json",
+      "sha256": "76d3ab3fefe4d8afd1d0904c260f59a0e14d8d02cf2ca40f8444ad2f078911db",
+      "authenticated_references": 136
+    },
+    {
+      "protocol": "runs/prose-early-width-v2/protocol.json",
+      "sha256": "c870c8419f7b62768fb697aab40c4e49c388770f919a10acd96bba13ef943773",
+      "authenticated_references": 137
+    },
+    {
+      "protocol": "runs/prose-411m-v1/protocol.json",
+      "sha256": "daba74f6fecd44f8fd9334c07d07120bd5b9ac4466f46e9e2fa741f38c851244",
+      "authenticated_references": 137
+    }
+  ],
+  "total_authenticated_references": 589,
+  "distinct_authenticated_files": 299,
+  "all_pins_match": true,
+  "production_cuda_files_unchanged": 42,
+  "preserved_main_runtime": {
+    "path": "D:\\SynapticGenesis\\build\\synapticgenesis.exe",
+    "sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+    "archive_path": "D:\\SynapticGenesis\\build\\preserved-runtime-f73d30d8\\synapticgenesis.exe",
+    "archive_sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda"
+  },
+  "validated_runtime": {
+    "path": "D:\\SynapticGenesis\\build\\validated-shared-views\\synapticgenesis.exe",
+    "sha256": "4e65f54c44fb52603da839aa3cba41dff1f0788371cc3ffcc9cefd9e63613d62",
+    "byte_identical_to_tested_candidate": true
+  },
+  "new_gpu_commands_for_integration": 0,
+  "full_curriculum_complete": false,
+  "candidate_quality_assessed": false,
+  "limits": "Main integrates the same Python source validated in the frozen study checkout. Full-size save/load/evaluation passed before the long run; main integration performs only CPU compatibility and evidence checks. This report does not certify a completed 411M quality comparison."
+}
