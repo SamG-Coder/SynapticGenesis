@@ -1,0 +1,350 @@
+{
+  "passed": true,
+  "seed": 20261004,
+  "prototype_spec_sha256": "ae99312de906f9e0f1a07a95915aa667e03986e9f4cd2ba684de4d7ccc2c3754",
+  "selected_spec_sha256": "908304a0c7532f9b1f679b7e99a9e7a7c63f8f61ae1cd062b66a03f3d7b8fda7",
+  "selection_script_sha256": "4b708b985734faaef1a9f72c740f754daf46472e1b2601726ab551e29279f085",
+  "arithmetic_helper_sha256": "25ca88e9836b82db23543e1097f352e9d79b0a4e06dab298d90307e9634483d7",
+  "cases": [
+    {
+      "skill": "addition",
+      "candidate_draws": 20000,
+      "available_masks": 14,
+      "chosen_masks": [
+        [
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "ranking_heuristic_correct_groups": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "first_trial_answer_smaller_groups": 2
+    },
+    {
+      "skill": "subtraction",
+      "candidate_draws": 20000,
+      "available_masks": 6,
+      "chosen_masks": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "ranking_heuristic_correct_groups": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "first_trial_answer_smaller_groups": 2
+    },
+    {
+      "skill": "multiplication",
+      "candidate_draws": 20000,
+      "available_masks": 14,
+      "chosen_masks": [
+        [
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "ranking_heuristic_correct_groups": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "first_trial_answer_smaller_groups": 2
+    },
+    {
+      "skill": "division",
+      "candidate_draws": 20000,
+      "available_masks": 6,
+      "chosen_masks": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "ranking_heuristic_correct_groups": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "first_trial_answer_smaller_groups": 2
+    },
+    {
+      "skill": "speed",
+      "candidate_draws": 20000,
+      "available_masks": 6,
+      "chosen_masks": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "ranking_heuristic_correct_groups": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "first_trial_answer_smaller_groups": 2
+    },
+    {
+      "skill": "net_force",
+      "candidate_draws": 20000,
+      "available_masks": 14,
+      "chosen_masks": [
+        [
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "ranking_heuristic_correct_groups": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "first_trial_answer_smaller_groups": 2
+    },
+    {
+      "skill": "work",
+      "candidate_draws": 20000,
+      "available_masks": 14,
+      "chosen_masks": [
+        [
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "ranking_heuristic_correct_groups": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "first_trial_answer_smaller_groups": 2
+    },
+    {
+      "skill": "heat",
+      "candidate_draws": 20000,
+      "available_masks": 27,
+      "chosen_masks": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          0,
+          1
+        ]
+      ],
+      "ranking_heuristic_correct_groups": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "first_trial_answer_smaller_groups": 2
+    }
+  ],
+  "labels_derived_from_arithmetic_not_model_scores": true,
+  "model_evaluations": 0,
+  "native_commands": 0,
+  "independent_displayed_question_audit_required": true
+}

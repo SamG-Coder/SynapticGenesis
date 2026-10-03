@@ -1,0 +1,544 @@
+{
+  "version": "quantitative-development-v2",
+  "purpose": "Original development-only arithmetic and science questions for pre/post-learning assessment; never a teaching corpus.",
+  "native_format": "SGPROBE2",
+  "group_size": 4,
+  "groups_per_skill": 4,
+  "skills": [
+    {
+      "id": "addition",
+      "concept": "Whole-number addition",
+      "answer_unit": "items",
+      "cases": [
+        {
+          "id": "addition-1",
+          "trials": [
+            [
+              33,
+              57
+            ],
+            [
+              61,
+              17
+            ]
+          ]
+        },
+        {
+          "id": "addition-2",
+          "trials": [
+            [
+              35,
+              15
+            ],
+            [
+              26,
+              29
+            ]
+          ]
+        },
+        {
+          "id": "addition-3",
+          "trials": [
+            [
+              57,
+              25
+            ],
+            [
+              48,
+              32
+            ]
+          ]
+        },
+        {
+          "id": "addition-4",
+          "trials": [
+            [
+              37,
+              29
+            ],
+            [
+              45,
+              24
+            ]
+          ]
+        }
+      ],
+      "reviewed_training_module": null
+    },
+    {
+      "id": "subtraction",
+      "concept": "Whole-number subtraction",
+      "answer_unit": "items",
+      "cases": [
+        {
+          "id": "subtraction-1",
+          "trials": [
+            [
+              98,
+              12
+            ],
+            [
+              99,
+              17
+            ]
+          ]
+        },
+        {
+          "id": "subtraction-2",
+          "trials": [
+            [
+              80,
+              37
+            ],
+            [
+              78,
+              25
+            ]
+          ]
+        },
+        {
+          "id": "subtraction-3",
+          "trials": [
+            [
+              71,
+              24
+            ],
+            [
+              50,
+              21
+            ]
+          ]
+        },
+        {
+          "id": "subtraction-4",
+          "trials": [
+            [
+              43,
+              27
+            ],
+            [
+              98,
+              38
+            ]
+          ]
+        }
+      ],
+      "reviewed_training_module": null
+    },
+    {
+      "id": "multiplication",
+      "concept": "Whole-number multiplication",
+      "answer_unit": "items",
+      "cases": [
+        {
+          "id": "multiplication-1",
+          "trials": [
+            [
+              6,
+              8
+            ],
+            [
+              14,
+              3
+            ]
+          ]
+        },
+        {
+          "id": "multiplication-2",
+          "trials": [
+            [
+              11,
+              4
+            ],
+            [
+              9,
+              9
+            ]
+          ]
+        },
+        {
+          "id": "multiplication-3",
+          "trials": [
+            [
+              12,
+              6
+            ],
+            [
+              7,
+              7
+            ]
+          ]
+        },
+        {
+          "id": "multiplication-4",
+          "trials": [
+            [
+              5,
+              5
+            ],
+            [
+              9,
+              4
+            ]
+          ]
+        }
+      ],
+      "reviewed_training_module": null
+    },
+    {
+      "id": "division",
+      "concept": "Exact whole-number division",
+      "answer_unit": "items",
+      "cases": [
+        {
+          "id": "division-1",
+          "trials": [
+            [
+              84,
+              3
+            ],
+            [
+              100,
+              5
+            ]
+          ]
+        },
+        {
+          "id": "division-2",
+          "trials": [
+            [
+              133,
+              7
+            ],
+            [
+              75,
+              3
+            ]
+          ]
+        },
+        {
+          "id": "division-3",
+          "trials": [
+            [
+              168,
+              6
+            ],
+            [
+              39,
+              3
+            ]
+          ]
+        },
+        {
+          "id": "division-4",
+          "trials": [
+            [
+              24,
+              2
+            ],
+            [
+              84,
+              4
+            ]
+          ]
+        }
+      ],
+      "reviewed_training_module": null
+    },
+    {
+      "id": "speed",
+      "concept": "Average speed from total distance and elapsed time",
+      "answer_unit": "m/s",
+      "cases": [
+        {
+          "id": "speed-1",
+          "trials": [
+            [
+              78,
+              2
+            ],
+            [
+              138,
+              6
+            ]
+          ]
+        },
+        {
+          "id": "speed-2",
+          "trials": [
+            [
+              92,
+              4
+            ],
+            [
+              72,
+              2
+            ]
+          ]
+        },
+        {
+          "id": "speed-3",
+          "trials": [
+            [
+              126,
+              6
+            ],
+            [
+              39,
+              3
+            ]
+          ]
+        },
+        {
+          "id": "speed-4",
+          "trials": [
+            [
+              54,
+              2
+            ],
+            [
+              148,
+              4
+            ]
+          ]
+        }
+      ],
+      "reviewed_training_module": "m54104"
+    },
+    {
+      "id": "net_force",
+      "concept": "Net force magnitude at fixed mass",
+      "answer_unit": "N",
+      "cases": [
+        {
+          "id": "net_force-1",
+          "trials": [
+            [
+              11,
+              7
+            ],
+            [
+              13,
+              5
+            ]
+          ]
+        },
+        {
+          "id": "net_force-2",
+          "trials": [
+            [
+              10,
+              5
+            ],
+            [
+              9,
+              6
+            ]
+          ]
+        },
+        {
+          "id": "net_force-3",
+          "trials": [
+            [
+              13,
+              5
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "net_force-4",
+          "trials": [
+            [
+              7,
+              8
+            ],
+            [
+              15,
+              6
+            ]
+          ]
+        }
+      ],
+      "reviewed_training_module": "m54142"
+    },
+    {
+      "id": "work",
+      "concept": "Work by a constant aligned force",
+      "answer_unit": "J",
+      "cases": [
+        {
+          "id": "work-1",
+          "trials": [
+            [
+              8,
+              11
+            ],
+            [
+              13,
+              3
+            ]
+          ]
+        },
+        {
+          "id": "work-2",
+          "trials": [
+            [
+              15,
+              3
+            ],
+            [
+              10,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "work-3",
+          "trials": [
+            [
+              14,
+              4
+            ],
+            [
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "work-4",
+          "trials": [
+            [
+              6,
+              5
+            ],
+            [
+              14,
+              3
+            ]
+          ]
+        }
+      ],
+      "reviewed_training_module": "m54271"
+    },
+    {
+      "id": "heat",
+      "concept": "Heating with constant specific heat",
+      "answer_unit": "J",
+      "cases": [
+        {
+          "id": "heat-1",
+          "trials": [
+            [
+              4,
+              6,
+              3
+            ],
+            [
+              7,
+              2,
+              5
+            ]
+          ]
+        },
+        {
+          "id": "heat-2",
+          "trials": [
+            [
+              6,
+              2,
+              7
+            ],
+            [
+              4,
+              6,
+              4
+            ]
+          ]
+        },
+        {
+          "id": "heat-3",
+          "trials": [
+            [
+              6,
+              2,
+              4
+            ],
+            [
+              4,
+              3,
+              3
+            ]
+          ]
+        },
+        {
+          "id": "heat-4",
+          "trials": [
+            [
+              3,
+              5,
+              3
+            ],
+            [
+              5,
+              2,
+              6
+            ]
+          ]
+        }
+      ],
+      "reviewed_training_module": "m54290"
+    }
+  ],
+  "source_files": [
+    {
+      "label": "prose",
+      "path": "data/prepared/prose-scale-v1-pinned/train.dat",
+      "sha256": "e622ce37d53888352f5e57c3d306478a24a69a7bfb3ea493f818a4331d1174de"
+    },
+    {
+      "label": "arithmetic",
+      "path": "data/prepared/prealgebra-worked-v1-pinned/train.dat",
+      "sha256": "90f4042050909395a7321a026ce642d7d876b199af260925d45fc7646eec446e"
+    },
+    {
+      "label": "physics",
+      "path": "data/prepared/physics-v2-reviewed/train.dat",
+      "sha256": "572de0162f8e2c53f1467e09e703ac2b0882987bc43da3d0732d1fad728452f7"
+    }
+  ],
+  "policy": {
+    "development_only": true,
+    "training_admitted": false,
+    "test_set_created": false,
+    "gold_policy": "Exact integer answers, equal answer byte lengths within each four-item group, balanced label placement, no answer integer present among any supplied trial operands.",
+    "context_policy": "Cross both named trials with two assignments of their numerical inputs. Every context and every query requires each label once. Assess context-erased predictions and unconstrained greedy bytes using the existing native evaluator.",
+    "comparison": "Freeze this suite before evaluating any model on it. Compare complete identical checkpoints before and after a declared lesson continuation; retain per-skill results and every raw score/output. Do not mix checkpoints from different source exposure or select the best question samples.",
+    "contamination_boundary": "Normalize whitespace and check every full authored context and individual trial statement against the three declared training streams. This is an exact textual boundary, not a claim that numerical templates, arithmetic facts, concepts or paraphrases are absent.",
+    "source_policy": "These newly authored questions are original evaluation fixtures based on basic mathematical definitions and concepts in reviewed training material. They do not import textbook passages or reserve the published textbook test chapters for tuning.",
+    "limits": [
+      "Only nonnegative integer arithmetic and idealized scalar physics; no fractions, signs, graphs, diagrams, arbitrary units or broad science coverage.",
+      "Two candidate likelihoods are a constrained diagnostic, not open-ended question answering. Greedy exact output is measured separately.",
+      "Only four numerical groups per skill and fixed wording. Development results cannot establish broad generalization or reproductive fitness.",
+      "All-in-group accuracy is the primary context/query dependency check. Context-only, query-only and constant-choice baselines have zero all-in-group accuracy by construction.",
+      "Prepared and checked on the host before GPU use; no model performance is established by the preparation audit.",
+      "Numbers were selected against four declared operand-ranking heuristics before any model evaluation. Each heuristic passes exactly half the groups in each skill; stronger strategies remain possible."
+    ]
+  },
+  "case_selection": {
+    "seed": 20261004,
+    "base_spec_sha256": "ae99312de906f9e0f1a07a95915aa667e03986e9f4cd2ba684de4d7ccc2c3754",
+    "model_evaluations": 0,
+    "controls": [
+      "rank_first_operand",
+      "rank_last_operand",
+      "rank_largest_operand",
+      "rank_smallest_operand"
+    ],
+    "policy": "Choose four groups per skill with exactly two successful groups for each declared operand-ranking heuristic, no operand-statistic ties, and two cases where the first trial answer is smaller. This balances these controls only; it does not rule out other shortcuts."
+  }
+}

@@ -53,7 +53,8 @@ def answer(skill, values):
 
 
 def build(spec):
-    require(spec['version'] == 'quantitative-development-v1' and spec['native_format'] == 'SGPROBE2'
+    require(spec['version'] in ('quantitative-development-v1', 'quantitative-development-v2')
+            and spec['native_format'] == 'SGPROBE2'
             and spec['group_size'] == spec['groups_per_skill'] == 4, 'Unexpected quantitative suite')
     require(spec['policy']['development_only'] and not spec['policy']['training_admitted'] and
             not spec['policy']['test_set_created'], 'This suite is only for development scoring')

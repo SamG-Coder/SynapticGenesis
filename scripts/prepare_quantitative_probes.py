@@ -65,7 +65,7 @@ def prepare(spec_path, out):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--spec', type=Path, default=ROOT / 'data/quantitative-probes-v1.json')
+    parser.add_argument('--spec', type=Path, default=ROOT / 'data/quantitative-probes-v2.json')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
     prepare(args.spec, args.out)

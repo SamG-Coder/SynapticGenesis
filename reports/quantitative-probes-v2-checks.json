@@ -1,0 +1,884 @@
+{
+  "passed": true,
+  "version": "quantitative-development-v2",
+  "source_spec_sha256": "908304a0c7532f9b1f679b7e99a9e7a7c63f8f61ae1cd062b66a03f3d7b8fda7",
+  "manifest_sha256": "9879a83d0cf61314424b04ed561bda4d8c5f76314ceeaa41e948886720367e2c",
+  "prepared_files": {
+    "arithmetic-witnesses.json": "060bcfe6abded43c6693b4d366852adf693dd6113f7110700ef03c7aebc09e59",
+    "development.sgprobe": "5c4c4203f20c166322f10cd0e4bb6f359d8058f430893f8f46d88ea6c62f18d4",
+    "protected-statements.json": "d395f16f36a39fe77554347f499f46f7a873d4e371447cf3e533d047f0f05310",
+    "questions.json": "a70af71941ffb97019c5df217cbf4459d5236173a89644662f4f153932acb1ce",
+    "source-spec.json": "908304a0c7532f9b1f679b7e99a9e7a7c63f8f61ae1cd062b66a03f3d7b8fda7"
+  },
+  "items": 128,
+  "groups": 32,
+  "skills": 8,
+  "independent_solver": "SymPy equations from parsed displayed facts",
+  "solver_version": "1.14.0",
+  "all_displayed_answers_verified": true,
+  "assumptions_and_answer_units_verified": true,
+  "all_choice_byte_lengths_equal": true,
+  "crossed_context_query_groups_verified": true,
+  "visible_integer_copy_baseline_accuracy": 0,
+  "shortcut_controls": {
+    "context_only": {
+      "item_accuracy": 0.5,
+      "joint_accuracy": 0.0
+    },
+    "query_only": {
+      "item_accuracy": 0.5,
+      "joint_accuracy": 0.0
+    },
+    "constant": {
+      "item_accuracy": 0.5,
+      "joint_accuracy": 0.0
+    },
+    "rank_first_operand": {
+      "item_accuracy": 0.5,
+      "joint_accuracy": 0.5,
+      "per_skill": {
+        "addition": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "subtraction": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "multiplication": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "division": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "speed": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "net_force": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "work": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "heat": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        }
+      }
+    },
+    "rank_last_operand": {
+      "item_accuracy": 0.5,
+      "joint_accuracy": 0.5,
+      "per_skill": {
+        "addition": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "subtraction": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "multiplication": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "division": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "speed": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "net_force": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "work": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "heat": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        }
+      }
+    },
+    "rank_largest_operand": {
+      "item_accuracy": 0.5,
+      "joint_accuracy": 0.5,
+      "per_skill": {
+        "addition": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "subtraction": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "multiplication": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "division": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "speed": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "net_force": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "work": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "heat": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        }
+      }
+    },
+    "rank_smallest_operand": {
+      "item_accuracy": 0.5,
+      "joint_accuracy": 0.5,
+      "per_skill": {
+        "addition": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "subtraction": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "multiplication": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "division": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "speed": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "net_force": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "work": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        },
+        "heat": {
+          "correct_groups": 2,
+          "groups": 4,
+          "joint_accuracy": 0.5
+        }
+      }
+    }
+  },
+  "rejected_inputs": [
+    "incorrect-gold",
+    "wrong-unit",
+    "changed-operand",
+    "wrong-question",
+    "missing-inertial-frame",
+    "work-angle",
+    "phase-change",
+    "duplicate-item",
+    "whole-context",
+    "trial-statement",
+    "whitespace-changed-trial",
+    "invalid-trial-before-output"
+  ],
+  "solutions": [
+    {
+      "id": "addition-1-0-A",
+      "equation": "Eq(answer - 33, 57)",
+      "answer": " 90 items"
+    },
+    {
+      "id": "addition-1-0-B",
+      "equation": "Eq(answer - 61, 17)",
+      "answer": " 78 items"
+    },
+    {
+      "id": "addition-1-1-A",
+      "equation": "Eq(answer - 61, 17)",
+      "answer": " 78 items"
+    },
+    {
+      "id": "addition-1-1-B",
+      "equation": "Eq(answer - 33, 57)",
+      "answer": " 90 items"
+    },
+    {
+      "id": "addition-2-0-A",
+      "equation": "Eq(answer - 35, 15)",
+      "answer": " 50 items"
+    },
+    {
+      "id": "addition-2-0-B",
+      "equation": "Eq(answer - 26, 29)",
+      "answer": " 55 items"
+    },
+    {
+      "id": "addition-2-1-A",
+      "equation": "Eq(answer - 26, 29)",
+      "answer": " 55 items"
+    },
+    {
+      "id": "addition-2-1-B",
+      "equation": "Eq(answer - 35, 15)",
+      "answer": " 50 items"
+    },
+    {
+      "id": "addition-3-0-A",
+      "equation": "Eq(answer - 57, 25)",
+      "answer": " 82 items"
+    },
+    {
+      "id": "addition-3-0-B",
+      "equation": "Eq(answer - 48, 32)",
+      "answer": " 80 items"
+    },
+    {
+      "id": "addition-3-1-A",
+      "equation": "Eq(answer - 48, 32)",
+      "answer": " 80 items"
+    },
+    {
+      "id": "addition-3-1-B",
+      "equation": "Eq(answer - 57, 25)",
+      "answer": " 82 items"
+    },
+    {
+      "id": "addition-4-0-A",
+      "equation": "Eq(answer - 37, 29)",
+      "answer": " 66 items"
+    },
+    {
+      "id": "addition-4-0-B",
+      "equation": "Eq(answer - 45, 24)",
+      "answer": " 69 items"
+    },
+    {
+      "id": "addition-4-1-A",
+      "equation": "Eq(answer - 45, 24)",
+      "answer": " 69 items"
+    },
+    {
+      "id": "addition-4-1-B",
+      "equation": "Eq(answer - 37, 29)",
+      "answer": " 66 items"
+    },
+    {
+      "id": "subtraction-1-0-A",
+      "equation": "Eq(answer + 12, 98)",
+      "answer": " 86 items"
+    },
+    {
+      "id": "subtraction-1-0-B",
+      "equation": "Eq(answer + 17, 99)",
+      "answer": " 82 items"
+    },
+    {
+      "id": "subtraction-1-1-A",
+      "equation": "Eq(answer + 17, 99)",
+      "answer": " 82 items"
+    },
+    {
+      "id": "subtraction-1-1-B",
+      "equation": "Eq(answer + 12, 98)",
+      "answer": " 86 items"
+    },
+    {
+      "id": "subtraction-2-0-A",
+      "equation": "Eq(answer + 37, 80)",
+      "answer": " 43 items"
+    },
+    {
+      "id": "subtraction-2-0-B",
+      "equation": "Eq(answer + 25, 78)",
+      "answer": " 53 items"
+    },
+    {
+      "id": "subtraction-2-1-A",
+      "equation": "Eq(answer + 25, 78)",
+      "answer": " 53 items"
+    },
+    {
+      "id": "subtraction-2-1-B",
+      "equation": "Eq(answer + 37, 80)",
+      "answer": " 43 items"
+    },
+    {
+      "id": "subtraction-3-0-A",
+      "equation": "Eq(answer + 24, 71)",
+      "answer": " 47 items"
+    },
+    {
+      "id": "subtraction-3-0-B",
+      "equation": "Eq(answer + 21, 50)",
+      "answer": " 29 items"
+    },
+    {
+      "id": "subtraction-3-1-A",
+      "equation": "Eq(answer + 21, 50)",
+      "answer": " 29 items"
+    },
+    {
+      "id": "subtraction-3-1-B",
+      "equation": "Eq(answer + 24, 71)",
+      "answer": " 47 items"
+    },
+    {
+      "id": "subtraction-4-0-A",
+      "equation": "Eq(answer + 27, 43)",
+      "answer": " 16 items"
+    },
+    {
+      "id": "subtraction-4-0-B",
+      "equation": "Eq(answer + 38, 98)",
+      "answer": " 60 items"
+    },
+    {
+      "id": "subtraction-4-1-A",
+      "equation": "Eq(answer + 38, 98)",
+      "answer": " 60 items"
+    },
+    {
+      "id": "subtraction-4-1-B",
+      "equation": "Eq(answer + 27, 43)",
+      "answer": " 16 items"
+    },
+    {
+      "id": "multiplication-1-0-A",
+      "equation": "Eq(answer/8, 6)",
+      "answer": " 48 items"
+    },
+    {
+      "id": "multiplication-1-0-B",
+      "equation": "Eq(answer/3, 14)",
+      "answer": " 42 items"
+    },
+    {
+      "id": "multiplication-1-1-A",
+      "equation": "Eq(answer/3, 14)",
+      "answer": " 42 items"
+    },
+    {
+      "id": "multiplication-1-1-B",
+      "equation": "Eq(answer/8, 6)",
+      "answer": " 48 items"
+    },
+    {
+      "id": "multiplication-2-0-A",
+      "equation": "Eq(answer/4, 11)",
+      "answer": " 44 items"
+    },
+    {
+      "id": "multiplication-2-0-B",
+      "equation": "Eq(answer/9, 9)",
+      "answer": " 81 items"
+    },
+    {
+      "id": "multiplication-2-1-A",
+      "equation": "Eq(answer/9, 9)",
+      "answer": " 81 items"
+    },
+    {
+      "id": "multiplication-2-1-B",
+      "equation": "Eq(answer/4, 11)",
+      "answer": " 44 items"
+    },
+    {
+      "id": "multiplication-3-0-A",
+      "equation": "Eq(answer/6, 12)",
+      "answer": " 72 items"
+    },
+    {
+      "id": "multiplication-3-0-B",
+      "equation": "Eq(answer/7, 7)",
+      "answer": " 49 items"
+    },
+    {
+      "id": "multiplication-3-1-A",
+      "equation": "Eq(answer/7, 7)",
+      "answer": " 49 items"
+    },
+    {
+      "id": "multiplication-3-1-B",
+      "equation": "Eq(answer/6, 12)",
+      "answer": " 72 items"
+    },
+    {
+      "id": "multiplication-4-0-A",
+      "equation": "Eq(answer/5, 5)",
+      "answer": " 25 items"
+    },
+    {
+      "id": "multiplication-4-0-B",
+      "equation": "Eq(answer/4, 9)",
+      "answer": " 36 items"
+    },
+    {
+      "id": "multiplication-4-1-A",
+      "equation": "Eq(answer/4, 9)",
+      "answer": " 36 items"
+    },
+    {
+      "id": "multiplication-4-1-B",
+      "equation": "Eq(answer/5, 5)",
+      "answer": " 25 items"
+    },
+    {
+      "id": "division-1-0-A",
+      "equation": "Eq(3*answer, 84)",
+      "answer": " 28 items"
+    },
+    {
+      "id": "division-1-0-B",
+      "equation": "Eq(5*answer, 100)",
+      "answer": " 20 items"
+    },
+    {
+      "id": "division-1-1-A",
+      "equation": "Eq(5*answer, 100)",
+      "answer": " 20 items"
+    },
+    {
+      "id": "division-1-1-B",
+      "equation": "Eq(3*answer, 84)",
+      "answer": " 28 items"
+    },
+    {
+      "id": "division-2-0-A",
+      "equation": "Eq(7*answer, 133)",
+      "answer": " 19 items"
+    },
+    {
+      "id": "division-2-0-B",
+      "equation": "Eq(3*answer, 75)",
+      "answer": " 25 items"
+    },
+    {
+      "id": "division-2-1-A",
+      "equation": "Eq(3*answer, 75)",
+      "answer": " 25 items"
+    },
+    {
+      "id": "division-2-1-B",
+      "equation": "Eq(7*answer, 133)",
+      "answer": " 19 items"
+    },
+    {
+      "id": "division-3-0-A",
+      "equation": "Eq(6*answer, 168)",
+      "answer": " 28 items"
+    },
+    {
+      "id": "division-3-0-B",
+      "equation": "Eq(3*answer, 39)",
+      "answer": " 13 items"
+    },
+    {
+      "id": "division-3-1-A",
+      "equation": "Eq(3*answer, 39)",
+      "answer": " 13 items"
+    },
+    {
+      "id": "division-3-1-B",
+      "equation": "Eq(6*answer, 168)",
+      "answer": " 28 items"
+    },
+    {
+      "id": "division-4-0-A",
+      "equation": "Eq(2*answer, 24)",
+      "answer": " 12 items"
+    },
+    {
+      "id": "division-4-0-B",
+      "equation": "Eq(4*answer, 84)",
+      "answer": " 21 items"
+    },
+    {
+      "id": "division-4-1-A",
+      "equation": "Eq(4*answer, 84)",
+      "answer": " 21 items"
+    },
+    {
+      "id": "division-4-1-B",
+      "equation": "Eq(2*answer, 24)",
+      "answer": " 12 items"
+    },
+    {
+      "id": "speed-1-0-A",
+      "equation": "Eq(2*answer, 78)",
+      "answer": " 39 m/s"
+    },
+    {
+      "id": "speed-1-0-B",
+      "equation": "Eq(6*answer, 138)",
+      "answer": " 23 m/s"
+    },
+    {
+      "id": "speed-1-1-A",
+      "equation": "Eq(6*answer, 138)",
+      "answer": " 23 m/s"
+    },
+    {
+      "id": "speed-1-1-B",
+      "equation": "Eq(2*answer, 78)",
+      "answer": " 39 m/s"
+    },
+    {
+      "id": "speed-2-0-A",
+      "equation": "Eq(4*answer, 92)",
+      "answer": " 23 m/s"
+    },
+    {
+      "id": "speed-2-0-B",
+      "equation": "Eq(2*answer, 72)",
+      "answer": " 36 m/s"
+    },
+    {
+      "id": "speed-2-1-A",
+      "equation": "Eq(2*answer, 72)",
+      "answer": " 36 m/s"
+    },
+    {
+      "id": "speed-2-1-B",
+      "equation": "Eq(4*answer, 92)",
+      "answer": " 23 m/s"
+    },
+    {
+      "id": "speed-3-0-A",
+      "equation": "Eq(6*answer, 126)",
+      "answer": " 21 m/s"
+    },
+    {
+      "id": "speed-3-0-B",
+      "equation": "Eq(3*answer, 39)",
+      "answer": " 13 m/s"
+    },
+    {
+      "id": "speed-3-1-A",
+      "equation": "Eq(3*answer, 39)",
+      "answer": " 13 m/s"
+    },
+    {
+      "id": "speed-3-1-B",
+      "equation": "Eq(6*answer, 126)",
+      "answer": " 21 m/s"
+    },
+    {
+      "id": "speed-4-0-A",
+      "equation": "Eq(2*answer, 54)",
+      "answer": " 27 m/s"
+    },
+    {
+      "id": "speed-4-0-B",
+      "equation": "Eq(4*answer, 148)",
+      "answer": " 37 m/s"
+    },
+    {
+      "id": "speed-4-1-A",
+      "equation": "Eq(4*answer, 148)",
+      "answer": " 37 m/s"
+    },
+    {
+      "id": "speed-4-1-B",
+      "equation": "Eq(2*answer, 54)",
+      "answer": " 27 m/s"
+    },
+    {
+      "id": "net_force-1-0-A",
+      "equation": "Eq(answer/11, 7)",
+      "answer": " 77 N"
+    },
+    {
+      "id": "net_force-1-0-B",
+      "equation": "Eq(answer/13, 5)",
+      "answer": " 65 N"
+    },
+    {
+      "id": "net_force-1-1-A",
+      "equation": "Eq(answer/13, 5)",
+      "answer": " 65 N"
+    },
+    {
+      "id": "net_force-1-1-B",
+      "equation": "Eq(answer/11, 7)",
+      "answer": " 77 N"
+    },
+    {
+      "id": "net_force-2-0-A",
+      "equation": "Eq(answer/10, 5)",
+      "answer": " 50 N"
+    },
+    {
+      "id": "net_force-2-0-B",
+      "equation": "Eq(answer/9, 6)",
+      "answer": " 54 N"
+    },
+    {
+      "id": "net_force-2-1-A",
+      "equation": "Eq(answer/9, 6)",
+      "answer": " 54 N"
+    },
+    {
+      "id": "net_force-2-1-B",
+      "equation": "Eq(answer/10, 5)",
+      "answer": " 50 N"
+    },
+    {
+      "id": "net_force-3-0-A",
+      "equation": "Eq(answer/13, 5)",
+      "answer": " 65 N"
+    },
+    {
+      "id": "net_force-3-0-B",
+      "equation": "Eq(answer/6, 8)",
+      "answer": " 48 N"
+    },
+    {
+      "id": "net_force-3-1-A",
+      "equation": "Eq(answer/6, 8)",
+      "answer": " 48 N"
+    },
+    {
+      "id": "net_force-3-1-B",
+      "equation": "Eq(answer/13, 5)",
+      "answer": " 65 N"
+    },
+    {
+      "id": "net_force-4-0-A",
+      "equation": "Eq(answer/7, 8)",
+      "answer": " 56 N"
+    },
+    {
+      "id": "net_force-4-0-B",
+      "equation": "Eq(answer/15, 6)",
+      "answer": " 90 N"
+    },
+    {
+      "id": "net_force-4-1-A",
+      "equation": "Eq(answer/15, 6)",
+      "answer": " 90 N"
+    },
+    {
+      "id": "net_force-4-1-B",
+      "equation": "Eq(answer/7, 8)",
+      "answer": " 56 N"
+    },
+    {
+      "id": "work-1-0-A",
+      "equation": "Eq(answer/11, 8)",
+      "answer": " 88 J"
+    },
+    {
+      "id": "work-1-0-B",
+      "equation": "Eq(answer/3, 13)",
+      "answer": " 39 J"
+    },
+    {
+      "id": "work-1-1-A",
+      "equation": "Eq(answer/3, 13)",
+      "answer": " 39 J"
+    },
+    {
+      "id": "work-1-1-B",
+      "equation": "Eq(answer/11, 8)",
+      "answer": " 88 J"
+    },
+    {
+      "id": "work-2-0-A",
+      "equation": "Eq(answer/3, 15)",
+      "answer": " 45 J"
+    },
+    {
+      "id": "work-2-0-B",
+      "equation": "Eq(answer/8, 10)",
+      "answer": " 80 J"
+    },
+    {
+      "id": "work-2-1-A",
+      "equation": "Eq(answer/8, 10)",
+      "answer": " 80 J"
+    },
+    {
+      "id": "work-2-1-B",
+      "equation": "Eq(answer/3, 15)",
+      "answer": " 45 J"
+    },
+    {
+      "id": "work-3-0-A",
+      "equation": "Eq(answer/4, 14)",
+      "answer": " 56 J"
+    },
+    {
+      "id": "work-3-0-B",
+      "equation": "Eq(answer/8, 5)",
+      "answer": " 40 J"
+    },
+    {
+      "id": "work-3-1-A",
+      "equation": "Eq(answer/8, 5)",
+      "answer": " 40 J"
+    },
+    {
+      "id": "work-3-1-B",
+      "equation": "Eq(answer/4, 14)",
+      "answer": " 56 J"
+    },
+    {
+      "id": "work-4-0-A",
+      "equation": "Eq(answer/5, 6)",
+      "answer": " 30 J"
+    },
+    {
+      "id": "work-4-0-B",
+      "equation": "Eq(answer/3, 14)",
+      "answer": " 42 J"
+    },
+    {
+      "id": "work-4-1-A",
+      "equation": "Eq(answer/3, 14)",
+      "answer": " 42 J"
+    },
+    {
+      "id": "work-4-1-B",
+      "equation": "Eq(answer/5, 6)",
+      "answer": " 30 J"
+    },
+    {
+      "id": "heat-1-0-A",
+      "equation": "Eq(answer/24, 3)",
+      "answer": " 72 J"
+    },
+    {
+      "id": "heat-1-0-B",
+      "equation": "Eq(answer/14, 5)",
+      "answer": " 70 J"
+    },
+    {
+      "id": "heat-1-1-A",
+      "equation": "Eq(answer/14, 5)",
+      "answer": " 70 J"
+    },
+    {
+      "id": "heat-1-1-B",
+      "equation": "Eq(answer/24, 3)",
+      "answer": " 72 J"
+    },
+    {
+      "id": "heat-2-0-A",
+      "equation": "Eq(answer/12, 7)",
+      "answer": " 84 J"
+    },
+    {
+      "id": "heat-2-0-B",
+      "equation": "Eq(answer/24, 4)",
+      "answer": " 96 J"
+    },
+    {
+      "id": "heat-2-1-A",
+      "equation": "Eq(answer/24, 4)",
+      "answer": " 96 J"
+    },
+    {
+      "id": "heat-2-1-B",
+      "equation": "Eq(answer/12, 7)",
+      "answer": " 84 J"
+    },
+    {
+      "id": "heat-3-0-A",
+      "equation": "Eq(answer/12, 4)",
+      "answer": " 48 J"
+    },
+    {
+      "id": "heat-3-0-B",
+      "equation": "Eq(answer/12, 3)",
+      "answer": " 36 J"
+    },
+    {
+      "id": "heat-3-1-A",
+      "equation": "Eq(answer/12, 3)",
+      "answer": " 36 J"
+    },
+    {
+      "id": "heat-3-1-B",
+      "equation": "Eq(answer/12, 4)",
+      "answer": " 48 J"
+    },
+    {
+      "id": "heat-4-0-A",
+      "equation": "Eq(answer/15, 3)",
+      "answer": " 45 J"
+    },
+    {
+      "id": "heat-4-0-B",
+      "equation": "Eq(answer/10, 6)",
+      "answer": " 60 J"
+    },
+    {
+      "id": "heat-4-1-A",
+      "equation": "Eq(answer/10, 6)",
+      "answer": " 60 J"
+    },
+    {
+      "id": "heat-4-1-B",
+      "equation": "Eq(answer/15, 3)",
+      "answer": " 45 J"
+    }
+  ],
+  "input_hashes_unchanged": true,
+  "audit_script_sha256": "70ea56a5fbe86c56684e52d4e1fba9379eecc388b80d4abce17e0c378c97e8a8",
+  "native_commands": 0,
+  "model_quality_verified": false,
+  "training_admitted": false,
+  "reserved_tests_scored": false,
+  "reproduction_admitted": false
+}

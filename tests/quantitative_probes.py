@@ -170,7 +170,8 @@ def audit(spec_path, prepared, report):
     for name, edit in (
         ('incorrect-gold', lambda r: r[0].update(correct=1-r[0]['correct'])),
         ('wrong-unit', lambda r: r[0].update(choice0=r[0]['choice0'].replace('items', 'kg'))),
-        ('changed-operand', lambda r: r[0].update(context=r[0]['context'].replace('26 items', '27 items'))),
+        ('changed-operand', lambda r: r[0].update(context=re.sub(r'\d+',
+            lambda m: str(int(m[0]) + 1), r[0]['context'], count=1))),
         ('wrong-question', lambda r: r[0].update(query=r[0]['query'].replace('now?', 'removed?'))),
         ('missing-inertial-frame', lambda r: next(x for x in r if x['skill']=='net_force').update(
             context=next(x for x in r if x['skill']=='net_force')['context'].replace('in an inertial frame', ''))),
@@ -237,8 +238,8 @@ def audit(spec_path, prepared, report):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--spec', type=Path, default=ROOT / 'data/quantitative-probes-v1.json')
-    parser.add_argument('--prepared', type=Path, default=Path('data/prepared/quantitative-development-v1'))
+    parser.add_argument('--spec', type=Path, default=ROOT / 'data/quantitative-probes-v2.json')
+    parser.add_argument('--prepared', type=Path, default=Path('data/prepared/quantitative-development-v2'))
     parser.add_argument('--report', type=Path, required=True)
     args = parser.parse_args()
     audit(args.spec, args.prepared, args.report)
