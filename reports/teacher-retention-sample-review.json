@@ -1,0 +1,226 @@
+{
+  "method": "Qualitative reading of every listed fixed final continuation, with branch identity visible. Not a blinded or standardized language-quality benchmark.",
+  "reviewed_samples": 36,
+  "expected_full_study_samples": 36,
+  "complete": true,
+  "records": [
+    {
+      "seed": 1337,
+      "arm": "selective-control",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "4efb9353dc4a6052cb032bf67295e78cef13a72aa8c177d9d17cbbecb3c6fcd5",
+        "ae7d1f181c0c619cc92c42b9e747807b10a1acf68b6417c4a3ea58693497a98b"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain broken clauses and invented spellings. The bird prompt initially repeats the lesson answer format."
+    },
+    {
+      "seed": 1337,
+      "arm": "selective-teacher",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "a609c8729163b65759ff6f2655b4cd648c24b19ced69a50a5734db3c7aa9cb8d",
+        "a596d350f01c615ef95c0c28c015d5f09b865963227527d644a9554fc2b14798"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain invented spellings and disconnected clauses. Lesson-style answers interrupt the bird continuation."
+    },
+    {
+      "seed": 1337,
+      "arm": "wide-selective-teacher",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "4473663878379af50a2eafbb3b76bd6de6b85c430f1f83a0fb6608b9bb19951b",
+        "df16c02907a25c3652e309c11e6f8954c1968f0898fe0681e981114316133ebf"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "The bird continuation repeats Answer: bag several times before broken prose. The story continuation resembles dialogue but does not sustain grammatical connected narration."
+    },
+    {
+      "seed": 1337,
+      "arm": "wide-selective-control",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "119e20c71570fc51bfb63daefa413eca0952eaafcbd9e20d473f12a3bbfdb4a8",
+        "19a77f3ad95b484b606bdf33bf0451ecef0cc0d387a9f300f9bd850abf677a1e"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations are grammatically fragmented with invented words. The bird continuation also has a malformed answer marker."
+    },
+    {
+      "seed": 1337,
+      "arm": "associative-control",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "9b0ab0243e120640591c603ae768622ccc3f9882e7c54d11f6a4a724a84a16cd",
+        "d0137733fa0cf53dddd0b3f5ddda68b9b2ed907988eef53e764d68f4c40bd32d"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations mix recognizable story vocabulary with broken clauses and invented words. The initial generated lesson asks about an object that its preceding generated facts did not introduce."
+    },
+    {
+      "seed": 1337,
+      "arm": "associative-teacher",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "a85fa11587e6b1aec283fec076c3c968995ceb242af9770fb85eea2b2363cbf8",
+        "61594672c90f70ed4274f18a26b4b3fc8d1449d0520a444f4117773b90dc97b0"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain disconnected clauses and invented spellings. The bird continuation repeats the lesson format and later contains an extended run of spaces."
+    },
+    {
+      "seed": 2026,
+      "arm": "wide-selective-control",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "ea231db6d91771b2ad9e188edb902c941a1d59c348d6b1aae63c16b21aeb84f4",
+        "8cb962d25494ea75e14e736b52c614873d9a77a77a0b0b2ab5fea1bd4506fb48"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain invented spellings and disconnected clauses. The bird continuation inserts a lesson question about an object absent from its preceding facts."
+    },
+    {
+      "seed": 2026,
+      "arm": "wide-selective-teacher",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "4e7a9abe9058ceb07ac0e6e84f3b904027d03fff5b66879c5b6fb3cb1f4c02f5",
+        "5f8919d450f7d5cfab4c3444d0c6b065ef18e3dc9344ea0bd08762fb892adb64"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "The bird continuation begins with a correctly answered cup-location lesson, then changes into broken narrative clauses. The second continuation also lacks a sustained coherent event sequence."
+    },
+    {
+      "seed": 2026,
+      "arm": "associative-teacher",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "0cd86ee55c9546f4ee03c44e9c2f0df8437643c0250402f5d93bc3e27b21a1b7",
+        "156cd83d2f996e424dd1fb186ba8ad7850cf51c2e57b86d53f29dc8f24912cc2"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "The bird continuation asks about a bow after introducing only a bird, then gives a bag answer. Both continuations have invented spellings and disconnected narrative or dialogue fragments."
+    },
+    {
+      "seed": 2026,
+      "arm": "associative-control",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "8a505ac7cc2ab06da0f77c59a413f125844a57deab01e6b6c64a24cf6850f396",
+        "0b955c2d9d12745ce0afd9e9c2a2cc850ed330e80e1e92bf5f7d474a729d6484"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain invented spellings and disconnected clauses. The first asks about a pan after introducing only a bird; the second also contains an extended run of spaces."
+    },
+    {
+      "seed": 2026,
+      "arm": "selective-teacher",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "9995253f18d18d60f9a336f3cc79e5bf59f02fae63a37a404fb84729d6818195",
+        "cc88ae9b1e87d3c5641d743e05f3aeb398325b9dfb80221d51d9cfdcad17ebb4"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain invented spellings and disconnected clauses. The bird continuation asks about a bow after introducing a map and a maw, then answers bag without supporting facts."
+    },
+    {
+      "seed": 2026,
+      "arm": "selective-control",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "0dd9d3fb8e70b65bec162519d79b07ce6ba6b5113ffd7ae5face06554884bbfa",
+        "b1968334bc2f9084a68295a8e77543ecf9091105ba01dc8a2bc119c2191c5596"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain invented spellings and disconnected clauses. The bird continuation starts a question with a missing object and then a malformed answer before broken narrative text."
+    },
+    {
+      "seed": 31415,
+      "arm": "associative-control",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "cbcb07c65eb7b225e986b5b75b3289cba36ce3ea0dbb9a171a8a895fba47f12a",
+        "e8cdfe371bb0705531b8653bfccb081738a76e13469225837ee7228344da6a79"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain invented spellings and disconnected clauses. The bird continuation asks about a key after introducing only a bird, then gives an unsupported bag answer."
+    },
+    {
+      "seed": 31415,
+      "arm": "associative-teacher",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "24cd374e55a66d118155d9fea01208659704e0913c8b0f832053af1d0cf997fb",
+        "936f3762be65d02b0030483797755711143c9822800a9dd800f46b0d80cef000"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain invented spellings and disconnected clauses. The bird continuation asks about a tin after introducing only a bird, then gives an unsupported bag answer."
+    },
+    {
+      "seed": 31415,
+      "arm": "selective-control",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "3bff2ae524b2ec58627346873336697da6d36da31de136342dc6b9ede67e0cab",
+        "bb1a4bef8f65ed786eda2e45f8dda89d19766bcbad8c607aa654c561be358ce5"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain invented spellings and broken narrative clauses. The bird continuation mixes a malformed lesson request about an unintroduced pan into the story prompt."
+    },
+    {
+      "seed": 31415,
+      "arm": "selective-teacher",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "8b61266f8e95e9c182eded251110809b231737e49530a2bdd1c2b13ea8265cf5",
+        "c32db06ea177bbe724be166f0cb196ef09a86f0c23db6166f1c52fde9af03611"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain invented spellings and disconnected clauses. The bird continuation asks about a tag absent from its preceding generated facts, then repeats bag before broken narrative."
+    },
+    {
+      "seed": 31415,
+      "arm": "wide-selective-teacher",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "8eb69773ccc003770e285db284dee4706b8c55d85e072bf6074dab412e4ce291",
+        "651874783e34d46b57848f16c5fd4e96ed3fbb307e7ba0fc49c1a391e3039617"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain invented spellings and disconnected clauses. The bird continuation repeats malformed lesson questions and bag answers, including a key absent from its preceding facts."
+    },
+    {
+      "seed": 31415,
+      "arm": "wide-selective-control",
+      "online_updates": 190000,
+      "sample_file_sha256": [
+        "9be46de4220b854c0ff989674d6771a093d3e26b88c54e184955da910188a0fc",
+        "2f97a915e5478bec4e45c80e5f16fa9e43684bd8ff6cfa95fe8632d62328e017"
+      ],
+      "all_fixed_final_samples_read": true,
+      "sustained_coherent_continuations": 0,
+      "notes": "Both continuations contain invented spellings and broken narrative clauses. The bird continuation changes its requested object and repeats incomplete or unsupported lesson questions before entering narrative fragments."
+    }
+  ],
+  "study_comparison_sha256": "e9f4f33e267d2cf14e7eb4ebe1d9a39567807db7062515e665e85d3250c1c9d6",
+  "sample_identity_verified": true
+}

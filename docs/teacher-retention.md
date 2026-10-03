@@ -43,4 +43,34 @@ The [completed rehearsal audit](../reports/teacher-retention-smoke.json) verifie
 
 ## Observed timing condition during the full run
 
-Other desktop applications held GPU contexts during the full comparison. The first 1337/selective control segment took 96.83 seconds, compared with 45.62 seconds in the earlier study, while its complete 160,000-observation checkpoint matched byte for byte. Whole-device isolation is therefore not established. The study continues with the same fixed learning settings, branch order and endpoints; observed durations and ratios need this qualification and cannot establish intrinsic teacher overhead or a speedup. No other applications are stopped or reconfigured for this experiment.
+Other desktop applications held GPU contexts during the full comparison. The first 1337/selective control segment took 96.83 seconds, compared with 45.62 seconds in the earlier study, while its complete 160,000-observation checkpoint matched byte for byte. Whole-device isolation is therefore not established. The study continued with the same fixed learning settings, branch order and endpoints; observed durations and ratios need this qualification and cannot establish intrinsic teacher overhead or a speedup. No other applications were stopped or reconfigured for this experiment.
+
+## Completed comparison: partial retention gains, declared gate fails
+
+The full run completed **333 native commands, 18 branches and 54 checkpoint assessments**. Frozen-self guidance improves final complete binding accuracy in **eight of nine pairs**, but the declared setting **fails its acceptance rule**. Eight pairs satisfy the book-loss margin; seven satisfy all three requirements together. Every teacher branch improves narrative loss from its own parent, while predicting the new narrative book slightly worse than its matched ordinary control.
+
+| Complete development binding, mean of three seeds | Pre-narrative parent | Ordinary replay at 190,000 | Frozen-self guidance at 190,000 | Paired improvement |
+| --- | ---: | ---: | ---: | ---: |
+| Selective H512 | 71.06% | 14.81% | 25.93% | +11.11 percentage points |
+| Selective H588 | 78.94% | 12.73% | 16.90% | +4.17 percentage points |
+| Associative H512 | 99.77% | 53.24% | 65.05% | +11.81 percentage points |
+
+The two failed pairs matter. Associative seed 31415 retains **65.97%** with teaching versus **71.53%** with ordinary replay, a **5.56-point regression**. Selective H588 seed 1337 improves binding, but its narrative loss increases by **0.020597 nats/byte** relative to the control, exceeding the unchanged **0.02** margin. The remaining pairs pass this bounded engineering rule; their success does not remove either failure. All teacher branches still retain less binding skill than their own parents.
+
+Teacher guidance improves the earlier-reader loss in all nine pairs. Geography effects are mixed. Mean teacher-minus-control narrative losses are **+0.009325**, **+0.008717** and **+0.015438 nats/byte** for selective H512, selective H588 and associative H512 respectively. These are sampled reset-window losses on repeatedly used development books, not evidence of general conversation or lifelong retention.
+
+![All seeds, book tradeoffs and observed costs](../reports/teacher-retention-comparison.png)
+
+The [complete records](../reports/teacher-retention-language.json) and [summary](../reports/teacher-retention-summary.json) preserve every endpoint and fixed sample. The [qualitative review](../reports/teacher-retention-sample-review.json) reads and authenticates **all 36 final continuations**. They contain recognizable vocabulary mixed with broken clauses, invented spellings and repeated lesson patterns. None provides sustained coherent prose. This review is not blinded or a standardized language-quality benchmark.
+
+## Execution, exposure and numerical checks
+
+The [execution audit](../reports/teacher-retention-execution.json) passes. Every branch observes **7,677,365 new target-byte pairs**, replays **1,437,145 pairs** in 15,000 replay updates, and generates **11,520 live bytes** during the added 60,000 observations. Selected-source identities, replay descriptors, parent checkpoints and teacher bundles remain unchanged. All **18 ordinary endpoint checkpoints** match the earlier narrative study byte for byte. Final graph and ordinary generation agree exactly in the tested decode runs.
+
+Each teacher branch applies guidance during **11,226 replay updates** covering **954,073 target-byte pairs** from the three eligible earlier source groups. No new narrative window or generated speech is used as teacher-grounded evidence. The original full-buffer runtime used 43,547,648, 49,302,976 and 52,161,184 additional explicit GPU bytes for the three respective one-teacher shapes. Later storage optimizations require their own compatibility evidence; they are not part of these recorded training costs.
+
+Observed mean live-loop durations are **179.65 / 187.10 seconds** for selective H512, **189.53 / 193.07 seconds** for selective H588 and **384.25 / 416.09 seconds** for associative H512, each listed as ordinary / teacher. These include replay, speech, logs and saves. Shared desktop GPU use prevents interpreting the differences as isolated teaching overhead or a speedup; the same qualification applies to decode timings in the report.
+
+The [independent CPU check](../reports/teacher-retention-learned-oracle.json) covers four fixed development questions for each final model. All **72 greedy answers** agree. Seventeen models pass the original `3e-5` score tolerance. Seed 1337's wider selective ordinary control fails at **0.00620496**; it has the same complete checkpoint and error as the prior narrative study's [threshold-sensitive case](narrative-learning.md#numerical-limitation-and-diagnosis). The check returns an unsuccessful exit and retains the failure. This is not a full development CPU audit. The separate strict cold first-Adam-step objective failure also remains unchanged.
+
+Frozen-self teaching therefore has a measured but inconsistent retention benefit on this curriculum. It remains experimental at the declared setting. Reliable retention, coherent language, learning-capacity preservation, two-parent teaching benefits and improved descendants are still unresolved.
