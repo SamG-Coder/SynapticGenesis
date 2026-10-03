@@ -199,12 +199,16 @@ struct LiveResult {
     float teacher_penalty = 0;
     size_t teacher_pairs = 0;
 };
-// Optional diagnostics observe an actual source update before scheduled replay.
-// Implementations must keep learned parameters, live recurrence and policy intact.
+// Optional callbacks around a source update. Scoring must preserve learned and
+// recurrent state. An explicit replay override may select another stored window
+// within the uniformly chosen stage; default callbacks preserve ordinary replay.
 struct LiveSourceObserver {
     virtual ~LiveSourceObserver() = default;
     virtual void before_source(LiveEngine &, const LiveCorpus &, const State &, const Episode &) = 0;
     virtual void after_source(LiveEngine &, const LiveCorpus &, const State &, const Episode &) = 0;
+    virtual Episode choose_replay(const LiveCorpus &, const State &, const Episode &uniform) {
+        return uniform;
+    }
 };
 LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const std::string &prompt,
                      LiveSourceObserver *observer = nullptr) {
@@ -234,6 +238,24 @@ LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const
     size_t teacher_pairs = 0;
     if (memory.due()) {
         auto episode = memory.choose(current);
+        if (observer) {
+            auto selected = observer->choose_replay(data, s, episode);
+            if (selected.document != episode.document || selected.offset != episode.offset ||
+                selected.length != episode.length) {
+                require(memory.mode() == 3, "Replay override requires grouped observed memory");
+                StageReplayView stored(s);
+                require(stored.group_for(selected.document) == stored.group_for(episode.document),
+                        "Replay override must preserve uniformly selected stage");
+                bool found = false;
+                for (uint64_t i = 0; i < stored.count(); ++i) {
+                    auto old = stored.at(i);
+                    found |= old.document == selected.document && old.offset == selected.offset &&
+                             old.length == selected.length;
+                }
+                require(found, "Replay override is not a previously observed stored window");
+                episode = selected;
+            }
+        }
         ReplayMemory::validate_episode(episode, data, engine.root.T);
         size_t at = data.docs[size_t(episode.document)].first + size_t(episode.offset);
         replayed = size_t(episode.length);

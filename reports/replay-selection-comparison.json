@@ -1,0 +1,3249 @@
+{
+  "complete": true,
+  "protocol": {
+    "status": "declared_before_execution",
+    "bases": [
+      {
+        "seed": 1337,
+        "online_updates": 160000,
+        "checkpoint": "runs/teacher-retention-panel/1337-associative-control/checkpoint-160000.ckpt",
+        "sha256": "4bb143790c46419e81115b55024f90916f7bac95e6de302b6e4f94b2d97a7b67"
+      },
+      {
+        "seed": 2026,
+        "online_updates": 160000,
+        "checkpoint": "runs/teacher-retention-panel/2026-associative-control/checkpoint-160000.ckpt",
+        "sha256": "0e993c7783afdaebed388bbb12d27de99469caa28d9fab0925b8b1408039e56c"
+      },
+      {
+        "seed": 31415,
+        "online_updates": 160000,
+        "checkpoint": "runs/teacher-retention-panel/31415-associative-control/checkpoint-160000.ckpt",
+        "sha256": "105c7eec484d5d664702611ae36950436edb05b9f725031d8722cf7fe77d7727"
+      }
+    ],
+    "authenticated_inputs": {
+      "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\curriculum.sg": "fc9c152f1f9f37c4b080ddd02cf1888204fa203db7d080c60589261cc621fe03",
+      "data/training-selection.json": "8c87d539d90e54e722192870f985c61c4dc656e05ae9913ea83270602b96b9ae",
+      "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\edition-1.dat": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+      "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\edition-2.dat": "281033ec58dc79bfcdf79e340ea2cfce022755afc321a4859e0223d243d5541b",
+      "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\edition-3.dat": "ff05a8dc3d4de5c01c88a08057db99aeedf45572683556b7259b7a518f5daa42",
+      "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\edition-4.dat": "a80ea7496cec30a761bb5ace5a6d76dbe16a14f16e0d555e108a1ce392485d5f",
+      "runs/teacher-retention-panel/1337-associative-control/checkpoint-160000.ckpt": "4bb143790c46419e81115b55024f90916f7bac95e6de302b6e4f94b2d97a7b67",
+      "runs/teacher-retention-panel/2026-associative-control/checkpoint-160000.ckpt": "0e993c7783afdaebed388bbb12d27de99469caa28d9fab0925b8b1408039e56c",
+      "runs/teacher-retention-panel/31415-associative-control/checkpoint-160000.ckpt": "105c7eec484d5d664702611ae36950436edb05b9f725031d8722cf7fe77d7727",
+      "D:\\SynapticGenesis\\data\\prepared\\binding-diversity-v1\\manifest.json": "da77ab18f034d993059e2b71849791502bea15afa1a2b5a732a6d76d487d6215",
+      "D:\\SynapticGenesis\\data\\prepared\\stories-v1\\manifest.json": "36bea68901316f6a9cd1751bfadd41088c0355cc7d9dcdb4a6f66c86b2d59097",
+      "D:\\SynapticGenesis\\data\\prepared\\binding-diversity-v1\\development.sgprobe": "48f9c8cff84b39875da8349b74cfddf0a8c45e67a9e0e90c54688ff2547ca964",
+      "D:\\SynapticGenesis\\data\\prepared\\stories-v1\\13853.txt": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f",
+      "D:\\SynapticGenesis\\data\\prepared\\stories-v1\\12228.txt": "9f76e50d48b67cdefda8750df243f0825d38959a1288b7959490b736a57a3025",
+      "D:\\SynapticGenesis\\data\\prepared\\stories-v1\\11757.txt": "870e26df365758de353c2e42b074268183a0c5bb8460400c6793da59b3f51cbc",
+      "build\\synapticgenesis.exe": "5f2fa106fec9f43e0717b3227af060e7f286268a946da5e43b3e30143c23a734",
+      "build\\replay-selection-probe\\synaptic-replay-selection-probe.exe": "f66dd11b5432bbfe55f5567f41ffc42981ae96687f7fe8af972848c51676f83f"
+    },
+    "schedule": "D:\\SynapticGenesis\\runs\\teacher-retention-panel\\edition\\curriculum.sg",
+    "start": 160000,
+    "update_end": 164096,
+    "time_budget_seconds": 6,
+    "budgets": [
+      "updates",
+      "seconds"
+    ],
+    "modes": [
+      "none",
+      "uniform",
+      "interference"
+    ],
+    "candidate_seed": 42,
+    "candidate_policy": "Preview the real uniform stage/window choice; draw one different stored window of the same length from that stage using a separate observation-indexed RNG. Replace uniform only when the alternative has larger positive weighted loss increase.",
+    "checkpoint_policy": "Ordinary native state plus a checksummed .sgpriority policy sidecar; no promotion.",
+    "book_batches": 32,
+    "sample_bytes": 192,
+    "probe_sha256": {
+      "train.sgprobe": "ec14ab04fdd0c3d1b217176e9f63e7cb7986d603bc37804f37bcd0fd30b47a49",
+      "development.sgprobe": "48f9c8cff84b39875da8349b74cfddf0a8c45e67a9e0e90c54688ff2547ca964",
+      "test.sgprobe": "8e22637b133f3548ae654589a00d453bf462c1cfcd4bb685e8d162a1ecc0ae73",
+      "expanded-train-monitor.sgprobe": "6c28b3739cf650e3865f43557a8fb1927c55b52f0a78f6465780ddb93bd60aa5"
+    },
+    "source_sha256": {
+      "src/live.cuh": "ddc26f9b3d5345cb18058a6b1bffcab56084475defb0781bc907182759274dcc",
+      "experiments/replay_candidate_scoring.cuh": "ab50bbe50c957a555c8734c3893b56c2a5442c5da5116fb896258ad89a807545",
+      "experiments/replay_score_graph.cuh": "979e42ff6f293e11127e62a043f9fd26dd50a8599f36d052bb6ab4a1de61c2a6",
+      "experiments/replay_two_choice.cuh": "d64cf814901aa3a578ce8efd54f55103863df4661020a1da05c0d23553adc085",
+      "experiments/replay_selection_identity.cuh": "92b39c41ef740c815d44dfe16a98293c2758cfae9c93fc988200796135216983",
+      "experiments/replay_selection_probe.cu": "73b1f673f42ea4601c76cf7349191fa35802484f420dabc3c99a1b211fa34ffe",
+      "scripts/replay_selection_experiment.py": "e24f3d0144cf0126dd859d87d3bfa6d613d2c66a60dc5882c4dc238415e24f99",
+      "tests/replay_selection_probe.py": "f1c1431773162c713cbd796f040ac0b2d506f4548e996bb88baf70cb86aacdcc",
+      "tests/replay_selection_experiment.py": "80dc37f9b7a1ed0fe18c0aaff3b4477516efcb2d402e57c899018542177c3988"
+    },
+    "source_commit": "e77df99d596d781eb3b1123a35ab329e92c764fc",
+    "hardware": "NVIDIA GeForce RTX 5080, 616.64, 16303 MiB",
+    "primary": "Complete development binding-group accuracy, priority minus both uniform controls, for each seed and budget.",
+    "gate": "Priority must improve binding accuracy over both controls in all three seeds under each budget, lose no more than 0.02 nats/byte on each of three development books against either control, and not reduce binding accuracy from its ancestor. A pilot engineering gate, not general reliability.",
+    "timing": "Native loop only, including scoring/capture and scheduled speech. Excludes model/source load, final save and all assessments. Time arms stop after the first completed tick reaching six seconds.",
+    "limitations": "One run per seed/mode/budget. Repeated development material; no reserved tests or quality tuning. Immediate interference may not predict durable retention. Native threshold sensitivity persists.",
+    "generated_text_targets": false,
+    "reserved_tests_scored": false,
+    "other_gpu_contexts_active": true
+  },
+  "ancestors": [
+    {
+      "seed": 1337,
+      "state": {
+        "checkpoint_sha256": "4bb143790c46419e81115b55024f90916f7bac95e6de302b6e4f94b2d97a7b67",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160000,
+        "global_updates": 200000,
+        "observed_pairs": 13689827,
+        "generated_bytes": 30720,
+        "replay_updates": 40000,
+        "replay_pairs": 3527031,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13899,
+            "replay_pairs": 1778888
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12319,
+            "replay_pairs": 626519
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11887,
+            "replay_pairs": 879064
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30000,
+            "stored_windows": 256,
+            "replay_updates": 1895,
+            "replay_pairs": 242560
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 200000,
+          "loss_nats_per_byte": 2.222416,
+          "bits_per_byte": 3.206269,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 200000,
+          "loss_nats_per_byte": 1.870728,
+          "bits_per_byte": 2.698889,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 200000,
+          "loss_nats_per_byte": 1.615225,
+          "bits_per_byte": 2.330277,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "4a7e03795ade06fb6881d29169b98e6ad0c92ee8fb02380c8d9037bbe318e796",
+          "generated_latin1": "is in the bag.\nFinc the bun.\nAnswer: bag.\n\nAnd gew sheard.\n\nAnd Bancher was compting to me out again so her dead, and long to\nthe was flowing the matter would that is which he head not place.\n",
+          "generated_utf8_display": "is in the bag.\nFinc the bun.\nAnswer: bag.\n\nAnd gew sheard.\n\nAnd Bancher was compting to me out again so her dead, and long to\nthe was flowing the matter would that is which he head not place.\n"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "f2cbf715585e87f93a853595a55da8a15f5cad38f0df495cd43ead9b7f4e8b23",
+          "generated_latin1": "they rads of\nthe two for that was steal of yer bescome, and she unce as\ndrive of the branch he other, and to get and cretting to me cousily\nin a great the peach she seep and some to himself wa",
+          "generated_utf8_display": "they rads of\nthe two for that was steal of yer bescome, and she unce as\ndrive of the branch he other, and to get and cretting to me cousily\nin a great the peach she seep and some to himself wa"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "12115351000564622886",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.826388888889,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.826388888889,
+        "accuracy": 0.956597222222,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.956597222222,
+        "answer_loss_nats_per_byte": 0.0283950487178,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.5225376,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.9375,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.9375
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.975694444444,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.975694444444
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4670138888888889,
+        "predicted_last_location_fraction": 0.5329861111111112,
+        "changed_prediction_when_query_changes": 0.9131944444444444,
+        "changed_prediction_when_facts_swap": 0.9131944444444444,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 2026,
+      "state": {
+        "checkpoint_sha256": "0e993c7783afdaebed388bbb12d27de99469caa28d9fab0925b8b1408039e56c",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160000,
+        "global_updates": 200000,
+        "observed_pairs": 13689827,
+        "generated_bytes": 30720,
+        "replay_updates": 40000,
+        "replay_pairs": 3527031,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13899,
+            "replay_pairs": 1778888
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12319,
+            "replay_pairs": 626519
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11887,
+            "replay_pairs": 879064
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30000,
+            "stored_windows": 256,
+            "replay_updates": 1895,
+            "replay_pairs": 242560
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 200000,
+          "loss_nats_per_byte": 2.230247,
+          "bits_per_byte": 3.217566,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 200000,
+          "loss_nats_per_byte": 1.866117,
+          "bits_per_byte": 2.692237,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 200000,
+          "loss_nats_per_byte": 1.618631,
+          "bits_per_byte": 2.335191,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "a179de434e6c9354656cc1df87e215f6a48a4c6a5c7423a7a74ab16f6c1f570e",
+          "generated_latin1": "is an is in the bed.\nWhere is the pan?\nAnswer: bed.\n\nWhere is the rods ran about the boots side all, not them\nstarthant, and leave a gore but as a so her sall, and she all at all the waves to\n",
+          "generated_utf8_display": "is an is in the bed.\nWhere is the pan?\nAnswer: bed.\n\nWhere is the rods ran about the boots side all, not them\nstarthant, and leave a gore but as a so her sall, and she all at all the waves to\n"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "dac6a51e9a069b69ca6f10384c87c5715a39708694177161503862e8a20beffe",
+          "generated_latin1": "thow\ndown any the ?\n       Anst tens but ned what man like a good and obodd for the was,\nand and domtable to egg an cont the old side is ness at and hargently\nand the looked them in their toge",
+          "generated_utf8_display": "thow\ndown any the ?\n       Anst tens but ned what man like a good and obodd for the was,\nand and domtable to egg an cont the old side is ness at and hargently\nand the looked them in their toge"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "5070251947637022878",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.180555555556,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.180555555556,
+        "accuracy": 0.678819444444,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.678819444444,
+        "answer_loss_nats_per_byte": 0.362383719948,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.338932,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.59375,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.59375
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.763888888889,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.763888888889
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4635416666666667,
+        "predicted_last_location_fraction": 0.5364583333333334,
+        "changed_prediction_when_query_changes": 0.3854166666666667,
+        "changed_prediction_when_facts_swap": 0.4270833333333333,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 31415,
+      "state": {
+        "checkpoint_sha256": "105c7eec484d5d664702611ae36950436edb05b9f725031d8722cf7fe77d7727",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 160000,
+        "global_updates": 200000,
+        "observed_pairs": 13689827,
+        "generated_bytes": 30720,
+        "replay_updates": 40000,
+        "replay_pairs": 3527031,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13899,
+            "replay_pairs": 1778888
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12319,
+            "replay_pairs": 626519
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11887,
+            "replay_pairs": 879064
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 30000,
+            "stored_windows": 256,
+            "replay_updates": 1895,
+            "replay_pairs": 242560
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 200000,
+          "loss_nats_per_byte": 2.219357,
+          "bits_per_byte": 3.201855,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 200000,
+          "loss_nats_per_byte": 1.867728,
+          "bits_per_byte": 2.694561,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 200000,
+          "loss_nats_per_byte": 1.605648,
+          "bits_per_byte": 2.316461,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "178513cf33c53ec6895177c4d476cd340e24241b44b75f4634fe64da9a548605",
+          "generated_latin1": "is the poor.\nWhere is the rod?\nAnswer: car.\n\nBut Miss go her cardled the moor.\n\n\"Then it was so had give of eyes, and many is all alderry scarcess, thought wise\nand a give all the was butter. ",
+          "generated_utf8_display": "is the poor.\nWhere is the rod?\nAnswer: car.\n\nBut Miss go her cardled the moor.\n\n\"Then it was so had give of eyes, and many is all alderry scarcess, thought wise\nand a give all the was butter. "
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "3b2f023982731d22087ef6707b43f39c82d83ff2030befdd986112b6e7379f96",
+          "generated_latin1": "than may of it to Tom\nmany some wal real dinning let it of the by the fell.\nFor he was very for some did thows were rosely along his held pockets of as for rich\nboy and she together, and they ",
+          "generated_utf8_display": "than may of it to Tom\nmany some wal real dinning let it of the by the fell.\nFor he was very for some did thows were rosely along his held pockets of as for rich\nboy and she together, and they "
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "1370880374718791260",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.75,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.75,
+        "accuracy": 0.930555555556,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.930555555556,
+        "answer_loss_nats_per_byte": 0.0617439499668,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.391591,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.878472222222,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.878472222222
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.982638888889,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.982638888889
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4652777777777778,
+        "predicted_last_location_fraction": 0.5347222222222222,
+        "changed_prediction_when_query_changes": 0.8680555555555556,
+        "changed_prediction_when_facts_swap": 0.8611111111111112,
+        "sensitivity_is_not_accuracy": true
+      }
+    }
+  ],
+  "runs": [
+    {
+      "seed": 1337,
+      "budget": "updates",
+      "mode": "none",
+      "directory": "1337-updates-none",
+      "session": {
+        "complete": true,
+        "mode": "none",
+        "start": 160000,
+        "end": 164096,
+        "requested_end": 164096,
+        "seconds_budget": 0,
+        "live_seconds": 14.1552146,
+        "source_pairs": 524034,
+        "replay_pairs": 97954,
+        "comparisons": 0,
+        "overrides": 0,
+        "singleton_pools": 0,
+        "score_forward_calls": 0,
+        "scored_pairs": 0,
+        "scoring_seconds": 0,
+        "setup_seconds": 0,
+        "owned_scoring_bytes": 0,
+        "views": 0,
+        "tick_p95_ms": 5.680159457539596,
+        "max_tick_ms": 48.9565,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "d44858a46aa53ca6e610281626bcb98f8dfc3d882f50a9b35acd275f75a1ab25",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 164096,
+        "global_updates": 205120,
+        "observed_pairs": 14213861,
+        "generated_bytes": 31488,
+        "replay_updates": 41024,
+        "replay_pairs": 3624985,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 14156,
+            "replay_pairs": 1811784
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12561,
+            "replay_pairs": 638849
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 12155,
+            "replay_pairs": 898896
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 34096,
+            "stored_windows": 256,
+            "replay_updates": 2152,
+            "replay_pairs": 275456
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 205120,
+          "loss_nats_per_byte": 2.226629,
+          "bits_per_byte": 3.212347,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.854633,
+          "bits_per_byte": 2.675669,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.618335,
+          "bits_per_byte": 2.334763,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "0c96b29be27f8630a3da796bd38059ee1fb46f9095d2f29f0e9096175f1ffb0e",
+          "generated_latin1": "is in the bag.\nFinad the map.\nAnswer: bag.\n\nAnd the tire panday know that a did not like a flowg. \u00e2\u0080\u009cRobe\naway, and rassed that the Bag. MIAke he was liked no any the gave the\nmeas bufffore fo",
+          "generated_utf8_display": "is in the bag.\nFinad the map.\nAnswer: bag.\n\nAnd the tire panday know that a did not like a flowg. \u201cRobe\naway, and rassed that the Bag. MIAke he was liked no any the gave the\nmeas bufffore fo"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "f1fe195f18562927d8b9cb5fef6d02a783bcb4e34be49dc55158aa945bb51c46",
+          "generated_latin1": "they\nhad was to meing to the evence, and budly down that all then\nthe his and the procky to be hide buffalo, shout still the very could.\n\nSo mean they shoutly lives their life a was and and me",
+          "generated_utf8_display": "they\nhad was to meing to the evence, and budly down that all then\nthe his and the procky to be hide buffalo, shout still the very could.\n\nSo mean they shoutly lives their life a was and and me"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "2104231833056719048",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.763888888889,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.763888888889,
+        "accuracy": 0.935763888889,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.935763888889,
+        "answer_loss_nats_per_byte": 0.0393636644262,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.2272223,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.878472222222,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.878472222222
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.993055555556,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.993055555556
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4809027777777778,
+        "predicted_last_location_fraction": 0.5190972222222222,
+        "changed_prediction_when_query_changes": 0.8715277777777778,
+        "changed_prediction_when_facts_swap": 0.8715277777777778,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 1337,
+      "budget": "updates",
+      "mode": "uniform",
+      "directory": "1337-updates-uniform",
+      "session": {
+        "complete": true,
+        "mode": "uniform",
+        "start": 160000,
+        "end": 164096,
+        "requested_end": 164096,
+        "seconds_budget": 0,
+        "live_seconds": 16.4738373,
+        "source_pairs": 524034,
+        "replay_pairs": 97954,
+        "comparisons": 1024,
+        "overrides": 0,
+        "singleton_pools": 0,
+        "score_forward_calls": 4096,
+        "scored_pairs": 391816,
+        "scoring_seconds": 2.5698571000000023,
+        "setup_seconds": 0.059723000000001,
+        "owned_scoring_bytes": 116581224,
+        "views": 5,
+        "tick_p95_ms": 8.572294596377112,
+        "max_tick_ms": 48.512600000000006,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "d44858a46aa53ca6e610281626bcb98f8dfc3d882f50a9b35acd275f75a1ab25",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 164096,
+        "global_updates": 205120,
+        "observed_pairs": 14213861,
+        "generated_bytes": 31488,
+        "replay_updates": 41024,
+        "replay_pairs": 3624985,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 14156,
+            "replay_pairs": 1811784
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12561,
+            "replay_pairs": 638849
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 12155,
+            "replay_pairs": 898896
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 34096,
+            "stored_windows": 256,
+            "replay_updates": 2152,
+            "replay_pairs": 275456
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 205120,
+          "loss_nats_per_byte": 2.226629,
+          "bits_per_byte": 3.212347,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.854633,
+          "bits_per_byte": 2.675669,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.618335,
+          "bits_per_byte": 2.334763,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "0c96b29be27f8630a3da796bd38059ee1fb46f9095d2f29f0e9096175f1ffb0e",
+          "generated_latin1": "is in the bag.\nFinad the map.\nAnswer: bag.\n\nAnd the tire panday know that a did not like a flowg. \u00e2\u0080\u009cRobe\naway, and rassed that the Bag. MIAke he was liked no any the gave the\nmeas bufffore fo",
+          "generated_utf8_display": "is in the bag.\nFinad the map.\nAnswer: bag.\n\nAnd the tire panday know that a did not like a flowg. \u201cRobe\naway, and rassed that the Bag. MIAke he was liked no any the gave the\nmeas bufffore fo"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "f1fe195f18562927d8b9cb5fef6d02a783bcb4e34be49dc55158aa945bb51c46",
+          "generated_latin1": "they\nhad was to meing to the evence, and budly down that all then\nthe his and the procky to be hide buffalo, shout still the very could.\n\nSo mean they shoutly lives their life a was and and me",
+          "generated_utf8_display": "they\nhad was to meing to the evence, and budly down that all then\nthe his and the procky to be hide buffalo, shout still the very could.\n\nSo mean they shoutly lives their life a was and and me"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "2104231833056719048",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.763888888889,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.763888888889,
+        "accuracy": 0.935763888889,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.935763888889,
+        "answer_loss_nats_per_byte": 0.0393636644262,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.2704744,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.878472222222,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.878472222222
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.993055555556,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.993055555556
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4809027777777778,
+        "predicted_last_location_fraction": 0.5190972222222222,
+        "changed_prediction_when_query_changes": 0.8715277777777778,
+        "changed_prediction_when_facts_swap": 0.8715277777777778,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 1337,
+      "budget": "updates",
+      "mode": "interference",
+      "directory": "1337-updates-interference",
+      "session": {
+        "complete": true,
+        "mode": "interference",
+        "start": 160000,
+        "end": 164096,
+        "requested_end": 164096,
+        "seconds_budget": 0,
+        "live_seconds": 16.4083899,
+        "source_pairs": 524034,
+        "replay_pairs": 97954,
+        "comparisons": 1024,
+        "overrides": 353,
+        "singleton_pools": 0,
+        "score_forward_calls": 4096,
+        "scored_pairs": 391816,
+        "scoring_seconds": 2.5695154000000002,
+        "setup_seconds": 0.05647300000000091,
+        "owned_scoring_bytes": 116581224,
+        "views": 5,
+        "tick_p95_ms": 8.572294596377112,
+        "max_tick_ms": 48.497400000000006,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "5ef7a01290a8b08293ead04c1f5b569b1ff751ed46e4b11479ef0c913ac5044e",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 164096,
+        "global_updates": 205120,
+        "observed_pairs": 14213861,
+        "generated_bytes": 31488,
+        "replay_updates": 41024,
+        "replay_pairs": 3624985,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 14156,
+            "replay_pairs": 1811784
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12561,
+            "replay_pairs": 638849
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 12155,
+            "replay_pairs": 898896
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 34096,
+            "stored_windows": 256,
+            "replay_updates": 2152,
+            "replay_pairs": 275456
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 205120,
+          "loss_nats_per_byte": 2.243456,
+          "bits_per_byte": 3.236622,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.856392,
+          "bits_per_byte": 2.678207,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.61573,
+          "bits_per_byte": 2.331006,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "90fabd6189552508d7ee69c197752ddc214fdce0e6026111ae5ec101d02519ad",
+          "generated_latin1": "is the bow. Where is the bag.\nFind the bows.\nAnd far the for their bed raving.\n\nAnd a where for or waited them here, the back, and the Watch and left landerward\nfor the money and went or the w",
+          "generated_utf8_display": "is the bow. Where is the bag.\nFind the bows.\nAnd far the for their bed raving.\n\nAnd a where for or waited them here, the back, and the Watch and left landerward\nfor the money and went or the w"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "ec4e82b523dafc885e1ff2d14bf9db60b6d64d1e9d27728fe834b8a28169cba1",
+          "generated_latin1": "them, and\nmea to two say the down, we dong wall, rounding and three allowed\nunders and rather and armpands mentles on shouted, there wondering on\nthe evener. He last a worted of the tress weet",
+          "generated_utf8_display": "them, and\nmea to two say the down, we dong wall, rounding and three allowed\nunders and rather and armpands mentles on shouted, there wondering on\nthe evener. He last a worted of the tress weet"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "2407538324867554156",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.5625,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.5625,
+        "accuracy": 0.868055555556,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.866319444444,
+        "answer_loss_nats_per_byte": 0.0795008858097,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.3228726,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.805555555556,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.802083333333
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.930555555556,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.930555555556
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4583333333333333,
+        "predicted_last_location_fraction": 0.5416666666666666,
+        "changed_prediction_when_query_changes": 0.7361111111111112,
+        "changed_prediction_when_facts_swap": 0.75,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 1337,
+      "budget": "seconds",
+      "mode": "uniform",
+      "directory": "1337-seconds-uniform",
+      "session": {
+        "complete": true,
+        "mode": "uniform",
+        "start": 160000,
+        "end": 161452,
+        "requested_end": 164096,
+        "seconds_budget": 6,
+        "live_seconds": 6.0033212,
+        "source_pairs": 185752,
+        "replay_pairs": 34856,
+        "comparisons": 363,
+        "overrides": 0,
+        "singleton_pools": 0,
+        "score_forward_calls": 1452,
+        "scored_pairs": 139424,
+        "scoring_seconds": 0.9234863999999994,
+        "setup_seconds": 0.03811410000000026,
+        "owned_scoring_bytes": 116581224,
+        "views": 5,
+        "tick_p95_ms": 8.760003405460862,
+        "max_tick_ms": 48.1754,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "87b4314d80f8ea44abed1a05b7b2cc486e8f1bc418d48e29455ad953c95beb7e",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 161452,
+        "global_updates": 201815,
+        "observed_pairs": 13875579,
+        "generated_bytes": 30912,
+        "replay_updates": 40363,
+        "replay_pairs": 3561887,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13984,
+            "replay_pairs": 1789768
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12399,
+            "replay_pairs": 630587
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11988,
+            "replay_pairs": 886556
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 31452,
+            "stored_windows": 256,
+            "replay_updates": 1992,
+            "replay_pairs": 254976
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 201815,
+          "loss_nats_per_byte": 2.30915,
+          "bits_per_byte": 3.3314,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 201815,
+          "loss_nats_per_byte": 1.897065,
+          "bits_per_byte": 2.736887,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 201815,
+          "loss_nats_per_byte": 1.616071,
+          "bits_per_byte": 2.331498,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "668d801c6ebc4f7303b507464cbc9f0ca2501dbf0a2a25f61f627e044f3946d5",
+          "generated_latin1": "is in the bag. The gin is in the car.\nFind the tin.\nAnswer: car.\n\nAnd so the Wings the all back all suppose,\n\n\"Cous,\" the Lion, and her, the came to day was not spicked the\nGind was and lookin",
+          "generated_utf8_display": "is in the bag. The gin is in the car.\nFind the tin.\nAnswer: car.\n\nAnd so the Wings the all back all suppose,\n\n\"Cous,\" the Lion, and her, the came to day was not spicked the\nGind was and lookin"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "7e857dbfd5113d7f90ff2cf359c6089f33dea0ba24502a0d610105a962e9493f",
+          "generated_latin1": "to every mand the yellow were on much breatte,\ncollaing her and just this pleast with set through the\nWingermalles said with ever mind,\n\n\"Because the ring us pries and in your saying at the Gr",
+          "generated_utf8_display": "to every mand the yellow were on much breatte,\ncollaing her and just this pleast with set through the\nWingermalles said with ever mind,\n\n\"Because the ring us pries and in your saying at the Gr"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "15285897093274256577",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.715277777778,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.715277777778,
+        "accuracy": 0.920138888889,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.920138888889,
+        "answer_loss_nats_per_byte": 0.0685606602476,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.3061867,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.881944444444,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.881944444444
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.958333333333,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.958333333333
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4479166666666667,
+        "predicted_last_location_fraction": 0.5520833333333334,
+        "changed_prediction_when_query_changes": 0.8402777777777778,
+        "changed_prediction_when_facts_swap": 0.8402777777777778,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 1337,
+      "budget": "seconds",
+      "mode": "interference",
+      "directory": "1337-seconds-interference",
+      "session": {
+        "complete": true,
+        "mode": "interference",
+        "start": 160000,
+        "end": 161465,
+        "requested_end": 164096,
+        "seconds_budget": 6,
+        "live_seconds": 6.0005536,
+        "source_pairs": 187416,
+        "replay_pairs": 35030,
+        "comparisons": 366,
+        "overrides": 133,
+        "singleton_pools": 0,
+        "score_forward_calls": 1464,
+        "scored_pairs": 140120,
+        "scoring_seconds": 0.9312977000000003,
+        "setup_seconds": 0.03823910000000021,
+        "owned_scoring_bytes": 116581224,
+        "views": 5,
+        "tick_p95_ms": 8.572294596377112,
+        "max_tick_ms": 48.971399999999996,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "c1b1a8fc300fd596130654de5a52fc01120790f4e2531b81b61a865037a62ee1",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 161465,
+        "global_updates": 201831,
+        "observed_pairs": 13877243,
+        "generated_bytes": 30912,
+        "replay_updates": 40366,
+        "replay_pairs": 3562061,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13984,
+            "replay_pairs": 1789768
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12401,
+            "replay_pairs": 630685
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11989,
+            "replay_pairs": 886632
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 31465,
+            "stored_windows": 256,
+            "replay_updates": 1992,
+            "replay_pairs": 254976
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 201831,
+          "loss_nats_per_byte": 2.291969,
+          "bits_per_byte": 3.306612,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 201831,
+          "loss_nats_per_byte": 1.898473,
+          "bits_per_byte": 2.738918,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 201831,
+          "loss_nats_per_byte": 1.621853,
+          "bits_per_byte": 2.33984,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "8cf83fdc73cc02dfe73f891dbcf40406ec9f0b39c395869f891014b7353aee4f",
+          "generated_latin1": "is in the box.\nWhee is the tag?\nAnswer: box.\n\nAllow her: bed.\n\nAmpaid our of the little, said the Chad is the Lion Dorokey,\nlooking his took at the Wicked had be and brang at the posing,\nand t",
+          "generated_utf8_display": "is in the box.\nWhee is the tag?\nAnswer: box.\n\nAllow her: bed.\n\nAmpaid our of the little, said the Chad is the Lion Dorokey,\nlooking his took at the Wicked had be and brang at the posing,\nand t"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "0750ebd0ea4c9971f5c1a61dc40fc08e3aa7176507538c7e97ebf189a792057d",
+          "generated_latin1": "to eyes to the way-cat the\nmind to as little him mind not the baway to expece. The Winged to\ncheerful, and destopped him the not her.\n\n!\"limseled Dorothy, wis that was should should not her li",
+          "generated_utf8_display": "to eyes to the way-cat the\nmind to as little him mind not the baway to expece. The Winged to\ncheerful, and destopped him the not her.\n\n!\"limseled Dorothy, wis that was should should not her li"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "1299367405171520936",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.770833333333,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.770833333333,
+        "accuracy": 0.939236111111,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.939236111111,
+        "answer_loss_nats_per_byte": 0.0446705162063,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.4961197,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.892361111111,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.892361111111
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.986111111111,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.986111111111
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.484375,
+        "predicted_last_location_fraction": 0.515625,
+        "changed_prediction_when_query_changes": 0.8784722222222222,
+        "changed_prediction_when_facts_swap": 0.8923611111111112,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 1337,
+      "budget": "seconds",
+      "mode": "none",
+      "directory": "1337-seconds-none",
+      "session": {
+        "complete": true,
+        "mode": "none",
+        "start": 160000,
+        "end": 161732,
+        "requested_end": 164096,
+        "seconds_budget": 6,
+        "live_seconds": 6.0006806,
+        "source_pairs": 221592,
+        "replay_pairs": 41264,
+        "comparisons": 0,
+        "overrides": 0,
+        "singleton_pools": 0,
+        "score_forward_calls": 0,
+        "scored_pairs": 0,
+        "scoring_seconds": 0,
+        "setup_seconds": 0,
+        "owned_scoring_bytes": 0,
+        "views": 0,
+        "tick_p95_ms": 5.680159457539596,
+        "max_tick_ms": 48.3365,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "65c3db4ee87e770ad676496e0a8e1c1d406d795048db4b10e7542e3aee419b44",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 161732,
+        "global_updates": 202165,
+        "observed_pairs": 13911419,
+        "generated_bytes": 31008,
+        "replay_updates": 40433,
+        "replay_pairs": 3568295,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13999,
+            "replay_pairs": 1791688
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12419,
+            "replay_pairs": 631611
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 12007,
+            "replay_pairs": 887972
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 31732,
+            "stored_windows": 256,
+            "replay_updates": 2008,
+            "replay_pairs": 257024
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 202165,
+          "loss_nats_per_byte": 2.288573,
+          "bits_per_byte": 3.301713,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 202165,
+          "loss_nats_per_byte": 1.892311,
+          "bits_per_byte": 2.730028,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 202165,
+          "loss_nats_per_byte": 1.617524,
+          "bits_per_byte": 2.333594,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "4f3b1a81a25eab5ab26a0737808c75fdcbdf0e73c0280d776a39245a68014dc1",
+          "generated_latin1": "is in the bag.\nFins the tin.\nAnswer: bag.\n\nAnd his and leave then she tink away.\n\n\"Are live he was better to crave rind, and Dorothy winde,\n\n\"I shall are stuck as they had not to go the\ncourry",
+          "generated_utf8_display": "is in the bag.\nFins the tin.\nAnswer: bag.\n\nAnd his and leave then she tink away.\n\n\"Are live he was better to crave rind, and Dorothy winde,\n\n\"I shall are stuck as they had not to go the\ncourry"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "d54358340d91658d6374e3e0689c39b03f5d8e16f98022da43e8cda1f88a8eba",
+          "generated_latin1": "to\nKal as he she cinged the courard heart, if the\nis ire greatly; but we said the greent to all and is they\nradiface.\n\n\"And how saved is about was to reme?\" he could sorry.\n\n\"This surels and g",
+          "generated_utf8_display": "to\nKal as he she cinged the courard heart, if the\nis ire greatly; but we said the greent to all and is they\nradiface.\n\n\"And how saved is about was to reme?\" he could sorry.\n\n\"This surels and g"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "14240345182887325984",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.819444444444,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.819444444444,
+        "accuracy": 0.949652777778,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.949652777778,
+        "answer_loss_nats_per_byte": 0.0321361290084,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.4119972,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.902777777778,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.902777777778
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.996527777778,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.996527777778
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4670138888888889,
+        "predicted_last_location_fraction": 0.5329861111111112,
+        "changed_prediction_when_query_changes": 0.8993055555555556,
+        "changed_prediction_when_facts_swap": 0.9201388888888888,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 2026,
+      "budget": "updates",
+      "mode": "uniform",
+      "directory": "2026-updates-uniform",
+      "session": {
+        "complete": true,
+        "mode": "uniform",
+        "start": 160000,
+        "end": 164096,
+        "requested_end": 164096,
+        "seconds_budget": 0,
+        "live_seconds": 16.6977146,
+        "source_pairs": 524034,
+        "replay_pairs": 97954,
+        "comparisons": 1024,
+        "overrides": 0,
+        "singleton_pools": 0,
+        "score_forward_calls": 4096,
+        "scored_pairs": 391816,
+        "scoring_seconds": 2.604208800000002,
+        "setup_seconds": 0.05957980000000108,
+        "owned_scoring_bytes": 116581224,
+        "views": 5,
+        "tick_p95_ms": 8.760003405460862,
+        "max_tick_ms": 48.143499999999996,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "00c339e16bf916514ef423bd2f8bbb97539b325e5a2a0044b26fe4b8826d3f63",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 164096,
+        "global_updates": 205120,
+        "observed_pairs": 14213861,
+        "generated_bytes": 31488,
+        "replay_updates": 41024,
+        "replay_pairs": 3624985,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 14156,
+            "replay_pairs": 1811784
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12561,
+            "replay_pairs": 638849
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 12155,
+            "replay_pairs": 898896
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 34096,
+            "stored_windows": 256,
+            "replay_updates": 2152,
+            "replay_pairs": 275456
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 205120,
+          "loss_nats_per_byte": 2.238917,
+          "bits_per_byte": 3.230074,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.855396,
+          "bits_per_byte": 2.676771,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.620762,
+          "bits_per_byte": 2.338266,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "612f2fd10a2dee018c3e7d4350622392b6839c751b08825cd3e5fb61ec014c05",
+          "generated_latin1": "is in the bag.\nWhee is the bug?\nAnswer: bag.\nAnswer: bag.\n\nAnswer: bag.\n\nAls of the pot.\n\nAllas frome, and rupped her people for brighty breath and again, at\nhe made saw the string soment beli",
+          "generated_utf8_display": "is in the bag.\nWhee is the bug?\nAnswer: bag.\nAnswer: bag.\n\nAnswer: bag.\n\nAls of the pot.\n\nAllas frome, and rupped her people for brighty breath and again, at\nhe made saw the string soment beli"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "42ac4046055fd79e59c74d8d9e923a326db51d10491a7a84a2739640d190cd41",
+          "generated_latin1": "away,\nand while wepent out all that famers unfooth, and I am sunb a mand them of\nthe soper to them indeers.\n\nSo her old no the storn, bow body better for hee own, and I was only and\nsayon or t",
+          "generated_utf8_display": "away,\nand while wepent out all that famers unfooth, and I am sunb a mand them of\nthe soper to them indeers.\n\nSo her old no the storn, bow body better for hee own, and I was only and\nsayon or t"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "8040193502516899235",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.159722222222,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.159722222222,
+        "accuracy": 0.685763888889,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.685763888889,
+        "answer_loss_nats_per_byte": 0.247175662468,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.344375,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.614583333333,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.614583333333
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.756944444444,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.756944444444
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.484375,
+        "predicted_last_location_fraction": 0.515625,
+        "changed_prediction_when_query_changes": 0.3923611111111111,
+        "changed_prediction_when_facts_swap": 0.4479166666666667,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 2026,
+      "budget": "updates",
+      "mode": "interference",
+      "directory": "2026-updates-interference",
+      "session": {
+        "complete": true,
+        "mode": "interference",
+        "start": 160000,
+        "end": 164096,
+        "requested_end": 164096,
+        "seconds_budget": 0,
+        "live_seconds": 17.0514577,
+        "source_pairs": 524034,
+        "replay_pairs": 97954,
+        "comparisons": 1024,
+        "overrides": 379,
+        "singleton_pools": 0,
+        "score_forward_calls": 4096,
+        "scored_pairs": 391816,
+        "scoring_seconds": 2.636068599999995,
+        "setup_seconds": 0.06455140000000124,
+        "owned_scoring_bytes": 116581224,
+        "views": 5,
+        "tick_p95_ms": 8.951822502240809,
+        "max_tick_ms": 48.807700000000004,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "703e5fb3a43740b67fc88c4ef55dc52d153ee7ba92cd0702bb361f861ac30153",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 164096,
+        "global_updates": 205120,
+        "observed_pairs": 14213861,
+        "generated_bytes": 31488,
+        "replay_updates": 41024,
+        "replay_pairs": 3624985,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 14156,
+            "replay_pairs": 1811784
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12561,
+            "replay_pairs": 638849
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 12155,
+            "replay_pairs": 898896
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 34096,
+            "stored_windows": 256,
+            "replay_updates": 2152,
+            "replay_pairs": 275456
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 205120,
+          "loss_nats_per_byte": 2.251321,
+          "bits_per_byte": 3.247969,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.854299,
+          "bits_per_byte": 2.675188,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.619117,
+          "bits_per_byte": 2.335892,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "90c631c45b166cac543a8a8771bd00bec456dede35edfc6765384d6343261627",
+          "generated_latin1": "is buid is in the road.\nFind the garve he bout.\nAnswer beside toger her can in the both.\n\nAnswer: bag.\n\nForot the bers.\n\nAnd  bank he put affar a master, thou herd the fall in the bull\neas whe",
+          "generated_utf8_display": "is buid is in the road.\nFind the garve he bout.\nAnswer beside toger her can in the both.\n\nAnswer: bag.\n\nForot the bers.\n\nAnd  bank he put affar a master, thou herd the fall in the bull\neas whe"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "1a02074b9fb87bdbe7fb6d121feb13396d1448468ccf0a5393d0cfc9f0c981aa",
+          "generated_latin1": "thee found to the\n\nberes of must does sin their swon as changer kind to sen far the line of\nout to am once up. A knowell on crace, and every stared in the\ncreat down the brack, for Mowgers a s",
+          "generated_utf8_display": "thee found to the\n\nberes of must does sin their swon as changer kind to sen far the line of\nout to am once up. A knowell on crace, and every stared in the\ncreat down the brack, for Mowgers a s"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "13660264212320989762",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.166666666667,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.166666666667,
+        "accuracy": 0.663194444444,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.663194444444,
+        "answer_loss_nats_per_byte": 0.349394201198,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.3609982,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.576388888889,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.576388888889
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.75,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.75
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.5104166666666666,
+        "predicted_last_location_fraction": 0.4895833333333333,
+        "changed_prediction_when_query_changes": 0.3611111111111111,
+        "changed_prediction_when_facts_swap": 0.3958333333333333,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 2026,
+      "budget": "updates",
+      "mode": "none",
+      "directory": "2026-updates-none",
+      "session": {
+        "complete": true,
+        "mode": "none",
+        "start": 160000,
+        "end": 164096,
+        "requested_end": 164096,
+        "seconds_budget": 0,
+        "live_seconds": 14.1495779,
+        "source_pairs": 524034,
+        "replay_pairs": 97954,
+        "comparisons": 0,
+        "overrides": 0,
+        "singleton_pools": 0,
+        "score_forward_calls": 0,
+        "scored_pairs": 0,
+        "scoring_seconds": 0,
+        "setup_seconds": 0,
+        "owned_scoring_bytes": 0,
+        "views": 0,
+        "tick_p95_ms": 5.558445353351475,
+        "max_tick_ms": 48.626200000000004,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "00c339e16bf916514ef423bd2f8bbb97539b325e5a2a0044b26fe4b8826d3f63",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 164096,
+        "global_updates": 205120,
+        "observed_pairs": 14213861,
+        "generated_bytes": 31488,
+        "replay_updates": 41024,
+        "replay_pairs": 3624985,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 14156,
+            "replay_pairs": 1811784
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12561,
+            "replay_pairs": 638849
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 12155,
+            "replay_pairs": 898896
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 34096,
+            "stored_windows": 256,
+            "replay_updates": 2152,
+            "replay_pairs": 275456
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 205120,
+          "loss_nats_per_byte": 2.238917,
+          "bits_per_byte": 3.230074,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.855396,
+          "bits_per_byte": 2.676771,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.620762,
+          "bits_per_byte": 2.338266,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "612f2fd10a2dee018c3e7d4350622392b6839c751b08825cd3e5fb61ec014c05",
+          "generated_latin1": "is in the bag.\nWhee is the bug?\nAnswer: bag.\nAnswer: bag.\n\nAnswer: bag.\n\nAls of the pot.\n\nAllas frome, and rupped her people for brighty breath and again, at\nhe made saw the string soment beli",
+          "generated_utf8_display": "is in the bag.\nWhee is the bug?\nAnswer: bag.\nAnswer: bag.\n\nAnswer: bag.\n\nAls of the pot.\n\nAllas frome, and rupped her people for brighty breath and again, at\nhe made saw the string soment beli"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "42ac4046055fd79e59c74d8d9e923a326db51d10491a7a84a2739640d190cd41",
+          "generated_latin1": "away,\nand while wepent out all that famers unfooth, and I am sunb a mand them of\nthe soper to them indeers.\n\nSo her old no the storn, bow body better for hee own, and I was only and\nsayon or t",
+          "generated_utf8_display": "away,\nand while wepent out all that famers unfooth, and I am sunb a mand them of\nthe soper to them indeers.\n\nSo her old no the storn, bow body better for hee own, and I was only and\nsayon or t"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "8040193502516899235",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.159722222222,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.159722222222,
+        "accuracy": 0.685763888889,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.685763888889,
+        "answer_loss_nats_per_byte": 0.247175662468,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.3496067,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.614583333333,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.614583333333
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.756944444444,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.756944444444
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.484375,
+        "predicted_last_location_fraction": 0.515625,
+        "changed_prediction_when_query_changes": 0.3923611111111111,
+        "changed_prediction_when_facts_swap": 0.4479166666666667,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 2026,
+      "budget": "seconds",
+      "mode": "interference",
+      "directory": "2026-seconds-interference",
+      "session": {
+        "complete": true,
+        "mode": "interference",
+        "start": 160000,
+        "end": 161435,
+        "requested_end": 164096,
+        "seconds_budget": 6,
+        "live_seconds": 6.0005415,
+        "source_pairs": 183576,
+        "replay_pairs": 34347,
+        "comparisons": 358,
+        "overrides": 132,
+        "singleton_pools": 0,
+        "score_forward_calls": 1432,
+        "scored_pairs": 137388,
+        "scoring_seconds": 0.9243652000000006,
+        "setup_seconds": 0.03908260000000035,
+        "owned_scoring_bytes": 116581224,
+        "views": 5,
+        "tick_p95_ms": 8.951822502240809,
+        "max_tick_ms": 49.5777,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "fd7583408ad1283a1f2afb6ed458d119771ff2793f6748d9d71ee0e5c3f2c144",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 161435,
+        "global_updates": 201793,
+        "observed_pairs": 13873403,
+        "generated_bytes": 30912,
+        "replay_updates": 40358,
+        "replay_pairs": 3561378,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13982,
+            "replay_pairs": 1789512
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12398,
+            "replay_pairs": 630538
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11987,
+            "replay_pairs": 886480
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 31435,
+            "stored_windows": 256,
+            "replay_updates": 1991,
+            "replay_pairs": 254848
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 201793,
+          "loss_nats_per_byte": 2.286872,
+          "bits_per_byte": 3.299259,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 201793,
+          "loss_nats_per_byte": 1.88291,
+          "bits_per_byte": 2.716465,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 201793,
+          "loss_nats_per_byte": 1.612908,
+          "bits_per_byte": 2.326935,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "072c0abab2a67106c59d76a44bf34774f1c8dc49a6c9a714e11a6dfd4601803d",
+          "generated_latin1": "is in the bed.\nFind the rod.\nAnswer: bed.\n\n3.\nAllwe deed, the water bes.\n\nSo great the Bun saw was laught to man to all he wept and soly fawing\nall wented other of the did not to the came to h",
+          "generated_utf8_display": "is in the bed.\nFind the rod.\nAnswer: bed.\n\n3.\nAllwe deed, the water bes.\n\nSo great the Bun saw was laught to man to all he wept and soly fawing\nall wented other of the did not to the came to h"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "6ba86bf646630a23ea1fc51a5c53aa08317b6851668797e45113160f22bf1700",
+          "generated_latin1": "that now shat the upon the\nrollowid friends. Who up an of the caught the back to the bovere forets he road\nrich of sprantstils that in very all the mood of Dorothy was\nsorve and them toward so",
+          "generated_utf8_display": "that now shat the upon the\nrollowid friends. Who up an of the caught the back to the bovere forets he road\nrich of sprantstils that in very all the mood of Dorothy was\nsorve and them toward so"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "12058250559911238014",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.173611111111,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.180555555556,
+        "accuracy": 0.682291666667,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.684027777778,
+        "answer_loss_nats_per_byte": 0.278944975296,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.3566034,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.625,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.628472222222
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.739583333333,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.739583333333
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4427083333333333,
+        "predicted_last_location_fraction": 0.5572916666666666,
+        "changed_prediction_when_query_changes": 0.4131944444444444,
+        "changed_prediction_when_facts_swap": 0.46875,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 2026,
+      "budget": "seconds",
+      "mode": "none",
+      "directory": "2026-seconds-none",
+      "session": {
+        "complete": true,
+        "mode": "none",
+        "start": 160000,
+        "end": 161720,
+        "requested_end": 164096,
+        "seconds_budget": 6,
+        "live_seconds": 6.0015196,
+        "source_pairs": 220056,
+        "replay_pairs": 40959,
+        "comparisons": 0,
+        "overrides": 0,
+        "singleton_pools": 0,
+        "score_forward_calls": 0,
+        "scored_pairs": 0,
+        "scoring_seconds": 0,
+        "setup_seconds": 0,
+        "owned_scoring_bytes": 0,
+        "views": 0,
+        "tick_p95_ms": 5.558445353351475,
+        "max_tick_ms": 48.4896,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "58b8b9efa00ff6c044bd101f3b4e4795952370ff47f0e0db8ba176aa41ebaa3e",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 161720,
+        "global_updates": 202150,
+        "observed_pairs": 13909883,
+        "generated_bytes": 31008,
+        "replay_updates": 40430,
+        "replay_pairs": 3567990,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13999,
+            "replay_pairs": 1791688
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12418,
+            "replay_pairs": 631562
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 12007,
+            "replay_pairs": 887972
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 31720,
+            "stored_windows": 256,
+            "replay_updates": 2006,
+            "replay_pairs": 256768
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 202150,
+          "loss_nats_per_byte": 2.283539,
+          "bits_per_byte": 3.29445,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 202150,
+          "loss_nats_per_byte": 1.880162,
+          "bits_per_byte": 2.7125,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 202150,
+          "loss_nats_per_byte": 1.613456,
+          "bits_per_byte": 2.327724,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "73a3a24ab7871162ce9989f176a74c721fc3a28b391f0aba9b9f2a64661edd5a",
+          "generated_latin1": "is be is in the can.\nFind the can.\nAnswer: bag.\n\nOfectry to see now the day is the bun long in the stoy.\n\n\"You are well shall, \"and be goind to she lost. Whick you will\nbeging the gardel to wi",
+          "generated_utf8_display": "is be is in the can.\nFind the can.\nAnswer: bag.\n\nOfectry to see now the day is the bun long in the stoy.\n\n\"You are well shall, \"and be goind to she lost. Whick you will\nbeging the gardel to wi"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "609e5c0424774f6694362abe0626650b85415e0cafc55a308cb9810361227aa4",
+          "generated_latin1": "to\nins in the box.\"\n\n\"And Toom I like of a knower-gards of the Eyard of my a little I wonder, and\nthey all det all said at the toyes we carvely as the looked of the grains,\nbut of the Story go",
+          "generated_utf8_display": "to\nins in the box.\"\n\n\"And Toom I like of a knower-gards of the Eyard of my a little I wonder, and\nthey all det all said at the toyes we carvely as the looked of the grains,\nbut of the Story go"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "17204585570754475443",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.25,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.25,
+        "accuracy": 0.732638888889,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.730902777778,
+        "answer_loss_nats_per_byte": 0.208246026366,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.4444421,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.677083333333,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.677083333333
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.788194444444,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.784722222222
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4861111111111111,
+        "predicted_last_location_fraction": 0.5138888888888888,
+        "changed_prediction_when_query_changes": 0.5347222222222222,
+        "changed_prediction_when_facts_swap": 0.5347222222222222,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 2026,
+      "budget": "seconds",
+      "mode": "uniform",
+      "directory": "2026-seconds-uniform",
+      "session": {
+        "complete": true,
+        "mode": "uniform",
+        "start": 160000,
+        "end": 161438,
+        "requested_end": 164096,
+        "seconds_budget": 6,
+        "live_seconds": 6.000421,
+        "source_pairs": 183960,
+        "replay_pairs": 34396,
+        "comparisons": 359,
+        "overrides": 0,
+        "singleton_pools": 0,
+        "score_forward_calls": 1436,
+        "scored_pairs": 137584,
+        "scoring_seconds": 0.9194318000000015,
+        "setup_seconds": 0.039537900000000424,
+        "owned_scoring_bytes": 116581224,
+        "views": 5,
+        "tick_p95_ms": 8.760003405460862,
+        "max_tick_ms": 48.1453,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "fd94c5003bd3e8b7963cfc7a27cedc290b2cf5515d281a19b22306c868d0fa82",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 161438,
+        "global_updates": 201797,
+        "observed_pairs": 13873787,
+        "generated_bytes": 30912,
+        "replay_updates": 40359,
+        "replay_pairs": 3561427,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13982,
+            "replay_pairs": 1789512
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12399,
+            "replay_pairs": 630587
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11987,
+            "replay_pairs": 886480
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 31438,
+            "stored_windows": 256,
+            "replay_updates": 1991,
+            "replay_pairs": 254848
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 201797,
+          "loss_nats_per_byte": 2.3045,
+          "bits_per_byte": 3.32469,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 201797,
+          "loss_nats_per_byte": 1.888656,
+          "bits_per_byte": 2.724754,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 201797,
+          "loss_nats_per_byte": 1.612976,
+          "bits_per_byte": 2.327033,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "ea2ce3185f64527da4cd0c40462faa32c3f4d1104b28711a174357c221bacd71",
+          "generated_latin1": "is no the boy.\nWhen the bed is the bown saw he lats that happy where we\nbeauted of the ever day new more than a suntre away find hersels and were\nwas goved ging breath of a she done was the di",
+          "generated_utf8_display": "is no the boy.\nWhen the bed is the bown saw he lats that happy where we\nbeauted of the ever day new more than a suntre away find hersels and were\nwas goved ging breath of a she done was the di"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "9abd33171bc84b0d2e1982f46ff3b3d70d22dead444bdabcba3ee7a3f3f72c34",
+          "generated_latin1": "their\nwas what was. But who so thought her ontied, and said the queter, and away the waited up\nto such a crious for lives halves worth eventle poundly.\n\nAft in the poolled the wonders with to ",
+          "generated_utf8_display": "their\nwas what was. But who so thought her ontied, and said the queter, and away the waited up\nto such a crious for lives halves worth eventle poundly.\n\nAft in the poolled the wonders with to "
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "5459255722469845731",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.201388888889,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.201388888889,
+        "accuracy": 0.685763888889,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.684027777778,
+        "answer_loss_nats_per_byte": 0.333287523529,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.3944915,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.621527777778,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.618055555556
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.75,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.75
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.5746527777777778,
+        "predicted_last_location_fraction": 0.4253472222222222,
+        "changed_prediction_when_query_changes": 0.4131944444444444,
+        "changed_prediction_when_facts_swap": 0.5173611111111112,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 31415,
+      "budget": "updates",
+      "mode": "interference",
+      "directory": "31415-updates-interference",
+      "session": {
+        "complete": true,
+        "mode": "interference",
+        "start": 160000,
+        "end": 164096,
+        "requested_end": 164096,
+        "seconds_budget": 0,
+        "live_seconds": 16.9667493,
+        "source_pairs": 524034,
+        "replay_pairs": 97954,
+        "comparisons": 1024,
+        "overrides": 403,
+        "singleton_pools": 0,
+        "score_forward_calls": 4096,
+        "scored_pairs": 391816,
+        "scoring_seconds": 2.627263499999997,
+        "setup_seconds": 0.06133410000000116,
+        "owned_scoring_bytes": 116581224,
+        "views": 5,
+        "tick_p95_ms": 8.760003405460862,
+        "max_tick_ms": 48.6098,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "0746ee1264d756dd43fbc4068a00d793e39e5cca19e6b8004a70a5c15885e505",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 164096,
+        "global_updates": 205120,
+        "observed_pairs": 14213861,
+        "generated_bytes": 31488,
+        "replay_updates": 41024,
+        "replay_pairs": 3624985,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 14156,
+            "replay_pairs": 1811784
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12561,
+            "replay_pairs": 638849
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 12155,
+            "replay_pairs": 898896
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 34096,
+            "stored_windows": 256,
+            "replay_updates": 2152,
+            "replay_pairs": 275456
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 205120,
+          "loss_nats_per_byte": 2.236825,
+          "bits_per_byte": 3.227057,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.857938,
+          "bits_per_byte": 2.680438,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.60526,
+          "bits_per_byte": 2.3159,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "046906f9e90d592fb5741dc4b23b2bf05f6485f36bdc11651de6a89d34099f04",
+          "generated_latin1": "is in the bag.\nFind the rod.\nAnswer: bag.\n\nSamo, ye alway.\n\n\"Whyre the nuting to the mat. That they bould neer and like\none black in the with the stire does! Mowgli with they could and\non the ",
+          "generated_utf8_display": "is in the bag.\nFind the rod.\nAnswer: bag.\n\nSamo, ye alway.\n\n\"Whyre the nuting to the mat. That they bould neer and like\none black in the with the stire does! Mowgli with they could and\non the "
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "f03f0bce60ae43f5ae21b02750046a25b27a57af37305aeb8597f064623c8af5",
+          "generated_latin1": "to band the Baloo.\"\n\nHe saw to the from a dengle Pig.\n\nNo wen thut they stance to the clossibly dred stopped,\nand the keep the morning notight into a panted.\n\n\u00e2\u0080\u009cIt was the great for me!\u00e2\u0080\u009d Mo",
+          "generated_utf8_display": "to band the Baloo.\"\n\nHe saw to the from a dengle Pig.\n\nNo wen thut they stance to the clossibly dred stopped,\nand the keep the morning notight into a panted.\n\n\u201cIt was the great for me!\u201d Mo"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "340923856118755132",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.479166666667,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.458333333333,
+        "accuracy": 0.826388888889,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.814236111111,
+        "answer_loss_nats_per_byte": 0.181387242033,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.3871352,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.736111111111,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.711805555556
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.916666666667,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.916666666667
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4652777777777778,
+        "predicted_last_location_fraction": 0.5347222222222222,
+        "changed_prediction_when_query_changes": 0.6527777777777778,
+        "changed_prediction_when_facts_swap": 0.6666666666666666,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 31415,
+      "budget": "updates",
+      "mode": "none",
+      "directory": "31415-updates-none",
+      "session": {
+        "complete": true,
+        "mode": "none",
+        "start": 160000,
+        "end": 164096,
+        "requested_end": 164096,
+        "seconds_budget": 0,
+        "live_seconds": 14.4242279,
+        "source_pairs": 524034,
+        "replay_pairs": 97954,
+        "comparisons": 0,
+        "overrides": 0,
+        "singleton_pools": 0,
+        "score_forward_calls": 0,
+        "scored_pairs": 0,
+        "scoring_seconds": 0,
+        "setup_seconds": 0,
+        "owned_scoring_bytes": 0,
+        "views": 0,
+        "tick_p95_ms": 5.680159457539596,
+        "max_tick_ms": 49.3536,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "f6be6fbe5aa9f17eb7885e668dc93a2902bd3b13b0ef5a6681ca2c9920e17eb2",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 164096,
+        "global_updates": 205120,
+        "observed_pairs": 14213861,
+        "generated_bytes": 31488,
+        "replay_updates": 41024,
+        "replay_pairs": 3624985,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 14156,
+            "replay_pairs": 1811784
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12561,
+            "replay_pairs": 638849
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 12155,
+            "replay_pairs": 898896
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 34096,
+            "stored_windows": 256,
+            "replay_updates": 2152,
+            "replay_pairs": 275456
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 205120,
+          "loss_nats_per_byte": 2.247122,
+          "bits_per_byte": 3.241912,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.856613,
+          "bits_per_byte": 2.678526,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.605407,
+          "bits_per_byte": 2.316113,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "6870f7040682efbdf42a6ca36a4833c8d3b231ec3bc443dbf63a3d17d1655af7",
+          "generated_latin1": "is in the bag.\nFind the jar.\nAnswer: bag.\n\n\u00e2\u0080\u009cTake, who had the RabbablW. What it? In the can ton? We's so\nnan and lay. He conce our that Mary more ball, and may well brother, and\nthey over do",
+          "generated_utf8_display": "is in the bag.\nFind the jar.\nAnswer: bag.\n\n\u201cTake, who had the RabbablW. What it? In the can ton? We's so\nnan and lay. He conce our that Mary more ball, and may well brother, and\nthey over do"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "20f029bd8052e96fc9381dee4fcd8e852d4c11e5b3dfe424344a6f16199bdf50",
+          "generated_latin1": "there they will began and a\nsaw after in a dignuagre at out of the worssun to the morn.\u00e2\u0080\u009d\n\nHe wonderst well, who see into the wolf stoing for hest band.\n\n\u00e2\u0080\u009cHere which say better time just so",
+          "generated_utf8_display": "there they will began and a\nsaw after in a dignuagre at out of the worssun to the morn.\u201d\n\nHe wonderst well, who see into the wolf stoing for hest band.\n\n\u201cHere which say better time just so"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "15340915898503268594",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.506944444444,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.493055555556,
+        "accuracy": 0.829861111111,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.822916666667,
+        "answer_loss_nats_per_byte": 0.165175925423,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.428285,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.743055555556,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.729166666667
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.916666666667,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.916666666667
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4583333333333333,
+        "predicted_last_location_fraction": 0.5416666666666666,
+        "changed_prediction_when_query_changes": 0.6805555555555556,
+        "changed_prediction_when_facts_swap": 0.6736111111111112,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 31415,
+      "budget": "updates",
+      "mode": "uniform",
+      "directory": "31415-updates-uniform",
+      "session": {
+        "complete": true,
+        "mode": "uniform",
+        "start": 160000,
+        "end": 164096,
+        "requested_end": 164096,
+        "seconds_budget": 0,
+        "live_seconds": 16.8295878,
+        "source_pairs": 524034,
+        "replay_pairs": 97954,
+        "comparisons": 1024,
+        "overrides": 0,
+        "singleton_pools": 0,
+        "score_forward_calls": 4096,
+        "scored_pairs": 391816,
+        "scoring_seconds": 2.6189945999999997,
+        "setup_seconds": 0.06253630000000113,
+        "owned_scoring_bytes": 116581224,
+        "views": 5,
+        "tick_p95_ms": 8.760003405460862,
+        "max_tick_ms": 48.588,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "f6be6fbe5aa9f17eb7885e668dc93a2902bd3b13b0ef5a6681ca2c9920e17eb2",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 164096,
+        "global_updates": 205120,
+        "observed_pairs": 14213861,
+        "generated_bytes": 31488,
+        "replay_updates": 41024,
+        "replay_pairs": 3624985,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 14156,
+            "replay_pairs": 1811784
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12561,
+            "replay_pairs": 638849
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 12155,
+            "replay_pairs": 898896
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 34096,
+            "stored_windows": 256,
+            "replay_updates": 2152,
+            "replay_pairs": 275456
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 205120,
+          "loss_nats_per_byte": 2.247122,
+          "bits_per_byte": 3.241912,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.856613,
+          "bits_per_byte": 2.678526,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 205120,
+          "loss_nats_per_byte": 1.605407,
+          "bits_per_byte": 2.316113,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "6870f7040682efbdf42a6ca36a4833c8d3b231ec3bc443dbf63a3d17d1655af7",
+          "generated_latin1": "is in the bag.\nFind the jar.\nAnswer: bag.\n\n\u00e2\u0080\u009cTake, who had the RabbablW. What it? In the can ton? We's so\nnan and lay. He conce our that Mary more ball, and may well brother, and\nthey over do",
+          "generated_utf8_display": "is in the bag.\nFind the jar.\nAnswer: bag.\n\n\u201cTake, who had the RabbablW. What it? In the can ton? We's so\nnan and lay. He conce our that Mary more ball, and may well brother, and\nthey over do"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "20f029bd8052e96fc9381dee4fcd8e852d4c11e5b3dfe424344a6f16199bdf50",
+          "generated_latin1": "there they will began and a\nsaw after in a dignuagre at out of the worssun to the morn.\u00e2\u0080\u009d\n\nHe wonderst well, who see into the wolf stoing for hest band.\n\n\u00e2\u0080\u009cHere which say better time just so",
+          "generated_utf8_display": "there they will began and a\nsaw after in a dignuagre at out of the worssun to the morn.\u201d\n\nHe wonderst well, who see into the wolf stoing for hest band.\n\n\u201cHere which say better time just so"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "15340915898503268594",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.506944444444,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.493055555556,
+        "accuracy": 0.829861111111,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.822916666667,
+        "answer_loss_nats_per_byte": 0.165175925423,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.4033839,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.743055555556,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.729166666667
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.916666666667,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.916666666667
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4583333333333333,
+        "predicted_last_location_fraction": 0.5416666666666666,
+        "changed_prediction_when_query_changes": 0.6805555555555556,
+        "changed_prediction_when_facts_swap": 0.6736111111111112,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 31415,
+      "budget": "seconds",
+      "mode": "none",
+      "directory": "31415-seconds-none",
+      "session": {
+        "complete": true,
+        "mode": "none",
+        "start": 160000,
+        "end": 161739,
+        "requested_end": 164096,
+        "seconds_budget": 6,
+        "live_seconds": 6.001112,
+        "source_pairs": 222488,
+        "replay_pairs": 41392,
+        "comparisons": 0,
+        "overrides": 0,
+        "singleton_pools": 0,
+        "score_forward_calls": 0,
+        "scored_pairs": 0,
+        "scoring_seconds": 0,
+        "setup_seconds": 0,
+        "owned_scoring_bytes": 0,
+        "views": 0,
+        "tick_p95_ms": 5.558445353351475,
+        "max_tick_ms": 48.4628,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "dcc8d8e47374f50708936955d93128cbc9efc180ba043e68755f5676dbb2081e",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 161739,
+        "global_updates": 202173,
+        "observed_pairs": 13912315,
+        "generated_bytes": 31008,
+        "replay_updates": 40434,
+        "replay_pairs": 3568423,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 14000,
+            "replay_pairs": 1791816
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12419,
+            "replay_pairs": 631611
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 12007,
+            "replay_pairs": 887972
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 31739,
+            "stored_windows": 256,
+            "replay_updates": 2008,
+            "replay_pairs": 257024
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 202173,
+          "loss_nats_per_byte": 2.28786,
+          "bits_per_byte": 3.300684,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 202173,
+          "loss_nats_per_byte": 1.891771,
+          "bits_per_byte": 2.729248,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 202173,
+          "loss_nats_per_byte": 1.600599,
+          "bits_per_byte": 2.309177,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "34b3de86d96627ced278981228ef0b9c3d9d82e2f11b888ec46765cc57aee414",
+          "generated_latin1": "is in the bag.\nWheWhere is in the tag?\nAnswer: bag.\n\n\"Oz.\"\n\n\"I cannot wo as prest they in ago before. In there is air, \"that\ngood sorrires room, and he flow and lowed her. It sorry backon\nthat",
+          "generated_utf8_display": "is in the bag.\nWheWhere is in the tag?\nAnswer: bag.\n\n\"Oz.\"\n\n\"I cannot wo as prest they in ago before. In there is air, \"that\ngood sorrires room, and he flow and lowed her. It sorry backon\nthat"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "d2a0e215fdd538b4c13a52de37bf31a9e9ba6191d7b435049aecf6d708d46869",
+          "generated_latin1": "that from that is Kand them.\n\n\"Three leavers live,\" said the gret, for beast.\n\n\"I should now all gread to the little minuches,\" said the Lion.\n\n\"We is not much as so brought,\" said the trainly",
+          "generated_utf8_display": "that from that is Kand them.\n\n\"Three leavers live,\" said the gret, for beast.\n\n\"I should now all gread to the little minuches,\" said the Lion.\n\n\"We is not much as so brought,\" said the trainly"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "8895784980234922487",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.631944444444,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.618055555556,
+        "accuracy": 0.892361111111,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.888888888889,
+        "answer_loss_nats_per_byte": 0.0929770162329,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.2894327,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.8125,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.805555555556
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.972222222222,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.972222222222
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.5069444444444444,
+        "predicted_last_location_fraction": 0.4930555555555556,
+        "changed_prediction_when_query_changes": 0.7916666666666666,
+        "changed_prediction_when_facts_swap": 0.8125,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 31415,
+      "budget": "seconds",
+      "mode": "uniform",
+      "directory": "31415-seconds-uniform",
+      "session": {
+        "complete": true,
+        "mode": "uniform",
+        "start": 160000,
+        "end": 161432,
+        "requested_end": 164096,
+        "seconds_budget": 6,
+        "live_seconds": 6.0024994,
+        "source_pairs": 183192,
+        "replay_pairs": 34347,
+        "comparisons": 358,
+        "overrides": 0,
+        "singleton_pools": 0,
+        "score_forward_calls": 1432,
+        "scored_pairs": 137388,
+        "scoring_seconds": 0.9206278999999992,
+        "setup_seconds": 0.03874560000000017,
+        "owned_scoring_bytes": 116581224,
+        "views": 5,
+        "tick_p95_ms": 8.760003405460862,
+        "max_tick_ms": 49.7146,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "c43d9c70f6236bf04713d4e7bcc892a41ca18db1baa0d43f2b58f8c81f4731df",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 161432,
+        "global_updates": 201790,
+        "observed_pairs": 13873019,
+        "generated_bytes": 30912,
+        "replay_updates": 40358,
+        "replay_pairs": 3561378,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13982,
+            "replay_pairs": 1789512
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12398,
+            "replay_pairs": 630538
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11987,
+            "replay_pairs": 886480
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 31432,
+            "stored_windows": 256,
+            "replay_updates": 1991,
+            "replay_pairs": 254848
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 201790,
+          "loss_nats_per_byte": 2.301508,
+          "bits_per_byte": 3.320375,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 201790,
+          "loss_nats_per_byte": 1.892264,
+          "bits_per_byte": 2.729959,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 201790,
+          "loss_nats_per_byte": 1.607171,
+          "bits_per_byte": 2.318658,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "bb2937fd11c8576b5b914ece4177b7c4380e59bf08014701a4d315e711a6adca",
+          "generated_latin1": "is in the car. The can is in the car.\nWhere is the can?\nAnswer: box.\n\n\"Kan, carried Colways in her, if he would not into the jolloss.\n\nNor ever were over sumble in the toy, or surpotes room de",
+          "generated_utf8_display": "is in the car. The can is in the car.\nWhere is the can?\nAnswer: box.\n\n\"Kan, carried Colways in her, if he would not into the jolloss.\n\nNor ever were over sumble in the toy, or surpotes room de"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "80de784280315cfc5181d2a705dae5a7bb383ed84819f2b2c67f94467633290b",
+          "generated_latin1": "a pair of the could to her pretty,\nbut when was away whatered this without to the man trouble of winto\nand rastly atte them is weal of Dorothy one floodmans; one had fairs\nas the hastenced the",
+          "generated_utf8_display": "a pair of the could to her pretty,\nbut when was away whatered this without to the man trouble of winto\nand rastly atte them is weal of Dorothy one floodmans; one had fairs\nas the hastenced the"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "12072942775920252981",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.631944444444,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.625,
+        "accuracy": 0.890625,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.887152777778,
+        "answer_loss_nats_per_byte": 0.077829807557,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.3627927,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.840277777778,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.833333333333
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.940972222222,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.940972222222
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.5017361111111112,
+        "predicted_last_location_fraction": 0.4982638888888889,
+        "changed_prediction_when_query_changes": 0.8020833333333334,
+        "changed_prediction_when_facts_swap": 0.7881944444444444,
+        "sensitivity_is_not_accuracy": true
+      }
+    },
+    {
+      "seed": 31415,
+      "budget": "seconds",
+      "mode": "interference",
+      "directory": "31415-seconds-interference",
+      "session": {
+        "complete": true,
+        "mode": "interference",
+        "start": 160000,
+        "end": 161446,
+        "requested_end": 164096,
+        "seconds_budget": 6,
+        "live_seconds": 6.0026581,
+        "source_pairs": 184984,
+        "replay_pairs": 34652,
+        "comparisons": 361,
+        "overrides": 148,
+        "singleton_pools": 0,
+        "score_forward_calls": 1444,
+        "scored_pairs": 138608,
+        "scoring_seconds": 0.9318421999999996,
+        "setup_seconds": 0.03968750000000038,
+        "owned_scoring_bytes": 116581224,
+        "views": 5,
+        "tick_p95_ms": 8.760003405460862,
+        "max_tick_ms": 48.783,
+        "inputs_unchanged": true,
+        "generated_text_targets": false
+      },
+      "state": {
+        "checkpoint_sha256": "2da132989850c0b28b14ffd143d2598358e29331bc859d8f6b04b4226e84bb4b",
+        "parameters": 1951624,
+        "cell": 6,
+        "online_updates": 161446,
+        "global_updates": 201807,
+        "observed_pairs": 13874811,
+        "generated_bytes": 30912,
+        "replay_updates": 40361,
+        "replay_pairs": 3561683,
+        "curriculum_stage": 4,
+        "replay_groups": [
+          {
+            "document_end": 5,
+            "seen_windows": 6000,
+            "stored_windows": 256,
+            "replay_updates": 13983,
+            "replay_pairs": 1789640
+          },
+          {
+            "document_end": 389,
+            "seen_windows": 4000,
+            "stored_windows": 256,
+            "replay_updates": 12399,
+            "replay_pairs": 630587
+          },
+          {
+            "document_end": 52229,
+            "seen_windows": 120000,
+            "stored_windows": 256,
+            "replay_updates": 11987,
+            "replay_pairs": 886480
+          },
+          {
+            "document_end": 52236,
+            "seen_windows": 31446,
+            "stored_windows": 256,
+            "replay_updates": 1992,
+            "replay_pairs": 254976
+          }
+        ]
+      },
+      "books": {
+        "reader": {
+          "step": 201807,
+          "loss_nats_per_byte": 2.297162,
+          "bits_per_byte": 3.314105,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "7937286900399289444"
+        },
+        "geography": {
+          "step": 201807,
+          "loss_nats_per_byte": 1.895183,
+          "bits_per_byte": 2.734172,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "15204840493628139205"
+        },
+        "narrative": {
+          "step": 201807,
+          "loss_nats_per_byte": 1.609884,
+          "bits_per_byte": 2.322571,
+          "evaluated_bytes": 65536,
+          "corpus_hash": "16715367559556239128"
+        }
+      },
+      "samples": [
+        {
+          "prompt": "The bird ",
+          "generated_bytes": 192,
+          "file_sha256": "85a61eba074d062149cf62ae57c3d3cbb63fc4adaf6be4dcde2307f3ccd24892",
+          "generated_latin1": "is the pan. In the bag is in the rod.\nFind the rod.\nAnswer: car.\n\n\"What is the pin?\"\nAnswered the Grabbage\n.\nOhe was and she maple the Ozz Totood and laded ever friend.\n\n\"Nor you are help solv",
+          "generated_utf8_display": "is the pan. In the bag is in the rod.\nFind the rod.\nAnswer: car.\n\n\"What is the pin?\"\nAnswered the Grabbage\n.\nOhe was and she maple the Ozz Totood and laded ever friend.\n\n\"Nor you are help solv"
+        },
+        {
+          "prompt": "Once upon a time ",
+          "generated_bytes": 192,
+          "file_sha256": "32383cc8ad5b4063bfc4e4a91538c543011af159f881b8eea064a8dae9a6e8be",
+          "generated_latin1": "there were will throught the Scarcomp to a\nbill tate ard of the And her, who got the gand of the dird, and crut fined\nit with the fiellar, for she winked a very called it sure.\nAnd she Dorothy",
+          "generated_utf8_display": "there were will throught the Scarcomp to a\nbill tate ard of the And her, who got the gand of the dird, and crut fined\nit with the fiellar, for she winked a very called it sure.\nAnd she Dorothy"
+        }
+      ],
+      "development": {
+        "format": "SGPROBE2",
+        "suite_hash": "16568893675249492101",
+        "checkpoint_payload_hash": "7760728272901923450",
+        "items": 576,
+        "groups": 144,
+        "group_size": 4,
+        "joint_accuracy": 0.597222222222,
+        "context_erased_joint_accuracy": 0,
+        "greedy_exact_joint_accuracy": 0.597222222222,
+        "accuracy": 0.869791666667,
+        "context_erased_accuracy": 0.5,
+        "greedy_exact_accuracy": 0.862847222222,
+        "answer_loss_nats_per_byte": 0.0981474061522,
+        "answer_bytes": 2304,
+        "elapsed_seconds": 3.3874028,
+        "parameters_and_optimizer_unchanged": true,
+        "strict_fp32": true,
+        "skills": {
+          "binding-style-0": {
+            "items": 288,
+            "accuracy": 0.756944444444,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.743055555556
+          },
+          "binding-style-1": {
+            "items": 288,
+            "accuracy": 0.982638888889,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.982638888889
+          }
+        }
+      },
+      "development_audit": {
+        "split": "development",
+        "items": 576,
+        "groups": 144,
+        "predicted_first_location_fraction": 0.4322916666666667,
+        "predicted_last_location_fraction": 0.5677083333333334,
+        "changed_prediction_when_query_changes": 0.7881944444444444,
+        "changed_prediction_when_facts_swap": 0.78125,
+        "sensitivity_is_not_accuracy": true
+      }
+    }
+  ],
+  "native_commands": 126,
+  "learning_commands": 18,
+  "inputs_unchanged": true
+}

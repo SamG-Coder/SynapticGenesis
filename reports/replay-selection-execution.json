@@ -1,0 +1,335 @@
+{
+  "execution_passed": true,
+  "comparison_sha256": "577073a805099745e79f4021f954dc5d0c942cd62a01c6ea025f3c2f5799d0f4",
+  "equal_exposure_uniform_control_exact": true,
+  "candidate_workloads_matched": true,
+  "all_cpu_scores_passed": true,
+  "all_cpu_greedy_equal": true,
+  "rows": [
+    {
+      "seed": 1337,
+      "budget": "updates",
+      "mode": "none",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 2.6353488400410185e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "d44858a46aa53ca6e610281626bcb98f8dfc3d882f50a9b35acd275f75a1ab25"
+    },
+    {
+      "seed": 1337,
+      "budget": "updates",
+      "mode": "uniform",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 2.6353488400410185e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "d44858a46aa53ca6e610281626bcb98f8dfc3d882f50a9b35acd275f75a1ab25"
+    },
+    {
+      "seed": 1337,
+      "budget": "updates",
+      "mode": "interference",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 3.829970916413572e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "5ef7a01290a8b08293ead04c1f5b569b1ff751ed46e4b11479ef0c913ac5044e"
+    },
+    {
+      "seed": 1337,
+      "budget": "seconds",
+      "mode": "uniform",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 4.596756968844318e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "87b4314d80f8ea44abed1a05b7b2cc486e8f1bc418d48e29455ad953c95beb7e"
+    },
+    {
+      "seed": 1337,
+      "budget": "seconds",
+      "mode": "interference",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 1.890175068020028e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "c1b1a8fc300fd596130654de5a52fc01120790f4e2531b81b61a865037a62ee1"
+    },
+    {
+      "seed": 1337,
+      "budget": "seconds",
+      "mode": "none",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 4.007397284233605e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "65c3db4ee87e770ad676496e0a8e1c1d406d795048db4b10e7542e3aee419b44"
+    },
+    {
+      "seed": 2026,
+      "budget": "updates",
+      "mode": "uniform",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 2.1793237955924916e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "00c339e16bf916514ef423bd2f8bbb97539b325e5a2a0044b26fe4b8826d3f63"
+    },
+    {
+      "seed": 2026,
+      "budget": "updates",
+      "mode": "interference",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 3.6222510972905297e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "703e5fb3a43740b67fc88c4ef55dc52d153ee7ba92cd0702bb361f861ac30153"
+    },
+    {
+      "seed": 2026,
+      "budget": "updates",
+      "mode": "none",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 2.1793237955924916e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "00c339e16bf916514ef423bd2f8bbb97539b325e5a2a0044b26fe4b8826d3f63"
+    },
+    {
+      "seed": 2026,
+      "budget": "seconds",
+      "mode": "interference",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 1.8998949320447878e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "fd7583408ad1283a1f2afb6ed458d119771ff2793f6748d9d71ee0e5c3f2c144"
+    },
+    {
+      "seed": 2026,
+      "budget": "seconds",
+      "mode": "none",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 1.695710025950703e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "58b8b9efa00ff6c044bd101f3b4e4795952370ff47f0e0db8ba176aa41ebaa3e"
+    },
+    {
+      "seed": 2026,
+      "budget": "seconds",
+      "mode": "uniform",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 3.20747947579747e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "fd94c5003bd3e8b7963cfc7a27cedc290b2cf5515d281a19b22306c868d0fa82"
+    },
+    {
+      "seed": 31415,
+      "budget": "updates",
+      "mode": "interference",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 5.325675186185208e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "0746ee1264d756dd43fbc4068a00d793e39e5cca19e6b8004a70a5c15885e505"
+    },
+    {
+      "seed": 31415,
+      "budget": "updates",
+      "mode": "none",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 3.796770458919241e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "f6be6fbe5aa9f17eb7885e668dc93a2902bd3b13b0ef5a6681ca2c9920e17eb2"
+    },
+    {
+      "seed": 31415,
+      "budget": "updates",
+      "mode": "uniform",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 3.796770458919241e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "f6be6fbe5aa9f17eb7885e668dc93a2902bd3b13b0ef5a6681ca2c9920e17eb2"
+    },
+    {
+      "seed": 31415,
+      "budget": "seconds",
+      "mode": "none",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 4.76692676754098e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "dcc8d8e47374f50708936955d93128cbc9efc180ba043e68755f5676dbb2081e"
+    },
+    {
+      "seed": 31415,
+      "budget": "seconds",
+      "mode": "uniform",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 3.7468613396374195e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "c43d9c70f6236bf04713d4e7bcc892a41ca18db1baa0d43f2b58f8c81f4731df"
+    },
+    {
+      "seed": 31415,
+      "budget": "seconds",
+      "mode": "interference",
+      "independent_policy": {
+        "source_cursor_exact": true,
+        "source_pairs_exact": true,
+        "replay_rng_exact": true,
+        "replay_descriptors_exact": true,
+        "speech_rng_and_count_exact": true,
+        "replay_slots": 1024
+      },
+      "cpu_score_error": 3.610896793126983e-06,
+      "tolerance": 3e-05,
+      "cpu_score_passed": true,
+      "cpu_greedy_equal": true,
+      "checkpoint_sha256": "2da132989850c0b28b14ffd143d2598358e29331bc859d8f6b04b4226e84bb4b"
+    }
+  ],
+  "scope": "Independent host policy for every update; CPU math covers one fixed development group per final model."
+}
