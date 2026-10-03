@@ -27,3 +27,13 @@ add_test(NAME spiking-gated COMMAND synapticgenesis gated-test --out ${CMAKE_BIN
 add_test(NAME spiking-selective COMMAND synapticgenesis selective-test --out ${CMAKE_BINARY_DIR}/selective-test-results)
 add_test(NAME spiking-stage-replay COMMAND synapticgenesis stage-replay-test --out ${CMAKE_BINARY_DIR}/stage-replay-test-results)
 add_test(NAME spiking-reductions COMMAND synapticgenesis reduction-test --out ${CMAKE_BINARY_DIR}/reduction-test-results)
+
+option(SG_BUILD_TRACE_DIAGNOSTIC "Build the read-only learned-neuron trace diagnostic" OFF)
+if(SG_BUILD_TRACE_DIAGNOSTIC)
+  add_executable(synaptic-trace-diagnostic tests/learned_trace_dump.cu)
+  target_link_libraries(synaptic-trace-diagnostic PRIVATE CUDA::cudart CUDA::cublas)
+  target_compile_definitions(synaptic-trace-diagnostic PRIVATE NOMINMAX)
+  if(MSVC)
+    target_compile_options(synaptic-trace-diagnostic PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-Xcompiler=/W4,/utf-8>)
+  endif()
+endif()

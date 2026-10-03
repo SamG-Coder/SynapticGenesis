@@ -45,13 +45,13 @@ class Reference:
         self.gain, self.head, self.bias = take(self.c), take(256, self.c), take(256)
         assert offset == len(w)
 
-    def logits(self, text):
+    def logits(self, text, traces=None, forced_spikes=None):
         x = self.embedding[torch.tensor(list(text), dtype=torch.long)]
 
         def norm(x, gain):
             return x * torch.rsqrt(x.square().mean(-1, keepdim=True) + 1e-5) * gain
 
-        for block in self.blocks:
+        for layer, block in enumerate(self.blocks):
             gain, wi, bi, wo, bo, leak = block[:6]
             normalized = norm(x, gain)
             z = F.linear(normalized, wi, bi)
@@ -59,11 +59,19 @@ class Reference:
             beta, reset, adaptation = torch.sigmoid(leak), torch.zeros(self.h), torch.zeros(self.h)
             if self.cell in (2, 3, 4, 5):
                 rho, gamma = torch.sigmoid(block[6]), F.softplus(block[7])
-            spikes = []
+            spikes, membranes, decisions = [], [], []
             for at in range(len(text)):
                 u = beta * reset + z[at]
                 theta = 1 + gamma * adaptation if self.cell == 2 else 1
                 spike = (u >= theta).float() - (u <= -theta).float()
+                if forced_spikes is not None:
+                    # Diagnostic intervention only: hold native spike choices
+                    # fixed to isolate continuous arithmetic from threshold flips.
+                    override = forced_spikes[layer][at]
+                    spike = torch.where(torch.isnan(override), spike, override)
+                if traces is not None:
+                    membranes.append(u)
+                    decisions.append(spike)
                 reset = u - theta * spike
                 if self.cell == 2:
                     adaptation = rho * adaptation + (1 - rho) * spike.abs()
@@ -72,7 +80,11 @@ class Reference:
                     adaptation = retention * adaptation + (1 - retention) * spike
                 read = 2 * torch.sigmoid(gate_logits[at]) if self.cell == 4 else 1
                 spikes.append(spike + gamma * read * adaptation if self.cell in (3, 4, 5) else spike)
-            x += F.linear(torch.stack(spikes), wo, bo)
+            emission = torch.stack(spikes)
+            if traces is not None:
+                traces.append(dict(norm=normalized, z=z, gate=gate_logits, u=torch.stack(membranes),
+                                   spikes=torch.stack(decisions), emission=emission))
+            x += F.linear(emission, wo, bo)
         return F.linear(norm(x, self.gain), self.head, self.bias)
 
     def score(self, prompt, answer):

@@ -1,0 +1,878 @@
+{
+  "protocol": {
+    "status": "declared_before_training",
+    "seeds": [
+      1337,
+      2026,
+      31415
+    ],
+    "arms": [
+      "ramped",
+      "shuffled"
+    ],
+    "cell": "selective",
+    "channels": 256,
+    "hidden": 512,
+    "layers": 4,
+    "chunk": 128,
+    "tf32": true,
+    "learning_rate": 0.0003,
+    "later_stage_multiplier": 0.25,
+    "answer_emphasis": 64,
+    "reading_end": 6000,
+    "prerequisite_end": 10000,
+    "online_endpoints": [
+      34000,
+      66640,
+      78160,
+      130000
+    ],
+    "replay_policy": "stage",
+    "replay_slots": 1024,
+    "replay_every": 4,
+    "speak_every": 500,
+    "generated_bytes_per_speech": 96,
+    "graph_speech": true,
+    "save_every": 5000,
+    "log_every": 6000,
+    "executable_sha256": "b0e75baf28ed19d79808613775d48514e3f7ac40ca0bad02e17d66c78046b5bb",
+    "source_commit": "a53f8706d516d58edb92681c67ba44f62ece2315",
+    "driver_sha256": "3f53b2b75968d603a40c682a92b4d915da7aa06b878fc545c0c7aa44af93e5b2",
+    "shared_io_sha256": "a294fb48474b0448750c84c490b99ab71d37f714cf1474424d891d092aa88090",
+    "policy_sha256": "62af48e74ca6907abbc68284ff586192f6c3bbd01bee928c93cee6b18dcc248b",
+    "prepared_manifest_sha256": "89514ac1892aa46d217a7bce41b2298b9effdb064739994c708ce473faa85a40",
+    "source_records": {
+      "ramped": [
+        {
+          "source": "D:/SynapticGenesis/data/prepared/curriculum-order-v1/reading.dat",
+          "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+          "bytes": 585436,
+          "documents": 5,
+          "end_update": 6000
+        },
+        {
+          "source": "D:/SynapticGenesis/data/prepared/curriculum-order-v1/through-prerequisites.dat",
+          "sha256": "281033ec58dc79bfcdf79e340ea2cfce022755afc321a4859e0223d243d5541b",
+          "bytes": 605788,
+          "documents": 389,
+          "end_update": 10000
+        },
+        {
+          "source": "D:/SynapticGenesis/data/prepared/curriculum-order-v1/ramped-through-1.dat",
+          "sha256": "abc51c24347e9596a3a185f6688941274be31835bc085082861b46194bec47a4",
+          "bytes": 4910380,
+          "documents": 57029,
+          "end_update": 66640
+        },
+        {
+          "source": "D:/SynapticGenesis/data/prepared/curriculum-order-v1/ramped-through-2.dat",
+          "sha256": "c8c5e040d81f506f8eeb65a0947a9ac052f06a0e11b2db4ab43bc4aee1cfd429",
+          "bytes": 5785900,
+          "documents": 68549,
+          "end_update": 78160
+        },
+        {
+          "source": "D:/SynapticGenesis/data/prepared/curriculum-order-v1/ramped-through-3.dat",
+          "sha256": "95711048d47330046d3ce97ea84aeaff6f91c2671c09346d6962d9c9ac2dc9bb",
+          "bytes": 9725740,
+          "documents": 120389,
+          "end_update": 130000
+        }
+      ],
+      "shuffled": [
+        {
+          "source": "D:/SynapticGenesis/data/prepared/curriculum-order-v1/reading.dat",
+          "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+          "bytes": 585436,
+          "documents": 5,
+          "end_update": 6000
+        },
+        {
+          "source": "D:/SynapticGenesis/data/prepared/curriculum-order-v1/through-prerequisites.dat",
+          "sha256": "281033ec58dc79bfcdf79e340ea2cfce022755afc321a4859e0223d243d5541b",
+          "bytes": 605788,
+          "documents": 389,
+          "end_update": 10000
+        },
+        {
+          "source": "D:/SynapticGenesis/data/prepared/curriculum-order-v1/shuffled-through-1.dat",
+          "sha256": "b6f449a69d5aa6714154d1bcae5e89158038610fbba74add9d365814dcfb97bb",
+          "bytes": 4910648,
+          "documents": 57029,
+          "end_update": 66640
+        },
+        {
+          "source": "D:/SynapticGenesis/data/prepared/curriculum-order-v1/shuffled-through-2.dat",
+          "sha256": "2d95bd00555c9dbf7f022f629fa897a26591b8cb0eb42e5650a908771b389eba",
+          "bytes": 5786192,
+          "documents": 68549,
+          "end_update": 78160
+        },
+        {
+          "source": "D:/SynapticGenesis/data/prepared/curriculum-order-v1/shuffled-through-3.dat",
+          "sha256": "8011ca1b97fbf61f2fe1ca3c3b43eb3884994e52ebe44ab5ee18b91f3d8a3416",
+          "bytes": 9725740,
+          "documents": 120389,
+          "end_update": 130000
+        }
+      ]
+    },
+    "schedule_sha256": {
+      "ramped": "c4684a293e93464273d897d98da73d0d4dd906e186efe34ca317b7a1dceef8ea",
+      "shuffled": "3e2a973b8831b940464c95eeb9cc23d01f9eeaa5367db20457b8cc9d161c80ce"
+    },
+    "selected_spec_sha256": "510c6a6b4c575a8bdbe5b23ec02c2be3e566a2db2a11105786ab5c0ccfc4b8de",
+    "validation_reader_sha256": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f",
+    "probe_sha256": {
+      "train.sgprobe": "ec14ab04fdd0c3d1b217176e9f63e7cb7986d603bc37804f37bcd0fd30b47a49",
+      "development.sgprobe": "48f9c8cff84b39875da8349b74cfddf0a8c45e67a9e0e90c54688ff2547ca964",
+      "test.sgprobe": "8e22637b133f3548ae654589a00d453bf462c1cfcd4bb685e8d162a1ecc0ae73",
+      "expanded-train-monitor.sgprobe": "6c28b3739cf650e3865f43557a8fb1927c55b52f0a78f6465780ddb93bd60aa5"
+    },
+    "final_observation_multiset_sha256": "6b9c70faedc89dca4665675ac67a387d30b5d5f726ad0fd3b5a64efd8920e412",
+    "primary_endpoint": "Original development joint group accuracy at 130000 observations.",
+    "secondary_endpoints": "Unconstrained exact answer generation, original/expanded training monitors, earlier-reader loss, byte exposure and native live timing.",
+    "comparison": "Both arms start from the same complete 10000-observation checkpoint (32 in smoke mode). The final observation multiset, stage boundaries, update/slot/speech budgets match. Lesson order and consequent stage-replay composition/history differ. Earlier measurement points may have different source byte counts.",
+    "reserved_test_evaluated": false,
+    "timing": "Continuation segments after the common prerequisite checkpoint; includes live learning, replay, speech, logging and checkpoint I/O; excludes setup and assessment.",
+    "limits": "Fixed exposure stages are not mastery-based promotion or biological ages. This tests ordered versus shuffled practice of one weighted selection, not uniform sampling from the entire expanded corpus. Five source stages share the replay slots, so prior three-stage results are context rather than a matched control.",
+    "reading_ancestry_comparison_sha256": "95f18c78fff7f6a75433bb28e4c411b3b553565cf5b3a57c7fedb091d0b16e24",
+    "reading_ancestry_protocol_sha256": "cf4b26255d8555db9cef82adc572e0688986ae0829b438f1b5c74f541e6c44e1"
+  },
+  "final_rows": [
+    {
+      "seed": 1337,
+      "arm": "ramped",
+      "parameters": 1716736,
+      "reading_ancestor_loss": 2.242002726,
+      "common_prefix_loss": 2.385647535,
+      "final_reader_loss": 2.710456371,
+      "reader_change_from_reading": 0.46845364499999986,
+      "reader_change_from_common": 0.3248088359999999,
+      "train_joint": 0.881944444444,
+      "development_joint": 0.930555555556,
+      "development_greedy_joint": 0.930555555556,
+      "cpu_development_joint": 0.9305555555555556,
+      "cpu_development_greedy_joint": 0.9305555555555556,
+      "cpu_candidate_choice_disagreements": 0,
+      "cpu_greedy_answer_disagreements": 0,
+      "expanded_monitor_joint": 0.891203703704,
+      "expanded_monitor_greedy_joint": 0.891203703704,
+      "live_segment_seconds": 168.2953325,
+      "observed_pairs": 9851271,
+      "replay_pairs": 2746538,
+      "global_updates": 162500,
+      "replay_updates": 32500,
+      "generated_bytes": 24960,
+      "replay_state_bytes": 24912,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 9981,
+          "replay_pairs": 1277384
+        },
+        {
+          "stage": 2,
+          "document_end": 389,
+          "seen_windows": 4000,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 8466,
+          "replay_pairs": 430730
+        },
+        {
+          "stage": 3,
+          "document_end": 57029,
+          "seen_windows": 56640,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 8113,
+          "replay_pairs": 599668
+        },
+        {
+          "stage": 4,
+          "document_end": 68549,
+          "seen_windows": 11520,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 3316,
+          "replay_pairs": 244480
+        },
+        {
+          "stage": 5,
+          "document_end": 120389,
+          "seen_windows": 51840,
+          "stored_windows": 204,
+          "quota": 204,
+          "replay_updates": 2624,
+          "replay_pairs": 194276
+        }
+      ],
+      "final_tick_p95_ms": 2.190000851,
+      "final_speech_tick_p95_ms": 14.41682359,
+      "checkpoint_sha256": "92d7c4a3708cdc9c026f10f433e78d9a9e9c0be473bc412fc2b9ee4194a1f375"
+    },
+    {
+      "seed": 1337,
+      "arm": "shuffled",
+      "parameters": 1716736,
+      "reading_ancestor_loss": 2.242002726,
+      "common_prefix_loss": 2.385647535,
+      "final_reader_loss": 2.775388479,
+      "reader_change_from_reading": 0.5333857530000001,
+      "reader_change_from_common": 0.38974094400000014,
+      "train_joint": 0.953703703704,
+      "development_joint": 0.868055555556,
+      "development_greedy_joint": 0.868055555556,
+      "cpu_development_joint": 0.8680555555555556,
+      "cpu_development_greedy_joint": 0.8680555555555556,
+      "cpu_candidate_choice_disagreements": 0,
+      "cpu_greedy_answer_disagreements": 0,
+      "expanded_monitor_joint": 0.699074074074,
+      "expanded_monitor_greedy_joint": 0.699074074074,
+      "live_segment_seconds": 168.04712750000002,
+      "observed_pairs": 9851271,
+      "replay_pairs": 2747894,
+      "global_updates": 162500,
+      "replay_updates": 32500,
+      "generated_bytes": 24960,
+      "replay_state_bytes": 24912,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 9981,
+          "replay_pairs": 1277384
+        },
+        {
+          "stage": 2,
+          "document_end": 389,
+          "seen_windows": 4000,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 8466,
+          "replay_pairs": 430730
+        },
+        {
+          "stage": 3,
+          "document_end": 57029,
+          "seen_windows": 56640,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 8113,
+          "replay_pairs": 600080
+        },
+        {
+          "stage": 4,
+          "document_end": 68549,
+          "seen_windows": 11520,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 3316,
+          "replay_pairs": 245480
+        },
+        {
+          "stage": 5,
+          "document_end": 120389,
+          "seen_windows": 51840,
+          "stored_windows": 204,
+          "quota": 204,
+          "replay_updates": 2624,
+          "replay_pairs": 194220
+        }
+      ],
+      "final_tick_p95_ms": 2.190000851,
+      "final_speech_tick_p95_ms": 14.41682359,
+      "checkpoint_sha256": "2aeb37ec3e06f95b3c23379b21e648fad10243bc77609ac5c50a5e9e3f8df8b1"
+    },
+    {
+      "seed": 2026,
+      "arm": "ramped",
+      "parameters": 1716736,
+      "reading_ancestor_loss": 2.268481731,
+      "common_prefix_loss": 2.378091812,
+      "final_reader_loss": 2.739914179,
+      "reader_change_from_reading": 0.47143244799999984,
+      "reader_change_from_common": 0.3618223669999998,
+      "train_joint": 0.972222222222,
+      "development_joint": 0.409722222222,
+      "development_greedy_joint": 0.409722222222,
+      "cpu_development_joint": 0.4097222222222222,
+      "cpu_development_greedy_joint": 0.4097222222222222,
+      "cpu_candidate_choice_disagreements": 0,
+      "cpu_greedy_answer_disagreements": 0,
+      "expanded_monitor_joint": 0.782407407407,
+      "expanded_monitor_greedy_joint": 0.782407407407,
+      "live_segment_seconds": 167.70121319999998,
+      "observed_pairs": 9851271,
+      "replay_pairs": 2746538,
+      "global_updates": 162500,
+      "replay_updates": 32500,
+      "generated_bytes": 24960,
+      "replay_state_bytes": 24912,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 9981,
+          "replay_pairs": 1277384
+        },
+        {
+          "stage": 2,
+          "document_end": 389,
+          "seen_windows": 4000,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 8466,
+          "replay_pairs": 430730
+        },
+        {
+          "stage": 3,
+          "document_end": 57029,
+          "seen_windows": 56640,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 8113,
+          "replay_pairs": 599668
+        },
+        {
+          "stage": 4,
+          "document_end": 68549,
+          "seen_windows": 11520,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 3316,
+          "replay_pairs": 244480
+        },
+        {
+          "stage": 5,
+          "document_end": 120389,
+          "seen_windows": 51840,
+          "stored_windows": 204,
+          "quota": 204,
+          "replay_updates": 2624,
+          "replay_pairs": 194276
+        }
+      ],
+      "final_tick_p95_ms": 2.190000851,
+      "final_speech_tick_p95_ms": 14.41682359,
+      "checkpoint_sha256": "69e8a022ecbc9eb8aa7270dc95b8cec39c36c9045e795be9e68ae6929f8e3afb"
+    },
+    {
+      "seed": 2026,
+      "arm": "shuffled",
+      "parameters": 1716736,
+      "reading_ancestor_loss": 2.268481731,
+      "common_prefix_loss": 2.378091812,
+      "final_reader_loss": 2.747877121,
+      "reader_change_from_reading": 0.4793953900000001,
+      "reader_change_from_common": 0.36978530900000006,
+      "train_joint": 0.967592592593,
+      "development_joint": 0.993055555556,
+      "development_greedy_joint": 0.993055555556,
+      "cpu_development_joint": 0.9930555555555556,
+      "cpu_development_greedy_joint": 0.9930555555555556,
+      "cpu_candidate_choice_disagreements": 0,
+      "cpu_greedy_answer_disagreements": 0,
+      "expanded_monitor_joint": 0.736111111111,
+      "expanded_monitor_greedy_joint": 0.736111111111,
+      "live_segment_seconds": 167.9530961,
+      "observed_pairs": 9851271,
+      "replay_pairs": 2747894,
+      "global_updates": 162500,
+      "replay_updates": 32500,
+      "generated_bytes": 24960,
+      "replay_state_bytes": 24912,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 9981,
+          "replay_pairs": 1277384
+        },
+        {
+          "stage": 2,
+          "document_end": 389,
+          "seen_windows": 4000,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 8466,
+          "replay_pairs": 430730
+        },
+        {
+          "stage": 3,
+          "document_end": 57029,
+          "seen_windows": 56640,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 8113,
+          "replay_pairs": 600080
+        },
+        {
+          "stage": 4,
+          "document_end": 68549,
+          "seen_windows": 11520,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 3316,
+          "replay_pairs": 245480
+        },
+        {
+          "stage": 5,
+          "document_end": 120389,
+          "seen_windows": 51840,
+          "stored_windows": 204,
+          "quota": 204,
+          "replay_updates": 2624,
+          "replay_pairs": 194220
+        }
+      ],
+      "final_tick_p95_ms": 2.190000851,
+      "final_speech_tick_p95_ms": 14.41682359,
+      "checkpoint_sha256": "601001b46442e030b0100dada9df27eed6230087f9d9dbf2bbc9438d67e4e4a0"
+    },
+    {
+      "seed": 31415,
+      "arm": "ramped",
+      "parameters": 1716736,
+      "reading_ancestor_loss": 2.267357588,
+      "common_prefix_loss": 2.393840075,
+      "final_reader_loss": 2.747968197,
+      "reader_change_from_reading": 0.4806106090000002,
+      "reader_change_from_common": 0.3541281220000001,
+      "train_joint": 1,
+      "development_joint": 0.326388888889,
+      "development_greedy_joint": 0.326388888889,
+      "cpu_development_joint": 0.3263888888888889,
+      "cpu_development_greedy_joint": 0.3263888888888889,
+      "cpu_candidate_choice_disagreements": 0,
+      "cpu_greedy_answer_disagreements": 0,
+      "expanded_monitor_joint": 0.851851851852,
+      "expanded_monitor_greedy_joint": 0.851851851852,
+      "live_segment_seconds": 167.12878030000002,
+      "observed_pairs": 9851271,
+      "replay_pairs": 2746538,
+      "global_updates": 162500,
+      "replay_updates": 32500,
+      "generated_bytes": 24960,
+      "replay_state_bytes": 24912,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 9981,
+          "replay_pairs": 1277384
+        },
+        {
+          "stage": 2,
+          "document_end": 389,
+          "seen_windows": 4000,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 8466,
+          "replay_pairs": 430730
+        },
+        {
+          "stage": 3,
+          "document_end": 57029,
+          "seen_windows": 56640,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 8113,
+          "replay_pairs": 599668
+        },
+        {
+          "stage": 4,
+          "document_end": 68549,
+          "seen_windows": 11520,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 3316,
+          "replay_pairs": 244480
+        },
+        {
+          "stage": 5,
+          "document_end": 120389,
+          "seen_windows": 51840,
+          "stored_windows": 204,
+          "quota": 204,
+          "replay_updates": 2624,
+          "replay_pairs": 194276
+        }
+      ],
+      "final_tick_p95_ms": 2.190000851,
+      "final_speech_tick_p95_ms": 14.41682359,
+      "checkpoint_sha256": "254bba320ba6fe9655bc1afc106608290919dc037272a1ebae720ff3f398e371"
+    },
+    {
+      "seed": 31415,
+      "arm": "shuffled",
+      "parameters": 1716736,
+      "reading_ancestor_loss": 2.267357588,
+      "common_prefix_loss": 2.393840075,
+      "final_reader_loss": 2.743951559,
+      "reader_change_from_reading": 0.4765939710000002,
+      "reader_change_from_common": 0.35011148400000014,
+      "train_joint": 0.993055555556,
+      "development_joint": 0.277777777778,
+      "development_greedy_joint": 0.277777777778,
+      "cpu_development_joint": 0.2777777777777778,
+      "cpu_development_greedy_joint": 0.2777777777777778,
+      "cpu_candidate_choice_disagreements": 0,
+      "cpu_greedy_answer_disagreements": 0,
+      "expanded_monitor_joint": 0.6875,
+      "expanded_monitor_greedy_joint": 0.6875,
+      "live_segment_seconds": 166.7670435,
+      "observed_pairs": 9851271,
+      "replay_pairs": 2747894,
+      "global_updates": 162500,
+      "replay_updates": 32500,
+      "generated_bytes": 24960,
+      "replay_state_bytes": 24912,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 9981,
+          "replay_pairs": 1277384
+        },
+        {
+          "stage": 2,
+          "document_end": 389,
+          "seen_windows": 4000,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 8466,
+          "replay_pairs": 430730
+        },
+        {
+          "stage": 3,
+          "document_end": 57029,
+          "seen_windows": 56640,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 8113,
+          "replay_pairs": 600080
+        },
+        {
+          "stage": 4,
+          "document_end": 68549,
+          "seen_windows": 11520,
+          "stored_windows": 205,
+          "quota": 205,
+          "replay_updates": 3316,
+          "replay_pairs": 245480
+        },
+        {
+          "stage": 5,
+          "document_end": 120389,
+          "seen_windows": 51840,
+          "stored_windows": 204,
+          "quota": 204,
+          "replay_updates": 2624,
+          "replay_pairs": 194220
+        }
+      ],
+      "final_tick_p95_ms": 2.190000851,
+      "final_speech_tick_p95_ms": 14.41682359,
+      "checkpoint_sha256": "5e2cc58be3754eb5169b0182e2ec7ad9773ddf3376dd1c189bfec5a59e482f74"
+    }
+  ],
+  "means": [
+    {
+      "arm": "ramped",
+      "final_reader_loss": 2.7327795823333334,
+      "reader_change_from_reading": 0.4734989006666666,
+      "reader_change_from_common": 0.34691977499999993,
+      "train_joint": 0.9513888888886667,
+      "development_joint": 0.5555555555556666,
+      "development_greedy_joint": 0.5555555555556666,
+      "cpu_development_joint": 0.5555555555555556,
+      "cpu_development_greedy_joint": 0.5555555555555556,
+      "expanded_monitor_joint": 0.8418209876543333,
+      "expanded_monitor_greedy_joint": 0.8418209876543333,
+      "live_segment_seconds": 167.708442,
+      "observed_pairs": 9851271,
+      "replay_pairs": 2746538
+    },
+    {
+      "arm": "shuffled",
+      "final_reader_loss": 2.755739053,
+      "reader_change_from_reading": 0.4964583713333335,
+      "reader_change_from_common": 0.3698792456666668,
+      "train_joint": 0.9714506172843334,
+      "development_joint": 0.7129629629633334,
+      "development_greedy_joint": 0.7129629629633334,
+      "cpu_development_joint": 0.712962962962963,
+      "cpu_development_greedy_joint": 0.712962962962963,
+      "expanded_monitor_joint": 0.707561728395,
+      "expanded_monitor_greedy_joint": 0.707561728395,
+      "live_segment_seconds": 167.58908903333335,
+      "observed_pairs": 9851271,
+      "replay_pairs": 2747894
+    }
+  ],
+  "paired_difference_ramped_minus_shuffled": [
+    {
+      "seed": 1337,
+      "final_reader_loss": -0.06493210800000027,
+      "reader_change_from_reading": -0.06493210800000027,
+      "reader_change_from_common": -0.06493210800000027,
+      "train_joint": -0.07175925926000004,
+      "development_joint": 0.0625,
+      "development_greedy_joint": 0.0625,
+      "cpu_development_joint": 0.0625,
+      "cpu_development_greedy_joint": 0.0625,
+      "expanded_monitor_joint": 0.19212962963000002,
+      "expanded_monitor_greedy_joint": 0.19212962963000002,
+      "live_segment_seconds": 0.24820499999998447,
+      "observed_pairs": 0,
+      "replay_pairs": -1356
+    },
+    {
+      "seed": 2026,
+      "final_reader_loss": -0.00796294200000025,
+      "reader_change_from_reading": -0.00796294200000025,
+      "reader_change_from_common": -0.00796294200000025,
+      "train_joint": 0.004629629629000043,
+      "development_joint": -0.5833333333340001,
+      "development_greedy_joint": -0.5833333333340001,
+      "cpu_development_joint": -0.5833333333333334,
+      "cpu_development_greedy_joint": -0.5833333333333334,
+      "expanded_monitor_joint": 0.04629629629599996,
+      "expanded_monitor_greedy_joint": 0.04629629629599996,
+      "live_segment_seconds": -0.25188290000002667,
+      "observed_pairs": 0,
+      "replay_pairs": -1356
+    },
+    {
+      "seed": 31415,
+      "final_reader_loss": 0.004016637999999961,
+      "reader_change_from_reading": 0.004016637999999961,
+      "reader_change_from_common": 0.004016637999999961,
+      "train_joint": 0.0069444444439999975,
+      "development_joint": 0.04861111111099997,
+      "development_greedy_joint": 0.04861111111099997,
+      "cpu_development_joint": 0.048611111111111105,
+      "cpu_development_greedy_joint": 0.048611111111111105,
+      "expanded_monitor_joint": 0.16435185185199996,
+      "expanded_monitor_greedy_joint": 0.16435185185199996,
+      "live_segment_seconds": 0.36173680000001696,
+      "observed_pairs": 0,
+      "replay_pairs": -1356
+    }
+  ],
+  "exact_final_document_multiset_matches": true,
+  "executed_probe_commands": {
+    "train.sgprobe": 24,
+    "development.sgprobe": 24,
+    "expanded-train-monitor.sgprobe": 24
+  },
+  "cost_boundary": "Continuation segments after the common prerequisite checkpoint; includes live learning, replay, speech, logging and checkpoint I/O; excludes setup and assessment.",
+  "cpu_oracle_max_error": 0.021829783846823658,
+  "strict_fixed_group_cpu_score_check_passed": false,
+  "cpu_score_tolerance_failures": [
+    {
+      "seed": 31415,
+      "arm": "ramped",
+      "oracle_max_score_error": 0.021829783846823658,
+      "tolerance": 3e-05
+    }
+  ],
+  "full_development_cpu_audit_completed": true,
+  "full_development_cpu_max_score_error": 1.5356161127570207,
+  "full_development_cpu_score_pairs_above_tolerance": 53,
+  "cpu_all_development_candidate_choices_identical": true,
+  "cpu_all_development_generated_answers_identical": true,
+  "threshold_diagnostic": {
+    "localization_passed": true,
+    "checkpoint_sha256": "254bba320ba6fe9655bc1afc106608290919dc037272a1ebae720ff3f398e371",
+    "native_repeat_results_identical": true,
+    "study_executable_sha256": "b0e75baf28ed19d79808613775d48514e3f7ac40ca0bad02e17d66c78046b5bb",
+    "diagnostic_executable_sha256": "6af9c36c33d35f3088f438812d98451e29983f6cf1887254d5b3e12cdf9680a2",
+    "diagnostic_source_sha256": "4e83fb473d89a17181528d1c28504033c2c162c1db8747b23260cdb192d2b6bf",
+    "reference_sha256": "ef9f6a2c60512a77210e6cb966956d139ebb915673517914544f94054d77ad7a",
+    "records": [
+      {
+        "row": 0,
+        "choice": 0,
+        "first_spike_divergence": {
+          "layer_zero_based": 2,
+          "byte_zero_based": 58,
+          "neuron_zero_based": 472,
+          "cpu_membrane": -0.9999979734420776,
+          "native_membrane": -1.000001072883606,
+          "cpu_spike": 0.0,
+          "native_spike": -1.0
+        },
+        "native_nll": 0.8312406539916992,
+        "cpu_nll": 0.8530704378388236,
+        "single_spike_override_nll": 0.8312406539233734,
+        "single_spike_override_nll_error": 6.832578947069123e-11,
+        "single_spike_override_max_logit_error": 9.5367431640625e-06,
+        "single_spike_override_matches_all_native_spikes": true
+      },
+      {
+        "row": 0,
+        "choice": 1,
+        "first_spike_divergence": {
+          "layer_zero_based": 2,
+          "byte_zero_based": 58,
+          "neuron_zero_based": 472,
+          "cpu_membrane": -0.9999979734420776,
+          "native_membrane": -1.000001072883606,
+          "cpu_spike": 0.0,
+          "native_spike": -1.0
+        },
+        "native_nll": 1.6522607803344727,
+        "cpu_nll": 1.6533639430404037,
+        "single_spike_override_nll": 1.6522622107870575,
+        "single_spike_override_nll_error": 1.4304525848274352e-06,
+        "single_spike_override_max_logit_error": 9.5367431640625e-06,
+        "single_spike_override_matches_all_native_spikes": true
+      },
+      {
+        "row": 1,
+        "choice": 0,
+        "first_spike_divergence": {
+          "layer_zero_based": 2,
+          "byte_zero_based": 58,
+          "neuron_zero_based": 472,
+          "cpu_membrane": -0.9999979734420776,
+          "native_membrane": -1.000001072883606,
+          "cpu_spike": 0.0,
+          "native_spike": -1.0
+        },
+        "native_nll": 5.321164608001709,
+        "cpu_nll": 5.333389401017932,
+        "single_spike_override_nll": 5.321165203577465,
+        "single_spike_override_nll_error": 5.955757558240293e-07,
+        "single_spike_override_max_logit_error": 9.5367431640625e-06,
+        "single_spike_override_matches_all_native_spikes": true
+      },
+      {
+        "row": 1,
+        "choice": 1,
+        "first_spike_divergence": {
+          "layer_zero_based": 2,
+          "byte_zero_based": 58,
+          "neuron_zero_based": 472,
+          "cpu_membrane": -0.9999979734420776,
+          "native_membrane": -1.000001072883606,
+          "cpu_spike": 0.0,
+          "native_spike": -1.0
+        },
+        "native_nll": 0.0051021575927734375,
+        "cpu_nll": 0.005042024467911688,
+        "single_spike_override_nll": 0.005102169226915976,
+        "single_spike_override_nll_error": 1.1634142538241576e-08,
+        "single_spike_override_max_logit_error": 9.5367431640625e-06,
+        "single_spike_override_matches_all_native_spikes": true
+      }
+    ],
+    "original_strict_cpu_score_check_passed": false,
+    "interpretation": "A near-threshold FP32 difference changes one spike. Forcing only that decision makes all later spike decisions agree and restores close scores. This explains the local difference; the intervention is not an independent passing CPU oracle.",
+    "checkpoint_file_unchanged": true
+  },
+  "reference_hook_validation": {
+    "passed": true,
+    "native_commands": 59,
+    "cells": [
+      "lif",
+      "alif",
+      "trace",
+      "gated",
+      "selective"
+    ],
+    "independent_cpu_forward_max_score_error": 1.9073976069705623e-06,
+    "independent_cpu_greedy_matches": true,
+    "answer_only_scoring_verified": true,
+    "pair_order_independent": true,
+    "checkpoint_files_unchanged": true,
+    "malformed_pairs_rejected": true,
+    "prepared_bytes_reproducible": true,
+    "reading_bytes_preserved": true,
+    "heldout_reading_lf_and_crlf_rejected": true,
+    "heldout_contexts_absent_from_lessons": true,
+    "synthetic_fixture_only": true,
+    "incompatible_trace_spike_additions_and_paging_rejected": true
+  },
+  "final_live_samples": [
+    {
+      "seed": 1337,
+      "arm": "ramped",
+      "online_updates": 130000,
+      "transcript_sha256": "26eb86b5db5c9f441bb2264fd0a3a01ec3eb7f72d0cd483b20a7cf78fa75e5bb",
+      "prompt": "The bird ",
+      "prompt_and_generated_bytes_hex": "546865206269726420697320416e0a3f0a416e737765723a206265642e0a416e737765723a206261672e0a0a417070617070656e65732c207361706c6564206f662061746f6d7368657374612c0a2e0a0a48652075706f6e20776174652c20616e6420776861746572",
+      "displayed_text": "The bird is An\n?\nAnswer: bed.\nAnswer: bag.\n\nAppappenes, sapled of atomshesta,\n.\n\nHe upon wate, and whater"
+    },
+    {
+      "seed": 1337,
+      "arm": "shuffled",
+      "online_updates": 130000,
+      "transcript_sha256": "25b4cb6e4e21a34491f4a7456bb1ca816e827ac5702cfe3f1a3964a40c65327e",
+      "prompt": "The bird ",
+      "prompt_and_generated_bytes_hex": "54686520626972642069732074686520626f772e0a416e737765723a206261672e0a416e737765723a206261672e0a0a45662e0a0a416c6c6173737765723a206261672e0a0a41776173207370616d702c20616e642067657320746865206361722e0a0a7665726520",
+      "displayed_text": "The bird is the bow.\nAnswer: bag.\nAnswer: bag.\n\nEf.\n\nAllasswer: bag.\n\nAwas spamp, and ges the car.\n\nvere "
+    },
+    {
+      "seed": 2026,
+      "arm": "ramped",
+      "online_updates": 130000,
+      "transcript_sha256": "dfb973dc96d102f591bb4ede7a58cfeeedf3c5d1817a8cbd62bd3979965b1d66",
+      "prompt": "The bird ",
+      "prompt_and_generated_bytes_hex": "5468652062697264206f73742e0a0a416e737765723a206265642e0a416e737765723a206265642e0a0a416e737765723a206265642e0a416e737765723a206265642e0a0a416e737765723a206265642e0a416e737765723a206265642e0a416e737765723a206265",
+      "displayed_text": "The bird ost.\n\nAnswer: bed.\nAnswer: bed.\n\nAnswer: bed.\nAnswer: bed.\n\nAnswer: bed.\nAnswer: bed.\nAnswer: be"
+    },
+    {
+      "seed": 2026,
+      "arm": "shuffled",
+      "online_updates": 130000,
+      "transcript_sha256": "4459284700d4cc3caceaf5e5022f18c597b756c994e2b16ce5ef0b85fe7d0d04",
+      "prompt": "The bird ",
+      "prompt_and_generated_bytes_hex": "54686520626972642069730a0a416e737765723a206261672e0a416e737765723a206261672e0a0a416e737765723a206261672e0a0a2e0a416e737765723a206261672e0a0a342e0a416e737765723a206261672e0a0a416e737765723a206261672e0a0a416e7377",
+      "displayed_text": "The bird is\n\nAnswer: bag.\nAnswer: bag.\n\nAnswer: bag.\n\n.\nAnswer: bag.\n\n4.\nAnswer: bag.\n\nAnswer: bag.\n\nAnsw"
+    },
+    {
+      "seed": 31415,
+      "arm": "ramped",
+      "online_updates": 130000,
+      "transcript_sha256": "ad8121d34ae74fada04ef8a75a7333ab9787a9ad7b0c8c9ac21dc353fc512adb",
+      "prompt": "The bird ",
+      "prompt_and_generated_bytes_hex": "5468652062697264206973206e6f74206f0a626f7765723a20626f782e0a0a416e737765723a20626f782e0a0a416e64204920736f206e65742074686520626f782e0a416e737765723a20626f782e0a0a416e737765723a20626f782e0a0a416e64206f6620746865",
+      "displayed_text": "The bird is not o\nbower: box.\n\nAnswer: box.\n\nAnd I so net the box.\nAnswer: box.\n\nAnswer: box.\n\nAnd of the"
+    },
+    {
+      "seed": 31415,
+      "arm": "shuffled",
+      "online_updates": 130000,
+      "transcript_sha256": "4dc420dd5c9c9dc9e39dc1957e68ad72037a2de3597283679a359290d507f3ee",
+      "prompt": "The bird ",
+      "prompt_and_generated_bytes_hex": "5468652062697264206973206e6f740a3f0a416e737765723a206361722e0a0a416e737765723a206361722e0a0a6167617265206973206e6f74206169722e0a0a617920776173207468652067656d2e0a416e737765723a206361722e0a0a496e2074686520626167",
+      "displayed_text": "The bird is not\n?\nAnswer: car.\n\nAnswer: car.\n\nagare is not air.\n\nay was the gem.\nAnswer: car.\n\nIn the bag"
+    }
+  ],
+  "live_sample_scope": "Existing final 96-byte live generation from every arm and seed, with its prompt; qualitative inspection only, not an additional quality benchmark.",
+  "prior_three_stage_experiment_is_not_a_matched_control": true,
+  "no_general_language_or_biological_equivalence_claim": true
+}

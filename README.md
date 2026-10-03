@@ -27,6 +27,8 @@ The [ordered-reduction comparison](docs/ordered-reductions.md#completed-comparis
 
 The [selected lesson-diversity comparison](docs/lesson-diversity.md#completed-paired-comparison) expands the object vocabulary from 6 to 24 while preserving the original development/test questions. Across three shared-ancestor pairs, final development group accuracy improves from **19.9% to 71.1% on average**, with less earlier-reading forgetting and about **0.7% more measured live-loop time**. The benefit appears late; results still vary substantially across seeds, the larger teaching set is not mastered, and the reserved tests remain unused.
 
+The subsequent [matched ordering comparison](docs/curriculum-order.md#completed-comparison) gives both arms the same online lesson instances, with either gradual 6/12/24-object association phases or a global shuffle under the same stage-replay policy. Gradual practice improves two seeds slightly but regresses severely in seed 2026: final development accuracy averages **55.6% versus 71.3% for shuffled practice**. It improves the expanded-training monitor and average reading retention, with nearly identical measured live cost, but remains experimental. Every final development answer reproduces in a full CPU audit; [numerical score differences near spike thresholds](docs/curriculum-order.md#numerical-finding-and-independent-audit) remain a documented limitation, including a failed strict tolerance check.
+
 ## Build
 
 Requires an NVIDIA CUDA GPU, the CUDA toolkit, CMake and a C++17 compiler. The Windows build script locates Visual Studio C++ tools and Ninja. Local validation uses an RTX 5080, CUDA 13.3 and MSVC 19.51.

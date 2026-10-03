@@ -20,18 +20,22 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def check(root):
-    data = json.loads((root/'comparison.json').read_text())
+def development_rows(protocol):
     spec_path = Path(__file__).parents[1]/'data/lessons-binding-v2.json'
     rows = examples(json.loads(spec_path.read_text()))[2]['development']
     with TemporaryDirectory() as temporary:
         probe = Path(temporary)/'development.sgprobe'
         write_probes(probe, rows, 'SGPROBE2')
-        assert sha(probe) == data['protocol']['probe_sha256']['development.sgprobe']
-    fixture = rows[:4]
+        assert sha(probe) == protocol['probe_sha256']['development.sgprobe']
+    return rows
+
+
+def check(root):
+    data = json.loads((root/'comparison.json').read_text())
+    fixture = development_rows(data['protocol'])[:4]
     assert len({row['pair'] for row in fixture}) == 1
     final_update = data['protocol']['online_endpoints'][-1]
-    records = []
+    records, failures = [], []
     for seed in data['protocol']['seeds']:
         for arm in data['protocol']['arms']:
             directory = root/f'{seed}-{arm}'
@@ -49,17 +53,21 @@ def check(root):
                     expected = [ref.score(context+row['query'], row[f'choice{i}']) for i in range(2)]
                     error = max(error, *(abs(a-b) for a,b in zip(expected, actual[field])))
                 assert ref.greedy(row['context']+row['query'], 4) == actual['greedy']
-            assert error < 3e-5, (seed, arm, error)
+            if error >= 3e-5:
+                failures.append(dict(seed=seed, arm=arm, oracle_max_score_error=error, tolerance=3e-5))
             assert sha(checkpoint) == identity
             records.append(dict(seed=seed, arm=arm, items=4, oracle_max_score_error=error,
                                 greedy_answers_identical=True, checkpoint_sha256=identity))
             print(f'{seed} {arm}: CPU score error {error:.8g}, greedy answers identical', flush=True)
-    result = dict(passed=True, fixed_development_group=fixture[0]['pair'],
+    result = dict(passed=not failures, fixed_development_group=fixture[0]['pair'],
                   all_final_models_checked=True, parameters=declared['parameters'],
                   full_and_context_erased_scores_checked=True, checkpoint_files_unchanged=True,
                   reserved_test_not_evaluated=True, records=records,
                   interpretation='Numerical sanity check of one fixed group per model, not an independent quality benchmark.')
+    if failures:
+        result['failed_score_tolerance'] = failures
     (root/'learned-oracle.json').write_text(json.dumps(result, indent=2)+'\n')
+    assert not failures, failures
 
 
 if __name__ == '__main__':

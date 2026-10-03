@@ -1,0 +1,68 @@
+{
+  "passed": false,
+  "fixed_development_group": "key-hat-box-bag-o0-s0-q0",
+  "all_final_models_checked": true,
+  "parameters": 1716736,
+  "full_and_context_erased_scores_checked": true,
+  "checkpoint_files_unchanged": true,
+  "reserved_test_not_evaluated": true,
+  "records": [
+    {
+      "seed": 1337,
+      "arm": "ramped",
+      "items": 4,
+      "oracle_max_score_error": 2.5628818915990337e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "92d7c4a3708cdc9c026f10f433e78d9a9e9c0be473bc412fc2b9ee4194a1f375"
+    },
+    {
+      "seed": 1337,
+      "arm": "shuffled",
+      "items": 4,
+      "oracle_max_score_error": 5.245186120106382e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "2aeb37ec3e06f95b3c23379b21e648fad10243bc77609ac5c50a5e9e3f8df8b1"
+    },
+    {
+      "seed": 2026,
+      "arm": "ramped",
+      "items": 4,
+      "oracle_max_score_error": 3.648165719738472e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "69e8a022ecbc9eb8aa7270dc95b8cec39c36c9045e795be9e68ae6929f8e3afb"
+    },
+    {
+      "seed": 2026,
+      "arm": "shuffled",
+      "items": 4,
+      "oracle_max_score_error": 3.1161450149141956e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "601001b46442e030b0100dada9df27eed6230087f9d9dbf2bbc9438d67e4e4a0"
+    },
+    {
+      "seed": 31415,
+      "arm": "ramped",
+      "items": 4,
+      "oracle_max_score_error": 0.021829783846823658,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "254bba320ba6fe9655bc1afc106608290919dc037272a1ebae720ff3f398e371"
+    },
+    {
+      "seed": 31415,
+      "arm": "shuffled",
+      "items": 4,
+      "oracle_max_score_error": 3.933894491936485e-06,
+      "greedy_answers_identical": true,
+      "checkpoint_sha256": "5e2cc58be3754eb5169b0182e2ec7ad9773ddf3376dd1c189bfec5a59e482f74"
+    }
+  ],
+  "interpretation": "Numerical sanity check of one fixed group per model, not an independent quality benchmark.",
+  "failed_score_tolerance": [
+    {
+      "seed": 31415,
+      "arm": "ramped",
+      "oracle_max_score_error": 0.021829783846823658,
+      "tolerance": 3e-05
+    }
+  ]
+}
