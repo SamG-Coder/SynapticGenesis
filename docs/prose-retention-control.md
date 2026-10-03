@@ -71,7 +71,9 @@ python scripts/publish_retention_control.py --out runs/retention-control-audit.j
 
 The paired arm starts from the same parent with a rate of 0.000075. It was
 allowed to start only after the exact-control check passed. Its outcome is
-not included in this snapshot. Lowering the rate also lowers the effective
+not included in this snapshot; the subsequent
+[complete two-rate report](prose-retention-rates.md) records its worse outcome.
+Lowering the rate also lowers the effective
 AdamW decay step, so that comparison will not isolate gradient plasticity
 from weight decay. No reserved test books are scored and no model is promoted
 for teaching or reproduction by this report.

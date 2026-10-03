@@ -71,7 +71,9 @@ control under this shared learning policy.
 The subsequent [restart control](prose-retention-control.md) reproduced this
 final checkpoint byte for byte after splitting the last stage into two resumed
 sessions. It also reproduced the prediction regression, establishing the
-original-rate control for the ongoing lower-rate comparison.
+original-rate control for the [completed lower-rate comparison](prose-retention-rates.md).
+The lower-rate candidate worsened all eight monitored book scores at both
+matched endpoints, so that change is not adopted as the default.
 
 ## Raw final continuations
 

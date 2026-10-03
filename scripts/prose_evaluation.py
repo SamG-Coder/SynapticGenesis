@@ -4,6 +4,7 @@ from pathlib import Path
 import struct
 import subprocess
 
+from checkpoint_assessment import measure
 from corpus.selection import require_training_spec
 from native_experiment import NativeCommands, read, sha, verified_book_manifest
 from prose_founder import file_hash, write
@@ -32,6 +33,7 @@ def declare(out):
     files = [SPEC, source, prepared / 'manifest.json', schedule,
              Path('build/synapticgenesis.exe'), Path(__file__),
              Path('scripts/prose_founder.py'), Path('scripts/native_experiment.py'),
+             Path(__file__).with_name('checkpoint_assessment.py'),
              *(prepared / f'{n}.txt' for n in splits),
              *(Path(r['cumulative_source']) for r in exposure['stages'])]
     plan = dict(status='declared_before_extended_assessment', specification=spec,
@@ -73,33 +75,10 @@ def assess(plan_path, run, stage, out):
                     parameters=meta[14], spiking_neurons=meta[3] * meta[4])
     write(out / 'protocol.json', identity)
     native = NativeCommands('build/synapticgenesis.exe', out)
-    prepared = Path(spec['prepared'])
-    book_rows, generated = [], []
-    e, g = spec['evaluation'], spec['generation']
-    for role, ids in [('validation', spec['validation_books']),
-                      ('training_retention', spec['training_retention_books'])]:
-        for ident in ids:
-            report = out / f'book-{ident}.json'
-            native('evaluate', '--checkpoint', checkpoint, '--data', prepared / f'{ident}.txt',
-                   '--batch', e['batch'], '--context', e['context'], '--batches', e['batches'],
-                   '--output', report)
-            result = read(report)
-            assert result['evaluated_bytes'] == e['target_bytes_per_book']
-            book_rows.append(dict(book=ident, role=role, **result))
-    for i, prompt in enumerate(g['prompts']):
-        output = out / f'sample-{i}.txt'
-        native('sample', '--checkpoint', checkpoint, '--prompt', prompt, '--tokens', g['bytes'],
-               '--seed', g['seed'], '--temperature', g['temperature'], '--top-k', g['top_k'],
-               '--graph', '--output', output)
-        raw = output.read_bytes()
-        assert raw.startswith(prompt.encode()) and len(raw) == len(prompt.encode()) + g['bytes']
-        generated.append(dict(prompt=prompt, output_utf8=raw.decode('utf-8', errors='replace'),
-                              output_hex=raw.hex(), sha256=sha(output), generated_bytes=g['bytes']))
+    measurements = measure(native, checkpoint, spec, out)
     assert file_hash(checkpoint) == before
     assert all(file_hash(name) == digest for name, digest in plan['authenticated_inputs'].items())
-    validation = [r['loss_nats_per_byte'] for r in book_rows if r['role'] == 'validation']
-    result = dict(complete=True, **identity, books=book_rows, samples=generated,
-                  validation_mean_nats_per_byte=sum(validation) / len(validation),
+    result = dict(complete=True, **identity, **measurements,
                   checkpoint_unchanged=True, reserved_tests_scored=False,
                   limitation=spec['limits'])
     write(out / 'result.json', result)
