@@ -1,0 +1,14 @@
+{
+  "version": "curriculum-order-v1",
+  "license": "MIT",
+  "selected_spec": "lessons-binding-diversity-v1.json",
+  "selected_spec_sha256": "510c6a6b4c575a8bdbe5b23ec02c2be3e566a2db2a11105786ab5c0ccfc4b8de",
+  "object_counts": [6, 12, 24],
+  "phase_observations": [56640, 11520, 51840],
+  "phase_seed": 409771,
+  "shuffle_seed": 529113,
+  "selection": "The first N objects in the selected vocabulary define each phase. Draw complete reversal groups through shuffled cycles, then shuffle document instances within each phase. All original held-out pairs remain excluded.",
+  "comparison": "Globally shuffle those exact 120000 document instances, then split at the same phase boundaries. The final observed document multiset and byte-pair count are identical. Native stage replay is unchanged; the lesson composition of its stages changes with the ordering.",
+  "coverage": "The final 24-object phase contains one complete pass over all 51840 selected binding documents. Repeated documents are explicit planned practice instances, not new unique sources.",
+  "limits": "Fixed exposure stages are not mastery-based promotion or biological ages. This tests ordered versus shuffled practice of one weighted selection, not uniform sampling from the entire expanded corpus. Five source stages share the replay slots, so prior three-stage results are context rather than a matched control."
+}

@@ -1,0 +1,404 @@
+{
+  "passed": true,
+  "executable_sha256": "b0e75baf28ed19d79808613775d48514e3f7ac40ca0bad02e17d66c78046b5bb",
+  "data": {
+    "passed": true,
+    "unique_labels_independently_checked": 51840,
+    "instances_per_arm": 120000,
+    "exact_document_multiset_matches": true,
+    "all_selected_binding_documents_seen_in_both_arms": true,
+    "observed_binding_pairs": 8879952,
+    "full_reversal_groups_preserved_in_each_ramped_phase": true,
+    "frozen_probes_and_common_prefix_identical": true,
+    "preparation_reproduces": true,
+    "invalid_inputs_rejected": [
+      "changed-selection-hash",
+      "reversed-widths",
+      "changed-budget",
+      "unselected-binding-document",
+      "heldout-context-in-reading"
+    ],
+    "prepared_manifest": {
+      "version": "curriculum-order-v1",
+      "purpose": "learning_comparison",
+      "policy_sha256": "62af48e74ca6907abbc68284ff586192f6c3bbd01bee928c93cee6b18dcc248b",
+      "selected_spec_sha256": "510c6a6b4c575a8bdbe5b23ec02c2be3e566a2db2a11105786ab5c0ccfc4b8de",
+      "reading_end": 6000,
+      "prerequisite_end": 10000,
+      "ramped_phases": [
+        {
+          "objects": [
+            "key",
+            "hat",
+            "cup",
+            "pen",
+            "mug",
+            "toy"
+          ],
+          "observations": 56640,
+          "available_groups": 432,
+          "unique_documents": 1728,
+          "observed_pairs": 4191312
+        },
+        {
+          "objects": [
+            "key",
+            "hat",
+            "cup",
+            "pen",
+            "mug",
+            "toy",
+            "map",
+            "cap",
+            "pin",
+            "jar",
+            "tin",
+            "egg"
+          ],
+          "observations": 11520,
+          "available_groups": 2880,
+          "unique_documents": 11520,
+          "observed_pairs": 852480
+        },
+        {
+          "objects": [
+            "key",
+            "hat",
+            "cup",
+            "pen",
+            "mug",
+            "toy",
+            "map",
+            "cap",
+            "pin",
+            "jar",
+            "tin",
+            "egg",
+            "nut",
+            "bun",
+            "tag",
+            "can",
+            "lid",
+            "pan",
+            "pot",
+            "peg",
+            "rod",
+            "bow",
+            "gem",
+            "die"
+          ],
+          "observations": 51840,
+          "available_groups": 12960,
+          "unique_documents": 51840,
+          "observed_pairs": 3836160
+        }
+      ],
+      "arms": {
+        "ramped": {
+          "stages": [
+            {
+              "end_update": 66640,
+              "observations": 56640,
+              "unique_documents": 1728,
+              "observed_pairs": 4191312,
+              "cumulative_documents": 57029
+            },
+            {
+              "end_update": 78160,
+              "observations": 11520,
+              "unique_documents": 11520,
+              "observed_pairs": 852480,
+              "cumulative_documents": 68549
+            },
+            {
+              "end_update": 130000,
+              "observations": 51840,
+              "unique_documents": 51840,
+              "observed_pairs": 3836160,
+              "cumulative_documents": 120389
+            }
+          ],
+          "multiset_sha256": "6b9c70faedc89dca4665675ac67a387d30b5d5f726ad0fd3b5a64efd8920e412",
+          "observed_pairs": 8879952,
+          "unique_documents": 51840,
+          "frequency_distribution": {
+            "1": 40320,
+            "2": 9792,
+            "34": 384,
+            "35": 1344
+          }
+        },
+        "shuffled": {
+          "stages": [
+            {
+              "end_update": 66640,
+              "observations": 56640,
+              "unique_documents": 27773,
+              "observed_pairs": 4191580,
+              "cumulative_documents": 57029
+            },
+            {
+              "end_update": 78160,
+              "observations": 11520,
+              "unique_documents": 7262,
+              "observed_pairs": 852504,
+              "cumulative_documents": 68549
+            },
+            {
+              "end_update": 130000,
+              "observations": 51840,
+              "unique_documents": 25868,
+              "observed_pairs": 3835868,
+              "cumulative_documents": 120389
+            }
+          ],
+          "multiset_sha256": "6b9c70faedc89dca4665675ac67a387d30b5d5f726ad0fd3b5a64efd8920e412",
+          "observed_pairs": 8879952,
+          "unique_documents": 51840,
+          "frequency_distribution": {
+            "1": 40320,
+            "2": 9792,
+            "34": 384,
+            "35": 1344
+          }
+        }
+      },
+      "matched_observation_multiset": true,
+      "full_selected_binding_coverage": true,
+      "files": {
+        "common.sg": {
+          "bytes": 87,
+          "sha256": "fb783d7e2f79135179887c471a43432377775898f01159490368160a9126e9a7"
+        },
+        "development.sgprobe": {
+          "bytes": 97933,
+          "sha256": "48f9c8cff84b39875da8349b74cfddf0a8c45e67a9e0e90c54688ff2547ca964"
+        },
+        "expanded-train-monitor.sgprobe": {
+          "bytes": 293486,
+          "sha256": "6c28b3739cf650e3865f43557a8fb1927c55b52f0a78f6465780ddb93bd60aa5"
+        },
+        "ramped-observations-1.dat": {
+          "bytes": 4304591,
+          "sha256": "76a5f7a704ea2116b8bd8b67e1cc7760afd1863225f323432ef6fb485c711f6e"
+        },
+        "ramped-observations-2.dat": {
+          "bytes": 875519,
+          "sha256": "9f50e505f1241392f5f9dc1c50f18efb4127c339452e850fa057b6bc5de3eefa"
+        },
+        "ramped-observations-3.dat": {
+          "bytes": 3939839,
+          "sha256": "cc42c99442f5247579a7c3bbef7d876015b06e3d3a6d404183bb61c886206905"
+        },
+        "ramped-through-1.dat": {
+          "bytes": 4910380,
+          "sha256": "abc51c24347e9596a3a185f6688941274be31835bc085082861b46194bec47a4"
+        },
+        "ramped-through-2.dat": {
+          "bytes": 5785900,
+          "sha256": "c8c5e040d81f506f8eeb65a0947a9ac052f06a0e11b2db4ab43bc4aee1cfd429"
+        },
+        "ramped-through-3.dat": {
+          "bytes": 9725740,
+          "sha256": "95711048d47330046d3ce97ea84aeaff6f91c2671c09346d6962d9c9ac2dc9bb"
+        },
+        "ramped.sg": {
+          "bytes": 211,
+          "sha256": "c4684a293e93464273d897d98da73d0d4dd906e186efe34ca317b7a1dceef8ea"
+        },
+        "reading.dat": {
+          "bytes": 585436,
+          "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda"
+        },
+        "selected-spec.json": {
+          "bytes": 1664,
+          "sha256": "510c6a6b4c575a8bdbe5b23ec02c2be3e566a2db2a11105786ab5c0ccfc4b8de"
+        },
+        "shuffled-observations-1.dat": {
+          "bytes": 4304859,
+          "sha256": "0b43120c7eb3a0f42e020968836a0fb9c49a75e83198f6249dc0403de47926a8"
+        },
+        "shuffled-observations-2.dat": {
+          "bytes": 875543,
+          "sha256": "0c100adb4186c0c89256bfa1e639988f14e89ef5df550561ba78b3ac7ef5350f"
+        },
+        "shuffled-observations-3.dat": {
+          "bytes": 3939547,
+          "sha256": "3a6850fe472dd4c431ddd7c0c1dd2d77bf1028db87268dbf2c98b7ea9424be98"
+        },
+        "shuffled-through-1.dat": {
+          "bytes": 4910648,
+          "sha256": "b6f449a69d5aa6714154d1bcae5e89158038610fbba74add9d365814dcfb97bb"
+        },
+        "shuffled-through-2.dat": {
+          "bytes": 5786192,
+          "sha256": "2d95bd00555c9dbf7f022f629fa897a26591b8cb0eb42e5650a908771b389eba"
+        },
+        "shuffled-through-3.dat": {
+          "bytes": 9725740,
+          "sha256": "8011ca1b97fbf61f2fe1ca3c3b43eb3884994e52ebe44ab5ee18b91f3d8a3416"
+        },
+        "shuffled.sg": {
+          "bytes": 217,
+          "sha256": "3e2a973b8831b940464c95eeb9cc23d01f9eeaa5367db20457b8cc9d161c80ce"
+        },
+        "source-policy.json": {
+          "bytes": 1385,
+          "sha256": "62af48e74ca6907abbc68284ff586192f6c3bbd01bee928c93cee6b18dcc248b"
+        },
+        "test.sgprobe": {
+          "bytes": 97933,
+          "sha256": "8e22637b133f3548ae654589a00d453bf462c1cfcd4bb685e8d162a1ecc0ae73"
+        },
+        "through-prerequisites.dat": {
+          "bytes": 605788,
+          "sha256": "281033ec58dc79bfcdf79e340ea2cfce022755afc321a4859e0223d243d5541b"
+        },
+        "train.sgprobe": {
+          "bytes": 293774,
+          "sha256": "ec14ab04fdd0c3d1b217176e9f63e7cb7986d603bc37804f37bcd0fd30b47a49"
+        }
+      },
+      "limits": "Fixed exposure stages are not mastery-based promotion or biological ages. This tests ordered versus shuffled practice of one weighted selection, not uniform sampling from the entire expanded corpus. Five source stages share the replay slots, so prior three-stage results are context rather than a matched control."
+    },
+    "no_model_evaluated_on_reserved_tests": true
+  },
+  "shared_driver_refactor": {
+    "passed": true,
+    "complete_checkpoint_files_identical": 7,
+    "checkpoints": [
+      {
+        "path": "1337-control/checkpoint-64.ckpt",
+        "sha256": "6c56de15bd51ae69550a7341bfc62883fedc1d9b5f90a493e9999f154c28ee3e"
+      },
+      {
+        "path": "1337-diversity/checkpoint-64.ckpt",
+        "sha256": "97c1bacea1f49f3ea97765550c3e317f3c5568accccead8a360f529d2b92c769"
+      },
+      {
+        "path": "1337-diversity/checkpoint-96.ckpt",
+        "sha256": "a24cdfa17c018671621e247df63db6b8528b020940e6939559424f5fd366f330"
+      },
+      {
+        "path": "1337-control/checkpoint-96.ckpt",
+        "sha256": "b82e3a0fedb618b033940ee5b51f83de9ad9ee93361dc3f28602fd57277e27b2"
+      },
+      {
+        "path": "1337-control/checkpoint-128.ckpt",
+        "sha256": "590ab892f9679c906b7d57462bdbd547505f8a28e59dba10a673473265189294"
+      },
+      {
+        "path": "1337-diversity/checkpoint-128.ckpt",
+        "sha256": "ed386f06c1ee854d49be19dd0f7b021541ee551294f684621a3e1c4b657487f3"
+      }
+    ],
+    "native_commands": 25
+  },
+  "shared_cpu_oracle_matches_previous_six_model_report": true,
+  "learned_prefix": {
+    "passed": true,
+    "executable_sha256": "b0e75baf28ed19d79808613775d48514e3f7ac40ca0bad02e17d66c78046b5bb",
+    "native_commands": 1,
+    "compared_model_optimizer_and_recurrence_bytes": 20617216,
+    "arrays_bit_identical": true,
+    "previous_checkpoint_sha256": "78e7bc8dfc557bdaefa73ea71749e7813ddfdbe5caae12266cac669e828e2863",
+    "new_checkpoint_sha256": "9823f323f36b7ee642eef19efee5602721cc88fa8b664e8f4a3648412035c3af",
+    "session": {
+      "online_updates": 10000,
+      "gradient_reductions": "ordered_v1",
+      "curriculum_stage": 2,
+      "curriculum_hash": "5221235310893806831",
+      "curriculum_extended": true,
+      "curriculum_base_lr": 0.0003000000142,
+      "global_updates": 12500,
+      "online_first_document": 5,
+      "online_document_count": 384,
+      "answer_emphasized_documents": 384,
+      "observed_pairs": 971319,
+      "generated_bytes": 1920,
+      "elapsed_seconds": 5.5473465,
+      "session_online_updates": 4000,
+      "session_observed_pairs": 203988,
+      "observed_pairs_per_second": 36772.17567,
+      "replay_updates": 2500,
+      "replay_pairs": 280715,
+      "replay_state_bytes": 24792,
+      "replay_mode": 3,
+      "replay_items": 1024,
+      "core_scale": 1,
+      "learning_rate": 7.500000356e-05,
+      "replay_every": 4,
+      "graph_decode": true,
+      "update_tick_p50_ms": 1.095000426,
+      "update_tick_p95_ms": 2.237955626,
+      "update_and_speech_tick_p50_ms": 14.10790079,
+      "update_and_speech_tick_p95_ms": 20.83491675,
+      "latency_percentile_bin_relative_width": 0.02189714865,
+      "shared_weights": true,
+      "persistent_membranes": true,
+      "trains_on_generated_text": false,
+      "replay_groups": [
+        {
+          "stage": 1,
+          "document_end": 5,
+          "seen_windows": 6000,
+          "stored_windows": 512,
+          "quota": 512,
+          "replay_updates": 1993,
+          "replay_pairs": 254920
+        },
+        {
+          "stage": 2,
+          "document_end": 389,
+          "seen_windows": 4000,
+          "stored_windows": 512,
+          "quota": 512,
+          "replay_updates": 507,
+          "replay_pairs": 25795
+        }
+      ],
+      "consolidation": "none",
+      "initial_validation_loss": 2.242002726,
+      "final_validation_loss": 2.385647535
+    }
+  },
+  "native_five_stage_smoke": {
+    "passed": true,
+    "native_commands": 34,
+    "measured_checkpoints": 8,
+    "complete_shared_ancestor": true,
+    "source_byte_counts_verified_at_every_endpoint": true,
+    "replay_quotas_checked_at_each_boundary": true,
+    "final_observation_counts_match": true,
+    "cpu_oracle": {
+      "passed": true,
+      "fixed_development_group": "key-hat-box-bag-o0-s0-q0",
+      "all_final_models_checked": true,
+      "parameters": 1716736,
+      "full_and_context_erased_scores_checked": true,
+      "checkpoint_files_unchanged": true,
+      "reserved_test_not_evaluated": true,
+      "records": [
+        {
+          "seed": 1337,
+          "arm": "ramped",
+          "items": 4,
+          "oracle_max_score_error": 1.6689525637048064e-06,
+          "greedy_answers_identical": true,
+          "checkpoint_sha256": "4ba08ae97bc2f39571ce16b99fc40145b73ff6b4d68c3fd9f15aa41b353464e8"
+        },
+        {
+          "seed": 1337,
+          "arm": "shuffled",
+          "items": 4,
+          "oracle_max_score_error": 1.3113005152831647e-06,
+          "greedy_answers_identical": true,
+          "checkpoint_sha256": "7a2b4f3bd543a7e0ee963e5273b070e27405438fdc57e0c545c59c6cadc7970e"
+        }
+      ],
+      "interpretation": "Numerical sanity check of one fixed group per model, not an independent quality benchmark."
+    },
+    "comparison_sha256": "25003037dbe8d2fe5891950d7f2b28f8ab9aa422c0e4823e013f0b7ae4535d40",
+    "learning_quality_claim": false
+  }
+}

@@ -4,24 +4,15 @@ Only the native C++/CUDA executable learns or generates. This driver fixes the
 protocol, extends each ancestor's source schedule and collects held-out evidence.
 """
 import argparse
-import hashlib
 import json
 from pathlib import Path
 import shutil
 import subprocess
 
-from audit_binding import audit
 from experiment_checkpoint import checkpoint, distribution
 from extend_curriculum import read_schedule
+from native_experiment import NativeCommands, binding_scores, sha, write
 from prepare_lessons import quoted
-
-
-def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
-def write(path, value):
-    path.write_text(json.dumps(value, indent=2)+'\n', encoding='utf-8')
 
 
 def run(exe, out, smoke=False):
@@ -84,17 +75,8 @@ def run(exe, out, smoke=False):
                     timing='Sum of live continuation segments after the common ancestor; includes replay, speech, '
                            'logging and checkpoint I/O. Excludes setup and held-out evaluation.')
     write(out/'protocol.json', protocol)
-    rows, ancestors, commands = [], [], []
-
-    def native(*args):
-        command = [str(exe), *map(str, args)]
-        commands.append(command)
-        write(out/'commands.json', commands)
-        result = subprocess.run(command, capture_output=True)
-        log = out/f'command-{len(commands):03d}.log'
-        log.write_bytes(result.stdout + result.stderr)
-        if result.returncode:
-            raise RuntimeError(f'Native command failed; inspect {log}')
+    rows, ancestors = [], []
+    native = NativeCommands(exe, out)
 
     for seed_index, seed in enumerate(seeds):
         ancestor = out/f'{seed}-ancestor'
@@ -132,15 +114,8 @@ def run(exe, out, smoke=False):
                 row = dict(seed=seed, arm=arm, online_updates=end, parameters=meta[14],
                            checkpoint_sha256=snapshot_sha, stored_windows_by_source_stage=slots,
                            session=session, ancestor_checkpoint_sha256=ancestor_sha)
-                for split in ('train', 'development', 'expanded-train-monitor'):
-                    # Each arm receives exactly the same questions. train means
-                    # the original six-object training set, not all new material.
-                    report = dest/f'{split}-{end}.json'
-                    native('language-probes', '--checkpoint', snapshot,
-                           '--probes', selected['diversity']/f'{split}.sgprobe', '--output', report)
-                    row[split] = {k:v for k,v in json.loads(report.read_text()).items() if k != 'results'}
-                    if split != 'expanded-train-monitor':
-                        row[split+'_audit'] = audit(report, split)
+                # train continues to mean the original six-object training set.
+                row.update(binding_scores(native, snapshot, selected['diversity'], dest, end))
                 assert sha(snapshot) == snapshot_sha
                 rows.append(row)
                 write(out/'partial.json', rows)
@@ -157,7 +132,7 @@ def run(exe, out, smoke=False):
     for arm, path in selected.items():
         for name, record in manifests[arm]['files'].items():
             assert sha(path/name) == record['sha256'], f'Source changed during run: {arm}/{name}'
-    result = dict(protocol=protocol, native_commands=len(commands), shared_ancestors=ancestors, runs=rows)
+    result = dict(protocol=protocol, native_commands=len(native.commands), shared_ancestors=ancestors, runs=rows)
     write(out/'comparison.json', result)
 
 
