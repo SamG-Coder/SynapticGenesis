@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "stage": 1,
+      "command_journal_sha256": "570499057b3039155005ac6b866b38d9b792c8305e1eda3edf6de0e4f850d7a9",
+      "result_sha256": "fb6fc2214474cbe414126928618ec7c524d0f70423aaf48d7062b43ba7ad651c",
+      "replayed_commands": 10
+    },
+    {
+      "stage": 4,
+      "command_journal_sha256": "4548b5373869384debfceaf56a1f5b8575188ec6a0e7488863c91e63fe75695b",
+      "result_sha256": "55c6b7cabf670943b4ba66cfc42e17d82656584d949638c2dd07828bde077b23",
+      "replayed_commands": 10
+    }
+  ],
+  "rejected": [
+    "duplicate book roles",
+    "malformed raw generation"
+  ],
+  "existing_native_commands_replayed": 20,
+  "new_native_commands": 0,
+  "exact_command_arguments": true,
+  "exact_book_and_sample_results": true,
+  "helper_sha256": "be1ad8c6239097d62ce0a281df6dbe70f6c2d63a2bea51b41592ac1950b41735",
+  "limitation": "CPU replay of existing native artifacts, not fresh CUDA execution."
+}

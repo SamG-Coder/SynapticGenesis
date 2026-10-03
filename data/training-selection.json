@@ -73,5 +73,20 @@
       "checkpoint": "runs/teacher-retention-panel/31415-associative-control/checkpoint-190000.ckpt",
       "sha256": "46856b6298d96409fedc0f10fbfe3ba550d2c30e3c7f64f39ff7b0d17f815d40"
     }
+  ],
+  "prose_diagnostic_bases": [
+    {
+      "profile": "105m",
+      "seed": 1337,
+      "online_updates": 95207,
+      "checkpoint": "runs/prose-105m-founder/stage-3.ckpt",
+      "sha256": "e6983e807ec6346802a870e1879efd993f0fb4d9e1ab8fe4f5ce7079711f0474",
+      "source_edition": "selected-prose-scale-v1",
+      "schedule": "runs/prose-scale-curriculum/curriculum.sg",
+      "schedule_sha256": "95c67a6ee99e8c57101556cf141ae0031d9de2e4c1da7fc4ab652c7f253ea1e3",
+      "published_evidence": "reports/prose-105m-complete.json",
+      "published_evidence_sha256": "1425f456053498061e5ee388d006431cc6fdd184b3cc66be4fd7371310adabb0",
+      "allowed_use": "Same-curriculum learning-rate diagnostic only; descendants are not admitted for teaching or reproduction."
+    }
   ]
 }
