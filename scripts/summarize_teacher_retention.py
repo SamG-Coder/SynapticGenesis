@@ -71,7 +71,7 @@ def summarize(root, output, allow_smoke=False):
                 pair = dict(seed=seed, architecture=architecture, online_updates=end,
                             teacher_minus_control={k: b[k]-a[k] for k in fields})
                 if end != base:
-                    pair['live_cost_ratio'] = b['cumulative_narrative_seconds']/a['cumulative_narrative_seconds']
+                    pair['observed_live_cost_ratio'] = b['cumulative_narrative_seconds']/a['cumulative_narrative_seconds']
                     pair['teacher_extra_gpu_bytes'] = b['teacher_extra_gpu_bytes']
                 if end == final:
                     pair['gate'] = dict(binding_improves=b['development_joint'] > a['development_joint'],
@@ -84,20 +84,24 @@ def summarize(root, output, allow_smoke=False):
                 pairs=len(final_pairs), improving_binding_pairs=sum(r['gate']['binding_improves'] for r in final_pairs),
                 pairs_within_book_margin=sum(r['gate']['books_within_margin'] for r in final_pairs),
                 threshold_nats_per_byte=.02)
+    environment = read(root/'environment-note.json') if (root/'environment-note.json').exists() else None
     result = dict(protocol=p, rows=rows, means=means, paired=pairs, declared_gate=gate,
                   samples=all_samples, execution_check=execution, cpu_oracle=oracle,
+                  timing_environment=environment, whole_device_timing_isolation_verified=False,
                   full_development_cpu_audit_completed=False,
                   retained_objective_failure=read('reports/live-teachers-validation.json')['retained_strict_failures'],
                   interpretation='Report all architectures, seeds, endpoints and both variants. Repeated development probes '
                                  'and sampled book loss are narrow measures. Runtime and source exposure are paired; teacher '
-                                 'compute is extra and reported. No claim of useful conversation, lifelong retention or biological age.')
+                                 'compute is extra and reported. Whole-device isolation is not verified: observed timing '
+                                 'ratios do not establish intrinsic overhead or a speedup. No claim of useful conversation, '
+                                 'lifelong retention or biological age.')
     write(output, result)
     print(gate)
     for architecture in p['architectures']:
         group = [r for r in final_pairs if r['architecture'] == architecture]
         print(architecture, {key: statistics.mean(r['teacher_minus_control'][key] for r in group)
                              for key in ('development_joint', 'narrative_loss', 'reader_loss', 'geography_loss')},
-              'mean_live_cost_ratio', statistics.mean(r['live_cost_ratio'] for r in group))
+              'mean_observed_live_cost_ratio', statistics.mean(r['observed_live_cost_ratio'] for r in group))
 
 
 if __name__ == '__main__':

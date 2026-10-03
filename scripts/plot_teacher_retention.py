@@ -47,7 +47,7 @@ def plot(source, output):
             ax.bar(index, sum(values)/len(values), color=colors[index], alpha=.3, width=.6)
             for seed_index, value in enumerate(values):
                 ax.scatter(index+(seed_index-(len(values)-1)/2)*.09, value, marker=markers[seed_index], color=colors[index], s=43)
-        ax.set(title='Complete added live-learning phase', ylabel='Seconds including replay and speech',
+        ax.set(title='Observed added live-learning time', ylabel='Seconds including replay and speech',
                xticks=[0, 1], xticklabels=['Ordinary replay', 'Frozen teacher'])
     for ax in axes.flat:
         ax.grid(axis='y', alpha=.18); ax.set_axisbelow(True)
@@ -62,8 +62,10 @@ def plot(source, output):
     fig.legend([Line2D([0], [0], marker=markers[i], color='#555555', ls='None') for i in range(len(p['seeds']))],
                [str(s) for s in p['seeds']], loc='lower center', bbox_to_anchor=(.5, .055), ncol=3,
                title='Points and thin lines: each seed. Thick lines and bars: means.', frameon=False)
-    fig.text(.5, .025, 'Book-loss deltas below zero favor teaching; dotted line is the declared +0.02 margin. '
+    fig.text(.5, .028, 'Book-loss deltas below zero favor teaching; dotted line is the declared +0.02 margin. '
              'Sampled byte windows and repeated development probes; reserved tests unused.', ha='center', fontsize=9.5, color='#555555')
+    fig.text(.5, .01, 'Whole-device timing isolation is unverified; shared GPU workloads may affect observed costs.',
+             ha='center', fontsize=9.5, color='#555555')
     fig.savefig(output, dpi=160)
     plt.close(fig)
 
