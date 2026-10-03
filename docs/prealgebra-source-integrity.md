@@ -1,5 +1,10 @@
 # Image-dependent arithmetic solutions
 
+This report records the initial candidate audit. The subsequent
+[complete passage review and selected edition](prealgebra-worked-selection.md)
+retains 221 complete examples and excludes 40; the whole book remains
+unadmitted.
+
 The [notation audit](prealgebra-notation.md) established which formulas and
 modules can be serialized. The subsequent
 [source-integrity review](../reports/prealgebra-source-integrity.json) found a

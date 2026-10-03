@@ -26,6 +26,10 @@
     "selected-astronomy-v1": {
       "sources": "data/sources-astronomy-v1.json",
       "sha256": "eea159d96a0302eb6636e590303e758ad907fff898799472e11d72bc3a25c521"
+    },
+    "selected-prealgebra-worked-v1": {
+      "sources": "data/sources-prealgebra-v1.json",
+      "sha256": "b2967735cd35331d02e8afa76dab52c8164f1f96bec392e33094655369e03c22"
     }
   },
   "retired_editions": {
