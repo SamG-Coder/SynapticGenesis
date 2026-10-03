@@ -12,6 +12,26 @@ import struct
 from teacher_replay_cli import Fixture
 
 
+def match_restart_speech(full, split):
+    """Allow only the declared resume marker, preserving every other byte.
+
+    This fixture emits nine bytes every seven observations and resumes at 23.
+    Byte comparison also preserves non-UTF-8 speech, embedded newlines, and
+    all source/global update labels. No generic log-line filtering is used.
+    """
+    initial = b'\n[session starts at online update 0]\n'
+    resumed = b'\n[session starts at online update 23]\n'
+    following = b'\n[online update 28; global update 42]\n'
+    assert full.startswith(initial) and full.count(b'[session starts at online update ') == 1
+    assert full.count(b'\n[online update ') == 9 and full.count(following) == 1
+    expected = full.replace(following, resumed + following, 1)
+    assert split == expected, 'Resumed speech or marker position differs'
+    return dict(speech_records=9, generated_bytes=81, restart_marker_source_update=23,
+                next_speech_source_update=28, all_other_transcript_bytes_exact=True,
+                full_transcript_sha256=hashlib.sha256(full).hexdigest(),
+                resumed_transcript_sha256=hashlib.sha256(split).hexdigest())
+
+
 def snapshot(path):
     raw = Path(path).read_bytes()
     meta = struct.unpack_from('<32Q', raw)
@@ -48,7 +68,8 @@ def run(exe, out):
                 '--out', split, '--updates', 64, '--prompt', 'A', '--teacher-bundle', bundle, '--teacher-memory-mib', 64)
     expected, actual, disabled = (snapshot(p / 'latest.ckpt') for p in (full, split, control))
     assert expected == actual and expected['weight_sha256'] != disabled['weight_sha256']
-    assert (full / 'transcript.txt').read_bytes() == (split / 'transcript.txt').read_bytes()
+    speech = match_restart_speech((full / 'transcript.txt').read_bytes(),
+                                 (split / 'transcript.txt').read_bytes())
     policy = expected['policy']
     assert policy == (0x314d454d504753, 1, 6, struct.unpack('<I', struct.pack('<f', .02))[0],
                        struct.unpack('<I', struct.pack('<f', 1.5))[0], 0, 0, 0)
@@ -72,7 +93,8 @@ def run(exe, out):
                 '--out', out / 'invalid-teacher', reject='Experimental membrane policy is not admitted as a teacher')
     assert not (out / 'invalid-resume').exists() and not (out / 'invalid-teacher').exists()
     report = dict(passed=True, native_commands=len(fixture.calls), regularized_checkpoint_exact_on_restart=True,
-        speech_exact_on_restart=True, enabled_cost_changes_learned_weights=True, two_teachers_active=True,
+        speech_exact_on_restart=True, restart_speech=speech,
+        enabled_cost_changes_learned_weights=True, two_teachers_active=True,
         optional_si_exercised=True, source_updates=64, teacher_updates=teacher[9], teacher_pairs=teacher[10],
         full_checkpoint_sha256=expected['sha256'], regularized_weights_sha256=expected['weight_sha256'],
         disabled_weights_sha256=disabled['weight_sha256'], read_only_commands_preserve_checkpoint=True,
