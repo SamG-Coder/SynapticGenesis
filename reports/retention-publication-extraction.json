@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "control_publication_values_unchanged": true,
+  "unchanged_control_native_commands": 38,
+  "completed_native_prefix_verified": 51,
+  "rejected_cases": [
+    "wrong_order",
+    "changed_counter",
+    "changed_replay",
+    "wrong_rate",
+    "wrong_role",
+    "wrong_session"
+  ],
+  "new_native_commands": 0,
+  "model_updates": 0,
+  "protocol_sha256": "9c50dc898d73ac1b123d07f1aca7a83e92a5b6ccb1402c838fc3c8cfceaaa9b3",
+  "implementation_sha256": {
+    "D:/SynapticGenesis/tests/retention_evidence.py": "83a6e5c495564e11064bf1b6e74f85e92ec6ce1f3a23ff14a99d0cdba41cba7e",
+    "scripts/retention_evidence.py": "6756de8d2ef83399329616c052e9f3861d17a3871546a5694bf5b1270ae8d3dd",
+    "scripts/publish_retention_control.py": "fde3ee3eadf57bcf6b28465dc6d1ccca7949f0f67f5999f7b6bdce734a00ee13"
+  },
+  "scope": "Archived control plus completed quarter-rate halfway artifacts; no final candidate claim."
+}
