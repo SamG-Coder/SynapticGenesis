@@ -6,7 +6,8 @@ the 105M founder continues learning. Its first stage already had the exploratory
 reader check and two generations reported in [the founder record](prose-105m-founder.md).
 At declaration time, the remaining checkpoints and matching smaller controls
 had not been assessed. The [105M assessments](prose-105m-complete.md) have since
-completed at all four stages; the smaller controls remain in progress.
+completed at all four stages. The [complete three-size result](prose-size-results.md)
+now includes both smaller controls and their raw generations.
 
 The 2M, 27M and 105M profiles use the same seed, learning rate, source order,
 128-byte learning chunks, stage replay and scheduled speech. Compare their
@@ -51,9 +52,9 @@ CPU validation authenticated the complete source edition and schedule, checked
 the two existing 105M stage headers against the declaration, and compiled the
 Python driver. Native execution has since completed all forty commands for the
 105M founder: six book evaluations and four generations at each of four stages,
-with checkpoint identities unchanged. The matching smaller-model portion of
-the overall comparison is still in progress. Capacity benchmarks remain
-separate evidence about speed.
+with checkpoint identities unchanged. The matching smaller-model portion has
+also completed, giving 120 native assessment commands across twelve checkpoints.
+Capacity benchmarks remain separate evidence about speed.
 
 Increasing parameters also increases the amount of learning needed. The
 [Chinchilla study](https://arxiv.org/abs/2203.15556) found that model size and
@@ -93,7 +94,8 @@ nonzero exit, rejection of a mismatched executable, and rejection of the
 unfinished founder before assessment. The first three existing stage headers
 matched the declared exposure boundaries. The original live run has now exited
 successfully, its final checkpoint and session counters agree, and all four
-105M assessments completed. Full three-size orchestration remains in progress.
+105M assessments completed. Full three-size orchestration has now completed
+successfully, with all twelve assessments verified for publication.
 
 The final comparison requires all three models to have identical source,
 replay and scheduled-speech counters at each stage. It reports each validation

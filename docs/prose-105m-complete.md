@@ -36,7 +36,7 @@ The continuation's update-tick p95 is 28.22 ms and its update-plus-96-byte-speec
 tick p95 is 108.08 ms. Both are histogram-bin upper bounds with relative bin
 width about 2.19%. These do not measure request-serving latency for arbitrary
 prompts. The separate [capacity benchmark](bounded-live-memory.md) remains the
-controlled throughput comparison; the pending smaller founders save more often.
+controlled throughput comparison; the smaller founders save more often.
 
 ## Fixed development measurements
 
@@ -63,9 +63,10 @@ material, not an estimate of how many facts the model forgot.
 
 All forty native assessment commands completed. Each saved checkpoint was
 unchanged after its six book assessments and four generations. The first-stage
-reader result also matches the earlier exploratory assessment. The complete
-three-size orchestration is still running, so these results establish no
-quality advantage over the matched 2M or 27M models.
+reader result also matches the earlier exploratory assessment. The
+[complete three-size comparison](prose-size-results.md) is now available: the
+105M final validation mean is better than 27M but worse than the matched 2M
+control under this shared learning policy.
 
 ## Raw final continuations
 
@@ -99,9 +100,9 @@ not a statistically meaningful QA accuracy benchmark. The source curriculum
 is mainly book pretraining, and question formatting alone does not supply
 instruction training.
 
-The declared smaller-model comparison and matched neuron-response panel
-continue unchanged. Their results should separate effects of capacity from
-response saturation and the shared learning policy. The prepared astronomy
+The declared smaller-model comparison has completed. The matched
+neuron-response panel examines response saturation alongside the shared
+learning policy. The prepared astronomy
 extension remains unused. Before increasing exposure again, investigate the
 measured earlier-material regression with matched source and replay budgets;
 do not treat a later checkpoint, more neurons or chronological age as evidence
