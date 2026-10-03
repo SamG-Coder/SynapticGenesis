@@ -7,7 +7,7 @@ from dataclasses import dataclass
 import struct
 
 from adaptation_sources import fnv
-from experiment_checkpoint import checkpoint
+from experiment_checkpoint import policy_checkpoint
 
 MASK = (1 << 64) - 1
 
@@ -49,7 +49,7 @@ def schedule_identity(raw, stages):
 
 class ReplayReference:
     def __init__(self, ancestor, every, schedule_hash, source_hash, document_lengths):
-        meta, extra, *_ = checkpoint(ancestor)
+        meta, extra = policy_checkpoint(ancestor)
         assert meta[17] == 5 and extra[1] == 3 and not any(extra[9:14])
         self.meta, self.header = list(meta), list(extra[:16])
         self.random, self.speech = Random64(extra[4]), Random64(meta[23])
@@ -77,7 +77,7 @@ class ReplayReference:
                 group.items.pop()
         self.groups.append(Group(len(document_lengths), 0, 0, 0, []))
 
-    def run_until(self, end):
+    def run_until(self, end, on_replay=None):
         while self.meta[24] < end:
             document, offset = self.meta[19:21]
             size = min(self.meta[6], self.lengths[document] - 1 - offset)
@@ -98,6 +98,8 @@ class ReplayReference:
                 if available:
                     group = available[self.random.below(len(available))] if len(available) > 1 else available[0]
                     episode = group.items[self.random.below(len(group.items))]
+                    if on_replay is not None:
+                        on_replay(self.meta[24], episode)
                     self.meta[7] += 1
                     self.header[6] += 1
                     self.header[7] += episode[2]
@@ -120,7 +122,7 @@ class ReplayReference:
                 self.meta[30] += self.meta[27]
 
     def matches(self, path):
-        actual, extra, *_ = checkpoint(path)
+        actual, extra = policy_checkpoint(path)
         self.header[4], self.meta[23] = self.random.state, self.speech.state
         encoded = self.header + [len(self.groups)]
         for group in self.groups:

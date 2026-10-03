@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "checkpoint": "runs/prose-size-panel/founder-2m/stage-3.ckpt",
+      "sha256": "5599c5fba0ab941ded016db9551fa7d9657d72984979940bd34f15e3648882c4",
+      "checkpoint_bytes": 23477376,
+      "metadata_bytes_read": 25088,
+      "complete_header_and_replay_payload_match": true
+    },
+    {
+      "checkpoint": "runs/prose-size-panel/founder-2m/stage-4.ckpt",
+      "sha256": "5cb6b83a25131190453b337f7cdbf17074a940fc931fb7f44da98630688d785b",
+      "checkpoint_bytes": 23477416,
+      "metadata_bytes_read": 25128,
+      "complete_header_and_replay_payload_match": true
+    }
+  ],
+  "duplicate_and_short_tail_accounting": true,
+  "rejected": [
+    "wrong-document",
+    "unaligned",
+    "past-end",
+    "wrong-tail",
+    "version",
+    "unbounded-extra",
+    "truncated-payload"
+  ],
+  "native_commands": 0,
+  "model_updates": 0,
+  "code_sha256": {
+    "D:/SynapticGenesis/tests/prose_replay_coverage.py": "4c2b8acbea4646be9b554ac9064da99075af5276cd523260eda4a36850e2f2e1",
+    "scripts/prose_replay_coverage.py": "c12a96c35279688b30d95a813641daef8b18e2d8edce707fbf8dce07729188cd",
+    "scripts/experiment_checkpoint.py": "b7d4a87607a9deaecdd64aea697599a56442c028d32f23b847049e17542f9e75",
+    "tests/stage_replay_reference.py": "563e1ae33188b562df477f824ccf21bbd03d9e80c0379c3eb8c8d95e79f35be8"
+  },
+  "limit": "CPU reader/accounting checks. The companion coverage report verifies the full final-stage source, replay and RNG trajectory against native endpoints. No alternative replay policy was trained."
+}

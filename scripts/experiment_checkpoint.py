@@ -6,6 +6,24 @@ import hashlib
 import struct
 
 
+def policy_checkpoint(path):
+    """Read ordinary grouped-replay metadata without copying learned arrays."""
+    with path.open('rb') as stream:
+        meta = struct.unpack('<32Q', stream.read(256))
+        limit = 17 + 5 * 4096 + 3 * 65536
+        if (meta[0] != 0x314d4c53434e5042 or meta[17] != 5 or
+                not 17 <= meta[31] <= limit or not 0 < meta[14] <= 2147483647):
+            raise ValueError('Expected a bounded ordinary grouped-replay checkpoint')
+        offset = 288 + 12 * meta[14] + 4 * meta[18]
+        if path.stat().st_size != offset + 8 * meta[31]:
+            raise ValueError('Unexpected ordinary grouped-replay checkpoint extent')
+        stream.seek(offset)
+        extra = struct.unpack(f'<{meta[31]}Q', stream.read(8 * meta[31]))
+        if extra[1] != 3 or extra[9] != 0:
+            raise ValueError('Expected grouped replay without consolidation')
+    return meta, extra
+
+
 def checkpoint(path):
     raw = path.read_bytes()
     meta = struct.unpack_from('<32Q', raw)
