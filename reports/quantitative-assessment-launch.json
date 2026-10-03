@@ -1,0 +1,24 @@
+{
+  "checked_utc": "2026-10-03T21:29:40.647014+00:00",
+  "phase": "waiting-for-study",
+  "protocol_sha256": "417f8adf03cd17fb09c8a9160801e8b4ef3f02b7b5d737b738b17a8cdceca021",
+  "assessment_driver": {
+    "pid": 24064,
+    "executable": "C:\\Users\\samue\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "creation_filetime": 134355365364197578
+  },
+  "execution": {
+    "protocol_sha256": "417f8adf03cd17fb09c8a9160801e8b4ef3f02b7b5d737b738b17a8cdceca021",
+    "phase": "waiting-for-study",
+    "native_work_started": false,
+    "completed_models": 0,
+    "study_driver": {
+      "pid": 30892,
+      "executable": "C:\\Users\\samue\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+      "creation_filetime": 134355335186770565
+    }
+  },
+  "native_commands_started": 0,
+  "model_results_available": false,
+  "source_commit": "0ada12fc36e9413f8b069409f819c0a1538b1217"
+}
