@@ -1,9 +1,11 @@
 # Matched 105M and 411M live capacity check
 
-Status: prepared and compiled; CUDA compatibility, allocation and speed checks
-have not run. The [borrowing constructor](live-view-construction.md) and
-[shared evaluation views](shared-evaluation-views.md) must pass their native
-checks before this benchmark starts. This protocol does not queue GPU work.
+Status: executed successfully after all declared CUDA gates passed. The
+[results](411m-capacity-results.md) record actual allocation, learning and
+generation at both sizes. The [borrowing constructor](live-view-construction.md)
+and [shared evaluation views](shared-evaluation-views.md) passed their native
+checks first. The [preflight record](../reports/capacity-411m-preflight.json)
+preserves the earlier preparation stage. This document does not queue GPU work.
 
 The candidate capacity executable is compiled from the same C++/CUDA source
 as the candidate runtime. It calls the production `live_tick` and shared
