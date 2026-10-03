@@ -18,8 +18,8 @@ void associative_test(const Args &args) {
         }
     cache.features.put(features);
     cache.initial.zero();
-    association::forward<<<B, 256>>>(cache.features.p, cache.initial.p, cache.previous.p, cache.reads.p,
-                                     cache.state.p, T, true);
+    association::forward<><<<B, 256>>>(cache.features.p, cache.initial.p, cache.previous.p, cache.reads.p,
+                                       cache.state.p, T, true);
     auto reads = cache.reads.host(), state = cache.state.host();
     float kernel_error = 0;
     for (int b = 0; b < B; ++b) {

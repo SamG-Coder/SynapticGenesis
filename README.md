@@ -29,7 +29,7 @@ The [selected lesson-diversity comparison](docs/lesson-diversity.md#completed-pa
 
 The subsequent [matched ordering comparison](docs/curriculum-order.md#completed-comparison) gives both arms the same online lesson instances, with either gradual 6/12/24-object association phases or a global shuffle under the same stage-replay policy. Gradual practice improves two seeds slightly but regresses severely in seed 2026: final development accuracy averages **55.6% versus 71.3% for shuffled practice**. It improves the expanded-training monitor and average reading retention, with nearly identical measured live cost, but remains experimental. Every final development answer reproduces in a full CPU audit; [numerical score differences near spike thresholds](docs/curriculum-order.md#numerical-finding-and-independent-audit) remain a documented limitation, including a failed strict tolerance check.
 
-An optional [associative memory cell](docs/associative-memory.md) now updates temporary key/value connections during the shared forward pass. Numerical and lifecycle checks pass. In a three-seed screen, all nine models still score 0% on complete development binding groups after 34,000 observations. The associative model has lower final reader loss, but its live binding phase is 2.34× slower than the smaller selective control; it remains experimental. [Full comparison and limitations](docs/associative-memory.md#result-no-binding-gain-at-the-early-endpoint-with-higher-runtime-cost).
+An optional [associative memory cell](docs/associative-memory.md) now updates temporary key/value connections during the shared forward pass. Numerical and lifecycle checks pass. In a three-seed screen, all nine models still score 0% on complete development binding groups after 34,000 observations. The associative model has lower final reader loss, but its original implementation takes 2.34× the smaller selective control's live binding time. A subsequent [CUDA layout change](docs/association-runtime.md) reduces its live-loop time by 14.3% while reproducing all three complete learned checkpoints exactly. Generation gains are small, and the cell remains experimental. [Full learning comparison and limitations](docs/associative-memory.md#result-no-binding-gain-at-the-early-endpoint-with-higher-runtime-cost).
 
 ## Build
 
@@ -117,7 +117,7 @@ Optional `--consolidation si --si-strength 0.001` enables a synaptic-importance 
 
 ## Validate
 
-`build.ps1` runs the thirteen native suites. For independent gradient checks, install CPU PyTorch and NumPy in your own test environment and run:
+`build.ps1` runs the sixteen native suites. For independent gradient checks, install CPU PyTorch and NumPy in your own test environment and run:
 
 ```powershell
 python tests/oracle.py build/test-results

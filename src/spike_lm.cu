@@ -587,9 +587,9 @@ struct Model {
                        stream);
                 association::prepare<<<N, 32, 0, stream>>>(memory.raw.p, memory.features.p, memory.inverse.p,
                                                            N);
-                association::forward<<<B, 256, 0, stream>>>(memory.features.p, memory.initial.p,
-                                                            memory.previous.p, memory.reads.p, memory.state.p,
-                                                            T, streaming);
+                association::forward<><<<B, 256, 0, stream>>>(memory.features.p, memory.initial.p,
+                                                              memory.previous.p, memory.reads.p,
+                                                              memory.state.p, T, streaming);
                 linear(dy.p, memory.reads.p, p.association_out, p.association_bias, association::width, q.c,
                        stream);
                 plus<<<(N * q.c + 255) / 256, 256, 0, stream>>>(x[l + 1].p, dy.p, N * q.c);
@@ -660,8 +660,8 @@ struct Model {
                 auto &memory = *f.fast_memory;
                 linear_backward(memory.dread.p, memory.reads.p, dx.p, p.association_out, p.association_bias,
                                 association::width, q.c);
-                association::backward<<<B, 256>>>(memory.features.p, memory.inverse.p, memory.previous.p,
-                                                  memory.dread.p, memory.draw.p, T);
+                association::backward<><<<B, 256>>>(memory.features.p, memory.inverse.p, memory.previous.p,
+                                                    memory.dread.p, memory.draw.p, T);
                 linear_backward(memory.demission.p, f.emission.p, memory.draw.p, p.association_w,
                                 p.association_b, q.h, association::packed);
                 plus<<<(N * q.h + 255) / 256, 256>>>(ds.p, memory.demission.p, N * q.h);
@@ -1456,6 +1456,7 @@ void self_test(const Args &args) {
               << first << " -> " << last << ". CPU-autograd fixture: " << out.string() << "\n";
 }
 #include "adaptive_tests.cuh"
+#include "associative_bench.cuh"
 #include "associative_tests.cuh"
 #include "context_bench.cuh"
 #include "curriculum_tests.cuh"
@@ -1511,6 +1512,7 @@ int main(int argc, char **argv) {
                 << "synapticgenesis gated-test --out reports/gated-tests\n"
                 << "synapticgenesis selective-test --out reports/selective-tests\n"
                 << "synapticgenesis associative-test --out reports/associative-tests\n"
+                << "synapticgenesis association-layout-bench --out reports/association-layout\n"
                 << "synapticgenesis synaptic-test --out reports/synaptic-tests\n"
                 << "synapticgenesis self-test --out reports/native-tests\n"
                 << "synapticgenesis population-add --population runs/population --id founder-a "
@@ -1559,6 +1561,8 @@ int main(int argc, char **argv) {
             adaptive_test(args, 5);
         else if (cmd == "associative-test")
             associative_test(args);
+        else if (cmd == "association-layout-bench")
+            association_layout_bench(args);
         else if (cmd == "memory-bench")
             memory_bench(args);
         else if (cmd == "context-bench")

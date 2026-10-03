@@ -84,7 +84,7 @@ The associative cell has lower absolute final reader loss than both controls at 
 
 Both candidate ranking and unconstrained four-byte generation score zero on complete development groups for every model. Individual answers stay near the 50% two-choice level; context-erased accuracy is exactly 50%. Original training-group accuracy averages 0%, 0.23% and 0.15% for the smaller selective, wider selective and associative arms respectively. The models have not reliably fitted the relational task at this early endpoint. The screen does not establish which architecture would perform best after longer exposure.
 
-The current associative implementation costs **2.34 times** the smaller baseline's measured live binding time and **2.22 times** the approximately parameter-matched control's time. Graph generation takes about 35% and 31% longer per byte respectively. Its normal-update p95 histogram estimate is 5.93 ms for each seed, versus approximately 2.24–2.34 ms for the controls. The histogram has approximately 2.2% relative bin width. These are local RTX 5080 measurements, not portability or energy-efficiency claims.
+The original binary used in this screen costs **2.34 times** the smaller baseline's measured live binding time and **2.22 times** the approximately parameter-matched control's time. Graph generation takes about 35% and 31% longer per byte respectively. Its normal-update p95 histogram estimate is 5.93 ms for each seed, versus approximately 2.24–2.34 ms for the controls. The histogram has approximately 2.2% relative bin width. These are local RTX 5080 measurements, not portability or energy-efficiency claims. A subsequent [CUDA layout optimization](association-runtime.md) measures the revised runtime against this preserved binary.
 
 Generated samples from `The bird ` fall into repeated lesson patterns such as `Answer: bag.` or `Answer: box.` and malformed fragments. General conversation remains unestablished. The cell stays experimental and the default remains LIF; this screen does not justify promotion as a better general learner.
 
@@ -98,6 +98,6 @@ python scripts/summarize_associative.py
 python scripts/plot_associative.py
 ```
 
-## Next performance question
+## Follow-up performance experiment
 
-Static review identifies a candidate cost in the reverse kernel: its row-dot loop makes adjacent lanes read different floats separated by 32 words in shared memory. [NVIDIA's shared-memory guidance](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/#shared-memory-and-memory-banks) explains why that access pattern causes bank conflicts and shows an extra-column padding remedy. Testing a 33-word shared stride could preserve the scalar accumulation order while changing access layout. This is a proposed optimization, not a measured explanation of the entire runtime regression. The recorded experiment binary must be preserved before any such change, followed by numerical and live-trajectory comparisons.
+The [measured layout experiment](association-runtime.md) retains the original binary as a control. Padding alone regressed; caching backward inputs, padding the reverse matrices and retaining forward matrix cells in registers improved the measured recurrence cost. It reports whole-live-loop timing and complete learned-checkpoint comparisons separately from isolated kernel timings. The equations and checkpoint format are unchanged.
