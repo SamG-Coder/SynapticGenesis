@@ -1,0 +1,66 @@
+{
+  "status": "prepared_and_compiled_cuda_execution_pending",
+  "recorded_at_utc": "2026-10-03T17:05:35.571592+00:00",
+  "source_base_commit": "251cb3891f2611bb6c3eb7a09f027de79cff6956",
+  "source_sha256": {
+    "scripts/capacity_experiment.py": "7f4065cb7f2f2e39eea12768d6a6375de6e3151f5ce0c553e5f4e6b722d2d6c4",
+    "tests/capacity_probe.py": "2d5e7a0d315142b28d05c4ba3fdedc7f84d74d57cdb070da79c4a3e98b9a11cf",
+    "experiments/capacity_probe.cu": "0bd0c8e3af4377f54f1f8b825c61c0ce8b9ceeb18af16c3763b12406cc3d184f",
+    "docs/411m-capacity-protocol.md": "816ad0b6716ab3328f06d719aadf382ab197cd647220eed48463a5798038e43d",
+    "build.ps1": "b42e76ef8c017283095a351bb6b9c4c78e4e1db598ccf7b015f294b2fbe3e4ee",
+    "CMakeLists.txt": "99943fa6e352793630f9d4b39d96bed2358e080f5f1ca545193b553773156de6"
+  },
+  "capacity_executable": {
+    "path": "D:\\SynapticGenesis\\runs\\live-view-allocation-worktree\\build\\capacity-probe\\synaptic-capacity-probe.exe",
+    "sha256": "32b699772cfa356f188cc96071f61921526e01d0f2c2c16ebf4210687b9ba67a"
+  },
+  "matched_shapes": [
+    [
+      1024,
+      4096,
+      8
+    ],
+    [
+      2048,
+      8192,
+      8
+    ]
+  ],
+  "completed_checks": {
+    "native_capacity_build": true,
+    "python_compile": true,
+    "cli_help": true,
+    "invalid_or_duplicate_shape_panels_rejected_before_output": 9,
+    "existing_admitted_source_and_prepared_edition_authenticated": true,
+    "prior_shared_view_candidate_source_and_executable_pins_unchanged": true,
+    "active_and_preserved_study_pins_unchanged": {
+      "references": 452,
+      "distinct_files": 234
+    }
+  },
+  "declared_gate_protocol": {
+    "path": "D:\\SynapticGenesis\\runs\\live-view-allocation-worktree\\runs\\shared-view-cuda-gates-v1\\protocol.json",
+    "sha256": "2d308048d7f5de879e3be3e82fdaec60eacfe0280da5489ccdea2492be3fb013",
+    "manual_steps": 8,
+    "automatic_queue": false
+  },
+  "build_log": {
+    "path": "D:\\SynapticGenesis\\runs\\live-view-allocation-worktree\\runs-build-capacity-shared-views.log",
+    "sha256": "6738c8dcbfa41c9276aa94f15a816869f17530226eb87e44b0ea4e7fab34fbe3",
+    "text": "-- The CXX compiler identification is MSVC 19.51.36248.0\n-- The CUDA compiler identification is NVIDIA 13.3.73 with host compiler MSVC 19.51.36248.0\n-- Detecting CXX compiler ABI info\n-- Detecting CXX compiler ABI info - done\n-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe - skipped\n-- Detecting CXX compile features\n-- Detecting CXX compile features - done\n-- Detecting CUDA compiler ABI info\n-- Detecting CUDA compiler ABI info - done\n-- Check for working CUDA compiler: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3/bin/nvcc.exe - skipped\n-- Detecting CUDA compile features\n-- Detecting CUDA compile features - done\n-- Found CUDAToolkit: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3/include;C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3/include/cccl (found version \"13.3.73\")\n-- Configuring done (7.0s)\n-- Generating done (0.0s)\n-- Build files have been written to: D:/SynapticGenesis/runs/live-view-allocation-worktree/build/capacity-probe\n[1/2] Building CUDA object CMakeFiles\\synaptic-capacity-probe.dir\\experiments\\capacity_probe.cu.obj\ncapacity_probe.cu\ntmpxft_00008af0_00000000-7_capacity_probe.cudafe1.cpp\n[2/2] Linking CUDA executable synaptic-capacity-probe.exe\n"
+  },
+  "pending": [
+    "Allocation ownership and numerical self-test",
+    "18 native CTest checks",
+    "48 live compatibility/restart commands",
+    "240 view-caller compatibility commands",
+    "105M and 411M allocation-only checks",
+    "4 capacity-observer compatibility commands",
+    "Matched 105M and 411M live speed panel"
+  ],
+  "limits": [
+    "No candidate CUDA checks, 411M allocation, 411M learning or 411M speed measurements have run at this stage.",
+    "The existing native neuron and optimizer equations are unchanged.",
+    "The capacity check uses a fixed admitted speed fixture, not a language-quality curriculum."
+  ]
+}

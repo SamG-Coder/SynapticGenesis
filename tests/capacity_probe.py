@@ -7,14 +7,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from native_experiment import NativeCommands, read, sha
 
 
-def check(out):
+def check(out, probe_exe, native_exe):
     out.mkdir(parents=True, exist_ok=False)
     journal = out / 'commands'
     journal.mkdir()
-    probe = NativeCommands('build/capacity-probe/synaptic-capacity-probe.exe', journal)
+    probe = NativeCommands(probe_exe, journal)
     native_dir = out / 'native'
     native_dir.mkdir()
-    native = NativeCommands('build/synapticgenesis.exe', native_dir)
+    native = NativeCommands(native_exe, native_dir)
     data = out / 'fixture.dat'
     data.write_bytes(b'The cat sits on the mat.\n\x1eThe boat floats on the pond.\n')
     common = ['--data', data, '--cell', 'associative', '--channels', 32, '--hidden', 64, '--layers', 2,
@@ -41,4 +41,7 @@ def check(out):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--out', type=Path, required=True)
-    check(parser.parse_args().out)
+    parser.add_argument('--probe-exe', type=Path, default=Path('build/capacity-probe/synaptic-capacity-probe.exe'))
+    parser.add_argument('--native-exe', type=Path, default=Path('build/synapticgenesis.exe'))
+    args = parser.parse_args()
+    check(args.out, args.probe_exe, args.native_exe)
