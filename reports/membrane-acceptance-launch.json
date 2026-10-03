@@ -1,0 +1,61 @@
+{
+  "status": "verified_wait_at_snapshot",
+  "recorded_at_utc": "2026-10-03T19:09:55.843257+00:00",
+  "source_commit": "32d6ca14943f79ff3d1405322a6dc86ca7091a95",
+  "protocol_path": "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\runs\\membrane-acceptance-v1\\protocol.json",
+  "protocol_sha256": "827389c071e7869b3f7038cf020b88d52fcd68df1e633f097385e6b29aa45e80",
+  "authenticated_inputs": 257,
+  "all_inputs_verified_after_dispatch": true,
+  "execution_snapshot": {
+    "protocol_sha256": "827389c071e7869b3f7038cf020b88d52fcd68df1e633f097385e6b29aa45e80",
+    "driver": {
+      "pid": 21956,
+      "executable": "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+      "creation_filetime": 134355227206673793
+    },
+    "native_work_started": false,
+    "phase": "waiting-for-study"
+  },
+  "queue_processes": [
+    {
+      "ProcessId": 16152,
+      "ParentProcessId": 31940,
+      "CreationDate": "2026-10-04T06:08:45.24917+11:00",
+      "ExecutablePath": "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+      "CommandLine": "\"D:\\SBILM\\.local\\venv\\Scripts\\python.exe\" -X utf8 scripts/membrane_acceptance.py run --out runs/membrane-acceptance-v1 --protocol-sha256 827389c071e7869b3f7038cf020b88d52fcd68df1e633f097385e6b29aa45e80"
+    },
+    {
+      "ProcessId": 34524,
+      "ParentProcessId": 16152,
+      "CreationDate": "2026-10-04T06:08:45.255978+11:00",
+      "ExecutablePath": "C:\\Users\\samue\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+      "CommandLine": "\"D:\\SBILM\\.local\\venv\\Scripts\\python.exe\" -X utf8 scripts/membrane_acceptance.py run --out runs/membrane-acceptance-v1 --protocol-sha256 827389c071e7869b3f7038cf020b88d52fcd68df1e633f097385e6b29aa45e80"
+    }
+  ],
+  "exec_session_id": 55872,
+  "planned_top_level_commands": 20,
+  "host_checks_sha256": "630068ec721a48b087fa48d7d80a4c293df247d2c8a2c28f679ec3918ac1eb7c",
+  "baseline_checks_sha256": "a2db49e25b074fc437a3ec07fe0756d74c7be0fd76dc3e13585eea6cbbf07415",
+  "latest_411m_metric": {
+    "online_update": 117248,
+    "curriculum_stage": 4,
+    "global_update": 146560,
+    "observed_pairs": 15003923,
+    "epochs": 6,
+    "document": 41,
+    "byte_offset": 305152,
+    "loss": 1.31939875,
+    "spike_rate": 0.9841109316,
+    "gradient_norm": 0.5820719004,
+    "replay_updates": 29312,
+    "replay_pairs": 3748567,
+    "replay_loss": 1.596274,
+    "consolidation_events": 0
+  },
+  "predecessor_completed": false,
+  "candidate_cuda_started": false,
+  "acceptance_passed": false,
+  "language_trial_started": false,
+  "reproduction_admitted": false,
+  "limits": "The live queue holds the complete study driver handle. This launch record is not evidence that CUDA acceptance has passed. Native work is gated on successful driver exit and independent verification of all 80 saved assessments."
+}
