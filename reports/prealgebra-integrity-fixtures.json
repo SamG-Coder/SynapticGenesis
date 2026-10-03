@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "complete_pair_keeps_question_and_answer": true,
+  "incomplete_or_dependent_cases_rejected": 8,
+  "following_external_text_excluded": true,
+  "punctuation_placeholders_detected": true,
+  "short_numeric_description_preserved": true,
+  "test_sha256": "729fd251958052d1d622cc6c9de83e05696a9bdf95c0a976688fa9bc954dbb80",
+  "review_script_sha256": "b1032578b75305873e2f2fcfa5e90d0b6a862095b6991219633e68aba2eae171"
+}

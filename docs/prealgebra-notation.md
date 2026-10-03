@@ -9,6 +9,9 @@ of the 75 modules, compared with 33 using the original Astronomy subset.
 
 This is a conversion stage. No Prealgebra edition has been admitted, no
 curriculum has been created from it and no model has learned from it.
+The subsequent [source-integrity review](prealgebra-source-integrity.md)
+identifies image-dependent solutions and contradictory descriptions that also
+need attention before conversion output can become training material.
 
 ## Representation
 

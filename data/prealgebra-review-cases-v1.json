@@ -1,0 +1,59 @@
+{
+  "status": "source_review_only_not_training_admission",
+  "conflicts": [
+    {
+      "module": "m81270",
+      "exercise": "fs-id1177441",
+      "table": "eip-id1166566546426",
+      "description_excerpt": "The expression becomes 3 plus x which is 10.",
+      "finding": "The problem asks for x + 7 at x = 3. The substituted expression is 3 + 7 = 10. The description instead leaves x in 3 + x; with x = 3 that expression equals 6. Do not replace the missing image text with this description without correction."
+    },
+    {
+      "module": "m81320",
+      "exercise": "fs-id1447632",
+      "table": "eip-id1168468291100",
+      "description_excerpt": "The top line says x plus 11 equals negative 3.",
+      "finding": "The actual problem is x - 11 = -3, solved by x = 8; the table instructions also add 11 and substitute 8. The description switches to x + 11 = -3 and x = -14. It describes a different problem."
+    },
+    {
+      "module": "m81320",
+      "exercise": "fs-id1957175",
+      "table": "eip-id1168467157298",
+      "description_excerpt": "The first line says m minus 4 equals negative 5.",
+      "finding": "The actual problem is m + 4 = -5, solved by m = -9; the intermediate table text subtracts 4 and substitutes -9. Both the description and the final sentence switch to m - 4 = -5 with m = -1. This example needs review of the source images and an explicit correction."
+    }
+  ],
+  "candidate_samples": [
+    {
+      "module": "m81243",
+      "exercise": "fs-id1398237",
+      "finding": "The counting numbers in the supplied list are 3, 15 and 105; whole numbers add 0. One quarter and 5.2 belong to neither of these sets. The extracted question and answer preserve that distinction."
+    },
+    {
+      "module": "m81255",
+      "exercise": "fs-id3242021",
+      "finding": "Eight rows of fourteen tiles require 112 tiles. The question, multiplication, carry notation and final sentence are preserved."
+    },
+    {
+      "module": "m81277",
+      "exercise": "fs-id2474717",
+      "finding": "The difference between 11 degrees Fahrenheit and -9 degrees Fahrenheit is 20 degrees Fahrenheit. The expression and answer agree."
+    },
+    {
+      "module": "m81298",
+      "exercise": "fs-id2266411",
+      "finding": "Three eighths equals 0.375 and is less than 0.4. The conversion and comparison signs are preserved."
+    },
+    {
+      "module": "m81316",
+      "exercise": "fs-id1423478",
+      "finding": "Regrouping 6(3x) yields (6 times 3)x = 18x. The worked solution preserves the variable while multiplying the known factors."
+    },
+    {
+      "module": "m81354",
+      "exercise": "fs-id1707391",
+      "finding": "The vertical line x = 8 has undefined slope; the horizontal line y = -5 has slope 0. Both parts and their answers remain paired."
+    }
+  ],
+  "limits": "These are manually inspected examples, not an exhaustive factual audit of the book or a scored language-model test. No source text is corrected or admitted by this file."
+}
