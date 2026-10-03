@@ -139,8 +139,8 @@ observations while the smaller runs saved every 2,048, so total curriculum
 session times are not a fair speed ranking. The [105M completion record](prose-105m-complete.md)
 separately reports its measured 62.5 minutes of learning sessions including saves.
 
-The [matched neuron-response panel](prose-spike-panel.md) checks whether larger
-networks operate in a different firing and local-surrogate regime. Separate
+The [completed neuron-response panel](prose-spike-results.md) finds that larger
+networks fire more densely and have more zero local spike derivatives. Separate
 declared studies on the `research/learning-rate-retention` and
 `research/replay-capacity` branches test a smaller final-stage learning rate
 and a larger stored replay sample. Their outcomes must be measured before

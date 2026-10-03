@@ -1,0 +1,109 @@
+{
+  "passed": true,
+  "native_commands": 73,
+  "windows": 72,
+  "cases": [
+    {
+      "profile": "105m",
+      "stage": 0,
+      "checkpoint_sha256": "0e12565b535ca2633d2dc475cf6b2be1c0b6fe15f700572a5ba6cf7575430aa6",
+      "layers": 8,
+      "windows": 8,
+      "trace_files": 400,
+      "all_raw_trace_hashes_match": true,
+      "simple_pooled_means_match_windows": true
+    },
+    {
+      "profile": "105m",
+      "stage": 1,
+      "checkpoint_sha256": "b6303acdcee8a3e942f27db4ea930a17690035ab54bae9860a2c719f25580550",
+      "layers": 8,
+      "windows": 8,
+      "trace_files": 400,
+      "all_raw_trace_hashes_match": true,
+      "simple_pooled_means_match_windows": true
+    },
+    {
+      "profile": "105m",
+      "stage": 4,
+      "checkpoint_sha256": "f68c58fde2e073d33fb155530517a8c44f79280d9d54adcf21751b55eabc4501",
+      "layers": 8,
+      "windows": 8,
+      "trace_files": 400,
+      "all_raw_trace_hashes_match": true,
+      "simple_pooled_means_match_windows": true
+    },
+    {
+      "profile": "2m",
+      "stage": 0,
+      "checkpoint_sha256": "eb684bb77a175f7517fd0a8968ea41cf185ade9b595cb82a2dea3e16ff2b57ba",
+      "layers": 4,
+      "windows": 8,
+      "trace_files": 208,
+      "all_raw_trace_hashes_match": true,
+      "simple_pooled_means_match_windows": true
+    },
+    {
+      "profile": "2m",
+      "stage": 1,
+      "checkpoint_sha256": "b73ee11f99bf44935cd404a42fa2538f327eb614885bb4ac3683c4c1875ed7b0",
+      "layers": 4,
+      "windows": 8,
+      "trace_files": 208,
+      "all_raw_trace_hashes_match": true,
+      "simple_pooled_means_match_windows": true
+    },
+    {
+      "profile": "2m",
+      "stage": 4,
+      "checkpoint_sha256": "5cb6b83a25131190453b337f7cdbf17074a940fc931fb7f44da98630688d785b",
+      "layers": 4,
+      "windows": 8,
+      "trace_files": 208,
+      "all_raw_trace_hashes_match": true,
+      "simple_pooled_means_match_windows": true
+    },
+    {
+      "profile": "27m",
+      "stage": 0,
+      "checkpoint_sha256": "a8469d92b909e3b930c237e50422784a944a183af5b4d0592daef261f73adec2",
+      "layers": 8,
+      "windows": 8,
+      "trace_files": 400,
+      "all_raw_trace_hashes_match": true,
+      "simple_pooled_means_match_windows": true
+    },
+    {
+      "profile": "27m",
+      "stage": 1,
+      "checkpoint_sha256": "a6e1624d4ee68343a04616ae65c76b1ea40903f9f3cd508eeb101fe3291fcf23",
+      "layers": 8,
+      "windows": 8,
+      "trace_files": 400,
+      "all_raw_trace_hashes_match": true,
+      "simple_pooled_means_match_windows": true
+    },
+    {
+      "profile": "27m",
+      "stage": 4,
+      "checkpoint_sha256": "77f28aa6770bbf28ba3026345c911718a191922de59dcb44734bf43f0c3cc987",
+      "layers": 8,
+      "windows": 8,
+      "trace_files": 400,
+      "all_raw_trace_hashes_match": true,
+      "simple_pooled_means_match_windows": true
+    }
+  ],
+  "raw_trace_files_verified": 3050,
+  "raw_trace_bytes_verified": 26562036736,
+  "legacy_trace_files_byte_identical": 26,
+  "all_raw_outputs_and_command_logs_match": true,
+  "comparison_sha256": "a6f3adc8ddaaa062d042cfaf47b61d2c1ae7ff1ef22961af4c607fa2eaa4d534",
+  "published_report_sha256": "f4e5699ae003c655226d3a4cd0f99fa8b1200d37d3c2e3f2089ca105e9c4d785",
+  "exact_result_copy": true,
+  "audit_script_sha256": "be605246ee336c7dc6345ec94906574bd67e8cce28fdb7bf38403d778c612a0d",
+  "new_native_commands": 0,
+  "model_updates": 0,
+  "reserved_tests_scored": false,
+  "limit": "Artifact and declared-execution verification, with pooled count consistency checks. Not an independent recomputation of all neuron statistics, new learning result, new seed or held-out language benchmark."
+}

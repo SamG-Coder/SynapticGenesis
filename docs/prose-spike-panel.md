@@ -81,10 +81,14 @@ per-target loss with maximum absolute error `6.5316e-7` nats. Source declaration
 produced the eight windows above, each 1,025 bytes. The separate native target
 built successfully and the ongoing learner's executable hash was unchanged.
 
-The rebuilt executable's compatibility run and all 72 matched forwards remain
-pending. The cached-trace check verifies the new reader; it does not establish
-that the rebuilt executable or full new orchestration has passed. No activity
-controller, reset change, learned threshold or quality improvement is claimed.
+The rebuilt executable's compatibility run and all 72 matched forwards have
+now completed successfully. The [completed results](prose-spike-results.md)
+include all nine checkpoints and the verified raw trace identities. The
+compatibility output is byte-identical in all 26 files, and the maximum loss
+reconstruction error over the new windows is 1.949443e-6 nats. This is now
+native execution evidence in addition to the earlier cached-trace reader
+check. No activity controller, reset change, learned threshold or quality
+improvement is claimed.
 
 After the size comparison is complete:
 
