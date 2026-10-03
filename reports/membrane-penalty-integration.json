@@ -21,7 +21,7 @@
     "build/membrane-penalty-reference/synaptic-membrane-penalty-reference.exe": "ebf1e02fbd7022c141ba466958d30744b873693d8ef0d3d1c7c36d3152f28879",
     "reports/activity-penalty-reach.json": "4094960f80bb058925a495d10736cd28765927c839b3bc05728a203f896b0566",
     "reports/activity-penalty-reach-checks.json": "7d1c6a1bf96985120882fea54223ea766bbabbdd5db4c07b23d1429d7e02ac96",
-    "reports/membrane-penalty-host.json": "cc30ecae8540ff6130f8ca47c37160d12ebd996000d24819f9be98c418f636fa",
+    "reports/membrane-penalty-host.json": "f55be210c98275c38a36b296ae0222ed66ab6b9be5dddcd9632ab653c2da28b6",
     "reports/membrane-penalty-build-selectors.json": "1ee043c0f14d5c1429827e6d1419277c08f087a242da97abdb66a9560111a956",
     "data/membrane-penalty-audit-v1.json": "3769ebfd60d9cf10dfd6510992f6d653b222eb343dece3fe976e08869f3652d3",
     "reports/membrane-regularization-research.json": "cd6e4b3450a08dd11f59c618050ffd1bc8a698df8e4052da5cedf5e46f2753e9"
@@ -65,5 +65,10 @@
   "new_cuda_model_commands": 0,
   "new_host_reference_executions": 1,
   "candidate_integrated_into_production": false,
-  "limits": "The point objective is compiled for host/device and its host recurrence derivative is checked. No CUDA numerical comparison, integrated learner parity, resumed candidate learning, language quality, retention, or runtime benefit is claimed."
+  "limits": "The point objective is compiled for host/device and its host recurrence derivative is checked. No CUDA numerical comparison, integrated learner parity, resumed candidate learning, language quality, retention, or runtime benefit is claimed.",
+  "host_raw_report": {
+    "path": "runs/membrane-penalty-host-v1.json",
+    "sha256": "cc30ecae8540ff6130f8ca47c37160d12ebd996000d24819f9be98c418f636fa"
+  },
+  "host_report_publication": "Windows native text output is normalized from CRLF to LF for Git publication; parsed JSON is identical. The raw native report remains preserved with its own hash."
 }
