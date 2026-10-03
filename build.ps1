@@ -1,4 +1,4 @@
-param([string]$Architecture='120', [switch]$SkipTests, [switch]$TraceDiagnostic, [switch]$AdaptationProbe, [switch]$ReplayPriorityProbe, [switch]$ReplaySelectionProbe, [switch]$CapacityProbe, [switch]$ViewAllocationProbe, [switch]$EarlyLearningProbe)
+param([string]$Architecture='120', [switch]$SkipTests, [switch]$TraceDiagnostic, [switch]$AdaptationProbe, [switch]$ReplayPriorityProbe, [switch]$ReplaySelectionProbe, [switch]$CapacityProbe, [switch]$ViewAllocationProbe, [switch]$EarlyLearningProbe, [switch]$MembranePenaltyReference)
 $ErrorActionPreference='Stop'
 $diagnostics=@(
   @{Selected=$TraceDiagnostic; Name='trace-diagnostic'; Option='SG_BUILD_TRACE_DIAGNOSTIC'},
@@ -7,7 +7,8 @@ $diagnostics=@(
   @{Selected=$ReplaySelectionProbe; Name='replay-selection-probe'; Option='SG_BUILD_REPLAY_SELECTION_PROBE'},
   @{Selected=$CapacityProbe; Name='capacity-probe'; Option='SG_BUILD_CAPACITY_PROBE'},
   @{Selected=$ViewAllocationProbe; Name='view-allocation-probe'; Option='SG_BUILD_VIEW_ALLOCATION_PROBE'},
-  @{Selected=$EarlyLearningProbe; Name='early-learning-probe'; Option='SG_BUILD_EARLY_LEARNING_PROBE'}
+  @{Selected=$EarlyLearningProbe; Name='early-learning-probe'; Option='SG_BUILD_EARLY_LEARNING_PROBE'},
+  @{Selected=$MembranePenaltyReference; Name='membrane-penalty-reference'; Option='SG_BUILD_MEMBRANE_PENALTY_REFERENCE'}
 )
 $enabledDiagnostics=@($diagnostics | Where-Object {$_.Selected})
 if($enabledDiagnostics.Count -gt 1){throw 'Select one diagnostic build per invocation.'}

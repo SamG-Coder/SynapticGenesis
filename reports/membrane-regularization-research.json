@@ -1,0 +1,44 @@
+{
+  "review_date": "2026-10-04",
+  "topic": "Direct membrane regularization and the reach of the existing spike-activity objective",
+  "source_inspection": [
+    {
+      "title": "RecDis-SNN: Rectifying Membrane Potential Distribution for Directly Training Spiking Neural Networks",
+      "url": "https://openaccess.thecvf.com/content/CVPR2022/html/Guo_RecDis-SNN_Rectifying_Membrane_Potential_Distribution_for_Directly_Training_Spiking_Neural_CVPR_2022_paper.html",
+      "year": 2022,
+      "read_scope": "Publisher abstract and metadata. The linked PDF returned HTTP 403; the detailed loss was not audited.",
+      "supported_point": "The authors propose a membrane-distribution loss and report improvements in directly trained SNNs.",
+      "boundary": "This supports investigating a direct potential objective, not reproducing its formula or assuming an effect in our language model."
+    },
+    {
+      "title": "Membrane Potential Distribution Adjustment and Parametric Surrogate Gradient in Spiking Neural Networks",
+      "url": "https://arxiv.org/html/2304.13289",
+      "year": 2023,
+      "read_scope": "Introduction, LIF mechanism, quantization discussion and section 3.1 with equations 4-6. External code and full experimental results were not audited.",
+      "supported_point": "The method adds a symmetric distribution-divergence objective and separately adapts surrogate parameters in classification experiments.",
+      "boundary": "Our signed subtractive-reset cell and continuous emission differ. The candidate point penalty is our own simpler objective, not the paper method or evidence of a language benefit."
+    },
+    {
+      "title": "Membrane Potential Batch Normalization for Spiking Neural Networks",
+      "url": "https://arxiv.org/html/2308.08359",
+      "year": 2023,
+      "read_scope": "Neuron equations, sections 3.2 and 4.1-4.4, the training/inference algorithm, threshold-folding expression and classification ablation table. External code was not run.",
+      "supported_point": "The method normalizes the membrane before firing and folds trained normalization into thresholds for inference.",
+      "boundary": "Adapting it to one causal live learner requires explicit statistics and update semantics; its classification results do not supply those semantics."
+    }
+  ],
+  "failed_additional_access": [
+    {
+      "url": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/shi26ae/shi26ae.pdf",
+      "reason": "Browser rejected application/octet-stream; no additional full-paper reading is claimed."
+    }
+  ],
+  "engineering_conclusion": "First quantify the optional activity objective on preserved signed-cell traces, then consider a direct squared-excess potential penalty with unchanged forward computation. Scalar/recurrence checks are insufficient for language or retention claims.",
+  "reference_material_added_to_training": false,
+  "external_weights_imported": false,
+  "local_equations": {
+    "src/trace_neuron.cuh": "d346931acdff5a4711dea5740b185e6212dc7d0dd906349ffdb8973081ed71b6",
+    "src/model.cuh": "1ef2ba51cebaf7ceb61e4eed675b312cc71a311b2a9481cd3f642e8d1730d710",
+    "src/spike_lm.cu": "b765c9045e6f50780a6b83955adeb397975b083a27386a5f98bb08dae2bca33d"
+  }
+}

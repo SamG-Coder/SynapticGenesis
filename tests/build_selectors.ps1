@@ -21,6 +21,7 @@ $expected=@{
   CapacityProbe=@{Name='capacity-probe'; Option='SG_BUILD_CAPACITY_PROBE'}
   ViewAllocationProbe=@{Name='view-allocation-probe'; Option='SG_BUILD_VIEW_ALLOCATION_PROBE'}
   EarlyLearningProbe=@{Name='early-learning-probe'; Option='SG_BUILD_EARLY_LEARNING_PROBE'}
+  MembranePenaltyReference=@{Name='membrane-penalty-reference'; Option='SG_BUILD_MEMBRANE_PENALTY_REFERENCE'}
 }
 if(@(& $selector).Count -ne 0){throw 'Default build selected a diagnostic.'}
 $cases=@()

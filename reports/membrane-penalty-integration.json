@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "recorded_at_utc": "2026-10-03T18:32:08.792419+00:00",
+  "base_commit": "198579082a4fa0d593f4239cc8f7a546b1112566",
+  "build_command": "./build.ps1 -MembranePenaltyReference",
+  "host_command": "build/membrane-penalty-reference/synaptic-membrane-penalty-reference.exe --out runs/membrane-penalty-host-v1.json",
+  "cuda_compiler": "13.3.73",
+  "host_compiler": "MSVC 19.51.36248.0",
+  "gpu_architecture": 120,
+  "device_helper_compiled": true,
+  "device_numerical_execution": false,
+  "host_reference_passed": true,
+  "source_and_evidence_sha256": {
+    "experiments/membrane_penalty.cuh": "92d4f4e76c3b6806e55a0ffc607b97c6995936a1d27ea50525963e07a686f900",
+    "tests/membrane_penalty_reference.cu": "2c0ec44aa08f36600d7ece94ef38aef498c456366b49be81a8e0c2cb18281f8e",
+    "scripts/activity_penalty_reach.py": "6f700dc17ef862b53c8e14633b98fbcf19b1b898ab08071a462539b7cf5956c3",
+    "tests/activity_penalty_reach.py": "e3bcdde0b14e1a25fe7bba41135b03c4e9eeb5def315321a38dd786e824c1b46",
+    "CMakeLists.txt": "6fcedc939bd2290538ef19815551d4ade126096361ac41f11aa3b874568d9032",
+    "build.ps1": "d2fa7ada4344f2bdc6561aaaf28a95c00b30b0ab61e8852811195880c7bed33c",
+    "tests/build_selectors.ps1": "e35756677c742bc4f369a6076306063cbde26b420747d6cfd0f2a4212e734503",
+    "build/membrane-penalty-reference/synaptic-membrane-penalty-reference.exe": "ebf1e02fbd7022c141ba466958d30744b873693d8ef0d3d1c7c36d3152f28879",
+    "reports/activity-penalty-reach.json": "4094960f80bb058925a495d10736cd28765927c839b3bc05728a203f896b0566",
+    "reports/activity-penalty-reach-checks.json": "7d1c6a1bf96985120882fea54223ea766bbabbdd5db4c07b23d1429d7e02ac96",
+    "reports/membrane-penalty-host.json": "cc30ecae8540ff6130f8ca47c37160d12ebd996000d24819f9be98c418f636fa",
+    "reports/membrane-penalty-build-selectors.json": "1ee043c0f14d5c1429827e6d1419277c08f087a242da97abdb66a9560111a956",
+    "data/membrane-penalty-audit-v1.json": "3769ebfd60d9cf10dfd6510992f6d653b222eb343dece3fe976e08869f3652d3",
+    "reports/membrane-regularization-research.json": "cd6e4b3450a08dd11f59c618050ffd1bc8a698df8e4052da5cedf5e46f2753e9"
+  },
+  "preserved_studies": [
+    {
+      "path": "runs/prose-retention-lr/protocol.json",
+      "sha256": "9c50dc898d73ac1b123d07f1aca7a83e92a5b6ccb1402c838fc3c8cfceaaa9b3",
+      "references": 90
+    },
+    {
+      "path": "runs/prose-replay-capacity/protocol.json",
+      "sha256": "20096651488db77581529f4a08a681af646ca5fefd7245efe51c9f2a05c27e19",
+      "references": 89
+    },
+    {
+      "path": "runs/prose-early-width/protocol.json",
+      "sha256": "76d3ab3fefe4d8afd1d0904c260f59a0e14d8d02cf2ca40f8444ad2f078911db",
+      "references": 136
+    },
+    {
+      "path": "runs/prose-early-width-v2/protocol.json",
+      "sha256": "c870c8419f7b62768fb697aab40c4e49c388770f919a10acd96bba13ef943773",
+      "references": 137
+    },
+    {
+      "path": "runs/prose-411m-v1/protocol.json",
+      "sha256": "daba74f6fecd44f8fd9334c07d07120bd5b9ac4466f46e9e2fa741f38c851244",
+      "references": 137
+    }
+  ],
+  "total_authenticated_references": 589,
+  "distinct_preserved_inputs": 299,
+  "production_source_files_unchanged": 42,
+  "production_runtime_binaries_unchanged": {
+    "build/synapticgenesis.exe": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+    "build/preserved-runtime-f73d30d8/synapticgenesis.exe": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+    "build/validated-shared-views/synapticgenesis.exe": "4e65f54c44fb52603da839aa3cba41dff1f0788371cc3ffcc9cefd9e63613d62"
+  },
+  "training_selection_unchanged": true,
+  "new_cuda_model_commands": 0,
+  "new_host_reference_executions": 1,
+  "candidate_integrated_into_production": false,
+  "limits": "The point objective is compiled for host/device and its host recurrence derivative is checked. No CUDA numerical comparison, integrated learner parity, resumed candidate learning, language quality, retention, or runtime benefit is claimed."
+}

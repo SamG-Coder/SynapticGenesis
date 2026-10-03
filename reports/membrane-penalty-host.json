@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "scalar_checks": 11,
+  "recurrence_drive_checks": 28,
+  "recurrence_leak_checks": 4,
+  "band": 1.5,
+  "maximum_scalar_error": 2.5000000000327558e-06,
+  "maximum_recurrence_error": 2.2934032450905306e-10,
+  "maximum_leak_error": 2.0695658520253346e-08,
+  "cuda_execution": false,
+  "production_integration": false,
+  "fixed_spike_resets_during_finite_difference": true
+}

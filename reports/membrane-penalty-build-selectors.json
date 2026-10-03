@@ -1,0 +1,49 @@
+{
+  "conflicting_pairs_rejected": 28,
+  "selectors": [
+    {
+      "switch": "AdaptationProbe",
+      "option": "SG_BUILD_ADAPTATION_PROBE",
+      "name": "adaptation-probe"
+    },
+    {
+      "switch": "CapacityProbe",
+      "option": "SG_BUILD_CAPACITY_PROBE",
+      "name": "capacity-probe"
+    },
+    {
+      "switch": "EarlyLearningProbe",
+      "option": "SG_BUILD_EARLY_LEARNING_PROBE",
+      "name": "early-learning-probe"
+    },
+    {
+      "switch": "MembranePenaltyReference",
+      "option": "SG_BUILD_MEMBRANE_PENALTY_REFERENCE",
+      "name": "membrane-penalty-reference"
+    },
+    {
+      "switch": "ReplayPriorityProbe",
+      "option": "SG_BUILD_REPLAY_PRIORITY_PROBE",
+      "name": "replay-priority-probe"
+    },
+    {
+      "switch": "ReplaySelectionProbe",
+      "option": "SG_BUILD_REPLAY_SELECTION_PROBE",
+      "name": "replay-selection-probe"
+    },
+    {
+      "switch": "TraceDiagnostic",
+      "option": "SG_BUILD_TRACE_DIAGNOSTIC",
+      "name": "trace-diagnostic"
+    },
+    {
+      "switch": "ViewAllocationProbe",
+      "option": "SG_BUILD_VIEW_ALLOCATION_PROBE",
+      "name": "view-allocation-probe"
+    }
+  ],
+  "passed": true,
+  "script_sha256": "d2fa7ada4344f2bdc6561aaaf28a95c00b30b0ab61e8852811195880c7bed33c",
+  "no_selection_uses_normal_build": true,
+  "toolchain_or_cuda_work_requested": false
+}

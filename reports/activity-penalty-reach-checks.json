@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "scalar_window_checks": 28,
+  "malformed_cases_rejected": 8,
+  "silent_activity_gradient_distinguished_from_zero_spike_surrogate": true,
+  "backward_chunk_boundary_changes_reach": true,
+  "both_signed_firing_polarities_checked": true,
+  "implementation_sha256": {
+    "D:\\SynapticGenesis\\tests\\activity_penalty_reach.py": "e3bcdde0b14e1a25fe7bba41135b03c4e9eeb5def315321a38dd786e824c1b46",
+    "scripts\\activity_penalty_reach.py": "6f700dc17ef862b53c8e14633b98fbcf19b1b898ab08071a462539b7cf5956c3"
+  },
+  "native_forwards": 0,
+  "learning_updates": 0
+}

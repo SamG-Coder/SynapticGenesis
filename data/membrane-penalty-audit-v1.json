@@ -1,0 +1,22 @@
+{
+  "version": "membrane-penalty-audit-v1",
+  "trace_report": "reports/prose-spike-panel.json",
+  "trace_report_sha256": "f4e5699ae003c655226d3a4cd0f99fa8b1200d37d3c2e3f2089ca105e9c4d785",
+  "publication_audit": "reports/prose-spike-panel-audit.json",
+  "publication_audit_sha256": "f31ab56671eaa5be9ad460ac45e37be3656d197f299df119b5b700244b27c812",
+  "trace_root": "runs/prose-spike-panel",
+  "chunk": 128,
+  "candidate_band": 1.5,
+  "profiles": [
+    "105m",
+    "2m",
+    "27m"
+  ],
+  "stages": [
+    0,
+    1,
+    4
+  ],
+  "scope": "Post-hoc, read-only analysis of preserved native reset-window traces. No model computation, learning, current-run measurement, or outcome-based parameter selection.",
+  "candidate": "Half the squared excess beyond absolute membrane 1.5, with a direct membrane derivative. Candidate band is below the outer surrogate boundary of 2; it is not a selected biological target or a tested language-learning setting."
+}
