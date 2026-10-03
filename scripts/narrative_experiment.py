@@ -4,7 +4,7 @@ from pathlib import Path
 import shutil
 import subprocess
 
-from experiment_checkpoint import checkpoint, distribution
+from experiment_checkpoint import distribution, state_record
 from extend_curriculum import prepare, read_schedule
 from native_experiment import (NativeCommands, binding_scores, read, sha, verified_book_manifest,
                                verified_manifest, write)
@@ -12,17 +12,6 @@ from native_experiment import (NativeCommands, binding_scores, read, sha, verifi
 
 BOOKS = {'reader': 13853, 'geography': 12228, 'narrative': 11757}
 PROMPTS = ['The bird ', 'Once upon a time ']
-
-
-def state_record(path):
-    meta, extra, _, identity = checkpoint(path)
-    assert meta[17] == 5 and extra[1] == 3
-    groups = [dict(zip(('document_end', 'seen_windows', 'stored_windows', 'replay_updates', 'replay_pairs'),
-                       extra[17 + 5 * i:22 + 5 * i])) for i in range(extra[16])]
-    return dict(checkpoint_sha256=identity, parameters=meta[14], cell=meta[1],
-                online_updates=meta[24], global_updates=meta[7], observed_pairs=meta[22],
-                generated_bytes=meta[30], replay_updates=extra[6], replay_pairs=extra[7],
-                curriculum_stage=extra[15] + 1, replay_groups=groups)
 
 
 def assess_books(native, checkpoint_path, prepared, out, endpoint, batches):

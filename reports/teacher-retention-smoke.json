@@ -1,0 +1,175 @@
+{
+  "passed": true,
+  "smoke_only": true,
+  "native_commands": 111,
+  "branches": 6,
+  "checkpoint_rows": 18,
+  "checked_endpoints": [
+    {
+      "seed": 1337,
+      "arm": "selective-control",
+      "online_updates": 256,
+      "checkpoint_sha256": "6b5f8000638588f6cccf9208cab6adc733242e4e2226311d1b0f97df4ba211fb"
+    },
+    {
+      "seed": 1337,
+      "arm": "selective-control",
+      "online_updates": 384,
+      "checkpoint_sha256": "0a8a96744be4ae677da3db074d3f681f6fc0de70c96d2782bef748af308b91c9"
+    },
+    {
+      "seed": 1337,
+      "arm": "selective-teacher",
+      "online_updates": 256,
+      "checkpoint_sha256": "ec32124c25743ad9bccad45ffb4ef658e26472325bc33910a9512d57fd6e2543"
+    },
+    {
+      "seed": 1337,
+      "arm": "selective-teacher",
+      "online_updates": 384,
+      "checkpoint_sha256": "237132af5edf3e36a45b50a1efbd17e2ad6de14b48f8d4d2f222541eaca5874c"
+    },
+    {
+      "seed": 1337,
+      "arm": "wide-selective-control",
+      "online_updates": 256,
+      "checkpoint_sha256": "6e263b67f85ac11fd274baae98d7f18b486b386d61fc208e9dc39b4c3d118669"
+    },
+    {
+      "seed": 1337,
+      "arm": "wide-selective-control",
+      "online_updates": 384,
+      "checkpoint_sha256": "8d2e55c58b82e1f8a58a202f02cd01df808262b846e101d3dc9b7cd395d27d7d"
+    },
+    {
+      "seed": 1337,
+      "arm": "wide-selective-teacher",
+      "online_updates": 256,
+      "checkpoint_sha256": "b016871a6ddf34611fe2db37792bbd608868f9162af3cd46e4ab351e97e5d72c"
+    },
+    {
+      "seed": 1337,
+      "arm": "wide-selective-teacher",
+      "online_updates": 384,
+      "checkpoint_sha256": "9f64a9bccf0fddc102fda07d9566cbdb5adb0d69e7e10de05b44f7b917b49aef"
+    },
+    {
+      "seed": 1337,
+      "arm": "associative-control",
+      "online_updates": 256,
+      "checkpoint_sha256": "a2f64d62148517f1551cb812655c35364ffcacc33cb4e892e38df5425bd65e2c"
+    },
+    {
+      "seed": 1337,
+      "arm": "associative-control",
+      "online_updates": 384,
+      "checkpoint_sha256": "325360c161474360a65ab3a6b6e73b430fcf469bd664f748322a6529cd67f228"
+    },
+    {
+      "seed": 1337,
+      "arm": "associative-teacher",
+      "online_updates": 256,
+      "checkpoint_sha256": "164df7eb5a61ff3c5a5c41a8d57a6f522f4ac5087898c9c101913e1ecb114a64"
+    },
+    {
+      "seed": 1337,
+      "arm": "associative-teacher",
+      "online_updates": 384,
+      "checkpoint_sha256": "ad165fc652343a8755f8cf1add6242391a8fb3af830d6c33ad50787986e3c9f2"
+    }
+  ],
+  "ordinary_controls_match_previous_study": [
+    {
+      "seed": 1337,
+      "architecture": "selective",
+      "online_updates": 256,
+      "checkpoint_sha256": "6b5f8000638588f6cccf9208cab6adc733242e4e2226311d1b0f97df4ba211fb",
+      "full_checkpoint_identical": true
+    },
+    {
+      "seed": 1337,
+      "architecture": "selective",
+      "online_updates": 384,
+      "checkpoint_sha256": "0a8a96744be4ae677da3db074d3f681f6fc0de70c96d2782bef748af308b91c9",
+      "full_checkpoint_identical": true
+    },
+    {
+      "seed": 1337,
+      "architecture": "wide-selective",
+      "online_updates": 256,
+      "checkpoint_sha256": "6e263b67f85ac11fd274baae98d7f18b486b386d61fc208e9dc39b4c3d118669",
+      "full_checkpoint_identical": true
+    },
+    {
+      "seed": 1337,
+      "architecture": "wide-selective",
+      "online_updates": 384,
+      "checkpoint_sha256": "8d2e55c58b82e1f8a58a202f02cd01df808262b846e101d3dc9b7cd395d27d7d",
+      "full_checkpoint_identical": true
+    },
+    {
+      "seed": 1337,
+      "architecture": "associative",
+      "online_updates": 256,
+      "checkpoint_sha256": "a2f64d62148517f1551cb812655c35364ffcacc33cb4e892e38df5425bd65e2c",
+      "full_checkpoint_identical": true
+    },
+    {
+      "seed": 1337,
+      "architecture": "associative",
+      "online_updates": 384,
+      "checkpoint_sha256": "325360c161474360a65ab3a6b6e73b430fcf469bd664f748322a6529cd67f228",
+      "full_checkpoint_identical": true
+    }
+  ],
+  "source_exposure_and_descriptors_match_between_variants": true,
+  "independent_expected_observed_pairs": {
+    "256": 16384,
+    "384": 32768
+  },
+  "selected_sources_and_parents_authenticated": true,
+  "frozen_teachers_equal_own_pre_narrative_parent": true,
+  "teacher_eligibility_counters_exact": true,
+  "teacher_memory_cap_observed": true,
+  "graph_generation_exact": true,
+  "reserved_tests_not_scored": true,
+  "uninterrupted_controls": [
+    {
+      "architecture": "selective",
+      "variant": "control",
+      "complete_checkpoint_identical": true,
+      "checkpoint_sha256": "0a8a96744be4ae677da3db074d3f681f6fc0de70c96d2782bef748af308b91c9"
+    },
+    {
+      "architecture": "selective",
+      "variant": "teacher",
+      "complete_checkpoint_identical": true,
+      "checkpoint_sha256": "237132af5edf3e36a45b50a1efbd17e2ad6de14b48f8d4d2f222541eaca5874c"
+    },
+    {
+      "architecture": "wide-selective",
+      "variant": "control",
+      "complete_checkpoint_identical": true,
+      "checkpoint_sha256": "8d2e55c58b82e1f8a58a202f02cd01df808262b846e101d3dc9b7cd395d27d7d"
+    },
+    {
+      "architecture": "wide-selective",
+      "variant": "teacher",
+      "complete_checkpoint_identical": true,
+      "checkpoint_sha256": "9f64a9bccf0fddc102fda07d9566cbdb5adb0d69e7e10de05b44f7b917b49aef"
+    },
+    {
+      "architecture": "associative",
+      "variant": "control",
+      "complete_checkpoint_identical": true,
+      "checkpoint_sha256": "325360c161474360a65ab3a6b6e73b430fcf469bd664f748322a6529cd67f228"
+    },
+    {
+      "architecture": "associative",
+      "variant": "teacher",
+      "complete_checkpoint_identical": true,
+      "checkpoint_sha256": "ad165fc652343a8755f8cf1add6242391a8fb3af830d6c33ad50787986e3c9f2"
+    }
+  ],
+  "additional_control_commands": 6
+}

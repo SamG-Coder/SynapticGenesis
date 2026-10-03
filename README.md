@@ -39,6 +39,8 @@ The [completed narrative continuation](docs/narrative-learning.md#completed-comp
 
 The [live-teacher integration](docs/live-teachers.md) combines selected source replay with one or two frozen models' prediction distributions in the existing live learner. Immutable bundles, checkpointed policy/counters, additional GPU memory limits and registered teacher lifespans are implemented. Disabled controls and complete restart checks preserve the tested learning state exactly. The [objective](docs/teacher-objective.md) passes independent gradient checks for all six cells, while a strict first-Adam-step comparison remains a recorded failure. A measured retention or generational benefit is still pending.
 
+The [declared retention comparison](docs/teacher-retention.md) branches all nine existing parents into ordinary replay and frozen-self guidance, with matched selected-source exposure and fixed endpoints. Its shortened rehearsal verifies exact restart, unchanged ordinary controls and teacher eligibility; the full learning comparison must establish the quality/cost tradeoff.
+
 ## Build
 
 Requires an NVIDIA CUDA GPU, the CUDA toolkit, CMake and a C++17 compiler. The Windows build script locates Visual Studio C++ tools and Ninja. Local validation uses an RTX 5080, CUDA 13.3 and MSVC 19.51.

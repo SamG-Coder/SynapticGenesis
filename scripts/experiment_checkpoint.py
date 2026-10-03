@@ -31,3 +31,21 @@ def teaching(path):
         return None
     offset = 288 + 12*meta[14] + 4*meta[18] + 8*meta[31]
     return struct.unpack_from('<32Q', raw, offset)
+
+
+def state_record(path):
+    """Comparable exposure/state evidence for grouped-replay experiments."""
+    meta, extra, _, identity = checkpoint(path)
+    assert meta[17] in (5, 6) and extra[1] == 3
+    groups = [dict(zip(('document_end', 'seen_windows', 'stored_windows', 'replay_updates', 'replay_pairs'),
+                       extra[17 + 5*i:22 + 5*i])) for i in range(extra[16])]
+    result = dict(checkpoint_sha256=identity, parameters=meta[14], cell=meta[1],
+                  online_updates=meta[24], global_updates=meta[7], observed_pairs=meta[22],
+                  generated_bytes=meta[30], replay_updates=extra[6], replay_pairs=extra[7],
+                  curriculum_stage=extra[15]+1, replay_groups=groups)
+    policy = teaching(path)
+    if policy:
+        result['teaching'] = dict(active=bool(policy[2]), teachers=policy[3], bundle_hash=str(policy[4]),
+                                  eligible_documents=policy[6], updates=policy[9], pairs=policy[10],
+                                  words=list(policy))
+    return result
