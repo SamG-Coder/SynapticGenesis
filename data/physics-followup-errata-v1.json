@@ -1,0 +1,160 @@
+{
+  "version": "physics-followup-errata-v1",
+  "status": "reviewed_corrections_not_training_admission",
+  "base_source_spec": "data/sources-physics-v1.json",
+  "base_source_spec_sha256": "580f6fb69672c6829478e0da7ec3fcb6f68408db95cc7f4d1920cc06d419ce63",
+  "base_prepared": "data/prepared/physics-v1-reviewed",
+  "base_manifest_sha256": "e758b32429a69de4b3a1fd7421f5b8bf63a1200af7461e06df8be0193fad8441",
+  "base_preparation_audit": "reports/physics-selection.json",
+  "base_preparation_audit_sha256": "4e9b1735aac28233388e34b83452bab4b9c7073a69bb8759accae4e512e50860",
+  "upstream_repository": "https://github.com/openstax/osbooks-physics",
+  "upstream_commit": "dfb731c737e5056750e792643fe6377425b0a067",
+  "source_cache": "runs/science-source-review/raw/physics",
+  "modules": [
+    {
+      "id": "m54273",
+      "base_sha256": "63be23491b4061de3df87ef29e5a085684b15b7ef7dbf23103c75f459fc4a541",
+      "corrected_sha256": "a40edd878e8dc9510ce130e9148aee337285e6d88899ffc059ea3a736750c9f8",
+      "base_bytes": 10976,
+      "corrected_bytes": 10959,
+      "correction_ids": [
+        "energy-balance-signs"
+      ]
+    },
+    {
+      "id": "m54287",
+      "base_sha256": "a676ec5cce75a8b161e74caa05a0a25bb4bee7a7056e3f425ec4994c9d9d76cc",
+      "corrected_sha256": "14c00d9e796a3f14f496ad9858b1cd7086a4e60790c951014f20c4b8f76cbd7f",
+      "base_bytes": 13296,
+      "corrected_bytes": 13069,
+      "correction_ids": [
+        "thermal-energy-total",
+        "thermal-energy-glossary",
+        "absolute-zero-quantum",
+        "absolute-zero-summary",
+        "absolute-zero-glossary"
+      ]
+    },
+    {
+      "id": "m54290",
+      "base_sha256": "f4d303c1a854912761716d4f07e9482bdc40a19d8ec90546f95390922f861c57",
+      "corrected_sha256": "04f62996cb03d946f90602bd2dbffdf3f41b23e857ba2f8097cd174cbfe11abe",
+      "base_bytes": 22348,
+      "corrected_bytes": 22405,
+      "correction_ids": [
+        "heat-capacity-mass"
+      ]
+    }
+  ],
+  "corrections": [
+    {
+      "id": "energy-balance-signs",
+      "module": "m54273",
+      "source_element_id": "fs-id1164566582056",
+      "source_raw_sha256": "d7cbed99a524693ddd4d0f2259d47bb16e62ee97f02c6f0302246f334625f8ab",
+      "source_element_text_sha256": "d5bf0a454aa67d57a6dfc136c8c9c06642b2fc12cb55adb780d67a194835383c",
+      "before": "Equation 7 \\(K {E}_{2} = P {E}_{2} − ( K {E}_{1} + P {E}_{1} ) = 980 − \\{ [ 0 − [ 10 ( 9.80 ) 20 ] ] \\} = 980 \\text{J}\\)",
+      "after": "Equation 7 \\(K {E}_{2} = ( K {E}_{1} + P {E}_{1} ) - P {E}_{2} = [ 0 + 10 (9.80) 20 ] - 980 = 980\\ \\text{J}\\)",
+      "before_sha256": "b64934424ebd539f9c0be138c86aeba05e6ab80119bbd681e304ab2cd61e3e53",
+      "after_sha256": "dacd42f89fe98c8eea755955e49ccf35c9883f443f8fad041b167b2aa7c2dbdd",
+      "issue": "Both the symbolic subtraction and the substituted signs contradict the preceding conserved-energy equation. Retain the stated assumptions and numerical result, with a consistent derivation.",
+      "references": [
+        "https://openstax.org/books/physics/pages/9-2-mechanical-energy-and-conservation-of-energy"
+      ]
+    },
+    {
+      "id": "thermal-energy-total",
+      "module": "m54287",
+      "source_element_id": "fs-id1167064894012",
+      "source_raw_sha256": "5ddec4d8f0e56daed4cdd241a448ab3b1cccee23b204289a8d743d844088dfc6",
+      "source_element_text_sha256": "c77d366a3e461770d4553cf48ed66277eee2f9e1a81a65d454554e815be33fce",
+      "before": "Atoms and molecules are constantly in motion, bouncing off one another in random directions. Recall that kinetic energy is the energy of motion, and that it increases in proportion to velocity squared. Without going into mathematical detail, we can say that thermal energy—the energy associated with heat—is the average kinetic energy of the particles (molecules or atoms) in a substance. Faster moving molecules have greater kinetic energies, and so the substance has greater thermal energy, and thus a higher temperature. The total internal energy of a system is the sum of the kinetic and potential energies of its atoms and molecules. Thermal energy is one of the subcategories of internal energy, as is chemical energy.",
+      "after": "Thermal energy is associated with disordered microscopic motion and interactions throughout a system, not the average energy of one particle. For a classical monatomic ideal gas, temperature is proportional to the average translational kinetic energy per atom, while total internal energy also depends on the number of atoms. More generally, internal energy includes microscopic kinetic and potential energies, and its relationship to temperature depends on the material and conditions.",
+      "before_sha256": "c77d366a3e461770d4553cf48ed66277eee2f9e1a81a65d454554e815be33fce",
+      "after_sha256": "759feb74450d4da2141a70216c465a7dcbfa6fd58965230dd86d4b44321bd456",
+      "issue": "Distinguish per-particle average energy, temperature and total internal energy; qualify the simple proportionality with the ideal-gas model.",
+      "references": [
+        "https://openstax.org/books/university-physics-volume-2/pages/2-2-pressure-temperature-and-rms-speed"
+      ]
+    },
+    {
+      "id": "thermal-energy-glossary",
+      "module": "m54287",
+      "source_element_id": "fs-id1167066090980",
+      "source_raw_sha256": "5ddec4d8f0e56daed4cdd241a448ab3b1cccee23b204289a8d743d844088dfc6",
+      "source_element_text_sha256": "ad9ace9eba6d4c15eecad6f675455892a2f868199a443abe6149035320665b7c",
+      "before": "average random kinetic energy of a molecule or an atom",
+      "after": "energy associated with disordered microscopic motion and interactions throughout a system",
+      "before_sha256": "ad9ace9eba6d4c15eecad6f675455892a2f868199a443abe6149035320665b7c",
+      "after_sha256": "1f4234e4b9aab3d56983e8f9b46f49e882af6ad4638ea6e867ae0666ba9518dc",
+      "issue": "Keep the glossary consistent with the corrected extensive-versus-average distinction.",
+      "references": [
+        "https://openstax.org/books/university-physics-volume-2/pages/2-2-pressure-temperature-and-rms-speed"
+      ]
+    },
+    {
+      "id": "absolute-zero-quantum",
+      "module": "m54287",
+      "source_element_id": "fs-id1167065911098",
+      "source_raw_sha256": "5ddec4d8f0e56daed4cdd241a448ab3b1cccee23b204289a8d743d844088dfc6",
+      "source_element_text_sha256": "3ecce879f37705dd5a57e5ce3d2e7a90798f8efff1cffe059f0c23c9ff01b7fd",
+      "before": "Zero degrees on the Kelvin scale is known as absolute zero; it is theoretically the point at which there is no molecular motion to produce thermal energy.",
+      "after": "Absolute zero is 0 K. A bound quantum system can retain nonzero kinetic energy in its lowest-energy state, so absolute zero does not imply that all molecular motion ceases.",
+      "before_sha256": "123be485664fd057240b6cb618852697b4679382094f57a4c056e65bfbff833a",
+      "after_sha256": "1a8640344cb811ff550e5538d15d6e54e883f9767bbbc0d340b3353ed8fa1598",
+      "issue": "The literal claim that all molecular motion stops omits quantum ground-state motion.",
+      "references": [
+        "https://openstax.org/books/university-physics-volume-3/pages/7-5-the-quantum-harmonic-oscillator"
+      ]
+    },
+    {
+      "id": "absolute-zero-summary",
+      "module": "m54287",
+      "source_element_id": "fs-id1167065870621",
+      "source_raw_sha256": "5ddec4d8f0e56daed4cdd241a448ab3b1cccee23b204289a8d743d844088dfc6",
+      "source_element_text_sha256": "0d797e1d806d92da4176875abf660985c26054f6287d7c39a3ee5c52d595f7fc",
+      "before": "- Absolute zero is the temperature at which there is no molecular motion.",
+      "after": "- Absolute zero is 0 K; quantum ground-state motion can remain.",
+      "before_sha256": "b66f0f78bb4891702b1122e187f51b4e466ac872280466de76a95f551d55cfbe",
+      "after_sha256": "8bb71cc0a7c4792efa32a15c29f5a63586ee68dd31d5257343fa7468f955ea75",
+      "issue": "Keep the summary consistent with the qualified quantum statement.",
+      "references": [
+        "https://openstax.org/books/university-physics-volume-3/pages/7-5-the-quantum-harmonic-oscillator"
+      ]
+    },
+    {
+      "id": "absolute-zero-glossary",
+      "module": "m54287",
+      "source_element_id": "fs-id1167066044922",
+      "source_raw_sha256": "5ddec4d8f0e56daed4cdd241a448ab3b1cccee23b204289a8d743d844088dfc6",
+      "source_element_text_sha256": "3a2895e5a5cc49d85c5e50643c938ac1363bb69936cdb315f7ba61832d162fc1",
+      "before": "lowest possible temperature; the temperature at which all molecular motion ceases",
+      "after": "0 K; it does not imply that all quantum motion ceases",
+      "before_sha256": "3a2895e5a5cc49d85c5e50643c938ac1363bb69936cdb315f7ba61832d162fc1",
+      "after_sha256": "af491618bd26d849f5da791792d67e63332504cda1b24165e30e9a0febb3631b",
+      "issue": "Keep the glossary consistent with the qualified quantum statement.",
+      "references": [
+        "https://openstax.org/books/university-physics-volume-3/pages/7-5-the-quantum-harmonic-oscillator"
+      ]
+    },
+    {
+      "id": "heat-capacity-mass",
+      "module": "m54290",
+      "source_element_id": "fs-id1167064892499",
+      "source_raw_sha256": "136958077cb63d398a50388e6e6056b42f1bc1748c7e9ddfdf1173dc5d99d4e5",
+      "source_element_text_sha256": "971863715136a685084f6adcb8d1f81bdb0e75c1e02f7ef9fd639b4d3087aec8",
+      "before": "Note that heat capacity is the same as specific heat, but without any dependence on mass.",
+      "after": "For a fixed material and physical conditions, heat capacity grows with an object's mass, whereas specific heat is the heat capacity per unit mass.",
+      "before_sha256": "4f889b4845a07ea963e4a463b5632abd8d2edc695920be04dc110ae13ada1c8a",
+      "after_sha256": "0686a18afd4dd922831d28a8715d2513d174a59d1dd3756246841cbe319c10b9",
+      "issue": "The original sentence contradicts C = m c and the following explanation about unequal masses.",
+      "references": [
+        "https://openstax.org/books/college-physics-2e/pages/14-2-temperature-change-and-heat-capacity"
+      ]
+    }
+  ],
+  "attribution": "Physics by OpenStax at Rice University and the authors and contributors credited in the preserved original preface. Source snapshot: https://github.com/openstax/osbooks-physics/tree/dfb731c737e5056750e792643fe6377425b0a067 . The pinned source license and collection declare Creative Commons Attribution 4.0 International. The review normalizes mathematical layout, preserves bold symbols and isotope indices, moves list titles to enclosing sections, omits specified teacher/activity notes, empty external exercise placeholders and vocabulary grids, retains source image descriptions rather than images, and repairs five explicitly reviewed CP1252 punctuation characters without altering the cached source bytes. This adaptation is recorded in the selected-physics-v1 source specification and passage review. No endorsement is implied; the MIT code license does not replace the book license. This corrected review additionally repairs two explicitly identified table-width declarations, preserves one four-item Roman list as labeled paragraphs, corrects three nuclide formulas in two paragraphs, and adds two descriptions authored after inspecting the pinned source diagrams. Original source files remain unchanged. These adaptations do not certify all factual content or all diagrams. Empty question/exercise wrappers left after omitting external exercise placeholders are removed; all substantive questions, solutions and trailing text are retained. Five further explicitly recorded text adaptations clarify net force, the direction of momentum, heat transfer across space, real materials versus an ideal blackbody, and the periodic-table legend. Entire modules with exact protected-content overlap are omitted rather than deleting parts of questions or solutions. The Momentum chapter supplies validation text and the Electrical Circuits chapter supplies reserved tests. Follow-up review: the seven listed adaptations repair one energy derivation and qualify thermal-energy, absolute-zero and heat-capacity statements. Original source files and the admitted version-one edition remain unchanged. Current reference pages are research evidence, not newly copied training text.",
+  "review_scope": "Targeted assistant inspection of the cited passages and their local summary/glossary repetitions, not expert certification or a complete fact check. No model has learned the proposed corrections. A new admitted source edition and regenerated curriculum are required before use.",
+  "current_curriculum_action": "Do not start new Physics learning from the existing unconsumed arithmetic/Physics continuation. Rebuild it from a newly admitted corrected edition first. Preserve the current prose and membrane-study inputs.",
+  "unmodified_rounding_note": "The 25 degrees Celsius worked conversion reports 298 K. This can represent rounding to the nearest kelvin, so it is not treated as a new numerical error in this review."
+}

@@ -85,6 +85,12 @@ model command or CUDA work was part of that audit.
 
 ## Conditions for the learning experiment
 
+The later [Physics errata review](physics-followup-errata.md) found seven
+passage corrections in three of the selected modules. This unconsumed
+continuation retains the original Physics text and must be regenerated from
+a newly admitted corrected edition before Physics learning starts. The
+separate review copies are not themselves an admitted edition.
+
 Native admission of this particular schedule remains untested. A learning
 experiment must declare a completed prose checkpoint, executable, learning
 and replay policies, and assessment schedule before resuming its full weights,

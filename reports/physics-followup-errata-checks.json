@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "correction_count": 7,
+  "modules_checked": 3,
+  "full_originals_recovered": true,
+  "question_and_solution_markers_preserved": true,
+  "original_sources_unchanged": true,
+  "original_rounding_example_preserved": true,
+  "attribution_files_exact": 3,
+  "algebra": {
+    "conservation_solution": "k1 + p1 - p2",
+    "proposed_equation_matches_conservation": true,
+    "initial_potential_joules": 1960,
+    "final_potential_joules": 980,
+    "final_kinetic_joules": 980,
+    "original_symbolic_expression_joules": -980,
+    "original_substituted_expression_joules": 2940,
+    "original_stated_result_joules": 980,
+    "heat_capacity_counterexample": {
+      "specific_heat_j_per_kg_k": 900,
+      "one_kg_j_per_k": 900,
+      "two_kg_j_per_k": 1800
+    }
+  },
+  "proposed_review_result_sha256": "8f0250aa46843bd8e15f404272d2529e89b3e6de7911b02e3bc8a75a245a8493",
+  "review_directory": "runs\\physics-errata-review-v1",
+  "exact_output_hashes_verified": true,
+  "single_pass_observation_delta": 0,
+  "rejected_inputs": [
+    {
+      "case": "status",
+      "reason": "Unexpected errata review status"
+    },
+    {
+      "case": "base-hash",
+      "reason": "Errata base identity changed: base_source_spec"
+    },
+    {
+      "case": "manifest",
+      "reason": "Errata base manifest changed"
+    },
+    {
+      "case": "source-commit",
+      "reason": "Errata source commit differs"
+    },
+    {
+      "case": "source-element",
+      "reason": "Errata source element changed"
+    },
+    {
+      "case": "element-text",
+      "reason": "Errata source element text changed"
+    },
+    {
+      "case": "before-text",
+      "reason": "Errata passage identity changed"
+    },
+    {
+      "case": "after-text",
+      "reason": "Errata passage identity changed"
+    },
+    {
+      "case": "missing-evidence",
+      "reason": "Missing reviewed correction evidence"
+    },
+    {
+      "case": "output-hash",
+      "reason": "Corrected text differs from reviewed selection"
+    },
+    {
+      "case": "output-length",
+      "reason": "Errata output extent changed"
+    },
+    {
+      "case": "missing-correction",
+      "reason": "Errata correction scope changed"
+    },
+    {
+      "case": "missing-assignment",
+      "reason": "Module correction order changed"
+    }
+  ],
+  "cpu_only": true,
+  "native_commands": 0,
+  "new_model_updates": 0,
+  "training_admitted": false,
+  "implementation_sha256": {
+    "D:\\SynapticGenesis\\tests\\physics_errata.py": "460b6a15a9e3c75e65f17ef0dee45bc09eb1e6a7cedea4bb33efc6402ea50b3b",
+    "data\\physics-followup-errata-v1.json": "91984ac5f08e7af767656717b5fa96e476e7a0ca52ec5aae5c70d23d05eb9824",
+    "scripts\\review_physics_errata.py": "2d8f6bc4a44c08ad8799909c9d400653cd15e24f1a5145299799f3c7a3a59c40"
+  },
+  "limits": "Arithmetic and byte-preservation checks support only the seven explicit changes. They do not certify every Physics statement, establish model learning, or admit these copies."
+}

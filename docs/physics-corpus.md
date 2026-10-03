@@ -12,6 +12,13 @@ continues with its original source schedule and frozen inputs. No model has
 learned this Physics edition, and no question-answering or retention benefit is
 established.
 
+A later [targeted errata review](physics-followup-errata.md) identified seven
+corrections in three training modules. Separate corrected copies and their
+checks are available, but are not yet an admitted edition. The existing
+unconsumed Physics continuation must be rebuilt from a newly admitted
+corrected edition before learning begins; this historical selection is
+preserved for reproducibility.
+
 | Split | Complete modules | UTF-8 bytes including separators | Alphabetic word-like occurrences |
 | --- | ---: | ---: | ---: |
 | Training | 90 | 1,690,796 | 273,773 |
