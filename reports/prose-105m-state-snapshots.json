@@ -1,0 +1,393 @@
+{
+  "kind": "Exploratory CPU inspection of saved native recurrence",
+  "source_commit": "9521a0742567e9b8ff7b0da6d12ec18fe8ed1e54",
+  "founder_protocol_sha256": "55543997e1c6202f512d1830c805bd1bfb1d7650f8e514797e56b7481b044990",
+  "scripts": {
+    "D:\\SynapticGenesis\\scripts\\spike_state_snapshot.py": "55c029734624822aa44b64b27af295b70b0f150711d24d02e6ab93528a13a16e",
+    "scripts\\prose_founder.py": "0313a08d408cf2bc5c707005719d5b439032ffac3d5823560ef1ac1c62a6d537"
+  },
+  "native_equations": {
+    "src/trace_neuron.cuh": "d346931acdff5a4711dea5740b185e6212dc7d0dd906349ffdb8973081ed71b6",
+    "src/spike_lm.cu": "0e6ea9a8073c686f5c142b79964e32233cb377e874a99bc18f8a9e7f1005b14c",
+    "src/model.cuh": "453c0aea5e331667c60b7ad0053747ac97312a1375e4887d6df121d08c226876",
+    "src/checkpoint.cuh": "ac967392c2ff80deb2dfa3403a0f501a15402230d335426b67b170eb2fa7d096"
+  },
+  "derivation": "Signed threshold spike s = 1[u >= 1] - 1[u <= -1]; stored reset r = u - s. A stored absolute r >= 1 implies absolute u >= 2. The implemented triangular local spike surrogate is zero at absolute u >= 2. The initial zero state has no last step.",
+  "snapshots": [
+    {
+      "checkpoint": "runs/prose-105m-founder/initial.ckpt",
+      "checkpoint_sha256": "0e12565b535ca2633d2dc475cf6b2be1c0b6fe15f700572a5ba6cf7575430aa6",
+      "source_observations": 0,
+      "parameters": 104851472,
+      "channels": 1024,
+      "hidden": 4096,
+      "layer_count": 8,
+      "recurrent_floats": 73728,
+      "layers": [
+        {
+          "layer_zero_based": 0,
+          "post_spike_membrane_absolute_mean": 0.0,
+          "post_spike_membrane_absolute_p50": 0.0,
+          "post_spike_membrane_absolute_p90": 0.0,
+          "post_spike_membrane_absolute_maximum": 0.0,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": null,
+          "signed_trace_absolute_mean": 0.0,
+          "fast_matrix_frobenius": 0.0
+        },
+        {
+          "layer_zero_based": 1,
+          "post_spike_membrane_absolute_mean": 0.0,
+          "post_spike_membrane_absolute_p50": 0.0,
+          "post_spike_membrane_absolute_p90": 0.0,
+          "post_spike_membrane_absolute_maximum": 0.0,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": null,
+          "signed_trace_absolute_mean": 0.0,
+          "fast_matrix_frobenius": 0.0
+        },
+        {
+          "layer_zero_based": 2,
+          "post_spike_membrane_absolute_mean": 0.0,
+          "post_spike_membrane_absolute_p50": 0.0,
+          "post_spike_membrane_absolute_p90": 0.0,
+          "post_spike_membrane_absolute_maximum": 0.0,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": null,
+          "signed_trace_absolute_mean": 0.0,
+          "fast_matrix_frobenius": 0.0
+        },
+        {
+          "layer_zero_based": 3,
+          "post_spike_membrane_absolute_mean": 0.0,
+          "post_spike_membrane_absolute_p50": 0.0,
+          "post_spike_membrane_absolute_p90": 0.0,
+          "post_spike_membrane_absolute_maximum": 0.0,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": null,
+          "signed_trace_absolute_mean": 0.0,
+          "fast_matrix_frobenius": 0.0
+        },
+        {
+          "layer_zero_based": 4,
+          "post_spike_membrane_absolute_mean": 0.0,
+          "post_spike_membrane_absolute_p50": 0.0,
+          "post_spike_membrane_absolute_p90": 0.0,
+          "post_spike_membrane_absolute_maximum": 0.0,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": null,
+          "signed_trace_absolute_mean": 0.0,
+          "fast_matrix_frobenius": 0.0
+        },
+        {
+          "layer_zero_based": 5,
+          "post_spike_membrane_absolute_mean": 0.0,
+          "post_spike_membrane_absolute_p50": 0.0,
+          "post_spike_membrane_absolute_p90": 0.0,
+          "post_spike_membrane_absolute_maximum": 0.0,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": null,
+          "signed_trace_absolute_mean": 0.0,
+          "fast_matrix_frobenius": 0.0
+        },
+        {
+          "layer_zero_based": 6,
+          "post_spike_membrane_absolute_mean": 0.0,
+          "post_spike_membrane_absolute_p50": 0.0,
+          "post_spike_membrane_absolute_p90": 0.0,
+          "post_spike_membrane_absolute_maximum": 0.0,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": null,
+          "signed_trace_absolute_mean": 0.0,
+          "fast_matrix_frobenius": 0.0
+        },
+        {
+          "layer_zero_based": 7,
+          "post_spike_membrane_absolute_mean": 0.0,
+          "post_spike_membrane_absolute_p50": 0.0,
+          "post_spike_membrane_absolute_p90": 0.0,
+          "post_spike_membrane_absolute_maximum": 0.0,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": null,
+          "signed_trace_absolute_mean": 0.0,
+          "fast_matrix_frobenius": 0.0
+        }
+      ],
+      "checkpoint_unchanged": true
+    },
+    {
+      "checkpoint": "runs/prose-105m-founder/stage-1.ckpt",
+      "checkpoint_sha256": "b6303acdcee8a3e942f27db4ea930a17690035ab54bae9860a2c719f25580550",
+      "source_observations": 8176,
+      "parameters": 104851472,
+      "channels": 1024,
+      "hidden": 4096,
+      "layer_count": 8,
+      "recurrent_floats": 73728,
+      "layers": [
+        {
+          "layer_zero_based": 0,
+          "post_spike_membrane_absolute_mean": 6.8520225096392835,
+          "post_spike_membrane_absolute_p50": 5.00314736366272,
+          "post_spike_membrane_absolute_p90": 14.863261699676514,
+          "post_spike_membrane_absolute_maximum": 116.18513488769531,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.830322265625,
+          "signed_trace_absolute_mean": 0.868300346948788,
+          "fast_matrix_frobenius": 41.13219839825467
+        },
+        {
+          "layer_zero_based": 1,
+          "post_spike_membrane_absolute_mean": 14.153855699689643,
+          "post_spike_membrane_absolute_p50": 7.842790126800537,
+          "post_spike_membrane_absolute_p90": 29.454035758972168,
+          "post_spike_membrane_absolute_maximum": 335.3574523925781,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.87548828125,
+          "signed_trace_absolute_mean": 0.7548410178047084,
+          "fast_matrix_frobenius": 6.542212698545297
+        },
+        {
+          "layer_zero_based": 2,
+          "post_spike_membrane_absolute_mean": 27.25419282712528,
+          "post_spike_membrane_absolute_p50": 13.127374649047852,
+          "post_spike_membrane_absolute_p90": 61.82437705993652,
+          "post_spike_membrane_absolute_maximum": 572.0389404296875,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.921630859375,
+          "signed_trace_absolute_mean": 0.7029888183132891,
+          "fast_matrix_frobenius": 0.023330231954215984
+        },
+        {
+          "layer_zero_based": 3,
+          "post_spike_membrane_absolute_mean": 35.41013191399345,
+          "post_spike_membrane_absolute_p50": 17.325451850891113,
+          "post_spike_membrane_absolute_p90": 77.00149917602539,
+          "post_spike_membrane_absolute_maximum": 780.3223266601562,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.941162109375,
+          "signed_trace_absolute_mean": 0.698493340061076,
+          "fast_matrix_frobenius": 1.5783621187972057e-17
+        },
+        {
+          "layer_zero_based": 4,
+          "post_spike_membrane_absolute_mean": 35.084295277180445,
+          "post_spike_membrane_absolute_p50": 16.94588851928711,
+          "post_spike_membrane_absolute_p90": 77.99629974365234,
+          "post_spike_membrane_absolute_maximum": 668.6743774414062,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.939697265625,
+          "signed_trace_absolute_mean": 0.6729974933829175,
+          "fast_matrix_frobenius": 5.686629738301786
+        },
+        {
+          "layer_zero_based": 5,
+          "post_spike_membrane_absolute_mean": 26.798920270137387,
+          "post_spike_membrane_absolute_p50": 12.637405395507812,
+          "post_spike_membrane_absolute_p90": 59.49943923950195,
+          "post_spike_membrane_absolute_maximum": 718.8834228515625,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.90966796875,
+          "signed_trace_absolute_mean": 0.6375695323454228,
+          "fast_matrix_frobenius": 3.5900227132279286e-18
+        },
+        {
+          "layer_zero_based": 6,
+          "post_spike_membrane_absolute_mean": 16.178146128458195,
+          "post_spike_membrane_absolute_p50": 7.854456424713135,
+          "post_spike_membrane_absolute_p90": 35.87195014953613,
+          "post_spike_membrane_absolute_maximum": 480.9845886230469,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.85791015625,
+          "signed_trace_absolute_mean": 0.6028263071671913,
+          "fast_matrix_frobenius": 2.5704215255573806e-10
+        },
+        {
+          "layer_zero_based": 7,
+          "post_spike_membrane_absolute_mean": 11.570817671904791,
+          "post_spike_membrane_absolute_p50": 6.285468101501465,
+          "post_spike_membrane_absolute_p90": 25.534873962402344,
+          "post_spike_membrane_absolute_maximum": 297.9814147949219,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.84521484375,
+          "signed_trace_absolute_mean": 0.5800470396008703,
+          "fast_matrix_frobenius": 2.1781041627126576e-26
+        }
+      ],
+      "checkpoint_unchanged": true
+    },
+    {
+      "checkpoint": "runs/prose-105m-founder/stage-2.ckpt",
+      "checkpoint_sha256": "743ff357901418f4eb780e5ee8b5d3849158c7ff1276a0e6a9bff8220c9625c0",
+      "source_observations": 26110,
+      "parameters": 104851472,
+      "channels": 1024,
+      "hidden": 4096,
+      "layer_count": 8,
+      "recurrent_floats": 73728,
+      "layers": [
+        {
+          "layer_zero_based": 0,
+          "post_spike_membrane_absolute_mean": 12.532701248681121,
+          "post_spike_membrane_absolute_p50": 10.091419696807861,
+          "post_spike_membrane_absolute_p90": 26.22039222717285,
+          "post_spike_membrane_absolute_maximum": 137.12696838378906,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.90771484375,
+          "signed_trace_absolute_mean": 0.9403029129099623,
+          "fast_matrix_frobenius": 73.42344125274069
+        },
+        {
+          "layer_zero_based": 1,
+          "post_spike_membrane_absolute_mean": 21.97862353571668,
+          "post_spike_membrane_absolute_p50": 11.531529903411865,
+          "post_spike_membrane_absolute_p90": 46.67743110656738,
+          "post_spike_membrane_absolute_maximum": 487.7731018066406,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.902587890625,
+          "signed_trace_absolute_mean": 0.8581464696689891,
+          "fast_matrix_frobenius": 38.45731546248199
+        },
+        {
+          "layer_zero_based": 2,
+          "post_spike_membrane_absolute_mean": 41.27488573705807,
+          "post_spike_membrane_absolute_p50": 19.9269437789917,
+          "post_spike_membrane_absolute_p90": 95.92949676513672,
+          "post_spike_membrane_absolute_maximum": 870.894775390625,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.95068359375,
+          "signed_trace_absolute_mean": 0.8273112342402413,
+          "fast_matrix_frobenius": 3.925294315222082e-05
+        },
+        {
+          "layer_zero_based": 3,
+          "post_spike_membrane_absolute_mean": 56.7282857511681,
+          "post_spike_membrane_absolute_p50": 30.457597732543945,
+          "post_spike_membrane_absolute_p90": 128.00755310058594,
+          "post_spike_membrane_absolute_maximum": 921.3662109375,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.95849609375,
+          "signed_trace_absolute_mean": 0.7916818463653112,
+          "fast_matrix_frobenius": 0.0
+        },
+        {
+          "layer_zero_based": 4,
+          "post_spike_membrane_absolute_mean": 64.13843975472264,
+          "post_spike_membrane_absolute_p50": 34.57280158996582,
+          "post_spike_membrane_absolute_p90": 143.75333404541016,
+          "post_spike_membrane_absolute_maximum": 1136.9954833984375,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.973876953125,
+          "signed_trace_absolute_mean": 0.7550966071145578,
+          "fast_matrix_frobenius": 17.916671553446136
+        },
+        {
+          "layer_zero_based": 5,
+          "post_spike_membrane_absolute_mean": 55.42463815109056,
+          "post_spike_membrane_absolute_p50": 27.299338340759277,
+          "post_spike_membrane_absolute_p90": 128.4153060913086,
+          "post_spike_membrane_absolute_maximum": 899.553955078125,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.958740234375,
+          "signed_trace_absolute_mean": 0.7246029753921764,
+          "fast_matrix_frobenius": 2.4037682015980757e-08
+        },
+        {
+          "layer_zero_based": 6,
+          "post_spike_membrane_absolute_mean": 34.79231100545283,
+          "post_spike_membrane_absolute_p50": 15.039423942565918,
+          "post_spike_membrane_absolute_p90": 78.96292495727539,
+          "post_spike_membrane_absolute_maximum": 866.5374145507812,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.91552734375,
+          "signed_trace_absolute_mean": 0.7010599895334222,
+          "fast_matrix_frobenius": 1.4223136813160745e-26
+        },
+        {
+          "layer_zero_based": 7,
+          "post_spike_membrane_absolute_mean": 20.394306633944097,
+          "post_spike_membrane_absolute_p50": 8.63185739517212,
+          "post_spike_membrane_absolute_p90": 46.641658782958984,
+          "post_spike_membrane_absolute_maximum": 607.4702758789062,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.8857421875,
+          "signed_trace_absolute_mean": 0.6698297294071907,
+          "fast_matrix_frobenius": 7.802478730787677e-14
+        }
+      ],
+      "checkpoint_unchanged": true
+    },
+    {
+      "checkpoint": "runs/prose-105m-founder/stage-3.ckpt",
+      "checkpoint_sha256": "e6983e807ec6346802a870e1879efd993f0fb4d9e1ab8fe4f5ce7079711f0474",
+      "source_observations": 95207,
+      "parameters": 104851472,
+      "channels": 1024,
+      "hidden": 4096,
+      "layer_count": 8,
+      "recurrent_floats": 73728,
+      "layers": [
+        {
+          "layer_zero_based": 0,
+          "post_spike_membrane_absolute_mean": 15.335772457118601,
+          "post_spike_membrane_absolute_p50": 12.471617221832275,
+          "post_spike_membrane_absolute_p90": 30.32384490966797,
+          "post_spike_membrane_absolute_maximum": 254.97764587402344,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.921875,
+          "signed_trace_absolute_mean": 0.9622921176843676,
+          "fast_matrix_frobenius": 67.58279456450127
+        },
+        {
+          "layer_zero_based": 1,
+          "post_spike_membrane_absolute_mean": 22.774768733832616,
+          "post_spike_membrane_absolute_p50": 13.184948444366455,
+          "post_spike_membrane_absolute_p90": 48.990427017211914,
+          "post_spike_membrane_absolute_maximum": 553.377685546875,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.920166015625,
+          "signed_trace_absolute_mean": 0.8840068715666033,
+          "fast_matrix_frobenius": 31.4963298289828
+        },
+        {
+          "layer_zero_based": 2,
+          "post_spike_membrane_absolute_mean": 32.709279023975284,
+          "post_spike_membrane_absolute_p50": 14.99083423614502,
+          "post_spike_membrane_absolute_p90": 72.62673950195312,
+          "post_spike_membrane_absolute_maximum": 671.2398681640625,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.93603515625,
+          "signed_trace_absolute_mean": 0.8568078912320042,
+          "fast_matrix_frobenius": 5.656471203248138
+        },
+        {
+          "layer_zero_based": 3,
+          "post_spike_membrane_absolute_mean": 72.70002468311645,
+          "post_spike_membrane_absolute_p50": 36.05155563354492,
+          "post_spike_membrane_absolute_p90": 165.14510345458984,
+          "post_spike_membrane_absolute_maximum": 1526.2236328125,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.968505859375,
+          "signed_trace_absolute_mean": 0.8216265653591484,
+          "fast_matrix_frobenius": 7.588733340938344
+        },
+        {
+          "layer_zero_based": 4,
+          "post_spike_membrane_absolute_mean": 93.83085999062678,
+          "post_spike_membrane_absolute_p50": 49.25832748413086,
+          "post_spike_membrane_absolute_p90": 202.47899627685547,
+          "post_spike_membrane_absolute_maximum": 1798.2156982421875,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.981201171875,
+          "signed_trace_absolute_mean": 0.8172500136208094,
+          "fast_matrix_frobenius": 26.021526624848473
+        },
+        {
+          "layer_zero_based": 5,
+          "post_spike_membrane_absolute_mean": 79.14959832007185,
+          "post_spike_membrane_absolute_p50": 41.61650085449219,
+          "post_spike_membrane_absolute_p90": 174.9118423461914,
+          "post_spike_membrane_absolute_maximum": 1413.714599609375,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.978515625,
+          "signed_trace_absolute_mean": 0.7816470418223478,
+          "fast_matrix_frobenius": 8.428172439515864
+        },
+        {
+          "layer_zero_based": 6,
+          "post_spike_membrane_absolute_mean": 41.45671106948703,
+          "post_spike_membrane_absolute_p50": 20.80647850036621,
+          "post_spike_membrane_absolute_p90": 91.37674713134766,
+          "post_spike_membrane_absolute_maximum": 987.3759155273438,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.946533203125,
+          "signed_trace_absolute_mean": 0.7426721056012859,
+          "fast_matrix_frobenius": 14.492824270793587
+        },
+        {
+          "layer_zero_based": 7,
+          "post_spike_membrane_absolute_mean": 19.30410154291809,
+          "post_spike_membrane_absolute_p50": 9.04226016998291,
+          "post_spike_membrane_absolute_p90": 42.611385345458984,
+          "post_spike_membrane_absolute_maximum": 564.592529296875,
+          "last_step_zero_local_spike_surrogate_fraction_lower_bound": 0.880859375,
+          "signed_trace_absolute_mean": 0.6986235284239674,
+          "fast_matrix_frobenius": 40.83816537500265
+        }
+      ],
+      "checkpoint_unchanged": true
+    }
+  ],
+  "native_commands": 0,
+  "model_updates": 0,
+  "limitation": "One saved state per checkpoint, at different source positions. This is not a matched-window activity comparison, a time-averaged firing rate, a full gradient calculation or evidence that a neuron never learns. Other paths and earlier times can carry gradients. No cause of weak language quality or benefit from a controller has been established. SHA-256 proves read identity; the diagnostic does not replace native payload validation."
+}
