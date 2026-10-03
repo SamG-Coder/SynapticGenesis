@@ -58,3 +58,43 @@ That result motivates measuring both data and capacity here, but its fitted
 ratios are not established laws for this byte-level spiking architecture.
 Our 4.82-million-word collection is a useful larger experiment, not demonstrated
 sufficient training for a broadly capable 105M model.
+
+## Sequential execution
+
+`scripts/prose_size_comparison.py` runs the declared comparison without
+overlapping GPU experiments. It first requires the original 105M founder's
+complete stage-four checkpoint and final session. It assesses that model, then
+trains fresh 2M and 27M founders through the identical source schedule and
+assesses all four checkpoints of each. It journals each completed assessment
+to `partial.json` before assembling the final comparison.
+
+For an already-running founder, `--wait-pid` can bind its actual native process
+handle before any new GPU work. The gate checks the executable path, records
+the process creation identity and requires a successful exit. Holding the
+handle prevents PID reuse from satisfying the wait. An observation timeout
+does not cause a restart. The completed checkpoint and session must then agree
+on source observations, source bytes, replay count and scheduled generation.
+The native evaluator performs full checkpoint validation when it loads each
+model; the small Python header reader is only an exposure diagnostic.
+
+After the original native process has exited, the runner also works without
+the optional process gate:
+
+```powershell
+python scripts/prose_size_comparison.py --out runs/prose-size-panel
+```
+
+CPU checks verified waiting for a successful child process, rejection of a
+nonzero exit, rejection of a mismatched executable, and rejection of the
+unfinished founder before assessment. The first three existing stage headers
+matched the declared exposure boundaries. Full native orchestration remains
+pending the live run's completion.
+
+The final comparison requires all three models to have identical source,
+replay and scheduled-speech counters at each stage. It reports each validation
+book, the validation mean and each training monitor's change from stage one.
+All raw samples remain available. The original founder's continuation saves
+every 8,192 observations while the smaller driver saves every 2,048, so total
+session time is not treated as a controlled size-speed comparison. Saving does
+not change the declared learning policy; the separate capacity experiment
+provides the controlled speed measurements.
