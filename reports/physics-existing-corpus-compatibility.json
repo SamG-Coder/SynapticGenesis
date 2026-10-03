@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "astronomy": {
+    "source_spec_sha256": "eea159d96a0302eb6636e590303e758ad907fff898799472e11d72bc3a25c521",
+    "manifest_sha256": "d2470c34318172090b7c2a57706e7e09480b71d388ec07bb7be300d1584a4449",
+    "modules_reextracted": 184,
+    "outputs": {
+      "train": {
+        "bytes": 2833157,
+        "documents": 174,
+        "sha256": "d24b576ae66d11115d46845e80069c95eb65175f284e69113c658b0233b65d0a",
+        "word_like_units": 466756
+      },
+      "validation": {
+        "bytes": 77791,
+        "documents": 5,
+        "sha256": "2b392a78e81620c957b37dae85666410891b591f61c5dfdff2cffe2bbc6b6cca",
+        "word_like_units": 12927
+      },
+      "test": {
+        "bytes": 82938,
+        "documents": 5,
+        "sha256": "0afdcfd87b07a752777c0a68de95ad7248001de166cfa165e51cf4c1ba06d9e5",
+        "word_like_units": 13596
+      }
+    }
+  },
+  "prealgebra": {
+    "source_spec_sha256": "b2967735cd35331d02e8afa76dab52c8164f1f96bec392e33094655369e03c22",
+    "prepared_manifest_sha256": "863a6265485ad727dffd1524f3ae6d222131688346190f041b19f480fedbdb8a",
+    "all_source_modules_authenticated": 75,
+    "retained_complete_lessons": 221,
+    "outputs": {
+      "train": {
+        "bytes": 93269,
+        "documents": 168,
+        "sha256": "90f4042050909395a7321a026ce642d7d876b199af260925d45fc7646eec446e",
+        "word_like_units": 11065
+      },
+      "validation": {
+        "bytes": 13574,
+        "documents": 29,
+        "sha256": "731f5d17373c0febecef14eda51b9b2f38f1da1b6465630cf80e4e540239ef26",
+        "word_like_units": 1498
+      },
+      "test": {
+        "bytes": 10652,
+        "documents": 24,
+        "sha256": "f594b78c56e5af2d7d5a335c3971f1429cb96358439cd29f1d5439c1624c2ad8",
+        "word_like_units": 1075
+      }
+    }
+  },
+  "study_protocols": [
+    {
+      "protocol": "runs/prose-retention-lr/protocol.json",
+      "protocol_sha256": "9c50dc898d73ac1b123d07f1aca7a83e92a5b6ccb1402c838fc3c8cfceaaa9b3",
+      "authenticated_input_references": 90
+    },
+    {
+      "protocol": "runs/prose-replay-capacity/protocol.json",
+      "protocol_sha256": "20096651488db77581529f4a08a681af646ca5fefd7245efe51c9f2a05c27e19",
+      "authenticated_input_references": 89
+    },
+    {
+      "protocol": "runs/prose-early-width/protocol.json",
+      "protocol_sha256": "76d3ab3fefe4d8afd1d0904c260f59a0e14d8d02cf2ca40f8444ad2f078911db",
+      "authenticated_input_references": 136
+    }
+  ],
+  "authenticated_input_references": 315,
+  "distinct_authenticated_files": 171,
+  "input_mismatches": [],
+  "production_executable_sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+  "source_reports": {
+    "astronomy": {
+      "path": "runs/physics-source-audit-v1/astronomy-compatibility.json",
+      "sha256": "5b8bef99dd7681d38353671fd78ec87c00e1eb4e73b7a2afa2c62078f31c6b1c"
+    },
+    "prealgebra": {
+      "path": "runs/physics-source-audit-v1/prealgebra-compatibility.json",
+      "sha256": "af8e2b80f3bf8e952bb2ce60c26b7e9e6cffe104e804c2df543cf58f1708f7b2"
+    }
+  },
+  "new_native_calls": 0,
+  "models_trained": false,
+  "limits": "CPU source compatibility and immutable input verification only; no new GPU, speed or language-quality validation."
+}

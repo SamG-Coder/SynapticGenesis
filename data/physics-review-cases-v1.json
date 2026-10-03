@@ -1,0 +1,85 @@
+{
+  "version": "physics-review-cases-v1",
+  "status": "sampled_source_review_not_admission",
+  "upstream_repository": "https://github.com/openstax/osbooks-physics",
+  "upstream_commit": "dfb731c737e5056750e792643fe6377425b0a067",
+  "reviewer": "assistant source and extracted-text inspection; not independent expert certification",
+  "scope": "Eight selected observations authenticate conversion behavior and concrete source limitations. This is not an exhaustive factual, passage or diagram review.",
+  "records": [
+    {
+      "module": "m54176",
+      "element_id": "fs-id1167062400309",
+      "element_type": "para",
+      "kind": "conversion_sample",
+      "observation": "The angular-velocity paragraph keeps the bold Greek omega marker and the relationship between radius, angular velocity and linear velocity.",
+      "source_sha256": "c5dfffadc2560ccff1ec5e02a42793c8106796598c736727d01b15531dfdf38b",
+      "element_serialization_sha256": "05f1b7c0bbc03956d25bd34dcc5f1a9ddcc53f1fcf8ac0ad0f33c012e53da3ed",
+      "candidate_fragment": "\\(\\boldsymbol{ω}\\)"
+    },
+    {
+      "module": "m54192",
+      "element_id": "fs-id1167065824697",
+      "element_type": "table",
+      "kind": "structural_rejection",
+      "observation": "The equation table declares one column but uses two entries per row. The complete module remains rejected; no inferred column repair is applied.",
+      "source_sha256": "b95a95fed9b7857c69292eb3ae7079f3ad97eb8ed685bec27a29baa04b7e9399",
+      "element_serialization_sha256": "9de7e6baabfc58a658a7ad17b1c3e39b0592e776a645289e708e745332e39f1f"
+    },
+    {
+      "module": "m54314",
+      "element_id": "fs-id1167065885587",
+      "element_type": "table",
+      "kind": "structural_rejection",
+      "observation": "This unmarked vocabulary table declares three columns but uses four entries per row. It is outside the class-scoped omission rule and the complete module remains rejected.",
+      "source_sha256": "b0f82d2d51c11ce54d52ad7c011e32da434570260b74fa29dbbff1093ad9ac04",
+      "element_serialization_sha256": "247aa8b29660e6e876a91694684768fd4f6803d88994fde70441b88cd74757dd"
+    },
+    {
+      "module": "m54273",
+      "element_id": "fs-id1163727237961",
+      "element_type": "list",
+      "kind": "structural_rejection",
+      "observation": "The four spring scenarios use parenthesized upper-Roman labels. The complete module remains rejected rather than renumbering references implicitly.",
+      "source_sha256": "d7cbed99a524693ddd4d0f2259d47bb16e62ee97f02c6f0302246f334625f8ab",
+      "element_serialization_sha256": "b26a22743de7f49f541d81c13d0ed71a568c3b147f750fcec269fca6a02795a6"
+    },
+    {
+      "module": "m54580",
+      "element_id": "fs-id1167063667227",
+      "element_type": "para",
+      "kind": "source_inconsistency",
+      "observation": "The generic nuclide expression puts A below and Z above the symbol. In the nearby explanation A denotes mass number and Z atomic number; the specific isotope examples use the reverse placement. This source inconsistency is preserved for review, not repaired or admitted.",
+      "source_sha256": "96a87679a8f8f1b716b13a274f3e9d4aa876f555ef5a954f09ca2b462c48e2b1",
+      "element_serialization_sha256": "61999a89e5409d02c69f71e16c8aabba38100606248ae30cdb768c8d81e9f933",
+      "candidate_fragment": "\\({}_{A}^{Z} X {}_{N}\\)"
+    },
+    {
+      "module": "m54580",
+      "element_id": "fs-id1167063419008",
+      "element_type": "para",
+      "kind": "source_inconsistency",
+      "observation": "The deuterium paragraph says its nucleus has one neutron, but its expression places 2 in the right subscript previously defined as neutron number N. This source inconsistency is preserved for review, not repaired or admitted.",
+      "source_sha256": "96a87679a8f8f1b716b13a274f3e9d4aa876f555ef5a954f09ca2b462c48e2b1",
+      "element_serialization_sha256": "3e1f849f89e8c18f111024eb16703dab2faa806e0ffd113592663910f678c493",
+      "candidate_fragment": "\\({}_{1}^{2} \\text{H} {}_{2}\\)"
+    },
+    {
+      "module": "m54357",
+      "element_id": "fs-id1167065895384",
+      "element_type": "problem",
+      "kind": "missing_diagram_description",
+      "observation": "The mirror/lightbulb question refers to a diagram whose media description is only three dots. Its text cannot certify that the missing diagram information is sufficient.",
+      "source_sha256": "28b784e5015399281b2959fe5efa57d6ae6aaaf76a4cb733996525401236c05c",
+      "element_serialization_sha256": "fd72aad4a9c2d0019167be081571b541d4513e738a1dcefa5b3126520d8204b9"
+    },
+    {
+      "module": "m54365",
+      "element_id": "fs-id1167066086220",
+      "element_type": "problem",
+      "kind": "missing_diagram_description",
+      "observation": "The scuba refraction question refers to a figure whose media description is only three dots. This is a review flag; the presence of numbers in the question is not an image-completeness check.",
+      "source_sha256": "9fbfa5d19d8dbf95a4164abed07f825cfb699cdd089cc4b584f119a6ed9db22b",
+      "element_serialization_sha256": "ed99b196fa2c98353927eb7ac064bc54387b25a165746ef269459150e59da145"
+    }
+  ]
+}

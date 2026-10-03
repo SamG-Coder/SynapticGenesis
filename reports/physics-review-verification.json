@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "scope": "Source/extraction verification, not a factual or training-quality pass",
+  "review_spec_sha256": "0615630abd6c8c3f6f74e0abf373c8051a74b9a6d4d819545748b84d80472444",
+  "source_report_sha256": "a1824bc0662458f33c59f48c89936e54bd66a8a243e4eda145ac8a88a1ee2fb1",
+  "case_file_sha256": "6e49e77da6be32bbc2fcfa8943dc385d83c54f8332b1c4c5a7a4a936bb82bea2",
+  "sampled_observations_authenticated": 8,
+  "source_modules_authenticated": 100,
+  "content_modules_checked": 99,
+  "candidate_modules_reproduced": 96,
+  "candidate_bytes": 1817361,
+  "candidate_word_like_units": 292745,
+  "remaining_source_rejections": {
+    "Invalid or overlapping table span": 2,
+    "Unsupported list numbering style": 1
+  },
+  "rejected_corruption_cases": [
+    "changed_source_bytes",
+    "changed_git_blob_pin",
+    "changed_source_length",
+    "module_order",
+    "module_title",
+    "module_source_pin",
+    "duplicate_module",
+    "unknown_role",
+    "preface_used_as_content",
+    "unreviewed_status",
+    "wrong_license",
+    "missing_auxiliary",
+    "existing_output_directory"
+  ],
+  "fixtures": {
+    "passed": true,
+    "valid_formula_fixtures": 10,
+    "rejected_notation_or_structure_cases": 33,
+    "titled_list_reference_and_order_preserved": true,
+    "omitted_note_tail_preserved": true,
+    "malformed_explanatory_table_rejected": true,
+    "recorded_punctuation_repairs_verified": true,
+    "external_exercise_omission_and_unicode_alias_verified": true,
+    "training_admission": false
+  },
+  "source_bytes_unchanged": true,
+  "attribution_and_original_notices_preserved": true,
+  "preface_excluded_from_candidates": true,
+  "training_admitted": false,
+  "native_calls": 0,
+  "models_trained": false,
+  "implementation_sha256": {
+    "tests/physics_review.py": "cc35c03a0b8e99f744a9e73dfc6cf489b2e7d2b649e17ccbf9911f4f39b75e02",
+    "tests/physics_extraction.py": "ff1f81fb9fca6d9e354101a02aa6460bec4ee836b407f1c063f3c984530f820f"
+  }
+}

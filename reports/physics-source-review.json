@@ -1,0 +1,3623 @@
+{
+  "complete": true,
+  "scope": "Authenticated source extraction for review; no training admission",
+  "review_spec_sha256": "0615630abd6c8c3f6f74e0abf373c8051a74b9a6d4d819545748b84d80472444",
+  "upstream_repository": "https://github.com/openstax/osbooks-physics",
+  "upstream_commit": "dfb731c737e5056750e792643fe6377425b0a067",
+  "authenticated_modules": 100,
+  "authenticated_auxiliary_files": 3,
+  "totals": {
+    "raw_formulas": 3065,
+    "unmodified_pre_algebra_converter_modules": 40,
+    "content_modules": 99,
+    "candidate_modules": 96,
+    "candidate_bytes": 1817361,
+    "candidate_word_like_units": 292745
+  },
+  "baseline_rejections": {
+    "Unexpected list child": 7,
+    "Invalid or overlapping table span": 37,
+    "Unreviewed MathML style": 16
+  },
+  "raw_formula_rejections": {},
+  "candidate_rejections": {
+    "Invalid or overlapping table span": 2,
+    "Unsupported list numbering style": 1
+  },
+  "policy_totals": {
+    "omitted_notes": 715,
+    "omitted_note_os-teacher": 521,
+    "omitted_note_learning-objectives": 72,
+    "omitted_vocabulary_grids": 72,
+    "omitted_external_exercise_placeholders": 746,
+    "omitted_note_snap-lab": 30,
+    "omitted_note_os-interactive": 27,
+    "omitted_note_virtual-physics": 39,
+    "omitted_note_watch-physics": 52,
+    "external_exercise_unicode_hyphen_aliases": 1,
+    "titled_lists_preserved": 8
+  },
+  "extraction_totals": {
+    "image_descriptions": 552,
+    "omitted_label": 800,
+    "math_expressions": 2897,
+    "table_span_cells": 24
+  },
+  "punctuation_repairs": {
+    "U+0092": 90,
+    "U+0097": 34,
+    "U+0093": 7,
+    "U+0094": 7,
+    "U+0096": 31
+  },
+  "media_totals": {
+    "media_elements": 552,
+    "missing_or_placeholder_descriptions": 2
+  },
+  "attribution": "Physics by OpenStax at Rice University and the authors and contributors credited in the preserved original preface. Source snapshot: https://github.com/openstax/osbooks-physics/tree/dfb731c737e5056750e792643fe6377425b0a067 . The pinned source license and collection declare Creative Commons Attribution 4.0 International. The review normalizes mathematical layout, preserves bold symbols and isotope indices, moves list titles to enclosing sections, omits specified teacher/activity notes, empty external exercise placeholders and vocabulary grids, retains source image descriptions rather than images, and repairs five explicitly reviewed CP1252 punctuation characters without altering the cached source bytes. This is research material, not an admitted training edition. No endorsement is implied; the MIT code license does not replace the book license.",
+  "reference_urls": [
+    "https://www.w3.org/TR/MathML3/chapter3.html#presm.mmultiscripts",
+    "https://www.w3.org/TR/MathML3/chapter3.html#presm.mstyle",
+    "https://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1252.TXT"
+  ],
+  "records": [
+    {
+      "module": "m54081",
+      "chapter": "Front or back matter",
+      "title": "Preface",
+      "path": "modules/m54081/index.cnxml",
+      "raw_sha256": "507e422316a84083cbc9df323f6ba446a5b36ff42b184da0c6034eff1443d466",
+      "git_blob_sha1": "918c1d54d9c4ae36a5d86466a211b9eccaa223b5",
+      "review_role": "attribution_only",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54081/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": false,
+      "exclusion": "preface_retained_for_attribution_only"
+    },
+    {
+      "module": "m54082",
+      "chapter": "What is Physics?",
+      "title": "Introduction",
+      "path": "modules/m54082/index.cnxml",
+      "raw_sha256": "222e51eb2081fd458438c4410ad710978724c4cbdebb84818779e1f3af5e3098",
+      "git_blob_sha1": "1cf731a6aba46320f904b29220a1ba57ae15e2c4",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54082/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54082.txt",
+      "text_sha256": "3d068d14399db771b1335b9c41c53bcf87072591f5daff9ac1aafb8a384933a1",
+      "text_bytes": 1231,
+      "word_like_units": 201,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54057",
+      "chapter": "What is Physics?",
+      "title": "Physics: Definitions and Applications",
+      "path": "modules/m54057/index.cnxml",
+      "raw_sha256": "5940a2a70420390e526648ab320f16e6d5fb51b38aab579aea0e945f556df196",
+      "git_blob_sha1": "23568e10c149d1207fc485a0ff78d17d1ff516ae",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54057/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54057.txt",
+      "text_sha256": "5f60e3518941d9702ccefbe8b90cc5cd0ce3d887824b6567da808e3836739694",
+      "text_bytes": 31261,
+      "word_like_units": 4956,
+      "policy": {
+        "omitted_notes": 14,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 13,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 19
+      },
+      "extraction": {
+        "image_descriptions": 10
+      },
+      "punctuation_repairs": {
+        "U+0092": 1,
+        "U+0097": 2
+      },
+      "media": {
+        "media_elements": 10
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54083",
+      "chapter": "What is Physics?",
+      "title": "The Scientific Methods",
+      "path": "modules/m54083/index.cnxml",
+      "raw_sha256": "7e05225ffebd7df4a4ce44095d917143372f270a5d726ad773adfd9efb975e99",
+      "git_blob_sha1": "d37ce78af85a9ef8e446fde2c45e6babbf3bc7eb",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54083/index.cnxml",
+      "raw_formula_count": 1,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "966151670aa75cfee6b3acd91c29d0e0b602e88b528250a3d6272fefc9e33b60",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54083.txt",
+      "text_sha256": "e650ac1902c0a5cda3d177ab9db98442ce1848da9ada78cee7653b01bd97c1ac",
+      "text_bytes": 14042,
+      "word_like_units": 2270,
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 24
+      },
+      "extraction": {
+        "image_descriptions": 1,
+        "omitted_label": 1,
+        "math_expressions": 1
+      },
+      "punctuation_repairs": {
+        "U+0092": 2
+      },
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54599",
+      "chapter": "What is Physics?",
+      "title": "The Language of Physics: Physical Quantities and Units",
+      "path": "modules/m54599/index.cnxml",
+      "raw_sha256": "239377c40ee72bec10c5caad89b2dfbbe2a20377ef33b8166dbebd65f9690898",
+      "git_blob_sha1": "7cebebccb96970916f3db7bef9e0141a972e6a86",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54599/index.cnxml",
+      "raw_formula_count": 85,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "952c823667562ed8c5162852feb26bb56f6ec4140d3b069b69ae638be6e53b0e",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54599.txt",
+      "text_sha256": "4e82933849570b4723dd9912b5b56532cbbe2d8799c605cdd7361c55ad2ff4b2",
+      "text_bytes": 73962,
+      "word_like_units": 11642,
+      "policy": {
+        "omitted_notes": 12,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 10,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 22
+      },
+      "extraction": {
+        "image_descriptions": 18,
+        "math_expressions": 85,
+        "omitted_label": 44
+      },
+      "punctuation_repairs": {
+        "U+0092": 3,
+        "U+0097": 1
+      },
+      "media": {
+        "media_elements": 18
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54097",
+      "chapter": "Motion in One Dimension",
+      "title": "Introduction",
+      "path": "modules/m54097/index.cnxml",
+      "raw_sha256": "00ab10c57b589d23fcc3ad9c6b487a4f5fb48a3aa84fca3e230bf6e9fcf7498c",
+      "git_blob_sha1": "2f18b9908c6012037d5e2a7c2a03009552d2d74e",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54097/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54097.txt",
+      "text_sha256": "de592a656cbd4b7966187497339ca8197b99790f0e0a4b4ef7cda0d644c40e41",
+      "text_bytes": 1135,
+      "word_like_units": 189,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54108",
+      "chapter": "Motion in One Dimension",
+      "title": "Relative Motion, Distance, and Displacement",
+      "path": "modules/m54108/index.cnxml",
+      "raw_sha256": "09165a087ea36f16f69f43b6e887f9560256b69769d91cd8a5538ed133f6e80b",
+      "git_blob_sha1": "40ef14ccb9bf5194b2b9dc5a7ed68106dd9f233a",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54108/index.cnxml",
+      "raw_formula_count": 9,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "6e36304fc8902cadd0b8f595de85967e03afa09462b0142905785d930f465bc7",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54108.txt",
+      "text_sha256": "b94c5f577f7dbffd13771a3b5c9deab51b0bb8da6454a522b8c78e7f057d0258",
+      "text_bytes": 20577,
+      "word_like_units": 3540,
+      "policy": {
+        "omitted_notes": 15,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 11,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 2,
+        "omitted_external_exercise_placeholders": 18,
+        "omitted_note_watch-physics": 1
+      },
+      "extraction": {
+        "image_descriptions": 8,
+        "math_expressions": 9,
+        "omitted_label": 7
+      },
+      "punctuation_repairs": {
+        "U+0092": 6
+      },
+      "media": {
+        "media_elements": 8
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54104",
+      "chapter": "Motion in One Dimension",
+      "title": "Speed and Velocity",
+      "path": "modules/m54104/index.cnxml",
+      "raw_sha256": "43329635586b3aa15573bba2d37f78aae08f4ce47375f5422451fbed5ac66fa7",
+      "git_blob_sha1": "5de456de67a38ff7b3f1271f0c88eaa7e5a8ea19",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54104/index.cnxml",
+      "raw_formula_count": 14,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "ac75c5ff259e84a0690034b8e6f6aa46deb5ec8ef56d0b9488f4aee7e0c8ce08",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54104.txt",
+      "text_sha256": "059dfb52b2b72b9c68a8b0447ee42d4b857ac42f34a6f3f323d6016bb2f35e0f",
+      "text_bytes": 13717,
+      "word_like_units": 2260,
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 16,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_virtual-physics": 1
+      },
+      "extraction": {
+        "math_expressions": 13,
+        "omitted_label": 24,
+        "image_descriptions": 2
+      },
+      "punctuation_repairs": {
+        "U+0092": 5
+      },
+      "media": {
+        "media_elements": 2
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54110",
+      "chapter": "Motion in One Dimension",
+      "title": "Position vs. Time Graphs",
+      "path": "modules/m54110/index.cnxml",
+      "raw_sha256": "3587788e5840d95516c161880f6a6ca7663571a267cc70d44e5391b4323f0010",
+      "git_blob_sha1": "a6de0701db1097f11cfaa894e971307f20669d9e",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54110/index.cnxml",
+      "raw_formula_count": 13,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "c0b4db8c3caef4fe224fbad48b600dac1f648dc37b2fa0bbf79d7809eae1e429",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54110.txt",
+      "text_sha256": "5f8cc62a877fd3acf1c62b9a237cd526828e796a6831aefc41b17779233497e4",
+      "text_bytes": 16101,
+      "word_like_units": 2741,
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 5
+      },
+      "extraction": {
+        "math_expressions": 13,
+        "image_descriptions": 12,
+        "omitted_label": 13
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 12
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54094",
+      "chapter": "Motion in One Dimension",
+      "title": "Velocity vs. Time Graphs",
+      "path": "modules/m54094/index.cnxml",
+      "raw_sha256": "abf3bdc3a56189c123fa1a34e0462efd6deef2d34a388150f3264c0eed5e43af",
+      "git_blob_sha1": "43a8d3c59667e8e9bb24acaabb729d89e7ff1674",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54094/index.cnxml",
+      "raw_formula_count": 12,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "f07f92e5d68d802613bd0388b94ccab6147139cbf2d9201a3c20980abd1caa0b",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54094.txt",
+      "text_sha256": "0675a153f4e0be17ebda8e373a9fd89713d9dde65fad1231f8b453f0f3b6a3fe",
+      "text_bytes": 25515,
+      "word_like_units": 4454,
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 8,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 4
+      },
+      "extraction": {
+        "image_descriptions": 18,
+        "math_expressions": 12,
+        "omitted_label": 9
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 18
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54119",
+      "chapter": "Acceleration",
+      "title": "Introduction",
+      "path": "modules/m54119/index.cnxml",
+      "raw_sha256": "2e9d7b3b66dedf3c30be9509b802d32b41764646a97acac040b7132d4fc6cd0e",
+      "git_blob_sha1": "a4817a4f76bd7b62ab0bb6b99b2c144795e86f5d",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54119/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54119.txt",
+      "text_sha256": "4b453e0e36661cf0371ab480b19ac428aab1052325c71929b2c5e313cdb6b042",
+      "text_bytes": 1453,
+      "word_like_units": 244,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54123",
+      "chapter": "Acceleration",
+      "title": "Acceleration",
+      "path": "modules/m54123/index.cnxml",
+      "raw_sha256": "9eb2446e65f380aaf94261200d9953ced33b2430c75b1c934d70c92b7272bbde",
+      "git_blob_sha1": "7faa7ae5c0d387c4bf62b9dcd5dc7ef75450af18",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54123/index.cnxml",
+      "raw_formula_count": 14,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "2dc58bb4f82851f1c9b9781b0371ac34bb5762ec2ce93605695b6b461a84bd42",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54123.txt",
+      "text_sha256": "66a39705ae95d78ba91d1d8728194c3bcebf5cc841366cd260f78ab75165b441",
+      "text_bytes": 13485,
+      "word_like_units": 2171,
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 9,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1
+      },
+      "extraction": {
+        "math_expressions": 8,
+        "omitted_label": 13,
+        "image_descriptions": 3
+      },
+      "punctuation_repairs": {
+        "U+0097": 1
+      },
+      "media": {
+        "media_elements": 3
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54116",
+      "chapter": "Acceleration",
+      "title": "Representing Acceleration with Equations and Graphs",
+      "path": "modules/m54116/index.cnxml",
+      "raw_sha256": "67b4dd378f779e492ddd8bac04192577f94ff2270217befd2a66dfa94adba4ad",
+      "git_blob_sha1": "db369d11c092fde114b4302519edcf07e2b80108",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54116/index.cnxml",
+      "raw_formula_count": 49,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "90bdce50d1d238f81eeedbd2a5f3105e8b006d51ed41c676879f7e55864dd913",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54116.txt",
+      "text_sha256": "6f79edf5ca56ad57be1c302d41e1347d095afad6e945c90a89ee7fb1332ee896",
+      "text_bytes": 29942,
+      "word_like_units": 4862,
+      "policy": {
+        "omitted_notes": 13,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 11,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 8,
+        "external_exercise_unicode_hyphen_aliases": 1,
+        "titled_lists_preserved": 1
+      },
+      "extraction": {
+        "math_expressions": 48,
+        "image_descriptions": 10,
+        "omitted_label": 17
+      },
+      "punctuation_repairs": {
+        "U+0092": 1,
+        "U+0093": 4,
+        "U+0094": 4,
+        "U+0097": 1
+      },
+      "media": {
+        "media_elements": 10
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54144",
+      "chapter": "Forces and Newton’s Laws of Motion",
+      "title": "Introduction",
+      "path": "modules/m54144/index.cnxml",
+      "raw_sha256": "aa114cb59c892bf49a1c91cd7967137d82196ef29dd02335f1bffa197c24f60b",
+      "git_blob_sha1": "521956a755c5e1a660e04d5f7cbf76f6f44b11ae",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54144/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54144.txt",
+      "text_sha256": "8a1f659bd821ab03ace8a1e220a9df77cce1ae64a2723343fa0918676a438ac4",
+      "text_bytes": 975,
+      "word_like_units": 162,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54135",
+      "chapter": "Forces and Newton’s Laws of Motion",
+      "title": "Force",
+      "path": "modules/m54135/index.cnxml",
+      "raw_sha256": "3116e4a02adda4ccf042e6a0ecfd881f0d913d199181eace9214c1b002399a03",
+      "git_blob_sha1": "8bb09f83898312d6c945b12ab2c76c55c16facd5",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54135/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54135.txt",
+      "text_sha256": "c173798090a15c5bc1b8662d1378b6a13d06428511a4e1697e7259c6c8d9ee68",
+      "text_bytes": 12934,
+      "word_like_units": 2321,
+      "policy": {
+        "omitted_notes": 5,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 3
+      },
+      "extraction": {
+        "image_descriptions": 2
+      },
+      "punctuation_repairs": {
+        "U+0097": 2
+      },
+      "media": {
+        "media_elements": 2
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54138",
+      "chapter": "Forces and Newton’s Laws of Motion",
+      "title": "Newton's First Law of Motion: Inertia",
+      "path": "modules/m54138/index.cnxml",
+      "raw_sha256": "984642455b05a416f1d307e43dea55bfe5bfbf1e47ac4503d894dc176fb39683",
+      "git_blob_sha1": "6a98ad426efd9b541c2ec0d479e3f93e366e7032",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54138/index.cnxml",
+      "raw_formula_count": 5,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "bd30276a4807fa13941876a809d1abfdc4fc4b486347d581e945ee81d423e9d4",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54138.txt",
+      "text_sha256": "e788f86250810fad5d16120e1af87d2b4175e88d9d9ff389be5f118758420b2f",
+      "text_bytes": 16750,
+      "word_like_units": 3026,
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 3
+      },
+      "extraction": {
+        "math_expressions": 5,
+        "image_descriptions": 2,
+        "omitted_label": 2
+      },
+      "punctuation_repairs": {
+        "U+0092": 7,
+        "U+0097": 2
+      },
+      "media": {
+        "media_elements": 2
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54142",
+      "chapter": "Forces and Newton’s Laws of Motion",
+      "title": "Newton's Second Law of Motion",
+      "path": "modules/m54142/index.cnxml",
+      "raw_sha256": "abc11d4bc87d9527c93acbb7cb1b3e78cb0eee7254569a4aaec32a03b9de01ce",
+      "git_blob_sha1": "01277fe456468e5871b9b47d3d2ee63a957cbc9d",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54142/index.cnxml",
+      "raw_formula_count": 44,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "279d4f2eb20ebf5001b8b23e1e7778653b438e4060251fe773cd729227caa0f2",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54142.txt",
+      "text_sha256": "0731fd3738cbd0a18ef1ff4848ae8ec6cdb6bbf36d35af49de4821ee5d36552c",
+      "text_bytes": 22618,
+      "word_like_units": 3796,
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 2
+      },
+      "extraction": {
+        "omitted_label": 14,
+        "math_expressions": 44,
+        "image_descriptions": 3
+      },
+      "punctuation_repairs": {
+        "U+0092": 4,
+        "U+0097": 1
+      },
+      "media": {
+        "media_elements": 3
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54131",
+      "chapter": "Forces and Newton’s Laws of Motion",
+      "title": "Newton's Third Law of Motion",
+      "path": "modules/m54131/index.cnxml",
+      "raw_sha256": "255cca5b620792b2e57b340d62abc7eeaa04b2303e3366336b5a6f605a7f9fda",
+      "git_blob_sha1": "856c1a66873940189e0be993b71db4365b8d7b32",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54131/index.cnxml",
+      "raw_formula_count": 31,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "7b85c0348915ed0d17e920a9abc6decdc914c041c68a740acb3a3190ee4da232",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54131.txt",
+      "text_sha256": "747741530726776d53846e077657666a4b8ae48a4c9c7da4588aa22ddb09f720",
+      "text_bytes": 27531,
+      "word_like_units": 4781,
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 2
+      },
+      "extraction": {
+        "math_expressions": 31,
+        "image_descriptions": 4,
+        "omitted_label": 12
+      },
+      "punctuation_repairs": {
+        "U+0092": 16,
+        "U+0097": 3
+      },
+      "media": {
+        "media_elements": 4
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54145",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Introduction",
+      "path": "modules/m54145/index.cnxml",
+      "raw_sha256": "a46b750b1985353001da692133fe768ab873602fd97854139bde053c04560607",
+      "git_blob_sha1": "45dc8b638acf386ffe7fba12f5d10aecd8c2f8a2",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54145/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54145.txt",
+      "text_sha256": "39a3fc7f2af27f27929e200fbc9ec6115fb68704ccc4c6fe0e8010a92c93c43b",
+      "text_bytes": 1176,
+      "word_like_units": 179,
+      "policy": {
+        "omitted_notes": 3,
+        "omitted_note_os-teacher": 3
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54165",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Vector Addition and Subtraction: Graphical Methods",
+      "path": "modules/m54165/index.cnxml",
+      "raw_sha256": "2a31b9e7eced1ed254a763918e9502ec87528f880c85117c9ac6c7ea7b9dab18",
+      "git_blob_sha1": "0be700e22806b0f95185d59b3e6e095da8c0aeb4",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54165/index.cnxml",
+      "raw_formula_count": 34,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "042d268fd0a44eacced95b94d8cb706c79d1f659eeed31f88dc11ac803c37ee6",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54165.txt",
+      "text_sha256": "d7562ceee456d427372ce9d49d84ead8ff4ceafc4f3d3bb8ee18798a1a93b83e",
+      "text_bytes": 23021,
+      "word_like_units": 3892,
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 6,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 11,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1
+      },
+      "extraction": {
+        "math_expressions": 32,
+        "image_descriptions": 15,
+        "omitted_label": 12
+      },
+      "punctuation_repairs": {
+        "U+0097": 3
+      },
+      "media": {
+        "media_elements": 15
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54147",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Vector Addition and Subtraction: Analytical Methods",
+      "path": "modules/m54147/index.cnxml",
+      "raw_sha256": "6279130fc068183e38b6f8a43eb60d35614b3894b99a196580426d00eea3c8d5",
+      "git_blob_sha1": "3af1ad1387bf9e58796ef448961af24208c4592b",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54147/index.cnxml",
+      "raw_formula_count": 178,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "5aa99968c7b95446245768c129f077db0baa78d7f494cbdb0a2418a2fc8416c8",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54147.txt",
+      "text_sha256": "5d98e203f32512128a900c5c2884ad14efd16310146da11362aae4af65fd1d26",
+      "text_bytes": 24367,
+      "word_like_units": 3780,
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 13
+      },
+      "extraction": {
+        "image_descriptions": 10,
+        "math_expressions": 176,
+        "omitted_label": 34
+      },
+      "punctuation_repairs": {
+        "U+0097": 1
+      },
+      "media": {
+        "media_elements": 10
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54162",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Projectile Motion",
+      "path": "modules/m54162/index.cnxml",
+      "raw_sha256": "4e681890b4191a16599f21dede2088c6d2f722048443ca946d0fea3171d36b14",
+      "git_blob_sha1": "41e94bd6397750245c062fa4c12e336ca55fcdb0",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54162/index.cnxml",
+      "raw_formula_count": 105,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "f21946f76470ecf7801930937b34b09a5e9ebdd4d7a3ce74a5a34daeda0d69da",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54162.txt",
+      "text_sha256": "024322f8948cb2a486f990e1c816d4e7d0b22e3f672bc6567016b5e3de52b1ff",
+      "text_bytes": 22887,
+      "word_like_units": 3425,
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 13,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1
+      },
+      "extraction": {
+        "image_descriptions": 6,
+        "math_expressions": 105,
+        "omitted_label": 34
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 6
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54159",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Inclined Planes",
+      "path": "modules/m54159/index.cnxml",
+      "raw_sha256": "21193864e34f88334cd6b399957fdd0a656706c48a4686f9e1323683d08d5ad2",
+      "git_blob_sha1": "160dc9d599db0317eefebd9e194d222d7ee08e60",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54159/index.cnxml",
+      "raw_formula_count": 81,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "9f624b976657dd0b1fc9155fbd949ed37f18a72819dd6c44008faaef5db6c4bb",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54159.txt",
+      "text_sha256": "d0dec447c3d5bebbcef33fda91f5e0fa5a93bd25825bca3b3b1ce8f9791b87ed",
+      "text_bytes": 21255,
+      "word_like_units": 3316,
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 14,
+        "omitted_note_snap-lab": 1
+      },
+      "extraction": {
+        "image_descriptions": 4,
+        "omitted_label": 25,
+        "math_expressions": 74
+      },
+      "punctuation_repairs": {
+        "U+0097": 1
+      },
+      "media": {
+        "media_elements": 4
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54154",
+      "chapter": "Motion in Two Dimensions",
+      "title": "Simple Harmonic Motion",
+      "path": "modules/m54154/index.cnxml",
+      "raw_sha256": "9e24b744ea3a5edddca092fb915845ca58a5d5326ce37fcecabdddf203bd12b6",
+      "git_blob_sha1": "08903b56294e2c3e0e32f7cdd2ca2617a0496c9d",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54154/index.cnxml",
+      "raw_formula_count": 23,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f50a8da9a4bd6316051e416e209ec3f9e95c92fce0b498bece2658c584299ca",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54154.txt",
+      "text_sha256": "db3e7375f890d66567af5ebffa61691d767c21c34932fd6c08b73db86512e588",
+      "text_bytes": 18428,
+      "word_like_units": 3068,
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 13,
+        "omitted_note_snap-lab": 1
+      },
+      "extraction": {
+        "omitted_label": 16,
+        "math_expressions": 23,
+        "image_descriptions": 5
+      },
+      "punctuation_repairs": {
+        "U+0092": 1,
+        "U+0097": 1
+      },
+      "media": {
+        "media_elements": 5
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54173",
+      "chapter": "Circular and Rotational Motion",
+      "title": "Introduction",
+      "path": "modules/m54173/index.cnxml",
+      "raw_sha256": "707036aee8060ad1648fc75fd9fbb6f6dee1c2d743258b7ab4ed82e997ccf301",
+      "git_blob_sha1": "5c64f9fd92d3dd5971be324e411267f990294000",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54173/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54173.txt",
+      "text_sha256": "a1d4af5beee6f0cd441a9dac4e3c5a3b5b875506acd720feaab48120148d7a93",
+      "text_bytes": 995,
+      "word_like_units": 163,
+      "policy": {
+        "omitted_notes": 1,
+        "omitted_note_os-teacher": 1
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54176",
+      "chapter": "Circular and Rotational Motion",
+      "title": "Angle of Rotation and Angular Velocity",
+      "path": "modules/m54176/index.cnxml",
+      "raw_sha256": "c5dfffadc2560ccff1ec5e02a42793c8106796598c736727d01b15531dfdf38b",
+      "git_blob_sha1": "602fa80c6886356deae34e28d0ab14cc7f5a6b1c",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54176/index.cnxml",
+      "raw_formula_count": 68,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "8cee315cff848afba62b17beee3ef54d30ac88c4ccbd2717101ae6009a1a40fd",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54176.txt",
+      "text_sha256": "6aa86db34376506a13e2936628828fd2047c3715a3537eda7982c35d14399b33",
+      "text_bytes": 17878,
+      "word_like_units": 2929,
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 20
+      },
+      "extraction": {
+        "image_descriptions": 5,
+        "math_expressions": 65,
+        "omitted_label": 11
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 5
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54181",
+      "chapter": "Circular and Rotational Motion",
+      "title": "Uniform Circular Motion",
+      "path": "modules/m54181/index.cnxml",
+      "raw_sha256": "8eada1c5086fa9c3492aa47c29fb47226bd924b9d219be288b5af0c2e71854f6",
+      "git_blob_sha1": "81a9d666cc4fea579b98751d9fd03dc188cb4e1d",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54181/index.cnxml",
+      "raw_formula_count": 43,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "e2d9c49352dc69f8bc72dd50b1d869891af598a9379672cf99a721b8c8c1931e",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54181.txt",
+      "text_sha256": "0d8e5ee5448c97b3b54b2dbdde99888bdc1480da9f6f792d59943785340739e5",
+      "text_bytes": 17778,
+      "word_like_units": 2930,
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 6,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 16
+      },
+      "extraction": {
+        "math_expressions": 34,
+        "image_descriptions": 4,
+        "omitted_label": 13
+      },
+      "punctuation_repairs": {
+        "U+0092": 2
+      },
+      "media": {
+        "media_elements": 4
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54180",
+      "chapter": "Circular and Rotational Motion",
+      "title": "Rotational Motion",
+      "path": "modules/m54180/index.cnxml",
+      "raw_sha256": "e3cd1cecbf867feb2f2a5364acea69330feb98f0f95f4222b373b61aa0c83a6a",
+      "git_blob_sha1": "f56ddb31f0339716bc6143e177ab63737240c803",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54180/index.cnxml",
+      "raw_formula_count": 77,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "ede87a9bb01baf181d575185f066f57595b055b7b15104178cd90a30c8a19d70",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54180.txt",
+      "text_sha256": "c99f8abafc1e06fa18d11777108b38bd77cd7068b3f6256c7777ae1e42fdc5a0",
+      "text_bytes": 21446,
+      "word_like_units": 3186,
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 13
+      },
+      "extraction": {
+        "math_expressions": 75,
+        "omitted_label": 12,
+        "image_descriptions": 4,
+        "table_span_cells": 2
+      },
+      "punctuation_repairs": {
+        "U+0092": 2
+      },
+      "media": {
+        "media_elements": 4
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54196",
+      "chapter": "Newton's Law of Gravitation",
+      "title": "Introduction",
+      "path": "modules/m54196/index.cnxml",
+      "raw_sha256": "67db9164fadd689bdbc419a0fac8a2c6415f95b7fc49c032e5cf61fcb27fe7b5",
+      "git_blob_sha1": "feda768a554a5f50c49fdd677be2566184bf1622",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54196/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54196.txt",
+      "text_sha256": "a055d86e30e15a4ceb3b5d9e75df393d32031285d7f103cabd0e2c1dc496a630",
+      "text_bytes": 1022,
+      "word_like_units": 160,
+      "policy": {
+        "omitted_notes": 3,
+        "omitted_note_os-teacher": 3
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54192",
+      "chapter": "Newton's Law of Gravitation",
+      "title": "Kepler's Laws of Planetary Motion",
+      "path": "modules/m54192/index.cnxml",
+      "raw_sha256": "b95a95fed9b7857c69292eb3ae7079f3ad97eb8ed685bec27a29baa04b7e9399",
+      "git_blob_sha1": "5b8382a8213470ca1250221dbec76b0a366d7c69",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54192/index.cnxml",
+      "raw_formula_count": 34,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "7f87b41aed2069fc541c4c8fe1ab2950b16623b0c945f46d3e3ed0eaefb83482",
+      "candidate_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m54189",
+      "chapter": "Newton's Law of Gravitation",
+      "title": "Newton's Law of Universal Gravitation and Einstein's Theory of General Relativity",
+      "path": "modules/m54189/index.cnxml",
+      "raw_sha256": "742d5f543b2db64a3fa8d54244fdc43a757dd9d50422f88fd8a326e9f482e5fb",
+      "git_blob_sha1": "f774a31fdcbf49ced57559112bd5726a4867bab5",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54189/index.cnxml",
+      "raw_formula_count": 29,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "72e2f38f33bda97935ce32403cdbd3464c7217c3644dd72921bedcbdb4da1dc4",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54189.txt",
+      "text_sha256": "412018cd85fb9cf6e113d5f09db51287d485884629bfb03d9d4e76aa03ff0ae1",
+      "text_bytes": 24999,
+      "word_like_units": 4015,
+      "policy": {
+        "omitted_notes": 20,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 15,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 13,
+        "omitted_note_watch-physics": 2
+      },
+      "extraction": {
+        "image_descriptions": 6,
+        "omitted_label": 12,
+        "math_expressions": 26
+      },
+      "punctuation_repairs": {
+        "U+0092": 6
+      },
+      "media": {
+        "media_elements": 6
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54212",
+      "chapter": "Momentum",
+      "title": "Introduction",
+      "path": "modules/m54212/index.cnxml",
+      "raw_sha256": "ad39fe3218e79b364eb968e646765dba98453c949cf23b0c15d93c8b02674669",
+      "git_blob_sha1": "5ba6a51c1dfd200f783d871d9324144bc95a44de",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54212/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54212.txt",
+      "text_sha256": "c06d0a9999734e82c09fd167cf399cb1d0bd7626126fae7b605191bef4f8d950",
+      "text_bytes": 1414,
+      "word_like_units": 232,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54215",
+      "chapter": "Momentum",
+      "title": "Linear Momentum, Force, and Impulse",
+      "path": "modules/m54215/index.cnxml",
+      "raw_sha256": "f0ae3d8187826baed0cd49485149c7c566b64d050557a92c082943fd6ac14542",
+      "git_blob_sha1": "16d1544286baf805cded6c75fcd804491ec5c3de",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54215/index.cnxml",
+      "raw_formula_count": 64,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f54ed751576758cc2c845893e4f23d028e8406a262ff66a371821592ebfea7e",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54215.txt",
+      "text_sha256": "ff6f2fe63abfd157ff25930764499ab813cdf10c06a95d0dbd3b951b1b17dafe",
+      "text_bytes": 19537,
+      "word_like_units": 3133,
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 11
+      },
+      "extraction": {
+        "omitted_label": 25,
+        "math_expressions": 64,
+        "image_descriptions": 2
+      },
+      "punctuation_repairs": {
+        "U+0092": 8
+      },
+      "media": {
+        "media_elements": 2
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54202",
+      "chapter": "Momentum",
+      "title": "Conservation of Momentum",
+      "path": "modules/m54202/index.cnxml",
+      "raw_sha256": "4ab904f2a671424a4ef2c99163bb9e6e7e4a615dd6eebc238902a8f67d6e6ff8",
+      "git_blob_sha1": "e228455c480fd632ad0664781a1ec2a6aa3cdac9",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54202/index.cnxml",
+      "raw_formula_count": 17,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "3aa310ddf6bb6265952e45fced5b69f775424cf03ac9a0456287e5a834455b40",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54202.txt",
+      "text_sha256": "1ee983b67a59d376925111ee23e552665189a2a516b7634e73a0aa919119f1d7",
+      "text_bytes": 14226,
+      "word_like_units": 2371,
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 4
+      },
+      "extraction": {
+        "image_descriptions": 2,
+        "omitted_label": 8,
+        "math_expressions": 17
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 2
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54209",
+      "chapter": "Momentum",
+      "title": "Elastic and Inelastic Collisions",
+      "path": "modules/m54209/index.cnxml",
+      "raw_sha256": "4d55b85673aa7c84b6159500f30fbdf034e5c69c09ff4f85d0eb3b009d9e65ba",
+      "git_blob_sha1": "ae6c5df1fb634d36dbc6b792930caf8d40d394a1",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54209/index.cnxml",
+      "raw_formula_count": 52,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "b65ff964104b86528251d36e53727250b4c3a0473175a0bb570b928cd4caea2c",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54209.txt",
+      "text_sha256": "660d0d8f2707381609aa16807599ce00006acc2c7d1c90e772509f51391ea873",
+      "text_bytes": 28454,
+      "word_like_units": 4234,
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 7
+      },
+      "extraction": {
+        "image_descriptions": 6,
+        "omitted_label": 38,
+        "math_expressions": 49
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 6
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54268",
+      "chapter": "Work, Energy, and Simple Machines",
+      "title": "Introduction",
+      "path": "modules/m54268/index.cnxml",
+      "raw_sha256": "11e3161f0bf38d910cac5dc11abf127790b9acacd482a25ce6eb035829f84003",
+      "git_blob_sha1": "cf7cfbd94b81a25bf743b84fa46fa8af13cbf688",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54268/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54268.txt",
+      "text_sha256": "6657c9237378e2cf1b16f2d58917f699f7e822922f43d03cc4c2de7ad09f3612",
+      "text_bytes": 1196,
+      "word_like_units": 197,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54271",
+      "chapter": "Work, Energy, and Simple Machines",
+      "title": "Work, Power, and the Work–Energy Theorem",
+      "path": "modules/m54271/index.cnxml",
+      "raw_sha256": "5b7f18cc7c3b11acd31e2a46bfba72ac825975cdda410826667bc7b472103c32",
+      "git_blob_sha1": "781e1d844c906cd4a5db5e38052f77cb66fe4bd2",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54271/index.cnxml",
+      "raw_formula_count": 30,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "f46ef395ed1d06faad8519a949140550aad31ad740575e1c0476fb98c0bd79d0",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54271.txt",
+      "text_sha256": "271d2f26f2efb15ce1ce32b78588f986c1f11b6e44283b63d9d8794bdb73d036",
+      "text_bytes": 17967,
+      "word_like_units": 3109,
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 8,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_external_exercise_placeholders": 9
+      },
+      "extraction": {
+        "math_expressions": 21,
+        "omitted_label": 12,
+        "image_descriptions": 4
+      },
+      "punctuation_repairs": {
+        "U+0092": 5,
+        "U+0096": 2,
+        "U+0097": 1
+      },
+      "media": {
+        "media_elements": 4
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54273",
+      "chapter": "Work, Energy, and Simple Machines",
+      "title": "Mechanical Energy and Conservation of Energy",
+      "path": "modules/m54273/index.cnxml",
+      "raw_sha256": "d7cbed99a524693ddd4d0f2259d47bb16e62ee97f02c6f0302246f334625f8ab",
+      "git_blob_sha1": "35e172f1e3ae5aab823d66907e10d65c4e6bf009",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54273/index.cnxml",
+      "raw_formula_count": 15,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "fa827a58e0836c3044c4ac98fe62f32e90886a3c8fe8bdcbb5ec08e7f591fb2d",
+      "candidate_extracted": false,
+      "rejection": "Unsupported list numbering style"
+    },
+    {
+      "module": "m54274",
+      "chapter": "Work, Energy, and Simple Machines",
+      "title": "Simple Machines",
+      "path": "modules/m54274/index.cnxml",
+      "raw_sha256": "3702de9885e3a1254d624fbcae77a7c912a203ae301d08d2b426237b1a5cc606",
+      "git_blob_sha1": "2260a26c452cab78fcfd21bba692818d75b860d9",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54274/index.cnxml",
+      "raw_formula_count": 22,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "8152886da0d4d091256bdc1e145b522307788567b3f78f62097bbc91ffeb461a",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54274.txt",
+      "text_sha256": "d9c5bb8cf01abd686a211b33c8068ffe8f892a270758482669810a31a7a45815",
+      "text_bytes": 22885,
+      "word_like_units": 4091,
+      "policy": {
+        "omitted_notes": 14,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 11,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_external_exercise_placeholders": 5
+      },
+      "extraction": {
+        "image_descriptions": 14,
+        "omitted_label": 9,
+        "math_expressions": 21
+      },
+      "punctuation_repairs": {
+        "U+0097": 2
+      },
+      "media": {
+        "media_elements": 14
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54277",
+      "chapter": "Special Relativity",
+      "title": "Introduction",
+      "path": "modules/m54277/index.cnxml",
+      "raw_sha256": "d21b3959bcc9843f5bb21e4aeac8a12b59b2b522ef3d2c3283245b5e074ce4aa",
+      "git_blob_sha1": "f92e0e2a6d95eb85aa42500f267062bb7b98bfa5",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54277/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54277.txt",
+      "text_sha256": "8ea89529c5a98b6715ec0f7bae84d6f22670bd5fca7a5205e2f2db860df457d5",
+      "text_bytes": 1683,
+      "word_like_units": 256,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54280",
+      "chapter": "Special Relativity",
+      "title": "Postulates of Special Relativity",
+      "path": "modules/m54280/index.cnxml",
+      "raw_sha256": "b26836e125aea986fe1d66cf28338d868ebe23ba51b53c9904d59b664672654e",
+      "git_blob_sha1": "b9eed15d1808a1e0a1e8cb3247b1390e37044c91",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54280/index.cnxml",
+      "raw_formula_count": 6,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4448abb8ceaef61b879c14b7d9ec70548b577e7928e023d303fe24b0c9dae69c",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54280.txt",
+      "text_sha256": "71fe757a34bcc613518d83758fafb0e51f499de54794ff7c7f37d08c407ce189",
+      "text_bytes": 23593,
+      "word_like_units": 4019,
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 8,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 7
+      },
+      "extraction": {
+        "image_descriptions": 3,
+        "math_expressions": 6,
+        "table_span_cells": 1,
+        "omitted_label": 5
+      },
+      "punctuation_repairs": {
+        "U+0092": 2,
+        "U+0096": 4
+      },
+      "media": {
+        "media_elements": 3
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54282",
+      "chapter": "Special Relativity",
+      "title": "Consequences of Special Relativity",
+      "path": "modules/m54282/index.cnxml",
+      "raw_sha256": "21c33d4e3a04ccd666cf4cba5ce61fa6c57ceb953e1e96696f59f485e87f3325",
+      "git_blob_sha1": "8e6e995607f08274aff2820e2a3a2a36caa477e5",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54282/index.cnxml",
+      "raw_formula_count": 103,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "f19629c4051b355f3cfdf72001baa7a0219d3b5e6ef69d156de31394989c930f",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54282.txt",
+      "text_sha256": "22cea5727044ac9a522064224a4c4a3f382d5c95a1eaf4aea63e26b593043799",
+      "text_bytes": 30791,
+      "word_like_units": 4904,
+      "policy": {
+        "omitted_notes": 12,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 11,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 5
+      },
+      "extraction": {
+        "image_descriptions": 5,
+        "math_expressions": 103,
+        "omitted_label": 16
+      },
+      "punctuation_repairs": {
+        "U+0092": 5,
+        "U+0097": 3
+      },
+      "media": {
+        "media_elements": 5
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54283",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "title": "Introduction",
+      "path": "modules/m54283/index.cnxml",
+      "raw_sha256": "c31fc004e27e2802abc93582f0d28bf6f6147225b3d4e883c2ddcf1b30b0eedf",
+      "git_blob_sha1": "d6fb72ce0b0f340cd732ee8a4ad25b33f309eba1",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54283/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54283.txt",
+      "text_sha256": "f029152ef963ec9b60434268030c20bb444b54e5f9ff0751b15edffa2f81c4bb",
+      "text_bytes": 1300,
+      "word_like_units": 229,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54287",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "title": "Temperature and Thermal Energy",
+      "path": "modules/m54287/index.cnxml",
+      "raw_sha256": "5ddec4d8f0e56daed4cdd241a448ab3b1cccee23b204289a8d743d844088dfc6",
+      "git_blob_sha1": "9b6447b26462f2dce9ae8e37687cd892f699a54f",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54287/index.cnxml",
+      "raw_formula_count": 55,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "ad4971ea79b36d73142a3511cb043f6df0b77956806e41c348dae82eb63e9e9c",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54287.txt",
+      "text_sha256": "b0c468f705ed1a65b078e9ef1c79a0ce8e89435f0889a100176d165a0d4482e6",
+      "text_bytes": 13373,
+      "word_like_units": 2059,
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 9,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 7
+      },
+      "extraction": {
+        "math_expressions": 49,
+        "image_descriptions": 2,
+        "omitted_label": 8
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 2
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54290",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "title": "Heat, Specific Heat, and Heat Transfer",
+      "path": "modules/m54290/index.cnxml",
+      "raw_sha256": "136958077cb63d398a50388e6e6056b42f1bc1748c7e9ddfdf1173dc5d99d4e5",
+      "git_blob_sha1": "bf4016e12f6f5c200c7793a4e359b43f6ceb444f",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54290/index.cnxml",
+      "raw_formula_count": 37,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "461570b2c208e6f4b87020d3f2e35c7b873f4882a607bec8d3e77cef806b0827",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54290.txt",
+      "text_sha256": "3d655976607b002830ad346f1cc3b46e080b7be40dfd834a8ca6d661e4a59239",
+      "text_bytes": 22447,
+      "word_like_units": 3588,
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 9
+      },
+      "extraction": {
+        "math_expressions": 35,
+        "image_descriptions": 6,
+        "omitted_label": 9
+      },
+      "punctuation_repairs": {
+        "U+0097": 1
+      },
+      "media": {
+        "media_elements": 6
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54292",
+      "chapter": "Thermal Energy, Heat, and Work",
+      "title": "Phase Change and Latent Heat",
+      "path": "modules/m54292/index.cnxml",
+      "raw_sha256": "496ba89cd612ca6e2f434954e3b8393712c252addbf382dc5aa56ed924fe8fff",
+      "git_blob_sha1": "afb84c0ef430d7716facb184ee7191e4731044a6",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54292/index.cnxml",
+      "raw_formula_count": 47,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "c4c27e28c1f8d6ad23fbe6133495a32ec92fdff8504a06ac815730d31b23c805",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54292.txt",
+      "text_sha256": "bcad7dd9c3edeb72e755ffaf99167af3be8b2b85347661fc9f001c308b1847ff",
+      "text_bytes": 18603,
+      "word_like_units": 3044,
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 6,
+        "omitted_note_os-interactive": 1,
+        "titled_lists_preserved": 1
+      },
+      "extraction": {
+        "image_descriptions": 4,
+        "math_expressions": 28,
+        "omitted_label": 7
+      },
+      "punctuation_repairs": {
+        "U+0097": 1
+      },
+      "media": {
+        "media_elements": 4
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54300",
+      "chapter": "Thermodynamics",
+      "title": "Introduction",
+      "path": "modules/m54300/index.cnxml",
+      "raw_sha256": "ee58ad308425500aafba668430566acc40486db2d54eaf42bf52459e3e82b5a8",
+      "git_blob_sha1": "f3963cca809187746c25e1afc0bb33a521b003e7",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54300/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54300.txt",
+      "text_sha256": "236f0e0bc99d2830bd456afda4c5199802f2c29876b4502cac7a58495fcc8003",
+      "text_bytes": 1937,
+      "word_like_units": 328,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54302",
+      "chapter": "Thermodynamics",
+      "title": "Zeroth Law of Thermodynamics: Thermal Equilibrium",
+      "path": "modules/m54302/index.cnxml",
+      "raw_sha256": "b5e6d61772e6f46ace2e175a9bc784f8a884cadd28ea73e92a9e8d274c250a32",
+      "git_blob_sha1": "7da4a0fc5edb6d34ba07915290f08dca9efcde38",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54302/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54302.txt",
+      "text_sha256": "9c69347ffc1bbdd2eea246ebba0b63a77966eceefdc802248418fe4559065fc8",
+      "text_bytes": 9192,
+      "word_like_units": 1496,
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 3
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54305",
+      "chapter": "Thermodynamics",
+      "title": "First law of Thermodynamics: Thermal Energy and Work",
+      "path": "modules/m54305/index.cnxml",
+      "raw_sha256": "d005b9b5460b4dd326de1255b5676736dd44d1a63584c8ded6e5b61222b4faa6",
+      "git_blob_sha1": "9fdbafa9da18e84313e22d224a14a8600a592603",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54305/index.cnxml",
+      "raw_formula_count": 48,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "d799e95974df7cef015e2abb3fa0e24a0b1e126147a27b72c983dc30d0847daf",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54305.txt",
+      "text_sha256": "162455e3faeaa0d577b6ee432f27d215adbd6174087dc9a2c20ff546fefa48c2",
+      "text_bytes": 25546,
+      "word_like_units": 4409,
+      "policy": {
+        "omitted_notes": 12,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 8,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 3,
+        "omitted_external_exercise_placeholders": 24
+      },
+      "extraction": {
+        "math_expressions": 41,
+        "image_descriptions": 6,
+        "omitted_label": 7
+      },
+      "punctuation_repairs": {
+        "U+0092": 4
+      },
+      "media": {
+        "media_elements": 6
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54306",
+      "chapter": "Thermodynamics",
+      "title": "Second Law of Thermodynamics: Entropy",
+      "path": "modules/m54306/index.cnxml",
+      "raw_sha256": "e80ccd00f8ade4526834a4e6cebf15429da67da37af7d3e3aa4467ff8cab1a6c",
+      "git_blob_sha1": "3e5d94782b606a121d7e130281539faca087bbb1",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54306/index.cnxml",
+      "raw_formula_count": 23,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "967fce72938a9f750b2d1e7b80760db8e7a7a643295b7cbbb61bc68efbfb8aca",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54306.txt",
+      "text_sha256": "cb2166302f75586e9ac31c312afc0bda77b1852965e8f29b5b112323f8b29e91",
+      "text_bytes": 16818,
+      "word_like_units": 2797,
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 13
+      },
+      "extraction": {
+        "math_expressions": 23,
+        "omitted_label": 5,
+        "image_descriptions": 4
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 4
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54307",
+      "chapter": "Thermodynamics",
+      "title": "Applications of Thermodynamics: Heat Engines, Heat Pumps, and Refrigerators",
+      "path": "modules/m54307/index.cnxml",
+      "raw_sha256": "c4f8ea317666b34b4b499f5523496f22dcea83d812b84e4ebfc8f0aa9fc495cd",
+      "git_blob_sha1": "6627127edd99e08f14a08392796b77fab424a635",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54307/index.cnxml",
+      "raw_formula_count": 56,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "a9a701ab338c1c9f792e9481f5ba05ea88c8431ebaaadfab948436095d42e324",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54307.txt",
+      "text_sha256": "26d57b4d40a418d909a63629f0f28c5212fcaef41005d33aff301da58c5e2596",
+      "text_bytes": 22009,
+      "word_like_units": 3732,
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 9,
+        "titled_lists_preserved": 2
+      },
+      "extraction": {
+        "image_descriptions": 4,
+        "math_expressions": 55,
+        "omitted_label": 8
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 4
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54312",
+      "chapter": "Waves and Their Properties",
+      "title": "Introduction",
+      "path": "modules/m54312/index.cnxml",
+      "raw_sha256": "b582f1a8b374c6c76391d974aa9fcfe9f70d6d6795eba35bf016b805da7e0d9d",
+      "git_blob_sha1": "6241be3a16609f29ec819a6e4017f21dcfe3aece",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54312/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54312.txt",
+      "text_sha256": "2bf875d289d99ef8bdd81a34baae1e3f0ceff09d48ecc850e8bc8e5cc78749b4",
+      "text_bytes": 945,
+      "word_like_units": 152,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54314",
+      "chapter": "Waves and Their Properties",
+      "title": "Types of Waves",
+      "path": "modules/m54314/index.cnxml",
+      "raw_sha256": "b0f82d2d51c11ce54d52ad7c011e32da434570260b74fa29dbbff1093ad9ac04",
+      "git_blob_sha1": "24e0b8dcfce2d09759c3b4c5aa3e7640755fbd7f",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54314/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": false,
+      "rejection": "Invalid or overlapping table span"
+    },
+    {
+      "module": "m54321",
+      "chapter": "Waves and Their Properties",
+      "title": "Wave Properties: Speed, Amplitude, Frequency, and Period",
+      "path": "modules/m54321/index.cnxml",
+      "raw_sha256": "bb95a81cf5a811a39f27e4f93aca637dddee1e90c846aaa0b6c1843c93dda7bd",
+      "git_blob_sha1": "7051d20a5f7aad35efa58dd1be2c1b3d74d35d89",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54321/index.cnxml",
+      "raw_formula_count": 33,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "40e46373a02a143a60791880df328d5234c9350bfc7d7d3c236cb7874f94ce31",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54321.txt",
+      "text_sha256": "05c05fc5b552eadbf93c1bce342003a4d4088fe23675ba93ec8c282f2b628c76",
+      "text_bytes": 14135,
+      "word_like_units": 2390,
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 15
+      },
+      "extraction": {
+        "math_expressions": 33,
+        "image_descriptions": 3,
+        "omitted_label": 11
+      },
+      "punctuation_repairs": {
+        "U+0092": 1
+      },
+      "media": {
+        "media_elements": 3
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54318",
+      "chapter": "Waves and Their Properties",
+      "title": "Wave Interaction: Superposition and Interference",
+      "path": "modules/m54318/index.cnxml",
+      "raw_sha256": "21a3ea8218826c0c35c3fa7ab45d5c286ccc3fc94391d7c61cd0846744cfbb5e",
+      "git_blob_sha1": "f2e295d656c31919ededc8abb26b39acbc608931",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54318/index.cnxml",
+      "raw_formula_count": 2,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "e58ca98046f00ab5a1d65716f5eb9e80a1cfce5715d2e222bb49519e3f902868",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54318.txt",
+      "text_sha256": "7b1365c788ae57669435d24a3fa68900df4a39d434e104bcdf4e092e2136062c",
+      "text_bytes": 15637,
+      "word_like_units": 2496,
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 19
+      },
+      "extraction": {
+        "image_descriptions": 9,
+        "math_expressions": 2
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 9
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54327",
+      "chapter": "Sound",
+      "title": "Introduction",
+      "path": "modules/m54327/index.cnxml",
+      "raw_sha256": "42bec9b6a32a34fc8bda66cbddb5465d01127e14d19b0d71306cfcc763d13972",
+      "git_blob_sha1": "f8cfbc455460ceb17577ae119fa3b5b3a903f49b",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54327/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54327.txt",
+      "text_sha256": "69efeb25fff3f9010b8b6b83719b7d82e45e067e148547086b89b3f660524bdc",
+      "text_bytes": 1204,
+      "word_like_units": 214,
+      "policy": {
+        "omitted_notes": 1,
+        "omitted_note_os-teacher": 1
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54331",
+      "chapter": "Sound",
+      "title": "Speed of Sound, Frequency, and Wavelength",
+      "path": "modules/m54331/index.cnxml",
+      "raw_sha256": "2234cf046e679b1dc931f9b398478c359cdb1ffa3699484a05366d977a7f9a87",
+      "git_blob_sha1": "3133dae257a6fe6320a72ae7366f8979df89d6ac",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54331/index.cnxml",
+      "raw_formula_count": 17,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "1e0c6826d5c716d7544560955b3723adfa2881d28455040e59393f544dadc2b3",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54331.txt",
+      "text_sha256": "d6d94eeec225b56d403e739bc6f65fadc3d225c39f0625d061ab6d163e5371a5",
+      "text_bytes": 14479,
+      "word_like_units": 2369,
+      "policy": {
+        "omitted_notes": 12,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 9,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 14
+      },
+      "extraction": {
+        "image_descriptions": 7,
+        "table_span_cells": 3,
+        "math_expressions": 17,
+        "omitted_label": 4
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 7
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54333",
+      "chapter": "Sound",
+      "title": "Sound Intensity and Sound Level",
+      "path": "modules/m54333/index.cnxml",
+      "raw_sha256": "318e9a4d50a98d274f64df06911f94ae01744eae539f725f988c5d0ef7a79590",
+      "git_blob_sha1": "eb83b9cc474c8d6e27f7c3c1754d65f9041b2078",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54333/index.cnxml",
+      "raw_formula_count": 22,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "da3c36cf36e4c73181c0f186ca6325bdaffb48ced766fa7959eab669e4a75477",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54333.txt",
+      "text_sha256": "3fc2c12f4686ad1caa48ae1f868c0dee5cc372107417325b594087d87c87baa4",
+      "text_bytes": 18678,
+      "word_like_units": 3017,
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 25
+      },
+      "extraction": {
+        "image_descriptions": 5,
+        "math_expressions": 22,
+        "omitted_label": 7
+      },
+      "punctuation_repairs": {
+        "U+0093": 3,
+        "U+0094": 3
+      },
+      "media": {
+        "media_elements": 5
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54334",
+      "chapter": "Sound",
+      "title": "Doppler Effect and Sonic Booms",
+      "path": "modules/m54334/index.cnxml",
+      "raw_sha256": "2b8cd7c6cd0cfd35f17e93691e1e9b11df4fb0d072b4790ca69c8e77cf62d1c8",
+      "git_blob_sha1": "f888ebd1c02427f8a575efeae00e14007de438ba",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54334/index.cnxml",
+      "raw_formula_count": 14,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "631e8349c57c07ed8a53d7a0017616f73083fc62f8d4e01945a6dc7ec9a75b16",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54334.txt",
+      "text_sha256": "b974f7ad479321a5c0f79ee184826080e72cdfd69a69a7232edf2e681dbc7c50",
+      "text_bytes": 12987,
+      "word_like_units": 2229,
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 6,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 3,
+        "omitted_external_exercise_placeholders": 19
+      },
+      "extraction": {
+        "image_descriptions": 4,
+        "math_expressions": 14,
+        "omitted_label": 4
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 4
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54335",
+      "chapter": "Sound",
+      "title": "Sound Interference and Resonance",
+      "path": "modules/m54335/index.cnxml",
+      "raw_sha256": "2eed6c30e086b04f6ce45a7fdc23d686b7b1aecd9d5a31e7065378875c06ca20",
+      "git_blob_sha1": "76af064a300e55122970973ac3612409ba9f51f4",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54335/index.cnxml",
+      "raw_formula_count": 28,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "0eefb529d6cce178da5315c0fa25fa6c4dc0850bd540fec9cc8ca376852bb5cb",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54335.txt",
+      "text_sha256": "04abb4ec9794177215ed075c65d40f8d75be902a65885d8461540b1cb74fb788",
+      "text_bytes": 22497,
+      "word_like_units": 3695,
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 22
+      },
+      "extraction": {
+        "image_descriptions": 10,
+        "math_expressions": 28,
+        "omitted_label": 10
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 10
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54336",
+      "chapter": "Light",
+      "title": "Introduction",
+      "path": "modules/m54336/index.cnxml",
+      "raw_sha256": "56237753fded42f8aa8d6567252fb69f8622c72e757d92339b14c2e20e83b23e",
+      "git_blob_sha1": "9a13d9ca2b07c95fdcf939190bb581075cacf013",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54336/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54336.txt",
+      "text_sha256": "f2b4a106e1024520fb14b2f1cc65f4c63cddb71a43bb4615f9456b90cec71701",
+      "text_bytes": 1049,
+      "word_like_units": 164,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54342",
+      "chapter": "Light",
+      "title": "The Electromagnetic Spectrum",
+      "path": "modules/m54342/index.cnxml",
+      "raw_sha256": "1be969e5301489501d35eb92ba49acd23ef7eeaf586f3c7ff9ec05f77cbf56fe",
+      "git_blob_sha1": "2c7267568e447e444e9c855ff6ce744d43bb20a8",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54342/index.cnxml",
+      "raw_formula_count": 5,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "8c7922c089f6f6d53019f2488b82eace931db2a02986f39f5718bafc485734e7",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54342.txt",
+      "text_sha256": "b3c2f6283f91d08661789d53a1fb5f22170e3c802ee28332cc2ae2e29e26bf26",
+      "text_bytes": 30052,
+      "word_like_units": 4695,
+      "policy": {
+        "omitted_notes": 15,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 11,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_virtual-physics": 2,
+        "omitted_external_exercise_placeholders": 10,
+        "omitted_note_os-interactive": 1
+      },
+      "extraction": {
+        "image_descriptions": 7,
+        "math_expressions": 5
+      },
+      "punctuation_repairs": {
+        "U+0097": 3
+      },
+      "media": {
+        "media_elements": 7
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54346",
+      "chapter": "Light",
+      "title": "The Behavior of Electromagnetic Radiation",
+      "path": "modules/m54346/index.cnxml",
+      "raw_sha256": "39b4a145ba7aa0d30b47a059ad70d353fa6ba1d3ad03e91c29a06e04dd14ddcf",
+      "git_blob_sha1": "a8a4408028e976c703578d251637eccdb41e8229",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54346/index.cnxml",
+      "raw_formula_count": 17,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "1d1297abb43e091539c54f2a9c5660aeff9cbb48eae037f331c4f126aeebadc9",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54346.txt",
+      "text_sha256": "1fc10c5b91c9cc74f167bf201bd24fff5236e9d980c20efcff42d6eda7eb60af",
+      "text_bytes": 24181,
+      "word_like_units": 3924,
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 8,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 4
+      },
+      "extraction": {
+        "image_descriptions": 4,
+        "math_expressions": 16,
+        "omitted_label": 10
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 4
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54366",
+      "chapter": "Mirrors and Lenses",
+      "title": "Introduction",
+      "path": "modules/m54366/index.cnxml",
+      "raw_sha256": "4b06127a4732ec1dbccf8ed0925bb1bbc7d427bdb172203e3fadc02f0f2851ec",
+      "git_blob_sha1": "34e8ce64649519b8faea9a504e38963f33802edf",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54366/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54366.txt",
+      "text_sha256": "c5fda81d58f79a383991102e75001560718c1e609cb3a6df28ed5b8d7d2772c3",
+      "text_bytes": 1643,
+      "word_like_units": 279,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54357",
+      "chapter": "Mirrors and Lenses",
+      "title": "Reflection",
+      "path": "modules/m54357/index.cnxml",
+      "raw_sha256": "28b784e5015399281b2959fe5efa57d6ae6aaaf76a4cb733996525401236c05c",
+      "git_blob_sha1": "8ae426f535861ada3602bfabb078ff45cefdb734",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54357/index.cnxml",
+      "raw_formula_count": 31,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "c15cef04341805e7475b92f8cd7732bd201e31b9cd58be5525f7eccc06abcb66",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54357.txt",
+      "text_sha256": "a9998245bdef1d42c824c78c3c09af82179614dd94308569b23b5ee4af08127a",
+      "text_bytes": 27609,
+      "word_like_units": 4755,
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 7
+      },
+      "extraction": {
+        "image_descriptions": 15,
+        "math_expressions": 30,
+        "omitted_label": 12
+      },
+      "punctuation_repairs": {
+        "U+0096": 5
+      },
+      "media": {
+        "media_elements": 15,
+        "missing_or_placeholder_descriptions": 1
+      },
+      "missing_media_descriptions": [
+        {
+          "id": "eip-idm520812096",
+          "alt": "...",
+          "images": [
+            "../../media/CNX_HSPhysics_16_01_Curved3.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "m54365",
+      "chapter": "Mirrors and Lenses",
+      "title": "Refraction",
+      "path": "modules/m54365/index.cnxml",
+      "raw_sha256": "9fbfa5d19d8dbf95a4164abed07f825cfb699cdd089cc4b584f119a6ed9db22b",
+      "git_blob_sha1": "e41c8214ebaca3b37c9e21d6db487727487ece91",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54365/index.cnxml",
+      "raw_formula_count": 50,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "f7fd71aece0894f7e4086c69f06a88da0efebec4cf259dae66edf79f1730d41a",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54365.txt",
+      "text_sha256": "2a96fbc73e086bbb74c84144676e5869ba78ec4e400dbe6acdfe0c17b2833c05",
+      "text_bytes": 29815,
+      "word_like_units": 4843,
+      "policy": {
+        "omitted_notes": 12,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_external_exercise_placeholders": 10
+      },
+      "extraction": {
+        "image_descriptions": 11,
+        "math_expressions": 46,
+        "omitted_label": 17
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 11,
+        "missing_or_placeholder_descriptions": 1
+      },
+      "missing_media_descriptions": [
+        {
+          "id": "eip-idm377810576",
+          "alt": "...",
+          "images": [
+            "../../media/CNX_HSPhysics_16_02_Scuba_img.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "m54361",
+      "chapter": "Mirrors and Lenses",
+      "title": "Lenses",
+      "path": "modules/m54361/index.cnxml",
+      "raw_sha256": "067cb5bbc392bf94d376a33c92005089247fa9d486165d6d3ca5b8bdc40d38e4",
+      "git_blob_sha1": "8aed6b9664ace51732cee5ab456af5e49c0399f6",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54361/index.cnxml",
+      "raw_formula_count": 23,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "731daf691bb6dc5916dd39dcc6bf3bf3011b7aa843a18eeb42be99c0d602b698",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54361.txt",
+      "text_sha256": "81294ba200cf10fa2ab1bd2e128a8bc86c7e511e8398b0d38d71ee6687df1f9d",
+      "text_bytes": 38519,
+      "word_like_units": 6635,
+      "policy": {
+        "omitted_notes": 12,
+        "omitted_note_learning-objectives": 1,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-teacher": 8,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 10,
+        "titled_lists_preserved": 1
+      },
+      "extraction": {
+        "image_descriptions": 12,
+        "omitted_label": 15,
+        "math_expressions": 23,
+        "table_span_cells": 1
+      },
+      "punctuation_repairs": {
+        "U+0092": 1,
+        "U+0096": 2
+      },
+      "media": {
+        "media_elements": 12
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54376",
+      "chapter": "Diffraction and Interference",
+      "title": "Introduction",
+      "path": "modules/m54376/index.cnxml",
+      "raw_sha256": "2383b0f3b981ad372e5a5bc625346cff7d6f830a1a3d7869075c4d2ed19c34f7",
+      "git_blob_sha1": "67366122e141afae59008c7ce0a51185614c001d",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54376/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54376.txt",
+      "text_sha256": "930952cec54d77bb43e8792ad823710f0b934d8ce756213f2369eec1acf4ad61",
+      "text_bytes": 1192,
+      "word_like_units": 197,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54369",
+      "chapter": "Diffraction and Interference",
+      "title": "Understanding Diffraction and Interference",
+      "path": "modules/m54369/index.cnxml",
+      "raw_sha256": "e227b77e353fca68c0ebde5748df72a257c0cbe4daf41de1ced75f7c26d8e45d",
+      "git_blob_sha1": "1a8e7b3d4195604ab938708710147254c492b006",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54369/index.cnxml",
+      "raw_formula_count": 66,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "a8e998f9cb33b3c48fc2bbc4a98cdcb2a0903c7804f1a9db06de9a96acf50144",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54369.txt",
+      "text_sha256": "8ba5d453aea5abdf1df57a71cf97e7bb88f2bb5e50fd98a5738d376e1d79ecef",
+      "text_bytes": 31074,
+      "word_like_units": 5056,
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 9
+      },
+      "extraction": {
+        "omitted_label": 20,
+        "math_expressions": 64,
+        "image_descriptions": 11
+      },
+      "punctuation_repairs": {
+        "U+0092": 1
+      },
+      "media": {
+        "media_elements": 11
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54371",
+      "chapter": "Diffraction and Interference",
+      "title": "Applications of Diffraction, Interference, and Coherence",
+      "path": "modules/m54371/index.cnxml",
+      "raw_sha256": "4c7460f373a742d0300786f885331c51fc2513ad1a3860faff5e00dfe5ef64b2",
+      "git_blob_sha1": "a27d4f0ba680e6469b549e37a2214bd627179ec7",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54371/index.cnxml",
+      "raw_formula_count": 45,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "a45cc59ffa9f8f783a158d93878288dafdd3cc4101a40e3209400459cc80233a",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54371.txt",
+      "text_sha256": "5db298719888a7da48071f2878fcd5bfa06b5f2894246996430aa2dc84af01c6",
+      "text_bytes": 32368,
+      "word_like_units": 5216,
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_snap-lab": 2,
+        "omitted_external_exercise_placeholders": 11,
+        "omitted_note_watch-physics": 1,
+        "titled_lists_preserved": 1
+      },
+      "extraction": {
+        "image_descriptions": 8,
+        "omitted_label": 13,
+        "math_expressions": 34
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 8
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54417",
+      "chapter": "Static Electricity",
+      "title": "Introduction",
+      "path": "modules/m54417/index.cnxml",
+      "raw_sha256": "4db7cdb1ed61c21863c9646e407e2d46b7e45a753e2f4084c47abb178d3c5f19",
+      "git_blob_sha1": "da8434eb393981eea21d3ef79d86012c23807363",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54417/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54417.txt",
+      "text_sha256": "25467ae7225e80065cdf2f5fd2af9da67d71cd3515164b447885a28a478f143f",
+      "text_bytes": 1464,
+      "word_like_units": 238,
+      "policy": {
+        "omitted_notes": 3,
+        "omitted_note_os-teacher": 3
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54410",
+      "chapter": "Static Electricity",
+      "title": "Electrical Charges, Conservation of Charge, and Transfer of Charge",
+      "path": "modules/m54410/index.cnxml",
+      "raw_sha256": "5410ccc252fc4456f0c72a840208ed28df1cbec2efbf1c6d53788d74fcf0ec0e",
+      "git_blob_sha1": "ae848dc6e8377843865a81c3f021d12dc7a01bd6",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54410/index.cnxml",
+      "raw_formula_count": 27,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "8bb7d8500c9d927449d4b0cb0ddbd3caff8d704db8017bd8e9351525583fda26",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54410.txt",
+      "text_sha256": "443c440bb8b2930ab9aea649d8f02ca1d2b9bbec5e293dd8d43262d8a8be1dc7",
+      "text_bytes": 45722,
+      "word_like_units": 7484,
+      "policy": {
+        "omitted_notes": 13,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 9,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 2,
+        "omitted_external_exercise_placeholders": 7,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1
+      },
+      "extraction": {
+        "image_descriptions": 11,
+        "math_expressions": 27,
+        "omitted_label": 8
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 11
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54414",
+      "chapter": "Static Electricity",
+      "title": "Coulomb's law",
+      "path": "modules/m54414/index.cnxml",
+      "raw_sha256": "426fbb7ded42a86499ea698be864c91a59a12f561d2f39b5bd5a571589e57e61",
+      "git_blob_sha1": "d3854dd005755c18127be5ab5311ff75aff95210",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54414/index.cnxml",
+      "raw_formula_count": 37,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "1f2258662db565b01a358f3c140de1e0c8fdf73cbbd658c2b4432a58b82ac678",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54414.txt",
+      "text_sha256": "66e69cab939b0e34a688b4864b462da4b310c03b7ab8106f98de1e9c19f0efb4",
+      "text_bytes": 18985,
+      "word_like_units": 3031,
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 3,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 4
+      },
+      "extraction": {
+        "omitted_label": 10,
+        "math_expressions": 37,
+        "image_descriptions": 2
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 2
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54428",
+      "chapter": "Static Electricity",
+      "title": "Electric Field",
+      "path": "modules/m54428/index.cnxml",
+      "raw_sha256": "1ae39ad3ea7141305e8d13c3f371be12dd2b14700a3d8e32b4a6270643611ac5",
+      "git_blob_sha1": "7d12ad50ffebb5bba6dad656cad7990e26e37bba",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54428/index.cnxml",
+      "raw_formula_count": 29,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "3224f5ba103f88ea10be339b1aa3605597367c3a3aa798860f88804508121672",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54428.txt",
+      "text_sha256": "2e2cb570f7a6b99146ba062d07ac141b5d8d676b76b183c5ae54eb18be45539a",
+      "text_bytes": 20012,
+      "word_like_units": 3260,
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_note_watch-physics": 1
+      },
+      "extraction": {
+        "omitted_label": 9,
+        "math_expressions": 29,
+        "image_descriptions": 5
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 5
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54426",
+      "chapter": "Static Electricity",
+      "title": "Electric Potential",
+      "path": "modules/m54426/index.cnxml",
+      "raw_sha256": "5134a70b367d7361c0275b2d4b85ce3969fdc85aad3e5b10428bae8dddbd0e72",
+      "git_blob_sha1": "e33ef395b29412790a62140c92a9dbe058760044",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54426/index.cnxml",
+      "raw_formula_count": 90,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "dd3e5115d4e8c9cf32c516c1e142dc338edd8abf91e5e277a621bdffff29e7c2",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54426.txt",
+      "text_sha256": "e7c6884c6be7ca60a52094bcbd50cd406da7b2c140ba1979be62a8fbea5c26ae",
+      "text_bytes": 33366,
+      "word_like_units": 5382,
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_external_exercise_placeholders": 2
+      },
+      "extraction": {
+        "image_descriptions": 7,
+        "math_expressions": 90,
+        "omitted_label": 15
+      },
+      "punctuation_repairs": {
+        "U+0096": 1
+      },
+      "media": {
+        "media_elements": 7
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m63179",
+      "chapter": "Static Electricity",
+      "title": "Capacitors and Dielectrics",
+      "path": "modules/m63179/index.cnxml",
+      "raw_sha256": "999d718102e615c056822c3d9aba9ff21cb178f5b8780b7da80493600d702f91",
+      "git_blob_sha1": "ae9931e885d783234ebea7355bf90107ed1c5ab1",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m63179/index.cnxml",
+      "raw_formula_count": 48,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "66e9bae94bf315cf5b47141da69ee849899ea7be71d721bba56b1abb8531ff0f",
+      "candidate_extracted": true,
+      "text_file": "review-text/m63179.txt",
+      "text_sha256": "7159eb6de92326429c4310102749f098071fa89f59455a563ec0dcc617a0a9f3",
+      "text_bytes": 26625,
+      "word_like_units": 4187,
+      "policy": {
+        "omitted_notes": 10,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 4
+      },
+      "extraction": {
+        "image_descriptions": 5,
+        "omitted_label": 22,
+        "math_expressions": 47
+      },
+      "punctuation_repairs": {
+        "U+0096": 7,
+        "U+0097": 2
+      },
+      "media": {
+        "media_elements": 5
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54450",
+      "chapter": "Electrical Circuits",
+      "title": "Introduction",
+      "path": "modules/m54450/index.cnxml",
+      "raw_sha256": "072e0eae536ac11d8e65eb3c1978e160e0409380266a8bda2011a76986338b59",
+      "git_blob_sha1": "bf849f9b46f57c451613d8317805058018e48a14",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54450/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54450.txt",
+      "text_sha256": "8c71ad0ea0559a6205289a1047c1aa9480f4a4352276fc2105167afdf0b69420",
+      "text_bytes": 1212,
+      "word_like_units": 181,
+      "policy": {
+        "omitted_notes": 1,
+        "omitted_note_os-teacher": 1
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54437",
+      "chapter": "Electrical Circuits",
+      "title": "Ohm's law",
+      "path": "modules/m54437/index.cnxml",
+      "raw_sha256": "aa47b5d387d8ee37d96d89c7661da08337df48fd61fc253e4b899706446fae60",
+      "git_blob_sha1": "2825d2ad3c73a0ea48c9fb97016b15b6f378365c",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54437/index.cnxml",
+      "raw_formula_count": 48,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "e3d915b519c872114d8673314bb7877a6d848b439e7da8980e1d176599266e6f",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54437.txt",
+      "text_sha256": "a2c81e6d7c4d9e423d505aedd26a562720e224f0279996296bd524fc84d9c290",
+      "text_bytes": 20273,
+      "word_like_units": 3265,
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_snap-lab": 1,
+        "omitted_external_exercise_placeholders": 21,
+        "omitted_note_watch-physics": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1
+      },
+      "extraction": {
+        "image_descriptions": 7,
+        "omitted_label": 18,
+        "math_expressions": 48
+      },
+      "punctuation_repairs": {
+        "U+0092": 1
+      },
+      "media": {
+        "media_elements": 7
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54435",
+      "chapter": "Electrical Circuits",
+      "title": "Series Circuits",
+      "path": "modules/m54435/index.cnxml",
+      "raw_sha256": "17ca123160d610f22fb221fe3fc2392a8a3d3ccdf89f6aae558bb4e1ff2949b2",
+      "git_blob_sha1": "1a8b9068cda68e65a0470ff3c2fdefd43d811df1",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54435/index.cnxml",
+      "raw_formula_count": 62,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "38899526dc5378261371d8a03a12f57aa54263fe2825920b675eaf4ebba814f8",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54435.txt",
+      "text_sha256": "62087509396a7c430b6a94d1e0be34c411c3caec97f5f0ce5d037b0de8269e90",
+      "text_bytes": 32415,
+      "word_like_units": 5282,
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 2,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 6
+      },
+      "extraction": {
+        "math_expressions": 62,
+        "image_descriptions": 19,
+        "omitted_label": 12
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 19
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54442",
+      "chapter": "Electrical Circuits",
+      "title": "Parallel Circuits",
+      "path": "modules/m54442/index.cnxml",
+      "raw_sha256": "f7a118ec8e1a9f6d3ea61ab183ba8e9f5003096b531fab3bc0a4e1dea257f6a1",
+      "git_blob_sha1": "ed53e061d0868b31e55245f088bca4fa74105ab5",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54442/index.cnxml",
+      "raw_formula_count": 80,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "5461269b1795bbbd0f149195756268608f9c47c18c5ece2e79ece463128df77f",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54442.txt",
+      "text_sha256": "10c515fe5f46d85c724cd004b1b1d7b9d842b152373dfacef76567706809184e",
+      "text_bytes": 29762,
+      "word_like_units": 4445,
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 4,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 6,
+        "omitted_note_watch-physics": 2
+      },
+      "extraction": {
+        "math_expressions": 72,
+        "image_descriptions": 20,
+        "omitted_label": 15
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 20
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54446",
+      "chapter": "Electrical Circuits",
+      "title": "Electric Power",
+      "path": "modules/m54446/index.cnxml",
+      "raw_sha256": "67c9d41c654302b5c157168769af319858a2ebe988bf83405fd2cdb3b80722b6",
+      "git_blob_sha1": "727e737c273985df70967f737e9df6acbd0c733b",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54446/index.cnxml",
+      "raw_formula_count": 54,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "87da1830b92906f32c839232374be81608384a6e71dc6c92481e9515f6fd5a33",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54446.txt",
+      "text_sha256": "e3cd9fc5bafef54d121b9f40a353199f8a1025a519f8bbf9db5ac5ac5c77279a",
+      "text_bytes": 17996,
+      "word_like_units": 2941,
+      "policy": {
+        "omitted_notes": 3,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 2,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 6,
+        "titled_lists_preserved": 1
+      },
+      "extraction": {
+        "image_descriptions": 5,
+        "math_expressions": 53,
+        "omitted_label": 14
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 5
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54460",
+      "chapter": "Magnetism",
+      "title": "Introduction",
+      "path": "modules/m54460/index.cnxml",
+      "raw_sha256": "495e1b5120d52e2bf38f4a82a22ccdc449b00ffa596982324df0d882602be504",
+      "git_blob_sha1": "7099189fbde635cd9be170430aa8893c0e8fff5a",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54460/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54460.txt",
+      "text_sha256": "9c4dafea99b52bc672cfd267fb763025c624217fa8022b8b31539c8bc24e5485",
+      "text_bytes": 971,
+      "word_like_units": 157,
+      "policy": {
+        "omitted_notes": 1,
+        "omitted_note_os-teacher": 1
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54465",
+      "chapter": "Magnetism",
+      "title": "Magnetic Fields, Field Lines, and Force",
+      "path": "modules/m54465/index.cnxml",
+      "raw_sha256": "ac4c06ecdd3ff4d249e6ad81693b5c85401e9d0b75790f7ae8edbb8a32b6b0ae",
+      "git_blob_sha1": "7ee6dd9f1842da7615a4f762be45de7b256c5805",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54465/index.cnxml",
+      "raw_formula_count": 58,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "ce2ce6e743aba68feae3481612ed7d7558d2bacb72136e67a6ae918451805042",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54465.txt",
+      "text_sha256": "6371b46d071522b2714d28b4f858a1c7d3cfcd0398c943903ccb222c37f1f9a2",
+      "text_bytes": 41793,
+      "word_like_units": 6907,
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 2,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_watch-physics": 2,
+        "omitted_note_snap-lab": 1,
+        "omitted_note_os-interactive": 2,
+        "omitted_note_virtual-physics": 2,
+        "omitted_external_exercise_placeholders": 11
+      },
+      "extraction": {
+        "image_descriptions": 29,
+        "math_expressions": 58,
+        "omitted_label": 11
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 29
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54467",
+      "chapter": "Magnetism",
+      "title": "Motors, Generators, and Transformers",
+      "path": "modules/m54467/index.cnxml",
+      "raw_sha256": "38d022377438c2649899906659d7a61a44b52e48f01b7218e4a1ee6f9fbd37ac",
+      "git_blob_sha1": "81511a380dabfdd8f990c736aa5b6de65bed6a5e",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54467/index.cnxml",
+      "raw_formula_count": 69,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "cdb464b23efa177a18305c1e73a5625fa07f93d4e632e91cfb28662d56562c1a",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54467.txt",
+      "text_sha256": "62575e9c19befc0aa8b66daf801b56121d0a0ea5e1a27153e2fa41364aa95cc2",
+      "text_bytes": 27098,
+      "word_like_units": 4457,
+      "policy": {
+        "omitted_notes": 4,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 2,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 10
+      },
+      "extraction": {
+        "math_expressions": 69,
+        "image_descriptions": 10
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 10
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54456",
+      "chapter": "Magnetism",
+      "title": "Electromagnetic Induction",
+      "path": "modules/m54456/index.cnxml",
+      "raw_sha256": "ef9d0f769d74716f7903c57eb786c0007c72f0979d5ec13f44eb0b2a2d9f6563",
+      "git_blob_sha1": "b147c7f579234e84724f435b31f743372aaf21f5",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54456/index.cnxml",
+      "raw_formula_count": 63,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "bd52d74bd0ecddc57cf03909ac0a57ecff3eca72c26420531eeba54cff441e98",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54456.txt",
+      "text_sha256": "cb600f986d12b18d70809a55fd8e9b5243477862c565f01d4860eac0ddf90961",
+      "text_bytes": 27834,
+      "word_like_units": 4663,
+      "policy": {
+        "omitted_notes": 5,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 1,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 2,
+        "omitted_note_virtual-physics": 2,
+        "omitted_note_watch-physics": 1,
+        "omitted_external_exercise_placeholders": 7
+      },
+      "extraction": {
+        "image_descriptions": 10,
+        "math_expressions": 61,
+        "omitted_label": 8
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 10
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54562",
+      "chapter": "The Quantum Nature of Light",
+      "title": "Introduction",
+      "path": "modules/m54562/index.cnxml",
+      "raw_sha256": "2271f2eaa450896efcbeb302c54e9a13f7a5a83cc199aace1e384671904f1a8a",
+      "git_blob_sha1": "c76a85d0cf8f16186cede19251237f86c759e0d2",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54562/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54562.txt",
+      "text_sha256": "c35c8fe4a1814412a07d40860d7fd0350e090a61d3ed57d06f25c2948480b3bb",
+      "text_bytes": 1421,
+      "word_like_units": 228,
+      "policy": {
+        "omitted_notes": 2,
+        "omitted_note_os-teacher": 2
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54566",
+      "chapter": "The Quantum Nature of Light",
+      "title": "Planck and Quantum Nature of Light",
+      "path": "modules/m54566/index.cnxml",
+      "raw_sha256": "4d31e1edd7089c066d1e6a421d10aed01f7f17be1f25256b1a3e4aab2998ca31",
+      "git_blob_sha1": "f8dde144568067acee23f1bd8b5565c4abdf3800",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54566/index.cnxml",
+      "raw_formula_count": 14,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "57e19fbc6d8a88e7ce7b9070af802bd7663afe0af85ac93bf1c63062a1dd1a3d",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54566.txt",
+      "text_sha256": "02f01b19e9c4b5082b40129e6d40fd3e785a3d627685719e500631ab3857af1b",
+      "text_bytes": 25244,
+      "word_like_units": 3906,
+      "policy": {
+        "omitted_notes": 8,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 14
+      },
+      "extraction": {
+        "image_descriptions": 4,
+        "math_expressions": 14,
+        "omitted_label": 7
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 4
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54559",
+      "chapter": "The Quantum Nature of Light",
+      "title": "Einstein and the Photoelectric Effect",
+      "path": "modules/m54559/index.cnxml",
+      "raw_sha256": "9da5e254e9cbf838c1998a1936b83afe32a907bc08e0fa435fd93370c0c34443",
+      "git_blob_sha1": "f934a921d5987f782dcdc212dc265010d4680a10",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54559/index.cnxml",
+      "raw_formula_count": 26,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "f14ac65c972c1b91990854c4c4eaf172997049a307ce105be3e9a631bd0c2ec3",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54559.txt",
+      "text_sha256": "2d2578e37af8d0ffe880235e9a0c327ee2f652470392f3bdaea86951ca4aa2fb",
+      "text_bytes": 26685,
+      "word_like_units": 4295,
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 14
+      },
+      "extraction": {
+        "image_descriptions": 5,
+        "omitted_label": 6,
+        "math_expressions": 25
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 5
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54552",
+      "chapter": "The Quantum Nature of Light",
+      "title": "The Dual Nature of Light",
+      "path": "modules/m54552/index.cnxml",
+      "raw_sha256": "716c6190ab3e61f3c54830c7deaac39e85122ff4a168de637bf134919e29fa56",
+      "git_blob_sha1": "513ce4d859fe365a1d95dba0ab4273c4031d7494",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54552/index.cnxml",
+      "raw_formula_count": 16,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "acb0d754b1a2505361e27e41d074d3ee94438baf012c49bcbe1ca717f39e647b",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54552.txt",
+      "text_sha256": "846f166e173b1c160dcc31efaddd2e27cc35b2208ec8ed1ed82e9ffbf048e350",
+      "text_bytes": 22909,
+      "word_like_units": 3633,
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 11
+      },
+      "extraction": {
+        "image_descriptions": 6,
+        "math_expressions": 16,
+        "omitted_label": 6
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 6
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54583",
+      "chapter": "The Atom",
+      "title": "Introduction",
+      "path": "modules/m54583/index.cnxml",
+      "raw_sha256": "4c2fc48a92ced23778df80fdc60c00c9aca5661bddaab9cf312353cf43190e99",
+      "git_blob_sha1": "cc4a45293447b27c2bb984f1f93cee69355807dc",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54583/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54583.txt",
+      "text_sha256": "0c24e3aab8a9575eaffa1b4806882b57523343b81b7f286a171b390f8d9b7fde",
+      "text_bytes": 947,
+      "word_like_units": 152,
+      "policy": {
+        "omitted_notes": 1,
+        "omitted_note_os-teacher": 1
+      },
+      "extraction": {
+        "image_descriptions": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54582",
+      "chapter": "The Atom",
+      "title": "The Structure of the Atom",
+      "path": "modules/m54582/index.cnxml",
+      "raw_sha256": "4014ada9352b0fc536db997e315dbcb828f9aae7f0229b9a1083e0bbf3a08787",
+      "git_blob_sha1": "03fb1b0db343298dff46c992e9377831734a9343",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54582/index.cnxml",
+      "raw_formula_count": 74,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "c2c1c68b1786ab021de5a5e96bd2d8ed71a4bc10da5544b122c355e826f68f46",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54582.txt",
+      "text_sha256": "83e29241620105c0ec10b20a8e68b4befa2e8ebf8874f3f3bce794b66772abed",
+      "text_bytes": 43119,
+      "word_like_units": 6755,
+      "policy": {
+        "omitted_notes": 20,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 17,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 2,
+        "omitted_note_os-interactive": 1,
+        "omitted_external_exercise_placeholders": 7
+      },
+      "extraction": {
+        "image_descriptions": 14,
+        "math_expressions": 74,
+        "omitted_label": 10
+      },
+      "punctuation_repairs": {
+        "U+0092": 5
+      },
+      "media": {
+        "media_elements": 14
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54580",
+      "chapter": "The Atom",
+      "title": "Nuclear Forces and Radioactivity",
+      "path": "modules/m54580/index.cnxml",
+      "raw_sha256": "96a87679a8f8f1b716b13a274f3e9d4aa876f555ef5a954f09ca2b462c48e2b1",
+      "git_blob_sha1": "7118ac07589d9fc3505666c86da65cf49aa024d1",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54580/index.cnxml",
+      "raw_formula_count": 57,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "e59f391f2370d9fcade58d550798723cf4f801ad6ec6e9eaa87408c7bfc67b35",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54580.txt",
+      "text_sha256": "c2c0222cf8c7ce5902c90774bb67f7363349f6a8c372487809060fae0bc0fac2",
+      "text_bytes": 30394,
+      "word_like_units": 4772,
+      "policy": {
+        "omitted_notes": 14,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 12,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_os-interactive": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 5
+      },
+      "extraction": {
+        "math_expressions": 57,
+        "image_descriptions": 8,
+        "omitted_label": 11
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 8
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m63183",
+      "chapter": "The Atom",
+      "title": "Half Life and Radiometric Dating",
+      "path": "modules/m63183/index.cnxml",
+      "raw_sha256": "9aac9634c739567dcace2f17e72dfdb2916f220640dc336c62002c7bb07b7b15",
+      "git_blob_sha1": "e9e79982e48d8d4b46be47d4cd0486b5354f50ee",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m63183/index.cnxml",
+      "raw_formula_count": 66,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "ee40a0f66c03acda5443b4c47bc9f392d9b9fb92b9697b36a52c570e7b9a0004",
+      "candidate_extracted": true,
+      "text_file": "review-text/m63183.txt",
+      "text_sha256": "3b3ad8600167827b618391a4dddaf35be27abf5b21226fda1d333522ea6fb0d8",
+      "text_bytes": 14821,
+      "word_like_units": 2318,
+      "policy": {
+        "omitted_notes": 5,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 3,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 1
+      },
+      "extraction": {
+        "math_expressions": 66,
+        "image_descriptions": 2,
+        "omitted_label": 7
+      },
+      "punctuation_repairs": {
+        "U+0096": 1
+      },
+      "media": {
+        "media_elements": 2
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54574",
+      "chapter": "The Atom",
+      "title": "Nuclear Fission and Fusion",
+      "path": "modules/m54574/index.cnxml",
+      "raw_sha256": "65cf5b37310ce3757452d05d08cc9059058e1c89f5d23e107808e68cce8eecca",
+      "git_blob_sha1": "e840700483b8d960fa36178f2e945fba2acface5",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54574/index.cnxml",
+      "raw_formula_count": 35,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "6e83dccb9d3c2699520ebebaa4d3e6057968f4dda041c681a4d715b19d3f931d",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54574.txt",
+      "text_sha256": "5b30db503734b09a6c71705d70a448426cddc2f3bc60b040ed427eedb1492a5e",
+      "text_bytes": 31086,
+      "word_like_units": 4892,
+      "policy": {
+        "omitted_notes": 9,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 7,
+        "omitted_vocabulary_grids": 1,
+        "omitted_note_virtual-physics": 1,
+        "omitted_external_exercise_placeholders": 5
+      },
+      "extraction": {
+        "image_descriptions": 11,
+        "omitted_label": 5,
+        "math_expressions": 35
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 11
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54578",
+      "chapter": "The Atom",
+      "title": "Medical Applications of Radioactivity: Diagnostic Imaging and Radiation",
+      "path": "modules/m54578/index.cnxml",
+      "raw_sha256": "a576baa806b59499556c4daa6daa63ddb7319da9c226f44695f87994d1b12f98",
+      "git_blob_sha1": "7412f663009b7f863f657fbdac7c3eb383bee2ff",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54578/index.cnxml",
+      "raw_formula_count": 20,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "973a21b6a33c9c7decf0ca08aed63041017e85a2f82bc0747a67ca6e93c64cde",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54578.txt",
+      "text_sha256": "69dc5b0b6e32188873dc8a5cd904bae2145eb30d08d54d6f9974264c73ff8c5d",
+      "text_bytes": 19126,
+      "word_like_units": 2921,
+      "policy": {
+        "omitted_notes": 6,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 5,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 5,
+        "titled_lists_preserved": 1
+      },
+      "extraction": {
+        "math_expressions": 20,
+        "image_descriptions": 5,
+        "omitted_label": 1
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 5
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54584",
+      "chapter": "Particle Physics",
+      "title": "Introduction",
+      "path": "modules/m54584/index.cnxml",
+      "raw_sha256": "f36aa1a4e309a695a6f70353b61749157b6839878d9e93bfc4273a5276541c5b",
+      "git_blob_sha1": "b20d3e5f41863f497a984c5feb7df8af495c08ae",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54584/index.cnxml",
+      "raw_formula_count": 0,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54584.txt",
+      "text_sha256": "f31bd6fb83998dbccb1ab2b945f236071fbadc282028d32b138c928a10dc412f",
+      "text_bytes": 3703,
+      "word_like_units": 596,
+      "policy": {},
+      "extraction": {
+        "image_descriptions": 2
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 2
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54593",
+      "chapter": "Particle Physics",
+      "title": "The Four Fundamental Forces",
+      "path": "modules/m54593/index.cnxml",
+      "raw_sha256": "92a61184e0ebbf7f329637c62fc4a3ef150e5821548be03c7391796ddf39dd12",
+      "git_blob_sha1": "793a45d8ee62e050f701cd19c67a0223b377ec1b",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54593/index.cnxml",
+      "raw_formula_count": 28,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "6ffa0aa571913545dce588a49acda43a1253d4aabc0e06f5ecbd8f984198be56",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54593.txt",
+      "text_sha256": "7efafa66a53ce972088dd328d9a7ab091f9d2fec527283f160f275f334841201",
+      "text_bytes": 32729,
+      "word_like_units": 5162,
+      "policy": {
+        "omitted_notes": 15,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 14,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 12
+      },
+      "extraction": {
+        "math_expressions": 25,
+        "table_span_cells": 2,
+        "image_descriptions": 9
+      },
+      "punctuation_repairs": {
+        "U+0096": 2,
+        "U+0097": 1
+      },
+      "media": {
+        "media_elements": 9
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54595",
+      "chapter": "Particle Physics",
+      "title": "Quarks",
+      "path": "modules/m54595/index.cnxml",
+      "raw_sha256": "ed0f8054e13394605d9f2d1fd2a7f3b6705181d9ffea220fee3a835baf434259",
+      "git_blob_sha1": "88999ce7940cb0046cc93ec658185138a4185a0c",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54595/index.cnxml",
+      "raw_formula_count": 66,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "84a517065279608cc8d79dcaa74fc40e1e4236bf7d1d4de30a6b27b6b1ca84fa",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54595.txt",
+      "text_sha256": "08b98595754646eecdb364c97fd412fa14d3291459a64dae5b559490d131a015",
+      "text_bytes": 41224,
+      "word_like_units": 6485,
+      "policy": {
+        "omitted_notes": 11,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 10,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 17
+      },
+      "extraction": {
+        "image_descriptions": 8,
+        "math_expressions": 66,
+        "table_span_cells": 10
+      },
+      "punctuation_repairs": {
+        "U+0092": 1,
+        "U+0096": 6,
+        "U+0097": 1
+      },
+      "media": {
+        "media_elements": 8
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54588",
+      "chapter": "Particle Physics",
+      "title": "The Unification of Forces",
+      "path": "modules/m54588/index.cnxml",
+      "raw_sha256": "a5e6aae3f925ac4387e2f269c6c0e74d73b0dc1ce2761140b62f26280c460229",
+      "git_blob_sha1": "b935122928873169ed866db78df84f00b738a907",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54588/index.cnxml",
+      "raw_formula_count": 23,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "67c34ff84718c4e055dae77f9be16b9c5c019c7241407e58a197e5b92ac3dd9a",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54588.txt",
+      "text_sha256": "eeb51c9030a1cf943965d6496fa8e5f4ddc492fd334e2cfd91da6517adddba7e",
+      "text_bytes": 22637,
+      "word_like_units": 3543,
+      "policy": {
+        "omitted_notes": 7,
+        "omitted_note_learning-objectives": 1,
+        "omitted_note_os-teacher": 6,
+        "omitted_vocabulary_grids": 1,
+        "omitted_external_exercise_placeholders": 16
+      },
+      "extraction": {
+        "math_expressions": 23,
+        "image_descriptions": 4
+      },
+      "punctuation_repairs": {
+        "U+0096": 1
+      },
+      "media": {
+        "media_elements": 4
+      },
+      "missing_media_descriptions": []
+    },
+    {
+      "module": "m54602",
+      "chapter": "Front or back matter",
+      "title": "Reference Tables",
+      "path": "modules/m54602/index.cnxml",
+      "raw_sha256": "c9f8f9877bd7c8ddf5c32afc7ae0a22057ffed08767c85cc2c45893fe628bc4e",
+      "git_blob_sha1": "44706ae16cac9d378b9e4446bf9dad755e8297b5",
+      "review_role": "content_candidate",
+      "source_url": "https://github.com/openstax/osbooks-physics/blob/dfb731c737e5056750e792643fe6377425b0a067/modules/m54602/index.cnxml",
+      "raw_formula_count": 98,
+      "raw_formula_failures": [],
+      "raw_formula_text_sha256": "d136629a792543e26568fa254a8a57fa5d93ccdd479751df1416a38413411e02",
+      "candidate_extracted": true,
+      "text_file": "review-text/m54602.txt",
+      "text_sha256": "3b292d5d3b60c72b5162f0653d2696d25425db0013a96b2c4dfe0dbbd62192bc",
+      "text_bytes": 26272,
+      "word_like_units": 1994,
+      "policy": {},
+      "extraction": {
+        "image_descriptions": 1,
+        "math_expressions": 98,
+        "table_span_cells": 5
+      },
+      "punctuation_repairs": {},
+      "media": {
+        "media_elements": 1
+      },
+      "missing_media_descriptions": []
+    }
+  ],
+  "training_admitted": false,
+  "source_files_modified": false,
+  "native_calls": 0,
+  "models_trained": false,
+  "implementation_sha256": {
+    "scripts/review_physics.py": "bc273208a9bc03eef48794788782c03c1e7417b6fc34db34b2703c3186a299c2",
+    "scripts/corpus/physics.py": "022cc3ac3cc6d29294cd94592867b4d2fa9b39010bdc7974810d766f44b443ed",
+    "scripts/corpus/openstax.py": "818f628e9bb36be4737c9eb7112758ab99c4dd96b3ad75140cae6e23d719250b",
+    "scripts/corpus/prealgebra_math.py": "136105f09d484e263ab6cda11aae57b264c6f5c5ebf02607b7291f0d3050951f"
+  },
+  "limits": [
+    "Source identity and conversion checks do not establish factual correctness or completeness.",
+    "Images are not loaded. Present descriptions can still omit essential diagram information.",
+    "Teacher/activity notes and vocabulary grids are omitted by an explicit source-class policy.",
+    "Math is text notation; spacing, font shape and size are not a facsimile of the source.",
+    "Generic cross-references remain review flags; context-dependent passages need inspection.",
+    "Word-like counts include repeated words and notation labels; they are not unique facts or model tokens.",
+    "There is no passage admission, held-out split, overlap filtering, curriculum or model training."
+  ]
+}
