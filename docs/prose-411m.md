@@ -1,7 +1,7 @@
 # Saved 411M learning on the selected prose curriculum
 
-Status: CPU preparation checks pass; full-size checkpoint/evaluation preflight
-and full curriculum learning have not run. This extends the successful
+Status: CPU preparation and full-size checkpoint/evaluation preflight pass;
+full curriculum learning has not run. This extends the successful
 [411M capacity benchmark](411m-capacity-results.md) to a saved learner and
 matched development assessments. The [specification](../data/prose-411m-v1.json)
 fixes all settings before execution. The earlier runtime and studies remain
@@ -51,6 +51,12 @@ checkpoint. Its four native commands test full-size saving, loading, resumed
 computation and evaluation memory. They are not a full-size trajectory-parity
 or language-quality test. The existing smaller numerical/restart controls
 remain the trajectory evidence.
+
+The [completed native preflight](../reports/prose-411m-native-preflight.json)
+records all four successful commands, checkpoint identities and actual source
+counters. The model saved after observation 128, resumed to 129, evaluated
+4,096 bytes at the original batch/context geometry and produced the declared
+64-byte graph completion. The assessed checkpoint remained unchanged.
 
 Source targets are counted from real document boundaries. The first reader
 has 14,481 next-byte targets: 113 complete windows and one 17-byte tail.
