@@ -1,0 +1,73 @@
+{
+  "status": "static_sizing_only",
+  "source_commit": "654668fca7f2d8047ad9d5e5bac8321ec51b861a",
+  "source_sha256": {
+    "src/spike_lm.cu": "0e6ea9a8073c686f5c142b79964e32233cb377e874a99bc18f8a9e7f1005b14c",
+    "src/associative_memory.cuh": "920a788386f0182e436e8f43061503cdf8695468dd7304ebfce49eab82154b3b",
+    "src/model.cuh": "453c0aea5e331667c60b7ad0053747ac97312a1375e4887d6df121d08c226876",
+    "src/live.cuh": "93fe33ef5723026292740963bebcb4e717ed163ba81720d6c24d70410e0fe974",
+    "src/live_views.cuh": "248c26538f1302580aaac653b723bd98af0d4ec7479028ea3a9a7359c2401ed3"
+  },
+  "layout_formula": "N=513*C+256+L*(3*C*H+35*C+103*H+98)",
+  "formula_scope": "Associative cell6 with width32 and packed98; derived from current native Layout.",
+  "measured_layout_report": "reports/prose-size-comparison.json",
+  "measured_layout_report_sha256": "a6f3adc8ddaaa062d042cfaf47b61d2c1ae7ff1ef22961af4c607fa2eaa4d534",
+  "rows": [
+    {
+      "profile": "2m",
+      "channels": 256,
+      "neurons_per_layer": 512,
+      "layers": 4,
+      "parameters": 1951624,
+      "spiking_neurons": 2048,
+      "five_primary_array_bytes": 39032480,
+      "five_primary_array_GiB": 0.03635182976722717,
+      "matched_published_layouts": 4,
+      "new_cuda_execution": false
+    },
+    {
+      "profile": "27m",
+      "channels": 512,
+      "neurons_per_layer": 2048,
+      "layers": 8,
+      "parameters": 27260432,
+      "spiking_neurons": 16384,
+      "five_primary_array_bytes": 545208640,
+      "five_primary_array_GiB": 0.5077651143074036,
+      "matched_published_layouts": 4,
+      "new_cuda_execution": false
+    },
+    {
+      "profile": "105m",
+      "channels": 1024,
+      "neurons_per_layer": 4096,
+      "layers": 8,
+      "parameters": 104851472,
+      "spiking_neurons": 32768,
+      "five_primary_array_bytes": 2097029440,
+      "five_primary_array_GiB": 1.9530108571052551,
+      "matched_published_layouts": 4,
+      "new_cuda_execution": false
+    },
+    {
+      "profile": "411m-proposed",
+      "channels": 2048,
+      "neurons_per_layer": 8192,
+      "layers": 8,
+      "parameters": 411028496,
+      "spiking_neurons": 65536,
+      "five_primary_array_bytes": 8220569920,
+      "five_primary_array_GiB": 7.656002342700958,
+      "matched_published_layouts": 0,
+      "new_cuda_execution": false
+    }
+  ],
+  "proposed_transient_two_primary_array_sets_bytes": 16441139840,
+  "proposed_transient_two_primary_array_sets_GiB": 15.312004685401917,
+  "finding": "LiveEngine constructs full root and speaker Models before sharing. LiveViews.get also constructs a full Model before sharing. The resident-array saving does not remove the temporary duplicate allocation.",
+  "scope": "Primary arrays only: weights, gradients, Adam first/second moments and decay mask. Activations, recurrence, token buffers, allocator/library/graph overhead and desktop usage are additional.",
+  "cuda_allocation_tested": false,
+  "proposed_shape_trained": false,
+  "throughput_measured": false,
+  "new_gpu_job_queued": false
+}
