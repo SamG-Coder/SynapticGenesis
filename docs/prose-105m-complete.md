@@ -68,6 +68,11 @@ reader result also matches the earlier exploratory assessment. The
 105M final validation mean is better than 27M but worse than the matched 2M
 control under this shared learning policy.
 
+The subsequent [restart control](prose-retention-control.md) reproduced this
+final checkpoint byte for byte after splitting the last stage into two resumed
+sessions. It also reproduced the prediction regression, establishing the
+original-rate control for the ongoing lower-rate comparison.
+
 ## Raw final continuations
 
 The following are excerpts, preserving spelling and punctuation. The report
