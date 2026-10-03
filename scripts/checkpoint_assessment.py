@@ -38,7 +38,8 @@ def measure(native, checkpoint, spec, out, additional_books=()):
                 validation_mean_nats_per_byte=sum(validation) / len(validation))
 
 
-def verify_saved(directory, row, spec, global_update, additional_books=()):
+def verify_saved(directory, row, spec, global_update, additional_books=(), *,
+                 executable=Path('build/synapticgenesis.exe')):
     """Verify recorded assessment bytes and commands without running a model."""
     directory, checkpoint = Path(directory), Path(row['checkpoint'])
     e, g = spec['evaluation'], spec['generation']
@@ -72,7 +73,7 @@ def verify_saved(directory, row, spec, global_update, additional_books=()):
     commands_path = directory / 'commands.json'
     commands = read(commands_path)
     assert len(commands) == len(wanted) and [c[1:] for c in commands] == wanted, 'Assessment command arguments differ'
-    assert all(Path(c[0]).resolve() == Path('build/synapticgenesis.exe').resolve() for c in commands)
+    assert all(Path(c[0]).resolve() == Path(executable).resolve() for c in commands)
     hashes[commands_path.as_posix()] = sha(commands_path)
     for index in range(1, len(commands) + 1):
         log = directory / f'command-{index:03d}.log'
