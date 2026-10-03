@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "selection_sha256": "8a741de1969977321d8b0fb0ed8b402da6dff832a9a50cf870a8d91073dd99f3",
+  "active_foundation_directory": "data/prepared/selected-foundations-v1",
+  "foundation_source_spec_sha256": "c72ff3705bbc73aa06cc588c1a67ddad3595b87a4e8712b646f8fa0c9796f4a3",
+  "foundation_manifest_sha256": "1d619215c80b49b069f7a1795a2280e4245f0fdfa1ee9b8cb0a0d37985e5f889",
+  "foundation_outputs": {
+    "train": {
+      "bytes": 261281,
+      "documents": 4,
+      "sha256": "66116234362cb7fa49d233e671f8c6a388ad2b2181577ea3538a92b95a2be143"
+    },
+    "validation": {
+      "bytes": 32348,
+      "documents": 1,
+      "sha256": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f"
+    },
+    "test": {
+      "bytes": 113004,
+      "documents": 1,
+      "sha256": "a574e87875aad9c79c1cd321500091ce56c1e92e9fa16574d23e45419122b373"
+    }
+  },
+  "foundation_outputs_identical_to_original": true,
+  "training_sources": [
+    {
+      "id": 14642,
+      "title": "McGuffey's Eclectic Primer, Revised Edition",
+      "sha256": "75f6d6e4e9ff0eeb347af88f5e158d6bbad6da167fe8e83bdc80db2808f06852"
+    },
+    {
+      "id": 14640,
+      "title": "McGuffey's First Eclectic Reader, Revised Edition",
+      "sha256": "90884ee897adbfaa2ddd5afc9a3f6fb9c35f981ec96ea35d181529ddcf29e736"
+    },
+    {
+      "id": 14668,
+      "title": "McGuffey's Second Eclectic Reader",
+      "sha256": "2426a2d338ed766b2da7e8aaaaaabfb52cc4e79c29719096c2653b5b5431c518"
+    },
+    {
+      "id": 14766,
+      "title": "McGuffey's Third Eclectic Reader",
+      "sha256": "d99a9fe1f8fa04ba29b6142dd0caaf78a1eb078ec0703dc60064d3877b020f4f"
+    }
+  ],
+  "retired_editions": [
+    "selected-early-readers-v1",
+    "selected-reading-breadth-v1"
+  ],
+  "retired_source_documents_checked": 58,
+  "continuation_schedule_sha256": "fc9c152f1f9f37c4b080ddd02cf1888204fa203db7d080c60589261cc621fe03",
+  "continuation_stages_authenticated": 4,
+  "continuation_documents": 52236,
+  "exact_retired_documents_absent_from_selected_foundations_and_continuation_sources": true,
+  "continuation_bases": [
+    {
+      "seed": 1337,
+      "checkpoint": "runs/teacher-retention-panel/1337-associative-control/checkpoint-190000.ckpt",
+      "sha256": "bda9174ccab435119bb489d7321da85e01fc279777df81347e5b68b4ee3d893f",
+      "recorded_historical_checkpoint_identical": true,
+      "source_observations": 190000,
+      "parameters": 1951624
+    },
+    {
+      "seed": 2026,
+      "checkpoint": "runs/teacher-retention-panel/2026-associative-control/checkpoint-190000.ckpt",
+      "sha256": "dfc71bee48963ecddbf68d8797c87fd96bb388a87f903d4418cd2097c9ab0cef",
+      "recorded_historical_checkpoint_identical": true,
+      "source_observations": 190000,
+      "parameters": 1951624
+    },
+    {
+      "seed": 31415,
+      "checkpoint": "runs/teacher-retention-panel/31415-associative-control/checkpoint-190000.ckpt",
+      "sha256": "46856b6298d96409fedc0f10fbfe3ba550d2c30e3c7f64f39ff7b0d17f815d40",
+      "recorded_historical_checkpoint_identical": true,
+      "source_observations": 190000,
+      "parameters": 1951624
+    }
+  ],
+  "no_new_training_performed": true,
+  "reserved_tests_not_scored": true,
+  "provenance": "The three recorded 190000-observation checkpoints precede admission of both retired story editions. Checks authenticate the published study, source schedule and checkpoint bytes; later descendants are not selected. Earlier experimental artifacts remain historical records."
+}

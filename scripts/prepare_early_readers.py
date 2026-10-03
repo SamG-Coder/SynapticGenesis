@@ -5,6 +5,7 @@ from pathlib import Path
 import re
 
 from corpus.storybooks import load, normalized
+from corpus.selection import require_training_spec
 from native_experiment import read, sha
 
 
@@ -14,7 +15,7 @@ def substantial_paragraphs(document):
 
 
 def prepare(spec_path, cache, out, protected):
-    spec = read(spec_path)
+    spec = require_training_spec(spec_path)
     sources, stages = spec['sources'], spec['stages']
     identifiers, stage_ids = [s['id'] for s in sources], [s['id'] for s in stages]
     if not sources or len(identifiers) != len(set(identifiers)) or stage_ids != [1, 2, 3]:

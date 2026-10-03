@@ -9,6 +9,7 @@ from experiment_checkpoint import checkpoint, state_record
 from extend_curriculum import prepare, read_schedule
 from narrative_experiment import assess_books, samples
 from native_experiment import NativeCommands, binding_scores, read, sha, verified_manifest, write
+from corpus.selection import require_active_edition
 
 
 def assess(native, probe, model, directory, endpoint, protocol, edition):
@@ -34,6 +35,7 @@ def assess(native, probe, model, directory, endpoint, protocol, edition):
 
 
 def run(args):
+    require_active_edition('selected-early-readers-v1')
     parent = Path('runs/teacher-retention-panel').resolve()
     previous = read(parent / 'comparison.json')
     old = previous['protocol']

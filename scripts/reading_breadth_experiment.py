@@ -10,9 +10,12 @@ from live_reading_experiment import assess
 from narrative_experiment import samples
 from native_experiment import NativeCommands, read, sha, verified_manifest, write
 from reading_breadth_sources import prepare_assessment, source_exposure, verify_sources
+from corpus.selection import require_active_edition
 
 
 def run(args):
+    require_active_edition('selected-early-readers-v1')
+    require_active_edition('selected-reading-breadth-v1')
     parent = Path('runs/teacher-retention-panel').resolve()
     previous = read(parent / 'comparison.json')
     old = previous['protocol']

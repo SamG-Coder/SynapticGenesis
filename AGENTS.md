@@ -12,6 +12,10 @@ Keep implementation easy to extend as features accumulate. When a responsibility
 
 Model computation remains native C++/CUDA. Python may prepare selected data, orchestrate experiments and provide independent test references.
 
+## Training sources
+
+Use `data/training-selection.json` for current book editions and continuation bases. Retired editions and models that learned from them are historical artifacts, not inputs to new learning, teaching or reproduction. Review new passages before admitting an edition. A source or checkpoint rename does not reset its provenance. Do not rewrite historical source manifests or claim that removing text from a list removes its influence from learned weights.
+
 ## Delivery
 
 Commit and push each completed, verified stage. Keep research results and their limitations together, including regressions.

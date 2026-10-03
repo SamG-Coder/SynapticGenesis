@@ -1,0 +1,48 @@
+{
+  "version": "training-selection-v1",
+  "default_sources": "data/sources.json",
+  "default_prepared": "data/prepared/selected-foundations-v1",
+  "excluded_source_repositories": [
+    "https://github.com/global-asp/asp-source",
+    "https://github.com/global-asp/sbc-source"
+  ],
+  "active_editions": {
+    "general-foundations-v1": {
+      "sources": "data/sources.json",
+      "sha256": "c72ff3705bbc73aa06cc588c1a67ddad3595b87a4e8712b646f8fa0c9796f4a3"
+    },
+    "general-development-v2": {
+      "sources": "data/sources-development-v2.json",
+      "sha256": "631338669c21af6fcdf1212242f0ce2b170d40bdc67a02bed04c7dc7930a204a"
+    },
+    "selected-stories-v1": {
+      "sources": "data/sources-stories-v1.json",
+      "sha256": "9129384e702e8aec784414ac81185065a6f2806313599fd687c5f913445e2e0e"
+    }
+  },
+  "retired_editions": {
+    "selected-early-readers-v1": "data/sources-early-readers-v1.json",
+    "selected-reading-breadth-v1": "data/sources-reading-breadth-v1.json"
+  },
+  "retired_use": "Historical reports and source attribution remain readable. Do not use these editions or their learned descendants for new learning, teaching or reproduction.",
+  "next_material": "Selected elementary reading, arithmetic, nature and practical science. Review the actual passages, their difficulty, factual quality and reuse terms before admitting another edition.",
+  "continuation_schedule": "runs/teacher-retention-panel/edition/curriculum.sg",
+  "continuation_schedule_sha256": "fc9c152f1f9f37c4b080ddd02cf1888204fa203db7d080c60589261cc621fe03",
+  "continuation_bases": [
+    {
+      "seed": 1337,
+      "checkpoint": "runs/teacher-retention-panel/1337-associative-control/checkpoint-190000.ckpt",
+      "sha256": "bda9174ccab435119bb489d7321da85e01fc279777df81347e5b68b4ee3d893f"
+    },
+    {
+      "seed": 2026,
+      "checkpoint": "runs/teacher-retention-panel/2026-associative-control/checkpoint-190000.ckpt",
+      "sha256": "dfc71bee48963ecddbf68d8797c87fd96bb388a87f903d4418cd2097c9ab0cef"
+    },
+    {
+      "seed": 31415,
+      "checkpoint": "runs/teacher-retention-panel/31415-associative-control/checkpoint-190000.ckpt",
+      "sha256": "46856b6298d96409fedc0f10fbfe3ba550d2c30e3c7f64f39ff7b0d17f815d40"
+    }
+  ]
+}

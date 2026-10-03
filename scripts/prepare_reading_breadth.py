@@ -6,6 +6,7 @@ import re
 
 from corpus.african_storybook import index_entries, load
 from corpus.overlap import reject_overlap
+from corpus.selection import require_training_spec
 from native_experiment import sha
 from prepare_corpus import fetch
 
@@ -48,9 +49,9 @@ def protected_documents(spec, roots):
 
 
 def prepare(spec_path, cache, out, protected_roots=None):
+    spec = require_training_spec(spec_path)
     if out.exists():
         raise ValueError('Use a fresh output directory')
-    spec = read(spec_path)
     sources, stages = spec['sources'], spec['stages']
     ids = [source['id'] for source in sources]
     stage_ids = [stage['id'] for stage in stages]

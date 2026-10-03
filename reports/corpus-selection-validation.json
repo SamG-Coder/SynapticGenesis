@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "active_editions": [
+    "general-foundations-v1",
+    "general-development-v2",
+    "selected-stories-v1"
+  ],
+  "rejected_cases": [
+    {
+      "case": "selected-early-readers-v1",
+      "error": "Edition selected-early-readers-v1 is retired for new preparation and learning. Use an active edition from training-selection.json; historical reports remain available."
+    },
+    {
+      "case": "selected-reading-breadth-v1",
+      "error": "Edition selected-reading-breadth-v1 is retired for new preparation and learning. Use an active edition from training-selection.json; historical reports remain available."
+    },
+    {
+      "case": "unreviewed version",
+      "error": "Edition unreviewed-edition has not been admitted in training-selection.json"
+    },
+    {
+      "case": "changed sources under admitted version",
+      "error": "Source selection differs from the admitted edition; review it as a new version"
+    },
+    {
+      "case": "retired texts relabelled as foundation",
+      "error": "Source repository is excluded from new training selections"
+    },
+    {
+      "case": "prepare_early_readers",
+      "error": "Edition selected-early-readers-v1 is retired for new preparation and learning. Use an active edition from training-selection.json; historical reports remain available."
+    },
+    {
+      "case": "prepare_reading_breadth",
+      "error": "Edition selected-reading-breadth-v1 is retired for new preparation and learning. Use an active edition from training-selection.json; historical reports remain available."
+    },
+    {
+      "case": "adaptation_experiment",
+      "error": "Edition selected-early-readers-v1 is retired for new preparation and learning. Use an active edition from training-selection.json; historical reports remain available."
+    },
+    {
+      "case": "live_reading_experiment",
+      "error": "Edition selected-early-readers-v1 is retired for new preparation and learning. Use an active edition from training-selection.json; historical reports remain available."
+    },
+    {
+      "case": "reading_breadth_experiment",
+      "error": "Edition selected-early-readers-v1 is retired for new preparation and learning. Use an active edition from training-selection.json; historical reports remain available."
+    },
+    {
+      "case": "native_demonstration",
+      "error": "Edition selected-early-readers-v1 is retired for new preparation and learning. Use an active edition from training-selection.json; historical reports remain available."
+    },
+    {
+      "case": "generic corpus CLI",
+      "error": "Retired edition rejected before output/cache creation"
+    }
+  ],
+  "rejection_count": 12,
+  "no_model_loaded_or_trained": true,
+  "no_retired_downloads_or_prepared_outputs": true,
+  "limits": "Book admission and four historical experiment entrypoints. The native executable remains a generic file consumer; provenance rules also apply to direct native commands."
+}

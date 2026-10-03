@@ -9,6 +9,7 @@ from adaptation_sources import verified_edition
 from experiment_checkpoint import checkpoint, state_record
 from extend_curriculum import prepare
 from native_experiment import NativeCommands, read, sha, write
+from corpus.selection import require_active_edition
 
 
 PROMPTS = [
@@ -22,6 +23,7 @@ PROMPTS = [
 
 
 def run(args):
+    require_active_edition('selected-early-readers-v1')
     model = Path('runs/teacher-retention-panel/1337-associative-control/checkpoint-190000.ckpt').resolve()
     original_schedule = Path('runs/teacher-retention-panel/edition/curriculum.sg').resolve()
     previous = read('runs/teacher-retention-panel/comparison.json')

@@ -7,9 +7,11 @@ import subprocess
 from adaptation_sources import prepare_schedule, verified_edition
 from native_experiment import NativeCommands, binding_scores, read, sha, verified_manifest, write
 from narrative_experiment import assess_books
+from corpus.selection import require_active_edition
 
 
 def run(args):
+    require_active_edition('selected-early-readers-v1')
     proposal = read(args.design)['proposal']
     if (proposal['trajectories'] != 42 or proposal['seeds'] != [1337,2026,31415]
             or proposal['endpoints'] != [0,64,256,1024,4096]

@@ -14,6 +14,8 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+from corpus.selection import require_training_spec
+
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -73,7 +75,7 @@ def main():
     parser.add_argument('--download-only', action='store_true', help='Cache selected editions for inspection without preparing a corpus')
     args = parser.parse_args()
     spec_bytes = args.sources.read_bytes()
-    spec = json.loads(spec_bytes)
+    spec = require_training_spec(args.sources)
     stage_ids = [s['id'] for s in spec['stages']]
     ids = [s['id'] for s in spec['sources']]
     if (len(stage_ids) != len(set(stage_ids)) or len(ids) != len(set(ids))
