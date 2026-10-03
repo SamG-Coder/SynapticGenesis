@@ -71,6 +71,16 @@ Validation is isolated from training and speech state. Exact held-out documents 
 
 ## Add lessons after learning has started
 
+Prepare a new edition from an existing schedule and an explicitly selected document corpus:
+
+```powershell
+python scripts/extend_curriculum.py --curriculum data/curricula/reading-to-science.sg --data data/prepared/binding-v2/prerequisites.dat --out data/prepared/reading-science-lessons --end-update 16000 --rate-scale 0.25 --answer-scale 64 --holdout data/prepared/development-v2-final/13853.txt --holdout data/prepared/development-v2-final/12228.txt
+```
+
+The preparer copies earlier editions byte for byte into a fresh directory, appends the selected documents, writes `curriculum.sg`, and records SHA-256 source identities in `manifest.json`. `--end-update` is a cumulative online observation count. New material uses `new` scope by default; `--scope all` instead repeats the complete cumulative corpus after its first pass. Use the default `--answer-scale 1` for ordinary books. The 64 above applies only to the already selected answer-labelled lessons.
+
+Input `.dat` files use the same `0x1e` document separator as the other preparation scripts. Empty/one-byte documents, exact duplicate additions, invalid answer annotations, changes to earlier corpus prefixes and exact documents found in any supplied `--holdout` are rejected before output is created. The tool never overwrites an existing output directory. Copies make the new schedule independent of the old directory layout; keep the original schedule and its source editions for the first native admission check. These checks do not detect paraphrases. Model training remains in C++/CUDA.
+
 `--extend-curriculum` appends future stages to a saved live curriculum without starting a new learning stream. Supply both the exact previously bound schedule and the proposed extended schedule:
 
 ```powershell
@@ -100,6 +110,7 @@ The extension CLI compares 32 cases against a full schedule declared at birth: a
 
 ```powershell
 python tests/curriculum_extension_cli.py --out runs/curriculum-extension-check
+python tests/extension_preparation.py --out runs/extension-preparation-check
 ```
 
-These correctness results do not establish better retention, a curriculum advantage or useful conversation.
+The preparation test also verifies native admission of all three schedule-text versions, copied source bytes and manifest hashes, and rejection of duplicate/held-out material. [Preparation results](../reports/extension-preparation.json). A [trained-founder demonstration](live-extension-experiment.md) measures both new lesson fit and earlier-reader loss. These correctness results do not establish better retention, a curriculum advantage or useful conversation.

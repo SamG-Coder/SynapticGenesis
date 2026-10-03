@@ -96,6 +96,8 @@ The schedule introduces new documents at fixed update counts while retaining ear
 
 Single-corpus `live --data` remains available. Resume requires the same source edition and prompt; curriculum resume also verifies the schedule and future source editions. Explicit `--lr`, `--replay-every` and `--si-strength` overrides change supported policy settings. For a curriculum, `--lr` is the base rate before the stage multiplier. A new `live --checkpoint` stream inherits weights and optimizer but resets stream/replay/consolidation history. The batch commands above also do not preserve the complete live history.
 
+`scripts/extend_curriculum.py` prepares additional selected documents and copies earlier editions into a fresh, self-contained schedule. The [trained-founder continuation](docs/live-extension-experiment.md) demonstrates two successive admissions and measures the tradeoff between new lesson fit, earlier-reader retention and replay cost. It preserves live history but still fails the stronger two-object binding task.
+
 Optional `--consolidation si --si-strength 0.001` enables a synaptic-importance penalty. Its numerical behavior is tested; beneficial long-term retention has not been established on this curriculum. `--cell alif` creates a model with adaptive thresholds. Neither option is automatically better than the default. Neuron-indexed storage is an isolated benchmark, not the active training or generation storage path.
 
 `metrics.jsonl`, `transcript.txt` and `session.json` record live runs. Placing a file named `STOP` in the run directory requests a checkpointed stop after a completed update; remove it before resuming. Runs are bounded by their requested update counts.
@@ -119,6 +121,7 @@ python tests/burn_policy.py --out runs/burn-policy-test
 python tests/population_cli.py --out runs/population-cli-test
 python tests/curriculum_cli.py --out runs/curriculum-cli-test
 python tests/curriculum_extension_cli.py --out runs/curriculum-extension-cli-test
+python tests/extension_preparation.py --out runs/extension-preparation-test
 python tests/population_live_cli.py --out runs/population-live-cli-test
 python tests/retention_cli.py --out runs/retention-cli-test
 python tests/probes_cli.py --out runs/probes-cli-test

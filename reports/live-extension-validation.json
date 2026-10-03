@@ -1,0 +1,92 @@
+{
+  "native_suites_passed": 11,
+  "executable_sha256": "c0fb0d3be6acd27162fee2f505f33f94312e58cf3c5102fe972b71032cbba0e2",
+  "native_curriculum": {
+    "passed": true,
+    "resume_cases": 24,
+    "stage_transitions_checked": 88,
+    "resume_max_error": 7.45058e-09,
+    "cells": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "optional_si": true,
+    "graph_speech_identical": true,
+    "replay_preserved": true,
+    "same_gpu_allocations": true,
+    "future_source_identity_checked": true,
+    "heldout_document_rejected": true,
+    "base_rate_override_checked": true,
+    "extension_preserves_history": true,
+    "extension_rejection_transactional": true
+  },
+  "ordinary_curriculum_cli": {
+    "passed": true,
+    "native_commands": 93,
+    "resume_cases": 24,
+    "resume_max_error": 3.725290298461914e-09,
+    "identical_generated_bytes": true,
+    "cells": [
+      "lif",
+      "alif",
+      "trace",
+      "gated"
+    ],
+    "optional_si": true,
+    "v2_binding_retains_history": true,
+    "rate_override_retains_stage_scale": true,
+    "future_data_mutation_rejected": true,
+    "changed_prefix_rejected": true,
+    "future_heldout_document_rejected": true,
+    "invalid_input_writes_no_run": true,
+    "v4_read_only_commands_checked": true,
+    "new_scope_wraps_without_old_online_documents": true,
+    "scoped_restart_preserves_old_replay": true,
+    "feedback_resume_cases": 8,
+    "feedback_resume_max_error": 7.450580596923828e-09,
+    "feedback_annotation_persists_across_later_stages": true,
+    "feedback_policy_change_and_missing_answers_rejected": true,
+    "checkpoint_sha256": "80224b767450dcb3f39d29dd0a0a6e766bbacbe83bb82dfed27a9a05efa0053f"
+  },
+  "extension_cli": {
+    "passed": true,
+    "native_commands": 127,
+    "extension_cases": 32,
+    "cells": [
+      "lif",
+      "alif",
+      "trace",
+      "gated"
+    ],
+    "optional_si": true,
+    "graph_speech_identical": true,
+    "final_payload_max_error": 4.76837158203125e-07,
+    "repeated_extension_matches_full_schedule": true,
+    "prefix_policy_and_all_source_editions_preserved": true,
+    "invalid_extension_writes_no_run": true,
+    "heldout_new_document_rejected": true,
+    "initial_and_completed_stage_archives_preserved": true,
+    "population_age_and_lineage_preserved": true,
+    "dead_member_extension_rejected": true,
+    "deceased_archive_readable": true,
+    "reserved_language_test_unused": true,
+    "source_sha256": "77dcdbfccbfdbf3ea4d39ea07966eab2bebb6ad35f4d01b75b48b971f5d34a37"
+  },
+  "preparation": {
+    "passed": true,
+    "native_commands": 9,
+    "schedule_versions": [
+      1,
+      2,
+      3
+    ],
+    "source_bytes_and_sha256_verified": true,
+    "paths_with_spaces": true,
+    "native_final_payload_max_error": 2.9802322387695312e-08,
+    "rejected_invalid_preparations": 10,
+    "duplicate_and_heldout_documents_rejected": true,
+    "existing_output_not_overwritten": true
+  }
+}

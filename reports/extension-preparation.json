@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "native_commands": 9,
+  "schedule_versions": [
+    1,
+    2,
+    3
+  ],
+  "source_bytes_and_sha256_verified": true,
+  "paths_with_spaces": true,
+  "native_final_payload_max_error": 2.9802322387695312e-08,
+  "rejected_invalid_preparations": 10,
+  "duplicate_and_heldout_documents_rejected": true,
+  "existing_output_not_overwritten": true
+}

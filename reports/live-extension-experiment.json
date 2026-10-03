@@ -1,0 +1,1120 @@
+{
+  "protocol": "docs/live-extension-experiment.md",
+  "same_starting_checkpoint": true,
+  "same_online_content_and_exposure": true,
+  "same_learning_rate": true,
+  "same_generated_byte_count": true,
+  "replay_cadence_changed": true,
+  "replay_and_optimizer_budgets_differ": true,
+  "one_seed": true,
+  "default_policy_changed": false,
+  "reserved_test_evaluated": false,
+  "table": [
+    {
+      "run": "runs/live-extension-demonstration",
+      "replay_every": 4,
+      "stage": "prerequisites",
+      "single_fact_pair_accuracy": 1,
+      "single_fact_greedy_pair_accuracy": 1,
+      "binding_joint_accuracy": 0,
+      "reader_loss": 2.451377153,
+      "live_seconds": 6.5164886,
+      "ordinary_tick_p95_ms": 6.329894395,
+      "speech_tick_p95_ms": 24.77703124
+    },
+    {
+      "run": "runs/live-extension-demonstration",
+      "replay_every": 4,
+      "stage": "binding",
+      "single_fact_pair_accuracy": 1,
+      "single_fact_greedy_pair_accuracy": 0.958333333333,
+      "binding_joint_accuracy": 0,
+      "reader_loss": 2.555428743,
+      "live_seconds": 39.1262923,
+      "ordinary_tick_p95_ms": 6.329894395,
+      "speech_tick_p95_ms": 25.31957758
+    },
+    {
+      "run": "runs/live-extension-more-replay",
+      "replay_every": 1,
+      "stage": "prerequisites",
+      "single_fact_pair_accuracy": 0.777777777778,
+      "single_fact_greedy_pair_accuracy": 0.416666666667,
+      "binding_joint_accuracy": 0,
+      "reader_loss": 2.251605272,
+      "live_seconds": 9.6354752,
+      "ordinary_tick_p95_ms": 7.208411797,
+      "speech_tick_p95_ms": 24.77703124
+    },
+    {
+      "run": "runs/live-extension-more-replay",
+      "replay_every": 1,
+      "stage": "binding",
+      "single_fact_pair_accuracy": 0.965277777778,
+      "single_fact_greedy_pair_accuracy": 0.895833333333,
+      "binding_joint_accuracy": 0,
+      "reader_loss": 2.513204575,
+      "live_seconds": 57.2628688,
+      "ordinary_tick_p95_ms": 7.208411797,
+      "speech_tick_p95_ms": 23.72656641
+    }
+  ],
+  "arms": [
+    {
+      "protocol": "docs/live-extension-experiment.md",
+      "seed": 1337,
+      "native_commands": 9,
+      "source_checkpoint": "runs\\development-replay-v2-seed-1337\\latest.ckpt",
+      "source_unchanged": true,
+      "imported_model_weights": false,
+      "executable_sha256": "c0fb0d3be6acd27162fee2f505f33f94312e58cf3c5102fe972b71032cbba0e2",
+      "lesson_spec_sha256": "7ecb1719ff45a3c02c151aa3dab786fb27dac7fbf24865798b28148753c7473c",
+      "existing_selected_material_only": true,
+      "reserved_test_evaluated": false,
+      "admissions": [
+        {
+          "version": "curriculum-extension-v1",
+          "parent_schedule": "D:\\SynapticGenesis\\data\\curricula\\reading-to-science.sg",
+          "parent_schedule_sha256": "b9e654633096c53a1e2b08e66833a404813a26bd7be763e6623d4d755d3fce34",
+          "schedule_sha256": "7b041d29228e944919fbf256107f3a22e0d8fb5ece10ce1ee78fabbc522960ee",
+          "previous_stages": 2,
+          "selected_source": "D:\\SynapticGenesis\\data\\prepared\\binding-v2\\prerequisites.dat",
+          "selected_sha256": "88330154ba769a79544aefa2c4a5bdd732bd0f6823f929114e589e9dd5530050",
+          "selected_bytes": 5087,
+          "added_documents": 96,
+          "checked_holdouts": [
+            {
+              "source": "D:\\SynapticGenesis\\data\\prepared\\development-v2-final\\13853.txt",
+              "sha256": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f"
+            },
+            {
+              "source": "D:\\SynapticGenesis\\data\\prepared\\development-v2-final\\12228.txt",
+              "sha256": "9f76e50d48b67cdefda8750df243f0825d38959a1288b7959490b736a57a3025"
+            }
+          ],
+          "editions": [
+            {
+              "file": "edition-1.dat",
+              "sha256": "66116234362cb7fa49d233e671f8c6a388ad2b2181577ea3538a92b95a2be143",
+              "bytes": 261281,
+              "documents": 4,
+              "end_update": 6000,
+              "rate_scale": 1.0,
+              "scope": "all",
+              "answer_scale": 1.0
+            },
+            {
+              "file": "edition-2.dat",
+              "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+              "bytes": 585436,
+              "documents": 5,
+              "end_update": 12000,
+              "rate_scale": 0.25,
+              "scope": "new",
+              "answer_scale": 1.0
+            },
+            {
+              "file": "edition-3.dat",
+              "sha256": "9ece97576da7760024133eb25223918c026c00724b60681acb86f1b2bb42bd11",
+              "bytes": 590524,
+              "documents": 101,
+              "end_update": 16000,
+              "rate_scale": 0.25,
+              "scope": "new",
+              "answer_scale": 64.0
+            }
+          ],
+          "limits": "Exact document checks only; no semantic overlap or curriculum mastery assessment."
+        },
+        {
+          "version": "curriculum-extension-v1",
+          "parent_schedule": "D:\\SynapticGenesis\\runs\\live-extension-demonstration\\data-prerequisites\\curriculum.sg",
+          "parent_schedule_sha256": "7b041d29228e944919fbf256107f3a22e0d8fb5ece10ce1ee78fabbc522960ee",
+          "schedule_sha256": "05e8e2894f81cbc258c0ae83ea8d8c674b477b1b6c0b1f73aff846d22013ebcd",
+          "previous_stages": 3,
+          "selected_source": "D:\\SynapticGenesis\\data\\prepared\\binding-v2\\binding.dat",
+          "selected_sha256": "b06d09b730660615d3afb2e2d51b82a1eafc2607fb3f616f627dbbf3ff24243f",
+          "selected_bytes": 131327,
+          "added_documents": 1728,
+          "checked_holdouts": [
+            {
+              "source": "D:\\SynapticGenesis\\data\\prepared\\development-v2-final\\13853.txt",
+              "sha256": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f"
+            },
+            {
+              "source": "D:\\SynapticGenesis\\data\\prepared\\development-v2-final\\12228.txt",
+              "sha256": "9f76e50d48b67cdefda8750df243f0825d38959a1288b7959490b736a57a3025"
+            }
+          ],
+          "editions": [
+            {
+              "file": "edition-1.dat",
+              "sha256": "66116234362cb7fa49d233e671f8c6a388ad2b2181577ea3538a92b95a2be143",
+              "bytes": 261281,
+              "documents": 4,
+              "end_update": 6000,
+              "rate_scale": 1.0,
+              "scope": "all",
+              "answer_scale": 1.0
+            },
+            {
+              "file": "edition-2.dat",
+              "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+              "bytes": 585436,
+              "documents": 5,
+              "end_update": 12000,
+              "rate_scale": 0.25,
+              "scope": "new",
+              "answer_scale": 1.0
+            },
+            {
+              "file": "edition-3.dat",
+              "sha256": "9ece97576da7760024133eb25223918c026c00724b60681acb86f1b2bb42bd11",
+              "bytes": 590524,
+              "documents": 101,
+              "end_update": 16000,
+              "rate_scale": 0.25,
+              "scope": "new",
+              "answer_scale": 64.0
+            },
+            {
+              "file": "edition-4.dat",
+              "sha256": "7e0fbb3d5b947e0ee2e63cf6b54c7ef6017575ff952128cccf5646ddfce56d51",
+              "bytes": 721852,
+              "documents": 1829,
+              "end_update": 40000,
+              "rate_scale": 0.25,
+              "scope": "new",
+              "answer_scale": 64.0
+            }
+          ],
+          "limits": "Exact document checks only; no semantic overlap or curriculum mastery assessment."
+        }
+      ],
+      "extension_events": [
+        {
+          "event": "curriculum_extension",
+          "online_update": 12000,
+          "global_update": 15000,
+          "previous_curriculum_hash": "2274601009964895830",
+          "curriculum_hash": "6317110695486529388",
+          "previous_stages": 2,
+          "stages": 3,
+          "previous_end_update": 12000,
+          "end_update": 16000,
+          "current_stage": 2,
+          "document": 4,
+          "byte_offset": 119552,
+          "replay_windows_preserved": 1024,
+          "replay_updates": 3000,
+          "generated_bytes": 2304,
+          "consolidation_events": 0
+        },
+        {
+          "event": "curriculum_extension",
+          "online_update": 16000,
+          "global_update": 20000,
+          "previous_curriculum_hash": "6317110695486529388",
+          "curriculum_hash": "3331619208812913909",
+          "previous_stages": 3,
+          "stages": 4,
+          "previous_end_update": 16000,
+          "end_update": 40000,
+          "current_stage": 3,
+          "document": 69,
+          "byte_offset": 0,
+          "replay_windows_preserved": 1024,
+          "replay_updates": 4000,
+          "generated_bytes": 3072,
+          "consolidation_events": 0
+        }
+      ],
+      "stages": [
+        {
+          "label": "before",
+          "checkpoint": {
+            "sha256": "cf20ee21c825b68dc1380825d8dd3dba6c1d0d0384a0418f5fd1b47c197235bb",
+            "parameters": 1186304,
+            "cell": 1,
+            "online_updates": 12000,
+            "optimizer_updates": 15000,
+            "observed_pairs": 1534902,
+            "generated_bytes": 2304,
+            "curriculum_hash": "2274601009964895830",
+            "curriculum_stage": 2,
+            "replay_updates": 3000,
+            "replay_pairs": 383563,
+            "replay_seen": 12000,
+            "speech_every": 500,
+            "speech_length": 96
+          },
+          "single_fact_training_fit": {
+            "format": "SGPROBE1",
+            "suite_hash": "4407121253492996126",
+            "checkpoint_payload_hash": "10839346536855303911",
+            "items": 288,
+            "groups": 144,
+            "group_size": 2,
+            "joint_accuracy": 0.0347222222222,
+            "context_erased_joint_accuracy": 0,
+            "greedy_exact_joint_accuracy": 0,
+            "pairs": 144,
+            "paired_accuracy": 0.0347222222222,
+            "context_erased_paired_accuracy": 0,
+            "greedy_exact_paired_accuracy": 0,
+            "accuracy": 0.5,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0,
+            "answer_loss_nats_per_byte": 3.82537679126,
+            "answer_bytes": 1152,
+            "elapsed_seconds": 1.1924426,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "single-fact-training-fit": {
+                "items": 288,
+                "accuracy": 0.5,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0
+              }
+            }
+          },
+          "binding_development": {
+            "format": "SGPROBE2",
+            "suite_hash": "16568893675249492101",
+            "checkpoint_payload_hash": "10839346536855303911",
+            "items": 576,
+            "groups": 144,
+            "group_size": 4,
+            "joint_accuracy": 0,
+            "context_erased_joint_accuracy": 0,
+            "greedy_exact_joint_accuracy": 0,
+            "accuracy": 0.489583333333,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0,
+            "answer_loss_nats_per_byte": 3.83314195565,
+            "answer_bytes": 2304,
+            "elapsed_seconds": 2.2949798,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "binding-style-0": {
+                "items": 288,
+                "accuracy": 0.489583333333,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0
+              },
+              "binding-style-1": {
+                "items": 288,
+                "accuracy": 0.489583333333,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0
+              }
+            }
+          }
+        },
+        {
+          "label": "prerequisites",
+          "checkpoint": {
+            "sha256": "f54c7ac3e4c65c80f55cda1c30306a5bb537041594ab8183179f05fbf20fc7d2",
+            "parameters": 1186304,
+            "cell": 1,
+            "online_updates": 16000,
+            "optimizer_updates": 20000,
+            "observed_pairs": 1738902,
+            "generated_bytes": 3072,
+            "curriculum_hash": "6317110695486529388",
+            "curriculum_stage": 3,
+            "replay_updates": 4000,
+            "replay_pairs": 498826,
+            "replay_seen": 16000,
+            "speech_every": 500,
+            "speech_length": 96
+          },
+          "single_fact_training_fit": {
+            "format": "SGPROBE1",
+            "suite_hash": "4407121253492996126",
+            "checkpoint_payload_hash": "14367578512576457837",
+            "items": 288,
+            "groups": 144,
+            "group_size": 2,
+            "joint_accuracy": 1,
+            "context_erased_joint_accuracy": 0,
+            "greedy_exact_joint_accuracy": 1,
+            "pairs": 144,
+            "paired_accuracy": 1,
+            "context_erased_paired_accuracy": 0,
+            "greedy_exact_paired_accuracy": 1,
+            "accuracy": 1,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 1,
+            "answer_loss_nats_per_byte": 0.00352512548367,
+            "answer_bytes": 1152,
+            "elapsed_seconds": 1.1504887,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "single-fact-training-fit": {
+                "items": 288,
+                "accuracy": 1,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 1
+              }
+            }
+          },
+          "binding_development": {
+            "format": "SGPROBE2",
+            "suite_hash": "16568893675249492101",
+            "checkpoint_payload_hash": "14367578512576457837",
+            "items": 576,
+            "groups": 144,
+            "group_size": 4,
+            "joint_accuracy": 0,
+            "context_erased_joint_accuracy": 0,
+            "greedy_exact_joint_accuracy": 0,
+            "accuracy": 0.494791666667,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.484375,
+            "answer_loss_nats_per_byte": 0.958749527319,
+            "answer_bytes": 2304,
+            "elapsed_seconds": 2.3248154,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "binding-style-0": {
+                "items": 288,
+                "accuracy": 0.496527777778,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.493055555556
+              },
+              "binding-style-1": {
+                "items": 288,
+                "accuracy": 0.493055555556,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.475694444444
+              }
+            }
+          },
+          "session": {
+            "online_updates": 16000,
+            "curriculum_stage": 3,
+            "curriculum_hash": "6317110695486529388",
+            "curriculum_extended": true,
+            "curriculum_base_lr": 0.0003000000142,
+            "global_updates": 20000,
+            "online_first_document": 5,
+            "online_document_count": 96,
+            "answer_emphasized_documents": 96,
+            "observed_pairs": 1738902,
+            "generated_bytes": 3072,
+            "elapsed_seconds": 6.5164886,
+            "session_online_updates": 4000,
+            "session_observed_pairs": 204000,
+            "observed_pairs_per_second": 31305.20323,
+            "replay_updates": 4000,
+            "replay_pairs": 498826,
+            "replay_mode": 1,
+            "replay_items": 1024,
+            "core_scale": 1,
+            "learning_rate": 7.500000356e-05,
+            "replay_every": 4,
+            "graph_decode": true,
+            "update_tick_p50_ms": 0.9010514746,
+            "update_tick_p95_ms": 6.329894395,
+            "update_and_speech_tick_p50_ms": 19.95158464,
+            "update_and_speech_tick_p95_ms": 24.77703124,
+            "latency_percentile_bin_relative_width": 0.02189714865,
+            "shared_weights": true,
+            "persistent_membranes": true,
+            "trains_on_generated_text": false,
+            "consolidation": "none",
+            "initial_validation_loss": 2.210849047,
+            "final_validation_loss": 2.451377153
+          }
+        },
+        {
+          "label": "binding",
+          "checkpoint": {
+            "sha256": "36e3b0bd0ae76aea0e7a5014358c0fa5a5e3091dfef10240c4d2c868ec5c4b86",
+            "parameters": 1186304,
+            "cell": 1,
+            "online_updates": 40000,
+            "optimizer_updates": 50000,
+            "observed_pairs": 3514950,
+            "generated_bytes": 7680,
+            "curriculum_hash": "3331619208812913909",
+            "curriculum_stage": 4,
+            "replay_updates": 10000,
+            "replay_pairs": 1069938,
+            "replay_seen": 40000,
+            "speech_every": 500,
+            "speech_length": 96
+          },
+          "single_fact_training_fit": {
+            "format": "SGPROBE1",
+            "suite_hash": "4407121253492996126",
+            "checkpoint_payload_hash": "14408676810943077828",
+            "items": 288,
+            "groups": 144,
+            "group_size": 2,
+            "joint_accuracy": 1,
+            "context_erased_joint_accuracy": 0,
+            "greedy_exact_joint_accuracy": 0.958333333333,
+            "pairs": 144,
+            "paired_accuracy": 1,
+            "context_erased_paired_accuracy": 0,
+            "greedy_exact_paired_accuracy": 0.958333333333,
+            "accuracy": 1,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.979166666667,
+            "answer_loss_nats_per_byte": 0.0459536438187,
+            "answer_bytes": 1152,
+            "elapsed_seconds": 1.2645654,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "single-fact-training-fit": {
+                "items": 288,
+                "accuracy": 1,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.979166666667
+              }
+            }
+          },
+          "binding_development": {
+            "format": "SGPROBE2",
+            "suite_hash": "16568893675249492101",
+            "checkpoint_payload_hash": "14408676810943077828",
+            "items": 576,
+            "groups": 144,
+            "group_size": 4,
+            "joint_accuracy": 0,
+            "context_erased_joint_accuracy": 0,
+            "greedy_exact_joint_accuracy": 0,
+            "accuracy": 0.498263888889,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.493055555556,
+            "answer_loss_nats_per_byte": 0.204026130132,
+            "answer_bytes": 2304,
+            "elapsed_seconds": 2.4947496,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "binding-style-0": {
+                "items": 288,
+                "accuracy": 0.493055555556,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.493055555556
+              },
+              "binding-style-1": {
+                "items": 288,
+                "accuracy": 0.503472222222,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.493055555556
+              }
+            }
+          },
+          "session": {
+            "online_updates": 40000,
+            "curriculum_stage": 4,
+            "curriculum_hash": "3331619208812913909",
+            "curriculum_extended": true,
+            "curriculum_base_lr": 0.0003000000142,
+            "global_updates": 50000,
+            "online_first_document": 101,
+            "online_document_count": 1728,
+            "answer_emphasized_documents": 1824,
+            "observed_pairs": 3514950,
+            "generated_bytes": 7680,
+            "elapsed_seconds": 39.1262923,
+            "session_online_updates": 24000,
+            "session_observed_pairs": 1776048,
+            "observed_pairs_per_second": 45392.69876,
+            "replay_updates": 10000,
+            "replay_pairs": 1069938,
+            "replay_mode": 1,
+            "replay_items": 1024,
+            "core_scale": 1,
+            "learning_rate": 7.500000356e-05,
+            "replay_every": 4,
+            "graph_decode": true,
+            "update_tick_p50_ms": 0.9010514746,
+            "update_tick_p95_ms": 6.329894395,
+            "update_and_speech_tick_p50_ms": 18.29568378,
+            "update_and_speech_tick_p95_ms": 25.31957758,
+            "latency_percentile_bin_relative_width": 0.02189714865,
+            "shared_weights": true,
+            "persistent_membranes": true,
+            "trains_on_generated_text": false,
+            "consolidation": "none",
+            "initial_validation_loss": 2.451377153,
+            "final_validation_loss": 2.555428743
+          }
+        }
+      ],
+      "decode": {
+        "parameters": 1186304,
+        "tokens_per_round": 1024,
+        "rounds": 7,
+        "fast_math": false,
+        "graph_setup_ms": 43.2291,
+        "regular_us_per_byte": 401.3617188,
+        "graph_us_per_byte": 157.6820312,
+        "speedup": 2.545386532,
+        "generated_bytes_identical": true,
+        "state_logits_max_error": 0,
+        "regular_rounds_us": [
+          409.7431641,
+          401.3617188,
+          420.5240234,
+          344.1131836,
+          367.6792969,
+          376.5728516,
+          412.1337891
+        ],
+        "graph_rounds_us": [
+          144.9107422,
+          175.6832031,
+          151.1889648,
+          158.2689453,
+          157.6820312,
+          151.6289062,
+          158.9452148
+        ]
+      },
+      "limits": "One existing LIF founder. Single-fact probes measure fit to the selected training lessons; stronger binding probes use development pairs. No causal curriculum advantage, general dialogue or biological learning claim.",
+      "training_replay_every": 4,
+      "live_seconds": 45.642780900000005,
+      "added_online_updates": 28000,
+      "added_replay_updates": 7000
+    },
+    {
+      "protocol": "docs/live-extension-experiment.md",
+      "seed": 1337,
+      "native_commands": 9,
+      "training_replay_every": 1,
+      "source_checkpoint": "runs\\development-replay-v2-seed-1337\\latest.ckpt",
+      "source_unchanged": true,
+      "imported_model_weights": false,
+      "executable_sha256": "c0fb0d3be6acd27162fee2f505f33f94312e58cf3c5102fe972b71032cbba0e2",
+      "lesson_spec_sha256": "7ecb1719ff45a3c02c151aa3dab786fb27dac7fbf24865798b28148753c7473c",
+      "existing_selected_material_only": true,
+      "reserved_test_evaluated": false,
+      "admissions": [
+        {
+          "version": "curriculum-extension-v1",
+          "parent_schedule": "D:\\SynapticGenesis\\data\\curricula\\reading-to-science.sg",
+          "parent_schedule_sha256": "b9e654633096c53a1e2b08e66833a404813a26bd7be763e6623d4d755d3fce34",
+          "schedule_sha256": "7b041d29228e944919fbf256107f3a22e0d8fb5ece10ce1ee78fabbc522960ee",
+          "previous_stages": 2,
+          "selected_source": "D:\\SynapticGenesis\\data\\prepared\\binding-v2\\prerequisites.dat",
+          "selected_sha256": "88330154ba769a79544aefa2c4a5bdd732bd0f6823f929114e589e9dd5530050",
+          "selected_bytes": 5087,
+          "added_documents": 96,
+          "checked_holdouts": [
+            {
+              "source": "D:\\SynapticGenesis\\data\\prepared\\development-v2-final\\13853.txt",
+              "sha256": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f"
+            },
+            {
+              "source": "D:\\SynapticGenesis\\data\\prepared\\development-v2-final\\12228.txt",
+              "sha256": "9f76e50d48b67cdefda8750df243f0825d38959a1288b7959490b736a57a3025"
+            }
+          ],
+          "editions": [
+            {
+              "file": "edition-1.dat",
+              "sha256": "66116234362cb7fa49d233e671f8c6a388ad2b2181577ea3538a92b95a2be143",
+              "bytes": 261281,
+              "documents": 4,
+              "end_update": 6000,
+              "rate_scale": 1.0,
+              "scope": "all",
+              "answer_scale": 1.0
+            },
+            {
+              "file": "edition-2.dat",
+              "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+              "bytes": 585436,
+              "documents": 5,
+              "end_update": 12000,
+              "rate_scale": 0.25,
+              "scope": "new",
+              "answer_scale": 1.0
+            },
+            {
+              "file": "edition-3.dat",
+              "sha256": "9ece97576da7760024133eb25223918c026c00724b60681acb86f1b2bb42bd11",
+              "bytes": 590524,
+              "documents": 101,
+              "end_update": 16000,
+              "rate_scale": 0.25,
+              "scope": "new",
+              "answer_scale": 64.0
+            }
+          ],
+          "limits": "Exact document checks only; no semantic overlap or curriculum mastery assessment."
+        },
+        {
+          "version": "curriculum-extension-v1",
+          "parent_schedule": "D:\\SynapticGenesis\\runs\\live-extension-more-replay\\data-prerequisites\\curriculum.sg",
+          "parent_schedule_sha256": "7b041d29228e944919fbf256107f3a22e0d8fb5ece10ce1ee78fabbc522960ee",
+          "schedule_sha256": "05e8e2894f81cbc258c0ae83ea8d8c674b477b1b6c0b1f73aff846d22013ebcd",
+          "previous_stages": 3,
+          "selected_source": "D:\\SynapticGenesis\\data\\prepared\\binding-v2\\binding.dat",
+          "selected_sha256": "b06d09b730660615d3afb2e2d51b82a1eafc2607fb3f616f627dbbf3ff24243f",
+          "selected_bytes": 131327,
+          "added_documents": 1728,
+          "checked_holdouts": [
+            {
+              "source": "D:\\SynapticGenesis\\data\\prepared\\development-v2-final\\13853.txt",
+              "sha256": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f"
+            },
+            {
+              "source": "D:\\SynapticGenesis\\data\\prepared\\development-v2-final\\12228.txt",
+              "sha256": "9f76e50d48b67cdefda8750df243f0825d38959a1288b7959490b736a57a3025"
+            }
+          ],
+          "editions": [
+            {
+              "file": "edition-1.dat",
+              "sha256": "66116234362cb7fa49d233e671f8c6a388ad2b2181577ea3538a92b95a2be143",
+              "bytes": 261281,
+              "documents": 4,
+              "end_update": 6000,
+              "rate_scale": 1.0,
+              "scope": "all",
+              "answer_scale": 1.0
+            },
+            {
+              "file": "edition-2.dat",
+              "sha256": "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+              "bytes": 585436,
+              "documents": 5,
+              "end_update": 12000,
+              "rate_scale": 0.25,
+              "scope": "new",
+              "answer_scale": 1.0
+            },
+            {
+              "file": "edition-3.dat",
+              "sha256": "9ece97576da7760024133eb25223918c026c00724b60681acb86f1b2bb42bd11",
+              "bytes": 590524,
+              "documents": 101,
+              "end_update": 16000,
+              "rate_scale": 0.25,
+              "scope": "new",
+              "answer_scale": 64.0
+            },
+            {
+              "file": "edition-4.dat",
+              "sha256": "7e0fbb3d5b947e0ee2e63cf6b54c7ef6017575ff952128cccf5646ddfce56d51",
+              "bytes": 721852,
+              "documents": 1829,
+              "end_update": 40000,
+              "rate_scale": 0.25,
+              "scope": "new",
+              "answer_scale": 64.0
+            }
+          ],
+          "limits": "Exact document checks only; no semantic overlap or curriculum mastery assessment."
+        }
+      ],
+      "extension_events": [
+        {
+          "event": "curriculum_extension",
+          "online_update": 12000,
+          "global_update": 15000,
+          "previous_curriculum_hash": "2274601009964895830",
+          "curriculum_hash": "6317110695486529388",
+          "previous_stages": 2,
+          "stages": 3,
+          "previous_end_update": 12000,
+          "end_update": 16000,
+          "current_stage": 2,
+          "document": 4,
+          "byte_offset": 119552,
+          "replay_windows_preserved": 1024,
+          "replay_updates": 3000,
+          "generated_bytes": 2304,
+          "consolidation_events": 0
+        },
+        {
+          "event": "curriculum_extension",
+          "online_update": 16000,
+          "global_update": 23000,
+          "previous_curriculum_hash": "6317110695486529388",
+          "curriculum_hash": "3331619208812913909",
+          "previous_stages": 3,
+          "stages": 4,
+          "previous_end_update": 16000,
+          "end_update": 40000,
+          "current_stage": 3,
+          "document": 69,
+          "byte_offset": 0,
+          "replay_windows_preserved": 1024,
+          "replay_updates": 7000,
+          "generated_bytes": 3072,
+          "consolidation_events": 0
+        }
+      ],
+      "stages": [
+        {
+          "label": "before",
+          "checkpoint": {
+            "sha256": "cf20ee21c825b68dc1380825d8dd3dba6c1d0d0384a0418f5fd1b47c197235bb",
+            "parameters": 1186304,
+            "cell": 1,
+            "online_updates": 12000,
+            "optimizer_updates": 15000,
+            "observed_pairs": 1534902,
+            "generated_bytes": 2304,
+            "curriculum_hash": "2274601009964895830",
+            "curriculum_stage": 2,
+            "replay_updates": 3000,
+            "replay_pairs": 383563,
+            "replay_seen": 12000,
+            "speech_every": 500,
+            "speech_length": 96
+          },
+          "single_fact_training_fit": {
+            "format": "SGPROBE1",
+            "suite_hash": "4407121253492996126",
+            "checkpoint_payload_hash": "10839346536855303911",
+            "items": 288,
+            "groups": 144,
+            "group_size": 2,
+            "joint_accuracy": 0.0347222222222,
+            "context_erased_joint_accuracy": 0,
+            "greedy_exact_joint_accuracy": 0,
+            "pairs": 144,
+            "paired_accuracy": 0.0347222222222,
+            "context_erased_paired_accuracy": 0,
+            "greedy_exact_paired_accuracy": 0,
+            "accuracy": 0.5,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0,
+            "answer_loss_nats_per_byte": 3.82537679126,
+            "answer_bytes": 1152,
+            "elapsed_seconds": 1.1595809,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "single-fact-training-fit": {
+                "items": 288,
+                "accuracy": 0.5,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0
+              }
+            }
+          },
+          "binding_development": {
+            "format": "SGPROBE2",
+            "suite_hash": "16568893675249492101",
+            "checkpoint_payload_hash": "10839346536855303911",
+            "items": 576,
+            "groups": 144,
+            "group_size": 4,
+            "joint_accuracy": 0,
+            "context_erased_joint_accuracy": 0,
+            "greedy_exact_joint_accuracy": 0,
+            "accuracy": 0.489583333333,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0,
+            "answer_loss_nats_per_byte": 3.83314195565,
+            "answer_bytes": 2304,
+            "elapsed_seconds": 2.2375344,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "binding-style-0": {
+                "items": 288,
+                "accuracy": 0.489583333333,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0
+              },
+              "binding-style-1": {
+                "items": 288,
+                "accuracy": 0.489583333333,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0
+              }
+            }
+          }
+        },
+        {
+          "label": "prerequisites",
+          "checkpoint": {
+            "sha256": "613310e5bdd0868b658ce52d972c184a824cb0b174038f2d9f07d39637538d97",
+            "parameters": 1186304,
+            "cell": 1,
+            "online_updates": 16000,
+            "optimizer_updates": 23000,
+            "observed_pairs": 1738902,
+            "generated_bytes": 3072,
+            "curriculum_hash": "6317110695486529388",
+            "curriculum_stage": 3,
+            "replay_updates": 7000,
+            "replay_pairs": 854567,
+            "replay_seen": 16000,
+            "speech_every": 500,
+            "speech_length": 96
+          },
+          "single_fact_training_fit": {
+            "format": "SGPROBE1",
+            "suite_hash": "4407121253492996126",
+            "checkpoint_payload_hash": "10475370288364625497",
+            "items": 288,
+            "groups": 144,
+            "group_size": 2,
+            "joint_accuracy": 0.777777777778,
+            "context_erased_joint_accuracy": 0,
+            "greedy_exact_joint_accuracy": 0.416666666667,
+            "pairs": 144,
+            "paired_accuracy": 0.777777777778,
+            "context_erased_paired_accuracy": 0,
+            "greedy_exact_paired_accuracy": 0.416666666667,
+            "accuracy": 0.888888888889,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.6875,
+            "answer_loss_nats_per_byte": 0.194166429341,
+            "answer_bytes": 1152,
+            "elapsed_seconds": 1.1846727,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "single-fact-training-fit": {
+                "items": 288,
+                "accuracy": 0.888888888889,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.6875
+              }
+            }
+          },
+          "binding_development": {
+            "format": "SGPROBE2",
+            "suite_hash": "16568893675249492101",
+            "checkpoint_payload_hash": "10475370288364625497",
+            "items": 576,
+            "groups": 144,
+            "group_size": 4,
+            "joint_accuracy": 0,
+            "context_erased_joint_accuracy": 0,
+            "greedy_exact_joint_accuracy": 0,
+            "accuracy": 0.506944444444,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.402777777778,
+            "answer_loss_nats_per_byte": 0.75696435312,
+            "answer_bytes": 2304,
+            "elapsed_seconds": 2.4000814,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "binding-style-0": {
+                "items": 288,
+                "accuracy": 0.510416666667,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.420138888889
+              },
+              "binding-style-1": {
+                "items": 288,
+                "accuracy": 0.503472222222,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.385416666667
+              }
+            }
+          },
+          "session": {
+            "online_updates": 16000,
+            "curriculum_stage": 3,
+            "curriculum_hash": "6317110695486529388",
+            "curriculum_extended": true,
+            "curriculum_base_lr": 0.0003000000142,
+            "global_updates": 23000,
+            "online_first_document": 5,
+            "online_document_count": 96,
+            "answer_emphasized_documents": 96,
+            "observed_pairs": 1738902,
+            "generated_bytes": 3072,
+            "elapsed_seconds": 9.6354752,
+            "session_online_updates": 4000,
+            "session_observed_pairs": 204000,
+            "observed_pairs_per_second": 21171.76328,
+            "replay_updates": 7000,
+            "replay_pairs": 854567,
+            "replay_mode": 1,
+            "replay_items": 1024,
+            "core_scale": 1,
+            "learning_rate": 7.500000356e-05,
+            "replay_every": 1,
+            "graph_decode": true,
+            "update_tick_p50_ms": 1.548564453,
+            "update_tick_p95_ms": 7.208411797,
+            "update_and_speech_tick_p50_ms": 18.29568378,
+            "update_and_speech_tick_p95_ms": 24.77703124,
+            "latency_percentile_bin_relative_width": 0.02189714865,
+            "shared_weights": true,
+            "persistent_membranes": true,
+            "trains_on_generated_text": false,
+            "consolidation": "none",
+            "initial_validation_loss": 2.210849047,
+            "final_validation_loss": 2.251605272
+          }
+        },
+        {
+          "label": "binding",
+          "checkpoint": {
+            "sha256": "ea2663b9f534d3e586c6b8cf76c0bd7ebd96c186aaf52d1527fd65f7d5f8d483",
+            "parameters": 1186304,
+            "cell": 1,
+            "online_updates": 40000,
+            "optimizer_updates": 71000,
+            "observed_pairs": 3514950,
+            "generated_bytes": 7680,
+            "curriculum_hash": "3331619208812913909",
+            "curriculum_stage": 4,
+            "replay_updates": 31000,
+            "replay_pairs": 3161641,
+            "replay_seen": 40000,
+            "speech_every": 500,
+            "speech_length": 96
+          },
+          "single_fact_training_fit": {
+            "format": "SGPROBE1",
+            "suite_hash": "4407121253492996126",
+            "checkpoint_payload_hash": "16232050235734069963",
+            "items": 288,
+            "groups": 144,
+            "group_size": 2,
+            "joint_accuracy": 0.965277777778,
+            "context_erased_joint_accuracy": 0,
+            "greedy_exact_joint_accuracy": 0.895833333333,
+            "pairs": 144,
+            "paired_accuracy": 0.965277777778,
+            "context_erased_paired_accuracy": 0,
+            "greedy_exact_paired_accuracy": 0.895833333333,
+            "accuracy": 0.982638888889,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.947916666667,
+            "answer_loss_nats_per_byte": 0.0561440649132,
+            "answer_bytes": 1152,
+            "elapsed_seconds": 1.1715568,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "single-fact-training-fit": {
+                "items": 288,
+                "accuracy": 0.982638888889,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.947916666667
+              }
+            }
+          },
+          "binding_development": {
+            "format": "SGPROBE2",
+            "suite_hash": "16568893675249492101",
+            "checkpoint_payload_hash": "16232050235734069963",
+            "items": 576,
+            "groups": 144,
+            "group_size": 4,
+            "joint_accuracy": 0,
+            "context_erased_joint_accuracy": 0,
+            "greedy_exact_joint_accuracy": 0,
+            "accuracy": 0.486111111111,
+            "context_erased_accuracy": 0.5,
+            "greedy_exact_accuracy": 0.489583333333,
+            "answer_loss_nats_per_byte": 0.25903150729,
+            "answer_bytes": 2304,
+            "elapsed_seconds": 2.2701716,
+            "parameters_and_optimizer_unchanged": true,
+            "strict_fp32": true,
+            "skills": {
+              "binding-style-0": {
+                "items": 288,
+                "accuracy": 0.493055555556,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.503472222222
+              },
+              "binding-style-1": {
+                "items": 288,
+                "accuracy": 0.479166666667,
+                "context_erased_accuracy": 0.5,
+                "greedy_exact_accuracy": 0.475694444444
+              }
+            }
+          },
+          "session": {
+            "online_updates": 40000,
+            "curriculum_stage": 4,
+            "curriculum_hash": "3331619208812913909",
+            "curriculum_extended": true,
+            "curriculum_base_lr": 0.0003000000142,
+            "global_updates": 71000,
+            "online_first_document": 101,
+            "online_document_count": 1728,
+            "answer_emphasized_documents": 1824,
+            "observed_pairs": 3514950,
+            "generated_bytes": 7680,
+            "elapsed_seconds": 57.2628688,
+            "session_online_updates": 24000,
+            "session_observed_pairs": 1776048,
+            "observed_pairs_per_second": 31015.7007,
+            "replay_updates": 31000,
+            "replay_pairs": 3161641,
+            "replay_mode": 1,
+            "replay_items": 1024,
+            "core_scale": 1,
+            "learning_rate": 7.500000356e-05,
+            "replay_every": 1,
+            "graph_decode": true,
+            "update_tick_p50_ms": 1.582473599,
+            "update_tick_p95_ms": 7.208411797,
+            "update_and_speech_tick_p50_ms": 17.52000681,
+            "update_and_speech_tick_p95_ms": 23.72656641,
+            "latency_percentile_bin_relative_width": 0.02189714865,
+            "shared_weights": true,
+            "persistent_membranes": true,
+            "trains_on_generated_text": false,
+            "consolidation": "none",
+            "initial_validation_loss": 2.251605272,
+            "final_validation_loss": 2.513204575
+          }
+        }
+      ],
+      "decode": {
+        "parameters": 1186304,
+        "tokens_per_round": 1024,
+        "rounds": 7,
+        "fast_math": false,
+        "graph_setup_ms": 42.7378,
+        "regular_us_per_byte": 367.3292969,
+        "graph_us_per_byte": 149.1519531,
+        "speedup": 2.462785697,
+        "generated_bytes_identical": true,
+        "state_logits_max_error": 0,
+        "regular_rounds_us": [
+          368.2174805,
+          370.2025391,
+          367.3329102,
+          366.5696289,
+          360.8496094,
+          367.3292969,
+          366.8206055
+        ],
+        "graph_rounds_us": [
+          145.5480469,
+          149.1519531,
+          152.1942383,
+          145.2291016,
+          149.609082,
+          152.8548828,
+          134.7134766
+        ]
+      },
+      "limits": "One existing LIF founder. Single-fact probes measure fit to the selected training lessons; stronger binding probes use development pairs. No causal curriculum advantage, general dialogue or biological learning claim.",
+      "live_seconds": 66.898344,
+      "added_online_updates": 28000,
+      "added_replay_updates": 28000
+    }
+  ]
+}
