@@ -1,0 +1,128 @@
+{
+  "passed": true,
+  "seeds": [
+    1337,
+    2026,
+    31415
+  ],
+  "native_commands": 144,
+  "model_count": 9,
+  "endpoint_count": 3,
+  "checkpoint_rows": 27,
+  "shared_initial_parameters_exact": true,
+  "exposure_and_replay_counts_match": true,
+  "graph_generation_exact": true,
+  "smoke_only": false,
+  "learning_quality_claim": false,
+  "early_history": [
+    {
+      "seed": 1337,
+      "arm": "selective",
+      "online_updates": 10000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 1337,
+      "arm": "selective",
+      "online_updates": 34000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 1337,
+      "arm": "wide-selective",
+      "online_updates": 10000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 1337,
+      "arm": "wide-selective",
+      "online_updates": 34000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 1337,
+      "arm": "associative",
+      "online_updates": 10000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 1337,
+      "arm": "associative",
+      "online_updates": 34000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 2026,
+      "arm": "wide-selective",
+      "online_updates": 10000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 2026,
+      "arm": "wide-selective",
+      "online_updates": 34000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 2026,
+      "arm": "associative",
+      "online_updates": 10000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 2026,
+      "arm": "associative",
+      "online_updates": 34000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 2026,
+      "arm": "selective",
+      "online_updates": 10000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 2026,
+      "arm": "selective",
+      "online_updates": 34000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 31415,
+      "arm": "associative",
+      "online_updates": 10000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 31415,
+      "arm": "associative",
+      "online_updates": 34000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 31415,
+      "arm": "selective",
+      "online_updates": 10000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 31415,
+      "arm": "selective",
+      "online_updates": 34000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 31415,
+      "arm": "wide-selective",
+      "online_updates": 10000,
+      "learned_and_recurrent_payload_identical": true
+    },
+    {
+      "seed": 31415,
+      "arm": "wide-selective",
+      "online_updates": 34000,
+      "learned_and_recurrent_payload_identical": true
+    }
+  ],
+  "early_history_comparison_scope": "Weights, Adam arrays and recurrent payload bytes only. Complete files have different declared schedule hashes. No trained early checkpoint was loaded."
+}

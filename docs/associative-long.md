@@ -40,7 +40,45 @@ python scripts/plot_associative.py --source reports/associative-long-summary.jso
 
 The full driver records 144 native commands: nine models, one prerequisite segment and three subsequent learn/assess/decode segments each. The shortened rehearsal records 48 commands for three models. Its tiny update counts validate orchestration only and do not supply learning-quality evidence. The full run writes its protocol before the first model starts, journals commands before execution, and saves partial results after each endpoint.
 
-The [completed rehearsal](../reports/associative-long-execution-smoke.json) passes all 48 commands, initial-common-weight checks, exposure/replay matching and exact graph decoding at nine model/endpoint combinations. The generalized reporting code also reproduces every previously reported early-screen numerical value. This verifies the execution path; full learning results are pending.
+The [completed rehearsal](../reports/associative-long-execution-smoke.json) passes all 48 commands, initial-common-weight checks, exposure/replay matching and exact graph decoding at nine model/endpoint combinations. The generalized reporting code also reproduces every previously reported early-screen numerical value.
+
+## Completed comparison: better binding, worse reading retention
+
+All nine models completed every declared endpoint. At 130,000 observations, associative memory improves complete development-group accuracy in every seed, including against the approximately parameter-matched wider control. This is a narrow binding gain accompanied by greater forgetting of earlier reading and higher runtime cost.
+
+| Model | Parameters | Complete development groups | Exact greedy groups | Earlier-reader loss increase | Live binding time | Graph decode |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Selective H512 | 1,716,736 | 71.06% | 70.83% | +0.2250 nats/byte | 168.25 s | 113.28 us/byte |
+| Selective H588 | 1,951,728 | 78.94% | 78.70% | +0.2651 nats/byte | 177.49 s | 117.65 us/byte |
+| Associative H512 | 1,951,624 | **99.77%** | **99.77%** | **+0.3830 nats/byte** | 335.99 s | 150.07 us/byte |
+
+Values are means across all three seeds. Reading change is relative to each model's own 10,000-observation checkpoint; positive values mean worse retention. Binding time sums all three measured segments from observation 10,000 through 130,000, including replay, speech, logs and checkpoint writes. It excludes setup and assessment. Decode uses the final checkpoint, strict FP32 and seven rounds of 512 bytes on the RTX 5080.
+
+| Seed | Selective H512 | Selective H588 | Associative H512 |
+| --- | ---: | ---: | ---: |
+| 1337 | 49.31% | 63.89% | 100.00% |
+| 2026 | 97.92% | 79.86% | 100.00% |
+| 31415 | 65.97% | 93.06% | 99.31% |
+
+The associative mean is 28.70 percentage points above the smaller control and 20.83 points above the wider control. At the intermediate 67,000-observation endpoint, its mean is 85.19%, versus 0.46% and 1.16% respectively. At 34,000, all remain at zero. These are three fixed seeds and a declared exposure budget, not a broad reliability estimate or a tuned best-checkpoint result.
+
+![Every seed, reading retention and runtime](../reports/associative-long-comparison.png)
+
+The final associative original/expanded training-monitor means are 98.23%/98.69%; the original development assay contains 144 four-question groups, or 576 questions. Its candidate ranking and unconstrained four-byte answers agree on complete groups. Individual context-erased answer accuracy remains exactly 50% for every model. The assay tests changed object locations with `box.`/`bag.` answers; it does not measure general conversation.
+
+The associative models have greater earlier-reader loss increases than both controls in **every seed**. Mean absolute final reader losses are 2.6109, 2.6278 and 2.7478 for smaller, wider and associative models. Saved samples from `The bird ` still repeat location/answer formats and contain malformed prose. Strong binding therefore does not justify promoting this cell as a better general learner. The [separately selected narrative books](story-corpus.md) are not part of this experiment.
+
+The optimized associative implementation takes **2.00 times** the smaller control's live binding time and **1.89 times** the wider control's time. Final graph generation takes 32.5% and 27.5% longer per byte respectively. It learns the narrow task with fewer observations, but this does not establish a general speed or energy-efficiency advantage. The earlier measured layout speedup remains a comparison against the preserved original associative binary.
+
+## Execution and numerical evidence
+
+The [execution audit](../reports/associative-long-execution.json) verifies all 144 native commands and 27 model/endpoint records. All arms finish with 130,000 observations, 32,500 replay updates, 162,500 total optimizer updates, 9,851,135 observed next-byte pairs, 2,808,933 replay pairs and 24,960 generated bytes. Common initialization matches exactly for the H512 pair; graph/ordinary decoding has identical generated bytes and zero measured state/logit error.
+
+All **18** early-history comparisons reproduce the archived weights, Adam arrays and recurrent payloads exactly: nine models at observations 10,000 and 34,000. These models started from random weights and did not load the archived trained checkpoints. Complete file identities differ because the longer schedule is declared in checkpoint metadata.
+
+The [fixed-group CPU oracle](../reports/associative-long-learned-oracle.json) passes all nine final models, with maximum score error `5.13e-6` against the unchanged `3e-5` tolerance and identical greedy bytes. This checks one fixed four-question group per model, including erased-context scores. It is not a full CPU audit. The additional associative-model diagnostic below checks every original development question and must report any threshold-sensitive discrepancies separately.
+
+The [full learning records](../reports/associative-long-language.json) and [summary](../reports/associative-long-summary.json) retain every seed, endpoint, sample, paired difference, checkpoint identity and timing. Reserved binding and reader tests remain unused. Native runtime code and checkpoint format did not change in this reporting stage.
 
 ## Follow-up: does the trained model use matrix history?
 

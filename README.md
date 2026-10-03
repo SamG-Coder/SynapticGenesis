@@ -17,7 +17,7 @@ The native learner, population registry, fitness-gated reproduction and bounded 
 - Native parent selection, whole-block inheritance, inherited learning settings and probabilistic hidden-neuron growth within size limits.
 - GPU-memory-based population credits, stricter selection under scarcity, inherited lifespans and old-age death.
 - Population-owned live sessions update the exact checkpoint used for selection, preserve lifespan/lineage, and reject deceased members.
-- Fourteen native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
+- Sixteen native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
 - Fixed-order CUDA gradient reductions for repeatable learning on the tested GPU/toolchain, with explicit runtime and checkpoint comparisons.
 - Context-reversal language probes and explicit answer emphasis for selected teaching lessons in the same live runtime.
 
@@ -29,7 +29,9 @@ The [selected lesson-diversity comparison](docs/lesson-diversity.md#completed-pa
 
 The subsequent [matched ordering comparison](docs/curriculum-order.md#completed-comparison) gives both arms the same online lesson instances, with either gradual 6/12/24-object association phases or a global shuffle under the same stage-replay policy. Gradual practice improves two seeds slightly but regresses severely in seed 2026: final development accuracy averages **55.6% versus 71.3% for shuffled practice**. It improves the expanded-training monitor and average reading retention, with nearly identical measured live cost, but remains experimental. Every final development answer reproduces in a full CPU audit; [numerical score differences near spike thresholds](docs/curriculum-order.md#numerical-finding-and-independent-audit) remain a documented limitation, including a failed strict tolerance check.
 
-An optional [associative memory cell](docs/associative-memory.md) now updates temporary key/value connections during the shared forward pass. Numerical and lifecycle checks pass. In a three-seed screen, all nine models still score 0% on complete development binding groups after 34,000 observations. The associative model has lower final reader loss, but its original implementation takes 2.34× the smaller selective control's live binding time. A subsequent [CUDA layout change](docs/association-runtime.md) reduces its live-loop time by 14.3% while reproducing all three complete learned checkpoints exactly. Generation gains are small, and the cell remains experimental. [Full learning comparison and limitations](docs/associative-memory.md#result-no-binding-gain-at-the-early-endpoint-with-higher-runtime-cost).
+The optional [associative memory cell](docs/associative-memory.md) updates temporary key/value connections during the shared forward pass. In the [completed longer comparison](docs/associative-long.md#completed-comparison-better-binding-worse-reading-retention), it reaches **99.77% complete development binding accuracy**, versus 71.06% for the smaller selective control and 78.94% for a similarly sized control. All three associative seeds improve on both controls. Earlier reading regresses more in every seed, and generated prose remains dominated by lesson patterns; general language is still unresolved.
+
+A [CUDA layout change](docs/association-runtime.md) reduces the associative live-loop time by 14.3% against its original implementation while reproducing all three earlier complete checkpoints exactly. In the longer learning comparison, its live binding phase still costs 2.00× the smaller control and 1.89× the similarly sized control; graph generation is 32.5% and 27.5% slower per byte. Numerical and lifecycle checks pass, but the cell remains experimental. The reports retain every seed, retention regression and timing boundary.
 
 ## Build
 
