@@ -1,0 +1,89 @@
+{
+  "status": "validated_runtime_sources_integrated",
+  "recorded_at_utc": "2026-10-03T17:20:48.188096+00:00",
+  "candidate_commit": "b1dba42998fb25c2cedac59536204484b71da025",
+  "candidate_source_files_equal": true,
+  "source_sha256": {
+    "src/spike_lm.cu": "b765c9045e6f50780a6b83955adeb397975b083a27386a5f98bb08dae2bca33d",
+    "src/adaptive_neuron.cuh": "55d88c666e2417b757cb3e29a968a27e460ae3a5b63d463c45aa66e7f829bcce",
+    "src/adaptive_tests.cuh": "b93c5e762cab1df346fd382c51c36bf65cc67db1b6197dec17ee88a70aa8b7c9",
+    "src/associative_bench.cuh": "a7cfd18ada923d7e393fadae84b837f8eee80fb23a915a6f1c8f61fb9b7a55fd",
+    "src/associative_memory.cuh": "920a788386f0182e436e8f43061503cdf8695468dd7304ebfce49eab82154b3b",
+    "src/associative_tests.cuh": "48f2e65d5ba71a60246b0bfb1fcff1e75a407835bbfcf6ef3c9d954af234d2cc",
+    "src/checkpoint.cuh": "ac967392c2ff80deb2dfa3403a0f501a15402230d335426b67b170eb2fa7d096",
+    "src/context_bench.cuh": "c301e214a51f8bf5a4cf0b4813cc666b5df5085ec1601a3d24e89d1d5998c274",
+    "src/curriculum_tests.cuh": "76b1f4e8672cb3280e8bea143416d226d728e46dac309e2ae62f9ae1d76f7909",
+    "src/decode_tests.cuh": "e2d6799e3c16b209d07dde037015db45a3cef070201192ba81bd59712cbf1a6c",
+    "src/distillation.cuh": "ecc1c2b1aa1f8fbcf848a5f7bac50ceac106a38559b09220c12d04af7113a18e",
+    "src/distillation_tests.cuh": "cf68dc009b9352406681dce922c2e77a1efb4d0434338f18f6e2812f43e14b3a",
+    "src/evolution.cuh": "a444a42b22e9690e0296cecb700764763b66d539f45774275f10e869cb940267",
+    "src/evolution_tests.cuh": "b4fd746ed03d7e81c5098996288914564892066e6d20ddf2e59cc1afdd1f3656",
+    "src/feedback_tests.cuh": "d7361dc9661b0f9921359f2caa431ff0682b7c92967f7a9a2f667cea09575acb",
+    "src/frozen_model_tests.cuh": "5e40f7cb32967f8a2dec7e3ebef4a374aa42241181d1d61221e74cd2c1fa58f5",
+    "src/gradient_reductions.cuh": "d39b7f958b5fc4cd89aab9ed741133d8139b1adbb0aa9ddfc4720e1aea83c2cd",
+    "src/graph_decoder.cuh": "93073bf0b78488c388916926c8a0ce20a9bd015846f0f1e4bebf2ce3829902c8",
+    "src/indexed_storage.cuh": "139ea0fa2d9ad9e962700a9e49b32174be53e067d07a6c1cd68825ad119cc147",
+    "src/language_objective.cuh": "8b72e29e1a835a7add36af0f9f22e037067406b39ce9023cf1bc46636781e186",
+    "src/language_probes.cuh": "153f821810a028cde1878a9420da5b27ec23c66b4d4ada72e4a66694df0510dc",
+    "src/live.cuh": "e1e1844f32be139a278232ef3b083d927a1dbb957d89b972a034758d70ec1b98",
+    "src/live_curriculum.cuh": "52c44af8f507c82fdfe5fcdac0d086a25f1d2fa944e7951cecd5cf2a81103da4",
+    "src/live_replay.cuh": "c35030f88b124e200e09ec94e1376b1e603bc3d6ebee6e60c18582a95791a141",
+    "src/live_views.cuh": "c4c6500ebb491bed33222b02f7c10f2ace89bd0bf50980ee40c1fa61d4d75176",
+    "src/memory_bench.cuh": "84e378f93d4704a961a4d0e658c95c0f4873ba81c58493648f576620eafaad0a",
+    "src/model.cuh": "1ef2ba51cebaf7ceb61e4eed675b312cc71a311b2a9481cd3f642e8d1730d710",
+    "src/model_memory.cuh": "2a16c13e629965af69cb189fd6bede63a030a52ca27c7daec4fc571ac15c7a4e",
+    "src/population_live.cuh": "6650fa83dd3da299a938e5e1012a11b911a9d8006440cce0cf89c0f012118018",
+    "src/population_teachers.cuh": "6fceb6d94ba53c51b18b2291b91e3b9cc1cf6bf475045dcb31c1728ea8471c78",
+    "src/reduction_tests.cuh": "c324c8f508db375d64c21a8153873facbe2f1a0bc334eaa2aa45cc5d56a5bfbc",
+    "src/retention_bench.cuh": "d5f451677eb90c97dc9b11da213e2a2fceca2035b6d291d0ff1e2221ac9e54ea",
+    "src/stage_replay.cuh": "4d7e5ec7c9e0dc6a312241821e4282b361fb71f1ea314bd9ce6c3c5b924f7ebd",
+    "src/stage_replay_tests.cuh": "accc2c662dd7ba53580b5130f9d07964b7b972bdbf9f8b732338026bcbacdd4b",
+    "src/synaptic_memory.cuh": "99c07936d379a5f3730fb0186bad11b55e25ab18c06ec2d296a643f04728b775",
+    "src/synaptic_tests.cuh": "3423956f1f0b36a407daf55aa08e968c6d945302b4e1001cdc77c31e0e899e18",
+    "src/teacher_bundle.cuh": "15807e0858ce03406238babad5e0daf032c0bf798edb18001a5d84b4532270cb",
+    "src/teacher_replay.cuh": "fb6a55698f4f61026dcf0730aa9841ea1df167d7b8f41011d04ae1d881be2966",
+    "src/teacher_replay_tests.cuh": "453bc9fb15c4da7861ff261b7fad1d115366f46a49336eb1851cd7afc4c1c2a6",
+    "src/teaching_state.cuh": "b7b903e1209511186ebe74601d8475504174dae26348434d3a2d55c00b66fc79",
+    "src/test_fixtures.cuh": "c37fc4c8b05f9e63158910892e29cebcd86797f9966f3dcdd2b31d74a6b37edd",
+    "src/trace_neuron.cuh": "d346931acdff5a4711dea5740b185e6212dc7d0dd906349ffdb8973081ed71b6"
+  },
+  "validated_runtime": {
+    "path": "D:\\SynapticGenesis\\build\\validated-shared-views\\synapticgenesis.exe",
+    "sha256": "4e65f54c44fb52603da839aa3cba41dff1f0788371cc3ffcc9cefd9e63613d62",
+    "byte_identical_to_tested_candidate": true
+  },
+  "preserved_main_runtime": {
+    "path": "D:\\SynapticGenesis\\build\\synapticgenesis.exe",
+    "sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+    "archive_path": "D:\\SynapticGenesis\\build\\preserved-runtime-f73d30d8\\synapticgenesis.exe",
+    "archive_sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda"
+  },
+  "preserved_studies": [
+    {
+      "protocol": "D:\\SynapticGenesis\\runs\\prose-retention-lr\\protocol.json",
+      "sha256": "9c50dc898d73ac1b123d07f1aca7a83e92a5b6ccb1402c838fc3c8cfceaaa9b3",
+      "authenticated_references": 90
+    },
+    {
+      "protocol": "D:\\SynapticGenesis\\runs\\prose-replay-capacity\\protocol.json",
+      "sha256": "20096651488db77581529f4a08a681af646ca5fefd7245efe51c9f2a05c27e19",
+      "authenticated_references": 89
+    },
+    {
+      "protocol": "D:\\SynapticGenesis\\runs\\prose-early-width\\protocol.json",
+      "sha256": "76d3ab3fefe4d8afd1d0904c260f59a0e14d8d02cf2ca40f8444ad2f078911db",
+      "authenticated_references": 136
+    },
+    {
+      "protocol": "D:\\SynapticGenesis\\runs\\prose-early-width-v2\\protocol.json",
+      "sha256": "c870c8419f7b62768fb697aab40c4e49c388770f919a10acd96bba13ef943773",
+      "authenticated_references": 137
+    }
+  ],
+  "total_authenticated_references": 452,
+  "distinct_authenticated_files": 234,
+  "all_pins_match": true,
+  "new_cuda_retest_required": false,
+  "retest_reason": "Every production CUDA source and the installed binary are byte-identical to the completed candidate checks; integration changes documentation only beyond those tested files.",
+  "language_quality_established": false
+}

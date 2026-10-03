@@ -37,9 +37,8 @@ struct CueResult {
     double loss = 0, accuracy = 0, no_adaptation_accuracy = 0, no_state_accuracy = 0;
 };
 CueResult cue_evaluate(Model &owner, int batches) {
-    Model prefix(owner.q, owner.B, owner.T - 1), query(owner.q, owner.B, 1);
-    prefix.share_parameters(owner);
-    query.share_runtime(prefix);
+    Model prefix(owner, owner.T - 1, ModelViewState::independent);
+    Model query(prefix, 1, ModelViewState::shared);
     CueResult result;
     uint64_t rng = 8721349;
     std::vector<int> x, y, px, qx(owner.B, '?'), qy(owner.B);

@@ -1,0 +1,177 @@
+{
+  "status": "candidate_compile_and_host_preflight_only",
+  "recorded_at_utc": "2026-10-03T15:58:50.053152+00:00",
+  "branch": "research/live-view-allocation",
+  "source_base_commit": "2cd812b09ed1f7b530cbead3f1fa677c4d218779",
+  "source_sha256": {
+    "CMakeLists.txt": "99943fa6e352793630f9d4b39d96bed2358e080f5f1ca545193b553773156de6",
+    "build.ps1": "b42e76ef8c017283095a351bb6b9c4c78e4e1db598ccf7b015f294b2fbe3e4ee",
+    "experiments/view_allocation_probe.cu": "34a82625521fe450700f60439999e69187cef1735f7e0ab298e8cb59b57177c0",
+    "src/adaptive_neuron.cuh": "55d88c666e2417b757cb3e29a968a27e460ae3a5b63d463c45aa66e7f829bcce",
+    "src/adaptive_tests.cuh": "b93c5e762cab1df346fd382c51c36bf65cc67db1b6197dec17ee88a70aa8b7c9",
+    "src/associative_bench.cuh": "a7cfd18ada923d7e393fadae84b837f8eee80fb23a915a6f1c8f61fb9b7a55fd",
+    "src/associative_memory.cuh": "920a788386f0182e436e8f43061503cdf8695468dd7304ebfce49eab82154b3b",
+    "src/associative_tests.cuh": "48f2e65d5ba71a60246b0bfb1fcff1e75a407835bbfcf6ef3c9d954af234d2cc",
+    "src/checkpoint.cuh": "ac967392c2ff80deb2dfa3403a0f501a15402230d335426b67b170eb2fa7d096",
+    "src/context_bench.cuh": "5f89d33d414b35900fd9dc4b51c8b1cca629e92e5a0e336d9437b9ee33285e27",
+    "src/curriculum_tests.cuh": "76b1f4e8672cb3280e8bea143416d226d728e46dac309e2ae62f9ae1d76f7909",
+    "src/decode_tests.cuh": "9cefd53ab09738f6f11e81e18cbdd91aef9d332d2ffd1f0c2879dfaf6bf40fb0",
+    "src/distillation.cuh": "ecc1c2b1aa1f8fbcf848a5f7bac50ceac106a38559b09220c12d04af7113a18e",
+    "src/distillation_tests.cuh": "cf68dc009b9352406681dce922c2e77a1efb4d0434338f18f6e2812f43e14b3a",
+    "src/evolution.cuh": "a444a42b22e9690e0296cecb700764763b66d539f45774275f10e869cb940267",
+    "src/evolution_tests.cuh": "b4fd746ed03d7e81c5098996288914564892066e6d20ddf2e59cc1afdd1f3656",
+    "src/feedback_tests.cuh": "d7361dc9661b0f9921359f2caa431ff0682b7c92967f7a9a2f667cea09575acb",
+    "src/frozen_model_tests.cuh": "5e40f7cb32967f8a2dec7e3ebef4a374aa42241181d1d61221e74cd2c1fa58f5",
+    "src/gradient_reductions.cuh": "d39b7f958b5fc4cd89aab9ed741133d8139b1adbb0aa9ddfc4720e1aea83c2cd",
+    "src/graph_decoder.cuh": "93073bf0b78488c388916926c8a0ce20a9bd015846f0f1e4bebf2ce3829902c8",
+    "src/indexed_storage.cuh": "139ea0fa2d9ad9e962700a9e49b32174be53e067d07a6c1cd68825ad119cc147",
+    "src/language_objective.cuh": "8b72e29e1a835a7add36af0f9f22e037067406b39ce9023cf1bc46636781e186",
+    "src/language_probes.cuh": "1443c13904fae32c85c6749bed821edff2112aed5489c1398fb50e82f310b76b",
+    "src/live.cuh": "e1e1844f32be139a278232ef3b083d927a1dbb957d89b972a034758d70ec1b98",
+    "src/live_curriculum.cuh": "52c44af8f507c82fdfe5fcdac0d086a25f1d2fa944e7951cecd5cf2a81103da4",
+    "src/live_replay.cuh": "c35030f88b124e200e09ec94e1376b1e603bc3d6ebee6e60c18582a95791a141",
+    "src/live_views.cuh": "d85f80fafdd4a023ea4360d96dc1c784fe33791da171c98f79b9583b683ca688",
+    "src/memory_bench.cuh": "99159f61fc1670b524add842d2d3ad1f8ad487018852fb96e530db0484c2e2a5",
+    "src/model.cuh": "1ef2ba51cebaf7ceb61e4eed675b312cc71a311b2a9481cd3f642e8d1730d710",
+    "src/model_memory.cuh": "2a16c13e629965af69cb189fd6bede63a030a52ca27c7daec4fc571ac15c7a4e",
+    "src/population_live.cuh": "6650fa83dd3da299a938e5e1012a11b911a9d8006440cce0cf89c0f012118018",
+    "src/population_teachers.cuh": "6fceb6d94ba53c51b18b2291b91e3b9cc1cf6bf475045dcb31c1728ea8471c78",
+    "src/reduction_tests.cuh": "c324c8f508db375d64c21a8153873facbe2f1a0bc334eaa2aa45cc5d56a5bfbc",
+    "src/retention_bench.cuh": "d5f451677eb90c97dc9b11da213e2a2fceca2035b6d291d0ff1e2221ac9e54ea",
+    "src/spike_lm.cu": "6b91d12828c52a81ae4594b49aba7987b0d4330b11d6bb68a59c0779d61b6d5e",
+    "src/stage_replay.cuh": "4d7e5ec7c9e0dc6a312241821e4282b361fb71f1ea314bd9ce6c3c5b924f7ebd",
+    "src/stage_replay_tests.cuh": "accc2c662dd7ba53580b5130f9d07964b7b972bdbf9f8b732338026bcbacdd4b",
+    "src/synaptic_memory.cuh": "99c07936d379a5f3730fb0186bad11b55e25ab18c06ec2d296a643f04728b775",
+    "src/synaptic_tests.cuh": "3423956f1f0b36a407daf55aa08e968c6d945302b4e1001cdc77c31e0e899e18",
+    "src/teacher_bundle.cuh": "15807e0858ce03406238babad5e0daf032c0bf798edb18001a5d84b4532270cb",
+    "src/teacher_replay.cuh": "fb6a55698f4f61026dcf0730aa9841ea1df167d7b8f41011d04ae1d881be2966",
+    "src/teacher_replay_tests.cuh": "453bc9fb15c4da7861ff261b7fad1d115366f46a49336eb1851cd7afc4c1c2a6",
+    "src/teaching_state.cuh": "b7b903e1209511186ebe74601d8475504174dae26348434d3a2d55c00b66fc79",
+    "src/test_fixtures.cuh": "c37fc4c8b05f9e63158910892e29cebcd86797f9966f3dcdd2b31d74a6b37edd",
+    "src/trace_neuron.cuh": "d346931acdff5a4711dea5740b185e6212dc7d0dd906349ffdb8973081ed71b6",
+    "tests/live_views.py": "ccc112860316588475bf0e4a2e319894b987ed9797cf8191c6d88f6270222280"
+  },
+  "source_hash_scope": "Working-file bytes of all tracked src files plus the optional diagnostic, build entrypoints and compatibility test.",
+  "compiler": {
+    "cuda": "13.3.73",
+    "msvc": "19.51.36248.0",
+    "cuda_architecture": "120",
+    "configuration": "Release"
+  },
+  "executables": {
+    "candidate_runtime": {
+      "path": "build/synapticgenesis.exe",
+      "sha256": "3a34dd75f9369147f67317892ea670e6be018a5e934f24fdf88df27f11209a70"
+    },
+    "candidate_probe": {
+      "path": "build/view-allocation-probe/synaptic-view-allocation-probe.exe",
+      "sha256": "4aec1f6fbb2e83adfc252b0133c942d71c709e12f69855f2f61c0d2867bc5d54"
+    },
+    "preserved_main_runtime": {
+      "path": "D:/SynapticGenesis/build/synapticgenesis.exe",
+      "sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+      "unchanged": true
+    }
+  },
+  "completed_checks": {
+    "runtime_build": true,
+    "diagnostic_build": true,
+    "host_preflight": {
+      "passed": true,
+      "cuda_work_requested": false,
+      "layouts": [
+        {
+          "parameters": 1951624,
+          "spiking_neurons": 2048,
+          "five_parameter_arrays_bytes": 39032480
+        },
+        {
+          "parameters": 27260432,
+          "spiking_neurons": 16384,
+          "five_parameter_arrays_bytes": 545208640
+        },
+        {
+          "parameters": 104851472,
+          "spiking_neurons": 32768,
+          "five_parameter_arrays_bytes": 2097029440
+        },
+        {
+          "parameters": 411028496,
+          "spiking_neurons": 65536,
+          "five_parameter_arrays_bytes": 8220569920
+        }
+      ],
+      "rejected_constructors": 32,
+      "float_allocations": 0
+    },
+    "python_compile": true,
+    "python_cli_help": true,
+    "ctest_discovered": 18,
+    "ctest_executed": false
+  },
+  "local_evidence": {
+    "host_result": {
+      "path": "runs/view-allocation-host-v2/host.json",
+      "sha256": "cd156df8f5fc9f2233676f23923ad4bb0eb9869621a3991b2097bdee00262f1d"
+    },
+    "logs": {
+      "runs-build-view-allocation.log": {
+        "sha256": "406af3f8e9695a16f2b4bdd9ccbe89d1ab0f5bedcb94e059f33da30bfba256fa",
+        "text": "-- Configuring done (1.7s)\n-- Generating done (0.0s)\n-- Build files have been written to: D:/SynapticGenesis/runs/live-view-allocation-worktree/build/view-allocation-probe\n[1/2] Building CUDA object CMakeFiles\\synaptic-view-allocation-probe.dir\\experiments\\view_allocation_probe.cu.obj\nview_allocation_probe.cu\ntmpxft_00008268_00000000-7_view_allocation_probe.cudafe1.cpp\n[2/2] Linking CUDA executable synaptic-view-allocation-probe.exe\n"
+      },
+      "runs-build-runtime.log": {
+        "sha256": "91ecc6a211c961d422a537ffc4d9ac82361bdebe1bfce512cc4479b121ce9d57",
+        "text": "-- Configuring done (1.7s)\n-- Generating done (0.0s)\n-- Build files have been written to: D:/SynapticGenesis/runs/live-view-allocation-worktree/build\n[1/2] Building CUDA object CMakeFiles\\synapticgenesis.dir\\src\\spike_lm.cu.obj\nspike_lm.cu\ntmpxft_00005130_00000000-7_spike_lm.cudafe1.cpp\n[2/2] Linking CUDA executable synapticgenesis.exe\n"
+      },
+      "runs-ctest-discovery.log": {
+        "sha256": "c858014e3ed95b3dea16a503ac271ed05729b347c64875d5794e5088329e1bfd",
+        "text": "Test project D:/SynapticGenesis/runs/live-view-allocation-worktree/build\n  Test  #1: spiking-native\n  Test  #2: spiking-live\n  Test  #3: spiking-graph\n  Test  #4: spiking-replay\n  Test  #5: spiking-adaptive\n  Test  #6: spiking-synaptic\n  Test  #7: spiking-evolution\n  Test  #8: spiking-curriculum\n  Test  #9: spiking-feedback\n  Test #10: spiking-distillation\n  Test #11: spiking-teacher-replay\n  Test #12: spiking-trace\n  Test #13: spiking-gated\n  Test #14: spiking-selective\n  Test #15: spiking-associative\n  Test #16: spiking-association-layout\n  Test #17: spiking-stage-replay\n  Test #18: spiking-reductions\n\nTotal Tests: 18\n"
+      }
+    }
+  },
+  "preserved_protocol_inputs": {
+    "protocols": [
+      {
+        "protocol": "runs/prose-retention-lr/protocol.json",
+        "sha256": "9c50dc898d73ac1b123d07f1aca7a83e92a5b6ccb1402c838fc3c8cfceaaa9b3",
+        "references": 90
+      },
+      {
+        "protocol": "runs/prose-replay-capacity/protocol.json",
+        "sha256": "20096651488db77581529f4a08a681af646ca5fefd7245efe51c9f2a05c27e19",
+        "references": 89
+      },
+      {
+        "protocol": "runs/prose-early-width/protocol.json",
+        "sha256": "76d3ab3fefe4d8afd1d0904c260f59a0e14d8d02cf2ca40f8444ad2f078911db",
+        "references": 136
+      }
+    ],
+    "authenticated_references": 315,
+    "distinct_files": 171,
+    "all_match": true
+  },
+  "pending_cuda_checks": {
+    "allocation_ownership_cases": 12,
+    "numerical_lifetime_cases": 48,
+    "owner_rejection_cases": 26,
+    "existing_ctest_checks": 18,
+    "ragged_compatibility_native_calls": 48,
+    "allocation_only_parameters": [
+      104851472,
+      411028496
+    ]
+  },
+  "claims": {
+    "candidate_cuda_executed": false,
+    "measured_peak_saving": false,
+    "trained_411m": false,
+    "new_gpu_job_queued": false,
+    "merged_to_main": false
+  },
+  "limits": [
+    "The host test exercises layout counts and early rejection only.",
+    "GPU ownership, numerical identity, graph/checkpoint compatibility and actual 411M allocation remain untested.",
+    "The optional observer counts explicit float allocations, not whole-process CUDA memory."
+  ]
+}

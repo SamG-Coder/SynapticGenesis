@@ -1,6 +1,7 @@
 // Read-only paired language probes. Answers change when facts in context change;
 // the query and candidate strings stay identical within each pair.
 #pragma once
+#include "live_views.cuh"
 namespace probes {
 std::string json(const std::string &value) {
     std::ostringstream out;
@@ -92,17 +93,12 @@ struct Suite {
 };
 struct Scorer {
     Model root;
-    std::map<int, std::unique_ptr<Model>> views;
+    LiveViews views;
     explicit Scorer(Config q) : root(q, 1, 1) {}
     Model &view(int n) {
         if (n == 1)
             return root;
-        auto &v = views[n];
-        if (!v) {
-            v = std::make_unique<Model>(root.q, 1, n);
-            v->share_runtime(root);
-        }
-        return *v;
+        return views.get(root, n, true, false);
     }
     double score(const std::string &prompt, const std::string &answer) {
         // Prompt losses never contribute to the score. The first answer byte is

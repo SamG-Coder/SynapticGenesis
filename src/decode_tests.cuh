@@ -50,9 +50,8 @@ void decode_bench(const Args &args) {
     auto path = args.get("checkpoint");
     State s = header(path);
     Config q = checkpoint_config(s);
-    Model regular(q, 1, 1), captured(q, 1, 1);
+    Model regular(q, 1, 1), captured(regular, 1, ModelViewState::independent);
     load(path, regular, s);
-    captured.w.share(regular.w);
     bool fast = !args.get("fast").empty();
     regular.fast(fast);
     captured.fast(fast);
