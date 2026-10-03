@@ -1,0 +1,41 @@
+{
+  "version": "prose-evaluation-v1",
+  "purpose": "Measure learning and retention at fixed source exposures for randomly initialized 2M, 27M and 105M associative spiking models.",
+  "source_spec": "data/sources-prose-scale-v1.json",
+  "prepared": "data/prepared/prose-scale-v1-pinned",
+  "schedule": "runs/prose-scale-curriculum/curriculum.sg",
+  "profiles": {
+    "2m": [256, 512, 4],
+    "27m": [512, 2048, 8],
+    "105m": [1024, 4096, 8]
+  },
+  "stage_endpoints": [8176, 26110, 95207, 216289],
+  "seed": 1337,
+  "validation_books": [13853, 12228, 11757, 107],
+  "training_retention_books": [14642, 14640],
+  "evaluation": {
+    "batch": 16,
+    "context": 128,
+    "batches": 32,
+    "target_bytes_per_book": 65536,
+    "math": "strict FP32",
+    "sampling": "Native evaluate resets its sampler to seed 712367; every book, size and stage receives the same 512 sampled windows. Recurrence resets for each window."
+  },
+  "generation": {
+    "prompts": [
+      "The bird ",
+      "The boy opened the door and saw ",
+      "Question: What is water?\nAnswer:",
+      "Question: What is two plus three?\nAnswer:"
+    ],
+    "bytes": 256,
+    "seed": 42,
+    "temperature": 0.8,
+    "top_k": 40,
+    "graph": true,
+    "math": "strict FP32",
+    "reset_recurrence": true
+  },
+  "comparison": "Report every book separately and the unweighted mean over the four validation books. Lower byte loss is better. Report each training retention book separately and its change from stage one. Compare model sizes only at matching stage endpoints. Raw generations are qualitative examples, not a QA accuracy benchmark.",
+  "limits": "One seed and one common learning rate are an exploratory size comparison, not a tuned architecture ranking. Fixed source observations match data exposure, not wall time or FLOPs. Adjacent material and paraphrases may overlap even with whole-book splits and exact-paragraph protection. Short reset windows do not measure long-context recall. No reserved test books are scored. The first 105M stage already had an exploratory reader check and two samples before this protocol; later checkpoints and matched controls have not been assessed."
+}
