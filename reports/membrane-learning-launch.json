@@ -1,0 +1,178 @@
+{
+  "status": "verified_wait_at_snapshot",
+  "snapshot_utc": "2026-10-03T19:58:51.732709+00:00",
+  "source_commit": "74370222987d84dc02710fee5bdfd16f53f3efcb",
+  "source_checkout": "D:\\SynapticGenesis\\runs\\membrane-learning-worktree",
+  "protocol_path": "D:\\SynapticGenesis\\runs\\membrane-learning-v1\\protocol.json",
+  "protocol_sha256": "647586b01163369233e699822d6ec7f6e6462208c1ddee77b79458d2aae097fb",
+  "specification": {
+    "version": "membrane-learning-v1",
+    "profile": "105m",
+    "shape": [
+      1024,
+      4096,
+      8
+    ],
+    "parameters": 104851472,
+    "seeds": [
+      1337,
+      2027,
+      4099
+    ],
+    "arms": [
+      {
+        "name": "control",
+        "activity_cost": 0,
+        "membrane_cost": 0
+      },
+      {
+        "name": "activity-0p1",
+        "activity_cost": 0.1,
+        "membrane_cost": 0
+      },
+      {
+        "name": "membrane-0p001",
+        "activity_cost": 0,
+        "membrane_cost": 0.001
+      },
+      {
+        "name": "membrane-0p01",
+        "activity_cost": 0,
+        "membrane_cost": 0.01
+      },
+      {
+        "name": "membrane-0p1",
+        "activity_cost": 0,
+        "membrane_cost": 0.1
+      }
+    ],
+    "membrane_band": 1.5,
+    "endpoints": [
+      8176,
+      26110
+    ],
+    "learning_rate": 0.0003,
+    "replay_capacity": 16384,
+    "replay_every": 4,
+    "log_every": 1,
+    "save_every": 8192,
+    "evaluation_spec": "data/prose-evaluation-v1.json",
+    "stage_two_training_monitors": [
+      572,
+      420
+    ],
+    "legacy_control_result": "reports/prose-replay-capacity-results.json",
+    "gradient_evidence": "reports/membrane-gradient-audit.json",
+    "primary_endpoint": "Paired equal-book validation loss after 26110 source observations, reporting every arm and all three seeds.",
+    "secondary_endpoints": "Each early-reader retention loss change from stage one to stage two; each stage-two training book before and after introduction; source-update loss, firing, logged gradient norms and above-clip counts; all four raw generation prompts at both endpoints.",
+    "scope": "Fresh randomized founders on the unchanged first two prose stages. Same source, replay, speech, optimizer and logging policy; only the declared objective changes. Coefficients are an exploratory logarithmic comparison, not matched-gradient penalties or biological ages.",
+    "limits": "No model promotion, teacher or reproduction admission, reserved test scoring, or coefficient selection by activity alone. Source-update clipping uses rounded logged norms; equality to the clip is recorded separately. Replay-update gradient norms are not logged. Full-curriculum language, 411M transfer and new-science retention remain separate work."
+  },
+  "authenticated_input_count": 474,
+  "all_inputs_verified_after_dispatch": true,
+  "execution_snapshot": {
+    "protocol_sha256": "647586b01163369233e699822d6ec7f6e6462208c1ddee77b79458d2aae097fb",
+    "phase": "waiting-for-acceptance",
+    "native_work_started": false,
+    "acceptance_driver": {
+      "pid": 16152,
+      "executable": "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+      "creation_filetime": 134355281252491706
+    }
+  },
+  "acceptance_execution_snapshot": {
+    "protocol_sha256": "827389c071e7869b3f7038cf020b88d52fcd68df1e633f097385e6b29aa45e80",
+    "driver": {
+      "pid": 21956,
+      "executable": "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+      "creation_filetime": 134355227206673793
+    },
+    "native_work_started": false,
+    "phase": "waiting-for-study"
+  },
+  "acceptance_protocol_sha256": "827389c071e7869b3f7038cf020b88d52fcd68df1e633f097385e6b29aa45e80",
+  "candidate_runtime": "D:\\SynapticGenesis\\runs\\membrane-regularization-worktree\\build\\synapticgenesis.exe",
+  "candidate_runtime_sha256": "bbc94b245887c8a6d473ae8cbe44dda6afa5993e29504f32baabeb02971ec481",
+  "native_learning_commands_planned": 15,
+  "native_assessment_commands_planned": 360,
+  "process_identities": [
+    {
+      "role": "learning-study-wrapper",
+      "pid": 29804,
+      "executable": "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+      "creation_filetime": 134355310567193128
+    },
+    {
+      "role": "learning-study-python",
+      "pid": 30752,
+      "executable": "C:\\Users\\samue\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+      "creation_filetime": 134355310567261419
+    },
+    {
+      "role": "acceptance-wrapper",
+      "pid": 16152,
+      "executable": "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+      "creation_filetime": 134355281252491706
+    },
+    {
+      "role": "whole-411m-wrapper",
+      "pid": 21956,
+      "executable": "D:\\SBILM\\.local\\venv\\Scripts\\python.exe",
+      "creation_filetime": 134355227206673793
+    },
+    {
+      "role": "411m-native-learner",
+      "pid": 12816,
+      "executable": "D:\\SynapticGenesis\\build\\validated-shared-views\\synapticgenesis.exe",
+      "creation_filetime": 134355228402753804
+    }
+  ],
+  "exec_session_id": 40848,
+  "declared_storage": {
+    "maximum_checkpoint_bytes": 1258906360,
+    "remaining_models": 15,
+    "required_free_bytes": 88789612560,
+    "available_bytes": 274592915456
+  },
+  "expected_exposure": {
+    "8176": {
+      "online_updates": 8176,
+      "global_updates": 10220,
+      "observed_pairs": 1045096,
+      "generated_bytes": 1536,
+      "replay_updates": 2044,
+      "curriculum_stage": 1
+    },
+    "26110": {
+      "online_updates": 26110,
+      "global_updates": 32637,
+      "observed_pairs": 3339920,
+      "generated_bytes": 4992,
+      "replay_updates": 6527,
+      "curriculum_stage": 2
+    }
+  },
+  "host_checks_sha256": "57eda768db91bddf31a031d4ba7e37805bc77c605b96dd9d8a4d1a69a236d787",
+  "latest_411m_metric": {
+    "online_update": 183808,
+    "curriculum_stage": 4,
+    "global_update": 229760,
+    "observed_pairs": 23522811,
+    "epochs": 6,
+    "document": 52,
+    "byte_offset": 43392,
+    "loss": 1.436972693,
+    "spike_rate": 0.9834382282,
+    "gradient_norm": 0.6946407557,
+    "replay_updates": 45952,
+    "replay_pairs": 5877140,
+    "replay_loss": 1.561192,
+    "consolidation_events": 0
+  },
+  "predecessor_completed": false,
+  "candidate_cuda_started": false,
+  "acceptance_passed": false,
+  "language_trial_started": false,
+  "reproduction_admitted": false,
+  "limits": "This records a verified waiting process. It is not completed CUDA acceptance, a completed fresh control, measured objective quality or permission to promote a model. The frozen declaration and live process handle gate all learning on successful predecessor completion and revalidation."
+}
