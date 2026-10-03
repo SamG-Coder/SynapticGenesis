@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "source_and_checkpoint_admission": {
+    "base_checkpoint_sha256": "c45f5d962112f73fe3ad2688f61f6689f6e9f10aa775ff6dfc38c62c241fe2a5",
+    "authenticated_inputs": 497,
+    "target_bytes": 427,
+    "target_pairs_per_pass": 416,
+    "original_stages_preserved": 4,
+    "correction_documents": 6,
+    "evaluation_questions": 18,
+    "quantitative_contexts_protected": 64,
+    "quantitative_statements_protected": 63
+  },
+  "scoring": {
+    "first_line_only": true,
+    "following_text_not_judged": true,
+    "invalid_utf8_never_matches": true,
+    "synthetic_replies_only": true
+  },
+  "history": {
+    "ancestor_online_updates": 216289,
+    "one_pass_source_updates": 6,
+    "one_pass_replay_updates": 1,
+    "expected_global_updates": 270368,
+    "fixture_only": true
+  },
+  "measurement": {
+    "mocked_native_commands": 22,
+    "native_commands_launched": 0,
+    "raw_bytes_preserved": true
+  },
+  "handoff": {
+    "failed_reused_or_incomplete_predecessor_starts_no_native_work": true
+  },
+  "rejected_inputs": [
+    "duplicate-lesson-id",
+    "evaluation-question-in-target",
+    "oversize-correction-window",
+    "separator-in-correction",
+    "duplicate-evaluation-id",
+    "reset-old-online-counter",
+    "lost-replay-history",
+    "wrong-source-byte-count",
+    "changed-learning-rate",
+    "lost-old-stage-exposures",
+    "replaced-model-shape",
+    "learning-from-generated-mistakes",
+    "nonzero-predecessor-exit",
+    "reused-predecessor-pid",
+    "incomplete-baseline",
+    "overwrite-prepared-edition"
+  ],
+  "native_commands_launched": 0,
+  "model_quality_verified": false,
+  "implementation_sha256": {
+    "D:/SynapticGenesis/runs/conversation-correction-worktree/tests/conversation_correction.py": "074f41117a064f2481e9809f3cec487c1fc3472e51701a5c0c24420b30d86fdc",
+    "D:/SynapticGenesis/runs/conversation-correction-worktree/scripts/conversation_material.py": "0c91f2c538050f230b5919126fc07316cc02025e78fd811ea6a097739aa897cd",
+    "D:/SynapticGenesis/runs/conversation-correction-worktree/scripts/conversation_measure.py": "87f7904f6f2099fb4bbae856c5fb52291e1bd5960f5594183289f2d0b87261d6",
+    "D:/SynapticGenesis/runs/conversation-correction-worktree/scripts/conversation_experiment.py": "bc036a49aff88fcc452358b7d09bc7e8e8d3cea6eec329cbd88e114e4647aabe"
+  }
+}

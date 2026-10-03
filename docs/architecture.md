@@ -1,5 +1,13 @@
 # Native spiking learner
 
+Direct correction experiments use `conversation_material.py` for admitted targets
+and curriculum extensions, `conversation_measure.py` for raw replies and retention
+checks, and `conversation_experiment.py` for the serialized teaching session.
+They call the existing native sample, evaluate and live commands. No host model
+or separate training forward is introduced. The
+[conversation contract](conversation-correction.md) distinguishes context-only
+correction, checkpoint-persistent learning and repeated practice.
+
 ## Signed LIF cell
 
 The default `signed_lif_v1` model uses a fixed 256-byte vocabulary, byte embedding, four residual blocks and an output projection. Default channel width is 256 and each block has 512 spiking neurons, for 1,186,304 trainable parameters. There are no imported model parameters or pretrained tokenizers.

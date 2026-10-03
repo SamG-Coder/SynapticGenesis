@@ -38,6 +38,10 @@
     "selected-physics-v2": {
       "sources": "data/sources-physics-v2.json",
       "sha256": "ebc730598163c352ac0d6660c590fb7a86c4a57430cba635da837f9131058d44"
+    },
+    "conversation-corrections-v1": {
+      "sources": "data/conversation-corrections-v1.json",
+      "sha256": "2ed2d7ac4ac6411324b932bf6aa02f76174a54e8823248c15695311afc53969c"
     }
   },
   "retired_editions": {
@@ -99,6 +103,15 @@
       "published_evidence": "reports/prose-105m-complete.json",
       "published_evidence_sha256": "1425f456053498061e5ee388d006431cc6fdd184b3cc66be4fd7371310adabb0",
       "allowed_use": "Same-curriculum learning-rate diagnostic only; descendants are not admitted for teaching or reproduction."
+    }
+  ],
+  "conversation_diagnostic_bases": [
+    {
+      "base": "runs/prose-replay-capacity/founder-105m/stage-4.ckpt",
+      "base_sha256": "c45f5d962112f73fe3ad2688f61f6689f6e9f10aa775ff6dfc38c62c241fe2a5",
+      "correction_edition": "conversation-corrections-v1",
+      "source_edition": "selected-prose-scale-v1",
+      "allowed_use": "Direct correction diagnostic using the full prose curriculum history; descendants are not admitted for teaching or reproduction."
     }
   ]
 }

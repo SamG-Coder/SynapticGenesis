@@ -1,0 +1,25 @@
+{
+  "version": "conversation-experiment-v1",
+  "source": "data/conversation-corrections-v1.json",
+  "base": "runs/prose-replay-capacity/founder-105m/stage-4.ckpt",
+  "base_sha256": "c45f5d962112f73fe3ad2688f61f6689f6e9f10aa775ff6dfc38c62c241fe2a5",
+  "original_curriculum": "runs/prose-scale-curriculum/curriculum.sg",
+  "original_curriculum_sha256": "95c67a6ee99e8c57101556cf141ae0031d9de2e4c1da7fc4ab652c7f253ea1e3",
+  "base_online_updates": 216289,
+  "passes": [1, 16, 256],
+  "rate_scale": 0.25,
+  "answer_scale": 8,
+  "generation": {"bytes": 96, "top_k": 1, "temperature": 1, "seed": 42, "graph": true},
+  "retention": {"prepared": "data/prepared/prose-scale-v1-pinned", "validation_books": [13853, 12228], "training_books": [14642, 14640], "batch": 16, "context": 128, "batches": 32},
+  "predecessor": "runs/quantitative-prose-baselines-v1",
+  "predecessor_protocol_sha256": "417f8adf03cd17fb09c8a9160801e8b4ef3f02b7b5d737b738b17a8cdceca021",
+  "limits": [
+    "A scripted teaching conversation using the native shared model; each assessment reloads its saved checkpoint with fresh recurrent context.",
+    "Explicit corrected answers are learned through supervised online updates and existing stage replay. The learner does not judge its own answers or learn from its generated mistakes.",
+    "One pass means one direct source exposure to each short correction. Replay may add exposures; report its counters separately.",
+    "Only the first round is a one-exposure diagnostic. Later rounds deliberately repeat corrections; they are not evidence of learning instantly from one conversation.",
+    "Weights, optimizer state and replay history resume from the full admitted prose checkpoint. No new model is initialized and no ancestor is overwritten.",
+    "Generation process time includes checkpoint loading, GPU setup and prompt processing; it is not isolated decode throughput.",
+    "Diagnostic descendants are not admitted as teachers or parents."
+  ]
+}

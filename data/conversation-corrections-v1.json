@@ -1,0 +1,33 @@
+{
+  "version": "conversation-corrections-v1",
+  "license": "MIT",
+  "provenance": "Original short teaching examples authored for this experiment. No model-generated answer is a training target. The user requested direct conversation and correction.",
+  "review": "Six manually reviewed corrections: a greeting, the project's chosen name, elementary addition and subtraction, the elements in water, and acknowledging missing information about a closed cupboard. This is a narrow teaching diagnostic, not a general instruction corpus.",
+  "lessons": [
+    {"id": "greeting", "question": "Hello!", "answer": "Hello! I am ready to learn.", "accepted": ["Hello! I am ready to learn.", "Hello!", "Hello."]},
+    {"id": "name", "question": "What is your name?", "answer": "My name is SynapticGenesis.", "accepted": ["My name is SynapticGenesis.", "SynapticGenesis."]},
+    {"id": "addition", "question": "What is two plus three?", "answer": "Two plus three is five.", "accepted": ["Two plus three is five.", "Five.", "5.", "2 + 3 = 5."]},
+    {"id": "subtraction", "question": "What is five minus two?", "answer": "Five minus two is three.", "accepted": ["Five minus two is three.", "Three.", "3.", "5 - 2 = 3."]},
+    {"id": "water", "question": "What is water made of?", "answer": "Water is made of hydrogen and oxygen.", "accepted": ["Water is made of hydrogen and oxygen.", "Hydrogen and oxygen.", "H2O."]},
+    {"id": "unknown", "question": "What is inside the closed cupboard?", "answer": "I do not know without looking inside.", "accepted": ["I do not know without looking inside.", "I do not know.", "I don't know."]}
+  ],
+  "evaluation_only": [
+    {"id": "greeting-reworded", "group": "reworded", "question": "Hi!", "accepted_from": "greeting"},
+    {"id": "name-reworded", "group": "reworded", "question": "Please tell me your name.", "accepted_from": "name"},
+    {"id": "addition-reworded", "group": "reworded", "question": "What does two plus three equal?", "accepted_from": "addition"},
+    {"id": "subtraction-reworded", "group": "reworded", "question": "If I take two away from five, how many remain?", "accepted_from": "subtraction"},
+    {"id": "water-reworded", "group": "reworded", "question": "Which elements make up water?", "accepted_from": "water"},
+    {"id": "unknown-reworded", "group": "reworded", "question": "Without opening the cupboard, can you tell me what is inside?", "accepted_from": "unknown"},
+    {"id": "addition-new-1", "group": "new_arithmetic", "question": "What is two plus four?", "accepted": ["Two plus four is six.", "Six.", "6.", "2 + 4 = 6."]},
+    {"id": "addition-new-2", "group": "new_arithmetic", "question": "What is three plus four?", "accepted": ["Three plus four is seven.", "Seven.", "7.", "3 + 4 = 7."]},
+    {"id": "subtraction-new-1", "group": "new_arithmetic", "question": "What is seven minus two?", "accepted": ["Seven minus two is five.", "Five.", "5.", "7 - 2 = 5."]},
+    {"id": "subtraction-new-2", "group": "new_arithmetic", "question": "What is eight minus three?", "accepted": ["Eight minus three is five.", "Five.", "5.", "8 - 3 = 5."]},
+    {"id": "days", "group": "unpractised_facts", "question": "How many days are in a week?", "accepted": ["There are seven days in a week.", "Seven.", "7."]},
+    {"id": "planet", "group": "unpractised_facts", "question": "What planet do people live on?", "accepted": ["People live on Earth.", "Earth.", "The Earth."]}
+  ],
+  "limits": [
+    "Reworded and new questions are excluded from these correction targets. Their concepts or answers may already occur in the original books.",
+    "A matching first answer line is a narrow string check; inspect the full raw continuation separately.",
+    "One model and six corrections do not establish general dialogue, general arithmetic, truthful uncertainty, or human-like learning."
+  ]
+}
