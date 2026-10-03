@@ -2,6 +2,14 @@
 
 Host: Windows, NVIDIA RTX 5080, CUDA 13.3, MSVC 19.51. Model execution, learning, mutation and selection use the native C++/CUDA executable.
 
+## Ordered gradient reductions
+
+The current build passes fourteen native suites and eleven independent CPU autograd fixtures. The [validation record](ordered-reductions-validation.json) includes twelve scalar-reference shapes, repeated-byte collisions and twenty complete repeated-training cases across all five neuron cells, single/multiple sequences, strict FP32 and TF32. Maximum scalar embedding error is 2.98e-7; maximum full-model plain and regularized gradient errors are 6.90e-8 and 7.55e-8. Population admission includes batched reduction scratch and is checked against actual explicit buffer sizes.
+
+The 17-command replay-policy test, 153-command extension test with forty comparisons, and 17-command population test all pass. First-stage conversion and extension comparisons now have zero saved-state discrepancy in these checks. Source protection, old-age death, rejected dead-member learning, inherited rates, canonical selection and archived inference remain verified.
+
+The separate [29-command real-data experiment](ordered-reductions-comparison.json) produces identical complete checkpoints in three repeats of one seed. Both long continuations start from the same older executable checkpoint; uninterrupted learning and a restart at observation 17,403 finish with byte-identical state at 130,000 observations. Both measured batch shapes also repeat exactly. [Timing summary](ordered-reductions-summary.json): +0.42% median live-loop time and +1.98%/+4.97% for the two batch shapes, with similar decode timings. [Full protocol, arithmetic diagnosis and limits](../docs/ordered-reductions.md). This checks same-device numerical repeatability, not seed robustness, broader language skill or biological equivalence.
+
 ## Balanced source-stage replay
 
 At this earlier stage the build passed thirteen native suites. The [stage replay validation report](stage-replay-validation.json) covers bounded quotas, uniform shrink, returning earlier sources, 4,000 seeded inclusion trials, equal group selection and ten native restarts across all five neuron cells with optional SI. One-stage behavior matches the ordinary reservoir's descriptors and RNG sequence. The largest native restart error is 4.66e-10.

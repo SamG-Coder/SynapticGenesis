@@ -1,0 +1,232 @@
+{
+  "protocol": {
+    "executable_sha256": {
+      "legacy": "487160385dccf2df51bf35c62767febfb0645f3346eb956165e9a7cb4876cece",
+      "ordered": "b0e75baf28ed19d79808613775d48514e3f7ac40ca0bad02e17d66c78046b5bb"
+    },
+    "cell": "selective",
+    "channels": 256,
+    "hidden": 512,
+    "layers": 4,
+    "seed": 1337,
+    "repeated_fresh_runs": 3,
+    "first_stage_observations": 6000,
+    "long_endpoint": 130000,
+    "restart_at": 17403,
+    "replay_slots": 1024,
+    "replay_every": 4,
+    "chunk": 128,
+    "batched_shapes": [
+      [
+        8,
+        128
+      ],
+      [
+        16,
+        256
+      ]
+    ],
+    "batched_steps": 400,
+    "tf32": true,
+    "graph_speech": true,
+    "source_hashes": [
+      "54a3f12c1e8d6661e78fd079eaa9a462daf2d4da44acd39134cbef08f11b9cda",
+      "9ece97576da7760024133eb25223918c026c00724b60681acb86f1b2bb42bd11",
+      "7e0fbb3d5b947e0ee2e63cf6b54c7ef6017575ff952128cccf5646ddfce56d51"
+    ],
+    "selected_spec_sha256": "7ecb1719ff45a3c02c151aa3dab786fb27dac7fbf24865798b28148753c7473c",
+    "reserved_test_evaluated": false,
+    "limits": "Same device/toolchain only. Repeats measure arithmetic reproducibility, not robustness across seeds or better learning. Legacy and ordered sums differ in rounding and can follow different learned trajectories.",
+    "timing": "Native elapsed_seconds includes live updates, speech, replay, logging and checkpoint I/O; excludes setup and held-out evaluation. Rotated binary order."
+  },
+  "one_stage_controls": {
+    "legacy": {
+      "replay_descriptors_equal": true,
+      "replay_rng_equal": true,
+      "exposure_counters_equal": true,
+      "checkpoint_sha256": [
+        "67c78ac70bf137aa8c742156f4dbc2502e710b0d626de179ee5cef9341208ffc",
+        "226b12777fbabd251a3706f74cc897e422b7d7bb3b500f92fa8ebd35115b48ff"
+      ],
+      "complete_checkpoint_identical": false,
+      "core_arrays_bitwise_identical": false,
+      "max_abs_errors": {
+        "weights": 0.4270753860473633,
+        "first_moment": 0.013049568980932236,
+        "second_moment": 0.0035997383820358664,
+        "recurrence": 84.50287055969238
+      }
+    },
+    "ordered": {
+      "replay_descriptors_equal": true,
+      "replay_rng_equal": true,
+      "exposure_counters_equal": true,
+      "checkpoint_sha256": [
+        "4d857e87a0f6901d7d5c67d8527759602d824d8dc2e0466af0aebbe4a3546bd1",
+        "af365e7cdb990642e2549570ef949fba92db3e47bd7a64f01e51ae5d39f89585"
+      ],
+      "complete_checkpoint_identical": false,
+      "core_arrays_bitwise_identical": true,
+      "max_abs_errors": {
+        "weights": 0.0,
+        "first_moment": 0.0,
+        "second_moment": 0.0,
+        "recurrence": 0.0
+      }
+    }
+  },
+  "long_restart": {
+    "checkpoint_sha256": [
+      "6e8b41bf60444a5c551f0f8dd0388a163f8e32cb4f4814bedcd7f3d5131258eb",
+      "6e8b41bf60444a5c551f0f8dd0388a163f8e32cb4f4814bedcd7f3d5131258eb"
+    ],
+    "complete_checkpoint_identical": true,
+    "core_arrays_bitwise_identical": true,
+    "max_abs_errors": {
+      "weights": 0.0,
+      "first_moment": 0.0,
+      "second_moment": 0.0,
+      "recurrence": 0.0
+    }
+  },
+  "live_timing": {
+    "legacy": {
+      "seconds": [
+        9.2948518,
+        9.3094525,
+        9.2674053
+      ],
+      "median_seconds": 9.2948518
+    },
+    "ordered": {
+      "seconds": [
+        9.3340664,
+        9.3199876,
+        9.3456813
+      ],
+      "median_seconds": 9.3340664
+    }
+  },
+  "frozen_fixture_old_new_weights_and_forward_outputs_bitwise_identical": true,
+  "live_median_change_percent": 0.42189591446739616,
+  "batched_timing": [
+    {
+      "batch": 8,
+      "context": 128,
+      "steps": 400,
+      "legacy": {
+        "seconds": [
+          0.7424583,
+          0.5553469,
+          0.5587969
+        ],
+        "median_seconds": 0.5587969,
+        "repeated_checkpoints_identical": false
+      },
+      "ordered": {
+        "seconds": [
+          0.5698842,
+          0.5740626,
+          0.5683864
+        ],
+        "median_seconds": 0.5698842,
+        "repeated_checkpoints_identical": true
+      },
+      "median_change_percent": 1.9841377072778776
+    },
+    {
+      "batch": 16,
+      "context": 256,
+      "steps": 400,
+      "legacy": {
+        "seconds": [
+          1.3094844,
+          1.3098893,
+          1.3113799
+        ],
+        "median_seconds": 1.3098893,
+        "repeated_checkpoints_identical": false
+      },
+      "ordered": {
+        "seconds": [
+          1.3731647,
+          1.3749741,
+          1.3795692
+        ],
+        "median_seconds": 1.3749741,
+        "repeated_checkpoints_identical": true
+      },
+      "median_change_percent": 4.968725219757109
+    }
+  ],
+  "decode_from_identical_legacy_checkpoint": {
+    "legacy": {
+      "parameters": 1716736,
+      "tokens_per_round": 1024,
+      "rounds": 7,
+      "fast_math": false,
+      "graph_setup_ms": 41.64,
+      "regular_us_per_byte": 310.5198242,
+      "graph_us_per_byte": 117.1415039,
+      "speedup": 2.650809609,
+      "generated_bytes_identical": true,
+      "state_logits_max_error": 0,
+      "regular_rounds_us": [
+        315.8318359,
+        303.6710938,
+        312.0748047,
+        306.9799805,
+        308.6438477,
+        318.6269531,
+        310.5198242
+      ],
+      "graph_rounds_us": [
+        117.2385742,
+        117.946582,
+        115.7444336,
+        117.1415039,
+        116.7594727,
+        117.9025391,
+        116.4422852
+      ]
+    },
+    "ordered": {
+      "parameters": 1716736,
+      "tokens_per_round": 1024,
+      "rounds": 7,
+      "fast_math": false,
+      "graph_setup_ms": 41.5201,
+      "regular_us_per_byte": 312.9698242,
+      "graph_us_per_byte": 116.0165039,
+      "speedup": 2.69763192,
+      "generated_bytes_identical": true,
+      "state_logits_max_error": 0,
+      "regular_rounds_us": [
+        313.8868164,
+        312.9698242,
+        312.5648438,
+        317.5767578,
+        305.8936523,
+        324.615918,
+        311.7976562
+      ],
+      "graph_rounds_us": [
+        114.7223633,
+        116.4583008,
+        116.0165039,
+        117.4954102,
+        114.6723633,
+        116.3814453,
+        114.1975586
+      ]
+    }
+  },
+  "additional_explicit_scratch_bytes": {
+    "single_sequence_learner": 0,
+    "optional_live_batch16_evaluator": 98304,
+    "batch8_learner": 49152,
+    "batch16_learner": 98304,
+    "checkpoint": 0
+  },
+  "interpretation": "Fixed-order reductions remove observed same-run arithmetic variation in these checks. This is not evidence of a language-quality gain or cross-platform bitwise reproducibility."
+}

@@ -61,6 +61,12 @@ def main():
         record['median_change_percent'] = 100*(record['ordered']['median_seconds']/record['legacy']['median_seconds']-1)
         summary['batched_timing'].append(record)
     summary['decode_from_identical_legacy_checkpoint'] = data['decode_from_identical_legacy_checkpoint']
+    per_sequence = 4 * data['protocol']['hidden'] * 3 # Selective cell: three parameter gradients.
+    summary['additional_explicit_scratch_bytes'] = dict(single_sequence_learner=0,
+                                                        optional_live_batch16_evaluator=16*per_sequence,
+                                                        batch8_learner=8*per_sequence,
+                                                        batch16_learner=16*per_sequence,
+                                                        checkpoint=0)
     summary['interpretation'] = ('Fixed-order reductions remove observed same-run arithmetic variation in these checks. '
                                  'This is not evidence of a language-quality gain or cross-platform bitwise reproducibility.')
     # Write only after every input and executable binding has been checked.
