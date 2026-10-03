@@ -1,0 +1,742 @@
+{
+  "candidate_count": 49,
+  "admitted_candidates": 45,
+  "scope": "New candidate sample review. Existing sources retain their original review and held-out roles.",
+  "records": [
+    {
+      "id": 120,
+      "catalog_title": "Treasure Island by Robert Louis Stevenson | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/120",
+      "raw_sha256": "5bc08275eacea8640b1aa185c645283bb8c564d7b23df6b03437d229b4fc6ebd",
+      "catalog_sha256": "8df6a84877e9c76a1def43dbad234ddecfda7d01d00446ce0d0f48d02697e7e6",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "At first I had supposed “the dead man’s chest” to be that identical big box of his upstairs in the front room, and the thought had been mingled in my nightmares with that of the one-legged seafaring man. But by this time we had all long ceased to pay any particular notice to the song; it was new, that night, to nobody but Dr. Livesey, and on him I observed it did not produce an agreeable effect, for he looked up for a moment quite angrily before he went on with his talk to old Taylor, the gardener, on a new cure for the rheumatics. In the meantime, the captain gradually brightened up at his own music, and at last flapped his hand upon the tab",
+        "“Well, Jim,” says he, “just see the good that comes of being dainty in your food. You’ve seen my snuff-box, haven’t you? And you never saw me take snuff, the reason being that in my snuff-box I carry a piece of Parmesan cheese--a cheese made in Italy, very nutritious. Well, that’s for Ben Gunn!”",
+        "There never was such an overturn in this world. Each of these six men was as though he had been struck. But with Silver the blow passed almost instantly. Every thought of his soul had been set full-stretch, like a racer, on that money; well, he was brought up, in a single second, dead; and he kept his head, found his temper, and changed his plan before the others had had time to realize the disappointment."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 421,
+      "catalog_title": "Kidnapped by Robert Louis Stevenson | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/421",
+      "raw_sha256": "d57ef5be2a98ff2bbe3819abc84deeeea7f5f039a4b90fd358b2babb0f75588a",
+      "catalog_sha256": "ded843fda9b5bf6b115cb9061d4cbd0e4b190c221fdc9f19a30a331c7493520e",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“Why, very well said,” replied Mr. Campbell, heartily. “And now to come to the material, or (to make a quibble) to the immaterial. I have here a little packet which contains four things.” He tugged it, as he spoke, and with some great difficulty, from the skirt pocket of his coat. “Of these four things, the first is your legal due: the little pickle money for your father’s books and plenishing, which I have bought (as I have explained from the first) in the design of re-selling at a profit to the incoming dominie. The other three are gifties that Mrs. Campbell and myself would be blithe of your acceptance. The first, which is round, will like",
+        "“Yes,” says he, “but the business has gone back and forth, as folk say. First, James of the Glens rode to Edinburgh, and got some lawyer (a Stewart, nae doubt--they all hing together like bats in a steeple) and had the proceedings stayed. And then Colin Campbell cam’ in again, and had the upper-hand before the Barons of Exchequer. And now they tell me the first of the tenants are to flit to-morrow. It’s to begin at Duror under James’s very windows, which doesnae seem wise by my humble way of it.”",
+        "“Surely,” said Mr. Rankeillor, “and if possible, out of court. For mark you here, Mr. David: we could no doubt find some men of the _Covenant_ who would swear to your reclusion; but once they were in the box, we could no longer check their testimony, and some word of your friend Mr. Thomson must certainly crop out. Which (from what you have let fall) I cannot think to be desirable.”"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 43,
+      "catalog_title": "The strange case of Dr. Jekyll and Mr. Hyde by Robert Louis Stevenson | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/43",
+      "raw_sha256": "b43448a88391591f9cf82b25553df00faf47a2752a873185fcdd1156eebdb990",
+      "catalog_sha256": "4a5479cbcae85d2fb97639b3efcb649e8c14940c07ae69ea4c152b9939647f4d",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“Well, it was this way,” returned Mr. Enfield: “I was coming home from some place at the end of the world, about three o’clock of a black winter morning, and my way lay through a part of town where there was literally nothing to be seen but lamps. Street after street and all the folks asleep—street after street, all lighted up as if for a procession and all as empty as a church—till at last I got into that state of mind when a man listens and listens and begins to long for the sight of a policeman. All at once, I saw two figures: one a little man who was stumping along eastward at a good walk, and the other a girl of maybe eight or ten who wa",
+        "“Thank you, sir,” said Poole, with a note of something like triumph in his voice; and taking up his candle, he led Mr. Utterson back across the yard and into the great kitchen, where the fire was out and the beetles were leaping on the floor.",
+        "Instantly the spirit of hell awoke in me and raged. With a transport of glee, I mauled the unresisting body, tasting delight from every blow; and it was not till weariness had begun to succeed, that I was suddenly, in the top fit of my delirium, struck through the heart by a cold thrill of terror. A mist dispersed; I saw my life to be forfeit; and fled from the scene of these excesses, at once glorying and trembling, my lust of evil gratified and stimulated, my love of life screwed to the topmost peg. I ran to the house in Soho, and (to make assurance doubly sure) destroyed my papers; thence I set out through the lamplit streets, in the same "
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 1661,
+      "catalog_title": "The Adventures of Sherlock Holmes by Arthur Conan Doyle | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/1661",
+      "raw_sha256": "922e2a12ccb43a4c9544c260b2166c6ad2097aeb5957faeee113f173bb857cd0",
+      "catalog_sha256": "a2e2dc9a135069c36ff6fe23c29065168036e3555ed3e183a6ce656834c50b4a",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“Kindly look her up in my index, Doctor,” murmured Holmes without opening his eyes. For many years he had adopted a system of docketing all paragraphs concerning men and things, so that it was difficult to name a subject or a person on which he could not at once furnish information. In this case I found her biography sandwiched in between that of a Hebrew rabbi and that of a staff-commander who had written a monograph upon the deep-sea fishes.",
+        "“The further points, that he is middle-aged, that his hair is grizzled, that it has been recently cut, and that he uses lime-cream, are all to be gathered from a close examination of the lower part of the lining. The lens discloses a large number of hair-ends, clean cut by the scissors of the barber. They all appear to be adhesive, and there is a distinct odour of lime-cream. This dust, you will observe, is not the gritty, grey dust of the street but the fluffy brown dust of the house, showing that it has been hung up indoors most of the time, while the marks of moisture upon the inside are proof positive that the wearer perspired very freely",
+        "By eleven o’clock the next day we were well upon our way to the old English capital. Holmes had been buried in the morning papers all the way down, but after we had passed the Hampshire border he threw them down and began to admire the scenery. It was an ideal spring day, a light blue sky, flecked with little fleecy white clouds drifting across from west to east. The sun was shining very brightly, and yet there was an exhilarating nip in the air, which set an edge to a man’s energy. All over the countryside, away to the rolling hills around Aldershot, the little red and grey roofs of the farm-steadings peeped out from amid the light green of "
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 2097,
+      "catalog_title": "The Sign of the Four by Arthur Conan Doyle | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/2097",
+      "raw_sha256": "4cdea89cf6cd2567a556d0e6901edb89949dd79e200dbaf4ced4cabf1d5d2c26",
+      "catalog_sha256": "17c904dc2038f14529a3c4f1517a9f41d960a6abda856a652b828fd71e4e909e",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "I was annoyed at this criticism of a work which had been specially designed to please him. I confess, too, that I was irritated by the egotism which seemed to demand that every line of my pamphlet should be devoted to his own special doings. More than once during the years that I had lived with him in Baker Street I had observed that a small vanity underlay my companion’s quiet and didactic manner. I made no remark, however, but sat nursing my wounded leg. I had a Jezail bullet through it some time before, and, though it did not prevent me from walking, it ached wearily at every change of the weather.",
+        "“That was like following the brook to the parent lake. He makes one curious but profound remark. It is that the chief proof of man’s real greatness lies in his perception of his own smallness. It argues, you see, a power of comparison and of appreciation which is in itself a proof of nobility. There is much food for thought in Richter. You have not a pistol, have you?”",
+        "“‘I wanted to ask you, sir,’ said I, ‘who is the proper person to whom hidden treasure should be handed over. I know where half a million worth lies, and, as I cannot use it myself, I thought perhaps the best thing that I could do would be to hand it over to the proper authorities, and then perhaps they would get my sentence shortened for me.’"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 2852,
+      "catalog_title": "The Hound of the Baskervilles by Arthur Conan Doyle | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/2852",
+      "raw_sha256": "f7c8c68729d32a5f6a04a5a9ad73d184176e66a6c76b3992c41c1ab47b427d98",
+      "catalog_sha256": "5a7fcc80786ce6ecf5082d7349e35586b8856e983c8dbbbe9be6a866c42002a4",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“Mortimer, James, M.R.C.S., 1882, Grimpen, Dartmoor, Devon. House-surgeon, from 1882 to 1884, at Charing Cross Hospital. Winner of the Jackson prize for Comparative Pathology, with essay entitled ‘Is Disease a Reversion?’ Corresponding member of the Swedish Pathological Society. Author of ‘Some Freaks of Atavism’ (_Lancet_ 1882). ‘Do We Progress?’ (_Journal of Psychology_, March, 1883). Medical Officer for the parishes of Grimpen, Thorsley, and High Barrow.”",
+        "“My dear fellow,” said he, “Holmes, with all his wisdom, did not foresee some things which have happened since I have been on the moor. You understand me? I am sure that you are the last man in the world who would wish to be a spoil-sport. I must go out alone.”",
+        "It was evident to us that all pursuit was in vain until the fog had lifted. Meanwhile we left Lestrade in possession of the house while Holmes and I went back with the baronet to Baskerville Hall. The story of the Stapletons could no longer be withheld from him, but he took the blow bravely when he learned the truth about the woman whom he had loved. But the shock of the night’s adventures had shattered his nerves, and before morning he lay delirious in a high fever under the care of Dr. Mortimer. The two of them were destined to travel together round the world before Sir Henry had become once more the hale, hearty man that he had been before"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 244,
+      "catalog_title": "A Study in Scarlet by Arthur Conan Doyle | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/244",
+      "raw_sha256": "8bbec71f9fa9c2acc9afe9be70560ca5f65c1bc95ef5af8252e9097f8d012497",
+      "catalog_sha256": "d8caaf81540a92e670b150ab35ac2dcc4665f7ce5a278c3b9ff6d85ff89457a7",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“He is sure to be at the laboratory,” returned my companion. “He either avoids the place for weeks, or else he works there from morning to night. If you like, we shall drive round together after luncheon.”",
+        "“There will be no more murders,” he said at last, stopping abruptly and facing us. “You can put that consideration out of the question. You have asked me if I know the name of the assassin. I do. The mere knowing of his name is a small thing, however, compared with the power of laying our hands upon him. This I expect very shortly to do. I have good hopes of managing it through my own arrangements; but it is a thing which needs delicate handling, for we have a shrewd and desperate man to deal with, who is supported, as I have had occasion to prove, by another who is as clever as himself. As long as this man has no idea that anyone can have a ",
+        "“He cowered away with wild cries and prayers for mercy, but I drew my knife and held it to his throat until he had obeyed me. Then I swallowed the other, and we stood facing one another in silence for a minute or more, waiting to see which was to live and which was to die. Shall I ever forget the look which came over his face when the first warning pangs told him that the poison was in his system? I laughed as I saw it, and held Lucy’s marriage ring in front of his eyes. It was but for a moment, for the action of the alkaloid is rapid. A spasm of pain contorted his features; he threw his hands out in front of him, staggered, and then, with a "
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 834,
+      "catalog_title": "The Memoirs of Sherlock Holmes by Arthur Conan Doyle | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/834",
+      "raw_sha256": "509da3f8bbdc6c3857073e74911f628eef8fea557fcb5bca9e1713c846e43ec3",
+      "catalog_sha256": "08c2025d0afd12a5e4f6c53465f4aed5291a4a06d7d6b98a247bf64463f6c288",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“Inspector Gregory, to whom the case has been committed, is an extremely competent officer. Were he but gifted with imagination he might rise to great heights in his profession. On his arrival he promptly found and arrested the man upon whom suspicion naturally rested. There was little difficulty in finding him, for he inhabited one of those villas which I have mentioned. His name, it appears, was Fitzroy Simpson. He was a man of excellent birth and education, who had squandered a fortune upon the turf, and who lived now by doing a little quiet and genteel book-making in the sporting clubs of London. An examination of his betting-book shows t",
+        "Three days later we were back in Baker Street together; but it was evident that my friend would be much the better for a change, and the thought of a week of spring time in the country was full of attractions to me also. My old friend, Colonel Hayter, who had come under my professional care in Afghanistan, had now taken a house near Reigate in Surrey, and had frequently asked me to come down to him upon a visit. On the last occasion he had remarked that if my friend would only come with me he would be glad to extend his hospitality to him also. A little diplomacy was needed, but when Holmes understood that the establishment was a bachelor one",
+        "“Aye, there’s the genius and the wonder of the thing!” he cried. “The man pervades London, and no one has heard of him. That’s what puts him on a pinnacle in the records of crime. I tell you, Watson, in all seriousness, that if I could beat that man, if I could free society of him, I should feel that my own career had reached its summit, and I should be prepared to turn to some more placid line in life. Between ourselves, the recent cases in which I have been of assistance to the royal family of Scandinavia, and to the French republic, have left me in such a position that I could continue to live in the quiet fashion which is most congenial t"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 103,
+      "catalog_title": "Around the World in Eighty Days by Jules Verne | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/103",
+      "raw_sha256": "6f608ea2da50caf73245ad2996e4ee3c02ef1aa2152f7fcfe209df9aa39e7512",
+      "catalog_sha256": "de85ef2cfa00fd6d2b970b0eafadcb534363e08f2eb26e336c9623e4d4d3f3e9",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "Mr. Fogg’s wardrobe was amply supplied and in the best taste. Each pair of trousers, coat, and vest bore a number, indicating the time of year and season at which they were in turn to be laid out for wearing; and the same system was applied to the master’s shoes. In short, the house in Saville Row, which must have been a very temple of disorder and unrest under the illustrious but dissipated Sheridan, was cosiness, comfort, and method idealised. There was no study, nor were there books, which would have been quite useless to Mr. Fogg; for at the Reform two libraries, one of general literature and the other of law and politics, were at his ser",
+        "The “Carnatic,” setting sail from Hong Kong at half-past six on the 7th of November, directed her course at full steam towards Japan. She carried a large cargo and a well-filled cabin of passengers. Two state-rooms in the rear were, however, unoccupied—those which had been engaged by Phileas Fogg.",
+        "The dwellers in Saville Row would have been surprised the next day, if they had been told that Phileas Fogg had returned home. His doors and windows were still closed, no appearance of change was visible."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 1400,
+      "catalog_title": "Great Expectations by Charles Dickens | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/1400",
+      "raw_sha256": "9a637118af8e953e9764ec603d9b0a032883384d465acac2e27966a80cf1c6f8",
+      "catalog_sha256": "0780899072a190fa8a2c808c0f0a286a6709045dafcd1c6d125837b537293c37",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "I thought he would be more glad if I came upon him with his breakfast, in that unexpected manner, so I went forward softly and touched him on the shoulder. He instantly jumped up, and it was not the same man, but another man!",
+        "“Lucky for you then, Handel,” said Herbert, “that you are picked out for her and allotted to her. Without encroaching on forbidden ground, we may venture to say that there can be no doubt between ourselves of that fact. Have you any idea yet, of Estella’s views on the adoration question?”",
+        "The trial was very short and very clear. Such things as could be said for him were said,—how he had taken to industrious habits, and had thriven lawfully and reputably. But nothing could unsay the fact that he had returned, and was there in presence of the Judge and Jury. It was impossible to try him for that, and do otherwise than find him guilty."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 730,
+      "catalog_title": "Oliver Twist by Charles Dickens | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/730",
+      "raw_sha256": "c64d62808c163536c815cefdb4837d767670cf5c256c84191e736e4d480c7e49",
+      "catalog_sha256": "cdc53a557fce7f0c00fe9d279bf1cd1158860fc607f430c20a216bd9573afeab",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "For a week after the commission of the impious and profane offence of asking for more, Oliver remained a close prisoner in the dark and solitary room to which he had been consigned by the wisdom and mercy of the board. It appears, at first sight not unreasonable to suppose, that, if he had entertained a becoming feeling of respect for the prediction of the gentleman in the white waistcoat, he would have established that sage individual’s prophetic character, once and for ever, by tying one end of his pocket-handkerchief to a hook in the wall, and attaching himself to the other. To the performance of this feat, however, there was one obstacle:",
+        "Oliver felt such fear come over him when he recognised the place, that, for the instant, he forgot the agony of his wound, and thought only of flight. Flight! He could scarcely stand: and if he were in full possession of all the best powers of his slight and youthful frame, whither could he fly? He pushed against the garden-gate; it was unlocked, and swung open on its hinges. He tottered across the lawn; climbed the steps; knocked faintly at the door; and, his whole strength failing him, sunk down against one of the pillars of the little portico.",
+        "A dog, which had lain concealed till now, ran backwards and forwards on the parapet with a dismal howl, and collecting himself for a spring, jumped for the dead man’s shoulders. Missing his aim, he fell into the ditch, turning completely over as he went; and striking his head against a stone, dashed out his brains."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 768,
+      "catalog_title": "Wuthering Heights by Emily Brontë | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/768",
+      "raw_sha256": "e533fe750589f0421d5d744576315f5c2b9b0d69e981179ea0551bbf134c5e02",
+      "catalog_sha256": "9de343a0b497f14f3db37f7e2091753bbd8a6ebcd2d2b86d43c268e751ebceda",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“Mrs. Heathcliff is my daughter-in-law,” said Heathcliff, corroborating my surmise. He turned, as he spoke, a peculiar look in her direction: a look of hatred; unless he has a most perverse set of facial muscles that will not, like those of other people, interpret the language of his soul.",
+        "“Yesterday, you know, Mr. Earnshaw should have been at the funeral. He kept himself sober for the purpose—tolerably sober: not going to bed mad at six o’clock and getting up drunk at twelve. Consequently, he rose, in suicidal low spirits, as fit for the church as for a dance; and instead, he sat down by the fire and swallowed gin or brandy by tumblerfuls.",
+        "We always ate our meals with Mr. Heathcliff. I held the mistress’s post in making tea and carving; so I was indispensable at table. Catherine usually sat by me, but to-day she stole nearer to Hareton; and I presently saw she would have no more discretion in her friendship than she had in her hostility."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 1260,
+      "catalog_title": "Jane Eyre: An Autobiography by Charlotte Brontë | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/1260",
+      "raw_sha256": "13414dee2951c3ee731d76d2ffd822016b2479c892162760c5d0eb2aa5fa7631",
+      "catalog_sha256": "9dacbd57a1fb047904810945789aab896f6051edbb7ec043b2c7428e5a29e830",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“She has screamed out on purpose,” declared Abbot, in some disgust. “And what a scream! If she had been in great pain one would have excused it, but she only wanted to bring us all here: I know her naughty tricks.”",
+        "I did not need to be guided to the well-known room, to which I had so often been summoned for chastisement or reprimand in former days. I hastened before Bessie; I softly opened the door: a shaded light stood on the table, for it was now getting dark. There was the great four-post bed with amber hangings as of old; there the toilet-table, the armchair, and the footstool, at which I had a hundred times been sentenced to kneel, to ask pardon for offences by me uncommitted. I looked into a certain corner near, half-expecting to see the slim outline of a once dreaded switch which used to lurk there, waiting to leap out imp-like and lace my quiver",
+        "Some answer must be had to these questions. I could find it nowhere but at the inn, and thither, ere long, I returned. The host himself brought my breakfast into the parlour. I requested him to shut the door and sit down: I had some questions to ask him. But when he complied, I scarcely knew how to begin; such horror had I of the possible answers. And yet the spectacle of desolation I had just left prepared me in a measure for a tale of misery. The host was a respectable-looking, middle-aged man."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 1342,
+      "catalog_title": "Pride and Prejudice by Jane Austen | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/1342",
+      "raw_sha256": "3f6bb9d6f78e0293b56acd4714dd68cb7d6d1d293402031ce9d5a216bcaf9d75",
+      "catalog_sha256": "c2a7079a8a1529daff9563fb27ed2cf5c509269cee2c5b5a524d7e07e4066103",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "An invitation to dinner was soon afterwards despatched; and already had Mrs. Bennet planned the courses that were to do credit to her housekeeping, when an answer arrived which deferred it all. Mr. Bingley was obliged to be in town the following day, and consequently unable to accept the honour of their invitation, etc. Mrs. Bennet was quite disconcerted. She could not imagine what business he could have in town so soon after his arrival in Hertfordshire; and she began to fear that he might always be flying about from one place to another, and never settled at Netherfield as he ought to be. Lady Lucas quieted her fears a little by starting th",
+        "“I might as well inquire,” replied she, “why, with so evident a design of offending and insulting me, you chose to tell me that you liked me against your will, against your reason, and even against your character? Was not this some excuse for incivility, if I _was_ uncivil? But I have other provocations. You know I have. Had not my own feelings decided against you, had they been indifferent, or had they even been favourable, do you think that any consideration would tempt me to accept the man who has been the means of ruining, perhaps for ever, the happiness of a most beloved sister?”",
+        "“I can easily believe it. You thought me then devoid of every proper feeling, I am sure you did. The turn of your countenance I shall never forget, as you said that I could not have addressed you in any possible way that would induce you to accept me.”"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 161,
+      "catalog_title": "Sense and Sensibility by Jane Austen | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/161",
+      "raw_sha256": "22272ec4d4da2f50cda51edf34ab8486b325c4a99580120db565fb8917228a22",
+      "catalog_sha256": "d95da44de3717a7c59dd15f9e5a48c99b73db3d3d3da85a34d01c42ac10ebba0",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“Upon my word,” said Mr. Dashwood, “I believe you are perfectly right. My father certainly could mean nothing more by his request to me than what you say. I clearly understand it now, and I will strictly fulfil my engagement by such acts of assistance and kindness to them as you have described. When my mother removes into another house my services shall be readily given to accommodate her as far as I can. Some little present of furniture too may be acceptable then.”",
+        "“He _did_ feel the same, Elinor—for weeks and weeks he felt it. I know he did. Whatever may have changed him now, (and nothing but the blackest art employed against me can have done it), I was once as dear to him as my own soul could wish. This lock of hair, which now he can so readily give up, was begged of me with the most earnest supplication. Had you seen his look, his manner, had you heard his voice at that moment! Have you forgot the last evening of our being together at Barton? The morning that we parted too! When he told me that it might be many weeks before we met again—his distress—can I ever forget his distress?”",
+        "His countenance, as he entered the room, was not too happy, even for Elinor. His complexion was white with agitation, and he looked as if fearful of his reception, and conscious that he merited no kind one. Mrs. Dashwood, however, conforming, as she trusted, to the wishes of that daughter, by whom she then meant in the warmth of her heart to be guided in every thing, met him with a look of forced complacency, gave him her hand, and wished him joy."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 141,
+      "catalog_title": "Mansfield Park by Jane Austen | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/141",
+      "raw_sha256": "b34723544dbe8185e786d0fdd47e42e7e1ac4265b84141e31ca260c1e36b68d8",
+      "catalog_sha256": "38520c08083b0f1b922ea3b9db35a082a150459e5394b0611f60214eaa9941b7",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "To the education of her daughters Lady Bertram paid not the smallest attention. She had not time for such cares. She was a woman who spent her days in sitting, nicely dressed, on a sofa, doing some long piece of needlework, of little use and no beauty, thinking more of her pug than her children, but very indulgent to the latter when it did not put herself to inconvenience, guided in everything important by Sir Thomas, and in smaller concerns by her sister. Had she possessed greater leisure for the service of her girls, she would probably have supposed it unnecessary, for they were under the care of a governess, with proper masters, and could ",
+        "This dear William would soon be amongst them. There could be no doubt of his obtaining leave of absence immediately, for he was still only a midshipman; and as his parents, from living on the spot, must already have seen him, and be seeing him perhaps daily, his direct holidays might with justice be instantly given to the sister, who had been his best correspondent through a period of seven years, and the uncle who had done most for his support and advancement; and accordingly the reply to her reply, fixing a very early day for his arrival, came as soon as possible; and scarcely ten days had passed since Fanny had been in the agitation of her",
+        "Fanny seemed to herself never to have been shocked before. There was no possibility of rest. The evening passed without a pause of misery, the night was totally sleepless. She passed only from feelings of sickness to shudderings of horror; and from hot fits of fever to cold. The event was so shocking, that there were moments even when her heart revolted from it as impossible: when she thought it could not be. A woman married only six months ago; a man professing himself devoted, even _engaged_ to another; that other her near relation; the whole family, both families connected as they were by tie upon tie; all friends, all intimate together! I"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 158,
+      "catalog_title": "Emma by Jane Austen | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/158",
+      "raw_sha256": "532b122b4e6a76cc556d6fdcd729b5892f5c4ce4a1b7060b9f832adfad8680dc",
+      "catalog_sha256": "39908773730bd419ccd839ac2df435e4cf886e84abd45df5af58d8580260701c",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "Captain Weston, who had been considered, especially by the Churchills, as making such an amazing match, was proved to have much the worst of the bargain; for when his wife died, after a three years’ marriage, he was rather a poorer man than at first, and with a child to maintain. From the expense of the child, however, he was soon relieved. The boy had, with the additional softening claim of a lingering illness of his mother’s, been the means of a sort of reconciliation; and Mr. and Mrs. Churchill, having no children of their own, nor any other young creature of equal kindred to care for, offered to take the whole charge of the little Frank s",
+        "“For my companion tells me,” said she, “that I absolutely promised Miss Bates last night, that I would come this morning. I was not aware of it myself. I did not know that I had fixed a day, but as he says I did, I am going now.”",
+        "“I cannot imagine,” said Mrs. Elton, (feeling the indignity as a wife ought to do,) “I cannot imagine how he could do such a thing by you, of all people in the world! The very last person whom one should expect to be forgotten!—My dear Mr. E., he must have left a message for you, I am sure he must.—Not even Knightley could be so very eccentric;—and his servants forgot it. Depend upon it, that was the case: and very likely to happen with the Donwell servants, who are all, I have often observed, extremely awkward and remiss.—I am sure I would not have such a creature as his Harry stand at our sideboard for any consideration. And as for Mrs. Hod"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 105,
+      "catalog_title": "Persuasion by Jane Austen | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/105",
+      "raw_sha256": "64ffb821b9e9eb1040c103a44c28893c94ebe33ffbb911288b5022efaecbfefc",
+      "catalog_sha256": "26805361c4fbe69aa8b8b77b32f31f8d56c7e30717448fcc4df48481f6476176",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "Their two confidential friends, Mr Shepherd, who lived in the neighbouring market town, and Lady Russell, were called on to advise them; and both father and daughter seemed to expect that something should be struck out by one or the other to remove their embarrassments and reduce their expenditure, without involving the loss of any indulgence of taste or pride.",
+        "Lady Russell and Mrs Croft were very well pleased with each other: but the acquaintance which this visit began was fated not to proceed far at present; for when it was returned, the Crofts announced themselves to be going away for a few weeks, to visit their connexions in the north of the county, and probably might not be at home again before Lady Russell would be removing to Bath.",
+        "“I must go, uncertain of my fate; but I shall return hither, or follow your party, as soon as possible. A word, a look, will be enough to decide whether I enter your father’s house this evening or never.”"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 121,
+      "catalog_title": "Northanger Abbey by Jane Austen | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/121",
+      "raw_sha256": "627d572b1d1b7c2d6e2fef0a886bd70720f9267d609f94338cee18a97c4a87b3",
+      "catalog_sha256": "7fe6b2e60a5130bbe957e51f03164f01b03832ecdd3b05846645739d6d482416",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "They were not long able, however, to enjoy the repose of the eminence they had so laboriously gained. Everybody was shortly in motion for tea, and they must squeeze out like the rest. Catherine began to feel something of disappointment—she was tired of being continually pressed against by people, the generality of whose faces possessed nothing to interest, and with all of whom she was so wholly unacquainted that she could not relieve the irksomeness of imprisonment by the exchange of a syllable with any of her fellow captives; and when at last arrived in the tea-room, she felt yet more the awkwardness of having no party to join, no acquaintan",
+        "“That is just my way of thinking. Give me but a little cheerful company, let me only have the company of the people I love, let me only be where I like and with whom I like, and the devil take the rest, say I. And I am heartily glad to hear you say the same. But I have a notion, Miss Morland, you and I think pretty much alike upon most matters.”",
+        "Mrs. Morland was not happy in her attempt at consolation. The hope of meeting again in the course of a few years could only put into Catherine’s head what might happen within that time to make a meeting dreadful to her. She could never forget Henry Tilney, or think of him with less tenderness than she did at that moment; but he might forget her; and in that case, to meet—! her eyes filled with tears as she pictured her acquaintance so renewed; and her mother, perceiving her comfortable suggestions to have had no good effect, proposed, as another expedient for restoring her spirits, that they should call on Mrs. Allen."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 514,
+      "catalog_title": "Little Women by Louisa May Alcott | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/514",
+      "raw_sha256": "677d034b4a3d1cea92d075939878f852a7a3ec757dc9ed05ef0c40cab5c1e6de",
+      "catalog_sha256": "9312cba4775a5d22fb79eb45a700ad9f33d5b635943d41e4262724e439068e98",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“Goodness only knows. Some poor creeter came a-beggin’, and your ma went straight off to see what was needed. There never was such a woman for givin’ away vittles and drink, clothes and firin’,” replied Hannah, who had lived with the family since Meg was born, and was considered by them all more as a friend than a servant.",
+        "Meg looked very like a rose herself, for all that was best and sweetest in heart and soul seemed to bloom into her face that day, making it fair and tender, with a charm more beautiful than beauty. Neither silk, lace, nor orange flowers would she have. “I don’t want a fashionable wedding, but only those about me whom I love, and to them I wish to look and be my familiar self.”",
+        "“Bless her dear heart! She won’t think so when she has a literary husband, and a dozen little professors and professorins to support. We won’t interfere now, but watch our chance, and do them a good turn in spite of themselves. I owe Jo for a part of my education, and she believes in people’s paying their honest debts, so I’ll get round her in that way.”"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 45,
+      "catalog_title": "Anne of Green Gables by L. M. Montgomery | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/45",
+      "raw_sha256": "89a5e9fb2e0bb44562a969785385366f94e1da736aebee7d9cdf459eb0b5f9f6",
+      "catalog_sha256": "2cde8ec9350a5cfa1a11cfd8972a32ae0adccaa37bd68f15e35419201e773d87",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "When he reached Bright River there was no sign of any train; he thought he was too early, so he tied his horse in the yard of the small Bright River hotel and went over to the station house. The long platform was almost deserted; the only living creature in sight being a girl who was sitting on a pile of shingles at the extreme end. Matthew, barely noting that it _was_ a girl, sidled past her as quickly as possible without looking at her. Had he looked he could hardly have failed to notice the tense rigidity and expectation of her attitude and expression. She was sitting there waiting for something or somebody and, since sitting and waiting w",
+        "“I think you ought to let Anne go,” repeated Matthew firmly. Argument was not his strong point, but holding fast to his opinion certainly was. Marilla gave a gasp of helplessness and took refuge in silence. The next morning, when Anne was washing the breakfast dishes in the pantry, Matthew paused on his way out to the barn to say to Marilla again:",
+        "Anne felt a queer little sensation of dismayed surprise. She had not known this; she had expected that Gilbert would be going to Redmond also. What would she do without their inspiring rivalry? Would not work, even at a coeducational college with a real degree in prospect, be rather flat without her friend the enemy?"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 46,
+      "catalog_title": "A Christmas Carol in Prose; Being a Ghost Story of Christmas by Charles Dickens | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/46",
+      "raw_sha256": "8c36b93723d454982df045ec0efdf2664e5a48e6b5e2f670e883575f75ad0cc8",
+      "catalog_sha256": "1234c445761e78ac538d54fca6bfb91ca4dbe779c920e23943877ef6107e037f",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "External heat and cold had little influence on Scrooge. No warmth could warm, no wintry weather chill him. No wind that blew was bitterer than he, no falling snow was more intent upon its purpose, no pelting rain less open to entreaty. Foul weather didn't know where to have him. The heaviest rain, and snow, and hail, and sleet, could boast of the advantage over him in only one respect. They often \"came down\" handsomely, and Scrooge never did.",
+        "So Martha hid herself, and in came little Bob, the father, with at least three feet of comforter exclusive of the fringe, hanging down before him; and his threadbare clothes darned up and brushed, to look seasonable; and Tiny Tim upon his shoulder. Alas for Tiny Tim, he bore a little crutch, and had his limbs supported by an iron frame!",
+        "\"I'll send it to Bob Cratchit's!\" whispered Scrooge, rubbing his hands, and splitting with a laugh. \"He sha'n't know who sends it. It's twice the size of Tiny Tim. Joe Miller never made such a joke as sending it to Bob's will be!\""
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 51,
+      "catalog_title": "Anne of the Island by L. M. Montgomery | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/51",
+      "raw_sha256": "f9c7d035c05a39d436c36fb9f99addbfe3206e662f694437d25ed7d266f5c572",
+      "catalog_sha256": "afa0c4d2c6e344abe6d678b7d847c577fd17bd44629789b8dcb2f65923caedf8",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "She chattered ceaselessly and inconsequently until they reached the Green Gables lane. Poor Gilbert hardly had a chance to get a word in edgewise. Anne felt rather relieved when they parted. There had been a new, secret self-consciousness in her heart with regard to Gilbert, ever since that fleeting moment of revelation in the garden of Echo Lodge. Something alien had intruded into the old, perfect, school-day comradeship—something that threatened to mar it.",
+        "“Her name was Sarah, so my husband always called puss the Sarah-cat,” explained Aunt Jamesina. “She is eight years old, and a remarkable mouser. Don’t worry, Stella. The Sarah-cat _never_ fights and Joseph rarely.”",
+        "Jane’s millionaire arrived the last of May and carried her off in a blaze of splendor. Mrs. Lynde was spitefully gratified to find that Mr. Inglis was every day of forty, and short and thin and grayish. Mrs. Lynde did not spare him in her enumeration of his shortcomings, you may be sure."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 16,
+      "catalog_title": "Peter Pan :  [Peter and Wendy] by J. M. Barrie | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/16",
+      "raw_sha256": "6b08714281fe38266a756741e4c62915cda7536c2f78cca501f7fd53f3f445ae",
+      "catalog_sha256": "e7c323c278f51355819006044614d993f9f6675ed40bb16fae41bf4cd32ac15c",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "There was the same excitement over John, and Michael had even a narrower squeak; but both were kept, and soon, you might have seen the three of them going in a row to Miss Fulsom’s Kindergarten school, accompanied by their nurse.",
+        "The fight was short and sharp. First to draw blood was John, who gallantly climbed into the boat and held Starkey. There was fierce struggle, in which the cutlass was torn from the pirate’s grasp. He wriggled overboard and John leapt after him. The dinghy drifted away.",
+        "Thus Wendy and John and Michael found the window open for them after all, which of course was more than they deserved. They alighted on the floor, quite unashamed of themselves, and the youngest one had already forgotten his home."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 12,
+      "catalog_title": "Through the Looking-Glass by Lewis Carroll | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/12",
+      "raw_sha256": "e40a38f5da841f9fb6acc557355c447b7c2ccb56a208caf5fcf2b05081f14d42",
+      "catalog_sha256": "1a3454af01fdce60dbcdd77e81ae2ea5c453b2aafe2af7016b86fb400fb842ac",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "But the black kitten had been finished with earlier in the afternoon, and so, while Alice was sitting curled up in a corner of the great arm-chair, half talking to herself and half asleep, the kitten had been having a grand game of romps with the ball of worsted Alice had been trying to wind up, and had been rolling it up and down till it had all come undone again; and there it was, spread over the hearth-rug, all knots and tangles, with the kitten running after its own tail in the middle.",
+        "What mattered it to her just then that the rushes had begun to fade, and to lose all their scent and beauty, from the very moment that she picked them? Even real scented rushes, you know, last only a very little while—and these, being dream-rushes, melted away almost like snow, as they lay in heaps at her feet—but Alice hardly noticed this, there were so many other curious things to think about.",
+        "In fact it was rather difficult for her to keep in her place while she made her speech: the two Queens pushed her so, one on each side, that they nearly lifted her up into the air: “I rise to return thanks—” Alice began: and she really _did_ rise as she spoke, several inches; but she got hold of the edge of the table, and managed to pull herself down again."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 289,
+      "catalog_title": "The Wind in the Willows by Kenneth Grahame | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/289",
+      "raw_sha256": "98f6b6cda20087857cefe9121b71d6166c1b92423bb7645fdba3c45ff0c141e8",
+      "catalog_sha256": "51149b4c917de06fac105673ce489b489f8a498c7e485d58a1764ba0b1decf99",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "The Mole never heard a word he was saying. Absorbed in the new life he was entering upon, intoxicated with the sparkle, the ripple, the scents and the sounds and the sunlight, he trailed a paw in the water and dreamed long waking dreams. The Water Rat, like the good little fellow he was, sculled steadily on and forebore to disturb him.",
+        "“What, that child?” said the Mole lightly. “Well, suppose he is; why worry about it? He’s always straying off and getting lost, and turning up again; he’s so adventurous. But no harm ever happens to him. Everybody hereabouts knows him and likes him, just as they do old Otter, and you may be sure some animal or other will come across him and bring him back again all right. Why, we’ve found him ourselves, miles from home, and quite self-possessed and cheerful!”",
+        "The passage now began to slope upwards; they groped onward a little further, and then the noise broke out again, quite distinct this time, and very close above them. “Ooo-ray-ooray-oo-ray-ooray!” they heard, and the stamping of little feet on the floor, and the clinking of glasses as little fists pounded on the table. “_What_ a time they’re having!” said the Badger. “Come on!” They hurried along the passage till it came to a full stop, and they found themselves standing under the trap-door that led up into the butler’s pantry."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 271,
+      "catalog_title": "Black Beauty :  The autobiography of a horse by Anna Sewell | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/271",
+      "raw_sha256": "493a70f2cd5580db12ba0bfee8d8fe74daa578f927c3db81afe285b31391d5a5",
+      "catalog_sha256": "20336df2b1b04eccaf47d8186b821d7c263eca3a00dcac628bd41bee7602f0b6",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“Now we shall see the hare,” said my mother; and just then a hare wild with fright rushed by and made for the woods. On came the dogs; they burst over the bank, leaped the stream, and came dashing across the field followed by the huntsmen. Six or eight men leaped their horses clean over, close upon the dogs. The hare tried to get through the fence; it was too thick, and she turned sharp round to make for the road, but it was too late; the dogs were upon her with their wild cries; we heard one shriek, and that was the end of her. One of the huntsmen rode up and whipped off the dogs, who would soon have torn her to pieces. He held her up by the",
+        "Besides, a slovenly way of driving gets a horse into bad and often lazy habits, and when he changes hands he has to be whipped out of them with more or less pain and trouble. Squire Gordon always kept us to our best paces and our best manners. He said that spoiling a horse and letting him get into bad habits was just as cruel as spoiling a child, and both had to suffer for it afterward.",
+        "Sometimes on a Sunday morning a party of fast men would hire the cab for the day; four of them inside and another with the driver, and I had to take them ten or fifteen miles out into the country, and back again; never would any of them get down to walk up a hill, let it be ever so steep, or the day ever so hot--unless, indeed, when the driver was afraid I should not manage it, and sometimes I was so fevered and worn that I could hardly touch my food. How I used to long for the nice bran mash with niter in it that Jerry used to give us on Saturday nights in hot weather, that used to cool us down and make us so comfortable. Then we had two nig"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 107,
+      "catalog_title": "Far from the Madding Crowd by Thomas Hardy | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/107",
+      "raw_sha256": "67d4901981ceaef9ae2e5de32d1c59c8005101375a932d49861054f65bb60099",
+      "catalog_sha256": "e1984ba00f7b25bd40bfa249b613981e821b75339bf6e735e004ff2872e35763",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "Being a man not without a frequent consciousness that there was some charm in this life he led, he stood still after looking at the sky as a useful instrument, and regarded it in an appreciative spirit, as a work of art superlatively beautiful. For a moment he seemed impressed with the speaking loneliness of the scene, or rather with the complete abstraction from all its compass of the sights and sounds of man. Human shapes, interferences, troubles, and joys were all as if they were not, and there seemed to be on the shaded hemisphere of the globe no sentient being save himself; he could fancy them all gone round to the sunny side.",
+        "She had walked nearly two miles of her journey, watching how the day was retreating, and thinking how the time of deeds was quietly melting into the time of thought, to give place in its turn to the time of prayer and sleep, when she beheld advancing over Yalbury hill the very man she sought so anxiously to elude. Boldwood was stepping on, not with that quiet tread of reserved strength which was his customary gait, in which he always seemed to be balancing two thoughts. His manner was stunned and sluggish now.",
+        "In bewilderment they turned their eyes to Boldwood. At his back, as stood before the fireplace, was a gun-rack, as is usual in farmhouses, constructed to hold two guns. When Bathsheba had cried out in her husband’s grasp, Boldwood’s face of gnashing despair had changed. The veins had swollen, and a frenzied look had gleamed in his eye. He had turned quickly, taken one of the guns, cocked it, and at once discharged it at Troy."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 35,
+      "catalog_title": "The Time Machine by H. G. Wells | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/35",
+      "raw_sha256": "2892e919000e17c83e1dac51b30f4675db50536b644d7579fe8a89bb399a9bdc",
+      "catalog_sha256": "b038fcad534690ef2a0db96ce8d044f114d10f46888181c0ac09403beb49cb79",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“I think so,” murmured the Provincial Mayor; and, knitting his brows, he lapsed into an introspective state, his lips moving as one who repeats mystic words. “Yes, I think I see it now,” he said after some time, brightening in a quite transitory manner.",
+        "“My impression of it is, of course, imperfect; but I know it was a dull white, and had strange large greyish-red eyes; also that there was flaxen hair on its head and down its back. But, as I say, it went too fast for me to see distinctly. I cannot even say whether it ran on all fours, or only with its forearms held very low. After an instant’s pause I followed it into the second heap of ruins. I could not find it at first; but, after a time in the profound obscurity, I came upon one of those round well-like openings of which I have told you, half closed by a fallen pillar. A sudden thought came to me. Could this Thing have vanished down the ",
+        "“I know,” he said, after a pause, “that all this will be absolutely incredible to you, but to me the one incredible thing is that I am here tonight in this old familiar room looking into your friendly faces and telling you these strange adventures.” He looked at the Medical Man. “No. I cannot expect you to believe it. Take it as a lie—or a prophecy. Say I dreamed it in the workshop. Consider I have been speculating upon the destinies of our race, until I have hatched this fiction. Treat my assertion of its truth as a mere stroke of art to enhance its interest. And taking it as a story, what do you think of it?”"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 36,
+      "catalog_title": "The war of the worlds by H. G. Wells | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/36",
+      "raw_sha256": "8417469e3ab664749f7b36ebb85799075818207b0380b54c27d07d592a44117d",
+      "catalog_sha256": "fd443f131e592bf3c02f97a9f767cbb0c289e604929df8b4a52c7e592f23d9da",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "That night another invisible missile started on its way to the earth from Mars, just a second or so under twenty-four hours after the first one. I remember how I sat on the table there in the blackness, with patches of green and crimson swimming before my eyes. I wished I had a light to smoke by, little suspecting the meaning of the minute gleam I had seen and all that it would presently bring me. Ogilvy watched till one, and then gave it up; and we lit the lantern and walked over to his house. Down below in the darkness were Ottershaw and Chertsey and all their hundreds of people, sleeping in peace.",
+        "But that was at Street Cobham, where the black vapour was allowed to remain until it sank of its own accord into the ground. As a rule the Martians, when it had served its purpose, cleared the air of it again by wading into it and directing a jet of steam upon it.",
+        "I hurried through the red weed that choked St. Edmund’s Terrace (I waded breast-high across a torrent of water that was rushing down from the waterworks towards the Albert Road), and emerged upon the grass before the rising of the sun. Great mounds had been heaped about the crest of the hill, making a huge redoubt of it—it was the final and largest place the Martians had made—and from behind these heaps there rose a thin smoke against the sky. Against the sky line an eager dog ran and disappeared. The thought that had flashed into my mind grew real, grew credible. I felt no fear, only a wild, trembling exultation, as I ran up the hill towards"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 5230,
+      "catalog_title": "The Invisible Man: A Grotesque Romance by H. G. Wells | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/5230",
+      "raw_sha256": "28c70e3809ce945efbe5f8681532916a2c4253fee5cca6e1a191707af22280d3",
+      "catalog_sha256": "a3a522d78abe01c4fc57bf95c19b0550ef2e1a9086a6206ce2610f5d28831a38",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "When Mrs. Hall went to clear away the stranger’s lunch, her idea that his mouth must also have been cut or disfigured in the accident she supposed him to have suffered, was confirmed, for he was smoking a pipe, and all the time that she was in the room he never loosened the silk muffler he had wrapped round the lower part of his face to put the mouthpiece to his lips. Yet it was not forgetfulness, for she saw he glanced at it as it smouldered out. He sat in the corner with his back to the window-blind and spoke now, having eaten and drunk and being comfortably warmed through, with less aggressive brevity than before. The reflection of the fir",
+        "The story he had been active to ridicule only that morning rushed through Kemp’s brain. He does not appear to have been either very much frightened or very greatly surprised at the moment. Realisation came later.",
+        "The second policeman began struggling to his feet. He stood up. Suddenly the faint pad of bare feet on the kitchen stairs could be heard. “Yap!” cried the first policeman, and incontinently flung his poker. It smashed a little gas bracket."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 159,
+      "catalog_title": "The island of Doctor Moreau by H. G. Wells | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/159",
+      "raw_sha256": "6085aef7b293dc0935974736f71e84c86952d5cb4cbad977fde942ffeba98a31",
+      "catalog_sha256": "747b83766ec14d3acc6655a6a67228bf45dece9d1d92d55b2dd46111efc4809d",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "The cabin in which I found myself was small and rather untidy. A youngish man with flaxen hair, a bristly straw-coloured moustache, and a dropping nether lip, was sitting and holding my wrist. For a minute we stared at each other without speaking. He had watery grey eyes, oddly void of expression. Then just overhead came a sound like an iron bedstead being knocked about, and the low angry growling of some large animal. At the same time the man spoke. He repeated his question,—“How do you feel now?”",
+        "Both turned and faced the six or seven grotesque creatures, who stood there in the sunlight, solid, casting shadows, moving, and yet so incredibly unreal. Montgomery cracked his whip at them, and forthwith they all turned and fled helter-skelter into the trees; and when Montgomery and Moreau were at a distance I judged sufficient, I waded ashore, and picked up and examined the revolvers. To satisfy myself against the subtlest trickery, I discharged one at a round lump of lava, and had the satisfaction of seeing the stone pulverised and the beach splashed with lead. Still I hesitated for a moment.",
+        "At first I spent the daylight hours on the southward beach watching for a ship, hoping and praying for a ship. I counted on the _Ipecacuanha_ returning as the year wore on; but she never came. Five times I saw sails, and thrice smoke; but nothing ever touched the island. I always had a bonfire ready, but no doubt the volcanic reputation of the island was taken to account for that."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 164,
+      "catalog_title": "Twenty Thousand Leagues under the Sea by Jules Verne | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/164",
+      "raw_sha256": "3562e063ad9027725d1feb2f945e86a0a90804a8ab19f8cb272884c436ebc34f",
+      "catalog_sha256": "fbd80684f7a672dc0e21db77d52cd08f84813871bc6238089fb3146ae10bbdca",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "But the hypothesis of a war machine fell before the declaration of Governments. As public interest was in question, and transatlantic communications suffered, their veracity could not be doubted. But, how admit that the construction of this submarine boat had escaped the public eye? For a private gentleman to keep the secret under such circumstances would be very difficult, and for a state whose every act is persistently watched by powerful rivals, certainly impossible.",
+        "My companions and I then witnessed a curious spectacle. The hatches of the saloon were open, and, as the beacon light of the _Nautilus_ was not in action, a dim obscurity reigned in the midst of the waters. I observed the state of the sea, under these conditions, and the largest fish appeared to me no more than scarcely defined shadows, when the _Nautilus_ found herself suddenly transported into full light. I thought at first that the beacon had been lighted, and was casting its electric radiance into the liquid mass. I was mistaken, and after a rapid survey perceived my error.",
+        "On the 23rd of July the Great Eastern was not more than 500 miles from Newfoundland, when they telegraphed from Ireland the news of the armistice concluded between Prussia and Austria after Sadowa. On the 27th, in the midst of heavy fogs, they reached the port of Heart’s Content. The enterprise was successfully terminated; and for its first despatch, young America addressed old Europe in these words of wisdom, so rarely understood: “Glory to God in the highest, and on earth peace, goodwill towards men.”"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 83,
+      "catalog_title": "From the Earth to the moon; and, round the moon by Jules Verne | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/83",
+      "raw_sha256": "6d87062870643bf9364d09f5c6b37ce53dab524501041d87e7d83a2e1b2f744d",
+      "catalog_sha256": "ddb23ddf2695f158e5b8d1de8d4d19adcbc3a5eb3dcb155a9bcedced3946b937",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "At the further end of the saloon the president, assisted by four secretaries, occupied a large platform. His chair, supported by a carved gun-carriage, was modeled upon the ponderous proportions of a 32-inch mortar. It was pointed at an angle of ninety degrees, and suspended upon truncheons, so that the president could balance himself upon it as upon a rocking-chair, a very agreeable fact in the very hot weather. Upon the table (a huge iron plate supported upon six carronades) stood an inkstand of exquisite elegance, made of a beautifully chased Spanish piece, and a sonnette, which, when required, could give forth a report equal to that of a ",
+        "“As Barbicane was about leaving the window to open the opposite scuttle, his attention was attracted by the approach of a brilliant object. It was an enormous disc, whose colossal dimension could not be estimated. Its face, which was turned to the earth, was very bright. One might have thought it a small moon reflecting the light of the large one. She advanced with great speed, and seemed to describe an orbit round the earth, which would intersect the passage of the projectile. This body revolved upon its axis, and exhibited the phenomena of all celestial bodies abandoned in space.",
+        "Some minutes later a fourfold telegram was sent out—the first to the Naval Secretary at Washington; the second to the vice-president of the Gun Club, Baltimore; the third to the Hon. J. T. Maston, Long’s Peak, Rocky Mountains; and the fourth to the sub-director of the Cambridge Observatory, Massachusetts."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 18857,
+      "catalog_title": "A Journey to the Centre of the Earth by Jules Verne | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/18857",
+      "raw_sha256": "e2dc4c7b2ead7e8ec30c597fc2db175ffb7ade2d0915c7f4f91b64e33307929f",
+      "catalog_sha256": "89ae47c49eb13d9420c30416ac0bfb3f276f985b784689d7105fdcf5c0e93a5a",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "The old cook and housekeeper was nearly out of her mind. After taking so much trouble, to find her master not appear at dinner was to her a sad disappointment--which, as she occasionally watched the havoc I was making on the viands, became also alarm. If my uncle were to come to table after all?",
+        "How to get back! Clue or landmark there was absolutely none! My feet left no signs on the granite and shingle. My brain throbbed with agony as I tried to discover the solution of this terrible problem. My situation, after all sophistry and reflection, had finally to be summed up in three awful words--",
+        "As for my uncle, always thinking of his science, he examined the nature of the shaft by means of a torch. He closely examined the different strata one above the other, in order to recognize his situation by geological theory. This calculation, or rather this estimation, could by no means be anything but approximate. But a learned man, a philosopher, is nothing if not a philosopher, when he keeps his ideas calm and collected; and certainly the Professor possessed this quality to perfection."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 1268,
+      "catalog_title": "The Mysterious Island by Jules Verne | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/1268",
+      "raw_sha256": "7133452f63b49690043b6c9af5516bd30f76b39ac6526dacfdc322ae4600a689",
+      "catalog_sha256": "bd19d5abe8e618a281927368134a504f107cd5a727c20b622b7f1f38da374e36",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "From time to time the castaways stopped and shouted, then listened for some response from the ocean, for they thought that if the engineer had landed, and they had been near to the place, they would have heard the barking of the dog Top, even should Harding himself have been unable to give any sign of existence. They stopped to listen, but no sound arose above the roaring of the waves and the dashing of the surf. The little band then continued their march forward, searching into every hollow of the shore.",
+        "“With the increasing consumption of coal,” replied Gideon Spilett, “it can be foreseen that the hundred thousand workmen will soon become two hundred thousand, and that the rate of extraction will be doubled.”",
+        "“No, Captain Harding; no friends remain to me! I am the last of my race, and to all whom I have known I have long been as are the dead.--But to return to yourselves. Solitude, isolation, are painful things, and beyond human endurance. I die of having thought it possible to live alone! You should, therefore, dare all in the attempt to leave Lincoln Island, and see once more the land of your birth. I am aware that those wretches have destroyed the vessel you have built.”"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 521,
+      "catalog_title": "The Life and Adventures of Robinson Crusoe by Daniel Defoe | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/521",
+      "raw_sha256": "6c5c1dc78db2ecd92905b6dd75779eba2361d7ee38e55300002e5cbedda63778",
+      "catalog_sha256": "2f455516ba374cf1971eda14cde4de3aa15fcec62e61441c86c0ad27f334b1b1",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "Any one may judge what a condition I must be in at all this, who was but a young sailor, and who had been in such a fright before at but a little. But if I can express at this distance the thoughts I had about me at that time, I was in tenfold more horror of mind upon account of my former convictions, and the having returned from them to the resolutions I had wickedly taken at first, than I was at death itself; and these, added to the terror of the storm, put me into such a condition that I can by no words describe it. But the worst was not come yet; the storm continued with such fury that the seamen themselves acknowledged they had never see",
+        "In a word, the nature and experience of things dictated to me, upon just reflection, that all the good things of this world are no farther good to us than they are for our use; and that, whatever we may heap up to give others, we enjoy just as much as we can use, and no more. The most covetous, griping miser in the world would have been cured of the vice of covetousness if he had been in my case; for I possessed infinitely more than I knew what to do with. I had no room for desire, except it was of things which I had not, and they were but trifles, though, indeed, of great use to me. I had, as I hinted before, a parcel of money, as well gold ",
+        "In order to prepare things for my going home, I first (the Brazil fleet being just going away) resolved to give answers suitable to the just and faithful account of things I had from thence; and, first, to the Prior of St. Augustine I wrote a letter full of thanks for his just dealings, and the offer of the eight hundred and seventy-two moidores which were undisposed of, which I desired might be given, five hundred to the monastery, and three hundred and seventy-two to the poor, as the prior should direct; desiring the good padre’s prayers for me, and the like. I wrote next a letter of thanks to my two trustees, with all the acknowledgment th"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 11703,
+      "catalog_title": "The Swiss Family Robinson; or Adventures in a Desert Island by Johann David Wyss | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/11703",
+      "raw_sha256": "932218461f10da311e09c2f2fd8d5f0032b5c0c29f2d7825736cd05d4a619abb",
+      "catalog_sha256": "cb88a97cddb4c08fe79fd1580d149747fc0f3c458f30d086fdbd7afb93aa141f",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "I quickly proceeded to tie a strong cord to the after-part of it, and the other end to a beam in the ship, which was still firm, leaving it long enough for security; then introducing two more rollers underneath, and working with the jack, we succeeded in launching our bark, which passed into the water with such velocity, that but for our rope it would have gone out to sea. Unfortunately, it leaned so much on one side, that none of the boys would venture into it. I was in despair, when I suddenly remembered it only wanted ballast to keep it in equilibrium. I hastily threw in anything I got hold of that was heavy, and soon had my boat level, an",
+        "During their absence, Ernest and I made a little excursion, to add to our provision—if we could meet with them, some potatoes and cocoa-nuts. We ascended the stream for some time, which led us to a large marsh, beyond which we discovered a lake abounding with water-fowl. This lake was surrounded by tall, thick grass, with ears of a grain, which I found to be a very good, though small, sort of rice. As to the lake itself, it is only a Swiss, accustomed from his infancy to look on such smooth, tranquil waters, that can comprehend the happiness we felt on looking upon this. We fancied we were once more in Switzerland, our own dear land; but the ",
+        "“Now, my dear Jack,” said I, “it is your turn to relate your history. Your brother left off where you were entertaining the savages with your buffooneries; and certainly they were never better introduced. But how did they suddenly think of carrying you away?”"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 1184,
+      "catalog_title": "The Count of Monte Cristo by Alexandre Dumas and Auguste Maquet | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/1184",
+      "raw_sha256": "64f8d5cfa51fcecb904abf7312d395d512a71817e7359b91288beb50517c3836",
+      "catalog_sha256": "37c1406b47de26f30b4489a4854417bb89f45ec88b55d5a61edf8c911c6e66ce",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "Then they began to pass around the dusky, piquant, Arlesian sausages, and lobsters in their dazzling red cuirasses, prawns of large size and brilliant color, the echinus with its prickly outside and dainty morsel within, the clovis, esteemed by the epicures of the South as more than rivalling the exquisite flavor of the oyster, North. All the delicacies, in fact, that are cast up by the wash of waters on the sandy beach, and styled by the grateful fishermen “fruits of the sea.”",
+        "“Not that I am aware of,” replied the young man, “unless, indeed, any ill-feeling might have arisen from their being of opposite parties—your father was, as you know, a zealous partisan of the Bourbons, while mine was wholly devoted to the emperor; there could not possibly be any other difference between them. But why do you ask?”",
+        "“It is quite wonderful, Mr. President, how entirely you have read my thoughts,” said Benedetto, in his softest voice and most polite manner. “This is, indeed, the reason why I begged you to alter the order of the questions.”"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 1257,
+      "catalog_title": "The three musketeers by Alexandre Dumas and Auguste Maquet | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/1257",
+      "raw_sha256": "1682d060845717283d22462d1d884f79c2741ecdba3cfe5ceed700602ccf0e75",
+      "catalog_sha256": "17627f7a3ab807cdf5a73adda162ed92f83a52510b389368195a436b35621c42",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "Thus Louis XIII. had a real liking for Tréville—a royal liking, a self-interested liking, it is true, but still a liking. At that unhappy period it was an important consideration to be surrounded by such men as Tréville. Many might take for their device the epithet _strong_, which formed the second part of his motto, but very few gentlemen could lay claim to the _faithful_, which constituted the first. Tréville was one of these latter. His was one of those rare organizations, endowed with an obedient intelligence like that of the dog; with a blind valor, a quick eye, and a prompt hand; to whom sight appeared only to be given to see if the kin",
+        "“You have some!” cried the procurator’s wife, in a transport that surprised even herself. “Come to our house tomorrow. You are the son of my aunt, consequently my cousin; you come from Noyon, in Picardy; you have several lawsuits and no attorney. Can you recollect all that?”",
+        "“Do you not perceive that I know all—your abduction from the little house at St. Germain, his despair, that of his friends, and their useless inquiries up to this moment? How could I help being astonished when, without having the least expectation of such a thing, I meet you face to face—you, of whom we have so often spoken together, you whom he loves with all his soul, you whom he had taught me to love before I had seen you! Ah, dear Constance, I have found you, then; I see you at last!”"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 2701,
+      "catalog_title": "Moby Dick; Or, The Whale by Herman Melville | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/2701",
+      "raw_sha256": "907420db6c4b68c70e2988cd2ad9c8cf79138667a01b63376d18dd17fef1a18b",
+      "catalog_sha256": "4d4e51469de5f5e1c1854ef545a901ceadef8d0aca8d3196cbedae1444db4042",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "“It is impossible to meet a whale-ship on the ocean without being struck by her near appearance. The vessel under short sail, with look-outs at the mast-heads, eagerly scanning the wide expanse around them, has a totally different air from those engaged in regular voyage.” —_Currents and Whaling. U.S. Ex. Ex_.",
+        "*Partly to show the indispensableness of this act, it may here be stated, that, in the old Dutch fishery, a mop was used to dash the running line with water; in many other ships, a wooden piggin, or bailer, is set apart for that purpose. Your hat, however, is the most convenient.",
+        "Tied up and twisted; gnarled and knotted with wrinkles; haggardly firm and unyielding; his eyes glowing like coals, that still glow in the ashes of ruin; untottering Ahab stood forth in the clearness of the morn; lifting his splintered helmet of a brow to the fair girl’s forehead of heaven."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 910,
+      "catalog_title": "White Fang by Jack London | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/910",
+      "raw_sha256": "3c7226d00fd9b169f0016635d0e461501620f343220ee18db7ca9f083f4ad3f4",
+      "catalog_sha256": "9f79c67f4d32addcda34e10f8802b028d623aa96ee7531a3ca5bc8dec6b97e1d",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "In the morning it was Henry who awoke first and routed his companion out of bed. Daylight was yet three hours away, though it was already six o’clock; and in the darkness Henry went about preparing breakfast, while Bill rolled the blankets and made the sled ready for lashing.",
+        "Because he ran at the end of the longest rope, the dogs had always the view of him running away before them. All that they saw of him was his bushy tail and fleeing hind legs—a view far less ferocious and intimidating than his bristling mane and gleaming fangs. Also, dogs being so constituted in their mental ways, the sight of him running away gave desire to run after him and a feeling that he ran away from them.",
+        "“You have only Weedon’s opinion for that,” rejoined the judge. “He merely surmises that there is some strain of dog in White Fang; but as he will tell you himself, he knows nothing about it. As for his appearance—”"
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 215,
+      "catalog_title": "The call of the wild by Jack London | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/215",
+      "raw_sha256": "30f569c5671bba7bbc4a92ab6d8ee01a0d3be00f994819c77da62c28041eb8a2",
+      "catalog_sha256": "4b5f5b5f2faf0173928593794f3985f66c348fc396de5bae97a7837a9c85b1ea",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "The Judge was at a meeting of the Raisin Growers’ Association, and the boys were busy organizing an athletic club, on the memorable night of Manuel’s treachery. No one saw him and Buck go off through the orchard on what Buck imagined was merely a stroll. And with the exception of a solitary man, no one saw them arrive at the little flag station known as College Park. This man talked with Manuel, and money chinked between them.",
+        "Buck heard the chaffering, saw the money pass between the man and the Government agent, and knew that the Scotch half-breed and the mail-train drivers were passing out of his life on the heels of Perrault and François and the others who had gone before. When driven with his mates to the new owners’ camp, Buck saw a slipshod and slovenly affair, tent half stretched, dishes unwashed, everything in disorder; also, he saw a woman. “Mercedes” the men called her. She was Charles’s wife and Hal’s sister—a nice family party.",
+        "Three miles away he came upon a fresh trail that sent his neck hair rippling and bristling, It led straight toward camp and John Thornton. Buck hurried on, swiftly and stealthily, every nerve straining and tense, alert to the multitudinous details which told a story—all but the end. His nose gave him a varying description of the passage of the life on the heels of which he was travelling. He remarked the pregnant silence of the forest. The bird life had flitted. The squirrels were in hiding. One only he saw,—a sleek gray fellow, flattened against a gray dead limb so that he seemed a part of it, a woody excrescence upon the wood itself."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 373,
+      "catalog_title": "Lay Morals, and Other Papers by Robert Louis Stevenson | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/373",
+      "raw_sha256": "0a02e983dba3b3c73ad0b1f8342759fe516f7aebebf3384372c4676183965aa1",
+      "catalog_sha256": "7fdde3a3a60a328bd8fda35d8c283100c10d50ad07ce05fd7a66128210a7eabd",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "_The following chapters of a projected treatise on Ethics were drafted at Edinburgh in the spring of_ 1879. _They are unrevised_, _and must not be taken as representing_, _either as to matter or form_, _their author’s final thoughts_; _but they contain much that is essentially characteristic of his mind_.",
+        "Farewell should not be taken with a grudge; nor can I dismiss in any other words than those of gratitude a series of pictures which have, to one at least, been the visible embodiment of Bunyan from childhood up, and shown him, through all his years, Great-heart lungeing at Giant Maul, and Apollyon breathing fire at Christian, and every turn and town along the road to the Celestial City, and that bright place itself, seen as to a stave of music, shining afar off upon the hill-top, the candle of the world.",
+        "‘Woe upon him! Woe upon that man!’ he cried. ‘O the unfaithful shepherd! O the hireling and apostate minister! Make my matters hot for me? quo’ she! the shameless limmer! And true it is, that he could repose me in that nasty, stinking hole, the Canongate Tolbooth, from which your mother drew me out—the Lord reward her for it!—or to that cold, unbieldy, marine place of the Bass Rock, which, with my delicate kist, would be fair ruin to me. But I will be valiant in my Master’s service. I have a duty here: a duty to my God, to myself, and to Haddo: in His strength, I will perform it.’"
+      ],
+      "admitted": false,
+      "decision": "Essay collection differs from the intended narrative selection."
+    },
+    {
+      "id": 226,
+      "catalog_title": "Cicero's Orations by Marcus Tullius Cicero | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/226",
+      "raw_sha256": "d35576eee076806a236f7f9edf8c1a07462a4102084e025076f6227d8847afdb",
+      "catalog_sha256": "20a97d66bc658eeba1ba9354a7f4e3db5173dbcde36b7612804e138ce8e7b660",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "Quo usque tandem abutere, Catilina, patientia nostra? quam diu etiam furor iste tuus nos eludet? quem ad finem sese effrenata iactabit audacia? Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae, nihil timor populi, nihil concursus bonorum omnium, nihil hic munitissimus habendi senatus locus, nihil horum ora voltusque moverunt? Patere tua consilia non sentis, constrictam iam horum omnium scientia teneri coniurationem tuam non vides? Quid proxima, quid superiore nocte egeris, ubi fueris, quos convocaveris, quid consilii ceperis, quem nostrum ignorare arbitraris? O tempora, o mores! Senatus haec intellegit. consul videt; hic tamen viv",
+        "Aliquanto post quam haec gesta erant, cum legati Allobrogum, qui a Lentulo temptati M. Cicerone auctore favere se coniurationi simulaverant, exeuntes ex urbe cum T. Volturcio, qui erat a Lentulo ad Catilinam missus, in ponte Mulvio nocte comprehensi essent litteraeque, quae ab Lentulo, Cethego, P. Gabinio Cimbro ad Catilinam ferebantur, Ciceroni traditae is arcessitis coniurationis principibus senatum in aedem Concordiae coegit III Non. Decembres. Ibi cum legati et Volturcius omnem rem indicassent, coniurati litteris suis convicti in custodiam dati sunt, Ciceroni autem gratiae a senatu actae supplicatioque decreta est. Quibus rebus peractis C",
+        "Quae cum ita sint, patres conscripti, vobis populi Romani praesidia non desunt; vos ne populo Romano deesse videamini, providete. Habetis consulem ex plurimis periculis et insidiis atque ex media morte non ad vitam suam, sed ad salutem vestram reservatum. Omnes ordines ad conservandam rem publicam mente, voluntate, studio, virtute, voce consentiunt. Obsessa facibus et telis impiae coniurationis vobis supplex manus tendit patria communis, vobis se, vobis vitam omnium civium, vobis arcem et Capitolium, vobis aras Penatium, vobis illum ignem Vestae sempiternum, vobis omnium deorum templa atque delubra, vobis muros atque urbis tecta commendat. Pr"
+      ],
+      "admitted": false,
+      "decision": "Latin text; outside this English prose edition."
+    },
+    {
+      "id": 54,
+      "catalog_title": "The Marvelous Land of Oz by L. Frank Baum | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/54",
+      "raw_sha256": "48e4dd66643ab160d986562d635b18aa4b8f3dc6d7d47d2796c108c2c8b60759",
+      "catalog_sha256": "fae463bbb336b1ceee0cec3f5dce78fa1735f8e3f02947a9fdeaa76ca9b14d4c",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "So he selected a fine, big pumpkin—one with a lustrous, orange-red color—and began carving it. With the point of his knife he made two round eyes, a three-cornered nose, and a mouth shaped like a new moon. The face, when completed, could not have been considered strictly beautiful; but it wore a smile so big and broad, and was so Jolly in expression, that even Tip laughed as he looked admiringly at his work.",
+        "“I have heard, my dear friend, that a person can become over-educated; and although I have a high respect for brains, no matter how they may be arranged or classified, I begin to suspect that yours are slightly tangled. In any event, I must beg you to restrain your superior education while in our society.”",
+        "The first act of the Witch was to make the boy drink a potion which quickly sent him into a deep and dreamless sleep. Then the Tin Woodman and the Woggle-Bug bore him gently to the couch, placed him upon the soft cushions, and drew the gossamer hangings to shut him from all earthly view."
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 420,
+      "catalog_title": "Dorothy and the Wizard in Oz by L. Frank Baum | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/420",
+      "raw_sha256": "3772b95e863dfeed32e8cb79d07494314e9ce12da99ee0f16a6e455e04628ffe",
+      "catalog_sha256": "70151c81da3f6e0799cabee117d7f7664db74cd92849f33c881c719f1aa6ced1",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "At once a little girl rose from her seat and walked to the door of the car, carrying a wicker suit-case in one hand and a round bird-cage covered up with newspapers in the other, while a parasol was tucked under her arm. The conductor helped her off the car and then the engineer started his train again, so that it puffed and groaned and moved slowly away up the track. The reason he was so late was because all through the night there were times when the solid earth shook and trembled under him, and the engineer was afraid that at any moment the rails might spread apart and an accident happen to his passengers. So he moved the cars slowly and w",
+        "They turned around and found a man standing on the floor in the center of the cave, who bowed very politely when he saw he had attracted their attention. He was a very old man, bent nearly double; but the queerest thing about him was his white hair and beard. These were so long that they reached to his feet, and both the hair and the beard were carefully plaited into many braids, and the end of each braid fastened with a bow of colored ribbon.",
+        "\"I do not like to deceive my friends,\" replied the Tin Woodman; \"still, my kind heart urges me to save Eureka's life, and I can usually trust my heart to do the right thing. So I will do as you say, friend Wizard.\""
+      ],
+      "admitted": true,
+      "decision": "Readable connected English narrative in the inspected passages. Admit as historical language material; fiction and social assumptions are not factual teaching targets."
+    },
+    {
+      "id": 266,
+      "catalog_title": "Confessio Amantis; Or, Tales of the Seven Deadly Sins by John Gower | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/266",
+      "raw_sha256": "cb7e3703479eb2e07d299057741ede1df3a1570cd05061fe38a6e5e120e2cf3b",
+      "catalog_sha256": "881c795aaee6a5298864c2c81f353faa54b5086ba23c9ccb49011c066efb1002",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "My goode Sone, god thamende: For as me thenketh be thi speche Thi wittes ben riht feer to seche. 570 As of thin Ere and of thin yhe I woll nomore specefie, Bot I woll axen overthis Of othre thing how that it is.",
+        "Sche seide, at entre of the pas Hou Mars, which god of Armes was, Hath set tuo Oxen sterne and stoute, That caste fyr and flamme aboute Bothe at the mouth and ate nase, So that thei setten al on blase 3510 What thing that passeth hem betwene: And forthermore upon the grene Ther goth the flees of gold to kepe A Serpent, which mai nevere slepe. Thus who that evere scholde it winne, The fyr to stoppe he mot beginne, Which that the fierce bestes caste, And daunte he mot hem ate laste, So that he mai hem yoke and dryve; And therupon he mot as blyve 3520 The Serpent with such strengthe assaile, That he mai slen him be bataile; Of which he mot the t",
+        "He thonketh god and forth goth he 1590 Seilende toward Tyr ayein. Bot sodeinly the wynd and reyn Begonne upon the See debate, So that he soffre mot algate The lawe which Neptune ordeigneth; Wherof fulofte time he pleigneth, And hield him wel the more esmaied Of that he hath tofore assaied. So that for pure sorwe and care, Of that he seth his world so fare, 1600 The reste he lefte of his Caban, That for the conseil of noman Ayein therinne he nolde come, Bot hath benethe his place nome, Wher he wepende al one lay, Ther as he sih no lyht of day. And thus tofor the wynd thei dryve, Til longe and late thei aryve With gret distresce, as it was sene"
+      ],
+      "admitted": false,
+      "decision": "Middle English verse; outside this modern English prose edition."
+    },
+    {
+      "id": 416,
+      "catalog_title": "Winesburg, Ohio: A Group of Tales of Ohio Small Town Life by Sherwood Anderson | Project Gutenberg",
+      "catalog_url": "https://www.gutenberg.org/ebooks/416",
+      "raw_sha256": "f73183936f6599750f0da9384a84fc20959491bddf259f9be0105881e60d67bc",
+      "catalog_sha256": "f28a6639bd6d169cdff71aa1d824cc4747163832e70729faf21da41a51364f9e",
+      "review_method": "Three deterministic substantial-paragraph samples at 3%, 50% and 94%; first 650 normalized characters inspected. Catalogue and language checked. Not a complete reading of the book.",
+      "reviewed_samples": [
+        "The prose Anderson employs in telling these stories may seem at first glance to be simple: short sentences, a sparse vocabulary, uncomplicated syntax. In actuality, Anderson developed an artful style in which, following Mark Twain and preceding Ernest Hemingway, he tried to use American speech as the base of a tensed rhythmic prose that has an economy and a shapeliness seldom found in ordinary speech or even oral narration. What Anderson employs here is a stylized version of the American language, sometimes rising to quite formal rhetorical patterns and sometimes sinking to a self-conscious mannerism. But at its best, Anderson’s prose style i",
+        "George Willard was older than Seth Richmond, but in the rather odd friendship between the two, it was he who was forever courting and the younger boy who was being courted. The paper on which George worked had one policy. It strove to mention by name in each issue, as many as possible of the inhabitants of the village. Like an excited dog, George Willard ran here and there, noting on his pad of paper who had gone on business to the county seat or had returned from a visit to a neighboring village. All day he wrote little facts upon the pad. “A. P. Wringlet had received a shipment of straw hats. Ed Byerbaum and Tom Marshall were in Cleveland F",
+        "It was early evening of a day in the late fall and the Winesburg County Fair had brought crowds of country people into town. The day had been clear and the night came on warm and pleasant. On the Trunion Pike, where the road after it left town stretched away between berry fields now covered with dry brown leaves, the dust from passing wagons arose in clouds. Children, curled into little balls, slept on the straw scattered on wagon beds. Their hair was full of dust and their fingers black and sticky. The dust rolled away over the fields and the departing sun set it ablaze with colors."
+      ],
+      "admitted": false,
+      "decision": "Edition includes a later critical introduction; defer until its body and attribution are separately reviewed."
+    }
+  ]
+}

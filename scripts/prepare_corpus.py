@@ -118,6 +118,8 @@ def main():
         if urllib.parse.urlparse(url).hostname not in ('www.gutenberg.org', 'gutenberg.org'):
             raise ValueError(f'Unexpected download host: {url}')
         raw = fetch(url, args.raw / f'{book_id}.txt')
+        if source.get('reviewed_raw_sha256') and sha(raw) != source['reviewed_raw_sha256']:
+            raise ValueError(f'Reviewed source bytes changed for {book_id}; review a new edition')
         if args.download_only:
             print(f'{book_id}: {len(raw)} bytes cached; {catalog_title}', flush=True)
             continue

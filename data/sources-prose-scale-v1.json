@@ -1,0 +1,618 @@
+{
+  "version": "selected-prose-scale-v1",
+  "purpose": "Expand selected from-scratch language material from twelve training books to millions of words of authored prose.",
+  "policy": "Only the selected Gutenberg editions enter training. Founders use random weights and fixed byte IDs. Held-out books never provide learning, replay or teacher targets. The code MIT license does not relicense source books.",
+  "stage_note": "Stages group elementary readers, shorter narratives, sustained adventures and longer novels. They are content organization, not human ages or validated mastery. A separate schedule must declare exposure.",
+  "edition_note": "Historical English editions and translations, including fiction, dated vocabulary and social assumptions. No claim of modern factual accuracy. Raw source notices and catalogue pages remain cached. Sample review is not an exhaustive reading.",
+  "stages": [
+    {
+      "id": 1,
+      "name": "Elementary reading",
+      "focus": "Letters, words and connected sentences."
+    },
+    {
+      "id": 2,
+      "name": "Shorter narratives",
+      "focus": "Dialogue and connected events in shorter stories."
+    },
+    {
+      "id": 3,
+      "name": "Sustained narratives and explanations",
+      "focus": "Longer passages, descriptions and changing situations."
+    },
+    {
+      "id": 4,
+      "name": "Longer novels",
+      "focus": "Extended narrative, dialogue and richer sentence structure."
+    }
+  ],
+  "sources": [
+    {
+      "id": 14642,
+      "title": "McGuffey's Eclectic Primer, Revised Edition",
+      "author": "William Holmes McGuffey",
+      "split": "train",
+      "stage": 1,
+      "reason": "Starts with simple vocabulary and gradually introduces short sentences and lessons.",
+      "body_start": "^Lesson 1$",
+      "reviewed_raw_sha256": "a6fc285ca7a5a2940bd7f193f301968c3f177adf5a3a10379393d8a7ce773eb9"
+    },
+    {
+      "id": 14640,
+      "title": "McGuffey's First Eclectic Reader, Revised Edition",
+      "author": "William Holmes McGuffey",
+      "split": "train",
+      "stage": 1,
+      "reason": "Elementary reading about familiar objects, actions and everyday situations.",
+      "body_start": "^LESSON I\\.$",
+      "reviewed_raw_sha256": "1859570d04ea35d76d75dedb03c90b097f88031c34d80b2f63df9104b2f93a07"
+    },
+    {
+      "id": 14668,
+      "title": "McGuffey's Second Eclectic Reader",
+      "author": "William Holmes McGuffey",
+      "split": "train",
+      "stage": 1,
+      "reason": "Progresses to connected reading and short stories.",
+      "body_start": "^LESSON I\\.$",
+      "reviewed_raw_sha256": "5c9899998fe58ed92b31b59b2d05c0a532a6234a30f0dedbf3e08c86b4e9556f"
+    },
+    {
+      "id": 14766,
+      "title": "McGuffey's Third Eclectic Reader",
+      "author": "William Holmes McGuffey",
+      "split": "train",
+      "stage": 1,
+      "reason": "Adds longer passages and more varied vocabulary.",
+      "body_start": "^LESSON I\\.$",
+      "reviewed_raw_sha256": "923d0320d2306b82984a66a7fcff5169b547d820f0bbeb466648db2f8af433f6"
+    },
+    {
+      "id": 13853,
+      "title": "New National First Reader",
+      "author": "Charles J. Barnes, Harlan H. Ballard and S. Proctor Thayer",
+      "split": "validation",
+      "stage": 3,
+      "reason": "Retain the existing reader validation edition and reserve its paragraphs before new training stories.",
+      "body_start": "^LESSON I\\.$",
+      "body_end": "^PHONIC CHART\\.$",
+      "retained_evaluation": true,
+      "reviewed_raw_sha256": "26ded29751ddd5a42125cd1cecdc818de951d1b2203cc3ab1e248dfd2009accb"
+    },
+    {
+      "id": 15659,
+      "title": "The Beacon Second Reader",
+      "author": "James H. Fassett",
+      "split": "test",
+      "stage": 3,
+      "reason": "Retain the existing reserved reader and protect its paragraphs from new training material.",
+      "body_start": "^THE SHOEMAKER AND THE ELVES--I$",
+      "body_end": "^End of Project Gutenberg",
+      "retained_evaluation": true,
+      "reviewed_raw_sha256": "3be38d16a004574fb40e3f5bac9af3bdf55b1d4aaaf6582b39702d97c829c97a"
+    },
+    {
+      "id": 5726,
+      "title": "The Fairy-Land of Science",
+      "author": "Arabella B. Buckley",
+      "split": "train",
+      "stage": 3,
+      "reason": "An explicit change from elementary reading stories to sustained explanations of physical and natural phenomena. Historical scientific claims require separate modern verification.",
+      "body_start": "^LECTURE I$",
+      "body_end": "^End of Project Gutenberg",
+      "reviewed_raw_sha256": "a2373a9430479b88ab828819ad99e5c6e20cd9607b17323d740ff9f5f0782c0c"
+    },
+    {
+      "id": 12228,
+      "title": "Home Geography for Primary Grades",
+      "author": "C. C. Long",
+      "split": "validation",
+      "stage": 3,
+      "reason": "Retain the existing geography validation edition and reserve its paragraphs before new training stories.",
+      "body_start": "^LESSON I\\.$",
+      "body_end": "^End of Project Gutenberg",
+      "retained_evaluation": true,
+      "reviewed_raw_sha256": "a0eed14ad739f7ac6e47905cc99f5f6e1a0af3caa94b169b568b70f09475a378"
+    },
+    {
+      "id": 572,
+      "title": "The Great Big Treasury of Beatrix Potter",
+      "author": "Beatrix Potter",
+      "split": "train",
+      "stage": 2,
+      "reason": "A selected collection of short animal stories broadens connected prose beyond repeated location lessons.",
+      "body_start": "^Once upon a time there were$",
+      "reviewed_raw_sha256": "2cb88649f064dc54c5c11b8696f14585f12387e325205ad3e08bf57d2d52228c"
+    },
+    {
+      "id": 5312,
+      "title": "Mother Goose in Prose",
+      "author": "L. Frank Baum",
+      "split": "train",
+      "stage": 2,
+      "reason": "Short narratives and dialogue with a different author and varied characters; nursery-rhyme overlap is audited separately.",
+      "body_start": "^Sing a Song o' Sixpence$",
+      "reviewed_raw_sha256": "f88fc06e606f6ece884cadfd0b491a16d39503688d4bd2a373908e3ba2f73eba"
+    },
+    {
+      "id": 43936,
+      "title": "The Wonderful Wizard of Oz",
+      "author": "L. Frank Baum",
+      "split": "train",
+      "stage": 2,
+      "reason": "A sustained story with recurring characters, changing locations and goal-directed dialogue. The catalogue identifies this as the improved text edition.",
+      "body_start": "^Dorothy lived in the midst",
+      "body_end": "^Transcriber's Notes:",
+      "reviewed_raw_sha256": "2d37997253197f4435c74a5661fc5407693c8b53cfa94c5c98cc47875e2df6de"
+    },
+    {
+      "id": 11,
+      "title": "Alice's Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "split": "train",
+      "stage": 2,
+      "reason": "Dialogue and varied sentence structures in a distinct fantasy narrative; fictional and nonsense assertions are not factual ground truth.",
+      "body_start": "^Alice was beginning to get very tired",
+      "reviewed_raw_sha256": "01b38ea4c710a84bc18d0bd41271a5a1a92b94e97b2812f4dece97d4a694725e"
+    },
+    {
+      "id": 236,
+      "title": "The Jungle Book",
+      "author": "Rudyard Kipling",
+      "split": "train",
+      "stage": 3,
+      "reason": "Multiple stories and event sequences broaden vocabulary and character relations; historical social assumptions remain.",
+      "body_start": "^It was seven",
+      "reviewed_raw_sha256": "571353c4c69d127020fb16cd6a566f1d80101bc0fc3cf2b0c2ea5678bf4c769f"
+    },
+    {
+      "id": 17314,
+      "title": "Five Children and It",
+      "author": "E. Nesbit",
+      "split": "train",
+      "stage": 3,
+      "reason": "Dialogue, everyday settings and consequences of actions provide longer connected narrative.",
+      "body_start": "^The house was three miles",
+      "body_end": "^Transcriber's notes:",
+      "reviewed_raw_sha256": "a9c2ee0019bbb010939a81e4c75208c6f51255fc3017fa843dbbf69765f05cdb"
+    },
+    {
+      "id": 17396,
+      "title": "The Secret Garden",
+      "author": "Frances Hodgson Burnett",
+      "split": "train",
+      "stage": 3,
+      "reason": "A longer narrative with character development, descriptions and dialogue. Dialect and historical assumptions are part of the source.",
+      "body_start": "^When Mary Lennox was sent",
+      "body_end": "^Transcriber's notes:",
+      "reviewed_raw_sha256": "438e61f5639bbe77d8730516944a312f4bb0704d59a36b6b8d57a7b66457bcae"
+    },
+    {
+      "id": 11757,
+      "title": "The Velveteen Rabbit",
+      "author": "Margery Williams Bianco",
+      "split": "validation",
+      "stage": 3,
+      "reason": "A separate author and short narrative used only for development assessment, never learning or replay.",
+      "body_start": "^HERE was once a velveteen rabbit",
+      "curation_note": "The text edition begins HERE after a decorative initial in the HTML edition. This transcription is retained rather than silently edited.",
+      "reviewed_raw_sha256": "01c84466faf26379e7b49f364d2452d14da26fcbc9378d751b5caf3cf2580bfb"
+    },
+    {
+      "id": 902,
+      "title": "The Happy Prince, and Other Tales",
+      "author": "Oscar Wilde",
+      "split": "test",
+      "stage": 3,
+      "reason": "A separate author and story collection reserved for final evaluation; never used for development selection or learning.",
+      "body_start": "^HIGH above the city",
+      "body_end": "^\\s*Printed by BALLANTYNE & CO\\. LIMITED$",
+      "reviewed_raw_sha256": "77ae1b3c7be77aea82b1f935e531e53f4df43db572cbc14af39d6cd0d5ba50da"
+    },
+    {
+      "id": 120,
+      "title": "Treasure Island",
+      "author": "Robert Louis Stevenson",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "5bc08275eacea8640b1aa185c645283bb8c564d7b23df6b03437d229b4fc6ebd"
+    },
+    {
+      "id": 421,
+      "title": "Kidnapped",
+      "author": "Robert Louis Stevenson",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "d57ef5be2a98ff2bbe3819abc84deeeea7f5f039a4b90fd358b2babb0f75588a"
+    },
+    {
+      "id": 43,
+      "title": "The strange case of Dr. Jekyll and Mr. Hyde",
+      "author": "Robert Louis Stevenson",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "b43448a88391591f9cf82b25553df00faf47a2752a873185fcdd1156eebdb990"
+    },
+    {
+      "id": 1661,
+      "title": "The Adventures of Sherlock Holmes",
+      "author": "Arthur Conan Doyle",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "922e2a12ccb43a4c9544c260b2166c6ad2097aeb5957faeee113f173bb857cd0"
+    },
+    {
+      "id": 2097,
+      "title": "The Sign of the Four",
+      "author": "Arthur Conan Doyle",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "4cdea89cf6cd2567a556d0e6901edb89949dd79e200dbaf4ced4cabf1d5d2c26"
+    },
+    {
+      "id": 2852,
+      "title": "The Hound of the Baskervilles",
+      "author": "Arthur Conan Doyle",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "f7c8c68729d32a5f6a04a5a9ad73d184176e66a6c76b3992c41c1ab47b427d98"
+    },
+    {
+      "id": 244,
+      "title": "A Study in Scarlet",
+      "author": "Arthur Conan Doyle",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "8bbec71f9fa9c2acc9afe9be70560ca5f65c1bc95ef5af8252e9097f8d012497"
+    },
+    {
+      "id": 834,
+      "title": "The Memoirs of Sherlock Holmes",
+      "author": "Arthur Conan Doyle",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "509da3f8bbdc6c3857073e74911f628eef8fea557fcb5bca9e1713c846e43ec3"
+    },
+    {
+      "id": 103,
+      "title": "Around the World in Eighty Days",
+      "author": "Jules Verne",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "6f608ea2da50caf73245ad2996e4ee3c02ef1aa2152f7fcfe209df9aa39e7512"
+    },
+    {
+      "id": 1400,
+      "title": "Great Expectations",
+      "author": "Charles Dickens",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "9a637118af8e953e9764ec603d9b0a032883384d465acac2e27966a80cf1c6f8"
+    },
+    {
+      "id": 730,
+      "title": "Oliver Twist",
+      "author": "Charles Dickens",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "c64d62808c163536c815cefdb4837d767670cf5c256c84191e736e4d480c7e49"
+    },
+    {
+      "id": 768,
+      "title": "Wuthering Heights",
+      "author": "Emily Brontë",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "e533fe750589f0421d5d744576315f5c2b9b0d69e981179ea0551bbf134c5e02"
+    },
+    {
+      "id": 1260,
+      "title": "Jane Eyre: An Autobiography",
+      "author": "Charlotte Brontë",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "13414dee2951c3ee731d76d2ffd822016b2479c892162760c5d0eb2aa5fa7631"
+    },
+    {
+      "id": 1342,
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "3f6bb9d6f78e0293b56acd4714dd68cb7d6d1d293402031ce9d5a216bcaf9d75"
+    },
+    {
+      "id": 161,
+      "title": "Sense and Sensibility",
+      "author": "Jane Austen",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "22272ec4d4da2f50cda51edf34ab8486b325c4a99580120db565fb8917228a22"
+    },
+    {
+      "id": 141,
+      "title": "Mansfield Park",
+      "author": "Jane Austen",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "b34723544dbe8185e786d0fdd47e42e7e1ac4265b84141e31ca260c1e36b68d8"
+    },
+    {
+      "id": 158,
+      "title": "Emma",
+      "author": "Jane Austen",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "532b122b4e6a76cc556d6fdcd729b5892f5c4ce4a1b7060b9f832adfad8680dc"
+    },
+    {
+      "id": 105,
+      "title": "Persuasion",
+      "author": "Jane Austen",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "64ffb821b9e9eb1040c103a44c28893c94ebe33ffbb911288b5022efaecbfefc"
+    },
+    {
+      "id": 121,
+      "title": "Northanger Abbey",
+      "author": "Jane Austen",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "627d572b1d1b7c2d6e2fef0a886bd70720f9267d609f94338cee18a97c4a87b3"
+    },
+    {
+      "id": 514,
+      "title": "Little Women",
+      "author": "Louisa May Alcott",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "677d034b4a3d1cea92d075939878f852a7a3ec757dc9ed05ef0c40cab5c1e6de"
+    },
+    {
+      "id": 45,
+      "title": "Anne of Green Gables",
+      "author": "L. M. Montgomery",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "89a5e9fb2e0bb44562a969785385366f94e1da736aebee7d9cdf459eb0b5f9f6"
+    },
+    {
+      "id": 46,
+      "title": "A Christmas Carol in Prose; Being a Ghost Story of Christmas",
+      "author": "Charles Dickens",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "8c36b93723d454982df045ec0efdf2664e5a48e6b5e2f670e883575f75ad0cc8"
+    },
+    {
+      "id": 51,
+      "title": "Anne of the Island",
+      "author": "L. M. Montgomery",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "f9c7d035c05a39d436c36fb9f99addbfe3206e662f694437d25ed7d266f5c572"
+    },
+    {
+      "id": 16,
+      "title": "Peter Pan :  [Peter and Wendy]",
+      "author": "J. M. Barrie",
+      "split": "train",
+      "stage": 2,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "6b08714281fe38266a756741e4c62915cda7536c2f78cca501f7fd53f3f445ae"
+    },
+    {
+      "id": 12,
+      "title": "Through the Looking-Glass",
+      "author": "Lewis Carroll",
+      "split": "train",
+      "stage": 2,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "e40a38f5da841f9fb6acc557355c447b7c2ccb56a208caf5fcf2b05081f14d42"
+    },
+    {
+      "id": 289,
+      "title": "The Wind in the Willows",
+      "author": "Kenneth Grahame",
+      "split": "train",
+      "stage": 2,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "98f6b6cda20087857cefe9121b71d6166c1b92423bb7645fdba3c45ff0c141e8"
+    },
+    {
+      "id": 271,
+      "title": "Black Beauty :  The autobiography of a horse",
+      "author": "Anna Sewell",
+      "split": "train",
+      "stage": 2,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "493a70f2cd5580db12ba0bfee8d8fe74daa578f927c3db81afe285b31391d5a5"
+    },
+    {
+      "id": 107,
+      "title": "Far from the Madding Crowd",
+      "author": "Thomas Hardy",
+      "split": "validation",
+      "stage": 4,
+      "reason": "Whole book and author newly reserved; never used as a learning or teacher target.",
+      "reviewed_raw_sha256": "67d4901981ceaef9ae2e5de32d1c59c8005101375a932d49861054f65bb60099"
+    },
+    {
+      "id": 35,
+      "title": "The Time Machine",
+      "author": "H. G. Wells",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "2892e919000e17c83e1dac51b30f4675db50536b644d7579fe8a89bb399a9bdc"
+    },
+    {
+      "id": 36,
+      "title": "The war of the worlds",
+      "author": "H. G. Wells",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "8417469e3ab664749f7b36ebb85799075818207b0380b54c27d07d592a44117d"
+    },
+    {
+      "id": 5230,
+      "title": "The Invisible Man: A Grotesque Romance",
+      "author": "H. G. Wells",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "28c70e3809ce945efbe5f8681532916a2c4253fee5cca6e1a191707af22280d3"
+    },
+    {
+      "id": 159,
+      "title": "The island of Doctor Moreau",
+      "author": "H. G. Wells",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "6085aef7b293dc0935974736f71e84c86952d5cb4cbad977fde942ffeba98a31"
+    },
+    {
+      "id": 164,
+      "title": "Twenty Thousand Leagues under the Sea",
+      "author": "Jules Verne",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "3562e063ad9027725d1feb2f945e86a0a90804a8ab19f8cb272884c436ebc34f"
+    },
+    {
+      "id": 83,
+      "title": "From the Earth to the moon; and, round the moon",
+      "author": "Jules Verne",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "6d87062870643bf9364d09f5c6b37ce53dab524501041d87e7d83a2e1b2f744d"
+    },
+    {
+      "id": 18857,
+      "title": "A Journey to the Centre of the Earth",
+      "author": "Jules Verne",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "e2dc4c7b2ead7e8ec30c597fc2db175ffb7ade2d0915c7f4f91b64e33307929f"
+    },
+    {
+      "id": 1268,
+      "title": "The Mysterious Island",
+      "author": "Jules Verne",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "7133452f63b49690043b6c9af5516bd30f76b39ac6526dacfdc322ae4600a689"
+    },
+    {
+      "id": 521,
+      "title": "The Life and Adventures of Robinson Crusoe",
+      "author": "Daniel Defoe",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "6c5c1dc78db2ecd92905b6dd75779eba2361d7ee38e55300002e5cbedda63778"
+    },
+    {
+      "id": 11703,
+      "title": "The Swiss Family Robinson; or Adventures in a Desert Island",
+      "author": "Johann David Wyss",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "932218461f10da311e09c2f2fd8d5f0032b5c0c29f2d7825736cd05d4a619abb"
+    },
+    {
+      "id": 1184,
+      "title": "The Count of Monte Cristo",
+      "author": "Alexandre Dumas and Auguste Maquet",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "64f8d5cfa51fcecb904abf7312d395d512a71817e7359b91288beb50517c3836"
+    },
+    {
+      "id": 1257,
+      "title": "The three musketeers",
+      "author": "Alexandre Dumas and Auguste Maquet",
+      "split": "train",
+      "stage": 4,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "1682d060845717283d22462d1d884f79c2741ecdba3cfe5ceed700602ccf0e75"
+    },
+    {
+      "id": 2701,
+      "title": "Moby Dick; Or, The Whale",
+      "author": "Herman Melville",
+      "split": "test",
+      "stage": 4,
+      "reason": "Whole book and author newly reserved; never used as a learning or teacher target.",
+      "reviewed_raw_sha256": "907420db6c4b68c70e2988cd2ad9c8cf79138667a01b63376d18dd17fef1a18b"
+    },
+    {
+      "id": 910,
+      "title": "White Fang",
+      "author": "Jack London",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "3c7226d00fd9b169f0016635d0e461501620f343220ee18db7ca9f083f4ad3f4"
+    },
+    {
+      "id": 215,
+      "title": "The call of the wild",
+      "author": "Jack London",
+      "split": "train",
+      "stage": 3,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "30f569c5671bba7bbc4a92ab6d8ee01a0d3be00f994819c77da62c28041eb8a2"
+    },
+    {
+      "id": 54,
+      "title": "The Marvelous Land of Oz",
+      "author": "L. Frank Baum",
+      "split": "train",
+      "stage": 2,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "48e4dd66643ab160d986562d635b18aa4b8f3dc6d7d47d2796c108c2c8b60759"
+    },
+    {
+      "id": 420,
+      "title": "Dorothy and the Wizard in Oz",
+      "author": "L. Frank Baum",
+      "split": "train",
+      "stage": 2,
+      "reason": "Selected connected narrative and dialogue for larger from-scratch language training.",
+      "reviewed_raw_sha256": "3772b95e863dfeed32e8cb79d07494314e9ce12da99ee0f16a6e455e04628ffe"
+    }
+  ]
+}

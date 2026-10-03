@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "source_spec_sha256": "662efb7b6690f97811333838b20de179aa3ae6639acf461678d1e16004683015",
+  "source_manifest_sha256": "a0e938120e0007fca06f90d17aa68d445d1b0248bbcb849aaeb3987c2bffa28e",
+  "review_sha256": "55728b76194319a8b1ec56b7d010e127add8ce9871115b39da93c92cd7fa1386",
+  "counts": {
+    "train": {
+      "bytes": 26896416,
+      "documents": 55,
+      "sha256": "e622ce37d53888352f5e57c3d306478a24a69a7bfb3ea493f818a4331d1174de",
+      "word_like_units": 4817047
+    },
+    "validation": {
+      "bytes": 930938,
+      "documents": 4,
+      "sha256": "8088fc5794627156885a87d23dd45a4ba9548959cf40cb77d686240bfda96c97",
+      "word_like_units": 166908
+    },
+    "test": {
+      "bytes": 1435794,
+      "documents": 3,
+      "sha256": "b63ad69bdea938464b8d9247593a7bed8a4f84188be96e8fbca68682ff0f573b",
+      "word_like_units": 253171
+    }
+  },
+  "reviewed_new_books": 45,
+  "existing_holdouts_byte_identical": true,
+  "training_protected_paragraph_overlap": 0,
+  "changed_reviewed_bytes_rejected": true,
+  "complete_exposure_schedule_verified": true,
+  "schedule": {
+    "source_spec_sha256": "662efb7b6690f97811333838b20de179aa3ae6639acf461678d1e16004683015",
+    "prepared_manifest_sha256": "a0e938120e0007fca06f90d17aa68d445d1b0248bbcb849aaeb3987c2bffa28e",
+    "chunk": 128,
+    "stages": [
+      {
+        "stage": 1,
+        "passes": 4,
+        "documents": 4,
+        "source_pairs_per_pass": 261274,
+        "observations_per_pass": 2044,
+        "end_update": 8176,
+        "cumulative_source": "data\\prepared\\prose-scale-v1-pinned\\through-stage-1.dat",
+        "source_sha256": "66116234362cb7fa49d233e671f8c6a388ad2b2181577ea3538a92b95a2be143"
+      },
+      {
+        "stage": 2,
+        "passes": 1,
+        "documents": 10,
+        "source_pairs_per_pass": 2294824,
+        "observations_per_pass": 17934,
+        "end_update": 26110,
+        "cumulative_source": "data\\prepared\\prose-scale-v1-pinned\\through-stage-2.dat",
+        "source_sha256": "819fa6afc9be7c066ab39786335bf7ccb5fdc35422c5c8e9ce19d24936c985e0"
+      },
+      {
+        "stage": 3,
+        "passes": 1,
+        "documents": 20,
+        "source_pairs_per_pass": 8842953,
+        "observations_per_pass": 69097,
+        "end_update": 95207,
+        "cumulative_source": "data\\prepared\\prose-scale-v1-pinned\\through-stage-3.dat",
+        "source_sha256": "fe78064ddbf592f032b436b4c0a2b8ff5ce93b59727281514fd57d1951757911"
+      },
+      {
+        "stage": 4,
+        "passes": 1,
+        "documents": 21,
+        "source_pairs_per_pass": 15497256,
+        "observations_per_pass": 121082,
+        "end_update": 216289,
+        "cumulative_source": "data\\prepared\\prose-scale-v1-pinned\\through-stage-4.dat",
+        "source_sha256": "1ef65088ebe714800673c9a89711e732061b86c65a368d9806ddf9a3167125b5"
+      }
+    ],
+    "schedule_sha256": "95c67a6ee99e8c57101556cf141ae0031d9de2e4c1da7fc4ab652c7f253ea1e3",
+    "source_pairs": 27680129,
+    "online_updates": 216289,
+    "policy": "Complete four foundation passes and one pass of each later stage, with new-document source traversal and ordinary balanced stage replay. This is an initial exposure schedule, not a demonstrated optimum or stopping rule."
+  },
+  "limitation": "Sampled passage review; exact paragraph protection does not detect paraphrases, short matches or shared plots. Historical prose is not modern factual ground truth."
+}

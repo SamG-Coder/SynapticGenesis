@@ -18,6 +18,10 @@
     "selected-stories-v1": {
       "sources": "data/sources-stories-v1.json",
       "sha256": "9129384e702e8aec784414ac81185065a6f2806313599fd687c5f913445e2e0e"
+    },
+    "selected-prose-scale-v1": {
+      "sources": "data/sources-prose-scale-v1.json",
+      "sha256": "662efb7b6690f97811333838b20de179aa3ae6639acf461678d1e16004683015"
     }
   },
   "retired_editions": {
