@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "native_commands": 0,
+  "model_updates": 0,
+  "cases": [
+    {
+      "checkpoint": "runs\\prose-size-panel\\founder-2m\\initial.ckpt",
+      "sha256": "eb684bb77a175f7517fd0a8968ea41cf185ade9b595cb82a2dea3e16ff2b57ba",
+      "layers": 4,
+      "tensor_roles_per_layer": 14,
+      "all_weight_views_exact": true
+    },
+    {
+      "checkpoint": "runs\\prose-size-panel\\founder-2m\\stage-4.ckpt",
+      "sha256": "5cb6b83a25131190453b337f7cdbf17074a940fc931fb7f44da98630688d785b",
+      "layers": 4,
+      "tensor_roles_per_layer": 14,
+      "all_weight_views_exact": true
+    }
+  ],
+  "rejected_inputs": 7,
+  "signed_gain_scalar_fixture": true,
+  "independent_dot_products": true,
+  "checkpoint_files_unchanged": true,
+  "code_sha256": {
+    "D:\\SynapticGenesis\\tests\\prose_projection_snapshot.py": "1677c8fb2b64f0d937eec98cbdafc535430eeccc924dcba11752be351e477c38",
+    "scripts\\prose_projection_snapshot.py": "292e27d2af0a0c94d54fb343d620a20a32a2e135f8ecc1cd5cb109fee058a774",
+    "tests\\probes_cli.py": "1bb5c7ece07850a61c292312c6b15735649a98041f2805899924a565095b1609"
+  },
+  "limit": "CPU layout/statistics verification on existing native files; no new model forward or performance claim."
+}

@@ -96,3 +96,10 @@ will separate constant firing from changing signed responses, and the
 [quality comparison](prose-evaluation.md) will supply the separate outcome
 measurements. No paper, external code or model weights from this review were
 added to the training selection.
+
+The subsequent [CPU projection inspection](prose-projection-state.md) records
+input/gate sensitivity, normalization gains and leak parameters at eight
+completed 2M/105M checkpoints. Effective input row norms grow more in the larger
+model, while validation improves through stage three and worsens in stage four.
+These are measured parameter snapshots, not a causal explanation or a substitute
+for the matched native traces and learning-rate continuation.
