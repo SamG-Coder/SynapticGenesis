@@ -1,0 +1,462 @@
+{
+  "passed": true,
+  "cli": {
+    "passed": true,
+    "executable_sha256": "ba7a0cba4ceb610d5cbdf4b2d1444bce9f59f596454e84959974ee876b62296d",
+    "native_commands": 30,
+    "exact_restart_modes": [
+      "fresh",
+      "carry",
+      "reset"
+    ],
+    "exact_carry_and_reset_payloads": true,
+    "all_source_exposures_match": true,
+    "original_checkpoint_unchanged": true,
+    "evaluation_parameter_state_unchanged": true,
+    "negative_controls": [
+      "missing-ancestor",
+      "fresh-ancestor",
+      "bad-mode",
+      "bad-rate",
+      "bad-budget",
+      "bad-endpoints",
+      "bad-flag",
+      "bad-document",
+      "cross-document",
+      "bad-window",
+      "resume-rate",
+      "resume-seed",
+      "resume-backward",
+      "resume-mode",
+      "resume-validation",
+      "corrupt-payload",
+      "corrupt-header",
+      "corrupt-sidecar"
+    ],
+    "evaluation_frequency_preserves_checkpoint": true,
+    "independent_first_window_loss_error": 9.313225746154785e-08,
+    "source_sha256": {
+      "experiments/adaptation_probe.cu": "08ccb5585ea9041e563cf3716df1001fff91a1534477ce010636e703bc4e17d9",
+      "experiments/adaptation_io.cuh": "c8e18bc3cb032f197f59fb9b1f811511a4f84e9db48a61bcb9349cc8673e357e",
+      "scripts/adaptation_sources.py": "250a67061960bd7bdb09443fcb483ed0742484634e4e54e506414980a8d5b298",
+      "tests/adaptation_probe.py": "428fb196cfe8df99a6504147274876231d2e2a433ced9e5d82f11a3aaa80d96a"
+    },
+    "scope": "Tiny native fixtures; not adaptation quality or independent model-math parity."
+  },
+  "smoke_execution": {
+    "passed": true,
+    "status": "smoke_only",
+    "trajectories": 14,
+    "training_commands": 14,
+    "assessment_commands": 112,
+    "presented_pairs_per_trajectory": 2048,
+    "checkpoints": 42,
+    "original_checkpoints_unchanged": true,
+    "exact_window_exposure_verified": true,
+    "exact_initial_parameter_state_verified": true,
+    "all_evaluation_aggregates_verified": true,
+    "reserved_tests_scored": false,
+    "comparison_sha256": "b786cf7e502a2695f1bc8c75063ecfba70ab516de58fc77d93e26817f51730f8",
+    "audit_source_sha256": "4d20aed97af46b705fc4cd036e6bbb3b9a2a105f132b26dea9d6de767dda5779",
+    "scope": "Execution/state audit; no independent CPU model-parity or general-language claim."
+  },
+  "smoke_protocol": {
+    "status": "smoke_only",
+    "design_sha256": "69afaf715c34e0f451ffa9f0dd95ec2541bd4f6068f80e048fa9eb62a9ac50fb",
+    "proposal": {
+      "status": "design_declared_before_probe_training; native driver not yet implemented",
+      "architecture": {
+        "cell": 6,
+        "channels": 256,
+        "hidden": 512,
+        "layers": 4
+      },
+      "seeds": [
+        1337,
+        2026,
+        31415
+      ],
+      "experienced_starts": [
+        {
+          "label": "1337-associative-parent",
+          "seed": 1337,
+          "architecture": "associative",
+          "role": "parent",
+          "online_updates": 130000,
+          "checkpoint": "D:/SynapticGenesis/runs/associative-long-panel/1337-associative/checkpoint-130000.ckpt",
+          "checkpoint_sha256": "b518dac1dfc7c28fe4d7e3bb80be314f5fbd49527cf15c39468b023a57581894"
+        },
+        {
+          "label": "1337-associative-control",
+          "seed": 1337,
+          "architecture": "associative",
+          "role": "control",
+          "online_updates": 190000,
+          "checkpoint": "D:/SynapticGenesis/runs/teacher-retention-panel/1337-associative-control/checkpoint-190000.ckpt",
+          "checkpoint_sha256": "bda9174ccab435119bb489d7321da85e01fc279777df81347e5b68b4ee3d893f"
+        },
+        {
+          "label": "1337-associative-teacher",
+          "seed": 1337,
+          "architecture": "associative",
+          "role": "teacher",
+          "online_updates": 190000,
+          "checkpoint": "D:/SynapticGenesis/runs/teacher-retention-panel/1337-associative-teacher/checkpoint-190000.ckpt",
+          "checkpoint_sha256": "71c7a7154c83785ef2a8af1256f2c78d1b676246683ba78d105cbbb83a082ac1"
+        },
+        {
+          "label": "2026-associative-teacher",
+          "seed": 2026,
+          "architecture": "associative",
+          "role": "teacher",
+          "online_updates": 190000,
+          "checkpoint": "D:/SynapticGenesis/runs/teacher-retention-panel/2026-associative-teacher/checkpoint-190000.ckpt",
+          "checkpoint_sha256": "1cfa2b72bb611e5a5d4e3e5f6e3d3074ab1b82a83b1aae20d64e27612f8a5e7b"
+        },
+        {
+          "label": "2026-associative-parent",
+          "seed": 2026,
+          "architecture": "associative",
+          "role": "parent",
+          "online_updates": 130000,
+          "checkpoint": "D:/SynapticGenesis/runs/associative-long-panel/2026-associative/checkpoint-130000.ckpt",
+          "checkpoint_sha256": "eadbc6f0e2a9b53e3741669c527a0a4179b635beaeda4577077e559c84524f13"
+        },
+        {
+          "label": "2026-associative-control",
+          "seed": 2026,
+          "architecture": "associative",
+          "role": "control",
+          "online_updates": 190000,
+          "checkpoint": "D:/SynapticGenesis/runs/teacher-retention-panel/2026-associative-control/checkpoint-190000.ckpt",
+          "checkpoint_sha256": "dfc71bee48963ecddbf68d8797c87fd96bb388a87f903d4418cd2097c9ab0cef"
+        },
+        {
+          "label": "31415-associative-parent",
+          "seed": 31415,
+          "architecture": "associative",
+          "role": "parent",
+          "online_updates": 130000,
+          "checkpoint": "D:/SynapticGenesis/runs/associative-long-panel/31415-associative/checkpoint-130000.ckpt",
+          "checkpoint_sha256": "ccf310f157472280c1916fa3c5eebd63fe902c17c6750fbddaa6f30305403ba5"
+        },
+        {
+          "label": "31415-associative-control",
+          "seed": 31415,
+          "architecture": "associative",
+          "role": "control",
+          "online_updates": 190000,
+          "checkpoint": "D:/SynapticGenesis/runs/teacher-retention-panel/31415-associative-control/checkpoint-190000.ckpt",
+          "checkpoint_sha256": "46856b6298d96409fedc0f10fbfe3ba550d2c30e3c7f64f39ff7b0d17f815d40"
+        },
+        {
+          "label": "31415-associative-teacher",
+          "seed": 31415,
+          "architecture": "associative",
+          "role": "teacher",
+          "online_updates": 190000,
+          "checkpoint": "D:/SynapticGenesis/runs/teacher-retention-panel/31415-associative-teacher/checkpoint-190000.ckpt",
+          "checkpoint_sha256": "594b1dfdbc1a5b6e40a9ee811105e1d47c32863a01b8f319bc1dc378aebe5fb6"
+        }
+      ],
+      "fresh_starts": 3,
+      "experienced_carry_starts": 9,
+      "experienced_reset_starts": 9,
+      "learning_rates": [
+        7.5e-05,
+        0.0003
+      ],
+      "trajectories": 42,
+      "endpoints": [
+        0,
+        64,
+        256,
+        1024,
+        4096
+      ],
+      "batch": 1,
+      "context": 128,
+      "pairs_per_trajectory": 524288,
+      "math": "strict FP32",
+      "optimizer": {
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "epsilon": 1e-08,
+        "weight_decay": 0.01,
+        "norm_clip": 1.0,
+        "core_scale": 1.0
+      },
+      "optimizer_state": "Carry both moments and stored global step, or reset all three while preserving weights.",
+      "source_edition": {
+        "path": "data/prepared/early-readers-v1",
+        "manifest_sha256": "e97f7f359973c078822204ab7b93a18c46423b8053c118df1ef4f3ce3f6280fe",
+        "source_spec_sha256": "b0c0b6bc2f4ebcfba9fc5455a3e5b4242d473bf5809afba351c0c3951f94da46",
+        "upstream_commit": "be28dab38ac55e8eb2185edb6631b11615d02185",
+        "outputs": {
+          "train": {
+            "documents": 10,
+            "bytes": 14201,
+            "sha256": "332244884070ee9b2fa80313f2c47e17c82807eff2294492844b790e4792addb"
+          },
+          "validation": {
+            "documents": 3,
+            "bytes": 3306,
+            "sha256": "eb653f6be87d130259270f42f3be387bd68d845c3ab5ec42fe575754040ec7f3"
+          },
+          "test": {
+            "documents": 3,
+            "bytes": 3760,
+            "sha256": "19da3ed9c3533e2456f106da7a84ac7586fa90e2895596d201d210d15849f843"
+          }
+        },
+        "training_sources": [
+          {
+            "id": "0008",
+            "title": "What are you doing?",
+            "bytes": 139,
+            "sha256": "40cf9303a969975c0626f13b1212a3d96b5bc9afd3b6607f716264d87d4ff321"
+          },
+          {
+            "id": "0087",
+            "title": "I like to read!",
+            "bytes": 214,
+            "sha256": "c0cc696105ffb240695fc1ff4e4676f07c9cf69e66b98ed155fb0ba2f753bbb0"
+          },
+          {
+            "id": "0001",
+            "title": "A very tall man",
+            "bytes": 379,
+            "sha256": "c0df905de359f03593206437cfac2dfbbf936065c600715744b0cc07b09b1955"
+          },
+          {
+            "id": "0027",
+            "title": "Decision",
+            "bytes": 1039,
+            "sha256": "5b5b0b2a6df6bde793ef9fcf220471bc3557ae4680bd6dddc878ab260b368983"
+          },
+          {
+            "id": "0089",
+            "title": "Khalai talks to plants",
+            "bytes": 904,
+            "sha256": "ab557c293dff0eda9f8fb9912bac15955e6cb51f2a8b9fe44f41600d355ae983"
+          },
+          {
+            "id": "0095",
+            "title": "Zama is great!",
+            "bytes": 636,
+            "sha256": "546923a17038b028d78bd524a14ab4b9f27678754dd19c11b9ebddd399b263b5"
+          },
+          {
+            "id": "0110",
+            "title": "A Tiny Seed: The Story of Wangari Maathai",
+            "bytes": 2247,
+            "sha256": "67d4f0521b4c98d2823974ac07e349fb5e56195206839c8ffca8b907eb3169f9"
+          },
+          {
+            "id": "0315",
+            "title": "Sakima's song",
+            "bytes": 2506,
+            "sha256": "676adc16df692a73304598dd84083006264c3282e7636768be9ff02e64f18217"
+          },
+          {
+            "id": "0243",
+            "title": "Holidays with grandmother",
+            "bytes": 3264,
+            "sha256": "97f9446e6feae074f98b0521b98b659c13f3d0929954885b9c1dd2c9ac66a0c4"
+          },
+          {
+            "id": "0294",
+            "title": "Grandma's bananas",
+            "bytes": 2864,
+            "sha256": "d81c8b3d0f9666c82873b6a5007c5a64b0e5a16104bef3e84d0a51d4592296b5"
+          }
+        ]
+      },
+      "source_schedule": "Materialize 4096 windows per seed; uniform training document, then uniform valid byte start; 129 source bytes per window. Shared unchanged across starts and rates.",
+      "reset_recurrence_each_window": true,
+      "weighted_answers": false,
+      "earlier_source_replay": false,
+      "teacher_feedback": false,
+      "consolidation_penalty": false,
+      "reserved_tests_scored": false,
+      "checkpoint_mutations": false,
+      "source_schedules_materialized": false,
+      "native_driver_implemented": false,
+      "training_executed": false,
+      "adaptation_results_available": false,
+      "known_independent_numerical_failures_resolved": false,
+      "promotion_gate": "No production algorithm promotion from this diagnostic; report all curves and paired outcomes.",
+      "required_pre_execution_checks": [
+        "Authenticate all source/checkpoint/executable identities and save window schedules before training.",
+        "Equal initial weights between carry/reset copies and unchanged original checkpoints.",
+        "No held-out training targets or cross-document windows; exact presented-pair counts.",
+        "Finite native outcomes and complete uninterrupted/resumed probe equivalence.",
+        "Separate train fitting, development generalization and earlier-skill retention."
+      ]
+    },
+    "seeds": [
+      1337
+    ],
+    "starts": [
+      "fresh",
+      "parent-carry",
+      "parent-reset",
+      "control-carry",
+      "control-reset",
+      "teacher-carry",
+      "teacher-reset"
+    ],
+    "endpoints": [
+      0,
+      4,
+      16
+    ],
+    "learning_rates": [
+      7.5e-05,
+      0.0003
+    ],
+    "trajectories": 14,
+    "source_commit": "3027556b1d788f35ccc263a055beeaab09a81d43",
+    "source_sha256": {
+      "src/spike_lm.cu": "0e6ea9a8073c686f5c142b79964e32233cb377e874a99bc18f8a9e7f1005b14c",
+      "src/adaptive_neuron.cuh": "55d88c666e2417b757cb3e29a968a27e460ae3a5b63d463c45aa66e7f829bcce",
+      "src/adaptive_tests.cuh": "b93c5e762cab1df346fd382c51c36bf65cc67db1b6197dec17ee88a70aa8b7c9",
+      "src/associative_bench.cuh": "a7cfd18ada923d7e393fadae84b837f8eee80fb23a915a6f1c8f61fb9b7a55fd",
+      "src/associative_memory.cuh": "920a788386f0182e436e8f43061503cdf8695468dd7304ebfce49eab82154b3b",
+      "src/associative_tests.cuh": "48f2e65d5ba71a60246b0bfb1fcff1e75a407835bbfcf6ef3c9d954af234d2cc",
+      "src/checkpoint.cuh": "ac967392c2ff80deb2dfa3403a0f501a15402230d335426b67b170eb2fa7d096",
+      "src/context_bench.cuh": "5f89d33d414b35900fd9dc4b51c8b1cca629e92e5a0e336d9437b9ee33285e27",
+      "src/curriculum_tests.cuh": "76b1f4e8672cb3280e8bea143416d226d728e46dac309e2ae62f9ae1d76f7909",
+      "src/decode_tests.cuh": "9cefd53ab09738f6f11e81e18cbdd91aef9d332d2ffd1f0c2879dfaf6bf40fb0",
+      "src/distillation.cuh": "ecc1c2b1aa1f8fbcf848a5f7bac50ceac106a38559b09220c12d04af7113a18e",
+      "src/distillation_tests.cuh": "cf68dc009b9352406681dce922c2e77a1efb4d0434338f18f6e2812f43e14b3a",
+      "src/evolution.cuh": "a444a42b22e9690e0296cecb700764763b66d539f45774275f10e869cb940267",
+      "src/evolution_tests.cuh": "b4fd746ed03d7e81c5098996288914564892066e6d20ddf2e59cc1afdd1f3656",
+      "src/feedback_tests.cuh": "d7361dc9661b0f9921359f2caa431ff0682b7c92967f7a9a2f667cea09575acb",
+      "src/frozen_model_tests.cuh": "5e40f7cb32967f8a2dec7e3ebef4a374aa42241181d1d61221e74cd2c1fa58f5",
+      "src/gradient_reductions.cuh": "d39b7f958b5fc4cd89aab9ed741133d8139b1adbb0aa9ddfc4720e1aea83c2cd",
+      "src/graph_decoder.cuh": "93073bf0b78488c388916926c8a0ce20a9bd015846f0f1e4bebf2ce3829902c8",
+      "src/indexed_storage.cuh": "139ea0fa2d9ad9e962700a9e49b32174be53e067d07a6c1cd68825ad119cc147",
+      "src/language_objective.cuh": "8b72e29e1a835a7add36af0f9f22e037067406b39ce9023cf1bc46636781e186",
+      "src/language_probes.cuh": "1443c13904fae32c85c6749bed821edff2112aed5489c1398fb50e82f310b76b",
+      "src/live.cuh": "844ccb8da99d6ba83272fd40726a73a62bea94a49a8bd7d99cdd3244f6366f44",
+      "src/live_curriculum.cuh": "52c44af8f507c82fdfe5fcdac0d086a25f1d2fa944e7951cecd5cf2a81103da4",
+      "src/live_replay.cuh": "c35030f88b124e200e09ec94e1376b1e603bc3d6ebee6e60c18582a95791a141",
+      "src/memory_bench.cuh": "99159f61fc1670b524add842d2d3ad1f8ad487018852fb96e530db0484c2e2a5",
+      "src/model.cuh": "453c0aea5e331667c60b7ad0053747ac97312a1375e4887d6df121d08c226876",
+      "src/model_memory.cuh": "2a16c13e629965af69cb189fd6bede63a030a52ca27c7daec4fc571ac15c7a4e",
+      "src/population_live.cuh": "6650fa83dd3da299a938e5e1012a11b911a9d8006440cce0cf89c0f012118018",
+      "src/population_teachers.cuh": "6fceb6d94ba53c51b18b2291b91e3b9cc1cf6bf475045dcb31c1728ea8471c78",
+      "src/reduction_tests.cuh": "c324c8f508db375d64c21a8153873facbe2f1a0bc334eaa2aa45cc5d56a5bfbc",
+      "src/retention_bench.cuh": "d5f451677eb90c97dc9b11da213e2a2fceca2035b6d291d0ff1e2221ac9e54ea",
+      "src/stage_replay.cuh": "4d7e5ec7c9e0dc6a312241821e4282b361fb71f1ea314bd9ce6c3c5b924f7ebd",
+      "src/stage_replay_tests.cuh": "accc2c662dd7ba53580b5130f9d07964b7b972bdbf9f8b732338026bcbacdd4b",
+      "src/synaptic_memory.cuh": "99c07936d379a5f3730fb0186bad11b55e25ab18c06ec2d296a643f04728b775",
+      "src/synaptic_tests.cuh": "3423956f1f0b36a407daf55aa08e968c6d945302b4e1001cdc77c31e0e899e18",
+      "src/teacher_bundle.cuh": "15807e0858ce03406238babad5e0daf032c0bf798edb18001a5d84b4532270cb",
+      "src/teacher_replay.cuh": "fb6a55698f4f61026dcf0730aa9841ea1df167d7b8f41011d04ae1d881be2966",
+      "src/teacher_replay_tests.cuh": "453bc9fb15c4da7861ff261b7fad1d115366f46a49336eb1851cd7afc4c1c2a6",
+      "src/teaching_state.cuh": "b7b903e1209511186ebe74601d8475504174dae26348434d3a2d55c00b66fc79",
+      "src/test_fixtures.cuh": "c37fc4c8b05f9e63158910892e29cebcd86797f9966f3dcdd2b31d74a6b37edd",
+      "src/trace_neuron.cuh": "d346931acdff5a4711dea5740b185e6212dc7d0dd906349ffdb8973081ed71b6",
+      "CMakeLists.txt": "145e5e5650512fe7748688af2a35a5e9bc4953239aec48ba5a9dc3b7ed527c42",
+      "build.ps1": "a5984bdd50043d71417fb1c2dc59556ed4c669da4d0babea3b8084548a06aab2",
+      "experiments/adaptation_probe.cu": "08ccb5585ea9041e563cf3716df1001fff91a1534477ce010636e703bc4e17d9",
+      "experiments/adaptation_io.cuh": "c8e18bc3cb032f197f59fb9b1f811511a4f84e9db48a61bcb9349cc8673e357e",
+      "scripts/adaptation_sources.py": "250a67061960bd7bdb09443fcb483ed0742484634e4e54e506414980a8d5b298",
+      "scripts/adaptation_experiment.py": "8a12e37159b9f94eafe99519713a47d212757bcee262faee9ea18be25a0c9d57",
+      "scripts/native_experiment.py": "1c7e798d865a627014f20ecb33a0c2a9187edd6b2f90b16ae063b78ee319db63",
+      "scripts/narrative_experiment.py": "d07f6d52271cb419cc79469b7f832b87803768efd9fc6d6eda362a1e99d20522",
+      "tests/adaptation_experiment.py": "4d20aed97af46b705fc4cd036e6bbb3b9a2a105f132b26dea9d6de767dda5779"
+    },
+    "executable_sha256": "ba7a0cba4ceb610d5cbdf4b2d1444bce9f59f596454e84959974ee876b62296d",
+    "main_executable_sha256": "64c76be6fb5925757c97e4d4808f6e7c176a4dc17d47d288861caae4a8954b01",
+    "schedules": {
+      "1337": {
+        "seed": 1337,
+        "updates": 16,
+        "source_sha256": "332244884070ee9b2fa80313f2c47e17c82807eff2294492844b790e4792addb",
+        "schedule_sha256": "6212485634c9a1790dfd34fcab1df8105aab4a2533e956d1b5f710aa9c5a5e85",
+        "context": 128,
+        "input_bytes_per_window": 129,
+        "presented_pairs": 2048,
+        "selection": "Python random.Random(seed): uniform document then uniform valid byte start.",
+        "document_updates": [
+          1,
+          1,
+          0,
+          1,
+          2,
+          5,
+          2,
+          1,
+          0,
+          3
+        ],
+        "window_records_sha256": "78412aec1261fcf61df8ac3c0eba28d593ae37451f7c69c4a6c9577f120da39b"
+      }
+    },
+    "source_manifest_sha256": "e97f7f359973c078822204ab7b93a18c46423b8053c118df1ef4f3ce3f6280fe",
+    "source_paths": {
+      "train": "D:/SynapticGenesis/runs/adaptation-smoke/edition/train.dat",
+      "validation": "D:/SynapticGenesis/runs/adaptation-smoke/edition/validation.dat"
+    },
+    "source_sha": {
+      "train": "332244884070ee9b2fa80313f2c47e17c82807eff2294492844b790e4792addb",
+      "validation": "eb653f6be87d130259270f42f3be387bd68d845c3ab5ec42fe575754040ec7f3"
+    },
+    "train_document_ids": [
+      "0008",
+      "0087",
+      "0001",
+      "0027",
+      "0089",
+      "0095",
+      "0110",
+      "0315",
+      "0243",
+      "0294"
+    ],
+    "validation_document_ids": [
+      "0156",
+      "0296",
+      "0324"
+    ],
+    "book_directory": "D:/SynapticGenesis/data/prepared/stories-v1",
+    "book_identities": {
+      "reader": {
+        "id": 13853,
+        "sha256": "f6c78a32c1383d7785f4774c5d631d24c7a9eae84dd7da03e7d1cf945608751f"
+      },
+      "geography": {
+        "id": 12228,
+        "sha256": "9f76e50d48b67cdefda8750df243f0825d38959a1288b7959490b736a57a3025"
+      },
+      "narrative": {
+        "id": 11757,
+        "sha256": "870e26df365758de353c2e42b074268183a0c5bb8460400c6793da59b3f51cbc"
+      }
+    },
+    "binding_directory": "D:/SynapticGenesis/data/prepared/binding-diversity-v1",
+    "binding_manifest_sha256": "da77ab18f034d993059e2b71849791502bea15afa1a2b5a732a6d76d487d6215",
+    "development_probes_sha256": "48f9c8cff84b39875da8349b74cfddf0a8c45e67a9e0e90c54688ff2547ca964",
+    "book_evaluation_batches": 2,
+    "input_math": "strict FP32, unweighted bytes, reset recurrence for every training/evaluation window",
+    "evaluation_windows": "Sequential 128-target windows starting at byte 0 in each document, with the exact final shorter tail. Every in-document next-byte pair scored once.",
+    "execution_order": "Rotate seven starts by seed index; alternate rate order by seed plus rotated start index.",
+    "timing": "Native synchronized update timing excludes evaluation, persistence and process startup; other desktop GPU contexts are not isolated. No intrinsic speed comparison.",
+    "original_checkpoints_mutated": false,
+    "reserved_tests_scored": false,
+    "generated_text_targets": false
+  },
+  "memory_sanitizer": {
+    "errors": 0,
+    "log_sha256": "227820835857ebf5b53b3d06cb13c4e8438f129f10c9b71847850a80cbd58033",
+    "command_scope": "Eight carried-state fixture updates plus reset-window evaluation tails and endpoint persistence"
+  },
+  "production_executable_unchanged": true,
+  "production_executable_sha256": "64c76be6fb5925757c97e4d4808f6e7c176a4dc17d47d288861caae4a8954b01",
+  "full_study_training_started": false,
+  "independent_numerical_failures_resolved": false,
+  "limits": "Mechanism validation and short integration smoke; not an adaptation quality or general-language result."
+}

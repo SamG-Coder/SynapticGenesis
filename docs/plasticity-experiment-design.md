@@ -2,7 +2,7 @@
 
 The next diagnostic should measure how experience changes learning on the same new material. Our completed [retention study](teacher-retention.md) demonstrates forgetting, while the [activity census](activity-diagnostics.md) finds no never-firing neurons in its sampled windows. Neither result establishes that the models have lost their ability to learn.
 
-This note extends the [initial research review](research-live-plasticity-2026-10.md) with a concrete pilot design. The [source and proposed-protocol record](../reports/plasticity-experiment-design.json) pins the current evidence, checkpoint candidates and selected reading edition. **The adaptation pilot has not run.** Its native diagnostic driver and execution checks still need implementation before any learning result can be claimed.
+This note records the design declared before implementation and extends the [initial research review](research-live-plasticity-2026-10.md). The [original source and proposed-protocol record](../reports/plasticity-experiment-design.json) pins that evidence, checkpoint candidates and selected reading edition. Subsequent implementation and execution status are tracked in the [native diagnostic report](adaptation-probe.md). The historical proposal's implementation and execution flags describe its declaration time.
 
 ## What the additional research changes
 
