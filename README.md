@@ -4,7 +4,7 @@
 
 SynapticGenesis starts founder models from random weights, using an explicit selection of reading material and a fixed byte vocabulary. The longer-term design is a population of models at different developmental stages: two parents contribute inherited model traits to a child, and teachers help it learn from selected source material. Each generation must demonstrate useful learning and retention.
 
-The native learner, population registry, fitness-gated reproduction and bounded neuron growth work as research prototypes. Automatic stage promotion and teacher feedback are planned. Current models are small language-learning experiments; coherent conversation and general reasoning have not been established. Browser integration comes later.
+The native learner, population registry, fitness-gated reproduction, bounded neuron growth and frozen teacher feedback work as research prototypes. Automatic stage promotion and demonstrated generational improvement remain open. Current models are small language-learning experiments; coherent conversation and general reasoning have not been established. Browser integration comes later.
 
 ## What runs today
 
@@ -17,7 +17,7 @@ The native learner, population registry, fitness-gated reproduction and bounded 
 - Native parent selection, whole-block inheritance, inherited learning settings and probabilistic hidden-neuron growth within size limits.
 - GPU-memory-based population credits, stricter selection under scarcity, inherited lifespans and old-age death.
 - Population-owned live sessions update the exact checkpoint used for selection, preserve lifespan/lineage, and reject deceased members.
-- Sixteen native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
+- Eighteen native numerical/runtime test suites, independent CPU gradient checks and a scalar consolidation oracle.
 - Fixed-order CUDA gradient reductions for repeatable learning on the tested GPU/toolchain, with explicit runtime and checkpoint comparisons.
 - Context-reversal language probes and explicit answer emphasis for selected teaching lessons in the same live runtime.
 
@@ -81,7 +81,9 @@ Each `stage-N.dat` contains only that stage's training sources. `train.dat` pool
 
 This is an initial, small historical reading curriculum. Its stages describe increasing text complexity, not validated human ages. Shared tales, paraphrases, shorter overlap and historical assumptions remain possible. Broader modern subject coverage remains future work; the separate selected lesson probes now assess one narrow context-dependent skill. See [data details](docs/data.md).
 
-A separate [selected story corpus](docs/story-corpus.md) now provides seven additional authored books, approximately 322,000 training words, with independent evaluation sources and reproducible text-boundary checks. It is prepared for a later general-language study and has not changed the frozen binding experiments.
+A separate [selected story corpus](docs/story-corpus.md) provides seven additional authored books, approximately 322,000 training words, with independent evaluation sources and reproducible text-boundary checks. The completed narrative continuation uses these books; the earlier binding experiments retain their original sources.
+
+A small [early-reader starter set](docs/early-readers.md) adds ten selected graded training stories and six held-out stories, with pinned editions, individual CC BY licenses and complete attribution. Its 2,585 training words supply simple everyday language for future curriculum work. Preparation and exclusion checks pass; no model has yet learned from this edition.
 
 ## Optional batched founder training
 

@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "reproduced_files": 28,
+  "source_count": 16,
+  "outputs": {
+    "train": {
+      "documents": 10,
+      "bytes": 14201,
+      "sha256": "332244884070ee9b2fa80313f2c47e17c82807eff2294492844b790e4792addb"
+    },
+    "validation": {
+      "documents": 3,
+      "bytes": 3306,
+      "sha256": "eb653f6be87d130259270f42f3be387bd68d845c3ab5ec42fe575754040ec7f3"
+    },
+    "test": {
+      "documents": 3,
+      "bytes": 3760,
+      "sha256": "19da3ed9c3533e2456f106da7a84ac7586fa90e2895596d201d210d15849f843"
+    }
+  },
+  "training_words": 2585,
+  "training_word_counts_by_stage": {
+    "1": 70,
+    "2": 554,
+    "3": 1961
+  },
+  "protected_existing_evaluation_books": 5,
+  "heldout_paragraph_overlap": 0,
+  "heldout_20_word_overlap": 0,
+  "heldout_binding_contexts_checked": 288,
+  "rejected_negative_controls": [
+    "changed-pinned-text",
+    "wrong-title",
+    "noncommercial-edition",
+    "wrong-language",
+    "missing-page",
+    "duplicated-credit",
+    "publisher-license-change",
+    "publisher-language-body-change",
+    "existing-output",
+    "heldout-document-in-training"
+  ],
+  "training_text_matches_pinned_source_pages": true,
+  "published_english_pages_verified": true,
+  "publisher_typography_normalized_for_comparison_only": true,
+  "attribution_preserved": true,
+  "cumulative_training_prefixes_verified": true,
+  "model_training_performed": false,
+  "reserved_tests_scored": false,
+  "source_spec_sha256": "b0c0b6bc2f4ebcfba9fc5455a3e5b4242d473bf5809afba351c0c3951f94da46",
+  "source_manifest_sha256": "e97f7f359973c078822204ab7b93a18c46423b8053c118df1ef4f3ce3f6280fe",
+  "code_sha256": {
+    "scripts/corpus/storybooks.py": "7d96858393df07a8108e127f810d4b536e6fa8d8ea0b4428151d60f8214e1eb9",
+    "scripts/prepare_early_readers.py": "bdb5534c9549eeb24e59ff754b4dc1110282a8195c6e40ca4944ce3bbb246eb2",
+    "tests/early_reader_corpus.py": "e9b4a38ebe400b131a9128d32d16229d2c14f905d36562bf489006c2e5f4553d"
+  },
+  "limits": "A small preparation result, not evidence of improved model quality. Exact paragraph and 20-whitespace-word overlap checks do not detect paraphrases or shorter shared phrases."
+}

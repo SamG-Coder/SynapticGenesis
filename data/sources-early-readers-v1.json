@@ -1,0 +1,356 @@
+{
+  "version": "selected-early-readers-v1",
+  "upstream_repository": "https://github.com/global-asp/sbc-source",
+  "upstream_commit": "be28dab38ac55e8eb2185edb6631b11615d02185",
+  "purpose": "A small, separately selected contemporary graded-text starter set for future developmental learning experiments.",
+  "policy": "Only the listed English editions are selected. Text retains each author and its CC BY 3.0 or 4.0 license; the project MIT license covers original code. Full credit, source links and transformation details accompany prepared text. No creator or publisher endorsement is implied.",
+  "limitations": "Only 16 short texts; not a sufficient general-language corpus or a demonstrated learning improvement. Publisher reading levels describe text complexity, not human ages or model mastery. Images are absent, some meaning relies on illustrations, and stories are not factual answer keys. Whole-story holdouts share language patterns and some authors with training; exact-overlap checks do not rule out paraphrases.",
+  "stages": [
+    {
+      "id": 1,
+      "name": "Short actions and questions",
+      "publisher_levels": [
+        1
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Daily routines and short narratives",
+      "publisher_levels": [
+        2
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Connected events and dialogue",
+      "publisher_levels": [
+        3,
+        4
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "0008",
+      "title": "What are you doing?",
+      "source_file": "0008_what-are-you-doing.md",
+      "split": "train",
+      "stage": 1,
+      "reading_level": 1,
+      "reason": "Short present-tense actions and a direct question.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Nina Orange",
+        "Illustration": "Wiehan de Jager",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "raw_sha256": "188eeccc3f8f990fee46ba3f160366764b36d9293ef1406b93cc62df1eccbbc1",
+      "body_sha256": "40cf9303a969975c0626f13b1212a3d96b5bc9afd3b6607f716264d87d4ff321",
+      "catalog_sha256": "eb3b7a5a227d813c4c81e3de0fff3ae85290261c4b027a8e4366d995e24446be"
+    },
+    {
+      "id": "0087",
+      "title": "I like to read!",
+      "source_file": "0087_i-like-to-read.md",
+      "split": "train",
+      "stage": 1,
+      "reading_level": 1,
+      "reason": "A short sequence of everyday family actions and repeated questions.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Letta Machoga",
+        "Illustration": "Wiehan de Jager",
+        "Translated By": "Letta Machoga",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "raw_sha256": "841e2fb5dfce0ea030dd956be498a97a7d757e5aca189c5ff8930f65cf37ecd2",
+      "body_sha256": "c0cc696105ffb240695fc1ff4e4676f07c9cf69e66b98ed155fb0ba2f753bbb0",
+      "catalog_sha256": "531fb34850c6aeef43027687e2a1ac8729537c00de50555f7db63963af74cda3"
+    },
+    {
+      "id": "0156",
+      "title": "The hungry crocodile",
+      "source_file": "0156_the-hungry-crocodile.md",
+      "split": "validation",
+      "stage": 1,
+      "reading_level": 1,
+      "reason": "Hold out a complete short animal story at the same publisher level.",
+      "pages": 5,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Christian G.",
+        "Illustration": "Wiehan de Jager",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "raw_sha256": "ce72a0b69846985b9f0818bee8b56a8fd792903ad6aa252cda1d8bdc109af0b6",
+      "body_sha256": "f365a183b7dcf785aeee606bccdfe46ca739cd43ee9ead6719dc0d8a47dd6a18",
+      "catalog_sha256": "30972e9bdaab4764bdcc0482eef9d4b893fb576bd10aeaa5042c6f61162bc461"
+    },
+    {
+      "id": "0327",
+      "title": "Counting animals",
+      "source_file": "0327_counting-animals.md",
+      "split": "test",
+      "stage": 1,
+      "reading_level": 1,
+      "reason": "Reserve an unseen counting story; do not score it during development.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Zanele Buthelezi, Thembani Dladla, Clare Verbeek",
+        "Illustration": "Rob Owen",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "raw_sha256": "b0538593457e44adb0c6b33a3e05c5062930f95c146226dadf250a1e97ca88bb",
+      "body_sha256": "e14262b9345485bf07f885a97bf333cecf145a75fded84ac4036bdabd0a8dab3",
+      "catalog_sha256": "072856e29acca38f5976e9e690d8950ad0a0792416ae64c542eb0daf54183865"
+    },
+    {
+      "id": "0001",
+      "title": "A very tall man",
+      "source_file": "0001_a-very-tall-man.md",
+      "split": "train",
+      "stage": 2,
+      "reading_level": 2,
+      "reason": "Everyday object sizes, problems and corresponding actions.",
+      "pages": 11,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Cornelius Gulere",
+        "Illustration": "Catherine Groenewald",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "raw_sha256": "4fbf2cccbea358933c9960229d2fc509cdd26c6e483216be80c6b20afb2e869c",
+      "body_sha256": "c0df905de359f03593206437cfac2dfbbf936065c600715744b0cc07b09b1955",
+      "catalog_sha256": "671d59644ec44874e8d070d516d4801b75f784e2c5cab9a17353ec9f204b503c"
+    },
+    {
+      "id": "0027",
+      "title": "Decision",
+      "source_file": "0027_decision.md",
+      "split": "train",
+      "stage": 2,
+      "reading_level": 2,
+      "reason": "A short connected account with requests and cooperative problem solving.",
+      "pages": 16,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ursula Nafula",
+        "Illustration": "Vusi Malindi",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_sha256": "a4d058ab621973c179804bef43ff84a75746d4f62c938a9f6be70d99c140b156",
+      "body_sha256": "5b5b0b2a6df6bde793ef9fcf220471bc3557ae4680bd6dddc878ab260b368983",
+      "catalog_sha256": "669aa3af9f19785bd1b0efb1a9ec3386a14e08a170d1f873457cb0a50af263cf"
+    },
+    {
+      "id": "0089",
+      "title": "Khalai talks to plants",
+      "source_file": "0089_khalai-talks-to-plants.md",
+      "split": "train",
+      "stage": 2,
+      "reading_level": 2,
+      "reason": "Daily event order, requests, questions and observations.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ursula Nafula",
+        "Illustration": "Jesse Pietersen",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_sha256": "e4b6404f0f2c52ab2caaf964aa6f866cf4cdd35d9036d019be5fc4cd776942a6",
+      "body_sha256": "ab557c293dff0eda9f8fb9912bac15955e6cb51f2a8b9fe44f41600d355ae983",
+      "catalog_sha256": "7e9728a74f91ce088831d60130089476d21796983316bc22c4d8314d9fc349ee"
+    },
+    {
+      "id": "0095",
+      "title": "Zama is great!",
+      "source_file": "0095_zama-is-great.md",
+      "split": "train",
+      "stage": 2,
+      "reading_level": 2,
+      "reason": "Daily routines, first-person statements and short family dialogue.",
+      "pages": 12,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Michael Oguttu",
+        "Illustration": "Vusi Malindi",
+        "Adaptation": "Nina Orange",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "raw_sha256": "b8258fbe933abf5521341f8c56b95800e889ef70356b5671819e591f4a94b9c6",
+      "body_sha256": "546923a17038b028d78bd524a14ab4b9f27678754dd19c11b9ebddd399b263b5",
+      "catalog_sha256": "87edc241ae07f38f3529530fe9fd6c0a98bc5b598cb2f6632efad400d991d684"
+    },
+    {
+      "id": "0296",
+      "title": "Tom the banana seller",
+      "source_file": "0296_tom-the-banana-seller.md",
+      "split": "validation",
+      "stage": 2,
+      "reading_level": 2,
+      "reason": "Hold out an entire market story for development reading assessment.",
+      "pages": 12,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Humphreys Odunga",
+        "Illustration": "Zablon Alex Nguku",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_sha256": "62e91168e3ec0ecbc2e604baf73c33b1b69ee65848ae5199fc25c6bfcf71efa7",
+      "body_sha256": "500bc2e689d4af749b1e517dbed805721a89dd64e99c30718ed178dd6732e451",
+      "catalog_sha256": "f4ad14cfe918c73feec442d98aef0fdda7967991762f149ec63f9e84f543e581"
+    },
+    {
+      "id": "0004",
+      "title": "Goat, Dog, and Cow",
+      "source_file": "0004_goat-dog-and-cow.md",
+      "split": "test",
+      "stage": 2,
+      "reading_level": 2,
+      "reason": "Reserve an entire animal story; its events never supply training targets.",
+      "pages": 8,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Fabian Wakholi",
+        "Illustration": "Marleen Visser, Ingrid Schechter",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "raw_sha256": "37a94dc6188d5d1f039e9f0fa0fe4cc3cdcc54c65163cbb92f2c1eeb5dcf3a52",
+      "body_sha256": "b863a68f68b31fc23d273d5a4bfae99fa69119327a9f1c67bdbca246b7531a74",
+      "catalog_sha256": "14bc04c72831722563b383326c6272d6b8453fdeaa2f436773d2997263fe8e98"
+    },
+    {
+      "id": "0110",
+      "title": "A Tiny Seed: The Story of Wangari Maathai",
+      "source_file": "0110_a-tiny-seed-the-story-of-wangari-maathai.md",
+      "split": "train",
+      "stage": 3,
+      "reading_level": 3,
+      "reason": "A longer selected biographical narrative with event order and explanations.",
+      "pages": 12,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Nicola Rijsdijk",
+        "Illustration": "Maya Marshak",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_sha256": "26380f8e67773cc1f493d0c2d84c8651e41e7281a6288966709d8e80694ba783",
+      "body_sha256": "67d4f0521b4c98d2823974ac07e349fb5e56195206839c8ffca8b907eb3169f9",
+      "catalog_sha256": "610658cbc4ad58fe3a3a6e9a8af221f9afde13196687245a2e0b2d49d358fba3"
+    },
+    {
+      "id": "0315",
+      "title": "Sakima's song",
+      "source_file": "0315_sakimas-song.md",
+      "split": "train",
+      "stage": 3,
+      "reading_level": 3,
+      "reason": "Connected dialogue, family relationships and changing character goals.",
+      "pages": 18,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ursula Nafula",
+        "Illustration": "Peris Wachuka",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_sha256": "19f8c60e2f3ff4399cce4fb617ee0f9ad5c61b13a7c0331a0f9d011ddbca82c7",
+      "body_sha256": "676adc16df692a73304598dd84083006264c3282e7636768be9ff02e64f18217",
+      "catalog_sha256": "27336ecbb6da46ca38c4e843ba3fc16f78d0116a496a0245decd31f68e1bba10"
+    },
+    {
+      "id": "0243",
+      "title": "Holidays with grandmother",
+      "source_file": "0243_holidays-with-grandmother.md",
+      "split": "train",
+      "stage": 3,
+      "reading_level": 4,
+      "reason": "A longer everyday sequence covering travel, chores, food and conversation.",
+      "pages": 20,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Violet Otieno",
+        "Illustration": "Catherine Groenewald",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_sha256": "4dc22bddd286d4b57e0d1b1e74bfa66633f119c111be3f635425ac4c13087325",
+      "body_sha256": "97f9446e6feae074f98b0521b98b659c13f3d0929954885b9c1dd2c9ac66a0c4",
+      "catalog_sha256": "6cabb6a19ccb845cc02b7ef2367916f026b865bb5535b60408e41f034d238083"
+    },
+    {
+      "id": "0294",
+      "title": "Grandma's bananas",
+      "source_file": "0294_grandmas-bananas.md",
+      "split": "train",
+      "stage": 3,
+      "reading_level": 4,
+      "reason": "Questions, discoveries and consequences across a connected story.",
+      "pages": 10,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Ursula Nafula",
+        "Illustration": "Catherine Groenewald",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "raw_sha256": "934f4d98a3112def848096459e3033cbf9a299c2fd53823fc41e39062a991458",
+      "body_sha256": "d81c8b3d0f9666c82873b6a5007c5a64b0e5a16104bef3e84d0a51d4592296b5",
+      "catalog_sha256": "13b31da45f515fd7838fb0a61720b518a8ba4d738d60569580aa8b791236a2e6"
+    },
+    {
+      "id": "0324",
+      "title": "The day I left home for the city",
+      "source_file": "0324_the-day-i-left-home-for-the-city.md",
+      "split": "validation",
+      "stage": 3,
+      "reading_level": 3,
+      "reason": "Hold out an entire longer travel narrative for development assessment.",
+      "pages": 16,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Lesley Koyi, Ursula Nafula",
+        "Illustration": "Brian Wambi",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "raw_sha256": "087cc98065e05f8a09a19afec3423c80206cb621e60f758a8170aeb3f6388982",
+      "body_sha256": "3968b2a2519eac498454bd631e61268dbd7e5e8396b1b10ca1ae260f547a5141",
+      "catalog_sha256": "b4dc0d7f17734dc12e11d38e9959d7508146202ad5602f07261b5ee89b15b401"
+    },
+    {
+      "id": "0291",
+      "title": "What Vusi's sister said",
+      "source_file": "0291_what-vusis-sister-said.md",
+      "split": "test",
+      "stage": 3,
+      "reading_level": 4,
+      "reason": "Reserve a longer event-sequence story with dialogue for later evaluation.",
+      "pages": 13,
+      "attribution": {
+        "License": "[CC-BY]",
+        "Text": "Nina Orange",
+        "Illustration": "Wiehan de Jager",
+        "Language": "en"
+      },
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "raw_sha256": "c8426f9435eac1ba0f857f924805429666da755abfca6184689b3d9efb798d6c",
+      "body_sha256": "c94d982bca9c0fe864826b05c808780a93af6edf95376eb9e6b9c590922d764e",
+      "catalog_sha256": "999e1371a92662302426d10d9b58fc3b0a8fe80cba16ffe7acad2891248bea1a"
+    }
+  ]
+}
