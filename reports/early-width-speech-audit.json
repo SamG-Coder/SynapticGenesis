@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "accepted_speech_boundaries": [
+    0,
+    499,
+    500,
+    511,
+    1000,
+    8176
+  ],
+  "rejected_cases": [
+    "missing_prompt",
+    "truncated_record",
+    "extra_byte",
+    "wrong_prompt",
+    "wrong_second_prompt",
+    "missing_record",
+    "early_record",
+    "changed_generated_byte",
+    "changed_global_update",
+    "extra_transcript_byte",
+    "missing_transcript_newline",
+    "changed_policy_prompt",
+    "changed_policy_tokens",
+    "changed_policy_speak-every"
+  ],
+  "binary_payload_with_newlines_zero_and_non_utf8_preserved": true,
+  "prompt_bytes_per_record": 9,
+  "generated_bytes_per_record": 96,
+  "original_failure_preserved": true,
+  "failed_protocol_sha256": "76d3ab3fefe4d8afd1d0904c260f59a0e14d8d02cf2ca40f8444ad2f078911db",
+  "failed_status_sha256": "8bd48be2eb2f75eefec326b1aea17de4f8c34ae057e78f2dd3c5e5d229c5a08c",
+  "completed_study_cases_in_failed_run": 0,
+  "existing_native_guard": {
+    "passed": true,
+    "source_update_points": [
+      1,
+      128,
+      511
+    ],
+    "sampled_coordinates": 1336,
+    "raw_coordinate_files": 10,
+    "native_source_updates": 511,
+    "speech_records": 1,
+    "prompt_bytes_per_record": 9,
+    "generated_bytes": 96,
+    "inputs_sha256": {
+      "runs/prose-early-width/guard-observed/coordinates.json": "4ee0166667262d3de6fb90190d6beaca16d5cf89696ef2cd45388e28a1bceb7d",
+      "runs/prose-early-width/guard-observed/observations.jsonl": "e14d9fc082e09eac3e6f30abd204cb32c5570a17e0097f2a9bb87daa4bf0313f",
+      "runs/prose-early-width/guard-observed/result.json": "5b264445e6d19cc49a230bd1d6a8cb0e485937e1e283ac1a976399f88b9afdcc",
+      "runs/prose-early-width/guard-observed/initial-coordinates.f32": "c17cbd7a21b7ad35b0a4a0c10e83802a0d5ba5b4eebb7f3b426c5e209111ac72",
+      "runs/prose-early-width/guard-observed/speech.bin": "2dd9afe6b3f4738dfa0a787c675424bf58d1fef03aa32c9c7e9153272ae3fd36",
+      "runs/prose-early-width/guard-observed/source-1-after.f32": "6247b6dec566b8910db0ca62d0eb3a8b18aa043b52e347086cbd75f99a4f8803",
+      "runs/prose-early-width/guard-observed/source-1-before.f32": "c17cbd7a21b7ad35b0a4a0c10e83802a0d5ba5b4eebb7f3b426c5e209111ac72",
+      "runs/prose-early-width/guard-observed/source-1-clipped-gradient.f32": "669d422e71045a4dde30685484cc62b5a51fe0a8b9143c34997e7f385e7460ef",
+      "runs/prose-early-width/guard-observed/source-128-after.f32": "2bcaab6c482298ea4752b018680ec11ae238e838cd33ed3b40c52cb9ee5b874b",
+      "runs/prose-early-width/guard-observed/source-128-before.f32": "f1c70f0a22344ffe928c05da30d7ec82329625f442afd76ce124a0937d400647",
+      "runs/prose-early-width/guard-observed/source-128-clipped-gradient.f32": "b82d2eec9208c244afc0944aaf230d8a6db1436506478db11ba4e785e49bc843",
+      "runs/prose-early-width/guard-observed/source-511-after.f32": "d5e009c89633eaa943fee1928845d363383dd26916c14bb79df4ea601dd3af76",
+      "runs/prose-early-width/guard-observed/source-511-before.f32": "2c65f5ffd5fa3e9c61d2cd2fe43cb67495c7590a45959ffb9566b5db93b42f02",
+      "runs/prose-early-width/guard-observed/source-511-clipped-gradient.f32": "9a84847b60560737791572aefb8e426d81c373d97d59110622d9c3ebd8721d76"
+    },
+    "limit": "Independent reconstruction of sampled parameter statistics and source/update labels; activity statistics are native observations, not independently re-forwarded here."
+  },
+  "existing_native_speech": {
+    "speech_records": 1,
+    "prompt_bytes_per_record": 9,
+    "generated_bytes_per_record": 96,
+    "raw_transcript_byte_identical": true
+  },
+  "byte_identical_guard_checkpoints": {
+    "initial.ckpt": "d7311da5c404dfb374a7bd0d25a1a081f482432adf68b924ffaa11851f8307f9",
+    "latest.ckpt": "1c1c12b4269a0199d7aac5811d8e9ccdb19aa44c0d8d97e36ba99209d3266cc1"
+  },
+  "unchanged_diagnostic_executable_sha256": "c41b5680c527583a2cbde1d375fa02a65df1f68d4f94bc0ad217541a990ba804",
+  "native_source_files_unchanged": 44,
+  "original_guard_artifacts_sha256": {
+    "runs/prose-early-width/guard-control/initial.ckpt": "d7311da5c404dfb374a7bd0d25a1a081f482432adf68b924ffaa11851f8307f9",
+    "runs/prose-early-width/guard-control/latest.ckpt": "1c1c12b4269a0199d7aac5811d8e9ccdb19aa44c0d8d97e36ba99209d3266cc1",
+    "runs/prose-early-width/guard-control/metrics.jsonl": "33529fd1e0cf60a45cd9dc3d48e56e39c5c9c03abd2b2fc028f8b788a8bf2a43",
+    "runs/prose-early-width/guard-control/session.json": "d4fbc862d6c9c00826e38e6addcf92073211654820b1b8a8a02a1a451cea7b84",
+    "runs/prose-early-width/guard-control/transcript.txt": "2782951fdbe7e622692f1c25bf4c0f053e752bbd8da08968cd7a0a35b85bfd44",
+    "runs/prose-early-width/guard-observed/coordinates.json": "4ee0166667262d3de6fb90190d6beaca16d5cf89696ef2cd45388e28a1bceb7d",
+    "runs/prose-early-width/guard-observed/initial-coordinates.f32": "c17cbd7a21b7ad35b0a4a0c10e83802a0d5ba5b4eebb7f3b426c5e209111ac72",
+    "runs/prose-early-width/guard-observed/initial.ckpt": "d7311da5c404dfb374a7bd0d25a1a081f482432adf68b924ffaa11851f8307f9",
+    "runs/prose-early-width/guard-observed/latest.ckpt": "1c1c12b4269a0199d7aac5811d8e9ccdb19aa44c0d8d97e36ba99209d3266cc1",
+    "runs/prose-early-width/guard-observed/observations.jsonl": "e14d9fc082e09eac3e6f30abd204cb32c5570a17e0097f2a9bb87daa4bf0313f",
+    "runs/prose-early-width/guard-observed/result.json": "5b264445e6d19cc49a230bd1d6a8cb0e485937e1e283ac1a976399f88b9afdcc",
+    "runs/prose-early-width/guard-observed/source-1-after.f32": "6247b6dec566b8910db0ca62d0eb3a8b18aa043b52e347086cbd75f99a4f8803",
+    "runs/prose-early-width/guard-observed/source-1-before.f32": "c17cbd7a21b7ad35b0a4a0c10e83802a0d5ba5b4eebb7f3b426c5e209111ac72",
+    "runs/prose-early-width/guard-observed/source-1-clipped-gradient.f32": "669d422e71045a4dde30685484cc62b5a51fe0a8b9143c34997e7f385e7460ef",
+    "runs/prose-early-width/guard-observed/source-128-after.f32": "2bcaab6c482298ea4752b018680ec11ae238e838cd33ed3b40c52cb9ee5b874b",
+    "runs/prose-early-width/guard-observed/source-128-before.f32": "f1c70f0a22344ffe928c05da30d7ec82329625f442afd76ce124a0937d400647",
+    "runs/prose-early-width/guard-observed/source-128-clipped-gradient.f32": "b82d2eec9208c244afc0944aaf230d8a6db1436506478db11ba4e785e49bc843",
+    "runs/prose-early-width/guard-observed/source-511-after.f32": "d5e009c89633eaa943fee1928845d363383dd26916c14bb79df4ea601dd3af76",
+    "runs/prose-early-width/guard-observed/source-511-before.f32": "2c65f5ffd5fa3e9c61d2cd2fe43cb67495c7590a45959ffb9566b5db93b42f02",
+    "runs/prose-early-width/guard-observed/source-511-clipped-gradient.f32": "9a84847b60560737791572aefb8e426d81c373d97d59110622d9c3ebd8721d76",
+    "runs/prose-early-width/guard-observed/speech.bin": "2dd9afe6b3f4738dfa0a787c675424bf58d1fef03aa32c9c7e9153272ae3fd36"
+  },
+  "implementation_sha256": {
+    "scripts/early_width_observations.py": "f2644796e985aa49c5ae28534a22bec0b77f1c3fcd3f1df61110b06aebd14c04",
+    "scripts/prose_early_width.py": "2061fda1ac4199f4720d7cdbf70f3b172abf4aa39a11007d5a7bcb20125b12d5",
+    "tests/early_width_speech.py": "82fff3d62fc963c53f7e2664d3c8c93101a5cc89c9ef45dad97bd3fab832bc03"
+  },
+  "new_native_commands": 0,
+  "new_models_trained": false,
+  "limits": "CPU verification of the preserved two-command native guard, not completion of the 15-case width study. The failure remains recorded under its original protocol; a rerun needs a new declared output directory."
+}

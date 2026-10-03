@@ -12,6 +12,36 @@ from prose_projection_snapshot import layout
 from prose_retention_inputs import require
 
 
+SPEECH_PROMPT = b'The bird '
+SPEECH_EVERY = 500
+SPEECH_GENERATED_BYTES = 96
+
+
+def speech_records(raw, end):
+    """The probe saves prompt + completion; native counters count completion."""
+    records = end // SPEECH_EVERY
+    width = len(SPEECH_PROMPT) + SPEECH_GENERATED_BYTES
+    require(len(raw) == records * width, 'Speech output extent differs')
+    frames = [raw[at:at + width] for at in range(0, len(raw), width)]
+    require(all(frame.startswith(SPEECH_PROMPT) for frame in frames), 'Speech prompt differs')
+    return frames
+
+
+def match_guard_speech(control_directory, observed_directory, end):
+    """Compare every speech byte and production marker without decoding text."""
+    frames = speech_records((Path(observed_directory) / 'speech.bin').read_bytes(), end)
+    expected = bytearray(b'\n[session starts at online update 0]\n')
+    for index, frame in enumerate(frames, 1):
+        at = index * SPEECH_EVERY
+        expected.extend(f'\n[online update {at}; global update {at + at // 4}]\n'.encode('ascii'))
+        expected.extend(frame)
+        expected.extend(b'\n')
+    require((Path(control_directory) / 'transcript.txt').read_bytes() == expected,
+            'Native guard speech transcript differs')
+    return dict(speech_records=len(frames), prompt_bytes_per_record=len(SPEECH_PROMPT),
+                generated_bytes_per_record=SPEECH_GENERATED_BYTES, raw_transcript_byte_identical=True)
+
+
 def source_windows(data_path, end, chunk=128):
     docs = Path(data_path).read_bytes().split(b'\x1e')
     require(all(len(d) >= 2 for d in docs), 'Invalid source document')
@@ -116,9 +146,12 @@ def audit(directory, case, seed, end, points, source_path):
     files = [directory / 'coordinates.json', directory / 'observations.jsonl',
              directory / 'result.json', directory / 'initial-coordinates.f32', directory / 'speech.bin',
              *(directory.glob('source-*.f32'))]
-    require((directory / 'speech.bin').stat().st_size == result['generated_bytes'], 'Speech output extent differs')
+    frames = speech_records((directory / 'speech.bin').read_bytes(), end)
+    require(len(frames) * SPEECH_GENERATED_BYTES == result['generated_bytes'], 'Speech completion counter differs')
     return dict(passed=True, source_update_points=points, sampled_coordinates=position,
                 raw_coordinate_files=1 + 3 * len(points), native_source_updates=end,
+                speech_records=len(frames), prompt_bytes_per_record=len(SPEECH_PROMPT),
+                generated_bytes=result['generated_bytes'],
                 inputs_sha256={p.as_posix(): file_hash(p) for p in files},
                 limit='Independent reconstruction of sampled parameter statistics and source/update labels; '
                       'activity statistics are native observations, not independently re-forwarded here.')

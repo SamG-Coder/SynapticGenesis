@@ -73,7 +73,10 @@ archived 27M/105M learning arguments and reject thirteen altered exposure,
 coordinate, clipping, rate or initialization cases. The artifact fixture is
 synthetic; it is not evidence of native model learning.
 
-The observer's CUDA execution remains pending. Before study cases are accepted:
+The original attempt stopped during the tiny native guard's CPU speech audit,
+before any study case. The [speech audit correction](early-width-speech-audit.md)
+preserves that failure and verifies its native checkpoints, coordinates and
+raw speech. Full study execution remains pending. Before cases are accepted:
 
 1. A fresh C8/H32/L2 guard runs 511 source observations through both the production
    CLI and the observer. This includes replay and scheduled speech. Initial and

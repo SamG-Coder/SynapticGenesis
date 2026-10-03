@@ -7,7 +7,8 @@ import struct
 import subprocess
 
 from checkpoint_assessment import measure
-from early_width_observations import audit
+from early_width_observations import (SPEECH_EVERY, SPEECH_GENERATED_BYTES, SPEECH_PROMPT,
+                                      audit, match_guard_speech)
 from native_experiment import NativeCommands, read
 from process_gate import ProcessGate
 from prose_evaluation import declare as declare_assessments
@@ -37,6 +38,9 @@ def validate(spec):
 def arguments(case, seed, out, schedule, end, points=None):
     """Reuse the founder's declared live policy; change only explicit study knobs."""
     args = list(live_arguments(out, schedule, end, case.get('baseline_profile') or '27m'))
+    require(args[args.index('--prompt') + 1].encode('utf-8') == SPEECH_PROMPT and
+            args[args.index('--tokens') + 1] == SPEECH_GENERATED_BYTES and
+            args[args.index('--speak-every') + 1] == SPEECH_EVERY, 'Early-width speech policy differs')
     for key in ('channels', 'hidden', 'layers'):
         args[args.index('--' + key) + 1] = case[key]
     args[args.index('--seed') + 1] = seed
@@ -64,6 +68,7 @@ def declare(out):
              *(ROOT / 'src').glob('*.cu'), *(ROOT / 'src').glob('*.cuh'),
              ROOT / 'experiments/early_learning_probe.cu', ROOT / 'experiments/learning_scale_observer.cuh',
              ROOT / 'tests/prose_early_width.py', ROOT / 'data/training-selection.json',
+             ROOT / 'tests/early_width_speech.py',
              *(ROOT / 'scripts' / n for n in ('prose_early_width.py', 'early_width_observations.py',
                  'prose_projection_snapshot.py', 'prose_retention_inputs.py', 'prose_size_comparison.py',
                  'experiment_checkpoint.py', 'checkpoint_assessment.py', 'prose_founder.py', 'native_experiment.py',
@@ -152,8 +157,9 @@ def execute(out, wait_pid=0, wait_executable=None):
         for filename in ('initial.ckpt', 'latest.ckpt'):
             require(file_hash(out / 'guard-control' / filename) == file_hash(out / 'guard-observed' / filename),
                     'Diagnostic observer changed the native guard checkpoint')
+        speech_guard = match_guard_speech(out / 'guard-control', out / 'guard-observed', guard_end)
         guard.update(initial_and_final_checkpoints_byte_identical=True, includes_scheduled_speech=True,
-                     includes_replay=True, native_commands=2)
+                     includes_replay=True, native_commands=2, speech=speech_guard)
         write(out / 'native-guard.json', guard)
         assessment_commands = 0
         legacy_checks = []
