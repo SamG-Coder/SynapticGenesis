@@ -133,3 +133,9 @@ A new stream started with `--checkpoint` inherits parameters and optimizer histo
 `train --burn-in N --burn-policy warm` supplies detached prefix context before a sampled target window. The `reset` control pays for the same prefix but clears recurrence before targets. Both settings persist through ordinary checkpoint resume. The standard validation evaluator uses reset-state windows.
 
 Neuron-indexed outgoing-weight storage and predicted-route paging are benchmark experiments. The working learner uses resident weights. Correctness and useful latency at larger memory pressure must be shown before routing/paging becomes part of the active runtime.
+
+## Code organization as the project grows
+
+The [project conventions](../AGENTS.md) make modularity part of ongoing implementation. Growing responsibilities should become focused modules with explicit interfaces: neuron kernels, model state, the live learning loop, curricula, checkpoints and population rules. CLI dispatch should delegate to those modules as commands expand. Shared training/inference state and checkpoint semantics remain common across these boundaries.
+
+Structural changes should accompany the feature that needs them and preserve numerical/runtime behavior through the relevant existing checks. This convention records the intended organization; it does not claim that every current implementation has already been split into a separate translation unit.
