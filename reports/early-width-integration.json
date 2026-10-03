@@ -1,0 +1,255 @@
+{
+  "status": "completed_width_study_integrated",
+  "recorded_at_utc": "2026-10-03T17:50:27.366496+00:00",
+  "study_source_commit": "0568741f95729ffa7c8af3cda1bbf7cbcbbdd65e",
+  "production_base_commit": "7bf52cfbaf42afbf2240f6dab0a40fad0385d4e7",
+  "production_cuda_files_unchanged": 42,
+  "optional_diagnostic_builds": [
+    {
+      "target": "early-learning-probe",
+      "executable": "build/early-learning-probe/synaptic-early-learning-probe.exe",
+      "sha256": "6b9f3906105c0c95d7ad7cf6f8382c9599a2e30d754f69c833a60a58f86d5487",
+      "log": "runs-build-early-width-integration.log",
+      "log_sha256": "42a0ce0ec60b86acd3c0aafd87cdc743b3936149679281dbc945f0cc18be6129",
+      "built": true,
+      "gpu_model_tests_rerun": false
+    },
+    {
+      "target": "view-allocation-probe",
+      "executable": "build/view-allocation-probe/synaptic-view-allocation-probe.exe",
+      "sha256": "0064cd60a2805ea6b1ee2dbf612044c4e6ddf0b7e6bfebfb5adeb5414fa44471",
+      "log": "runs-build-view-allocation-integration.log",
+      "log_sha256": "ba97721fc56178dc363c0ee45991e9edca8d8477404cac799d86b1c1a8ed74bf",
+      "built": true,
+      "gpu_model_tests_rerun": false
+    }
+  ],
+  "diagnostic_selectors": {
+    "selectors": [
+      {
+        "option": "SG_BUILD_ADAPTATION_PROBE",
+        "name": "adaptation-probe",
+        "switch": "AdaptationProbe"
+      },
+      {
+        "option": "SG_BUILD_CAPACITY_PROBE",
+        "name": "capacity-probe",
+        "switch": "CapacityProbe"
+      },
+      {
+        "option": "SG_BUILD_EARLY_LEARNING_PROBE",
+        "name": "early-learning-probe",
+        "switch": "EarlyLearningProbe"
+      },
+      {
+        "option": "SG_BUILD_REPLAY_PRIORITY_PROBE",
+        "name": "replay-priority-probe",
+        "switch": "ReplayPriorityProbe"
+      },
+      {
+        "option": "SG_BUILD_REPLAY_SELECTION_PROBE",
+        "name": "replay-selection-probe",
+        "switch": "ReplaySelectionProbe"
+      },
+      {
+        "option": "SG_BUILD_TRACE_DIAGNOSTIC",
+        "name": "trace-diagnostic",
+        "switch": "TraceDiagnostic"
+      },
+      {
+        "option": "SG_BUILD_VIEW_ALLOCATION_PROBE",
+        "name": "view-allocation-probe",
+        "switch": "ViewAllocationProbe"
+      }
+    ],
+    "conflicting_pairs_rejected": 21,
+    "toolchain_or_cuda_work_requested": false,
+    "script_sha256": "c94339c1b1643d211a7e2f6a7854061b859005d18a61f5fea47e6b0f291d22da",
+    "passed": true,
+    "no_selection_uses_normal_build": true
+  },
+  "early_learning_host_checks": {
+    "passed": true,
+    "original_native_command_policies_preserved": [
+      "27m",
+      "105m"
+    ],
+    "compiled_host_test": {
+      "passed": true,
+      "native_model_calls": 0,
+      "gpu_work": false,
+      "rejected_cases": 11,
+      "roles_large_model": 116,
+      "sampled_coordinates_large_model": 7424
+    },
+    "rejected_cpu_cases": [
+      "source_global_update",
+      "byte_offset",
+      "target_bytes",
+      "source_clip_factor",
+      "generated_bytes_this_tick",
+      "fabricated_update_statistic",
+      "truncated_gradient",
+      "impossible_clipped_gradient",
+      "changed_depth",
+      "changed_rate_control",
+      "changed_source_exposure",
+      "changed_initial_weight",
+      "incomplete_predecessor_before_native_runner"
+    ],
+    "incompatible_build_targets_rejected": true,
+    "accepted_synthetic_coordinate_fixture": {
+      "passed": true,
+      "source_update_points": [
+        1,
+        4,
+        7
+      ],
+      "sampled_coordinates": 1336,
+      "raw_coordinate_files": 10,
+      "native_source_updates": 7,
+      "speech_records": 0,
+      "prompt_bytes_per_record": 9,
+      "generated_bytes": 0,
+      "inputs_sha256": {
+        "runs/early-width-main-integration-v1/fixture/coordinates.json": "ae8d23af44899c10624526e9a359a3b89152babc6565f0f5fdff11b9f1de0792",
+        "runs/early-width-main-integration-v1/fixture/observations.jsonl": "769e04a1b45681612a5d2683607612e5c9ed24ab601d4676ea0ae40c495d1de2",
+        "runs/early-width-main-integration-v1/fixture/result.json": "71fce9d91af38ba4c764d1ab6c0f6f832c6bd656c8d3a88a0f217afa0e7c68a9",
+        "runs/early-width-main-integration-v1/fixture/initial-coordinates.f32": "9ad545badcb31aadf48020ba9080567447296a90850e9ccde56f20bb08871cbe",
+        "runs/early-width-main-integration-v1/fixture/speech.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runs/early-width-main-integration-v1/fixture/source-1-after.f32": "950f423e762e7478e8b509f54238a6f628fb238a303fdad2482ab504de4c40b4",
+        "runs/early-width-main-integration-v1/fixture/source-1-before.f32": "a6c6c085e1cc72d991d142a94acbbcfe90bb526d4271e596fbd714cb97f8aaf8",
+        "runs/early-width-main-integration-v1/fixture/source-1-clipped-gradient.f32": "fb5b2b6db2c4b4c3cfc27e741f5d97c2031c03f537ee0c218b09623764e93af2",
+        "runs/early-width-main-integration-v1/fixture/source-4-after.f32": "9f063938eeede3eb552b77b59855bdbf6fb9413c231f4e942ab877fba35226af",
+        "runs/early-width-main-integration-v1/fixture/source-4-before.f32": "22bd6b9f324c78cba228c1b9dd42957d4ff6ed6c409e9935d54977fa40e83cc3",
+        "runs/early-width-main-integration-v1/fixture/source-4-clipped-gradient.f32": "fb5b2b6db2c4b4c3cfc27e741f5d97c2031c03f537ee0c218b09623764e93af2",
+        "runs/early-width-main-integration-v1/fixture/source-7-after.f32": "b3ca3834a9288707d5766cd78db81be966d2fc69b26f4ed9581aaf5b4bffeda1",
+        "runs/early-width-main-integration-v1/fixture/source-7-before.f32": "4e1d35fc6b6d1a5cfcdb54281f9987f741137944f3b5a0ff9db291b80fd18dd7",
+        "runs/early-width-main-integration-v1/fixture/source-7-clipped-gradient.f32": "fb5b2b6db2c4b4c3cfc27e741f5d97c2031c03f537ee0c218b09623764e93af2"
+      },
+      "limit": "Independent reconstruction of sampled parameter statistics and source/update labels; activity statistics are native observations, not independently re-forwarded here."
+    },
+    "diagnostic_executable_sha256": "6b9f3906105c0c95d7ad7cf6f8382c9599a2e30d754f69c833a60a58f86d5487",
+    "production_executable_sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+    "code_sha256": {
+      "experiments/early_learning_probe.cu": "029104a33b856d3efce3ebdcb7d649dc8fba14bf0d479a24e8768eabde0040d4",
+      "experiments/learning_scale_observer.cuh": "e7f96bd4c720bcb75a0df07d6c63113b26a1948bee8d4aebcba9465333f023e6",
+      "scripts/early_width_observations.py": "f2644796e985aa49c5ae28534a22bec0b77f1c3fcd3f1df61110b06aebd14c04",
+      "scripts/prose_early_width.py": "2061fda1ac4199f4720d7cdbf70f3b172abf4aa39a11007d5a7bcb20125b12d5",
+      "tests/prose_early_width.py": "f0a7f9ea29d20159af98ee6a85c2c84e88b0e2780488d240750d627652b1bb0b"
+    },
+    "native_host_commands": 1,
+    "gpu_model_commands": 0,
+    "real_instrumented_learning_verified": false,
+    "limits": "Compiled CPU diagnostics, archived argument checks and synthetic artifact guard tests only. Native observer neutrality, CUDA coordinate gathering and early-learning outcomes remain pending."
+  },
+  "view_allocation_host_checks": {
+    "passed": true,
+    "cuda_work_requested": false,
+    "layouts": [
+      {
+        "parameters": 1951624,
+        "spiking_neurons": 2048,
+        "five_parameter_arrays_bytes": 39032480
+      },
+      {
+        "parameters": 27260432,
+        "spiking_neurons": 16384,
+        "five_parameter_arrays_bytes": 545208640
+      },
+      {
+        "parameters": 104851472,
+        "spiking_neurons": 32768,
+        "five_parameter_arrays_bytes": 2097029440
+      },
+      {
+        "parameters": 411028496,
+        "spiking_neurons": 65536,
+        "five_parameter_arrays_bytes": 8220569920
+      }
+    ],
+    "rejected_constructors": 32,
+    "float_allocations": 0
+  },
+  "publication_checks": {
+    "passed": true,
+    "actual_groups_checked": 5,
+    "paired_directions_checked": 2,
+    "final_activity_target_bytes": 10,
+    "earlier_activity_target_bytes": 128,
+    "rejected_cases": [
+      "missing_case",
+      "duplicate_case",
+      "reordered_seeds",
+      "altered_shape",
+      "missing_final_update",
+      "missing_final_layer"
+    ],
+    "input_sha256": "dc70aa1b1b0bad0ef3e5e64a31332c0f04d66e2d2d5acdab9bfc8dd03f75da36",
+    "raw_outputs_unchanged": true,
+    "implementation_sha256": {
+      "D:\\SynapticGenesis\\tests\\early_width_publication.py": "f31922f9ff85889a69b260ef42d696227f7ee34f0c8fd98ee54007f2fe0f4d8f",
+      "scripts\\publish_early_width.py": "99a9c9f4e968b60f727dfcfaec4f8f40262193dbe62b5f3731bf7de0b19e2fbc"
+    },
+    "new_native_commands": 0,
+    "independent_neural_forward_executed": false
+  },
+  "published_result_sha256": "dc70aa1b1b0bad0ef3e5e64a31332c0f04d66e2d2d5acdab9bfc8dd03f75da36",
+  "publication_audit_sha256": "ea7fe65ffa67097ac44ccf2d4db70b3c1b9592b565cc50529d395b5cab438b78",
+  "preserved_studies": [
+    {
+      "protocol": "runs/prose-retention-lr/protocol.json",
+      "sha256": "9c50dc898d73ac1b123d07f1aca7a83e92a5b6ccb1402c838fc3c8cfceaaa9b3",
+      "authenticated_references": 90
+    },
+    {
+      "protocol": "runs/prose-replay-capacity/protocol.json",
+      "sha256": "20096651488db77581529f4a08a681af646ca5fefd7245efe51c9f2a05c27e19",
+      "authenticated_references": 89
+    },
+    {
+      "protocol": "runs/prose-early-width/protocol.json",
+      "sha256": "76d3ab3fefe4d8afd1d0904c260f59a0e14d8d02cf2ca40f8444ad2f078911db",
+      "authenticated_references": 136
+    },
+    {
+      "protocol": "runs/prose-early-width-v2/protocol.json",
+      "sha256": "c870c8419f7b62768fb697aab40c4e49c388770f919a10acd96bba13ef943773",
+      "authenticated_references": 137
+    },
+    {
+      "protocol": "runs/prose-411m-v1/protocol.json",
+      "sha256": "daba74f6fecd44f8fd9334c07d07120bd5b9ac4466f46e9e2fa741f38c851244",
+      "authenticated_references": 137
+    }
+  ],
+  "total_authenticated_references": 589,
+  "distinct_authenticated_files": 297,
+  "all_pins_match": true,
+  "preserved_main_runtime": {
+    "path": "D:\\SynapticGenesis\\build\\synapticgenesis.exe",
+    "sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+    "archive_path": "D:\\SynapticGenesis\\build\\preserved-runtime-f73d30d8\\synapticgenesis.exe",
+    "archive_sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda"
+  },
+  "validated_runtime": {
+    "path": "D:\\SynapticGenesis\\build\\validated-shared-views\\synapticgenesis.exe",
+    "sha256": "4e65f54c44fb52603da839aa3cba41dff1f0788371cc3ffcc9cefd9e63613d62",
+    "byte_identical_to_tested_candidate": true
+  },
+  "integration_sources_sha256": {
+    "CMakeLists.txt": "2c445507b465c2527a8d8a96a4de76113f70517c4198e47c33e8fac0953efff0",
+    "build.ps1": "c94339c1b1643d211a7e2f6a7854061b859005d18a61f5fea47e6b0f291d22da",
+    "experiments/early_learning_probe.cu": "029104a33b856d3efce3ebdcb7d649dc8fba14bf0d479a24e8768eabde0040d4",
+    "experiments/learning_scale_observer.cuh": "e7f96bd4c720bcb75a0df07d6c63113b26a1948bee8d4aebcba9465333f023e6",
+    "scripts/early_width_observations.py": "f2644796e985aa49c5ae28534a22bec0b77f1c3fcd3f1df61110b06aebd14c04",
+    "scripts/prose_early_width.py": "2061fda1ac4199f4720d7cdbf70f3b172abf4aa39a11007d5a7bcb20125b12d5",
+    "scripts/publish_early_width.py": "99a9c9f4e968b60f727dfcfaec4f8f40262193dbe62b5f3731bf7de0b19e2fbc",
+    "tests/build_selectors.ps1": "e37e3c7eee4a5c4dca96e9a82ab804294b24608268d119d4c0198fc5c3edc264",
+    "tests/early_width_publication.py": "f31922f9ff85889a69b260ef42d696227f7ee34f0c8fd98ee54007f2fe0f4d8f"
+  },
+  "new_gpu_model_commands": 0,
+  "learning_policy_changed": false,
+  "reproduction_admitted": false,
+  "limits": "The completed study used its frozen diagnostic binary. Integration compiles new diagnostics and checks CPU behavior only; production CUDA and both preserved runtimes are unchanged. The active 411M study keeps its frozen inputs and sole GPU model process."
+}

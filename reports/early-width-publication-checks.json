@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "actual_groups_checked": 5,
+  "paired_directions_checked": 2,
+  "final_activity_target_bytes": 10,
+  "earlier_activity_target_bytes": 128,
+  "rejected_cases": [
+    "missing_case",
+    "duplicate_case",
+    "reordered_seeds",
+    "altered_shape",
+    "missing_final_update",
+    "missing_final_layer"
+  ],
+  "input_sha256": "dc70aa1b1b0bad0ef3e5e64a31332c0f04d66e2d2d5acdab9bfc8dd03f75da36",
+  "raw_outputs_unchanged": true,
+  "implementation_sha256": {
+    "D:\\SynapticGenesis\\tests\\early_width_publication.py": "f31922f9ff85889a69b260ef42d696227f7ee34f0c8fd98ee54007f2fe0f4d8f",
+    "scripts\\publish_early_width.py": "99a9c9f4e968b60f727dfcfaec4f8f40262193dbe62b5f3731bf7de0b19e2fbc"
+  },
+  "new_native_commands": 0,
+  "independent_neural_forward_executed": false
+}

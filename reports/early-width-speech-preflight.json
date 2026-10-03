@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "original_native_command_policies_preserved": [
+    "27m",
+    "105m"
+  ],
+  "compiled_host_test": {
+    "passed": true,
+    "native_model_calls": 0,
+    "gpu_work": false,
+    "rejected_cases": 11,
+    "roles_large_model": 116,
+    "sampled_coordinates_large_model": 7424
+  },
+  "rejected_cpu_cases": [
+    "source_global_update",
+    "byte_offset",
+    "target_bytes",
+    "source_clip_factor",
+    "generated_bytes_this_tick",
+    "fabricated_update_statistic",
+    "truncated_gradient",
+    "impossible_clipped_gradient",
+    "changed_depth",
+    "changed_rate_control",
+    "changed_source_exposure",
+    "changed_initial_weight",
+    "incomplete_predecessor_before_native_runner"
+  ],
+  "incompatible_build_targets_rejected": true,
+  "accepted_synthetic_coordinate_fixture": {
+    "passed": true,
+    "source_update_points": [
+      1,
+      4,
+      7
+    ],
+    "sampled_coordinates": 1336,
+    "raw_coordinate_files": 10,
+    "native_source_updates": 7,
+    "speech_records": 0,
+    "prompt_bytes_per_record": 9,
+    "generated_bytes": 0,
+    "inputs_sha256": {
+      "runs/early-width-speech-preflight-v1/fixture/coordinates.json": "ae8d23af44899c10624526e9a359a3b89152babc6565f0f5fdff11b9f1de0792",
+      "runs/early-width-speech-preflight-v1/fixture/observations.jsonl": "769e04a1b45681612a5d2683607612e5c9ed24ab601d4676ea0ae40c495d1de2",
+      "runs/early-width-speech-preflight-v1/fixture/result.json": "71fce9d91af38ba4c764d1ab6c0f6f832c6bd656c8d3a88a0f217afa0e7c68a9",
+      "runs/early-width-speech-preflight-v1/fixture/initial-coordinates.f32": "9ad545badcb31aadf48020ba9080567447296a90850e9ccde56f20bb08871cbe",
+      "runs/early-width-speech-preflight-v1/fixture/speech.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "runs/early-width-speech-preflight-v1/fixture/source-1-after.f32": "950f423e762e7478e8b509f54238a6f628fb238a303fdad2482ab504de4c40b4",
+      "runs/early-width-speech-preflight-v1/fixture/source-1-before.f32": "a6c6c085e1cc72d991d142a94acbbcfe90bb526d4271e596fbd714cb97f8aaf8",
+      "runs/early-width-speech-preflight-v1/fixture/source-1-clipped-gradient.f32": "fb5b2b6db2c4b4c3cfc27e741f5d97c2031c03f537ee0c218b09623764e93af2",
+      "runs/early-width-speech-preflight-v1/fixture/source-4-after.f32": "9f063938eeede3eb552b77b59855bdbf6fb9413c231f4e942ab877fba35226af",
+      "runs/early-width-speech-preflight-v1/fixture/source-4-before.f32": "22bd6b9f324c78cba228c1b9dd42957d4ff6ed6c409e9935d54977fa40e83cc3",
+      "runs/early-width-speech-preflight-v1/fixture/source-4-clipped-gradient.f32": "fb5b2b6db2c4b4c3cfc27e741f5d97c2031c03f537ee0c218b09623764e93af2",
+      "runs/early-width-speech-preflight-v1/fixture/source-7-after.f32": "b3ca3834a9288707d5766cd78db81be966d2fc69b26f4ed9581aaf5b4bffeda1",
+      "runs/early-width-speech-preflight-v1/fixture/source-7-before.f32": "4e1d35fc6b6d1a5cfcdb54281f9987f741137944f3b5a0ff9db291b80fd18dd7",
+      "runs/early-width-speech-preflight-v1/fixture/source-7-clipped-gradient.f32": "fb5b2b6db2c4b4c3cfc27e741f5d97c2031c03f537ee0c218b09623764e93af2"
+    },
+    "limit": "Independent reconstruction of sampled parameter statistics and source/update labels; activity statistics are native observations, not independently re-forwarded here."
+  },
+  "diagnostic_executable_sha256": "c41b5680c527583a2cbde1d375fa02a65df1f68d4f94bc0ad217541a990ba804",
+  "production_executable_sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+  "code_sha256": {
+    "experiments/early_learning_probe.cu": "029104a33b856d3efce3ebdcb7d649dc8fba14bf0d479a24e8768eabde0040d4",
+    "experiments/learning_scale_observer.cuh": "e7f96bd4c720bcb75a0df07d6c63113b26a1948bee8d4aebcba9465333f023e6",
+    "scripts/early_width_observations.py": "f2644796e985aa49c5ae28534a22bec0b77f1c3fcd3f1df61110b06aebd14c04",
+    "scripts/prose_early_width.py": "2061fda1ac4199f4720d7cdbf70f3b172abf4aa39a11007d5a7bcb20125b12d5",
+    "tests/prose_early_width.py": "f0a7f9ea29d20159af98ee6a85c2c84e88b0e2780488d240750d627652b1bb0b"
+  },
+  "native_host_commands": 1,
+  "gpu_model_commands": 0,
+  "real_instrumented_learning_verified": false,
+  "limits": "Compiled CPU diagnostics, archived argument checks and synthetic artifact guard tests only. Native observer neutrality, CUDA coordinate gathering and early-learning outcomes remain pending."
+}
