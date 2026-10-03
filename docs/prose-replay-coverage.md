@@ -1,11 +1,16 @@
 # What the larger learner actually rehearses
 
-The completed 2M and 105M founders use the same 1,024-slot, stage-balanced
+The original completed 2M and 105M founders use the same 1,024-slot, stage-balanced
 replay policy. Reconstructing their final source stage found **22,751 replay
 updates on 755 distinct earlier-source windows**. Those windows contain
 96,581 target-byte positions out of 11,399,051 available in the earlier books,
 or approximately **0.85%**. Most of that rehearsal therefore revisits the same
 small subset of the earlier text.
+
+The follow-up [16,384-slot comparison](prose-replay-capacity-results.md) has
+completed. It revisits 8,728 distinct earlier windows during the same final
+stage and improves both models' final book losses. The evidence below remains
+the original 1,024-slot measurement that motivated that experiment.
 
 This is a coverage measurement, not a finding that the model forgot the other
 99.15% or a proof that replay size caused the [observed regression](prose-105m-complete.md).

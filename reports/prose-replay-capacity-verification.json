@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "actual_saved_assessment_commands_verified": 10,
+  "paired_comparisons_recomputed": 8,
+  "rejected_evidence_cases": [
+    "book_loss",
+    "book_role",
+    "missing_sample",
+    "extra_sample",
+    "sample_hex",
+    "displayed_sample",
+    "sample_length",
+    "validation_mean",
+    "checkpoint_path",
+    "checkpoint_update",
+    "native_command_argument",
+    "comparison_delta",
+    "replay_pair_delta",
+    "replay_update_budget"
+  ],
+  "raw_outputs_unchanged": true,
+  "new_native_commands": 0,
+  "implementation_sha256": {
+    "D:/SynapticGenesis/tests/replay_capacity_publication.py": "cb1f8c1bdb7a41667f7f6a5917874f4537a6bfc858c8f353bebe23d9015e9df2",
+    "scripts/checkpoint_assessment.py": "3ed14ff3a63cb11632c74155136ee915a7b6341bc11a5efee242a189d75de2f9",
+    "scripts/publish_replay_capacity.py": "d38b6a5c91f4a3d63bff1a562f7ba1608103a9084bc3334ec201d70c3fdcff70"
+  },
+  "limits": "CPU evidence-rejection checks. The companion publication audits all completed candidate and baseline assessments."
+}

@@ -47,9 +47,15 @@ GPU job to the running replay-capacity and early-width studies.
 
 The completed [2M/27M/105M comparison](prose-size-results.md) used 55 selected
 training books with 4,817,047 word occurrences. The larger networks did not
-improve final validation under the common learning policy. The extra capacity
+improve final validation under the original common 1,024-slot replay policy. The extra capacity
 therefore needs both an appropriate learning configuration and a larger,
 useful corpus; increasing neuron count alone is not evidence of progress.
+
+The subsequent [broader-replay comparison](prose-replay-capacity-results.md)
+improved both tested sizes; with 16,384 slots, the final validation means were
+1.688728 for 2M and 1.668709 for 105M. The larger model can therefore benefit
+from a different learning policy in this run. This remains one exploratory
+seed and does not establish 411M memory feasibility or language quality.
 
 The Chinchilla paper's abstract reports that compute-efficient transformer
 training required increasing data along with parameter count. That supports

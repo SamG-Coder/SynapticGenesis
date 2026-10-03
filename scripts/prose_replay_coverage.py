@@ -24,7 +24,22 @@ def unique_counts(episodes, lengths, first, end, chunk):
                 covered_documents=sorted({e[0] for e in distinct}))
 
 
-def audit(profiles, out):
+def audit(profiles, out, experiment=None):
+    capacity = 1024
+    experiment_inputs = []
+    if experiment is not None:
+        plan_path, result_path = experiment / 'protocol.json', experiment / 'result.json'
+        plan, result = read(plan_path), read(result_path)
+        if (not result['complete'] or result['protocol'] != plan or
+                plan['status'] != 'declared_before_replay_capacity_comparison' or
+                plan['specification']['profiles'] != profiles or
+                plan['specification']['candidate_capacity'] != 16384 or result['reserved_tests_scored']):
+            raise ValueError('Expected the completed 16384-slot replay-capacity comparison')
+        for name, expected in plan['authenticated_inputs'].items():
+            if file_hash(name) != expected:
+                raise ValueError('Replay comparison input changed: ' + name)
+        capacity = 16384
+        experiment_inputs = [plan_path, result_path]
     source_path = Path('data/sources-prose-scale-v1.json')
     source = require_training_spec(source_path)
     prepared = Path('data/prepared/prose-scale-v1-pinned')
@@ -41,11 +56,13 @@ def audit(profiles, out):
                                      for raw, book in zip(docs, books)):
         raise ValueError('Book identities do not reconstruct the actual curriculum document order')
     lengths = list(map(len, docs))
-    inputs = [source_path, prepared / 'manifest.json', schedule_path, schedule_path.parent / 'protocol.json', source_file]
+    inputs = [source_path, prepared / 'manifest.json', schedule_path, schedule_path.parent / 'protocol.json',
+              source_file, *experiment_inputs]
     pins = {p.as_posix(): file_hash(p) for p in inputs}
     rows = []
     for profile in profiles:
-        directory = Path('runs/prose-105m-founder') if profile == '105m' else Path(f'runs/prose-size-panel/founder-{profile}')
+        directory = (experiment / f'founder-{profile}' if experiment is not None else
+                     Path('runs/prose-105m-founder') if profile == '105m' else Path(f'runs/prose-size-panel/founder-{profile}'))
         founder_path = directory / 'protocol.json'
         founder = read(founder_path)
         if (founder['profile'] != profile or not founder['random_initialization'] or founder['imported_weights'] or
@@ -54,7 +71,7 @@ def audit(profiles, out):
         pins[founder_path.as_posix()] = file_hash(founder_path)
         paths = [directory / f'stage-{stage}.ckpt' for stage in (3, 4)]
         for stage, path in zip((3, 4), paths):
-            assessed = Path(f'runs/prose-size-panel/{profile}-stage-{stage}/result.json')
+            assessed = (experiment if experiment is not None else Path('runs/prose-size-panel')) / f'{profile}-stage-{stage}/result.json'
             assessment = read(assessed)
             identity = file_hash(path)
             if identity != assessment['checkpoint_sha256']:
@@ -63,7 +80,7 @@ def audit(profiles, out):
             pins[assessed.as_posix()] = file_hash(assessed)
         initial, before = policy_checkpoint(paths[0])
         completed, after = policy_checkpoint(paths[1])
-        if (initial[24], completed[24], initial[6], before[2], before[3]) != (95207, 216289, 128, 4, 1024):
+        if (initial[24], completed[24], initial[6], before[2], before[3], after[3]) != (95207, 216289, 128, 4, capacity, capacity):
             raise ValueError('Unexpected stage exposure or replay policy')
         reference = ReplayReference(paths[0], before[2], before[14], completed[12], lengths)
         selected = Counter()
@@ -128,7 +145,7 @@ def audit(profiles, out):
         raise ValueError('Replay evidence changed during inspection')
     code = [Path(__file__), Path('tests/stage_replay_reference.py'), Path('scripts/experiment_checkpoint.py'),
             Path('src/stage_replay.cuh'), Path('src/live.cuh'), Path('src/live_replay.cuh')]
-    write(out, dict(complete=True, kind='Exploratory CPU reconstruction of actual last-stage replay',
+    write(out, dict(complete=True, kind='Exploratory CPU reconstruction of actual last-stage replay', replay_capacity=capacity,
         source_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
         inputs_sha256=pins, code_sha256={p.as_posix(): file_hash(p) for p in code}, rows=rows,
         native_commands=0, model_updates=0, checkpoint_files_unchanged=True, reserved_tests_scored=False,
@@ -138,14 +155,15 @@ def audit(profiles, out):
                'Final stored windows differ from all windows replayed over time; current-stage pools change. '
                'Absent final slots do not imply a book was never learned or replayed. All new books were '
                'observed through the native source stream. Greater coverage may or may not improve retention. '
-               'This report does not test a larger reservoir, full-history sampling or a new replay cadence.'))
+               'This audit changes no reservoir, learned weights, full-history sampling or replay cadence.'))
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--profiles', nargs='+', choices=('2m', '27m', '105m'), default=['2m', '105m'])
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--experiment', type=Path, help='Completed larger-replay study; omitted uses original size controls')
     args = parser.parse_args()
     if args.out.exists() or len(args.profiles) != len(set(args.profiles)):
         parser.error('Use distinct profiles and a fresh output path')
-    audit(args.profiles, args.out)
+    audit(args.profiles, args.out, args.experiment)

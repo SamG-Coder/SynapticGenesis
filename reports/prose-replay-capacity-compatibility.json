@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "source_reports": {
+    "founder_preflight": {
+      "path": "runs/replay-capacity-main-preflight-v1/result.json",
+      "sha256": "154f273ef71912fd05c9502830c4f07d52d526482cd12710619bc855c60aaea1"
+    },
+    "assessment_compatibility": {
+      "path": "runs/replay-capacity-assessment-compatibility-v1/result.json",
+      "sha256": "4d800a44feb92d431bd747e37b6b4b51d186221068a28ab1e1bc0a2b5f834314"
+    },
+    "coverage_reader": {
+      "path": "runs/replay-capacity-coverage-preflight-v1/result.json",
+      "sha256": "01739cc753ab62126bae70b4f7c876dc7f607da3896d179c2bb3d02357a61ef6"
+    },
+    "baseline_coverage": {
+      "path": "runs/replay-capacity-baseline-coverage-compatibility-v1.json",
+      "sha256": "c48eae22ade1a0dda8838393373ff0180507ded253a29a006d4f949fa81655a4"
+    }
+  },
+  "original_founder_arguments_preserved": true,
+  "archived_assessment_commands_replayed": 40,
+  "baseline_coverage_rows_exact": true,
+  "baseline_coverage_sha256": "d4e69e4fea3541d818048551fe6ff57093f5653a1eecefc523a18f87effb73dc",
+  "active_width_protocol_sha256": "c870c8419f7b62768fb697aab40c4e49c388770f919a10acd96bba13ef943773",
+  "active_width_authenticated_input_references": 137,
+  "active_width_inputs_unchanged": true,
+  "production_executable_sha256": "f73d30d84e78c0e6bb6f42f8f09835f1e5d8aacaa1e017f6fb3e187e11d8dbda",
+  "new_native_commands": 0,
+  "new_model_updates": 0,
+  "limits": "CPU preparation/publication checks and immutable input verification only; active width-study outcomes are not part of this publication."
+}

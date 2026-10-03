@@ -1,9 +1,9 @@
 """Sequence the declared size controls and assessments after a live founder exits."""
 import argparse
 from pathlib import Path
-import struct
 import subprocess
 
+from experiment_checkpoint import policy_checkpoint
 from native_experiment import read, sha
 from process_gate import ProcessGate
 from prose_evaluation import assess
@@ -12,14 +12,7 @@ from prose_founder import file_hash, run as train_founder, write
 
 def counters(path):
     """Small diagnostic header view; native assessment validates the full checkpoint."""
-    with path.open('rb') as stream:
-        meta = struct.unpack('<32Q', stream.read(256))
-        if meta[17] != 5 or not 17 <= meta[31] <= 16384:
-            raise ValueError('Expected a bounded grouped-replay checkpoint')
-        stream.seek(288 + 12 * meta[14] + 4 * meta[18])
-        extra = struct.unpack(f'<{meta[31]}Q', stream.read(8 * meta[31]))
-    if extra[1] != 3:
-        raise ValueError('Unexpected grouped-replay policy')
+    meta, extra = policy_checkpoint(path)
     return dict(online_updates=meta[24], global_updates=meta[7], observed_pairs=meta[22],
                 generated_bytes=meta[30], replay_updates=extra[6], replay_pairs=extra[7],
                 curriculum_stage=extra[15] + 1, parameters=meta[14],

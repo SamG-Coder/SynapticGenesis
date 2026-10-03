@@ -32,12 +32,13 @@ def declare(out):
     assert e['batch'] * e['context'] * e['batches'] == e['target_bytes_per_book']
     files = [SPEC, source, prepared / 'manifest.json', schedule,
              Path('build/synapticgenesis.exe'), Path(__file__),
-             Path('scripts/prose_founder.py'), Path('scripts/native_experiment.py'),
+             Path(__file__).with_name('prose_founder.py'), Path(__file__).with_name('native_experiment.py'),
              Path(__file__).with_name('checkpoint_assessment.py'),
              *(prepared / f'{n}.txt' for n in splits),
              *(Path(r['cumulative_source']) for r in exposure['stages'])]
     plan = dict(status='declared_before_extended_assessment', specification=spec,
-                source_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+                source_commit=subprocess.check_output(['git', '-C', str(Path(__file__).resolve().parents[1]),
+                    'rev-parse', 'HEAD'], text=True).strip(),
                 authenticated_inputs={p.as_posix(): file_hash(p) for p in files},
                 exposure=exposure, reserved_tests_scored=False, native_work_started=False)
     out.mkdir(parents=True, exist_ok=False)
