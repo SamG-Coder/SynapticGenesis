@@ -133,14 +133,14 @@ struct StageReplay : StageReplayView {
     void initialize(uint64_t document_end) {
         if (s.extra.size() != 16 || s.extra[5] || s.extra[6] || s.extra[7])
             throw std::runtime_error("Stage replay must be selected before observing the stream");
-        s.meta[17] = 5;
+        set_live_version(s, 5);
         s.extra.push_back(0);
         add_group(document_end);
     }
     void adopt_first_stage(uint64_t document_end) {
         // All previously observed windows belong to this one source group.
         // Later conversion cannot reconstruct lost per-group exposure counts.
-        if (s.meta[17] != 4 || s.extra.size() < 16 || s.extra[1] != 1 || s.extra[15] != 0 ||
+        if (live_version(s) != 4 || s.extra.size() < 16 || s.extra[1] != 1 || s.extra[15] != 0 ||
             (s.extra.size() - 16) % 3)
             throw std::runtime_error("Stage replay conversion requires a first-stage curriculum reservoir");
         State candidate = s;
@@ -149,7 +149,7 @@ struct StageReplay : StageReplayView {
         next.insert(next.end(),
                     {1, document_end, s.extra[5], (s.extra.size() - 16) / 3, s.extra[6], s.extra[7]});
         next.insert(next.end(), s.extra.begin() + 16, s.extra.end());
-        candidate.meta[17] = 5;
+        set_live_version(candidate, 5);
         candidate.extra = std::move(next);
         StageReplayView(candidate).validate();
         s = std::move(candidate);

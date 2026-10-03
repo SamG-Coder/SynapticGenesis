@@ -85,9 +85,9 @@ struct LiveCurriculum {
         s.hp[0] = base * stages.at(size_t(s.extra[15])).rate_scale;
     }
     void initialize(State &s) const {
-        require(s.extra.size() >= 16 && (s.meta[17] == 2 || s.meta[17] == 3),
+        require(s.extra.size() >= 16 && (live_version(s) == 2 || live_version(s) == 3),
                 "Curriculum needs an initialized live policy");
-        s.meta[17] = 4;
+        set_live_version(s, 4);
         s.extra[14] = hash;
         s.extra[15] = 0;
         rate(s, s.hp[0]);

@@ -22,6 +22,7 @@ $expected=@{
   ViewAllocationProbe=@{Name='view-allocation-probe'; Option='SG_BUILD_VIEW_ALLOCATION_PROBE'}
   EarlyLearningProbe=@{Name='early-learning-probe'; Option='SG_BUILD_EARLY_LEARNING_PROBE'}
   MembranePenaltyReference=@{Name='membrane-penalty-reference'; Option='SG_BUILD_MEMBRANE_PENALTY_REFERENCE'}
+  MembraneCheckpointTest=@{Name='membrane-checkpoint-test'; Option='SG_BUILD_MEMBRANE_CHECKPOINT_TEST'}
 }
 if(@(& $selector).Count -ne 0){throw 'Default build selected a diagnostic.'}
 $cases=@()

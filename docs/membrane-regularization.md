@@ -7,12 +7,17 @@ is much more common in the earlier large founders after learning. This gives
 a specific reason to test a membrane objective, while the running 411M study
 continues unchanged.
 
-This stage implements and checks a candidate scalar objective in C++/CUDA,
+The original census stage implements and checks a candidate scalar objective in C++/CUDA,
 and measures its potential reach using saved arrays. It does **not** integrate
 the candidate into the learner or demonstrate improved language. All nine
 audited checkpoints have `activity_cost=0`: the existing activity penalty was
 disabled in these founders. The analysis describes what that optional penalty
 could directly influence if enabled at their recorded states.
+
+The subsequent [isolated policy integration](membrane-policy.md) adds an
+optional shared-backward path and checkpoint extension on the research branch.
+Its compile/host checks do not establish CUDA learning or language benefit.
+The running 411M study still uses the preserved earlier runtime.
 
 ## What the existing backward computation allows
 

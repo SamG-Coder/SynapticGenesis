@@ -27,6 +27,8 @@ def policy_checkpoint(path):
 def checkpoint(path):
     raw = path.read_bytes()
     meta = struct.unpack_from('<32Q', raw)
+    if meta[17] > 6:
+        raise ValueError('Legacy experiment reader does not support this checkpoint policy')
     end = 288 + 12*meta[14] + 4*meta[18]
     extra = struct.unpack_from(f'<{meta[31]}Q', raw, end)
     return meta, extra, raw[288:end], hashlib.sha256(raw).hexdigest()
@@ -45,6 +47,8 @@ def teaching(path):
     """Diagnostic policy view; native loading remains the validation authority."""
     raw = path.read_bytes()
     meta = struct.unpack_from('<32Q', raw)
+    if meta[17] > 6:
+        raise ValueError('Legacy experiment reader does not support this checkpoint policy')
     if meta[17] != 6:
         return None
     offset = 288 + 12*meta[14] + 4*meta[18] + 8*meta[31]

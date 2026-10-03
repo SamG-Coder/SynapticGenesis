@@ -1,0 +1,54 @@
+{
+  "script_sha256": "b9dbae5de4e7dbad74c4399f3885c7e4873bdd8ce2c18fbcf46ea55be9d25310",
+  "selectors": [
+    {
+      "option": "SG_BUILD_ADAPTATION_PROBE",
+      "switch": "AdaptationProbe",
+      "name": "adaptation-probe"
+    },
+    {
+      "option": "SG_BUILD_CAPACITY_PROBE",
+      "switch": "CapacityProbe",
+      "name": "capacity-probe"
+    },
+    {
+      "option": "SG_BUILD_EARLY_LEARNING_PROBE",
+      "switch": "EarlyLearningProbe",
+      "name": "early-learning-probe"
+    },
+    {
+      "option": "SG_BUILD_MEMBRANE_CHECKPOINT_TEST",
+      "switch": "MembraneCheckpointTest",
+      "name": "membrane-checkpoint-test"
+    },
+    {
+      "option": "SG_BUILD_MEMBRANE_PENALTY_REFERENCE",
+      "switch": "MembranePenaltyReference",
+      "name": "membrane-penalty-reference"
+    },
+    {
+      "option": "SG_BUILD_REPLAY_PRIORITY_PROBE",
+      "switch": "ReplayPriorityProbe",
+      "name": "replay-priority-probe"
+    },
+    {
+      "option": "SG_BUILD_REPLAY_SELECTION_PROBE",
+      "switch": "ReplaySelectionProbe",
+      "name": "replay-selection-probe"
+    },
+    {
+      "option": "SG_BUILD_TRACE_DIAGNOSTIC",
+      "switch": "TraceDiagnostic",
+      "name": "trace-diagnostic"
+    },
+    {
+      "option": "SG_BUILD_VIEW_ALLOCATION_PROBE",
+      "switch": "ViewAllocationProbe",
+      "name": "view-allocation-probe"
+    }
+  ],
+  "passed": true,
+  "no_selection_uses_normal_build": true,
+  "toolchain_or_cuda_work_requested": false,
+  "conflicting_pairs_rejected": 36
+}

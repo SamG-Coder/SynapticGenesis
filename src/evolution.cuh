@@ -118,7 +118,8 @@ struct Candidate {
     bool alive = true;
 };
 bool eligible(const Candidate &c, size_t limit) {
-    return c.alive && c.state.meta[7] > 0 && c.parameters <= limit && std::isfinite(c.score) &&
+    return !c.state.membrane.present() && c.alive && c.state.meta[7] > 0 && c.parameters <= limit &&
+           std::isfinite(c.score) &&
            c.score < c.member.ceiling;
 }
 bool alive(const Member &m, uint64_t tick) {
@@ -252,6 +253,8 @@ float inherited_learning_rate(const State &state) {
     return rate;
 }
 State child_state(const Candidate &a, const Candidate &b, const Rules &rules, uint64_t &rng) {
+    require(!a.state.membrane.present() && !b.state.membrane.present(),
+            "Experimental membrane policy is not admitted to reproduction");
     State s;
     s.hp[0] = float(std::sqrt(double(inherited_learning_rate(a.state)) * inherited_learning_rate(b.state)));
     double mutation = .5 * (a.member.setting_mutation_chance + b.member.setting_mutation_chance);
@@ -301,6 +304,7 @@ void add(const Args &args) {
     rules.corpus = data.hash;
     m.born_tick = rules.tick;
     State s = header(args.get("checkpoint"));
+    require(!s.membrane.present(), "Experimental membrane policy is not admitted to populations");
     Model model(checkpoint_config(s), 1, 1);
     load(args.get("checkpoint"), model, s);
     require(s.meta[12] != rules.corpus, "Population evaluation corpus is also the training corpus");

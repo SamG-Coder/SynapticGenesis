@@ -91,6 +91,7 @@ def check(directory):
         return v * torch.rsqrt((v * v).mean(-1, keepdim=True) + 1e-5) * gain
 
     activities = []
+    membrane_points = []
     initial_path = directory / 'initial_state.f32'
     recurrent = (2 if secondary else 1) * batch * h + (batch * 1024 if associative else 0)
     initial_states = (torch.from_numpy(np.fromfile(initial_path, '<f4').copy()).view(layers, recurrent)
@@ -113,6 +114,9 @@ def check(directory):
         emissions = []
         for t in range(time):
             membrane = beta * reset + z[:, t, :]
+            if 'membrane' in cfg:
+                band = cfg['membrane']['band']
+                membrane_points.append(.5 * torch.clamp(membrane.abs() - band, min=0).square())
             threshold = 1 + gamma * adaptation if adaptive else 1
             spike = AdaptiveSignedSpike.apply(membrane, threshold) if adaptive else SignedSpike.apply(membrane)
             spikes.append(spike)
@@ -172,6 +176,12 @@ def check(directory):
     if initial_path.exists():
         native_state = np.fromfile(directory / 'final_state.f32', '<f4')
         assert np.allclose(native_state, torch.cat(final_states).numpy(), atol=2e-5, rtol=1e-5)
+    # The reported native loss remains observed/teacher cross-entropy. This
+    # auxiliary term is differentiated independently, with detached spike resets.
+    reported_loss = loss
+    if 'membrane' in cfg:
+        assert traced and 0 < cfg['membrane']['cost'] <= 100 and 1 < cfg['membrane']['band'] < 2
+        loss = loss + cfg['membrane']['cost'] * torch.stack(membrane_points).mean()
     loss.backward(retain_graph=True)
     if distillation:
         actual_dlogits = np.fromfile(directory / 'dlogits.f32', '<f4')
@@ -181,7 +191,7 @@ def check(directory):
     actual_logits = np.fromfile(directory / 'logits.f32', '<f4')
     expected_logits = logits.detach().numpy().reshape(-1)
     assert np.max(np.abs(actual_logits - expected_logits)) < 2e-5
-    assert abs(loss.item() - cfg['loss']) < 2e-6
+    assert abs(reported_loss.item() - cfg['loss']) < 2e-6
     actual_grad = np.fromfile(directory / 'gradients.f32', '<f4')
     expected_grad = weights.grad.numpy()
     tensor_results = []
@@ -234,6 +244,9 @@ def check(directory):
     if distillation:
         result['distillation'] = soft_errors
         result['adam_step'] = cfg.get('adam_step', 1)
+    if 'membrane' in cfg:
+        result['membrane'] = dict(cfg['membrane'], observed_loss=reported_loss.item(),
+                                  objective_loss=loss.item(), adam_step=cfg.get('adam_step', 1))
     if update_error >= 5e-6:
         result['failed_adam_tolerance'] = failure
     (directory / 'oracle.json').write_text(json.dumps(result, indent=2) + '\n')

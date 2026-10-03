@@ -284,8 +284,11 @@ struct Model {
             sum += double(weights[i]) * values[i];
         return float(sum / total);
     }
-    void backward(float activity_cost = 0) {
+    void backward(float activity_cost = 0, float membrane_cost = 0, float membrane_band = 1.5f) {
         require_learning("Backward");
+        MembranePolicy::validate_options(membrane_cost, membrane_band);
+        if (membrane_cost > 0 && !q.traced())
+            throw std::runtime_error("Membrane penalty requires trace, gated, selective or associative cell");
         g.zero();
         linear_backward(dnorm.p, finalnorm.p, dlogits.p, a.head, a.bias, q.c, 256);
         rms_bwd<<<N + (q.c + 31) / 32, 256>>>(dx.p, g.p + a.final_gain, dnorm.p, x[q.l].p, w.p + a.final_gain,
@@ -311,8 +314,14 @@ struct Model {
             if (activity_cost > 0 && !q.traced())
                 spike_cost_grad<<<(N * q.h + 255) / 256, 256>>>(ds.p, f.s.p, N * q.h,
                                                                 activity_cost / (float(N) * q.h * q.l));
-            if (q.traced())
-                trace_bwd<<<(B * q.h + 255) / 256, 256>>>(
+            if (q.traced() && membrane_cost > 0)
+                trace_bwd<true><<<(B * q.h + 255) / 256, 256>>>(
+                    dz.p, dl, dr, dk, ds.p, f.u.p, f.s.p, f.adapt.p, f.initial_state.p, f.initial_adapt.p,
+                    w.p + p.leak, w.p + p.adapt_leak, w.p + p.adapt_scale, f.gate.p, dgate.p, B, T, q.h,
+                    activity_cost / (float(N) * q.h * q.l), q.selective(),
+                    membrane_cost / (float(N) * q.h * q.l), membrane_band);
+            else if (q.traced())
+                trace_bwd<false><<<(B * q.h + 255) / 256, 256>>>(
                     dz.p, dl, dr, dk, ds.p, f.u.p, f.s.p, f.adapt.p, f.initial_state.p, f.initial_adapt.p,
                     w.p + p.leak, w.p + p.adapt_leak, w.p + p.adapt_scale, f.gate.p, dgate.p, B, T, q.h,
                     activity_cost / (float(N) * q.h * q.l), q.selective());

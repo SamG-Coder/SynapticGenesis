@@ -11,6 +11,7 @@ struct State {
     // Live extension v3 appends importance, trajectory estimate, reference values.
     std::vector<float> synaptic;
     TeachingState teaching;
+    MembranePolicy membrane;
     State() {
         meta[0] = 0x314d4c53434e5042ull;
         meta[1] = 1;
@@ -20,15 +21,37 @@ struct State {
         hp[3] = std::numeric_limits<float>::max();
     }
 };
+// Extension 7 wraps a legacy live policy; feature transitions change the base,
+// never discard the saved objective. Disabled files remain byte-compatible.
+uint64_t live_version(const State &s) {
+    return s.meta[17] == MembranePolicy::live_extension ? s.membrane.words[2] : s.meta[17];
+}
+void set_live_version(State &s, uint64_t version) {
+    if (version < 1 || version > 6)
+        throw std::runtime_error("Invalid underlying live version");
+    if (s.meta[17] == MembranePolicy::live_extension)
+        s.membrane.words[2] = version;
+    else
+        s.meta[17] = version;
+}
+void validate_membrane_state(const State &s) {
+    if (s.meta[17] == MembranePolicy::live_extension)
+        s.membrane.validate(int(s.meta[1]));
+    else if (s.meta[17] > 6 || s.membrane.present())
+        throw std::runtime_error("Unsupported live version or stray membrane policy");
+}
+size_t checkpoint_prefix_bytes(const State &s) {
+    return 288 + (s.meta[17] == MembranePolicy::live_extension ? MembranePolicy::count_words * 8 : 0);
+}
 bool has_grouped_replay(const State &s) {
-    return s.meta[17] == 5 || s.meta[17] == 6;
+    return live_version(s) == 5 || live_version(s) == 6;
 }
 #include "stage_replay.cuh"
 bool has_curriculum(const State &s) {
-    return s.meta[17] == 4 || has_grouped_replay(s);
+    return live_version(s) == 4 || has_grouped_replay(s);
 }
 bool has_synaptic_history(const State &s) {
-    return s.meta[17] == 3 || (has_curriculum(s) && s.extra.size() >= 16 && s.extra[9] == 1);
+    return live_version(s) == 3 || (has_curriculum(s) && s.extra.size() >= 16 && s.extra[9] == 1);
 }
 void validate_curriculum_state(const State &s) {
     if (!has_curriculum(s))
@@ -44,7 +67,7 @@ void validate_curriculum_state(const State &s) {
 void validate_teaching_state(const State &s) {
     const auto &p = s.teaching;
     const auto &w = p.words;
-    if (s.meta[17] != 6) {
+    if (live_version(s) != 6) {
         if (std::any_of(w.begin(), w.end(), [](uint64_t value) { return value != 0; }))
             throw std::runtime_error("Teacher state requires live checkpoint version 6");
         return;
@@ -95,8 +118,10 @@ uint64_t live_hash(const State &s, const std::vector<float> &membranes, uint64_t
     meta[15] = 0;
     hash = hash_bytes(meta.data(), meta.size() * 8, hash);
     hash = hash_bytes(s.hp.data(), s.hp.size() * 4, hash);
+    if (s.meta[17] == MembranePolicy::live_extension)
+        hash = hash_bytes(s.membrane.words.data(), MembranePolicy::count_words * 8, hash);
     hash = hash_bytes(s.extra.data(), s.extra.size() * 8, hash);
-    if (s.meta[17] == 6)
+    if (live_version(s) == 6)
         hash = hash_bytes(s.teaching.words.data(), TeachingState::count_words * 8, hash);
     return hash_bytes(s.synaptic.data(), s.synaptic.size() * 4, hash);
 }
@@ -112,12 +137,11 @@ void save(const fs::path &path, Model &m, State &s) {
     s.meta[6] = m.T;
     s.meta[14] = m.a.n;
     s.meta[18] = membranes.size();
-    if (s.meta[17] >= 2)
+    if (live_version(s) >= 2)
         s.meta[31] = s.extra.size();
     else if (!s.extra.empty())
         throw std::runtime_error("Extended state requires live checkpoint version 2 through 6");
-    if (s.meta[17] > 6)
-        throw std::runtime_error("Unsupported live checkpoint version");
+    validate_membrane_state(s);
     validate_curriculum_state(s);
     validate_teaching_state(s);
     if (has_grouped_replay(s))
@@ -144,6 +168,8 @@ void save(const fs::path &path, Model &m, State &s) {
     std::ofstream f(temp, std::ios::binary | std::ios::trunc);
     write_raw(f, s.meta.data(), 32);
     write_raw(f, s.hp.data(), 8);
+    if (s.meta[17] == MembranePolicy::live_extension)
+        write_raw(f, s.membrane.words.data(), MembranePolicy::count_words);
     write_raw(f, w.data(), w.size());
     write_raw(f, mo.data(), mo.size());
     write_raw(f, vo.data(), vo.size());
@@ -151,7 +177,7 @@ void save(const fs::path &path, Model &m, State &s) {
         write_raw(f, membranes.data(), membranes.size());
     if (!s.extra.empty())
         write_raw(f, s.extra.data(), s.extra.size());
-    if (s.meta[17] == 6)
+    if (live_version(s) == 6)
         write_raw(f, s.teaching.words.data(), TeachingState::count_words);
     if (!s.synaptic.empty())
         write_raw(f, s.synaptic.data(), s.synaptic.size());
@@ -185,6 +211,9 @@ State header(const fs::path &path) {
     for (int i = 2; i <= 9; ++i)
         if (s.meta[i] > 1000000000ull)
             throw std::runtime_error("Invalid checkpoint metadata");
+    if (s.meta[17] == MembranePolicy::live_extension)
+        read_raw(f, s.membrane.words.data(), MembranePolicy::count_words);
+    validate_membrane_state(s);
     return s;
 }
 struct StoredCheckpoint {
@@ -197,19 +226,20 @@ StoredCheckpoint read_checkpoint(const fs::path &path) {
     Layout layout(q);
     if (s.meta[14] != layout.n)
         throw std::runtime_error("Checkpoint parameter count differs from its dimensions");
-    if (s.meta[17] > 6 || (!s.meta[17] && s.meta[18]) ||
+    if ((!s.meta[17] && s.meta[18]) ||
         (s.meta[17] &&
          (s.meta[5] < 1 || s.meta[5] > 256 || s.meta[18] != q.recurrent_per_layer(int(s.meta[5])) * q.l)))
         throw std::runtime_error("Invalid live checkpoint dimensions/version");
-    if ((s.meta[17] < 2 && s.meta[31]) || s.meta[31] > (has_grouped_replay(s) ? 17 + 5 * 4096 : 16) + 3 * 65536)
+    if ((live_version(s) < 2 && s.meta[31]) || s.meta[31] > (has_grouped_replay(s) ? 17 + 5 * 4096 : 16) + 3 * 65536)
         throw std::runtime_error("Invalid extended checkpoint length");
     // Read the bounded policy before deciding whether a v4 file has SI arrays.
     std::ifstream f(path, std::ios::binary);
-    f.seekg(std::streamoff(288 + 12 * layout.n + 4 * s.meta[18]));
+    const size_t prefix = checkpoint_prefix_bytes(s);
+    f.seekg(std::streamoff(prefix + 12 * layout.n + 4 * s.meta[18]));
     s.extra.resize(size_t(s.meta[31]));
     if (!s.extra.empty())
         read_raw(f, s.extra.data(), s.extra.size());
-    size_t teaching_bytes = s.meta[17] == 6 ? TeachingState::count_words * 8 : 0;
+    size_t teaching_bytes = live_version(s) == 6 ? TeachingState::count_words * 8 : 0;
     if (teaching_bytes)
         read_raw(f, s.teaching.words.data(), TeachingState::count_words);
     validate_curriculum_state(s);
@@ -217,16 +247,16 @@ StoredCheckpoint read_checkpoint(const fs::path &path) {
     if (has_grouped_replay(s))
         StageReplay(s).validate();
     size_t synaptic_count = has_synaptic_history(s) ? 3 * layout.n : 0;
-    if (fs::file_size(path) != 288 + 12 * layout.n + 4 * s.meta[18] + 8 * s.meta[31] + teaching_bytes + 4 * synaptic_count)
+    if (fs::file_size(path) != prefix + 12 * layout.n + 4 * s.meta[18] + 8 * s.meta[31] + teaching_bytes + 4 * synaptic_count)
         throw std::runtime_error("Checkpoint length mismatch");
-    f.seekg(288);
+    f.seekg(std::streamoff(prefix));
     std::vector<float> w(layout.n), mo(layout.n), vo(layout.n), membranes(size_t(s.meta[18]));
     read_raw(f, w.data(), w.size());
     read_raw(f, mo.data(), mo.size());
     read_raw(f, vo.data(), vo.size());
     if (!membranes.empty())
         read_raw(f, membranes.data(), membranes.size());
-    f.seekg(std::streamoff(288 + 12 * layout.n + 4 * s.meta[18] + 8 * s.meta[31] + teaching_bytes));
+    f.seekg(std::streamoff(prefix + 12 * layout.n + 4 * s.meta[18] + 8 * s.meta[31] + teaching_bytes));
     s.synaptic.resize(synaptic_count);
     if (synaptic_count)
         read_raw(f, s.synaptic.data(), s.synaptic.size());
@@ -241,7 +271,7 @@ StoredCheckpoint read_checkpoint(const fs::path &path) {
             if (!std::isfinite(x))
                 throw std::runtime_error("Nonfinite checkpoint parameter");
     if (synaptic_count) {
-        if (s.extra.size() < 16 || s.extra[9] != 1 || (s.meta[17] == 3 && (s.extra[14] || s.extra[15])) ||
+        if (s.extra.size() < 16 || s.extra[9] != 1 || (live_version(s) == 3 && (s.extra[14] || s.extra[15])) ||
             s.extra[12] > s.meta[24] || s.extra[13] != s.meta[24] + s.extra[6])
             throw std::runtime_error("Invalid synaptic checkpoint policy/counters");
         float strength = word_float(s.extra[10]), damping = word_float(s.extra[11]);

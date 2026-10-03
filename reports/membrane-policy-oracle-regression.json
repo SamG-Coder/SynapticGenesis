@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "cuda_executed": false,
+  "new_membrane_fixture_checked": false,
+  "rows": [
+    {
+      "cell": 1,
+      "passed": true,
+      "source_fixture_sha256": {
+        "D:\\SynapticGenesis\\build\\test-results\\fixture.json": "52bacf1438a4cbe8c62df5544ad6ac5c97ccc2c81b6aaffd0ed9783f6d5a4e0d",
+        "D:\\SynapticGenesis\\build\\test-results\\gradients.f32": "8940c4a1b8df23381bc235618ab6e4b48cee535d61a62d99d028a2d22fab990e",
+        "D:\\SynapticGenesis\\build\\test-results\\gradients_regularized.f32": "c74fec8b3f8cb3a605ad112e0cd15c75d900a8aed80bd4ec1bb98ac986f701e7",
+        "D:\\SynapticGenesis\\build\\test-results\\inputs.i32": "8c4ae8dc1b3ceb84cc834b288f63666b0b6379669a178c58190d123af3d5aee0",
+        "D:\\SynapticGenesis\\build\\test-results\\logits.f32": "4093423c142ee03f75d695f8477f1f71f1ba45c66419d1fd618f10b20185add5",
+        "D:\\SynapticGenesis\\build\\test-results\\targets.i32": "b1b590880a43d59f2bda1e88cc135e8e7742403535a12a0d7983826c0a33a12b",
+        "D:\\SynapticGenesis\\build\\test-results\\updated.f32": "c2eebb9c0623b0f8c2bc1edd7846fee2a620151bd0c5fc85e6c03bf5d9c2d710",
+        "D:\\SynapticGenesis\\build\\test-results\\weights.f32": "d398cb0464acacc43c41022799639584e0d3b48851f197f0c02cfad6312cfb6a"
+      },
+      "gradient_error": 3.3527612686157227e-08,
+      "update_error": 1.1771917343139648e-06
+    },
+    {
+      "cell": 2,
+      "passed": true,
+      "source_fixture_sha256": {
+        "D:\\SynapticGenesis\\build\\adaptive-test-results\\final_state.f32": "d8d87452feffec60c629bd266da9dfcf2a97ea21129af220b8c878a3bee6d312",
+        "D:\\SynapticGenesis\\build\\adaptive-test-results\\fixture.json": "4eef9a3449af6ebdc6196c2513f1b8b0b4126c4bb3d0e23058aa347a6574073f",
+        "D:\\SynapticGenesis\\build\\adaptive-test-results\\gradients.f32": "d15e3866f91d221f7925391445825832a2edf9ef29e769f8e9a298d0c1b23de8",
+        "D:\\SynapticGenesis\\build\\adaptive-test-results\\gradients_regularized.f32": "a95b1f0893c0c2bfcae486c4f815db0995ebc4b9a3b9c66735f503b8acdd1895",
+        "D:\\SynapticGenesis\\build\\adaptive-test-results\\initial_state.f32": "aa8af055ce01ba9e450791987935869dfa6280c5d4d6e6a2898f17c9a0957cdd",
+        "D:\\SynapticGenesis\\build\\adaptive-test-results\\inputs.i32": "dc1c18627b00f9606424c83119f37cbf10d02cc363882a123220b76c8579ceef",
+        "D:\\SynapticGenesis\\build\\adaptive-test-results\\logits.f32": "109dce59a1d9fca9f403ee3bf5d5ccf3295ae3e40d111070142331f474bacdbf",
+        "D:\\SynapticGenesis\\build\\adaptive-test-results\\targets.i32": "ccacfc81abc2d1ae6fab2551672a410a22853be0777ee3522e0d08ff75540b99",
+        "D:\\SynapticGenesis\\build\\adaptive-test-results\\updated.f32": "8453647f18fdd4bd85f2e46720bf50809df34dda7d8baa51d917c54522f941cd",
+        "D:\\SynapticGenesis\\build\\adaptive-test-results\\weights.f32": "fb2ce2ebcb2725996595fb66a03a8fe9ccd35d77f8170df91c80e7e1fa2f8383"
+      },
+      "gradient_error": 3.166496753692627e-08,
+      "update_error": 1.6205012798309326e-07
+    },
+    {
+      "cell": 3,
+      "passed": true,
+      "source_fixture_sha256": {
+        "D:\\SynapticGenesis\\build\\trace-test-results\\final_state.f32": "0f3a9c11ce5e07c04af177169cac6c6ac06d8e5f758eae5517dc0afe48701ad6",
+        "D:\\SynapticGenesis\\build\\trace-test-results\\fixture.json": "77f275abb7ed6e1290ddf6e2e5ab0f73c552258a3e4a9a4e144c8f3debad4657",
+        "D:\\SynapticGenesis\\build\\trace-test-results\\gradients.f32": "d53e45549b0b62aa453ddb88232732323788171d18a61e8d7aa9e59e702bac58",
+        "D:\\SynapticGenesis\\build\\trace-test-results\\gradients_regularized.f32": "f862360423e1df36334f1dbe1dbfc4798e7a160a69287fb3a33303f28a9ab7cf",
+        "D:\\SynapticGenesis\\build\\trace-test-results\\initial_state.f32": "3a4bdc2a145983bcb9ccf0576a876ca0540c0cdbc5cbd22ec6f5d425828b5192",
+        "D:\\SynapticGenesis\\build\\trace-test-results\\inputs.i32": "dc1c18627b00f9606424c83119f37cbf10d02cc363882a123220b76c8579ceef",
+        "D:\\SynapticGenesis\\build\\trace-test-results\\logits.f32": "4494263f245a393dd8577dfb6275d1f4ca8635615c683d9a6567a120f43c6afc",
+        "D:\\SynapticGenesis\\build\\trace-test-results\\targets.i32": "ccacfc81abc2d1ae6fab2551672a410a22853be0777ee3522e0d08ff75540b99",
+        "D:\\SynapticGenesis\\build\\trace-test-results\\updated.f32": "9dd545a76cfe8b3c7d0508ecd0f3b613fd18e67d13668d1af7bb23f0e8d3bca8",
+        "D:\\SynapticGenesis\\build\\trace-test-results\\weights.f32": "c8ff686015b2c52e3d7bbaa6c0fe4be7baff84585c93dc908173971389d13f44"
+      },
+      "gradient_error": 5.21540641784668e-08,
+      "update_error": 3.0919909477233887e-07
+    },
+    {
+      "cell": 4,
+      "passed": true,
+      "source_fixture_sha256": {
+        "D:\\SynapticGenesis\\build\\gated-test-results\\final_state.f32": "d5727776c5e807716d66215a96cd23c4683cd29c7b90055b1edd88d28faa810d",
+        "D:\\SynapticGenesis\\build\\gated-test-results\\fixture.json": "8ecc98b98c054d165737b469a549eee5e230c72676f7455da76f4c7b361d8f55",
+        "D:\\SynapticGenesis\\build\\gated-test-results\\gradients.f32": "b76f85ab0c54710eca75fdc6f55b1cf8ef32404bf30e3b5b102f19685d10c5af",
+        "D:\\SynapticGenesis\\build\\gated-test-results\\gradients_regularized.f32": "9f38c30f300abd5f1440d7e7f06cdda9b15607ed1b8d8d3ca1ab4b75b674c670",
+        "D:\\SynapticGenesis\\build\\gated-test-results\\initial_state.f32": "3a4bdc2a145983bcb9ccf0576a876ca0540c0cdbc5cbd22ec6f5d425828b5192",
+        "D:\\SynapticGenesis\\build\\gated-test-results\\inputs.i32": "dc1c18627b00f9606424c83119f37cbf10d02cc363882a123220b76c8579ceef",
+        "D:\\SynapticGenesis\\build\\gated-test-results\\logits.f32": "30726e21a695bc99b15c9da8f89e1c8bd7830729a80cbab963c4793244b30abb",
+        "D:\\SynapticGenesis\\build\\gated-test-results\\targets.i32": "ccacfc81abc2d1ae6fab2551672a410a22853be0777ee3522e0d08ff75540b99",
+        "D:\\SynapticGenesis\\build\\gated-test-results\\updated.f32": "54f97c0c522b11677211b2b215785f3db6611a0ae14b22973f61ad45a91f071b",
+        "D:\\SynapticGenesis\\build\\gated-test-results\\weights.f32": "f79c36cd34e33a53def91476c5006dd73bed2a05ab165421e76e85840dbd6abb"
+      },
+      "gradient_error": 2.9802322387695312e-08,
+      "update_error": 1.261010766029358e-06
+    },
+    {
+      "cell": 5,
+      "passed": true,
+      "source_fixture_sha256": {
+        "D:\\SynapticGenesis\\build\\selective-test-results\\final_state.f32": "3da5d3b65e1a73a1e92decc418c27a0ba2f6ae8f1866462de940b1b6924f322c",
+        "D:\\SynapticGenesis\\build\\selective-test-results\\fixture.json": "34fd7d6687e43d3416d66920897a04cdb224caf30c88743fa9bfd2848ca281b9",
+        "D:\\SynapticGenesis\\build\\selective-test-results\\gradients.f32": "cc04fbcb5a8929bac12725415dca1a1e536a9dcc20c3db5d503e81e67b9b7fb2",
+        "D:\\SynapticGenesis\\build\\selective-test-results\\gradients_regularized.f32": "ee1da8344f1959249e0d5a262d842317dfd17198b48ee2f0435a4a119bf9b56c",
+        "D:\\SynapticGenesis\\build\\selective-test-results\\initial_state.f32": "3a4bdc2a145983bcb9ccf0576a876ca0540c0cdbc5cbd22ec6f5d425828b5192",
+        "D:\\SynapticGenesis\\build\\selective-test-results\\inputs.i32": "dc1c18627b00f9606424c83119f37cbf10d02cc363882a123220b76c8579ceef",
+        "D:\\SynapticGenesis\\build\\selective-test-results\\logits.f32": "a81249bf16d65833fcecfd3a131db662e87a8898f7d958ca72c74e231cc2e776",
+        "D:\\SynapticGenesis\\build\\selective-test-results\\targets.i32": "ccacfc81abc2d1ae6fab2551672a410a22853be0777ee3522e0d08ff75540b99",
+        "D:\\SynapticGenesis\\build\\selective-test-results\\updated.f32": "5e1285145c7d3c4e0a7ecd48f043324ca0d1009edc1c113f38ee607ca0d14d18",
+        "D:\\SynapticGenesis\\build\\selective-test-results\\weights.f32": "f79c36cd34e33a53def91476c5006dd73bed2a05ab165421e76e85840dbd6abb"
+      },
+      "gradient_error": 3.166496753692627e-08,
+      "update_error": 1.02166086435318e-06
+    },
+    {
+      "cell": 6,
+      "passed": true,
+      "source_fixture_sha256": {
+        "D:\\SynapticGenesis\\build\\associative-test-results\\final_state.f32": "19c1ec91eb39b02bee503d1fa7aead194d2fafecbc004a23d63cb1932b2d74d6",
+        "D:\\SynapticGenesis\\build\\associative-test-results\\fixture.json": "52facd888ec8b2c699ae4066115433b32131791f6347aa344160d008bb5cc591",
+        "D:\\SynapticGenesis\\build\\associative-test-results\\gradients.f32": "6d9b600ef4f9a03efedccf4d76ac355d0a46c31e57a3f8febfc22dc38d279b5f",
+        "D:\\SynapticGenesis\\build\\associative-test-results\\gradients_regularized.f32": "f58db801cc3b1501c866f6d5ddc1b417dadd44989200a3d3a404681598ad8aa1",
+        "D:\\SynapticGenesis\\build\\associative-test-results\\initial_state.f32": "e3e346049b941d8d51db84b75a2c12ca6876b3fae4bf38eeb8828002868813e9",
+        "D:\\SynapticGenesis\\build\\associative-test-results\\inputs.i32": "dc1c18627b00f9606424c83119f37cbf10d02cc363882a123220b76c8579ceef",
+        "D:\\SynapticGenesis\\build\\associative-test-results\\logits.f32": "1cd8cdfe80ff776ad05c8341b736212ccd6e38aad68124adf2e269995598b22e",
+        "D:\\SynapticGenesis\\build\\associative-test-results\\targets.i32": "ccacfc81abc2d1ae6fab2551672a410a22853be0777ee3522e0d08ff75540b99",
+        "D:\\SynapticGenesis\\build\\associative-test-results\\updated.f32": "0a5f31554d59ab04bab4acde596943e0bcbb6ae9582c635dd493ed6283b6fa95",
+        "D:\\SynapticGenesis\\build\\associative-test-results\\weights.f32": "01707b7cdc4e0eb9226b86fd5e9636de3fcf169398e0dc205373ae69546e9e31"
+      },
+      "gradient_error": 3.725290298461914e-08,
+      "update_error": 1.909211277961731e-06
+    }
+  ]
+}

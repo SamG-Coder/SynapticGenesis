@@ -215,7 +215,7 @@ LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const
     float loss = model.forward(x, &y, true);
     loss = data.emphasize(model, size_t(current.document), size_t(current.offset), x.size(), loss);
     double activity = model.rate();
-    model.backward(s.hp[4]);
+    model.backward(s.hp[4], s.membrane.cost(), s.membrane.band());
     float norm = model.update(int(++s.meta[7]), s.hp[0], s.hp[1], s.hp[2], memory.core_scale());
     if (observer)
         observer->after_source(engine, data, s, current);
@@ -261,7 +261,7 @@ LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const
         } else
             replay_loss =
                 data.emphasize(replay, size_t(episode.document), size_t(episode.offset), replayed, replay_loss);
-        replay.backward(s.hp[4]);
+        replay.backward(s.hp[4], s.membrane.cost(), s.membrane.band());
         replay.update(int(++s.meta[7]), s.hp[0], s.hp[1], s.hp[2], memory.core_scale());
         memory.completed(episode);
     }
@@ -280,7 +280,18 @@ LiveResult live_tick(LiveEngine &engine, const LiveCorpus &data, State &s, const
     return {loss, norm, activity, x.size(), speech, replay_loss, replayed, teacher_penalty, teacher_pairs};
 }
 
+std::pair<float, float> requested_membrane_policy(const State &s, const Args &args) {
+    float cost = args.real("membrane-cost", s.membrane.cost());
+    float band = args.real("membrane-band", s.membrane.band());
+    MembranePolicy::validate_options(cost, band);
+    if (!args.get("membrane-band").empty() && cost == 0)
+        throw std::runtime_error("--membrane-band requires a positive --membrane-cost or inherited cost");
+    return {cost, band};
+}
 void configure_live(State &s, const Args &args, const LiveCorpus &data, const std::string &prompt) {
+    // A new stream may reset replay/curriculum while retaining its objective.
+    auto membrane = requested_membrane_policy(s, args);
+    s.membrane = MembranePolicy{};
     s.synaptic.clear();
     s.teaching = TeachingState{};
     for (int i = 17; i < 32; ++i)
@@ -315,6 +326,10 @@ void configure_live(State &s, const Args &args, const LiveCorpus &data, const st
         s.extra[11] = float_word(damping);
     } else if (!args.get("si-strength").empty() || !args.get("si-damping").empty())
         throw std::runtime_error("SI settings require --consolidation si");
+    if (membrane.first > 0) {
+        s.membrane = MembranePolicy::make(live_version(s), membrane.first, membrane.second);
+        s.meta[17] = MembranePolicy::live_extension;
+    }
 }
 
 // Bounded telemetry for indefinitely resumed streams. Each logarithmic bin spans
@@ -356,6 +371,8 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {},
                 "seed",
                 "lr",
                 "activity-cost",
+                "membrane-cost",
+                "membrane-band",
                 "fast",
                 "updates",
                 "speak-every",
@@ -417,18 +434,24 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {},
     Config q = source.empty() ? Config{args.num("channels", 256), args.num("hidden", 512),
                                        args.num("layers", 4), cell_version(args)}
                               : checkpoint_config(s);
+    auto membrane = requested_membrane_policy(s, args);
+    require(membrane.first == 0 || q.traced(),
+            "Membrane penalty requires trace, gated, selective or associative cell");
+    require(membrane.first == 0 || member_checkpoint.empty(),
+            "Experimental membrane policy is not admitted to population learning or reproduction");
     if (!source.empty())
         for (auto k : {"channels", "hidden", "layers", "cell"})
             if (!args.get(k).empty())
                 throw std::runtime_error(std::string("Checkpoint preserves ") + k);
     if (resume) {
-        if ((s.meta[17] < 1 || s.meta[17] > 6) || s.meta[5] != 1)
+        if ((live_version(s) < 1 || live_version(s) > 6) || s.meta[5] != 1)
             throw std::runtime_error(
                 "--resume needs a live checkpoint; use --checkpoint to begin a new stream");
         if (!args.get("replay").empty() && !adopt_stage_replay)
             throw std::runtime_error("Live resume preserves replay except first-stage conversion to stage");
         for (auto k :
-             {"chunk", "seed", "activity-cost", "fast", "speak-every", "tokens", "top-k", "temperature",
+             {"chunk", "seed", "activity-cost", "membrane-cost", "membrane-band", "fast", "speak-every",
+              "tokens", "top-k", "temperature",
               "replay-capacity", "replay-seed", "core-scale", "graph", "consolidation", "si-damping"})
             if (!args.get(k).empty())
                 throw std::runtime_error(std::string("Live resume preserves ") + k);
@@ -550,7 +573,7 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {},
         teacher_bundle = std::make_unique<teachers::Bundle>(args.get("teacher-bundle"));
         LiveCorpus selected(curriculum->stages.back().corpus);
         teacher_bundle->selected_prefix(selected);
-        teacher_admission = s.meta[17] != 6;
+        teacher_admission = live_version(s) != 6;
         // New live streams can start from a batch checkpoint; record the actual
         // learner shape before validating the new durable teaching policy.
         s.meta[5] = engine.root.B;
@@ -569,7 +592,7 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {},
         if (s.teaching.active() && s.teaching.strength() > 0)
             engine.teacher_replay = teachers::Replay::create(*teacher_bundle, chunk, uint64_t(teacher_mib) * 1024 * 1024);
     } else {
-        require(s.meta[17] != 6, "Teacher checkpoint resume requires --teacher-bundle");
+        require(live_version(s) != 6, "Teacher checkpoint resume requires --teacher-bundle");
         require(args.get("teaching").empty() && args.get("teacher-memory-mib").empty(),
                 "Teacher settings require --teacher-bundle");
     }
@@ -664,7 +687,8 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {},
                     << ",\"replay_updates\":" << memory.updates() << ",\"replay_pairs\":" << memory.pairs()
                     << ",\"replay_loss\":" << (replayed ? std::to_string(replay_loss_sum / replayed) : "null")
                     << ",\"consolidation_events\":" << engine.root.synapses->boundaries;
-            if (s.meta[17] == 6)
+            s.membrane.report(metrics);
+            if (live_version(s) == 6)
                 metrics << ",\"teacher_updates\":" << s.teaching.words[9]
                         << ",\"teacher_pairs\":" << s.teaching.words[10]
                         << ",\"teacher_penalty\":" << (taught_pairs ? std::to_string(teacher_penalty_sum / taught_pairs) : "null");
@@ -717,8 +741,9 @@ void live_command(const Args &args, const fs::path &member_checkpoint = {},
            << ",\"shared_weights\":true,\"persistent_membranes\":true,\"trains_on_generated_text\":false";
     if (has_grouped_replay(s))
         StageReplay(s).report(report);
+    s.membrane.report(report);
     teachers::report(report, s, engine.teacher_replay.get(), uint64_t(teacher_mib) * 1024 * 1024);
-    if (s.meta[17] == 6)
+    if (live_version(s) == 6)
         report << ",\"session_teacher_updates\":" << s.teaching.words[9] - start_teacher_updates
                << ",\"session_teacher_pairs\":" << s.teaching.words[10] - start_teacher_pairs;
     if (engine.root.synapses->active()) {

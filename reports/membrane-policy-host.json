@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "cuda_executed": false,
+  "fixtures": 76,
+  "checks": 207,
+  "rejections": 34,
+  "legacy_versions": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "wrapped_live_versions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "wrapped_cells": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "added_bytes": 64,
+  "gpu_restart_verified": false
+}

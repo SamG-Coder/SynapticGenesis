@@ -387,6 +387,7 @@ __global__ void adaptive_codec(float *out, const float *x, int C, float k) {
         out[row * C + c] = (q < 0 ? -float(decoded) : float(decoded)) * th;
     }
 }
+#include "membrane_policy.cuh"
 #include "model.cuh"
 #include "model_memory.cuh"
 #include "distillation.cuh"

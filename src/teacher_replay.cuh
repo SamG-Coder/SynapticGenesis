@@ -59,7 +59,7 @@ class Replay {
     }
 };
 void report(std::ostream &out, const State &s, const Replay *runtime, uint64_t budget) {
-    if (s.meta[17] != 6)
+    if (live_version(s) != 6)
         return;
     const auto &p = s.teaching;
     out << ",\"teaching_active\":" << (p.active() ? "true" : "false")

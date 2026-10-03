@@ -71,6 +71,8 @@ struct Bundle {
             auto checkpoint = directory / ("teacher-" + std::to_string(i) + ".ckpt");
             require(file_hash(checkpoint) == w[at], "Teacher snapshot file changed");
             auto stored = read_checkpoint(checkpoint);
+            require(!stored.state.membrane.present(),
+                    "Experimental membrane policy is not admitted as a teacher");
             auto &m = stored.state.meta;
             require(m[15] == w[at + 1] && m[14] == w[at + 2] && m[2] == w[at + 3] &&
                         m[3] == w[at + 4] && m[4] == w[at + 5] && m[1] == w[at + 6],
@@ -94,13 +96,13 @@ struct Bundle {
     }
     void bind(State &s) const {
         require(has_grouped_replay(s), "Teacher replay requires a curriculum with stage replay");
-        if (s.meta[17] == 6) {
+        if (live_version(s) == 6) {
             for (size_t i : std::array<size_t, 10>{0, 1, 3, 4, 5, 6, 11, 12, 13, 14})
                 require(s.teaching.words[i] == identity.words[i], "Resume requires the identical teacher bundle");
             for (size_t i = 16; i < TeachingState::count_words; ++i)
                 require(s.teaching.words[i] == identity.words[i], "Resume teacher identity changed");
         } else {
-            s.meta[17] = 6;
+            set_live_version(s, 6);
             s.teaching = identity;
             s.teaching.words[7] = s.meta[24];
             s.teaching.words[8] = s.extra[6];
@@ -131,6 +133,8 @@ void create_bundle(const fs::path &out, const fs::path &source_path, const std::
         require(population ? (valid_origin(origin.member) && origin.member_hash)
                            : (origin.member.empty() && !origin.member_hash), "Invalid teacher origin");
         auto stored = read_checkpoint(origin.checkpoint); // Full validation without a GPU allocation.
+        require(!stored.state.membrane.present(),
+                "Experimental membrane policy is not admitted as a teacher");
         auto &m = stored.state.meta;
         records.push_back({file_hash(origin.checkpoint), m[15], m[14], m[2], m[3], m[4], m[1], origin.member_hash});
     }

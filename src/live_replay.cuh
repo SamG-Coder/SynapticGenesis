@@ -8,7 +8,7 @@ struct ReplayMemory {
     static constexpr size_t header_words = 16;
     explicit ReplayMemory(State &state) : s(state) {}
     bool extended() const {
-        return s.meta[17] >= 2 && s.meta[17] <= 6;
+        return live_version(s) >= 2 && live_version(s) <= 6;
     }
     uint64_t mode() const {
         return extended() ? s.extra[1] : 0;
@@ -33,7 +33,7 @@ struct ReplayMemory {
         return extended() ? s.hp[6] : 1.f;
     }
     static void configure(State &s, const Args &args) {
-        s.meta[17] = 2;
+        set_live_version(s, 2);
         s.extra.assign(header_words, 0);
         auto mode = args.get("replay", "none");
         if (mode != "none" && mode != "reservoir" && mode != "recent" && mode != "stage")
@@ -72,7 +72,7 @@ struct ReplayMemory {
     }
     void validate(const LiveCorpus &data, int chunk) const {
         if (!extended()) {
-            if (s.meta[17] != 1 || !s.extra.empty())
+            if (live_version(s) != 1 || !s.extra.empty())
                 throw std::runtime_error("Unsupported live policy version");
             return;
         }
@@ -92,7 +92,7 @@ struct ReplayMemory {
             !std::isfinite(s.hp[6]) || s.hp[6] < 0 || s.hp[6] > 1)
             throw std::runtime_error("Invalid live replay settings/counters");
         validate_curriculum_state(s);
-        size_t reserved_start = has_curriculum(s) ? 16 : (s.meta[17] == 3 ? 14 : 9);
+        size_t reserved_start = has_curriculum(s) ? 16 : (live_version(s) == 3 ? 14 : 9);
         if (has_synaptic_history(s) &&
             (s.extra[9] != 1 || s.extra[12] > s.meta[24] || s.extra[13] != s.meta[24] + updates()))
             throw std::runtime_error("Invalid consolidation policy/counters");

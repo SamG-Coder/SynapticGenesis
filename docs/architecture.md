@@ -22,6 +22,16 @@ ds/du ~= 0.3 * (max(0, 1-|u-1|) + max(0, 1-|u+1|))
 
 The reset contribution of the previous spike is detached. Independent CPU autograd checks both zero and nonzero incoming recurrent state. Training uses truncated backpropagation and AdamW. The optional activity cost penalizes mean absolute spike activity; reported language cross-entropy excludes that cost.
 
+On the `research/membrane-regularization` branch, the optional
+[membrane objective](membrane-policy.md) is a learning policy for cells 3–6.
+`src/membrane_penalty.cuh` owns its scalar equation; `src/membrane_policy.cuh`
+owns its bounded host configuration. The shared backward pass adds the direct
+membrane derivative during source and replay updates. The forward computation
+and cell architecture IDs remain unchanged. A versioned checkpoint extension
+keeps the policy through curriculum and teacher transitions; disabled policies
+keep the earlier file layout. Compile and host persistence checks are complete;
+device numerical checks, restart checks and language trials remain pending.
+
 Weights, membrane state, normalization and optimizer state are floating-point. cuBLAS handles dense projections. `--fast` enables TF32 math in training; numerical checks and evaluations use strict FP32. The implementation does not establish a hardware efficiency advantage over dense language models.
 
 Training uses [fixed-order gradient reductions](ordered-reductions.md) for embedding, normalization gains and batched neuron parameters. A focused CUDA module owns these reductions. Each destination has one writer, avoiding dependence on block scheduling for floating-point accumulation. Single-sequence live execution adds no persistent scratch; batch execution adds a small reused per-sequence buffer included in population memory accounting. Arithmetic repeatability is tested for the local GPU/toolchain, not promised across platforms or binary versions.
