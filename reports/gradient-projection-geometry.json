@@ -1,0 +1,50 @@
+{
+  "kind": "Illustrative float64 optimizer-geometry counterexample; not a model experiment",
+  "reference_gradient": [
+    0.2,
+    1.0
+  ],
+  "new_gradient": [
+    2.0,
+    -1.0
+  ],
+  "projected_gradient": [
+    2.1153846153846154,
+    -0.42307692307692313
+  ],
+  "clipped_projected_gradient": [
+    0.9805806756909201,
+    -0.19611613513818404
+  ],
+  "projection_dot": 0.0,
+  "clipped_dot": 0.0,
+  "initial_moments": "zero",
+  "learning_rate": 0.001,
+  "beta1": 0.9,
+  "beta2": 0.95,
+  "epsilon": 1e-08,
+  "global_gradient_norm_clip": 1.0,
+  "weight_decay": 0.0,
+  "core_scale": 1.0,
+  "optimizer_step": 1,
+  "sgd_delta": [
+    -0.00098058067569092,
+    0.00019611613513818404
+  ],
+  "adam_delta": [
+    -0.000999999989801961,
+    0.0009999999490098075
+  ],
+  "old_linear_loss_change_sgd": 0.0,
+  "old_linear_loss_change_adam": 0.0007999999510494152,
+  "source_sha256": {
+    "scripts\\gradient_projection_geometry.py": "02a6fa59b30e67139553be5b1aae07438d9c4cdd6f0f016d05876ea6bb3c0a68",
+    "src/spike_lm.cu": "0e6ea9a8073c686f5c142b79964e32233cb377e874a99bc18f8a9e7f1005b14c"
+  },
+  "claim": "A raw-gradient projection constraint need not survive Adam coordinate normalization.",
+  "limits": [
+    "Analytic linear loss with two parameters, not the production spiking model.",
+    "This example does not reproduce the cited A-GEM implementation.",
+    "It does not change the status of existing independent numerical failures."
+  ]
+}

@@ -1,0 +1,1097 @@
+{
+  "kind": "Authenticated finite-window native activity summary",
+  "panel_result_sha256": "f9de925f008d66efc0d10bd274563bca3499f6ed94b494bee31272df9d506e70",
+  "panel_protocol_sha256": "dfd2ff374585d153d9fa7827ca30ccbd1e05e361f1e59ba7c5b20111bf923463",
+  "compilation_record_sha256": "cf04ae75eeadce1ab35fde049a5c57900b21350210d0e8ca9f24ab703970c601",
+  "summarizer_sha256": "cd0c90af9e552cab0d033fd138251e8355c2a596dea1e027793063e30828c72d",
+  "native_source_sha256": {
+    "src/spike_lm.cu": "0e6ea9a8073c686f5c142b79964e32233cb377e874a99bc18f8a9e7f1005b14c",
+    "src/adaptive_neuron.cuh": "55d88c666e2417b757cb3e29a968a27e460ae3a5b63d463c45aa66e7f829bcce",
+    "src/adaptive_tests.cuh": "b93c5e762cab1df346fd382c51c36bf65cc67db1b6197dec17ee88a70aa8b7c9",
+    "src/associative_bench.cuh": "a7cfd18ada923d7e393fadae84b837f8eee80fb23a915a6f1c8f61fb9b7a55fd",
+    "src/associative_memory.cuh": "920a788386f0182e436e8f43061503cdf8695468dd7304ebfce49eab82154b3b",
+    "src/associative_tests.cuh": "48f2e65d5ba71a60246b0bfb1fcff1e75a407835bbfcf6ef3c9d954af234d2cc",
+    "src/checkpoint.cuh": "ac967392c2ff80deb2dfa3403a0f501a15402230d335426b67b170eb2fa7d096",
+    "src/context_bench.cuh": "5f89d33d414b35900fd9dc4b51c8b1cca629e92e5a0e336d9437b9ee33285e27",
+    "src/curriculum_tests.cuh": "76b1f4e8672cb3280e8bea143416d226d728e46dac309e2ae62f9ae1d76f7909",
+    "src/decode_tests.cuh": "9cefd53ab09738f6f11e81e18cbdd91aef9d332d2ffd1f0c2879dfaf6bf40fb0",
+    "src/distillation.cuh": "ecc1c2b1aa1f8fbcf848a5f7bac50ceac106a38559b09220c12d04af7113a18e",
+    "src/distillation_tests.cuh": "cf68dc009b9352406681dce922c2e77a1efb4d0434338f18f6e2812f43e14b3a",
+    "src/evolution.cuh": "a444a42b22e9690e0296cecb700764763b66d539f45774275f10e869cb940267",
+    "src/evolution_tests.cuh": "b4fd746ed03d7e81c5098996288914564892066e6d20ddf2e59cc1afdd1f3656",
+    "src/feedback_tests.cuh": "d7361dc9661b0f9921359f2caa431ff0682b7c92967f7a9a2f667cea09575acb",
+    "src/frozen_model_tests.cuh": "5e40f7cb32967f8a2dec7e3ebef4a374aa42241181d1d61221e74cd2c1fa58f5",
+    "src/gradient_reductions.cuh": "d39b7f958b5fc4cd89aab9ed741133d8139b1adbb0aa9ddfc4720e1aea83c2cd",
+    "src/graph_decoder.cuh": "93073bf0b78488c388916926c8a0ce20a9bd015846f0f1e4bebf2ce3829902c8",
+    "src/indexed_storage.cuh": "139ea0fa2d9ad9e962700a9e49b32174be53e067d07a6c1cd68825ad119cc147",
+    "src/language_objective.cuh": "8b72e29e1a835a7add36af0f9f22e037067406b39ce9023cf1bc46636781e186",
+    "src/language_probes.cuh": "1443c13904fae32c85c6749bed821edff2112aed5489c1398fb50e82f310b76b",
+    "src/live.cuh": "844ccb8da99d6ba83272fd40726a73a62bea94a49a8bd7d99cdd3244f6366f44",
+    "src/live_curriculum.cuh": "52c44af8f507c82fdfe5fcdac0d086a25f1d2fa944e7951cecd5cf2a81103da4",
+    "src/live_replay.cuh": "c35030f88b124e200e09ec94e1376b1e603bc3d6ebee6e60c18582a95791a141",
+    "src/memory_bench.cuh": "99159f61fc1670b524add842d2d3ad1f8ad487018852fb96e530db0484c2e2a5",
+    "src/model.cuh": "453c0aea5e331667c60b7ad0053747ac97312a1375e4887d6df121d08c226876",
+    "src/model_memory.cuh": "2a16c13e629965af69cb189fd6bede63a030a52ca27c7daec4fc571ac15c7a4e",
+    "src/population_live.cuh": "6650fa83dd3da299a938e5e1012a11b911a9d8006440cce0cf89c0f012118018",
+    "src/population_teachers.cuh": "6fceb6d94ba53c51b18b2291b91e3b9cc1cf6bf475045dcb31c1728ea8471c78",
+    "src/reduction_tests.cuh": "c324c8f508db375d64c21a8153873facbe2f1a0bc334eaa2aa45cc5d56a5bfbc",
+    "src/retention_bench.cuh": "d5f451677eb90c97dc9b11da213e2a2fceca2035b6d291d0ff1e2221ac9e54ea",
+    "src/stage_replay.cuh": "4d7e5ec7c9e0dc6a312241821e4282b361fb71f1ea314bd9ce6c3c5b924f7ebd",
+    "src/stage_replay_tests.cuh": "accc2c662dd7ba53580b5130f9d07964b7b972bdbf9f8b732338026bcbacdd4b",
+    "src/synaptic_memory.cuh": "99c07936d379a5f3730fb0186bad11b55e25ab18c06ec2d296a643f04728b775",
+    "src/synaptic_tests.cuh": "3423956f1f0b36a407daf55aa08e968c6d945302b4e1001cdc77c31e0e899e18",
+    "src/teacher_bundle.cuh": "15807e0858ce03406238babad5e0daf032c0bf798edb18001a5d84b4532270cb",
+    "src/teacher_replay.cuh": "fb6a55698f4f61026dcf0730aa9841ea1df167d7b8f41011d04ae1d881be2966",
+    "src/teacher_replay_tests.cuh": "453bc9fb15c4da7861ff261b7fad1d115366f46a49336eb1851cd7afc4c1c2a6",
+    "src/teaching_state.cuh": "b7b903e1209511186ebe74601d8475504174dae26348434d3a2d55c00b66fc79",
+    "src/test_fixtures.cuh": "c37fc4c8b05f9e63158910892e29cebcd86797f9966f3dcdd2b31d74a6b37edd",
+    "src/trace_neuron.cuh": "d346931acdff5a4711dea5740b185e6212dc7d0dd906349ffdb8973081ed71b6"
+  },
+  "passed": true,
+  "models": 27,
+  "layers": 108,
+  "windows_per_model": 6,
+  "observed_positions_per_model": 1172,
+  "native_commands": 162,
+  "authenticated_trace_files": 4212,
+  "authenticated_window_results": [
+    {
+      "model": "1337-selective-parent",
+      "window": "reading-0",
+      "result_sha256": "7112be6642abbcede0aab0ead8b2aaf13593451bbfaea914a012b1f5e064464d"
+    },
+    {
+      "model": "1337-selective-parent",
+      "window": "reading-1",
+      "result_sha256": "add916071c4985db61f434b1e8e87143c3d8bb9de310f621091b6ed24621b8bd"
+    },
+    {
+      "model": "1337-selective-parent",
+      "window": "binding-0",
+      "result_sha256": "67ec2fa0b215776509ffebca76388c072540c0bf70116d16729b736e9e5c2203"
+    },
+    {
+      "model": "1337-selective-parent",
+      "window": "binding-1",
+      "result_sha256": "123836a0cf6767474d897fbc6d1679224a21d3744be516f8869cb2a1be4ba2d3"
+    },
+    {
+      "model": "1337-selective-parent",
+      "window": "narrative-0",
+      "result_sha256": "5a8f898e6908aedb8f645a643fb487910bbb9747e484a6621aab1c1c7d478fa4"
+    },
+    {
+      "model": "1337-selective-parent",
+      "window": "narrative-1",
+      "result_sha256": "842b4a9e70d38b825f8d776590c9bf46f92a311bd596aab3ebd70e8b51d10d1c"
+    },
+    {
+      "model": "1337-selective-control",
+      "window": "reading-0",
+      "result_sha256": "f64696a096cb4a61596d5f58b1771dd5915f8ae2bf87619359089c2b1acfbf99"
+    },
+    {
+      "model": "1337-selective-control",
+      "window": "reading-1",
+      "result_sha256": "2fc091941431e7a9da83ab9096e8a15397ae69ec5780b8495c364235841a57fb"
+    },
+    {
+      "model": "1337-selective-control",
+      "window": "binding-0",
+      "result_sha256": "ff5d3797ab18795706be6c12e15ad257471c331db0c3108efa6b38a1948774a2"
+    },
+    {
+      "model": "1337-selective-control",
+      "window": "binding-1",
+      "result_sha256": "3e33265ab059bf746b61ac37f6aeb06f1e1aac12a7cffc6de35182c045fef12f"
+    },
+    {
+      "model": "1337-selective-control",
+      "window": "narrative-0",
+      "result_sha256": "3b85a2d1838c72d05be8e6f36b8c0e1a04d467e467fc30c2772b9adb90bcb096"
+    },
+    {
+      "model": "1337-selective-control",
+      "window": "narrative-1",
+      "result_sha256": "3201db61e0b04568b91e2570db062ddc71c8db6704b0b0d0e9bfbcb9739cad7e"
+    },
+    {
+      "model": "1337-selective-teacher",
+      "window": "reading-0",
+      "result_sha256": "7fa5e704de9baff832a1a28b2f601ced7e5cbab86505ab08384d0bc32ae1a3d1"
+    },
+    {
+      "model": "1337-selective-teacher",
+      "window": "reading-1",
+      "result_sha256": "5edb10b49bd825843cb7404ed3b8313c3051013fb13155d1a5c88d208053bd18"
+    },
+    {
+      "model": "1337-selective-teacher",
+      "window": "binding-0",
+      "result_sha256": "7ad8d5d4cac919819b7471f7d901b2356d62cd4f646addb75d42722f695cf3d3"
+    },
+    {
+      "model": "1337-selective-teacher",
+      "window": "binding-1",
+      "result_sha256": "6fedd05fa034c55df292777fa4745557bc68b7e1bd40243cbdbce56d8bdc137e"
+    },
+    {
+      "model": "1337-selective-teacher",
+      "window": "narrative-0",
+      "result_sha256": "4cac8f8da32768260bf9a595dbe1858b253e0809fc8b1566aee6671bd5904a41"
+    },
+    {
+      "model": "1337-selective-teacher",
+      "window": "narrative-1",
+      "result_sha256": "1a0c41be8eab77454098d2263778110970401efa9b6cb4b43b6cb1a779d28833"
+    },
+    {
+      "model": "1337-wide-selective-teacher",
+      "window": "reading-0",
+      "result_sha256": "cbb6d26170d3a62af1a6d4b7950444a784bd713b5a66bf8def5ca6053a98a48e"
+    },
+    {
+      "model": "1337-wide-selective-teacher",
+      "window": "reading-1",
+      "result_sha256": "feb772205dd82997c3d8fdbe02e3c56b0522391251d82ae6ec63b66f6bd0bd1c"
+    },
+    {
+      "model": "1337-wide-selective-teacher",
+      "window": "binding-0",
+      "result_sha256": "25fcad4561b4a351d599ebc339b2e1cb35f7e6cccc9981ac9872b92dc1887350"
+    },
+    {
+      "model": "1337-wide-selective-teacher",
+      "window": "binding-1",
+      "result_sha256": "d67b87d25bd54ba16705dfb54b21126a2b2f135db8f1ea07cfb67b650b7953d6"
+    },
+    {
+      "model": "1337-wide-selective-teacher",
+      "window": "narrative-0",
+      "result_sha256": "2e69860dad009284b7879e937126dfe2b0b8a42165903b3797bc64538aefbc1a"
+    },
+    {
+      "model": "1337-wide-selective-teacher",
+      "window": "narrative-1",
+      "result_sha256": "8e9f5e489cc718bc8ec7dd33714dfa52f2623f530db510c7b4000932ccdf7264"
+    },
+    {
+      "model": "1337-wide-selective-parent",
+      "window": "reading-0",
+      "result_sha256": "02777861cbf617cbe2946807c644a56290511be2f8b3450541785973697aa5ab"
+    },
+    {
+      "model": "1337-wide-selective-parent",
+      "window": "reading-1",
+      "result_sha256": "53cecf30d7d488e857d304e9f049855569a3364994cf7d60449e75f48a0899a1"
+    },
+    {
+      "model": "1337-wide-selective-parent",
+      "window": "binding-0",
+      "result_sha256": "4798edb8d139393be37991eb7b8221b37f70f43a10b78cae18fe155e7b39f355"
+    },
+    {
+      "model": "1337-wide-selective-parent",
+      "window": "binding-1",
+      "result_sha256": "3bc8a94a53c3279c0c48c1683558dc042d6d710dd0ff381ba719415472f26479"
+    },
+    {
+      "model": "1337-wide-selective-parent",
+      "window": "narrative-0",
+      "result_sha256": "ab0fb9f64980c36db9734a3504748b91434ce0868079b1399c8fb8bc2e3a20ff"
+    },
+    {
+      "model": "1337-wide-selective-parent",
+      "window": "narrative-1",
+      "result_sha256": "3003eda81d846591132f622dba2e76af51a891f4c8cbbd5ca84c43e1c53e88e3"
+    },
+    {
+      "model": "1337-wide-selective-control",
+      "window": "reading-0",
+      "result_sha256": "7f762a006242e7698ebc88b699da3a88b88395582809db1a50b7aaf89ed53541"
+    },
+    {
+      "model": "1337-wide-selective-control",
+      "window": "reading-1",
+      "result_sha256": "699c71cbf0e6e936539d3cec8d36f973c99eaea93127344f45b91280a7112d9a"
+    },
+    {
+      "model": "1337-wide-selective-control",
+      "window": "binding-0",
+      "result_sha256": "078cdb70de2f5ee694747679a736b2a92b3beb731efb1c2eab4641a0f6c0663a"
+    },
+    {
+      "model": "1337-wide-selective-control",
+      "window": "binding-1",
+      "result_sha256": "25b540ec8b46b913aa0c536b4f2f84e9220c84bc1cfab98a5c56f080c471c89c"
+    },
+    {
+      "model": "1337-wide-selective-control",
+      "window": "narrative-0",
+      "result_sha256": "cdfc57f4403549ef5c23cab86d8443268a79d55acc1ac4b979778f853e0987fa"
+    },
+    {
+      "model": "1337-wide-selective-control",
+      "window": "narrative-1",
+      "result_sha256": "4291365dfc0e1048536450b858b19a845312c18307c3a9322c1fee6bd72e4ed9"
+    },
+    {
+      "model": "1337-associative-parent",
+      "window": "reading-0",
+      "result_sha256": "f4f2d0482435213058df60011cf58068d0c25e4d4b5087df2d5694ec1223bf10"
+    },
+    {
+      "model": "1337-associative-parent",
+      "window": "reading-1",
+      "result_sha256": "935fd79d20fe02970ef27e3afafd38f8724c29c5c95e333ad8e7d2a7ecd99e02"
+    },
+    {
+      "model": "1337-associative-parent",
+      "window": "binding-0",
+      "result_sha256": "68a61206b90da199c22ee449edddaf2b387ff83b6a9f9675a96e22b0fbbc8c05"
+    },
+    {
+      "model": "1337-associative-parent",
+      "window": "binding-1",
+      "result_sha256": "bdc7a026e8f356a5f00d84929b1053ff3604e235aa500529a2d8130cf86b9685"
+    },
+    {
+      "model": "1337-associative-parent",
+      "window": "narrative-0",
+      "result_sha256": "dc92e337077b57467e9a04369eed31ead66fbc2cdbe98ab71bf0ed2bded7725d"
+    },
+    {
+      "model": "1337-associative-parent",
+      "window": "narrative-1",
+      "result_sha256": "5e495cd169a57f03534c54d9cad8502c6a144d91d1592948291bd244bfe3a13e"
+    },
+    {
+      "model": "1337-associative-control",
+      "window": "reading-0",
+      "result_sha256": "1b2530cffbe352c28231ca71767600d490ee8e2408a4c56adb0e871d0d59a12c"
+    },
+    {
+      "model": "1337-associative-control",
+      "window": "reading-1",
+      "result_sha256": "f262c01f140b729aceee6add7ad089965efb91a47357c299701acdb15597f624"
+    },
+    {
+      "model": "1337-associative-control",
+      "window": "binding-0",
+      "result_sha256": "60f4e5cd5cf53bc7355f968eb94ac3c95ee4a09969ef2d9c13b15324e025f25d"
+    },
+    {
+      "model": "1337-associative-control",
+      "window": "binding-1",
+      "result_sha256": "2f4cd17360751e9ef604dc1a8b0bb9bebbe70e91ca199a83b095213165542edb"
+    },
+    {
+      "model": "1337-associative-control",
+      "window": "narrative-0",
+      "result_sha256": "ec26e9be1d2417ca3c0f8a68d63645d49ed5a65feca6b245e9c46258a6897edd"
+    },
+    {
+      "model": "1337-associative-control",
+      "window": "narrative-1",
+      "result_sha256": "8aac2d0de04a73625f625d65957245bb66af4a9cb2c98d4ce03bfd6c2f391130"
+    },
+    {
+      "model": "1337-associative-teacher",
+      "window": "reading-0",
+      "result_sha256": "72dbeb8bbd6d02061dbb5d7758f10c60c6935db286fae3c1cbf353d68ab5ab64"
+    },
+    {
+      "model": "1337-associative-teacher",
+      "window": "reading-1",
+      "result_sha256": "35783c1d098de70444370160e0224d7d2d6cb585711ec41fca279ed209187e2c"
+    },
+    {
+      "model": "1337-associative-teacher",
+      "window": "binding-0",
+      "result_sha256": "f817c3dfb073ca20978cb9d815825d3176b8e017cc5f914f16bf262a008400c7"
+    },
+    {
+      "model": "1337-associative-teacher",
+      "window": "binding-1",
+      "result_sha256": "60cbf9942e7a89d24565097f3633f961326da8b6d0c81d05d73c353464a97064"
+    },
+    {
+      "model": "1337-associative-teacher",
+      "window": "narrative-0",
+      "result_sha256": "c0c2ed50448b0eca43ff168aa9be7ab46e1e9702626583fba941dfe1b137eba3"
+    },
+    {
+      "model": "1337-associative-teacher",
+      "window": "narrative-1",
+      "result_sha256": "299ffe6efe754a96a790b3c4548bb7174d933c3960c6907830cc5f2e81363f69"
+    },
+    {
+      "model": "2026-wide-selective-parent",
+      "window": "reading-0",
+      "result_sha256": "53a7532f4d76ed1f64a778857c323d1b1e0d427d1e83de65a00bdb5a80e2a5a7"
+    },
+    {
+      "model": "2026-wide-selective-parent",
+      "window": "reading-1",
+      "result_sha256": "325b7b8d49e85db1271ec35602e964e53ca2333bbcf2fea00fa60c90514b278a"
+    },
+    {
+      "model": "2026-wide-selective-parent",
+      "window": "binding-0",
+      "result_sha256": "31250f28be080f05c582db552e41a1daa413176bd5ba19796c2e2609138c6d82"
+    },
+    {
+      "model": "2026-wide-selective-parent",
+      "window": "binding-1",
+      "result_sha256": "684c59ee092a302d326319b4deaa4cd31f41411f6990aa4d0156b3b36b93b867"
+    },
+    {
+      "model": "2026-wide-selective-parent",
+      "window": "narrative-0",
+      "result_sha256": "2a7a15cd5b81b1559e0b84614285315dbef69c44e5dfd7b5dc7ceaeb08638188"
+    },
+    {
+      "model": "2026-wide-selective-parent",
+      "window": "narrative-1",
+      "result_sha256": "9d7a81d3e741c2a6eda3137b89e60c144651e8347a6bc1cbaba1238bf6ee1e9a"
+    },
+    {
+      "model": "2026-wide-selective-control",
+      "window": "reading-0",
+      "result_sha256": "6c000b502d23503de98105b1960f5c7c77b6071a85d5766110b8467a6a713e1f"
+    },
+    {
+      "model": "2026-wide-selective-control",
+      "window": "reading-1",
+      "result_sha256": "abbd3ef669392ef31f77149a1cfcd918a252127db61fa8e57a929562a2fd133c"
+    },
+    {
+      "model": "2026-wide-selective-control",
+      "window": "binding-0",
+      "result_sha256": "2f8a4b192ed2430ef8dfd480550823fab4f8e56c366c6eb18652826382069ed0"
+    },
+    {
+      "model": "2026-wide-selective-control",
+      "window": "binding-1",
+      "result_sha256": "5ba311493a80f9ba4d00c306e71c891ca139415551efb9e20a16be5dae0d1d51"
+    },
+    {
+      "model": "2026-wide-selective-control",
+      "window": "narrative-0",
+      "result_sha256": "a00d49ef521d5600b8b9c296fda540042bc633931eb2a06ed600c7979f56c477"
+    },
+    {
+      "model": "2026-wide-selective-control",
+      "window": "narrative-1",
+      "result_sha256": "9c7588c1c04154050e5bf6fa85657001287f1d32e86b757e1a7f3ea80d175001"
+    },
+    {
+      "model": "2026-wide-selective-teacher",
+      "window": "reading-0",
+      "result_sha256": "d384003565c6360dadc74691a0af43f4f6b3e93ee6ec2aba4bd096e779c2ebc3"
+    },
+    {
+      "model": "2026-wide-selective-teacher",
+      "window": "reading-1",
+      "result_sha256": "90a5f1b4225bba3304bb791869f0126036136cb7d755f272ec353b19534cc9e8"
+    },
+    {
+      "model": "2026-wide-selective-teacher",
+      "window": "binding-0",
+      "result_sha256": "9915ca75ae9d6c27d85cbd71c65ad5dab18d59ca44d0168c21918e61ddab351b"
+    },
+    {
+      "model": "2026-wide-selective-teacher",
+      "window": "binding-1",
+      "result_sha256": "9f84f23b74e52fb96c7392372626a967f7b1b809f6b0ac51fb0da00a93ccca4d"
+    },
+    {
+      "model": "2026-wide-selective-teacher",
+      "window": "narrative-0",
+      "result_sha256": "960cf0fb78c14cfaef361bf2134af42eaf6852f368711247dc1e2d552962d8e4"
+    },
+    {
+      "model": "2026-wide-selective-teacher",
+      "window": "narrative-1",
+      "result_sha256": "27da887d4c1ff01e925147fc1ae533e9ecb6660da593893af819193ec7ea8666"
+    },
+    {
+      "model": "2026-associative-teacher",
+      "window": "reading-0",
+      "result_sha256": "3d2480f793747c09a86b01902f4f7b73d0aefa78319d15caf6aec0a56d93f460"
+    },
+    {
+      "model": "2026-associative-teacher",
+      "window": "reading-1",
+      "result_sha256": "0b0304f3f5c4a3389285be0b82cc9ffedf12ca8d23bcd014a5d04738a951b255"
+    },
+    {
+      "model": "2026-associative-teacher",
+      "window": "binding-0",
+      "result_sha256": "aab1df0ea83e42a920da3621604cfaa10688d892b090cc331d89c09dda9fcaa8"
+    },
+    {
+      "model": "2026-associative-teacher",
+      "window": "binding-1",
+      "result_sha256": "06434716d1245a13652ad9ed4848ca64ebe47868f5f0b55a1272b2847ca511ad"
+    },
+    {
+      "model": "2026-associative-teacher",
+      "window": "narrative-0",
+      "result_sha256": "c3c31e2f0dd16e021c508a8da6234e082a8907606b5fccdf921759ce524d4507"
+    },
+    {
+      "model": "2026-associative-teacher",
+      "window": "narrative-1",
+      "result_sha256": "a38eaf1e01fac908b92efc817fd63240f62bad4e1bb5c3f5c0989b651215bf6c"
+    },
+    {
+      "model": "2026-associative-parent",
+      "window": "reading-0",
+      "result_sha256": "3294929fb43a867d87b2fecb05d53470dd5494a81beb37593860655e145d29c7"
+    },
+    {
+      "model": "2026-associative-parent",
+      "window": "reading-1",
+      "result_sha256": "bd33fb22ed916dcd33727c4f4a28eec7d362e7526762af71174c62a0f9728417"
+    },
+    {
+      "model": "2026-associative-parent",
+      "window": "binding-0",
+      "result_sha256": "ac07eabe3849ddf6304eeb97e09dde69415aeb36ee609b873fb45a53021d9560"
+    },
+    {
+      "model": "2026-associative-parent",
+      "window": "binding-1",
+      "result_sha256": "84735d1d2b260d6e434104e67a45989ea014827c932c33117ca4a544576a837b"
+    },
+    {
+      "model": "2026-associative-parent",
+      "window": "narrative-0",
+      "result_sha256": "d42cc7d8ba00743a47ed52130487317a7fc4e0e0ac0e86758e0110400d74d0d0"
+    },
+    {
+      "model": "2026-associative-parent",
+      "window": "narrative-1",
+      "result_sha256": "f6a9f6e703bee4b24c1abda90f5d71c4f2996a8fbd605b1448b1d190e8f195df"
+    },
+    {
+      "model": "2026-associative-control",
+      "window": "reading-0",
+      "result_sha256": "c2d8208b05b4f808787f4bdc41968ec9caafdbd6cc5e686e02e7f400db5b10fc"
+    },
+    {
+      "model": "2026-associative-control",
+      "window": "reading-1",
+      "result_sha256": "4a9d80aa520877b01a3e43dce32eed707dafb676be6bca54a38263aca0de48e0"
+    },
+    {
+      "model": "2026-associative-control",
+      "window": "binding-0",
+      "result_sha256": "0ca2229889847e4e82b7f7968e98b298ebab0f194346b56cf332daf87ae9a08c"
+    },
+    {
+      "model": "2026-associative-control",
+      "window": "binding-1",
+      "result_sha256": "e4d171087f38e0008ffcecadc0a852d6cea06572d333420b31d23f2d17047cc8"
+    },
+    {
+      "model": "2026-associative-control",
+      "window": "narrative-0",
+      "result_sha256": "1d66547583f8f233966c1ee2cb9a844eed73bb3195b91896f1ace964dcf2e35c"
+    },
+    {
+      "model": "2026-associative-control",
+      "window": "narrative-1",
+      "result_sha256": "d7912d5978d4f7a37dfaed49a08777579f38948a5954e1a28b33a203ae071b94"
+    },
+    {
+      "model": "2026-selective-teacher",
+      "window": "reading-0",
+      "result_sha256": "601f7d9f18ff08689f0e82028cda62cc5ec3c807a195298d385629d15d164be1"
+    },
+    {
+      "model": "2026-selective-teacher",
+      "window": "reading-1",
+      "result_sha256": "db53fe16ddf675b23d4ffb20fc6c43c0a00db88480d869c2f95458ab99d751cd"
+    },
+    {
+      "model": "2026-selective-teacher",
+      "window": "binding-0",
+      "result_sha256": "d09ae1dea0917b01d685f95c8254d7401734d41a97a7e6eadc40b24c8d1e6549"
+    },
+    {
+      "model": "2026-selective-teacher",
+      "window": "binding-1",
+      "result_sha256": "ec7ad3451772e9511def683bc05fc4904643d01a84b4a159c3cb7c2879aca71d"
+    },
+    {
+      "model": "2026-selective-teacher",
+      "window": "narrative-0",
+      "result_sha256": "713a16300400b36b9f076c7bf0e7d45f2b71971ca7039b125587e3409dcececf"
+    },
+    {
+      "model": "2026-selective-teacher",
+      "window": "narrative-1",
+      "result_sha256": "048830415de9953f5c52cc1892760b784e1dd07ddc3d25a3faec0c50bec7c31e"
+    },
+    {
+      "model": "2026-selective-parent",
+      "window": "reading-0",
+      "result_sha256": "191208264cbff4d0151e8e4f03ac22109ad42b10a304420ba66d3c012e26e2ae"
+    },
+    {
+      "model": "2026-selective-parent",
+      "window": "reading-1",
+      "result_sha256": "aef9e68a89d22d1176a015f788904508325f8ece76b1ae3fd824287180a89df6"
+    },
+    {
+      "model": "2026-selective-parent",
+      "window": "binding-0",
+      "result_sha256": "075969c90961b2a2126c306f72030b0410a09dc58c79f94d0d10ed11eefebab1"
+    },
+    {
+      "model": "2026-selective-parent",
+      "window": "binding-1",
+      "result_sha256": "69de3a0212fd32589158ecd07f997e12663e2527328b06415b41749c30f9790e"
+    },
+    {
+      "model": "2026-selective-parent",
+      "window": "narrative-0",
+      "result_sha256": "acc7fcac5d03c9353ffa7fea07e7658743db9804113827d0253fa57738884ff6"
+    },
+    {
+      "model": "2026-selective-parent",
+      "window": "narrative-1",
+      "result_sha256": "bd55617b078e38c388e0ab11576163b51f54837a7054299f44c046f46adb9ee4"
+    },
+    {
+      "model": "2026-selective-control",
+      "window": "reading-0",
+      "result_sha256": "99e8719cf5678a6fe695ff135fbd31d15013271ed4b2655fc49cae0a9644472f"
+    },
+    {
+      "model": "2026-selective-control",
+      "window": "reading-1",
+      "result_sha256": "8dc4f833a4b7a9374b84c6287d51e6bfeed20d84bd70a51e4ea32783e13800e6"
+    },
+    {
+      "model": "2026-selective-control",
+      "window": "binding-0",
+      "result_sha256": "d21384c6783a1be790a35b73478507e856c26fdd62746cc3dd8e99b94a5a3363"
+    },
+    {
+      "model": "2026-selective-control",
+      "window": "binding-1",
+      "result_sha256": "3c4488a1a0c660ea6f7da075bdf66525e8f7c4d02bf527c1b8c7c35e83de22c2"
+    },
+    {
+      "model": "2026-selective-control",
+      "window": "narrative-0",
+      "result_sha256": "0f4b79613f648a60e23a0cdb2ef320146ce78b3186143f47d710c87552952782"
+    },
+    {
+      "model": "2026-selective-control",
+      "window": "narrative-1",
+      "result_sha256": "18874cd6128f39a2a6decc5aadefb79e45f76c5d82508726ce55663e49e3368d"
+    },
+    {
+      "model": "31415-associative-parent",
+      "window": "reading-0",
+      "result_sha256": "bb779c9266e73b3711a9364348a0946e01e8a9de5d4e1d33d7032a0ab28860c7"
+    },
+    {
+      "model": "31415-associative-parent",
+      "window": "reading-1",
+      "result_sha256": "153b6392f3af6eec03567dc7db023fd1efd7d54f29f776e41a656a5ce149e19a"
+    },
+    {
+      "model": "31415-associative-parent",
+      "window": "binding-0",
+      "result_sha256": "d9b7aedf76493dd5027dd1a57e2f8ab450887845be3c53b1d8cab66671ea7106"
+    },
+    {
+      "model": "31415-associative-parent",
+      "window": "binding-1",
+      "result_sha256": "9f1271b0619478feeab43dbb71a51b6052e2be8cbc63c0ec502f7522abb78df2"
+    },
+    {
+      "model": "31415-associative-parent",
+      "window": "narrative-0",
+      "result_sha256": "71027ba2f5a9758a5f3d9800c179ef2ef632340ab88a6ead179dbcb8dabc3243"
+    },
+    {
+      "model": "31415-associative-parent",
+      "window": "narrative-1",
+      "result_sha256": "c5990f68273e71864eb08586166e3839f92c46b9cca6ede68d195c3373f19529"
+    },
+    {
+      "model": "31415-associative-control",
+      "window": "reading-0",
+      "result_sha256": "14d970417efbd2705940e08276232813adfcc610fe34d4d3808ded11295f6491"
+    },
+    {
+      "model": "31415-associative-control",
+      "window": "reading-1",
+      "result_sha256": "923c774612e6d79e6253305e0adb32e7ca769b5ce9d3621381b99bd1e4c09a9f"
+    },
+    {
+      "model": "31415-associative-control",
+      "window": "binding-0",
+      "result_sha256": "2033cd2890f6361da642dab72bdc451bce9c92548f59d9bc6adbac61500769e9"
+    },
+    {
+      "model": "31415-associative-control",
+      "window": "binding-1",
+      "result_sha256": "1149e53122fccb6ce51114ab3a0e8ddc506283fa150929bdd11d180d8eb64db7"
+    },
+    {
+      "model": "31415-associative-control",
+      "window": "narrative-0",
+      "result_sha256": "6b80cf8472e1ddd88315572966a90953749110f07de7f1ff42ea7ab1b3574747"
+    },
+    {
+      "model": "31415-associative-control",
+      "window": "narrative-1",
+      "result_sha256": "61671e790f4243849ac7427d000a1ec463bcf171cff9c04a03d1e76954334931"
+    },
+    {
+      "model": "31415-associative-teacher",
+      "window": "reading-0",
+      "result_sha256": "d1881d4d9191ce0b900d0b27d57d551227ca3c2839215417ac862d15ffc0e627"
+    },
+    {
+      "model": "31415-associative-teacher",
+      "window": "reading-1",
+      "result_sha256": "8a443d9f5caf9a070512fcb2028fa463aa8145684df0dc8c1db0e78c4734f522"
+    },
+    {
+      "model": "31415-associative-teacher",
+      "window": "binding-0",
+      "result_sha256": "76cbedf945cd3725a572659f656900581c685ecc615b33bb43feee63f7514939"
+    },
+    {
+      "model": "31415-associative-teacher",
+      "window": "binding-1",
+      "result_sha256": "cba80a8cd49e6e56eeab21064bd3cdd39fcf8216370f274015a6e224437e5189"
+    },
+    {
+      "model": "31415-associative-teacher",
+      "window": "narrative-0",
+      "result_sha256": "c79ee64393499c71880e0f54ceaf295382e16445a63d62f513f6414eae9f4e19"
+    },
+    {
+      "model": "31415-associative-teacher",
+      "window": "narrative-1",
+      "result_sha256": "e91f78bec12bd3635f417eed7bfe132b8a3e28b22db95f729b1258ed4bfe4f62"
+    },
+    {
+      "model": "31415-selective-parent",
+      "window": "reading-0",
+      "result_sha256": "a6089c592b6a81a6dfb204776593ab4b917e5b597dac7f9e750cc7db2e2036db"
+    },
+    {
+      "model": "31415-selective-parent",
+      "window": "reading-1",
+      "result_sha256": "ee26aae54ea7cb0f6e93b7a4f33dbe1c9d3596fa8adb7d0cc298a8b6027e5321"
+    },
+    {
+      "model": "31415-selective-parent",
+      "window": "binding-0",
+      "result_sha256": "9d0cf375822cdeac86a9ca028a7d424b3e540ea339944ffb7b47dc258838a830"
+    },
+    {
+      "model": "31415-selective-parent",
+      "window": "binding-1",
+      "result_sha256": "166ce30734d5a06089cbffdfc5944df53a5981a020f852cdf2c33edf01cceeed"
+    },
+    {
+      "model": "31415-selective-parent",
+      "window": "narrative-0",
+      "result_sha256": "89c1e77f18a700ed97351ae8440f2b213ad27dba1f662eac51727cbc7fafb037"
+    },
+    {
+      "model": "31415-selective-parent",
+      "window": "narrative-1",
+      "result_sha256": "1576870578d79e50350d5f57c63858812b928c8011f71c98b1ca32e6f8b11fd7"
+    },
+    {
+      "model": "31415-selective-control",
+      "window": "reading-0",
+      "result_sha256": "14f806447a0a68286354198da1895ac721c06b70b63fbcde0f096ecfee8f8c9b"
+    },
+    {
+      "model": "31415-selective-control",
+      "window": "reading-1",
+      "result_sha256": "afc0447cd17676d7c14e6b7f3bd11a04428701a9431fff83b9069b2fd7119be4"
+    },
+    {
+      "model": "31415-selective-control",
+      "window": "binding-0",
+      "result_sha256": "8fcf92642d091baf15685691fe73a6c2e020e0e86ff4e2a49c45e2299496e3f4"
+    },
+    {
+      "model": "31415-selective-control",
+      "window": "binding-1",
+      "result_sha256": "d24869aee35dd7c0e77f0dca062842c31b8b9ebe28afd0861b42d3df45895f75"
+    },
+    {
+      "model": "31415-selective-control",
+      "window": "narrative-0",
+      "result_sha256": "6e31d15e643ad9ea95fc99cb704f6f37a5158d55341869a031d86f0ea919b38e"
+    },
+    {
+      "model": "31415-selective-control",
+      "window": "narrative-1",
+      "result_sha256": "2c0e3915ec5c4103a1f8f82de6c70c5e0185ec4609476812fea396128b64fbef"
+    },
+    {
+      "model": "31415-selective-teacher",
+      "window": "reading-0",
+      "result_sha256": "64f5d6d7c6b224321e5294e192aba8f35adf80d76452c1b818af7e112bdc29d5"
+    },
+    {
+      "model": "31415-selective-teacher",
+      "window": "reading-1",
+      "result_sha256": "584724cf17b31e6df3f853ac932fae6b54be768a9bce926d5b9215073b22424e"
+    },
+    {
+      "model": "31415-selective-teacher",
+      "window": "binding-0",
+      "result_sha256": "ed2ba1646d51aeb49f9fb3f0d5c77666a545cea4d31e0d283e506aa04c4904fd"
+    },
+    {
+      "model": "31415-selective-teacher",
+      "window": "binding-1",
+      "result_sha256": "8baea3738c5a3adebb517b6136f3c623839841f275e31fc48c3d3823dc042fa5"
+    },
+    {
+      "model": "31415-selective-teacher",
+      "window": "narrative-0",
+      "result_sha256": "9366d9b7d4cf810c0913880c2d1081bac1645a8ff13460e038e749ab3b3bc0a5"
+    },
+    {
+      "model": "31415-selective-teacher",
+      "window": "narrative-1",
+      "result_sha256": "38041e4dbf5c74b11e022e9719181edef720b40d8249378f177af7883d6eac22"
+    },
+    {
+      "model": "31415-wide-selective-teacher",
+      "window": "reading-0",
+      "result_sha256": "cc77ccd6f3551e08a5a305fd4f1b87f60c5933d71d5b37fe3e4d27db817139cc"
+    },
+    {
+      "model": "31415-wide-selective-teacher",
+      "window": "reading-1",
+      "result_sha256": "832dcfd6c1fdb347f8a46ccd4c3c37f480ce9b18f5acf35ae3d599ec852ab031"
+    },
+    {
+      "model": "31415-wide-selective-teacher",
+      "window": "binding-0",
+      "result_sha256": "4d384c1980728e0f02b023f15eba528cb1e45c59f5338792997cdeac5d83185d"
+    },
+    {
+      "model": "31415-wide-selective-teacher",
+      "window": "binding-1",
+      "result_sha256": "f6d8cd6d524a71cc335f50378bafb2d45af2055cc235db01b17af7d026cb52e9"
+    },
+    {
+      "model": "31415-wide-selective-teacher",
+      "window": "narrative-0",
+      "result_sha256": "c18dbc43a01f7c4ad98809c22b579e0964ab54a6b903896f17cbbbfd52bfe489"
+    },
+    {
+      "model": "31415-wide-selective-teacher",
+      "window": "narrative-1",
+      "result_sha256": "b0e825002eaa872bb10e8b68ddefd6acd9c72d8409baf422ddab601ddc12d75a"
+    },
+    {
+      "model": "31415-wide-selective-parent",
+      "window": "reading-0",
+      "result_sha256": "72517967170fd387174b8d00d36902d9dc07773caebc38ee20e2342368e07f96"
+    },
+    {
+      "model": "31415-wide-selective-parent",
+      "window": "reading-1",
+      "result_sha256": "f4afdda0ae0f7a39a6bc11ec51f2a8514d87c19b94b671d068a2cd36107b1a3f"
+    },
+    {
+      "model": "31415-wide-selective-parent",
+      "window": "binding-0",
+      "result_sha256": "f814a9d0e8096ea2558b5555ac044010d32277f38b06308cb294df796740b54e"
+    },
+    {
+      "model": "31415-wide-selective-parent",
+      "window": "binding-1",
+      "result_sha256": "f1be8f000bfeda7914d120eef1e2379879c1c7b087fe971063e4db157a5d3729"
+    },
+    {
+      "model": "31415-wide-selective-parent",
+      "window": "narrative-0",
+      "result_sha256": "74fc4568998b1f3f021709e1f2f1e6335dd6b3bf95e6236bc4c5edbf95a1d240"
+    },
+    {
+      "model": "31415-wide-selective-parent",
+      "window": "narrative-1",
+      "result_sha256": "3128ae3a6fcea13bd02bbc1824ea738027548a2b24d1c85703b8b93765a60323"
+    },
+    {
+      "model": "31415-wide-selective-control",
+      "window": "reading-0",
+      "result_sha256": "916327d980e77e79abb1961480ce393fc8723986aea23b26489b55c6738f929e"
+    },
+    {
+      "model": "31415-wide-selective-control",
+      "window": "reading-1",
+      "result_sha256": "b4092e8113ff85c196ea3c82f8f7f1158a3de8045f26bb15b11b8ccbd44581a1"
+    },
+    {
+      "model": "31415-wide-selective-control",
+      "window": "binding-0",
+      "result_sha256": "85822a3b24294f047d19c4745ebaf6d7f0c6d25751386ee8972162b25b2f7ea8"
+    },
+    {
+      "model": "31415-wide-selective-control",
+      "window": "binding-1",
+      "result_sha256": "e37804ff39cf96d76a01f5ea3fa3fff144f57066d85cabd9dfcda0bc3befa5b5"
+    },
+    {
+      "model": "31415-wide-selective-control",
+      "window": "narrative-0",
+      "result_sha256": "cf0d8684b51a3f4707a7897bd1de74620f47612d94af528eb2c7018f5512d1bb"
+    },
+    {
+      "model": "31415-wide-selective-control",
+      "window": "narrative-1",
+      "result_sha256": "d156383c78051d4bdeb402830f4ef286ae8a712c253b50ca76a58af00665d77d"
+    }
+  ],
+  "independent_loss_consistency_max_error": 1.1831994264355217e-06,
+  "all_checkpoints_sources_diagnostic_and_traces_unchanged": true,
+  "spike_event_fraction_range": [
+    0.5257772504266212,
+    0.7073161175733091
+  ],
+  "never_spiked_neurons": 0,
+  "never_emitted_above_epsilon_neurons": 0,
+  "aggregates": [
+    {
+      "architecture": "selective",
+      "role": "parent",
+      "models": 3,
+      "layers": 12,
+      "spike_event_fraction": {
+        "mean": 0.6189598109534983,
+        "minimum": 0.5754202885025598,
+        "maximum": 0.6782359881612628
+      },
+      "silent_spike_emission_squared_fraction": {
+        "mean": 0.04712649565714994,
+        "minimum": 0.030725009350732954,
+        "maximum": 0.06132215372032306
+      },
+      "centered_emission_participation_ratio": {
+        "mean": 23.556751958060982,
+        "minimum": 14.836019565057045,
+        "maximum": 28.43295370930597
+      },
+      "never_spiked_neurons": 0,
+      "never_emitted_above_epsilon_neurons": 0
+    },
+    {
+      "architecture": "selective",
+      "role": "control",
+      "models": 3,
+      "layers": 12,
+      "spike_event_fraction": {
+        "mean": 0.6616952525063993,
+        "minimum": 0.6157159902943686,
+        "maximum": 0.6913312579991467
+      },
+      "silent_spike_emission_squared_fraction": {
+        "mean": 0.041737919966248385,
+        "minimum": 0.03424539416653024,
+        "maximum": 0.04790055455610542
+      },
+      "centered_emission_participation_ratio": {
+        "mean": 22.926167015252982,
+        "minimum": 17.011954507073906,
+        "maximum": 25.945124959108163
+      },
+      "never_spiked_neurons": 0,
+      "never_emitted_above_epsilon_neurons": 0
+    },
+    {
+      "architecture": "selective",
+      "role": "teacher",
+      "models": 3,
+      "layers": 12,
+      "spike_event_fraction": {
+        "mean": 0.6632781392207053,
+        "minimum": 0.6161026157209898,
+        "maximum": 0.6966456911262798
+      },
+      "silent_spike_emission_squared_fraction": {
+        "mean": 0.04228428517216022,
+        "minimum": 0.03488548964555378,
+        "maximum": 0.04841445136992335
+      },
+      "centered_emission_participation_ratio": {
+        "mean": 22.91223798399768,
+        "minimum": 14.708681879554039,
+        "maximum": 26.00982773999829
+      },
+      "never_spiked_neurons": 0,
+      "never_emitted_above_epsilon_neurons": 0
+    },
+    {
+      "architecture": "wide-selective",
+      "role": "parent",
+      "models": 3,
+      "layers": 12,
+      "spike_event_fraction": {
+        "mean": 0.6116399133601108,
+        "minimum": 0.5522349724872885,
+        "maximum": 0.6679378235936012
+      },
+      "silent_spike_emission_squared_fraction": {
+        "mean": 0.04851193893983127,
+        "minimum": 0.03151482315671622,
+        "maximum": 0.06520350332915649
+      },
+      "centered_emission_participation_ratio": {
+        "mean": 23.952470266281264,
+        "minimum": 18.328031334687505,
+        "maximum": 28.40755963464112
+      },
+      "never_spiked_neurons": 0,
+      "never_emitted_above_epsilon_neurons": 0
+    },
+    {
+      "architecture": "wide-selective",
+      "role": "control",
+      "models": 3,
+      "layers": 12,
+      "spike_event_fraction": {
+        "mean": 0.6532389833066332,
+        "minimum": 0.6043161291820482,
+        "maximum": 0.7073161175733091
+      },
+      "silent_spike_emission_squared_fraction": {
+        "mean": 0.043222399778617374,
+        "minimum": 0.03577457900692602,
+        "maximum": 0.049988078786999714
+      },
+      "centered_emission_participation_ratio": {
+        "mean": 23.640468558473653,
+        "minimum": 19.33403344952168,
+        "maximum": 26.41106402057755
+      },
+      "never_spiked_neurons": 0,
+      "never_emitted_above_epsilon_neurons": 0
+    },
+    {
+      "architecture": "wide-selective",
+      "role": "teacher",
+      "models": 3,
+      "layers": 12,
+      "spike_event_fraction": {
+        "mean": 0.6563136062160928,
+        "minimum": 0.6013588029068283,
+        "maximum": 0.7068894964128997
+      },
+      "silent_spike_emission_squared_fraction": {
+        "mean": 0.043382637427840695,
+        "minimum": 0.03554076852369938,
+        "maximum": 0.051224413004548545
+      },
+      "centered_emission_participation_ratio": {
+        "mean": 23.705317889741007,
+        "minimum": 18.13141731946484,
+        "maximum": 26.66102480020913
+      },
+      "never_spiked_neurons": 0,
+      "never_emitted_above_epsilon_neurons": 0
+    },
+    {
+      "architecture": "associative",
+      "role": "parent",
+      "models": 3,
+      "layers": 12,
+      "spike_event_fraction": {
+        "mean": 0.5975276526059443,
+        "minimum": 0.5257772504266212,
+        "maximum": 0.6485591536902731
+      },
+      "silent_spike_emission_squared_fraction": {
+        "mean": 0.05276388537975665,
+        "minimum": 0.039368374748104354,
+        "maximum": 0.06335446364977881
+      },
+      "centered_emission_participation_ratio": {
+        "mean": 27.96918270557382,
+        "minimum": 25.241009672920043,
+        "maximum": 30.218795966880762
+      },
+      "never_spiked_neurons": 0,
+      "never_emitted_above_epsilon_neurons": 0
+    },
+    {
+      "architecture": "associative",
+      "role": "control",
+      "models": 3,
+      "layers": 12,
+      "spike_event_fraction": {
+        "mean": 0.6364830806936149,
+        "minimum": 0.5686593430034129,
+        "maximum": 0.6624826685153583
+      },
+      "silent_spike_emission_squared_fraction": {
+        "mean": 0.047410078221536346,
+        "minimum": 0.037158185486756395,
+        "maximum": 0.06269929855742777
+      },
+      "centered_emission_participation_ratio": {
+        "mean": 25.775345134577833,
+        "minimum": 22.888149409072305,
+        "maximum": 28.244318371835544
+      },
+      "never_spiked_neurons": 0,
+      "never_emitted_above_epsilon_neurons": 0
+    },
+    {
+      "architecture": "associative",
+      "role": "teacher",
+      "models": 3,
+      "layers": 12,
+      "spike_event_fraction": {
+        "mean": 0.6345514811753413,
+        "minimum": 0.5641248266851536,
+        "maximum": 0.6639891744880546
+      },
+      "silent_spike_emission_squared_fraction": {
+        "mean": 0.04850318458412051,
+        "minimum": 0.035245736441879075,
+        "maximum": 0.06652399751564435
+      },
+      "centered_emission_participation_ratio": {
+        "mean": 26.652333777544957,
+        "minimum": 23.75707932428168,
+        "maximum": 29.455286093684794
+      },
+      "never_spiked_neurons": 0,
+      "never_emitted_above_epsilon_neurons": 0
+    }
+  ],
+  "aggregation": "Equal mean over three seeds and four pooled layers per architecture/role; each layer pools six windows with one weight per observed byte. Layers and related models are not independent experimental replicates.",
+  "measured_learning_capacity": false,
+  "changed_models": false,
+  "limits": [
+    "Activity is from six selected reset-state training windows, not general language.",
+    "Every unit firing in these windows does not establish useful task contribution.",
+    "Squared emissions are mathematical magnitudes, not measured electrical energy.",
+    "Participation ratio is not a count of unused units or a learning-capacity measure.",
+    "Native-logit/loss consistency is not independent CPU model parity.",
+    "This audit launches no model commands and makes no structural change."
+  ]
+}
